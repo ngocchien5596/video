@@ -26,3 +26,19 @@ Kịch bản ở commit `76dc1fa`, dài 46.4 giây. File: `out/versions/ngay-01/
 - `6.2` Cháu (nhịp 6): ~~...nên cháu nhường ông rửa bát luôn để cháu đứng cạnh nhớ ơn ông ạ!~~ → Còn ông chỉ bấm nút thôi, nên ông rửa bát nhé!
 
 Phần diễn đổi ở nhịp 6.
+
+## 2026-11-09 20:19 · Sửa kịch bản
+
+**Yêu cầu:** Phàn 5.1 lấy ví dụ có cơm ăn là do bố mẹ nấu nướng vất vả thì hơi nông cạn.
+
+**Tóm tắt:**
+- Sửa thoại nhịp 5 (ví dụ): bát cơm không chỉ là công bố mẹ nấu nướng, mà là cả một chuỗi công sức. Có mồ hôi bác nông dân cấy gặt, có những ngày bố mẹ đi làm vất vả mới mua được gạo. Giữ ý thầy cô dạy dỗ. Câu chốt đổi thành "Ăn xong, học xong, phải biết cảm ơn!" để nói được cả hai chuyện ăn và học.
+- Câu mới dài bốn mươi hai từ, đọc khoảng mười một đến mười hai giây, vẫn vừa nhịp ví dụ.
+- Phần diễn: thêm một khoảnh khắc ở chữ "mồ hôi" (at 0.12). Thằng Cháu ngẩn ra nhìn bát cơm, có hiệu ứng giọt mồ hôi. Không có cảnh đồng ruộng hay đạo cụ nông dân nên tôi dùng hiệu ứng mồ hôi thay. Thêm một khoảnh khắc ở "bố mẹ đi làm vất vả" (at 0.31): Cụ Đồ giơ tay nhấn mạnh.
+- Dời cảnh lớp học sang at 0.57 và cảnh quay lại bếp sang at 0.81 cho khớp vị trí từ khoá trong câu mới. Cập nhật chú thích theo thoại mới.
+- Phần mô tả cảnh (shot) vẫn khớp nên giữ nguyên. Các nhịp khác không đổi.
+
+**Thay đổi:**
+- `5.1` Cụ Đồ (nhịp 5): ~~Như có cơm ngon để ăn là nhờ bố mẹ nấu nướng vất vả, có bài học hay là nhờ thầy cô dạy dỗ. Ăn xong phải biết nói lời cảm ơn!~~ → Như bát cơm mình ăn, là mồ hôi bác nông dân cấy gặt, là bố mẹ đi làm vất vả mới mua được gạo. Có bài học hay là nhờ thầy cô dạy dỗ. Ăn xong, học xong, phải biết cảm ơn!
+
+Phần diễn đổi ở nhịp 5.

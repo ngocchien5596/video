@@ -15,7 +15,7 @@
 | 3–6 | Đặt câu | Cụ Đồ hỏi, thẻ tiêu đề "NGÀY 1/30" hiện lên, âm "ding" | **CĐ**: Mày soi cái gì đấy?<br>**TC**: Ăn quả nhớ kẻ trồng cây ạ! |
 | 6–25 | Hiểu sai | TC giơ tờ giấy vẽ chân dung 'Kẻ trồng xoài', rồi dán hình quả xoài lên trán ngồi niệm | **TC**: Ông bảo phải nhớ 'kẻ trồng cây'. Nghe chữ 'kẻ' nguy hiểm như 'kẻ xấu' nên cháu phải đi điều tra!<br>**CĐ**: Hả?!<br>**TC**: Cháu còn dán ảnh quả xoài lên trán, ăn một miếng là hô to: Nhớ bác trồng xoài! |
 | 25–40 | Lật nghĩa | Cụ Đồ gõ quạt lên đầu Thằng Cháu, nhạc dừng một nhịp | **CĐ**: Ông bà nói vậy, mà không phải vậy!<br>**CĐ**: Chữ 'kẻ' ngày xưa nghĩa là 'người' thôi! Câu này dặn mình: được hưởng cái gì tốt đẹp thì phải biết ơn người đã vất vả làm ra. |
-| 40–52 | Ví dụ | Cảnh mâm cơm gia đình và lớp học | **CĐ**: Như có cơm ngon để ăn là nhờ bố mẹ nấu nướng vất vả, có bài học hay là nhờ thầy cô dạy dỗ. Ăn xong phải biết nói lời cảm ơn! |
+| 40–52 | Ví dụ | Cảnh mâm cơm gia đình và lớp học | **CĐ**: Như bát cơm mình ăn, là mồ hôi bác nông dân cấy gặt, là bố mẹ đi làm vất vả mới mua được gạo. Có bài học hay là nhờ thầy cô dạy dỗ. Ăn xong, học xong, phải biết cảm ơn! |
 | 52–60 | Punchline | TC ôm nồi cơm điện cảm ơn rối rít, rồi đẩy chồng bát bẩn sang phía Cụ Đồ | **TC**: Cháu hiểu rồi! Ăn cơm phải nhớ ơn người nấu, cảm ơn bác nồi cơm điện ạ!<br>**TC**: Còn ông chỉ bấm nút thôi, nên ông rửa bát nhé! |
 
 ## Ngày 2: Ăn trông nồi ngồi trông hướng

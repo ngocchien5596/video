@@ -74,10 +74,10 @@ export const TUAN_1 = [
     example: {
       shot: "Cảnh mâm cơm gia đình và lớp học",
       lines: [
-        cd("Như có cơm ngon để ăn là nhờ bố mẹ nấu nướng vất vả, có bài học hay là nhờ thầy cô dạy dỗ. Ăn xong phải biết nói lời cảm ơn!"),
+        cd("Như bát cơm mình ăn, là mồ hôi bác nông dân cấy gặt, là bố mẹ đi làm vất vả mới mua được gạo. Có bài học hay là nhờ thầy cô dạy dỗ. Ăn xong, học xong, phải biết cảm ơn!"),
       ],
       stage: [
-        // "Như có cơm ngon để ăn là nhờ bố mẹ nấu nướng vất vả"
+        // "Như bát cơm mình ăn"
         {
           line: 0,
           cut: true,
@@ -87,20 +87,24 @@ export const TUAN_1 = [
           tc: { x: 0.69, head: null, back: null, hand: "bowl", arms: "hold", expr: "happy", move: "idle" },
           items: [{ id: "mam", prop: "rice-tray", x: 0.5, on: "table" }],
         },
-        // "có bài học hay là nhờ thầy cô dạy dỗ"
+        // "là mồ hôi bác nông dân cấy gặt"
+        { line: 0, at: 0.12, cd: { expr: "neutral" }, tc: { expr: "confused" }, fx: { kind: "sweat", on: "TC" } },
+        // "là bố mẹ đi làm vất vả mới mua được gạo"
+        { line: 0, at: 0.31, cd: { arms: "raise" }, tc: { arms: "hold2", expr: "neutral" } },
+        // "Có bài học hay là nhờ thầy cô dạy dỗ"
         {
           line: 0,
-          at: 0.42,
+          at: 0.57,
           cut: true,
           scene: { id: "classroom", text: "CẢM ƠN\nTHẦY CÔ!" },
           cd: { arms: "raise", expr: "neutral" },
           tc: { hand: "book", arms: "hold2", expr: "neutral" },
           items: [],
         },
-        // "Ăn xong phải biết nói lời cảm ơn!"
+        // "Ăn xong, học xong, phải biết cảm ơn!"
         {
           line: 0,
-          at: 0.74,
+          at: 0.81,
           cut: true,
           scene: "kitchen",
           cd: { arms: "down", expr: "happy" },
