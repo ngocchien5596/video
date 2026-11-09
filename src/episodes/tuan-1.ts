@@ -111,12 +111,13 @@ export const TUAN_1 = [
       ],
     },
     punchline: {
-      shot: "TC đẩy chồng bát bẩn sang phía Cụ Đồ, cười lém lỉnh",
+      shot: "TC ôm nồi cơm điện cảm ơn rối rít, rồi đẩy chồng bát bẩn sang phía Cụ Đồ",
       lines: [
-        tc("Cháu hiểu rồi! Sáng nay ông là người bấm nút nồi cơm điện..."),
-        tc("...nên cháu nhường ông rửa bát luôn để cháu đứng cạnh nhớ ơn ông ạ!"),
+        tc("Cháu hiểu rồi! Ăn cơm phải nhớ ơn người nấu, cảm ơn bác nồi cơm điện ạ!"),
+        tc("Còn ông chỉ bấm nút thôi, nên ông rửa bát nhé!"),
       ],
       stage: [
+        // "Cháu hiểu rồi! Ăn cơm phải nhớ ơn người nấu"
         {
           line: 0,
           cut: true,
@@ -129,17 +130,29 @@ export const TUAN_1 = [
             { id: "bat", prop: "bowls", x: 0.68, on: "table" },
           ],
         },
-        // Đẩy chồng bát sang phía Cụ Đồ
+        // "cảm ơn bác nồi cơm điện ạ!": ôm nồi cơm cảm ơn
         {
-          line: 1,
-          tc: { x: 0.6, arms: "hold2", expr: "smug" },
-          items: [
-            { id: "noi", prop: "rice-cooker", x: 0.48, on: "table" },
-            { id: "bat", prop: "bowls", x: 0.27, on: "table" },
+          line: 0,
+          at: 0.59,
+          tc: { hand: "rice-cooker", arms: "hold2", expr: "happy", move: "bounce" },
+          cd: { expr: "confused" },
+          items: [{ id: "bat", prop: "bowls", x: 0.68, on: "table" }],
+          fx: [
+            { kind: "hearts", on: "TC" },
+            { kind: "question", on: "CD" },
           ],
         },
-        { line: 1, at: 0.45, camera: "CD", cd: { expr: "shock", move: "tremble" }, fx: { kind: "sweat", on: "CD" } },
-        { line: 1, at: 0.8, camera: "wide", tc: { x: 0.69, arms: "hips", expr: "happy", move: "bounce" } },
+        // "Còn ông chỉ bấm nút thôi"
+        { line: 1, camera: "CD", cd: { expr: "shock" }, tc: { move: "idle", expr: "smug" }, fx: { kind: "sweat", on: "CD" } },
+        // "nên ông rửa bát nhé!": đẩy chồng bát sang phía Cụ Đồ
+        {
+          line: 1,
+          at: 0.55,
+          camera: "wide",
+          tc: { x: 0.6 },
+          items: [{ id: "bat", prop: "bowls", x: 0.27, on: "table" }],
+        },
+        { line: 1, at: 0.85, cd: { expr: "angry", move: "tremble" }, tc: { x: 0.69, expr: "happy", move: "bounce" }, fx: { kind: "anger", on: "CD" } },
       ],
     },
   }),
