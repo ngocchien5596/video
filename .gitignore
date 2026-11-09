@@ -1,0 +1,12 @@
+node_modules
+dist
+.env
+.DS_Store
+Thumbs.db
+
+# File nặng: không đưa vào git, sao lưu bằng ổ cứng / Google Drive.
+out/
+raw/
+public/footage/*
+!public/footage/.gitkeep
+*.capcut

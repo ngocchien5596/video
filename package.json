@@ -1,0 +1,39 @@
+{
+  "name": "noi-vay-ma-khong-phai-vay",
+  "version": "1.0.0",
+  "description": "Series video ngắn 30 ngày giải thích thành ngữ, tục ngữ Việt Nam một cách hài hước",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "dev": "remotion studio",
+    "lint": "eslint src && tsc",
+    "render": "node tools/render.mjs",
+    "cover": "node tools/render.mjs --cover",
+    "srt": "node tools/export-srt.mjs",
+    "sheets": "node tools/script-sheets.mjs",
+    "build": "remotion bundle"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.541",
+    "@remotion/google-fonts": "4.0.541",
+    "@remotion/media": "4.0.541",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remotion": "4.0.541"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.541",
+    "@types/react": "19.3.0",
+    "@types/web": "0.0.166",
+    "eslint": "10.12.0",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  },
+  "allowScripts": {
+    "esbuild": false
+  }
+}
