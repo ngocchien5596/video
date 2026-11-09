@@ -115,3 +115,7 @@ Phần diễn đổi ở nhịp 3.
 ## 2026-11-09 21:14 · Xuất video v2
 
 Kịch bản ở commit `786d2ea`, dài 56 giây. File: `out/versions/ngay-01/v2/`.
+
+## 2026-11-09 21:22 · Xuất video v3
+
+Kịch bản ở commit `2b99cc0`, dài 56 giây. File: `out/versions/ngay-01/v3/`.
