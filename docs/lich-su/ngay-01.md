@@ -93,3 +93,21 @@ Phần diễn đổi ở nhịp 3.
 - `3.4` Cháu (nhịp 3): ~~Thôi, cháu ra đầu thú đây ông ạ!~~ → Ông! Kẻ trồng cây chính là ông! Mời ông về đồn!
 
 Phần diễn đổi ở nhịp 3.
+
+## 2026-11-09 20:45 · Sửa kịch bản
+
+**Yêu cầu:** Vẫn chưa đủ wow, tìm xem còn luồng phát triển câu chuyện nào hợp lý với hài duyên nữa k
+
+**Tóm tắt:**
+- Đổi hướng phần hiểu sai (nhịp 3) để có cú lật ở cuối. Trước đây Thằng Cháu tìm ra ông là xong. Giờ Cụ Đồ cãi lại: "Ông chỉ tưới thôi! Hạt xoài là mày nhổ ra năm ngoái đấy!". Thằng Cháu mới biết chính mình là "kẻ trồng cây", tự cầm lệnh truy nã ghi tên mình, giơ hai tay xin tự thú. Thám tử đi bắt cuối cùng lại bắt trúng mình, nên cái hài đến từ tính cách nhân vật mà vẫn bám đúng câu thành ngữ.
+- Gộp câu "Manh mối đây…" và câu "Ông! Kẻ trồng cây chính là ông!" làm một (câu số 2). Thêm câu số 3 cho Cụ Đồ cãi lại và câu số 4 cho Thằng Cháu tự thú. Cắt bớt câu "Mời ông về đồn" và "mà cây đó do ai trồng nhỉ" để nhịp không dài quá.
+- Viết lại phần diễn nhịp 3 theo câu mới. Câu 2: soi xoài, chỉ ông, giơ lệnh truy nã, ông run. Câu 3: Cụ Đồ tức, chỉ lại cháu, Thằng Cháu sững người. Câu 4: lệnh truy nã đổi chữ thành "TRUY NÃ: CHÁU", rồi Thằng Cháu giơ hai tay đầu hàng và run. Không có đạo cụ còng tay nên dùng tư thế giơ hai tay ("up2") cùng tấm biển cho cảnh tự thú.
+- Sửa mô tả cảnh nhịp 3 cho khớp. Phần mở đầu, lật nghĩa, ví dụ và punchline giữ nguyên. Ở lật nghĩa, Cụ Đồ vung quạt gõ đúng lúc Thằng Cháu đang tự thú nên vẫn khớp.
+
+**Thay đổi:**
+- `3.c` Cảnh nhịp 3: ~~TC ăn xoài xong giơ lệnh truy nã 'Kẻ trồng xoài', rồi cầm kính lúp soi quả xoài lần theo manh mối ra cây ngoài vườn, cuối cùng chỉ thẳng vào Cụ Đồ: kẻ trồng cây chính là ông~~ → TC ăn xoài xong giơ lệnh truy nã 'Kẻ trồng xoài', soi quả xoài rồi chỉ thẳng vào Cụ Đồ; Cụ Đồ cãi lại rằng hạt xoài là do TC nhổ ra, TC sững người, cầm lệnh truy nã tên mình và giơ hai tay xin tự thú
+- `3.3` Cháu (nhịp 3): ~~Manh mối đây! Quả xoài này hái từ cây ngoài vườn, mà cây đó do ai trồng nhỉ?~~ → Manh mối đây! Quả xoài này hái từ cây ngoài vườn. Ông! Kẻ trồng cây chính là ông!
+- `3.4` Cụ Đồ (nhịp 3): ~~Ông! Kẻ trồng cây chính là ông! Mời ông về đồn!~~ → Ông chỉ tưới thôi! Hạt xoài là mày nhổ ra năm ngoái đấy!
+- `3.5` Cháu (nhịp 3) **(thêm)**: Vậy kẻ trồng cây là cháu?! Cháu xin tự thú!
+
+Phần diễn đổi ở nhịp 3.
