@@ -32,12 +32,12 @@ export const TUAN_1 = [
     ],
     ask: "Mày soi cái gì đấy?",
     misread: {
-      shot: "TC ăn xoài xong giơ lệnh truy nã 'Kẻ trồng xoài', rồi chỉ hạt xoài vừa vứt ngoài vườn, hoảng hốt giơ hai tay xin ra đầu thú",
+      shot: "TC ăn xoài xong giơ lệnh truy nã 'Kẻ trồng xoài', rồi cầm kính lúp soi quả xoài lần theo manh mối ra cây ngoài vườn, cuối cùng chỉ thẳng vào Cụ Đồ: kẻ trồng cây chính là ông",
       lines: [
         tc("Ông dặn ăn quả phải nhớ kẻ trồng cây. Chữ 'kẻ' nghe như 'kẻ gian', nên cháu lập hồ sơ truy nã luôn!"),
         cd("Truy nã ai?!"),
-        tc("Khoan! Cháu vừa vứt hạt xoài ra vườn. Nhỡ nó mọc thành cây, thì kẻ trồng cây chính là cháu!"),
-        tc("Thôi, cháu ra đầu thú đây ông ạ!"),
+        tc("Manh mối đây! Quả xoài này hái từ cây ngoài vườn, mà cây đó do ai trồng nhỉ?"),
+        tc("Ông! Kẻ trồng cây chính là ông! Mời ông về đồn!"),
       ],
       stage: [
         // "Ông dặn ăn quả phải nhớ kẻ trồng cây": vừa gặm xoài vừa nói
@@ -48,22 +48,25 @@ export const TUAN_1 = [
         { line: 0, at: 0.65, tc: { hand: { id: "sign", text: "TRUY NÃ KẺ TRỒNG XOÀI" }, arms: "hold2", expr: "angry", move: "bounce" } },
         // "Truy nã ai?!"
         { line: 1, camera: "CD", cd: { expr: "shock", arms: "up2", move: "jump" }, tc: { move: "idle", expr: "neutral" }, fx: { kind: "surprise", on: "CD" } },
-        // "Khoan! Cháu vừa vứt hạt xoài ra vườn": chỉ hạt xoài dưới đất
+        // "Manh mối đây!": cầm kính lúp soi quả xoài
         {
           line: 2,
           camera: "wide",
           cd: { expr: "confused", arms: "down", move: "idle" },
-          tc: { hand: null, arms: "point", expr: "neutral" },
-          items: [{ id: "hat", prop: "mango-bitten", x: 0.85 }],
+          tc: { hand: "magnifier", arms: "hold", expr: "smug" },
+          items: [{ id: "xoai", prop: "mango-bitten", x: 0.47 }],
           fx: { kind: "exclaim", on: "TC" },
         },
-        // "Nhỡ nó mọc thành cây"
-        { line: 2, at: 0.4, tc: { expr: "confused", arms: "down" }, fx: { kind: "question", on: "TC" } },
-        // "thì kẻ trồng cây chính là cháu!"
-        { line: 2, at: 0.65, camera: "TC", tc: { expr: "shock", move: "tremble" } },
-        // "Thôi, cháu ra đầu thú đây ông ạ!": giơ hai tay đầu hàng
-        { line: 3, camera: "wide", tc: { arms: "up2", expr: "sad", move: "tremble" } },
-        { line: 3, at: 0.25, cd: { expr: "shock" }, fx: { kind: "sweat", on: "CD" } },
+        // "Quả xoài này hái từ cây ngoài vườn"
+        { line: 2, at: 0.17, camera: "TC", tc: { move: "bounce" } },
+        // "mà cây đó do ai trồng nhỉ?"
+        { line: 2, at: 0.61, tc: { expr: "confused", move: "idle" }, fx: { kind: "question", on: "TC" } },
+        // "Ông! Kẻ trồng cây": quay sang chỉ thẳng Cụ Đồ
+        { line: 3, camera: "wide", tc: { arms: "point", expr: "angry" }, fx: { kind: "exclaim", on: "TC" } },
+        // "chính là ông!"
+        { line: 3, at: 0.55, cd: { expr: "shock", arms: "up2", move: "tremble" }, fx: { kind: "sweat", on: "CD" } },
+        // "Mời ông về đồn!": giơ lệnh truy nã
+        { line: 3, at: 0.64, tc: { hand: { id: "sign", text: "TRUY NÃ KẺ TRỒNG XOÀI" }, arms: "hold2", expr: "smug", move: "bounce" } },
       ],
     },
     flipStage: [
