@@ -42,3 +42,34 @@ Phần diễn đổi ở nhịp 6.
 - `5.1` Cụ Đồ (nhịp 5): ~~Như có cơm ngon để ăn là nhờ bố mẹ nấu nướng vất vả, có bài học hay là nhờ thầy cô dạy dỗ. Ăn xong phải biết nói lời cảm ơn!~~ → Như bát cơm mình ăn, là mồ hôi bác nông dân cấy gặt, là bố mẹ đi làm vất vả mới mua được gạo. Có bài học hay là nhờ thầy cô dạy dỗ. Ăn xong, học xong, phải biết cảm ơn!
 
 Phần diễn đổi ở nhịp 5.
+
+## 2026-11-09 20:23 · Sửa kịch bản
+
+**Yêu cầu:** Phần 3 chưa có mảng miếng hài cho lắm. Tôi muốn người xem phải ồ lên cười. Nhưng cần làm chỗ này có duyên và logic vò
+
+**Tóm tắt:**
+- Tôi hiểu "Phần 3" là nhịp Hiểu sai (misread). Tin nhắn bị cắt ở chữ "logic vò", nên tôi làm theo hướng hài mà vẫn hợp lý theo nghĩa đen. Nếu ý đạo diễn khác thì nhắn lại giúp tôi.
+- Viết lại thoại misread, leo thang ba bước, bước sau bất ngờ hơn bước trước:
+  · Cháu nghĩ "kẻ" là "kẻ gian" nên lập hồ sơ truy nã kẻ trồng xoài.
+  · Cụ Đồ hỏi "Truy nã ai?!".
+  · Cháu chợt nhớ mình vừa vứt hạt xoài ra vườn. Nếu hạt mọc thành cây thì kẻ trồng cây chính là cháu.
+  · Cháu sợ, giơ hai tay xin ra đầu thú. Đây là chỗ để người xem bật cười. Lý do: cháu đi truy lùng thủ phạm, cuối cùng tự kết luận thủ phạm là mình.
+- Bỏ đoạn dán xoài lên trán và hô "Nhớ bác trồng xoài", vì đoạn này không nối logic với mạch truy nã.
+- Sửa "shot" cho khớp thoại mới.
+- Viết lại stage của misread cho bốn câu thoại, "at" tính theo số từ:
+  · Câu 0: mở đầu cầm xoài cắn dở. Đến chữ "Chữ 'kẻ'" (at 0.39) thì hoảng và rung người. Đến "nên cháu lập hồ sơ truy nã" (at 0.65) thì giơ biển "TRUY NÃ KẺ TRỒNG XOÀI". Quả xoài trên sàn từ hook được dọn đi (items rỗng) vì cháu đã cầm lên ăn.
+  · Câu 1: Cụ Đồ giật mình nhảy lên.
+  · Câu 2: cháu chỉ ra hạt xoài ngoài vườn. Đến "Nhỡ nó mọc" (at 0.4) thì bối rối. Đến "thì kẻ trồng cây chính là cháu" (at 0.65) thì sốc và run.
+  · Câu 3: giơ hai tay đầu hàng, mặt buồn. Đến "ra đầu thú" (at 0.25) thì Cụ Đồ toát mồ hôi.
+- Không có đạo cụ hạt xoài, nên tôi dùng "mango-bitten" đặt trên sàn (gần nghĩa nhất).
+- flipStage giữ nguyên. Cú quạt "BỐP" vẫn khớp, đồ trên sàn được thay bằng quả xoài rơi như cũ.
+- Các nhịp khác không đổi. Nhịp Hiểu sai khoảng năm mươi tư từ, cả tập vẫn dưới sáu mươi giây.
+
+**Thay đổi:**
+- `3.c` Cảnh nhịp 3: ~~TC giơ tờ giấy vẽ chân dung 'Kẻ trồng xoài', rồi dán hình quả xoài lên trán ngồi niệm~~ → TC ăn xoài xong giơ lệnh truy nã 'Kẻ trồng xoài', rồi chỉ hạt xoài vừa vứt ngoài vườn, hoảng hốt giơ hai tay xin ra đầu thú
+- `3.1` Cháu (nhịp 3): ~~Ông bảo phải nhớ 'kẻ trồng cây'. Nghe chữ 'kẻ' nguy hiểm như 'kẻ xấu' nên cháu phải đi điều tra!~~ → Ông dặn ăn quả phải nhớ kẻ trồng cây. Chữ 'kẻ' nghe như 'kẻ gian', nên cháu lập hồ sơ truy nã luôn!
+- `3.2` Cụ Đồ (nhịp 3): ~~Hả?!~~ → Truy nã ai?!
+- `3.3` Cháu (nhịp 3): ~~Cháu còn dán ảnh quả xoài lên trán, ăn một miếng là hô to: Nhớ bác trồng xoài!~~ → Khoan! Cháu vừa vứt hạt xoài ra vườn. Nhỡ nó mọc thành cây, thì kẻ trồng cây chính là cháu!
+- `3.4` Cháu (nhịp 3) **(thêm)**: Thôi, cháu ra đầu thú đây ông ạ!
+
+Phần diễn đổi ở nhịp 3.
