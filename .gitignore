@@ -10,3 +10,9 @@ raw/
 public/footage/*
 !public/footage/.gitkeep
 *.capcut
+
+# Phương án giọng mẫu (chỉ giữ giọng đã chọn trong voices/)
+voices/mau/
+__pycache__/
+# Tiếng thoại sinh ra (tạo lại bằng npm run voice)
+public/voice/

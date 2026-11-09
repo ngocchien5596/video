@@ -9,25 +9,36 @@ export const TUAN_3 = [
     week,
     theme,
     idiom: "Nước đến chân mới nhảy",
-    meaning: "Việc đến sát nút mới lo, chần chừ trước đó.",
-    question: "Deadline sát nút nhất của bạn?",
+    meaning: "Thói quen chần chừ, để mọi việc đến sát giờ cuối cùng mới cuống cuồng lo làm.",
+    question: "Bạn từng đợi đến tối Chủ nhật mới nhớ ra bài tập vẽ hoặc thủ công chưa?",
     hook: {
-      shot: "Màn hình chia đôi: nước dâng, TC vẫn nằm lướt điện thoại",
-      lines: [tc("Còn sớm mà, từ từ.")],
+      shot: "TC mặc quần xắn cao, cầm chậu nước đổ từng cốc xuống sàn cạnh bàn chân mình",
+      lines: [tc("Sắp chạm ngón chân cái rồi, chuẩn bị bật nhảy nhé!")],
     },
-    ask: "Nước lênh láng rồi kìa!",
+    ask: "Mày đổ nước ra nhà làm cái trò gì thế?",
     misread: {
-      shot: "Nước tràn dần trên sàn, chạm chân thì TC bật dậy nhảy dây",
-      lines: [tc("Chưa tới, chưa tới..."), tc("Tới rồi! Nhảy! Nhảy!")],
+      shot: "Nước vừa chạm đầu ngón chân, TC lập tức nhảy lò cò tưng bừng khắp phòng",
+      lines: [
+        tc("Cháu đang luyện phản xạ 'nước đến chân mới nhảy' đấy ông ạ!"),
+        tc("Nước chưa chạm chân là tuyệt đối đứng im, vừa chạm một cái là nhảy cao hai mét!"),
+        cd("Mày làm ướt nhẹp cả sàn nhà thế này thì mẹ mày về nhảy dựng lên trước đấy!"),
+      ],
     },
-    explain: "Nước đến chân mới nhảy là cứ để việc sát nút mới cuống lên lo.",
+    explain:
+      "Ngày xưa nước lũ dâng lên tận chân mới vội vàng nhảy chạy là quá muộn! Câu này chê thói quen lề mề, có việc cứ để đó chơi đã, đợi đến phút chót mới cuống cuồng làm.",
     example: {
-      shot: "Cảnh 23:58, màn hình nộp bài, biểu tượng mất wifi",
-      lines: [cd("Như 23 giờ 58 mới nộp bài hạn 23 giờ 59, đúng lúc wifi mất.")],
+      shot: "Cảnh 10 giờ tối Chủ nhật, học sinh mếu máo tìm giấy màu thủ công",
+      lines: [
+        cd("Như cô giáo dặn chuẩn bị giấy màu, hồ dán từ thứ Hai, cả tuần cứ bảo 'từ từ', đến 10 giờ đêm Chủ nhật mới khóc thét vì tiệm tạp hóa đóng cửa hết rồi!"),
+      ],
     },
     punchline: {
-      shot: "Chữ \"MAI\" nhân lên 7 lần theo đồng hồ quay nhanh",
-      lines: [tc("Từ mai cháu làm sớm."), tc("Mai. Mai. Mai...")],
+      shot: "TC ngồi ngay ngắn vào bàn học, nhưng trước mặt là tấm lịch ghi 'Lịch bắt đầu chăm học: Ngày mai'",
+      lines: [
+        tc("Cháu chừa rồi! Từ giờ cháu sẽ làm bài tập từ sớm, không đợi nước đến chân nữa!"),
+        cd("Thế làm bài hôm nay luôn đi!"),
+        tc("Dạ... kế hoạch làm sớm của cháu bắt đầu từ... ngày mai ông ạ!"),
+      ],
     },
   }),
 
@@ -36,25 +47,35 @@ export const TUAN_3 = [
     week,
     theme,
     idiom: "Có công mài sắt có ngày nên kim",
-    meaning: "Kiên trì lâu dài thì việc khó mấy cũng làm được.",
-    question: "Chuỗi ngày dài nhất của bạn là bao nhiêu?",
+    meaning: "Kiên trì, nhẫn nại cố gắng mỗi ngày thì việc khó đến mấy cuối cùng cũng thành công.",
+    question: "Môn học hay kỹ năng nào bạn đã kiên trì tập luyện lâu nhất?",
     hook: {
-      shot: "Chữ \"NGÀY 214 MÀI SẮT\", TC mài thanh sắt",
-      lines: [tc("Sắp thành kim rồi.")],
+      shot: "Chữ 'NGÀY THỨ 100', TC cầm cục đá mài cật lực một cái thìa inox",
+      lines: [tc("Cố lên, mài thêm 3 năm nữa là thành cây kim khâu áo cho bà rồi!")],
     },
-    ask: "Mày mài cái gì cả năm nay thế?",
+    ask: "Mày lấy thìa ăn cơm của ông ra mài cái gì đấy?",
     misread: {
-      shot: "Tua nhanh TC mài sắt qua các mùa, cuối cùng chạy ra tiệm tạp hóa",
-      lines: [tc("Mài mãi vẫn là thanh sắt."), tc("Thôi, mua hộp kim 10 nghìn cho nhanh.")],
+      shot: "TC mài cái thìa toát mồ hôi hột, rồi bất lực nhìn cái thìa vẫn to đùng",
+      lines: [
+        tc("Trong sách kể bà cụ mài thỏi sắt thành kim! Nhà mình không có thỏi sắt nên cháu lấy tạm cái thìa của ông!"),
+        tc("Mà sao cháu mài mỏi nhừ cả tay suốt 15 phút rồi nó vẫn chưa bé lại thành cây kim nhỉ?!"),
+        cd("Mày mài hết bộ thìa nhà mình thì lấy gì múc canh hả cháu?!"),
+      ],
     },
-    explain: "Có công mài sắt là chịu khó kiên trì, việc khó mấy rồi cũng xong.",
+    explain:
+      "Thỏi sắt to thế mà kiên trì mài mãi còn thành cây kim nhỏ xíu được! Ý ông bà khuyên mình: làm việc gì khó, chỉ cần chịu khó rèn luyện từng chút một mỗi ngày thì nhất định sẽ thành công.",
     example: {
-      shot: "Cảnh gặp khách nước ngoài",
-      lines: [cd("Như học tiếng Anh mỗi ngày 15 phút, một năm sau nói chuyện được với khách.")],
+      shot: "Cảnh tập viết chữ đẹp hoặc tập nhảy dây, đá cầu",
+      lines: [
+        cd("Như lúc mới tập đá cầu hay luyện chữ đẹp, ngày đầu chỉ tâng được 1 quả, nhưng ngày nào cũng kiên trì tập 15 phút thì cuối tháng đá vèo vèo cả trăm quả!"),
+      ],
     },
     punchline: {
-      shot: "TC mở ứng dụng học tiếng Anh: chuỗi 1 ngày, mở lại đã về 0",
-      lines: [tc("Chuỗi 1 ngày rồi!"), tc("Ơ... về 0 rồi.")],
+      shot: "TC đặt đồng hồ bấm giờ đúng 10 giây, viết được đúng 1 chữ rồi ngả lưng nằm nghỉ",
+      lines: [
+        tc("Cháu hiểu rồi, phải kiên trì từng chút mỗi ngày!"),
+        tc("Hôm nay cháu viết 1 chữ cái, mài sắt từ từ đến Tết năm sau là xong bài tập làm văn ông nhé!"),
+      ],
     },
   }),
 
@@ -64,26 +85,35 @@ export const TUAN_3 = [
     theme,
     idiom: "Một cây làm chẳng nên non",
     meaning:
-      "Một mình không làm nên việc lớn, phải đoàn kết. Câu sau: \"Ba cây chụm lại nên hòn núi cao\".",
-    question: "Tag đồng đội \"gánh team\" của bạn!",
+    "Một mình đơn lẻ thì khó làm nên việc lớn, phải biết đoàn kết cùng bạn bè. Câu đầy đủ: 'Một cây làm chẳng nên non, ba cây chụm lại nên hòn núi cao'.",
+    question: "Trò chơi nào ở trường phải có đủ hội bạn thân chơi cùng mới vui?",
     hook: {
-      shot: "Chậu cây bé xíu cạnh ảnh núi Fansipan",
-      lines: [tc("Lớn lên thành núi nhé.")],
+      shot: "TC đặt một chậu cây cảnh nhỏ xíu lên bàn, cầm thước kẻ đo rồi thở dài",
+      lines: [tc("Nuôi mãi mà chẳng thấy biến thành ngọn núi gì cả!")],
     },
-    ask: "Mày chờ cái chậu cây làm gì?",
+    ask: "Cây cảnh thì làm sao thành núi được mà đo?",
     misread: {
-      shot: "TC ngồi đợi chậu cây thành núi, đo chiều cao mỗi ngày",
-      lines: [tc("Một tuần rồi vẫn chưa thành núi."), tc("Hay cháu tưới thêm nước?")],
+      shot: "TC bê thêm 2 chậu cây nhỏ xíu nữa xếp sát vào nhau, đứng khoanh tay chờ đợi",
+      lines: [
+        tc("Ông dạy 'Một cây làm chẳng nên non, ba cây chụm lại nên hòn núi cao' còn gì!"),
+        tc("Cháu chụm đủ 3 chậu cây vào nhau từ sáng tới giờ rồi, sao nó vẫn chưa mọc thành núi Fansipan hả ông?!"),
+        cd("Chữ 'non' ở đây là núi non, rừng lớn, nhưng không phải cứ xếp 3 cái chậu là đất tự phồng lên đâu!"),
+      ],
     },
     explain:
-      "Một cây làm chẳng nên non là một mình thì không làm nổi việc lớn. Ba cây chụm lại mới nên hòn núi cao.",
+    "Một cái cây đứng trơ trọi thì không tạo thành rừng núi được, nhiều cây tụ họp lại mới thành rừng lớn! Ý nói một người làm một mình thì yếu sức, phải biết đoàn kết, chung tay cùng tập thể mới làm được việc lớn.",
     example: {
-      shot: "Cảnh nhóm 5 người, một người làm",
-      lines: [cd("Như bài tập nhóm 5 người, một người làm, bốn người \"đã xem\".")],
+      shot: "Cảnh trực nhật lớp học hoặc kéo co tập thể",
+      lines: [
+        cd("Như trực nhật lớp học, một mình mày vừa quét lớp vừa lau bảng, kê bàn thì bở hơi tai. Nhưng cả tổ 5 bạn cùng chia nhau làm thì 10 phút là lớp sạch bong!"),
+      ],
     },
     punchline: {
-      shot: "TC gom 3 chậu cây chụm lại, đứng chờ",
-      lines: [tc("Bao giờ thành núi ạ?")],
+      shot: "TC gọi 2 đứa bạn hàng xóm sang đứng chụm đầu vào nhau trước quyển vở bài tập",
+      lines: [
+        tc("Đoàn kết là sức mạnh! Bài toán này có 3 câu..."),
+        tc("...Cháu làm nhiệm vụ viết họ tên, bạn Bi chép đề, bạn Bo giải toán là thành 'hòn núi điểm 10' luôn!"),
+      ],
     },
   }),
 
@@ -92,25 +122,35 @@ export const TUAN_3 = [
     week,
     theme,
     idiom: "Tiền nào của nấy",
-    meaning: "Giá bao nhiêu thì chất lượng bấy nhiêu.",
-    question: "Pha \"nhận hàng\" tệ nhất của bạn?",
+    meaning: "Giá trị món đồ thường tương xứng với công sức hoặc số tiền bỏ ra, đừng ham rẻ mà mua phải đồ kém chất lượng.",
+    question: "Bạn từng mua món đồ chơi giá rẻ nào mà mới cầm lên đã hỏng chưa?",
     hook: {
-      shot: "Tiếng \"bốp\", chiếc đế giày bay ra khỏi khung hình",
-      lines: [tc("Đôi giày 50 nghìn của cháu!")],
+      shot: "TC cầm siêu nhân nhựa vừa giơ lên tạo dáng thì cánh tay siêu nhân rụng rời",
+      lines: [tc("Ơ kìa! Siêu nhân giải cứu thế giới gì mà chưa bay đã rụng tay rồi?!")],
     },
-    ask: "Giày gì mà bay đế thế?",
+    ask: "Siêu nhân gì mà mỏng manh thế?",
     misread: {
-      shot: "TC đi 3 bước đế bay, mua ô 30 nghìn, gió thổi lộn ngược",
-      lines: [tc("Giày 50 nghìn: 3 bước."), tc("Ô 30 nghìn: 1 cơn gió.")],
+      shot: "TC dán tờ tiền 2 nghìn lên người con robot, dán tờ 5 nghìn lên chiếc xe đồ chơi",
+      lines: [
+        tc("Tại cháu chưa dán tiền lên đồ chơi đấy ông ạ! Ông bảo 'tiền nào của nấy' mà!"),
+        tc("Tờ tiền màu xanh thì dán vào siêu nhân xanh, tờ tiền màu đỏ thì dán vào xe cứu hỏa!"),
+        cd("Cất ngay tiền lẻ vào heo đất! Ai bảo mày lấy tiền làm nhãn vở dán đồ chơi thế?!"),
+      ],
     },
-    explain: "Tiền nào của nấy là mua rẻ thì chất lượng cũng rẻ, đừng đòi đồ tốt.",
+    explain:
+      "Của ở đây là của cải, đồ vật! Tiền nào của nấy nghĩa là món đồ tốt, bền đẹp thì phải tốn nhiều công sức, nhiều tiền hơn; còn ham đồ quá rẻ, làm ẩu thì rất nhanh hỏng.",
     example: {
-      shot: "Cảnh mở hộp hàng online",
-      lines: [cd("Như đặt áo \"giống hình 100%\" trên mạng, nhận về cái áo cho búp bê.")],
+      shot: "Cảnh chọn mua bút và vở ở hiệu sách",
+      lines: [
+        cd("Như mua cục tẩy có 1 nghìn đồng nhìn thì to, nhưng tẩy đến đâu đen nhẻm trang vở đến đấy, không thể sạch bằng cục tẩy tốt được!"),
+      ],
     },
     punchline: {
-      shot: "TC mua cốc trà sữa 90 nghìn, vẫn làm đổ",
-      lines: [tc("Vậy cháu mua đồ đắt cho chắc!"), tc("Ơ... đổ rồi.")],
+      shot: "TC chìa tay ra trước mặt Cụ Đồ với vẻ mặt vô cùng nghiêm túc",
+      lines: [
+        tc("Ông nói chuẩn quá! 'Tiền nào của nấy' — hôm nay ông thưởng cho cháu 2 nghìn thì cháu đấm lưng nhẹ..."),
+        tc("...Còn ông thưởng 10 nghìn là có ngay gói đấm lưng VIP khuyến mãi quạt mát luôn ạ!"),
+      ],
     },
   }),
 
@@ -119,25 +159,35 @@ export const TUAN_3 = [
     week,
     theme,
     idiom: "Năng nhặt chặt bị",
-    meaning: "Chăm tích góp từng chút thì sẽ thành nhiều.",
-    question: "Bạn đang tiết kiệm cho món gì?",
+    meaning: "Chăm chỉ tích góp từng chút nhỏ nhặt mỗi ngày thì lâu dần sẽ có được số lượng lớn.",
+    question: "Bạn đang nuôi heo đất để dành mua món đồ gì đấy?",
     hook: {
-      shot: "TC kéo bao tải to hơn người vào khung hình",
-      lines: [tc("Sắp chặt bị rồi!")],
+      shot: "TC ôm cái túi vải to đùng, dùng dây thừng buộc thắt nút thật chặt",
+      lines: [tc("Buộc chặt cứng thế này mới đúng chuẩn 'chặt bị'!")],
     },
-    ask: "Bao gì to thế?",
+    ask: "Mày nhét cái gì vào túi mà buộc bảy tám vòng thế?",
     misread: {
-      shot: "TC nhặt nắp chai, kẹp giấy, dây thun, nhét đầy bao tải",
-      lines: [tc("Một cái nắp chai. Một cái kẹp giấy."), tc("Năng nhặt là chặt bị mà ông.")],
+      shot: "TC đổ từ trong túi ra toàn lá cây khô, sỏi đá, vỏ kẹo, nắp chai nhựa",
+      lines: [
+        tc("Cháu thực hành 'năng nhặt chặt bị' đấy ông! Đi học về thấy cái gì rơi trên đường là cháu nhặt hết!"),
+        tc("Nào là lá bàng khô, hòn sỏi, que kem... nhặt xong phải lấy dây buộc cái bị thật chặt kẻo nó rơi!"),
+        cd("Chặt bị là đầy chặt cả túi, chứ không phải nhặt rác về rồi buộc thắt nút cái túi lại!"),
+      ],
     },
-    explain: "Năng nhặt chặt bị là chăm góp từng chút một thì lâu dần thành nhiều.",
+    explain:
+      "Chữ 'năng' là chăm chỉ, thường xuyên; 'bị' là cái túi cói ngày xưa, 'chặt bị' là đầy ắp cả túi! Ý khuyên mình biết tiết kiệm, góp nhặt từng chút nhỏ mỗi ngày thì lâu dần sẽ thành nhiều.",
     example: {
-      shot: "Cảnh quán trà sữa, heo đất",
-      lines: [cd("Mỗi ngày bớt một cốc trà sữa 30 nghìn, một năm có hơn 10 triệu.")],
+      shot: "Cảnh bỏ tiền lẻ vào heo đất và gom giấy vụn Kế hoạch nhỏ",
+      lines: [
+        cd("Như mỗi ngày bỏ vào heo đất 2 nghìn tiền mừng tuổi hay tiền thưởng, hoặc gom từng tờ báo cũ làm Kế hoạch nhỏ, cuối năm mở ra là đủ mua cả bộ truyện tranh mơ ước!"),
+      ],
     },
     punchline: {
-      shot: "Ngày 30, TC đập heo đất",
-      lines: [tc("Đủ tiền rồi! Cháu đi mua... trà sữa.")],
+      shot: "TC cầm con heo đất nhựa lắc lắc bên tai Cụ Đồ, kêu lọc cọc đúng 1 đồng xu",
+      lines: [
+        tc("Cháu bắt đầu 'năng nhặt' từ hôm nay luôn! Cháu có cái bụng con heo đất rồi..."),
+        tc("...Giờ ông cho cháu 'nhặt' tờ tiền đầu tiên từ ví của ông để làm vốn nhé!"),
+      ],
     },
   }),
 
@@ -146,25 +196,35 @@ export const TUAN_3 = [
     week,
     theme,
     idiom: "Đi một ngày đàng học một sàng khôn",
-    meaning: "Đi nhiều, trải nghiệm nhiều thì học được nhiều điều.",
-    question: "Chuyến đi dạy bạn nhiều nhất?",
+    meaning: "Chịu khó đi nhiều nơi, quan sát và trải nghiệm thực tế thì sẽ mở mang thêm nhiều kiến thức bổ ích.",
+    question: "Chuyến đi chơi hay dã ngoại nào của trường làm bạn nhớ mãi?",
     hook: {
-      shot: "TC cầm cái sàng gạo, đồng hồ đếm bước chạy",
-      lines: [tc("Cháu đi 30 nghìn bước rồi, sàng vẫn trống.")],
+      shot: "TC đội mũ tai bèo, hai tay bưng cái sàng gạo (hoặc cái rổ lớn) đi vòng quanh sân",
+      lines: [tc("Đi bộ mỏi nhừ cả chân rồi mà cái sàng vẫn trống trơn!")],
     },
-    ask: "Cầm sàng đi đâu đấy?",
+    ask: "Mày bưng cái rổ đi hứng cái gì ngoài sân đấy?",
     misread: {
-      shot: "TC đi bộ cả ngày, ngửa sàng lên trời đợi \"khôn\" rơi vào",
-      lines: [tc("Khôn ơi, rơi vào đây."), tc("Chưa có hạt khôn nào cả.")],
+      shot: "TC vừa đi đều bước vừa ngửa cái rổ lên trời chờ đợi, thỉnh thoảng ngó vào rổ",
+      lines: [
+        tc("Cháu đang đi một ngày đàng để hứng 'một sàng khôn' đây ông!"),
+        tc("Cháu đi 50 vòng quanh sân rồi mà mới hứng được có 3 chiếc lá rụng, chưa thấy 'cục khôn' nào rơi xuống rổ cả!"),
+        cd("Làm gì có cục khôn nào rơi từ trên cây xuống cho mày hứng!"),
+      ],
     },
-    explain: "Đi một ngày đàng là đi đây đi đó, gặp nhiều chuyện thì tự khắc khôn ra.",
+    explain:
+      "'Đàng' là đường đi, 'sàng' là cái sàng tre đan để sàng gạo! Ông bà ví von: chịu khó bước ra ngoài đi đây đi đó, mắt thấy tai nghe nhiều điều thực tế thì đầu óc sẽ mở mang, học được bao nhiêu điều khôn ngoan.",
     example: {
-      shot: "Cảnh đi phượt, sửa xe bên đường",
-      lines: [cd("Đi phượt lần đầu mới biết tự sửa xe, hỏi đường, tiêu tiền.")],
+      shot: "Cảnh học sinh đi dã ngoại bảo tàng, trang trại",
+      lines: [
+        cd("Như đi dã ngoại cùng lớp ra trang trại, tận mắt thấy cây lúa lớn thế nào, con trâu ăn cỏ ra sao — nhớ nhanh và thú vị hơn chỉ ngồi lì trong phòng đọc sách!"),
+      ],
     },
     punchline: {
-      shot: "TC chụp 500 tấm sống ảo, gãi đầu",
-      lines: [tc("Cháu đi du lịch rồi!"), cd("Đi đâu?"), tc("... Cháu không nhớ.")],
+      shot: "TC khoác balo, cầm rổ đứng ngay cửa phòng khách vẫy tay",
+      lines: [
+        tc("Ông nói chí lý! Vậy chiều nay cháu xin phép nghỉ ở nhà quét sân..."),
+        tc("...để đi 'một ngày đàng' ra tiệm tạp hóa đầu ngõ học một sàng khôn ông nhé!"),
+      ],
     },
   }),
 
@@ -173,25 +233,35 @@ export const TUAN_3 = [
     week,
     theme,
     idiom: "Học thầy không tày học bạn",
-    meaning: "Học từ bạn bè xung quanh cũng quan trọng, có khi hiệu quả hơn học thầy.",
-    question: "Điều hay nhất bạn học từ bạn bè?",
+    meaning: "Ngoài việc học thầy cô trên lớp, học hỏi từ bạn bè trang lứa cũng rất gần gũi, dễ hiểu và hiệu quả.",
+    question: "Bạn thân ở lớp đã từng chỉ cho bạn 'bí kíp' học tập hay trò chơi thú vị nào?",
     hook: {
-      shot: "Hai đứa cầm tay cầm chơi game, chú thích \"buổi học thứ 15\"",
-      lines: [tc("Hôm nay học combo mới.")],
+      shot: "TC ngồi khoanh tay nghiêm trang trước mặt đứa bạn, đặt quyển sổ ghi 'BÍ KÍP ĐÁ CẦU'",
+      lines: [tc("Xin sư phụ truyền dạy tuyệt chiêu tâng cầu bằng đầu gối!")],
     },
-    ask: "Sao không đi học thêm?",
+    ask: "Sao lại gọi bạn cùng lớp là sư phụ thế kia?",
     misread: {
-      shot: "TC bỏ lớp học thêm, ghi chép chăm chú lúc bạn chơi game",
-      lines: [tc("Thầy dạy chán lắm."), tc("Học bạn mới tiến bộ, cháu lên rank rồi!")],
+      shot: "TC cầm thước kẻ đo chiều cao của bạn, rồi chép từng hành động kỳ quặc của bạn vào sổ",
+      lines: [
+        tc("Ông bảo 'học thầy không tày học bạn'! Chữ 'tày' cháu không biết là gì nhưng chắc chắn là phải bắt chước bạn 100%!"),
+        tc("Bạn ấy ngoáy mũi bằng tay trái, cháu cũng ghi vào vở để tập ngoáy mũi tay trái cho giống!"),
+        cd("Ấy chết! Học là học cái giỏi của bạn, chứ ai bảo mày học cả tật xấu ngoáy mũi!"),
+      ],
     },
-    explain: "Học thầy không tày học bạn là bạn bè giỏi cũng dạy mình được nhiều, nhưng phải chọn bạn mà học.",
+    explain:
+      "Chữ 'tày' ngày xưa nghĩa là 'bằng'! Thầy cô dạy cho mình kiến thức nền tảng rất quý, nhưng bạn bè cùng lứa lại gần gũi, đôi khi giảng bài cho nhau bằng cách nói của học trò thì lại dễ hiểu bất ngờ!",
     example: {
-      shot: "Cảnh văn phòng, hai người cùng nhìn bảng tính",
-      lines: [cd("Nhờ bạn cùng phòng chỉ mẹo Excel 5 phút, hiểu hơn học cả buổi.")],
+      shot: "Cảnh hai bạn học sinh chỉ bài cho nhau trong giờ ra chơi",
+      lines: [
+        cd("Như có bài toán đố trên lớp mày còn ngại chưa dám hỏi lại thầy, giờ ra chơi nhờ bạn lớp trưởng giảng lại 5 phút bằng hình vẽ que tính là hiểu thông suốt ngay!"),
+      ],
     },
     punchline: {
-      shot: "TC chỉ vào CĐ",
-      lines: [cd("Chọn bạn mà học!"), tc("Cháu chọn ông, ông làm bạn cháu nhé.")],
+      shot: "TC khoác vai Cụ Đồ cười híp mắt",
+      lines: [
+        cd("Nhưng nhớ là phải chọn bạn tốt, bạn giỏi mà học nhé!"),
+        tc("Cháu chọn được người bạn vừa thông thái vừa nhiều tiền lẻ nhất xóm rồi... Từ hôm nay ông làm bạn thân cùng bàn của cháu nhé!"),
+      ],
     },
   }),
 ];

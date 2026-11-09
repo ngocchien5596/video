@@ -15,7 +15,11 @@
     "cover": "node tools/render.mjs --cover",
     "srt": "node tools/export-srt.mjs",
     "sheets": "node tools/script-sheets.mjs",
-    "build": "remotion bundle"
+    "build": "remotion bundle",
+    "voice:design": "node tools/voice/run-python.mjs design_voices.py",
+    "voice:pick": "node tools/voice/pick.mjs",
+    "voice": "node tools/voice/voice.mjs",
+    "voice:check": "node tools/voice/check.mjs"
   },
   "dependencies": {
     "@remotion/cli": "4.0.541",

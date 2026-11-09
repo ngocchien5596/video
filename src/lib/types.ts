@@ -39,3 +39,21 @@ export type Episode = {
   showSubtitles?: boolean;
   beats: Beat[];
 };
+
+/** Một câu thoại đã có file tiếng (do `npm run voice` sinh ra). */
+export type VoiceLine = {
+  /** Vị trí trong episode.beats và beat.lines. */
+  beat: number;
+  line: number;
+  /** Đường dẫn trong public/, ví dụ "voice/ngay-01/03-tc.wav". */
+  file: string;
+  seconds: number;
+  /** Chữ lúc sinh tiếng; khác chữ hiện tại nghĩa là cần chạy lại `npm run voice`. */
+  text: string;
+};
+
+/** Nội dung public/voice/ngay-XX/manifest.json. */
+export type VoiceTrack = {
+  day: number;
+  lines: VoiceLine[];
+};

@@ -3,9 +3,9 @@
  *   npm run srt -- 1      -> out/srt/ngay-01.srt
  *   npm run srt -- all
  */
-import { mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { EPISODES } from "../src/episodes/index.ts";
-import { episodeCues } from "../src/lib/timing.ts";
+import { episodeCues, voiceManifestPath } from "../src/lib/timing.ts";
 import { pad2, parseDays } from "./days.mjs";
 
 const NAMES = { CD: "Cụ Đồ", TC: "Thằng Cháu", NARRATOR: "" };
@@ -25,7 +25,10 @@ mkdirSync("out/srt", { recursive: true });
 
 for (const day of days) {
   const episode = EPISODES.find((e) => e.day === day);
-  const body = episodeCues(episode)
+  // Có tiếng (npm run voice) thì phụ đề khớp theo tiếng thật.
+  const manifest = `public/${voiceManifestPath(day)}`;
+  const voice = existsSync(manifest) ? JSON.parse(readFileSync(manifest, "utf8")) : null;
+  const body = episodeCues(episode, voice)
     .map((cue, i) => {
       const name = withNames && NAMES[cue.who] ? `${NAMES[cue.who]}: ` : "";
       return `${i + 1}\n${stamp(cue.start)} --> ${stamp(cue.end)}\n${name}${cue.text}\n`;

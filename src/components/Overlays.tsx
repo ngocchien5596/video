@@ -201,7 +201,7 @@ export const EndCard: React.FC<{ question: string; next: string | null; startFra
     <div
       style={{
         position: "absolute",
-        top: 470,
+        top: 400,
         left: SAFE.left,
         right: SAFE.right,
         textAlign: "center",

@@ -28,6 +28,8 @@ npm run dev          # mở Remotion Studio để xem 30 tập
 | `npm run render -- tuan-1` | Xuất cả tuần 1 (cũng nhận `1-7`, `1 3 5`, `all`) |
 | `npm run cover -- tuan-1` | Xuất ảnh bìa vào `out/cover/` |
 | `npm run srt -- all` | Xuất phụ đề nháp vào `out/srt/` (thêm `--no-names` để bỏ tên người nói) |
+| `npm run voice -- 1` | Lồng tiếng Cụ Đồ và Thằng Cháu cho tập 1 bằng OmniVoice (xem mục Lồng tiếng) |
+| `npm run voice:check -- 1` | Nghe lại tiếng bằng máy, báo câu đọc sai hoặc nuốt chữ |
 | `npm run sheets` | Sinh lại kịch bản in trong `docs/kich-ban/` |
 | `npm run lint` | Kiểm tra code (ESLint + TypeScript) |
 
@@ -63,6 +65,21 @@ out/               File xuất ra (không đưa vào git)
 6. **Đăng** theo `docs/quy-trinh.md`, rồi cập nhật `tracker.csv`.
 
 Phụ đề trong repo được chia thời gian tự động theo số từ, nên chỉ là bản nháp. Cần khớp từng chữ thì dùng phụ đề tự động của CapCut ở bước 3 và thêm `showSubtitles: false` vào tập đó để tắt phụ đề của repo.
+
+## Lồng tiếng
+
+Tiếng thoại sinh bằng model OmniVoice trong repo `D:Tao_giong_noi_local` (đổi chỗ khác thì đặt biến môi trường `TTS_ROOT`). Chỉ dùng OmniVoice vì giấy phép Apache 2.0 cho phép kiếm tiền; **không dùng Viterbox** (CC BY-NC, cấm thương mại).
+
+1. **Giọng mẫu** nằm ở `voices/cu-do.wav` và `voices/thang-chau.wav`, kèm file `.txt` ghi đúng câu đã đọc. Hai giọng này được tạo từ mô tả (ông già giọng trầm, cậu thiếu niên giọng cao), không nhân bản giọng người thật nào.
+   - Muốn đổi giọng: `npm run voice:design` sinh 4 phương án mỗi vai vào `voices/mau/`, nghe rồi chọn bằng `npm run voice:pick -- cu-do 3`.
+   - Muốn dùng giọng tự thu: ghi đè hai file `.wav` (5–10 giây, không tạp âm) và sửa file `.txt` cho đúng lời.
+2. **Sinh tiếng**: `npm run voice -- tuan-1`. Mỗi câu khoảng 20 giây trên GTX 1660 Super, nên một tuần mất khoảng nửa tiếng. Tắt Remotion Studio khi chạy cho đỡ tốn RAM.
+   - Câu không đổi chữ được giữ nguyên, sửa câu nào thì chỉ sinh lại câu đó. `--force` để sinh lại tất cả.
+   - Lệnh in tổng thời lượng mỗi tập và cảnh báo nếu quá 60 giây.
+3. **Kiểm tra**: `npm run voice:check -- tuan-1` chép lời từng file bằng ASR và báo câu không khớp. Vẫn nên nghe lại cả tập trong Studio.
+4. **Xuất**: `npm run render` như bình thường. Tập nào đã có tiếng thì độ dài nhịp tự theo tiếng thật và phụ đề khớp từng câu; tập chưa có tiếng thì giữ nhịp cũ. Tốc độ đọc của từng vai chỉnh ở `SPEAKERS` trong `tools/voice/make_voice.py`.
+
+Tiếng sinh ra nằm trong `public/voice/` và không đưa vào git (chạy lại lệnh là có). Khi đăng, **bật nhãn "nội dung do AI tạo"** trên TikTok và YouTube.
 
 ## Lưu ý
 
