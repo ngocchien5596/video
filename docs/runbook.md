@@ -133,6 +133,7 @@ Qua bot có thể sửa, thêm, xoá câu, đổi cảnh, viết phần diễn. 
 | `npm run srt -- <ngày>` | Xuất phụ đề .srt (`--no-names` để bỏ tên người nói) |
 | `npm run sheets` | Sinh lại kịch bản in trong `docs/kich-ban/` |
 | `npm run bot` | Chạy bot Telegram ở cửa sổ hiện tại (để thử) |
+| `/lichsu 5` (Telegram) | Xem các phiên bản video đã xuất của tập 5, gửi lại bản cũ. Lịch sử sửa kịch bản ở `docs/lich-su/ngay-05.md` |
 | `npm run bot:install` / `bot:uninstall` | Cài / gỡ bot chạy ngầm khi đăng nhập Windows |
 
 Cách ghi `<ngày>`: `5`, `1 3 5`, `1-7`, `tuan-2`, `all`.

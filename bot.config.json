@@ -2,5 +2,6 @@
   "notifyTime": "20:00",
   "timezone": "Asia/Ho_Chi_Minh",
   "remindAfterHours": 2,
-  "startDate": null
+  "startDate": null,
+  "autoPush": false
 }

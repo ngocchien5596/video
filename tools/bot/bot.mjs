@@ -8,6 +8,7 @@ import { spawn } from "node:child_process";
 import { askClaude } from "./ai-edit.mjs";
 import { addDays, dayForDate, loadConfig, loadEnv, loadState, nowIn, ROOT, saveState } from "./config.mjs";
 import { applyDraft, diffEpisodes, readBlock, validateDraft } from "./draft.mjs";
+import { archiveVersion, commitFiles, historyFile, listVersions, logRender, logScriptChange, push } from "./history.mjs";
 import { produce, STEPS, updateTracker } from "./pipeline.mjs";
 import { applyChanges, formatScript, loadEpisode, parseDirectEdits } from "./script.mjs";
 import { createTelegram, esc } from "./telegram.mjs";
@@ -46,6 +47,7 @@ Sửa câu nào thì phần diễn và cảnh của câu đó được sửa the
 /batdau 2026-12-01: đặt ngày đăng tập 1
 /gio 20:00: đổi giờ thông báo
 /tap 5: xem và duyệt tập 5 ngay
+/lichsu 5: các phiên bản video đã xuất của tập 5, gửi lại bản cũ
 /trangthai: ngày bắt đầu, tập sắp tới, việc đang chạy
 /huy: thoát chế độ sửa`;
 
@@ -108,13 +110,21 @@ const runQueue = async () => {
       );
     try {
       const started = Date.now();
+      // Chốt kịch bản đang dùng (kể cả sửa tay trong repo) để biết video làm từ kịch bản nào.
+      const commit = commitFiles(scriptFiles(day, episode.week), `Tập ${day}: chốt kịch bản trước khi xuất video`);
       const result = await produce(day, progress);
       const minutes = ((Date.now() - started) / 60000).toFixed(1);
-      await tg.edit(chatId(), status.message_id, `✅ Tập ${day}: xong sau ${minutes} phút.`);
+      const saved = archiveVersion(day, { ...result, episode, commit });
+      logRender(day, episode.idiom, { version: saved.version, commit, seconds: result.seconds });
+      updateTracker(day, { trang_thai: "da-dung" });
+      commitFiles([historyFile(day), "tracker.csv"], `Tập ${day}: xuất video v${saved.version}`);
+      if (config.autoPush) push();
+      await tg.edit(chatId(), status.message_id, `✅ Tập ${day}: xong sau ${minutes} phút. Lưu thành <b>v${saved.version}</b>.`);
       await tg.sendVideo(
         chatId(),
         result.video,
-        `<b>Ngày ${day}/30 · “${esc(episode.idiom)}”</b>${result.seconds ? ` · ${result.seconds}s` : ""}`,
+        `<b>Ngày ${day}/30 · “${esc(episode.idiom)}” · v${saved.version}</b>${result.seconds ? ` · ${result.seconds}s` : ""}
+Kịch bản: commit <code>${commit}</code>`,
       );
       await tg.sendPhoto(chatId(), result.cover, `Ảnh bìa ngày ${day}`);
       if (result.seconds && result.seconds > 60) {
@@ -128,8 +138,7 @@ const runQueue = async () => {
         );
       }
       await send(captionFor(episode, next));
-      state.days[day] = { ...state.days[day], status: "done", doneAt: new Date().toISOString() };
-      updateTracker(day, { trang_thai: "da-dung" });
+      state.days[day] = { ...state.days[day], status: "done", doneAt: new Date().toISOString(), version: saved.version };
     } catch (err) {
       log("produce error", err);
       state.days[day] = { ...state.days[day], status: "failed" };
@@ -253,13 +262,14 @@ const handleEditMessage = async (text) => {
       return;
     }
     state.editing.history = [...history, { role: "assistant", text: result.summary }];
+    if (state.editing.pending) state.editing.pending.request = text;
     save();
   } catch (err) {
     log("edit error", err);
     await tg.edit(chatId(), progress.message_id, "❌ Không sửa được bằng Claude.");
     if (direct) {
       // Dự phòng: thay chữ trực tiếp, phần diễn giữ nguyên.
-      state.editing = { ...state.editing, pending: { direct } };
+      state.editing = { ...state.editing, pending: { direct, request: text } };
       save();
       await send(
         `⚠️ Claude lỗi: <code>${esc(String(err.message).slice(0, 400))}</code>\n\n` +
@@ -275,17 +285,38 @@ const handleEditMessage = async (text) => {
   }
 };
 
-/** Sau khi kịch bản đổi: sinh lại kịch bản in, đánh dấu video cũ, cập nhật câu thành ngữ. */
-const afterScriptChange = async (day, before, after) => {
+/** Các file kịch bản của một tập cần lưu vào git. */
+const scriptFiles = (day, week) => [
+  `src/episodes/tuan-${week}.ts`,
+  `docs/kich-ban/tuan-${week}.md`,
+  historyFile(day),
+  "tracker.csv",
+];
+
+/**
+ * Sau khi kịch bản đổi: sinh lại kịch bản in, ghi lịch sử, commit git,
+ * đánh dấu video cũ, cập nhật câu thành ngữ.
+ */
+const afterScriptChange = async (day, before, after, pending) => {
   const notes = [];
   await new Promise((r) => spawn("npm run sheets", { cwd: ROOT, shell: true, stdio: "ignore" }).on("close", r));
   notes.push("📄 Đã sinh lại kịch bản in (docs/kich-ban).");
+
+  logScriptChange(day, after.idiom, {
+    request: pending.request ?? "(không rõ)",
+    summary: pending.summary ?? (pending.direct ? "Thay chữ trực tiếp, phần diễn giữ nguyên." : ""),
+    diff: diffEpisodes(before, after),
+  });
+  if (before.idiom !== after.idiom) updateTracker(day, { cau: after.idiom });
+  const short = (pending.request ?? "").replace(/\s+/g, " ").slice(0, 60);
+  const commit = commitFiles(scriptFiles(day, after.week), `Tập ${day}: sửa kịch bản qua bot${short ? ` (${short})` : ""}`);
+  if (config.autoPush) push();
+  notes.push(`💾 Đã lưu thay đổi: commit <code>${commit}</code>, lịch sử ở <code>${historyFile(day)}</code>.`);
 
   if (["done", "failed"].includes(state.days[day]?.status)) {
     notes.push(`🎬 Video tập ${day} đã tạo trước đó không còn đúng kịch bản. Bấm <b>Duyệt</b> để tạo lại.`);
   }
   if (before.idiom !== after.idiom) {
-    updateTracker(day, { cau: after.idiom });
     notes.push(`📝 Đã cập nhật câu thành ngữ trong tracker.csv.`);
     const prev = day - 1;
     if (prev >= 1 && state.days[prev]?.status === "done") {
@@ -344,6 +375,23 @@ const handleCommand = async (text) => {
           `✏️ Đang sửa: ${state.editing ? `tập ${state.editing.day}` : "không"}`,
       );
     }
+    case "/lichsu": {
+      const day = Number(arg);
+      if (!(day >= 1 && day <= 30)) return send("Cách dùng: <code>/lichsu 5</code>");
+      const versions = listVersions(day);
+      if (!versions.length) return send(`Tập ${day} chưa xuất video lần nào. Lịch sử sửa kịch bản: <code>${historyFile(day)}</code>`);
+      const rows = versions.map(
+        (v) => `<b>v${v.version}</b> · ${esc(v.time ?? "")} · commit <code>${esc(v.commit ?? "?")}</code>${v.seconds ? ` · ${v.seconds}s` : ""}`,
+      );
+      const buttons = versions
+        .slice(-6)
+        .map((v) => ({ text: `📤 Gửi lại v${v.version}`, callback_data: `resend:${day}:${v.version}` }));
+      return send(
+        `🗂 <b>Tập ${day}: ${versions.length} phiên bản video</b>\n${rows.join("\n")}\n\n` +
+          `Video lưu ở <code>out/versions/ngay-${String(day).padStart(2, "0")}/</code>, lịch sử sửa ở <code>${historyFile(day)}</code>.`,
+        [buttons.slice(0, 3), buttons.slice(3)].filter((r) => r.length),
+      );
+    }
     case "/huy":
       state.editing = null;
       save();
@@ -389,11 +437,17 @@ const handleCallback = async (q) => {
         const { episode: after } = loadEpisode(day);
         state.editing = null;
         save();
-        await afterScriptChange(day, before, after);
+        await afterScriptChange(day, before, after, pending);
         return sendReview(day, `✏️ Đã áp dụng. Kịch bản mới của tập ${day}:`);
       } catch (err) {
         return send(`❌ Không áp dụng được: ${esc(err.message)}`);
       }
+    }
+    case "resend": {
+      const version = Number(q.data.split(":")[2]);
+      const v = listVersions(day).find((x) => x.version === version);
+      if (!v) return send("Không tìm thấy phiên bản này.");
+      return tg.sendVideo(chatId(), v.video, `<b>Ngày ${day}/30 · v${version}</b> · ${esc(v.time ?? "")} · commit <code>${esc(v.commit ?? "?")}</code>`);
     }
     case "cancel":
       if (msgId) await tg.clearButtons(chatId(), msgId);
@@ -471,6 +525,7 @@ const main = async () => {
       { command: "batdau", description: "Đặt ngày đăng tập 1: /batdau 2026-12-01" },
       { command: "gio", description: "Đổi giờ thông báo: /gio 20:00" },
       { command: "trangthai", description: "Xem trạng thái" },
+      { command: "lichsu", description: "Các phiên bản video của một tập: /lichsu 5" },
       { command: "huy", description: "Thoát chế độ sửa" },
     ])
     .catch((e) => log("setMyCommands", e.message));

@@ -100,6 +100,13 @@ Mỗi ngày lúc 20:00, bot gửi kịch bản của ngày mai vào Telegram kè
 4. Gõ `/batdau 2026-12-01` (ngày đăng tập 1) trong Telegram.
 5. Tắt bản chạy thử (Ctrl+C), rồi chạy `npm run bot:install` để bot tự chạy ngầm mỗi khi đăng nhập Windows. Gỡ bằng `npm run bot:uninstall`.
 
+**Lưu lịch sử:**
+- Mỗi lần áp dụng sửa kịch bản, bot tự commit git: file kịch bản, kịch bản in, `tracker.csv`, và ghi yêu cầu, tóm tắt, câu cũ, câu mới vào `docs/lich-su/ngay-XX.md`.
+- Mỗi lần xuất video, bot commit kịch bản đang dùng, rồi lưu thành phiên bản mới trong `out/versions/ngay-XX/vN/`: `video.mp4`, `cover.png`, `kich-ban.json`, `voice-manifest.json`, `info.json` (có mã commit). Bản cũ không bị ghi đè.
+- Gõ `/lichsu 5` để xem các phiên bản của tập 5 và gửi lại bản cũ.
+- Bot chỉ commit trên máy. Đặt `"autoPush": true` trong `bot.config.json` để tự đẩy lên GitHub sau mỗi lần commit.
+- `out/versions/` không vào git vì video nặng, nên cần sao lưu thư mục này cùng `out/video/`.
+
 Giờ thông báo và múi giờ nằm trong `bot.config.json`, cũng đổi được bằng `/gio 21:00`. Log của bot ở `out/bot/bot.log`, log tạo từng tập ở `out/bot/ngay-XX.log`. Trạng thái bot ở `.bot/state.json` (không vào git).
 
 Tập nào chưa có phần diễn (`stage`) thì video ra dạng chân dung. Muốn có hoạt hình thì bấm Sửa thoại, nhắn "viết phần diễn". Sau khi áp dụng, bot sinh lại kịch bản in. Nếu câu thành ngữ đổi, bot cập nhật `tracker.csv` và báo tập trước cần tạo lại video, vì dòng "Mai là câu" của tập đó sẽ sai.
