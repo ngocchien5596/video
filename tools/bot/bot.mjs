@@ -5,6 +5,7 @@
  * Duyệt xong bot tự lồng tiếng, xuất video, ảnh bìa và gửi lại vào Telegram.
  */
 import { spawn } from "node:child_process";
+import { statSync } from "node:fs";
 import { askClaude } from "./ai-edit.mjs";
 import { addDays, dayForDate, loadConfig, loadEnv, loadState, nowIn, ROOT, saveState } from "./config.mjs";
 import { applyDraft, diffEpisodes, readBlock, validateDraft } from "./draft.mjs";
@@ -119,13 +120,18 @@ const runQueue = async () => {
       updateTracker(day, { trang_thai: "da-dung" });
       commitFiles([historyFile(day), "tracker.csv"], `Tập ${day}: xuất video v${saved.version}`);
       if (config.autoPush) push();
-      await tg.edit(chatId(), status.message_id, `✅ Tập ${day}: xong sau ${minutes} phút. Lưu thành <b>v${saved.version}</b>.`);
+      const sizeMb = (statSync(result.video).size / 1048576).toFixed(0);
+      const done = `✅ Tập ${day}: xuất xong sau ${minutes} phút, lưu thành <b>v${saved.version}</b>.`;
+      // Tải video lên Telegram có thể mất vài phút nếu mạng tải lên chậm.
+      await tg.edit(chatId(), status.message_id, `${done}\n📤 Đang gửi video (${sizeMb}MB) vào chat, có thể mất vài phút…`);
+      const sendStart = Date.now();
       await tg.sendVideo(
         chatId(),
         result.video,
-        `<b>Ngày ${day}/30 · “${esc(episode.idiom)}” · v${saved.version}</b>${result.seconds ? ` · ${result.seconds}s` : ""}
-Kịch bản: commit <code>${commit}</code>`,
+        `<b>Ngày ${day}/30 · “${esc(episode.idiom)}” · v${saved.version}</b>${result.seconds ? ` · ${result.seconds}s` : ""}\nKịch bản: commit <code>${commit}</code>`,
       );
+      const sendSec = Math.round((Date.now() - sendStart) / 1000);
+      await tg.edit(chatId(), status.message_id, `${done}\n📤 Đã gửi video (${sizeMb}MB, ${sendSec} giây).`);
       await tg.sendPhoto(chatId(), result.cover, `Ảnh bìa ngày ${day}`);
       if (result.seconds && result.seconds > 60) {
         await send(`⚠️ Video dài ${result.seconds}s, quá 60 giây. Nên rút gọn thoại rồi duyệt lại.`);
