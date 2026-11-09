@@ -111,3 +111,7 @@ Phần diễn đổi ở nhịp 3.
 - `3.5` Cháu (nhịp 3) **(thêm)**: Vậy kẻ trồng cây là cháu?! Cháu xin tự thú!
 
 Phần diễn đổi ở nhịp 3.
+
+## 2026-11-09 21:14 · Xuất video v2
+
+Kịch bản ở commit `786d2ea`, dài 56 giây. File: `out/versions/ngay-01/v2/`.
