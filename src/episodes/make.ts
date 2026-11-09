@@ -1,3 +1,4 @@
+import type { Moment } from "../lib/stage-types.ts";
 import type { Beat, Episode, Line } from "../lib/types.ts";
 
 export const CATCHPHRASE = "Ông bà nói vậy, mà không phải vậy!";
@@ -9,6 +10,8 @@ type Part = {
   shot: string;
   lines: Line[];
   seconds?: number;
+  /** Kịch bản diễn của nhịp (xem src/lib/stage-types.ts). */
+  stage?: Moment[];
 };
 
 export type EpisodeSpec = {
@@ -29,6 +32,9 @@ export type EpisodeSpec = {
   /** 25–40s: lời Cụ Đồ giải thích nghĩa thật, nói sau câu cửa miệng. */
   explain: string;
   flipShot?: string;
+  /** Kịch bản diễn cho nhịp đặt câu và lật nghĩa (hai nhịp này dựng tự động). */
+  titleStage?: Moment[];
+  flipStage?: Moment[];
   /** 40–52s: ví dụ đời thường. */
   example: Part;
   /** 52–60s: Thằng Cháu áp dụng sai kiểu mới. */
@@ -47,6 +53,7 @@ export const makeEpisode = (spec: EpisodeSpec): Episode => {
       seconds: 3,
       shot: `Cụ Đồ hỏi, thẻ tiêu đề "NGÀY ${spec.day}/30" hiện lên, âm "ding"`,
       lines: [cd(spec.ask), tc(`${spec.idiom} ạ!`)],
+      stage: spec.titleStage,
     },
     { ...spec.misread, kind: "misread", seconds: spec.misread.seconds ?? 19 },
     {
@@ -54,6 +61,7 @@ export const makeEpisode = (spec: EpisodeSpec): Episode => {
       seconds: 15,
       shot: spec.flipShot ?? "Cụ Đồ gõ quạt lên đầu Thằng Cháu, nhạc dừng một nhịp",
       lines: [cd(CATCHPHRASE), cd(spec.explain)],
+      stage: spec.flipStage,
     },
     { ...spec.example, kind: "example", seconds: spec.example.seconds ?? 12 },
     { ...spec.punchline, kind: "punchline", seconds: spec.punchline.seconds ?? 8 },

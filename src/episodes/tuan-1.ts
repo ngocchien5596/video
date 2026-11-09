@@ -14,7 +14,22 @@ export const TUAN_1 = [
     hook: {
       shot: "TC đội mũ thám tử, cầm kính lúp soi quả xoài, đeo balo chuẩn bị lên đường",
       lines: [tc("Tìm ra manh mối của 'kẻ trồng cây' rồi ông ơi!")],
+      stage: [
+        {
+          cut: true,
+          scene: "home",
+          cd: { x: 0.26 },
+          tc: { x: 1.2, head: "detective-hat", back: "backpack", hand: "magnifier", arms: "hold", expr: "smug" },
+          items: [{ id: "xoai", prop: "mango", x: 0.47 }],
+        },
+        { line: 0, tc: { x: 0.64 } },
+        { line: 0, at: 0.5, camera: "TC", tc: { arms: "point", expr: "happy", move: "bounce" }, fx: { kind: "exclaim", on: "TC" } },
+      ],
     },
+    titleStage: [
+      { line: 0, camera: "wide", cd: { expr: "confused", arms: "hips" }, tc: { arms: "hold", expr: "neutral", move: "idle" }, fx: { kind: "question", on: "CD" } },
+      { line: 1, cd: { expr: "neutral", arms: "down" }, tc: { arms: "raise", expr: "happy", move: "bounce" } },
+    ],
     ask: "Mày soi cái gì đấy?",
     misread: {
       shot: "TC giơ tờ giấy vẽ chân dung 'Kẻ trồng xoài', rồi dán hình quả xoài lên trán ngồi niệm",
@@ -23,7 +38,37 @@ export const TUAN_1 = [
         cd("Hả?!"),
         tc("Cháu còn dán ảnh quả xoài lên trán, ăn một miếng là hô to: Nhớ bác trồng xoài!"),
       ],
+      stage: [
+        // "Ông bảo phải nhớ kẻ trồng cây": giơ lệnh truy nã
+        { line: 0, camera: "TC", tc: { hand: { id: "sign", text: "KẺ TRỒNG XOÀI" }, arms: "hold2", expr: "angry", move: "idle" } },
+        // "Nghe chữ kẻ nguy hiểm như kẻ xấu"
+        { line: 0, at: 0.33, tc: { expr: "shock", move: "shake" }, fx: { kind: "anger", on: "TC" } },
+        // "nên cháu phải đi điều tra!"
+        { line: 0, at: 0.71, tc: { hand: "magnifier", arms: "point", expr: "smug", move: "bounce" } },
+        { line: 1, camera: "CD", cd: { expr: "shock", arms: "up2", move: "jump" }, tc: { move: "idle", expr: "neutral", arms: "down", hand: null }, fx: { kind: "surprise", on: "CD" } },
+        // "Cháu còn dán ảnh quả xoài lên trán"
+        { line: 2, camera: "wide", cd: { expr: "confused", arms: "down", move: "idle" }, tc: { face: "mango", hand: "mango", arms: "hold", expr: "happy" }, items: [] },
+        // "ăn một miếng là hô to"
+        { line: 2, at: 0.44, camera: "TC", tc: { hand: "mango-bitten", arms: "raise", move: "jump" }, fx: { kind: "sparkle", on: "TC" } },
+        // "Nhớ bác trồng xoài!"
+        { line: 2, at: 0.78, cd: { expr: "angry" }, fx: { kind: "sweat", on: "CD" } },
+      ],
     },
+    flipStage: [
+      // Cụ Đồ tiến tới, vung quạt
+      { line: 0, camera: "wide", cd: { x: 0.42, arms: "hit", expr: "angry" }, tc: { move: "idle", arms: "down" } },
+      {
+        line: 0,
+        at: 0.3,
+        fx: { kind: "bop", on: "TC" },
+        tc: { expr: "shock", move: "tremble", face: null, hand: null },
+        items: [{ id: "xoai-roi", prop: "mango-bitten", x: 0.82 }],
+      },
+      // Giảng nghĩa thật
+      { line: 1, camera: "CD", cd: { x: 0.3, arms: "point", expr: "neutral", move: "idle" }, tc: { move: "idle", expr: "confused" } },
+      { line: 1, at: 0.45, camera: "wide", cd: { arms: "wave", expr: "happy" } },
+      { line: 1, at: 0.85, tc: { expr: "happy", arms: "raise" }, fx: { kind: "exclaim", on: "TC", text: "À!" } },
+    ],
     explain:
       "Chữ 'kẻ' ngày xưa nghĩa là 'người' thôi! Câu này dặn mình: được hưởng cái gì tốt đẹp thì phải biết ơn người đã vất vả làm ra.",
     example: {
@@ -31,12 +76,70 @@ export const TUAN_1 = [
       lines: [
         cd("Như có cơm ngon để ăn là nhờ bố mẹ nấu nướng vất vả, có bài học hay là nhờ thầy cô dạy dỗ. Ăn xong phải biết nói lời cảm ơn!"),
       ],
+      stage: [
+        // "Như có cơm ngon để ăn là nhờ bố mẹ nấu nướng vất vả"
+        {
+          line: 0,
+          cut: true,
+          scene: "kitchen",
+          camera: "wide",
+          cd: { x: 0.27, arms: "point", expr: "happy" },
+          tc: { x: 0.69, head: null, back: null, hand: "bowl", arms: "hold", expr: "happy", move: "idle" },
+          items: [{ id: "mam", prop: "rice-tray", x: 0.5, on: "table" }],
+        },
+        // "có bài học hay là nhờ thầy cô dạy dỗ"
+        {
+          line: 0,
+          at: 0.42,
+          cut: true,
+          scene: { id: "classroom", text: "CẢM ƠN\nTHẦY CÔ!" },
+          cd: { arms: "raise", expr: "neutral" },
+          tc: { hand: "book", arms: "hold2", expr: "neutral" },
+          items: [],
+        },
+        // "Ăn xong phải biết nói lời cảm ơn!"
+        {
+          line: 0,
+          at: 0.74,
+          cut: true,
+          scene: "kitchen",
+          cd: { arms: "down", expr: "happy" },
+          tc: { hand: null, arms: "hold2", expr: "happy" },
+          items: [{ id: "mam", prop: "rice-tray", x: 0.5, on: "table" }],
+          fx: { kind: "hearts", on: "TC" },
+        },
+      ],
     },
     punchline: {
       shot: "TC đẩy chồng bát bẩn sang phía Cụ Đồ, cười lém lỉnh",
       lines: [
         tc("Cháu hiểu rồi! Sáng nay ông là người bấm nút nồi cơm điện..."),
         tc("...nên cháu nhường ông rửa bát luôn để cháu đứng cạnh nhớ ơn ông ạ!"),
+      ],
+      stage: [
+        {
+          line: 0,
+          cut: true,
+          scene: "kitchen",
+          camera: "wide",
+          cd: { x: 0.27, expr: "happy", arms: "down" },
+          tc: { x: 0.69, hand: null, arms: "point", expr: "smug", move: "idle" },
+          items: [
+            { id: "noi", prop: "rice-cooker", x: 0.48, on: "table" },
+            { id: "bat", prop: "bowls", x: 0.68, on: "table" },
+          ],
+        },
+        // Đẩy chồng bát sang phía Cụ Đồ
+        {
+          line: 1,
+          tc: { x: 0.6, arms: "hold2", expr: "smug" },
+          items: [
+            { id: "noi", prop: "rice-cooker", x: 0.48, on: "table" },
+            { id: "bat", prop: "bowls", x: 0.27, on: "table" },
+          ],
+        },
+        { line: 1, at: 0.45, camera: "CD", cd: { expr: "shock", move: "tremble" }, fx: { kind: "sweat", on: "CD" } },
+        { line: 1, at: 0.8, camera: "wide", tc: { x: 0.69, arms: "hips", expr: "happy", move: "bounce" } },
       ],
     },
   }),

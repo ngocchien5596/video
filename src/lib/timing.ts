@@ -30,8 +30,12 @@ export type TimedBeat = Beat & { start: number; end: number };
 /** Một file tiếng đặt trên trục thời gian. */
 export type SpokenLine = { file: string; start: number; seconds: number };
 
+/** Thời điểm một câu thoại được nói, để kịch bản diễn bám theo. */
+export type LineTime = { beat: number; line: number; start: number; end: number };
+
 export type Timeline = {
   beats: TimedBeat[];
+  lines: LineTime[];
   cues: Cue[];
   spoken: SpokenLine[];
   seconds: number;
@@ -91,6 +95,7 @@ export const episodeTimeline = (episode: Episode, voice?: VoiceTrack | null): Ti
   const beats: TimedBeat[] = [];
   const cues: Cue[] = [];
   const spoken: SpokenLine[] = [];
+  const lines: LineTime[] = [];
   let t = 0;
 
   episode.beats.forEach((beat, b) => {
@@ -103,6 +108,7 @@ export const episodeTimeline = (episode: Episode, voice?: VoiceTrack | null): Ti
       beat.lines.forEach((line, l) => {
         const v = voices[l]!;
         spoken.push({ file: v.file, start: cursor, seconds: v.seconds });
+        lines.push({ beat: b, line: l, start: cursor, end: cursor + v.seconds });
         cues.push(...lineCues(line, beat.kind, cursor, v.seconds));
         cursor += v.seconds + (l < beat.lines.length - 1 ? VOICE_GAP : 0);
       });
@@ -118,13 +124,14 @@ export const episodeTimeline = (episode: Episode, voice?: VoiceTrack | null): Ti
       beat.lines.forEach((line, l) => {
         const seconds = (speakSeconds * words[l]) / total;
         cues.push(...lineCues(line, beat.kind, cursor, seconds));
+        lines.push({ beat: b, line: l, start: cursor, end: cursor + seconds });
         cursor += seconds;
       });
     }
     beats.push({ ...beat, start, end: t });
   });
 
-  return { beats, cues, spoken, seconds: t };
+  return { beats, lines, cues, spoken, seconds: t };
 };
 
 export const timedBeats = (episode: Episode, voice?: VoiceTrack | null) =>

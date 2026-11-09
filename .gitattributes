@@ -5,3 +5,8 @@
 *.mov binary
 *.png binary
 *.jpg binary
+
+# Script Windows cần xuống dòng CRLF
+*.cmd text eol=crlf
+*.vbs text eol=crlf
+*.ps1 text eol=crlf

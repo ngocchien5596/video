@@ -30,6 +30,7 @@ npm run dev          # mở Remotion Studio để xem 30 tập
 | `npm run srt -- all` | Xuất phụ đề nháp vào `out/srt/` (thêm `--no-names` để bỏ tên người nói) |
 | `npm run voice -- 1` | Lồng tiếng Cụ Đồ và Thằng Cháu cho tập 1 bằng OmniVoice (xem mục Lồng tiếng) |
 | `npm run voice:check -- 1` | Nghe lại tiếng bằng máy, báo câu đọc sai hoặc nuốt chữ |
+| `npm run bot` | Chạy bot Telegram duyệt kịch bản và tạo video (xem mục Bot Telegram) |
 | `npm run sheets` | Sinh lại kịch bản in trong `docs/kich-ban/` |
 | `npm run lint` | Kiểm tra code (ESLint + TypeScript) |
 
@@ -47,15 +48,18 @@ public/
   sfx/             Hiệu ứng âm thanh (ding, record scratch, whoosh)
   footage/         Footage đã dựng thô của từng tập (không đưa vào git)
 docs/
+  runbook.md       Từng bước sản xuất một tập, bảng lệnh, xử lý sự cố
   series-bible.md  Concept, nhân vật, quy tắc nội dung
   quy-trinh.md     Lịch sản xuất hằng tuần, checklist, đăng bài
   kich-ban/        Kịch bản in, sinh tự động
-tools/             Script xuất video, ảnh bìa, srt, kịch bản
+tools/             Script xuất video, ảnh bìa, srt, kịch bản, lồng tiếng (voice/), bot Telegram (bot/)
 tracker.csv        Theo dõi trạng thái 30 tập (mở bằng Excel / Google Sheets)
 out/               File xuất ra (không đưa vào git)
 ```
 
 ## Quy trình một tập
+
+Hướng dẫn chi tiết từng bước và cách xử lý sự cố: [docs/runbook.md](docs/runbook.md).
 
 1. **Viết / sửa kịch bản** trong `src/episodes/tuan-X.ts`, rồi xem animatic trong Studio.
 2. **In kịch bản**: `npm run sheets`, rồi mở `docs/kich-ban/tuan-X.md` khi quay.
@@ -80,6 +84,25 @@ Tiếng thoại sinh bằng model OmniVoice trong repo `D:Tao_giong_noi_local` (
 4. **Xuất**: `npm run render` như bình thường. Tập nào đã có tiếng thì độ dài nhịp tự theo tiếng thật và phụ đề khớp từng câu; tập chưa có tiếng thì giữ nhịp cũ. Tốc độ đọc của từng vai chỉnh ở `SPEAKERS` trong `tools/voice/make_voice.py`.
 
 Tiếng sinh ra nằm trong `public/voice/` và không đưa vào git (chạy lại lệnh là có). Khi đăng, **bật nhãn "nội dung do AI tạo"** trên TikTok và YouTube.
+
+## Bot Telegram
+
+Mỗi ngày lúc 20:00, bot gửi kịch bản của ngày mai vào Telegram kèm 3 nút: **Duyệt**, **Sửa thoại**, **Bỏ qua**.
+
+- **Duyệt:** bot lồng tiếng, kiểm tra tiếng, xuất video và ảnh bìa, gửi lại file mp4, ảnh bìa và caption gợi ý, rồi cập nhật `tracker.csv`.
+- **Sửa thoại:** nhắn `6.2: nội dung mới` để sửa đúng một câu, hoặc nhắn tự nhiên, ví dụ "câu cuối của cháu cho hài hơn", "thêm một câu ở nhịp 3", "viết phần diễn cho tập này". Bot sửa luôn mô tả cảnh và phần diễn hoạt hình của những câu bị đổi. Với cách nhắn tự nhiên, Claude Code trên máy đọc yêu cầu và đề xuất thay đổi. Bot cho xem bản trước và sau, chỉ sửa `src/episodes/` khi bạn bấm **Áp dụng**.
+- **Bỏ qua:** bot nhắc lại sau 2 giờ.
+
+**Cài đặt lần đầu:**
+1. Nhắn `/newbot` cho @BotFather trên Telegram để tạo bot và lấy token.
+2. Chép `.env.example` thành `.env`, điền `TELEGRAM_BOT_TOKEN`.
+3. Chạy thử `npm run bot`, mở bot trong Telegram và gõ `/start`. Chat đầu tiên gõ `/start` sẽ là chat duy nhất điều khiển được bot.
+4. Gõ `/batdau 2026-12-01` (ngày đăng tập 1) trong Telegram.
+5. Tắt bản chạy thử (Ctrl+C), rồi chạy `npm run bot:install` để bot tự chạy ngầm mỗi khi đăng nhập Windows. Gỡ bằng `npm run bot:uninstall`.
+
+Giờ thông báo và múi giờ nằm trong `bot.config.json`, cũng đổi được bằng `/gio 21:00`. Log của bot ở `out/bot/bot.log`, log tạo từng tập ở `out/bot/ngay-XX.log`. Trạng thái bot ở `.bot/state.json` (không vào git).
+
+Tập nào chưa có phần diễn (`stage`) thì video ra dạng chân dung. Muốn có hoạt hình thì bấm Sửa thoại, nhắn "viết phần diễn". Sau khi áp dụng, bot sinh lại kịch bản in. Nếu câu thành ngữ đổi, bot cập nhật `tracker.csv` và báo tập trước cần tạo lại video, vì dòng "Mai là câu" của tập đó sẽ sai.
 
 ## Lưu ý
 

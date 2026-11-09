@@ -1,3 +1,5 @@
+import type { Moment } from "./stage-types.ts";
+
 /** Ai đang nói: Cụ Đồ, Thằng Cháu, hoặc lời dẫn/chữ trên màn hình. */
 export type Speaker = "CD" | "TC" | "NARRATOR";
 
@@ -22,6 +24,8 @@ export type Beat = {
   /** Mô tả cảnh quay cho người quay/dựng. */
   shot: string;
   lines: Line[];
+  /** Kịch bản diễn cho hoạt hình (src/stage). Bỏ trống thì dùng animatic chân dung. */
+  stage?: Moment[];
 };
 
 export type Episode = {

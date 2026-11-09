@@ -19,7 +19,10 @@
     "voice:design": "node tools/voice/run-python.mjs design_voices.py",
     "voice:pick": "node tools/voice/pick.mjs",
     "voice": "node tools/voice/voice.mjs",
-    "voice:check": "node tools/voice/check.mjs"
+    "voice:check": "node tools/voice/check.mjs",
+    "bot": "node tools/bot/bot.mjs",
+    "bot:install": "powershell -ExecutionPolicy Bypass -File tools/bot/install-task.ps1",
+    "bot:uninstall": "powershell -ExecutionPolicy Bypass -File tools/bot/install-task.ps1 -Uninstall"
   },
   "dependencies": {
     "@remotion/cli": "4.0.541",

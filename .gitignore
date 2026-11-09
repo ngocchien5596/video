@@ -16,3 +16,6 @@ voices/mau/
 __pycache__/
 # Tiếng thoại sinh ra (tạo lại bằng npm run voice)
 public/voice/
+
+# Trạng thái bot Telegram
+.bot/

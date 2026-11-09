@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import { Audio, Video } from "@remotion/media";
 import { AbsoluteFill, Sequence, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { Animatic } from "./components/Animatic.tsx";
+import { Stage } from "./stage/Stage.tsx";
 import { COLORS } from "./components/brand.ts";
 import { EndCard, FlipCard, Subtitle, TitleCard, TopBar } from "./components/Overlays.tsx";
 import { END_CARD_SECONDS, episodeTimeline } from "./lib/timing.ts";
@@ -26,7 +27,9 @@ export const EpisodeVideo: React.FC<EpisodeProps> = ({ episode, next, voice }) =
   const { fps, durationInFrames } = useVideoConfig();
   const t = frame / fps;
 
-  const { beats, cues, spoken } = useMemo(() => episodeTimeline(episode, voice), [episode, voice]);
+  const timeline = useMemo(() => episodeTimeline(episode, voice), [episode, voice]);
+  const { beats, cues, spoken } = timeline;
+  const hasStage = episode.beats.some((b) => b.stage?.length);
 
   const beat = beats.find((b) => t >= b.start && t < b.end) ?? beats[beats.length - 1];
   const cue = cues.find((c) => t >= c.start && t < c.end);
@@ -40,6 +43,8 @@ export const EpisodeVideo: React.FC<EpisodeProps> = ({ episode, next, voice }) =
     <AbsoluteFill style={{ backgroundColor: COLORS.ink }}>
       {episode.footage ? (
         <Video src={staticFile(episode.footage)} objectFit="cover" />
+      ) : hasStage ? (
+        <Stage episode={episode} timeline={timeline} cue={cue} speaking={cue !== undefined && frame < endStart} />
       ) : (
         <Animatic beat={beat} cue={frame >= endStart ? undefined : cue} />
       )}

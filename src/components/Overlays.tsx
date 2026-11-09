@@ -51,7 +51,7 @@ export const Subtitle: React.FC<{ cue: Cue | undefined }> = ({ cue }) => {
     <div
       style={{
         position: "absolute",
-        top: 1180,
+        top: 1262,
         left: SAFE.left,
         right: SAFE.right,
         textAlign: "center",
@@ -106,7 +106,7 @@ export const TitleCard: React.FC<{ day: number; idiom: string; startFrame: numbe
     <div
       style={{
         position: "absolute",
-        top: 520,
+        top: 300,
         left: SAFE.left,
         right: SAFE.right,
         textAlign: "center",
@@ -148,7 +148,7 @@ export const FlipCard: React.FC<{ meaning: string; startFrame: number; endFrame:
   const out = interpolate(frame, [endFrame - 8, endFrame], [1, 0], clamp);
 
   return (
-    <div style={{ position: "absolute", top: 400, left: SAFE.left, right: SAFE.right, opacity: out }}>
+    <div style={{ position: "absolute", top: 300, left: SAFE.left, right: SAFE.right, opacity: out }}>
       <div
         style={{
           margin: "0 auto",
@@ -169,8 +169,8 @@ export const FlipCard: React.FC<{ meaning: string; startFrame: number; endFrame:
       </div>
       <div
         style={{
-          marginTop: 50,
-          padding: "26px 30px",
+          marginTop: 34,
+          padding: "22px 28px",
           backgroundColor: COLORS.paper,
           border: `6px solid ${COLORS.ink}`,
           borderRadius: 24,
@@ -181,7 +181,7 @@ export const FlipCard: React.FC<{ meaning: string; startFrame: number; endFrame:
         }}
       >
         <div style={{ fontWeight: 900, fontSize: 34, color: COLORS.red }}>NGHĨA THẬT</div>
-        <div style={{ marginTop: 8, fontWeight: 700, fontSize: 44, lineHeight: 1.3 }}>{meaning}</div>
+        <div style={{ marginTop: 6, fontWeight: 700, fontSize: 40, lineHeight: 1.28 }}>{meaning}</div>
       </div>
     </div>
   );
@@ -198,36 +198,54 @@ export const EndCard: React.FC<{ question: string; next: string | null; startFra
   const pop = spring({ frame: frame - startFrame, fps, config: { damping: 13 } });
 
   return (
-    <div
-      style={{
-        position: "absolute",
-        top: 400,
-        left: SAFE.left,
-        right: SAFE.right,
-        textAlign: "center",
-        fontFamily: TEXT_FONT,
-        scale: `${pop}`,
-      }}
-    >
+    <>
       <div
         style={{
-          padding: "24px 26px",
-          backgroundColor: COLORS.white,
-          border: `6px solid ${COLORS.ink}`,
-          borderRadius: 28,
-          fontWeight: 900,
-          fontSize: 52,
-          lineHeight: 1.25,
-          color: COLORS.ink,
+          position: "absolute",
+          top: 400,
+          left: SAFE.left,
+          right: SAFE.right,
+          textAlign: "center",
+          fontFamily: TEXT_FONT,
+          scale: `${pop}`,
         }}
       >
-        {question}
+        <div
+          style={{
+            padding: "24px 26px",
+            backgroundColor: COLORS.white,
+            border: `6px solid ${COLORS.ink}`,
+            borderRadius: 28,
+            fontWeight: 900,
+            fontSize: 52,
+            lineHeight: 1.25,
+            color: COLORS.ink,
+          }}
+        >
+          {question}
+        </div>
       </div>
       {next ? (
-        <div style={{ marginTop: 26, fontWeight: 900, fontSize: 40, color: COLORS.idiom, ...outline(8) }}>
+        // Ô thứ 2 tính từ dưới lên khi chia màn hình làm 4 (y 960–1440), đặt trên phần sàn trống.
+        <div
+          style={{
+            position: "absolute",
+            top: 1330,
+            left: SAFE.left,
+            right: SAFE.right,
+            translate: "0 -50%",
+            textAlign: "center",
+            fontFamily: TEXT_FONT,
+            fontWeight: 900,
+            fontSize: 40,
+            color: COLORS.idiom,
+            scale: `${pop}`,
+            ...outline(8),
+          }}
+        >
           Mai là câu: “{next}”
         </div>
       ) : null}
-    </div>
+    </>
   );
 };
