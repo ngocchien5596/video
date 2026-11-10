@@ -2,6 +2,39 @@
 
 Tài liệu đề xuất chủ đề cho tuần 2 trở đi, sau tuần 1 "Bầu trời và thời tiết". Không lặp lại các câu của tuần 1 (bầu trời xanh, hoàng hôn, mây trắng/mây đen, mưa, cầu vồng, sấm chớp, ban đêm).
 
+> **Đã triển khai (10/11/2026):** tuần 2–7 đã viết thành tập 8–49 trong `src/episodes/tuan-2.ts` … `tuan-7.ts`. Kịch bản là nguồn chính xác; bảng dưới đây là kế hoạch ban đầu. Các câu đã đổi khi kiểm chứng lại:
+>
+> | Kế hoạch | Thay bằng | Lý do |
+> | --- | --- | --- |
+> | Vì sao ngựa vằn có sọc | #11 Vì sao cá voi phun nước trên đầu | Khoa học còn tranh luận về lý do có sọc; nguồn thứ hai không đọc được |
+> | Vì sao lá cây màu xanh | #29 Vì sao cây xấu hổ cụp lá khi bị chạm | Nguồn cho thấy cách giải thích quen thuộc ("màu xanh là phần cây không dùng") là sai; trùng mạch ánh sáng màu của tuần 1 |
+> | Vì sao thấy trăng ban ngày | #18 Vì sao Mặt Trăng có vết đen loang lổ (hiểu lầm: chú Cuội ngồi gốc cây đa) | Chỉ còn 1 nguồn đọc được, trùng ý với #17 |
+> | Vũng nước bốc hơi | #39 Vì sao nước biển lúc dâng lên, lúc rút xuống | Trùng ý với #4 "Mưa từ đâu ra?" |
+> | Hắt xì tim có ngừng không | #25 Vì sao mình hắt xì hơi (hiểu lầm: có người nhắc tên) | Thiếu nguồn thứ hai; ý "tim ngừng" dễ làm trẻ lo |
+>
+>
+> **Thay vòng 2 (10/11/2026), siết chuẩn nguồn:** chỉ dùng nguồn của tổ chức (cơ quan nhà nước, đại học, bảo tàng, sở thú, bệnh viện), không dùng tạp chí/báo (National Geographic, Scientific American, BBC, Science News, Smithsonian Magazine…); mỗi câu thoại phải có nguồn viết thẳng, không suy luận. 15 tập không đạt đã đổi sang câu khác; bảng đối chiếu câu → trích nguồn lưu khi soát. Tập #8 hồng hạc giữ chủ đề, bỏ nguồn NatGeo Kids.
+>
+> | # | Câu cũ | Câu mới |
+> | --- | --- | --- |
+> | 5 | Vì sao có cầu vồng sau mưa? | Vì sao trời nóng mà vẫn có mưa đá? |
+> | 9 | Vì sao lạc đà có cái bướu trên lưng? | Vì sao con bò cứ nhai đi nhai lại mãi? |
+> | 10 | Vì sao người ta nói đà điểu vùi đầu xuống cát? | Vì sao tắc kè bò trên trần nhà mà không rơi? |
+> | 11 | Vì sao cá voi phun nước trên đầu? | Vì sao gấu trúc ăn tre gần như cả ngày? |
+> | 13 | Vì sao dơi bay trong đêm mà không đâm vào cây? | Vì sao mắt mèo sáng lên trong đêm? |
+> | 17 | Vì sao ban ngày không thấy sao? | Vì sao có sao băng vụt qua bầu trời? |
+> | 21 | Vì sao Sao Hoả màu đỏ? | Vành đai của Sao Thổ làm bằng gì? |
+> | 24 | Vì sao mình bị nấc cụt? | Vì sao mình đổ mồ hôi? |
+> | 27 | Vì sao bụng sôi ọc ọc? | Vì sao mình nổi da gà? |
+> | 29 | Vì sao cây xấu hổ cụp lá khi bị chạm? | Vì sao cây bắt ruồi lại ăn côn trùng? |
+> | 33 | Vì sao thân cây chuối bóc ra từng lớp mà không có gỗ? | Vì sao quả ớt lại cay? |
+> | 38 | Vì sao biển có sóng? | Giọt mưa thật ra có hình gì? |
+> | 39 | Vì sao nước biển lúc dâng lên, lúc rút xuống? | Vì sao con nhện nước đi được trên mặt nước? |
+> | 45 | Vì sao để chuối cạnh trái cây khác thì chúng chín nhanh hơn? | Vì sao cất đồ ăn vào tủ lạnh thì lâu hỏng hơn? |
+> | 47 | Vì sao hạt ngô nổ thành bỏng? | Vì sao thìa inox sờ vào thấy lạnh hơn thìa gỗ? |
+
+> Các câu bụng sôi, nước ngọt có ga, chuối làm trái cây chín nhanh đã tìm được nguồn thứ hai nên giữ lại. Thứ tự trong tuần được sắp lại để câu hỏi cuối mỗi tập nối sang tập sau.
+
 **Cách kiểm tra nguồn.** Mọi link trong bảng đã được tải bằng `curl` (User-Agent Mozilla) ngày 10/11/2026, trả về HTTP 200. Nội dung được trích ra và đọc để xác nhận trang có đúng ý giải thích, và có bác bỏ hiểu lầm hoặc cho thấy vì sao nó sai. Link nào chặn truy cập tự động thì không dùng (danh sách ở mục 6).
 
 **Ký hiệu trạng thái:**

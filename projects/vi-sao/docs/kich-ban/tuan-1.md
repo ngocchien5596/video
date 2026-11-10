@@ -69,23 +69,23 @@
 | 3–10 | ĐOÁN THỬ | Thằng Cháu đoán mây là hơi nước, Cụ Đồ bảo hơi nước thì vô hình, không nhìn thấy được | **TC**: Mây là hơi nước, hơi nước nặng quá thì rơi xuống thành mưa đúng không ông?<br>**CĐ**: Nhiều người cũng nghĩ mây là hơi nước, nhưng chưa đúng đâu! Hơi nước thì vô hình, chẳng ai nhìn thấy được. |
 | 10–32 | GIẢI THÍCH | Bảng minh hoạ: nắng làm nước biển bốc hơi, lên cao lạnh thành giọt li ti làm mây, giọt to dần, rơi thành mưa, chảy về biển | **CĐ**: Nắng sưởi ấm sông, biển, nước bốc hơi thành hơi nước bay lên.<br>**CĐ**: Lên cao trời lạnh, hơi nước biến thành giọt nước li ti, bám vào hạt bụi, tạo thành mây.<br>**CĐ**: Trong mây, các giọt nước nhập vào nhau, to dần lên.<br>**CĐ**: Đến khi nặng quá, không lơ lửng được nữa, chúng rơi xuống thành mưa, rồi lại chảy về sông, biển. |
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, nước bốc hơi bay lên, gặp lạnh thành giọt li ti làm mây, giọt to dần, nặng quá thì rơi xuống thành mưa. |
-| 37–43 | HỎI TIẾP | Thằng Cháu hỏi tiếp về cầu vồng sau mưa | **TC**: Mưa xong hay có cầu vồng, cầu vồng ở đâu ra hả ông?<br>**CĐ**: Câu đó, mai ông kể tiếp nhé! |
+| 37–43 | HỎI TIẾP | Thằng Cháu hỏi tiếp vì sao trời nóng mà vẫn có mưa đá | **TC**: Thế mùa hè trời nóng nực, sao vẫn có mưa đá hả ông?<br>**CĐ**: Câu đó, mai ông kể tiếp nhé! |
 
-## Ngày 5: Vì sao có cầu vồng sau mưa?
+## Ngày 5: Vì sao trời nóng mà vẫn có mưa đá?
 
-- **Hiểu lầm phổ biến:** Cầu vồng là một cây cầu thật, chạy tới chân cầu vồng là chạm được.
-- **Trả lời một câu:** Nắng chiếu vào giọt mưa, bị bẻ cong, tách màu rồi dội lại phía mắt mình, thành cầu vồng.
-- **Câu hỏi cuối video:** Bé nhà bạn đã bao giờ nhìn thấy cầu vồng chưa? Ở đâu thế?
+- **Hiểu lầm phổ biến:** Mưa đá chỉ rơi vào mùa đông, lúc trời lạnh.
+- **Trả lời một câu:** Trong mây giông, gió đưa giọt nước lên cao lạnh giá, đông thành đá, to dần, nặng quá thì rơi xuống, kể cả mùa hè.
+- **Câu hỏi cuối video:** Bé nhà bạn đã bao giờ thấy mưa đá chưa? Gặp mưa đá, nhớ cho bé vào nhà ngay nhé!
 - **Lứa tuổi:** 5–9 tuổi
-- **Nguồn:** [Met Office: Rainbows](https://www.metoffice.gov.uk/weather/learn-about/weather/optical-effects/rainbows) · [National Geographic Education: Rainbow](https://education.nationalgeographic.org/resource/rainbow/)
+- **Nguồn:** [Met Office: Hail](https://www.metoffice.gov.uk/weather/learn-about/weather/types-of-weather/hail) · [NOAA National Severe Storms Laboratory: Severe Weather 101, Hail Basics](https://www.nssl.noaa.gov/education/svrwx101/hail/)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
 | Giây | Nhịp | Cảnh | Thoại |
 | --- | --- | --- | --- |
-| 0–3 | CÂU HỎI | Ngoài sân sau cơn mưa, Thằng Cháu chỉ lên trời, mặt háo hức | **TC**: Ông ơi, sao mưa xong lại có cầu vồng ạ? |
-| 3–10 | ĐOÁN THỬ | Thằng Cháu đòi chạy tới chân cầu vồng để trèo lên, Cụ Đồ giải thích ai đứng ở đó lại thấy cầu vồng khác ở xa | **TC**: Cầu vồng là cây cầu thật, cháu chạy tới chân cầu vồng là trèo lên được ông nhỉ?<br>**CĐ**: Không được đâu! Ai đứng ở chỗ chân cầu vồng ấy, lại thấy một cầu vồng khác ở đằng xa. |
-| 10–32 | GIẢI THÍCH | Bảng minh hoạ: nắng sau lưng, mưa phía trước; nắng vào giọt mưa bị bẻ cong tách màu, dội mặt sau rồi ra về phía mắt; nhiều giọt tạo cầu vồng | **CĐ**: Muốn thấy cầu vồng, mặt trời phải ở sau lưng mình, còn mưa ở phía trước.<br>**CĐ**: Nắng đi vào giọt mưa thì bị bẻ cong, tách ra thành nhiều màu.<br>**CĐ**: Ánh sáng dội vào mặt sau giọt nước, rồi đi ra, hướng về phía mắt mình.<br>**CĐ**: Rất nhiều giọt mưa cùng làm như vậy, thế là mình thấy một vòng cung nhiều màu. |
-| 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, nắng chiếu vào giọt mưa, bị bẻ cong, tách màu rồi dội lại phía mắt mình, thành cầu vồng. |
+| 0–3 | CÂU HỎI | Ngoài sân nắng nóng, trời bỗng tối sầm, Thằng Cháu xoè tay hứng như có hạt đá rơi, mặt ngạc nhiên | **TC**: Ông ơi, trời đang nóng thế này, sao vẫn có mưa đá ạ? |
+| 3–10 | ĐOÁN THỬ | Thằng Cháu đoán mưa đá chỉ có vào mùa đông, Cụ Đồ bảo ở nước Anh những trận mưa đá gây hại nhiều nhất lại hay rơi vào mùa hè | **TC**: Cháu tưởng mưa đá chỉ rơi vào mùa đông thôi chứ ông?<br>**CĐ**: Chưa đúng đâu! Ở nước Anh, những trận mưa đá gây hại nhiều nhất lại hay rơi vào mùa hè. |
+| 10–32 | GIẢI THÍCH | Bảng minh hoạ: đất nóng làm mọc mây giông rất cao, đỉnh mây lạnh; gió thổi ngược lên đưa giọt nước lên cao, đông thành đá; hạt đá va giọt nước, to dần; nặng quá thì rơi xuống | **CĐ**: Mùa hè, đất nóng làm mọc lên những đám mây giông rất cao, đỉnh mây thì rất lạnh.<br>**CĐ**: Gió mạnh thổi ngược lên, đưa giọt nước lên chỗ cao lạnh giá, đông thành đá.<br>**CĐ**: Gió giữ hạt đá lơ lửng, hạt đá va phải giọt nước khác, nước đông bám thêm, to dần.<br>**CĐ**: Nặng quá, gió không đỡ nổi nữa, hạt đá rơi xuống thành mưa đá. |
+| 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, trong mây giông, gió đưa giọt nước lên cao lạnh giá, đông thành đá, to dần, nặng quá thì rơi xuống, kể cả mùa hè. |
 | 37–43 | HỎI TIẾP | Thằng Cháu hỏi tiếp về sấm chớp lúc mưa giông | **TC**: Thế lúc mưa giông, sao cháu thấy chớp trước rồi mới nghe sấm hả ông?<br>**CĐ**: Câu đó, mai ông kể tiếp nhé! |
 
 ## Ngày 6: Vì sao thấy chớp trước rồi mới nghe sấm?

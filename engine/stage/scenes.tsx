@@ -183,7 +183,71 @@ const Night: React.FC = () => (
   </>
 );
 
+/** Ngoài vũ trụ: đứng trên mặt trăng, xa xa là Trái Đất, Sao Thổ và các ngôi sao. */
+const Space: React.FC = () => (
+  <>
+    <rect x="0" y="0" width="1080" height={FLOOR} fill="#0A0F2C" />
+    {Array.from({ length: 40 }, (_, i) => {
+      const x = (i * 263) % 1080;
+      const y = 140 + ((i * 397) % 900);
+      return <circle key={i} cx={x} cy={y} r={i % 5 === 0 ? 4 : 2} fill="#FFFFFF" opacity={0.5 + (i % 3) * 0.2} />;
+    })}
+    {/* Trái Đất */}
+    <circle cx="830" cy="360" r="110" fill="#3D7BD9" stroke={INK} strokeWidth="8" />
+    <path d="M760 320 q50 -40 100 0 q-20 50 -90 40 z M820 410 q60 -10 70 40 q-50 20 -80 -10 z" fill="#6DBE45" />
+    <path d="M830 250 A110 110 0 0 1 830 470 A80 110 0 0 0 830 250 Z" fill="#0A0F2C" opacity="0.45" />
+    {/* Sao Thổ */}
+    <g transform="translate(220 470) rotate(-18)">
+      <ellipse rx="110" ry="26" fill="none" stroke="#E8C547" strokeWidth="10" />
+      <circle r="55" fill="#E8A33D" stroke={INK} strokeWidth="6" />
+      <path d="M-104 -6 A110 26 0 0 0 104 -6" fill="none" stroke="#E8C547" strokeWidth="10" />
+    </g>
+    {/* Mặt trăng dưới chân */}
+    <path d={`M0 ${FLOOR - 40} Q540 ${FLOOR - 110} 1080 ${FLOOR - 40} L1080 1920 L0 1920 Z`} fill="#A7A9B4" stroke={INK} strokeWidth="6" />
+    {[[180, 1300, 70], [620, 1420, 50], [900, 1290, 40], [380, 1620, 90]].map(([x, y, r], i) => (
+      <ellipse key={i} cx={x} cy={y} rx={r} ry={r * 0.4} fill="#8E909C" stroke={INK} strokeWidth="4" />
+    ))}
+    <rect x="0" y={FLOOR} width="1080" height={1920 - FLOOR} fill="url(#space-shade)" />
+    <defs>
+      <linearGradient id="space-shade" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stopColor="#000000" stopOpacity="0" />
+        <stop offset="1" stopColor="#000000" stopOpacity="0.6" />
+      </linearGradient>
+    </defs>
+  </>
+);
+
+/** Bãi biển: trời, mặt trời, đường chân trời, sóng biển, cát. */
+const Beach: React.FC = () => (
+  <>
+    <defs>
+      <linearGradient id="beach-sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stopColor="#6EC6F0" />
+        <stop offset="1" stopColor="#CDEFFC" />
+      </linearGradient>
+    </defs>
+    <rect x="0" y="0" width="1080" height={FLOOR} fill="url(#beach-sky)" />
+    <circle cx="860" cy="330" r="70" fill="#FFE27A" stroke="#FFD24A" strokeWidth="10" />
+    <rect x="0" y="820" width="1080" height={FLOOR - 820} fill="#2F86C9" />
+    <rect x="0" y="820" width="1080" height="10" fill="#1F6FB2" />
+    {[880, 960, 1040, 1120].map((y, i) => (
+      <path
+        key={y}
+        d={`M0 ${y} q45 -16 90 0 t90 0 t90 0 t90 0 t90 0 t90 0 t90 0 t90 0 t90 0 t90 0 t90 0 t90 0`}
+        fill="none"
+        stroke="#FFFFFF"
+        strokeWidth="6"
+        opacity={0.35 + i * 0.1}
+      />
+    ))}
+    <path d={`M0 1180 Q540 1150 1080 1185 L1080 ${FLOOR} L0 ${FLOOR} Z`} fill="#F2D49B" />
+    <Floor color="#EBC685" line="#DDB26C" />
+  </>
+);
+
 export const SceneBackground: React.FC<{ id: SceneId; text?: string }> = ({ id, text }) => {
+  if (id === "space") return <Space />;
+  if (id === "beach") return <Beach />;
   if (id === "night") return <Night />;
   if (id === "yard") return <Yard />;
   if (id === "kitchen") return <Kitchen />;

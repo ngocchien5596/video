@@ -97,8 +97,9 @@ export type Item = {
   scale?: number;
 };
 
-/** home: phòng khách · kitchen: bếp có bàn ăn (đồ `on: "table"` đặt trên bàn) · classroom: lớp học · yard: sân ngoài trời · night: sân ban đêm (trăng, sao) */
-export type SceneId = "home" | "kitchen" | "classroom" | "yard" | "night";
+/** home: phòng khách · kitchen: bếp có bàn ăn (đồ `on: "table"` đặt trên bàn) · classroom: lớp học · yard: sân ngoài trời · night: sân ban đêm (trăng, sao)
+ * · space: ngoài vũ trụ (đứng trên mặt trăng, thấy Trái Đất, sao) · beach: bãi biển (biển, cát) */
+export type SceneId = "home" | "kitchen" | "classroom" | "yard" | "night" | "space" | "beach";
 /** Phông cảnh, `text` là chữ trên bảng (lớp học). */
 export type SceneRef = SceneId | { id: SceneId; text?: string };
 

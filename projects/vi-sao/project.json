@@ -6,13 +6,50 @@
   "composition": "ViSao-{dd}",
   "cover": "ViSao-Bia-{dd}",
   "source": "src/episodes/tuan-{week}.ts",
-  "schedule": { "enabled": false, "notifyTime": "20:00", "startDate": null },
+  "schedule": {
+    "enabled": false,
+    "notifyTime": "20:00",
+    "startDate": null
+  },
   "publish": {
     "seriesName": "Ông Ơi, Vì Sao?",
     "postTime": "11:30",
-    "hashtags": ["visao", "khoahocchobe", "hoidap", "10vancauhoivisao", "ongoivisao"],
+    "hashtags": [
+      "visao",
+      "khoahocchobe",
+      "hoidap",
+      "10vancauhoivisao",
+      "ongoivisao"
+    ],
     "themeHashtags": {
-      "Bầu trời và thời tiết": ["bautroi", "thoitiet"]
+      "Bầu trời và thời tiết": [
+        "bautroi",
+        "thoitiet"
+      ],
+      "Con vật kỳ lạ": [
+        "dongvat",
+        "convat"
+      ],
+      "Vũ trụ quanh mình": [
+        "vutru",
+        "thienvan"
+      ],
+      "Cơ thể mình": [
+        "cothe",
+        "suckhoe"
+      ],
+      "Cây cối và trái cây": [
+        "caycoi",
+        "thiennhien"
+      ],
+      "Nước quanh ta": [
+        "nuoc",
+        "khoahocvui"
+      ],
+      "Căn bếp nhà mình": [
+        "nauan",
+        "khoahocvui"
+      ]
     },
     "maxHashtagsYoutube": 6,
     "maxHashtagsTiktok": 6,

@@ -9,7 +9,16 @@ Sơ đồ hiện trong khung trắng ở nửa trên màn hình, đổi bước 
 
 Mã nguồn sơ đồ: `projects/vi-sao/src/boards/`. Thêm sơ đồ mới thì tạo file trong thư mục đó, đăng ký id trong `boards/index.ts` và ghi vào bảng dưới.
 
-## Danh sách
+Sơ đồ tuần 1 ở ngay dưới; các tuần sau mỗi tuần một file:
+
+- [Tuần 2: Con vật kỳ lạ](bang-minh-hoa-tuan-2.md)
+- [Tuần 3: Vũ trụ quanh mình](bang-minh-hoa-tuan-3.md)
+- [Tuần 4: Cơ thể mình](bang-minh-hoa-tuan-4.md)
+- [Tuần 5: Cây cối và trái cây](bang-minh-hoa-tuan-5.md)
+- [Tuần 6: Nước quanh ta](bang-minh-hoa-tuan-6.md)
+- [Tuần 7: Căn bếp nhà mình](bang-minh-hoa-tuan-7.md)
+
+## Danh sách (tuần 1)
 
 ### `sky-blue`: Vì sao bầu trời màu xanh
 
@@ -48,14 +57,14 @@ Mã nguồn sơ đồ: `projects/vi-sao/src/boards/`. Thêm sơ đồ mới thì
 | 2 | Chấm trong mây to dần | "các giọt nước nhập vào nhau, to dần" |
 | 3 | Giọt mưa rơi xuống đồi, mũi tên chảy về biển | "rơi xuống thành mưa, rồi lại chảy về sông, biển" |
 
-### `rainbow`: Vì sao có cầu vồng sau mưa
+### `w1-hail`: Vì sao trời nóng mà vẫn có mưa đá
 
 | Bước | Hình | Câu thoại khớp |
 | --- | --- | --- |
-| 0 | Mặt trời sau lưng bé, mưa phía trước | "mặt trời phải ở sau lưng mình, còn mưa ở phía trước" |
-| 1 | Giọt mưa phóng to, tia nắng bẻ cong tách 3 màu | "bị bẻ cong, tách ra thành nhiều màu" |
-| 2 | Tia màu dội mặt sau giọt rồi đi về phía mắt | "dội vào mặt sau giọt nước, rồi đi ra" |
-| 3 | Vòng cung cầu vồng hiện phía trước | "mình thấy một vòng cung nhiều màu" |
+| 0 | Mặt trời, mặt đất nóng "ĐẤT NÓNG" có hơi nóng bốc lên; đám mây giông cao như cái tháp, chữ "MÂY GIÔNG / RẤT CAO", mũi tên xanh chỉ đỉnh "ĐỈNH MÂY / RẤT LẠNH" | "mặt đất nóng làm mọc lên những đám mây giông rất cao, mà đỉnh mây thì rất lạnh" |
+| 1 | Mũi tên xanh lá "GIÓ LÊN" vút lên; giọt nước bay lên cao rồi hoá hạt đá, chữ "ĐÔNG THÀNH ĐÁ" | "gió mạnh thổi ngược lên, đưa giọt nước lên chỗ cao lạnh giá, giọt nước đông thành đá" |
+| 2 | Hạt đá lơ lửng rung rinh, giọt nước bay tới bám vào, hạt đá to dần có thêm lớp vòng, chữ "TO DẦN" | "hạt đá va phải giọt nước khác, nước đông bám thêm, hạt đá to dần" |
+| 3 | Mũi tên đen chỉ xuống, hạt đá rơi xuống đất cùng nhiều hạt nhỏ, chữ "NẶNG QUÁ / RƠI XUỐNG" | "nặng quá, gió không đỡ nổi nữa, hạt đá rơi xuống, thành mưa đá" |
 
 ### `thunder`: Vì sao thấy chớp trước rồi mới nghe sấm
 
