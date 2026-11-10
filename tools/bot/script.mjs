@@ -1,11 +1,11 @@
 /**
- * Đọc, hiển thị và sửa kịch bản một tập.
+ * Đọc, hiển thị và sửa kịch bản một tập (của bất kỳ dự án nào).
  *
  * Mỗi chỗ sửa được có một mã:
  *   3.2   câu thoại thứ 2 của nhịp 3
  *   3.c   mô tả cảnh của nhịp 3
- *   nghia nghĩa thật · hoi câu hỏi cuối video
- * Sửa = tìm chuỗi đúng bằng nội dung cũ trong khối makeEpisode của tập đó (src/episodes/tuan-X.ts)
+ *   nghia, hoi, ...  các trường riêng của dự án (project.fields)
+ * Sửa = tìm chuỗi đúng bằng nội dung cũ trong khối makeEpisode của tập đó
  * rồi thay bằng nội dung mới, sau đó kiểm tra lại bằng TypeScript.
  */
 import { execFileSync } from "node:child_process";
@@ -14,31 +14,30 @@ import path from "node:path";
 import { ROOT } from "./config.mjs";
 import { esc } from "./telegram.mjs";
 
-const BEAT_NAMES = {
-  hook: "HOOK",
-  title: "ĐẶT CÂU",
-  misread: "HIỂU SAI",
-  flip: "LẬT NGHĨA",
-  example: "VÍ DỤ",
-  punchline: "PUNCHLINE",
-};
-const WHO = { CD: "Cụ Đồ", TC: "Cháu", NARRATOR: "Dẫn" };
+export const WHO = { CD: "Cụ Đồ", TC: "Cháu", NARRATOR: "Dẫn" };
 
 /** Đọc tập mới nhất từ đĩa (tiến trình con, tránh cache import). */
-export const loadEpisode = (day) => {
-  const out = execFileSync(process.execPath, [path.join(ROOT, "tools", "bot", "episode-data.mjs"), String(day)], {
+export const loadEpisode = (project, day) => {
+  const out = execFileSync(process.execPath, [path.join(ROOT, "tools", "bot", "episode-data.mjs"), project.id, String(day)], {
     cwd: ROOT,
     encoding: "utf8",
   });
   return JSON.parse(out);
 };
 
+/** Tập có tồn tại trong dự án không (dự án mới có thể mới viết vài tập). */
+export const hasEpisode = (project, day) => {
+  try {
+    loadEpisode(project, day);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
 /** Danh sách các chỗ trong kịch bản, kèm mã và nội dung hiện tại. */
-export const slots = (episode) => {
-  const list = [
-    { code: "nghia", label: "Nghĩa thật", text: episode.meaning },
-    { code: "hoi", label: "Câu hỏi cuối video", text: episode.question },
-  ];
+export const slots = (project, episode) => {
+  const list = project.fields(episode).map((f) => ({ code: f.code, label: f.label, text: f.text }));
   episode.beats.forEach((beat, b) => {
     list.push({ code: `${b + 1}.c`, label: `Cảnh nhịp ${b + 1}`, text: beat.shot });
     beat.lines.forEach((line, l) => {
@@ -48,29 +47,24 @@ export const slots = (episode) => {
   return list;
 };
 
-/** Câu tự sinh từ khuôn (không sửa trực tiếp được). */
-const isGenerated = (episode, code) => {
-  const t = episode.beats[1]?.kind === "title" ? 2 : -1;
-  const f = episode.beats[3]?.kind === "flip" ? 4 : -1;
-  return code === `${t}.2` || code === `${t}.c` || code === `${f}.1`;
-};
-
 /** Kịch bản dạng tin nhắn Telegram (HTML). Trả về mảng vì tin nhắn tối đa 4096 ký tự. */
-export const formatScript = (episode, next, header = "") => {
+export const formatScript = (project, episode, next, header = "") => {
   const parts = [];
-  let msg = `${header}<b>NGÀY ${episode.day}/30 · “${esc(episode.idiom)}”</b>\n`;
-  msg += `<b>Nghĩa thật</b> <code>nghia</code>: ${esc(episode.meaning)}\n`;
-  msg += `<b>Câu hỏi</b> <code>hoi</code>: ${esc(episode.question)}\n`;
-  if (next) msg += `<b>Mai là câu:</b> ${esc(next)}\n`;
+  let msg = `${header}${project.emoji} <b>${esc(project.name)}</b>\n<b>NGÀY ${episode.day}/${project.totalDays} · “${esc(project.headline(episode))}”</b>\n`;
+  for (const f of project.fields(episode)) msg += `<b>${esc(f.label)}</b> <code>${f.code}</code>: ${esc(f.text)}\n`;
+  for (const line of project.extraInfo(episode)) msg += `${line}\n`;
+  if (next) msg += `<b>${esc(project.teaserLabel)}:</b> ${esc(next)}\n`;
   msg += episode.beats.some((b) => b.stage?.length)
     ? "🎭 Có phần diễn hoạt hình\n"
     : "🎭 Chưa có phần diễn (video dạng chân dung). Muốn có thì bấm Sửa thoại, nhắn “viết phần diễn”.\n";
+  const problems = project.validate(episode);
+  if (problems.length) msg += `⛔ <b>Chưa xuất được:</b>\n${problems.map((p) => `• ${esc(p)}`).join("\n")}\n`;
 
   episode.beats.forEach((beat, b) => {
-    let block = `\n<b>${b + 1}. ${BEAT_NAMES[beat.kind]}</b>\n<i><code>${b + 1}.c</code> Cảnh: ${esc(beat.shot)}</i>\n`;
+    let block = `\n<b>${b + 1}. ${esc(project.beats[beat.kind] ?? beat.kind)}</b>\n<i><code>${b + 1}.c</code> Cảnh: ${esc(beat.shot)}</i>\n`;
     beat.lines.forEach((line, l) => {
       const code = `${b + 1}.${l + 1}`;
-      const lock = isGenerated(episode, code) ? " 🔒" : "";
+      const lock = project.isGenerated(episode, code) ? " 🔒" : "";
       block += `<code>${code}</code> <b>${WHO[line.who]}:</b> ${esc(line.text)}${lock}\n`;
     });
     if (msg.length + block.length > 3900) {
@@ -79,14 +73,12 @@ export const formatScript = (episode, next, header = "") => {
     }
     msg += block;
   });
-  msg += `\n🔒 = câu tự sinh từ câu thành ngữ / câu cửa miệng, sửa trong repo.`;
+  if (project.generatedNote) msg += `\n${project.generatedNote}`;
   parts.push(msg);
   return parts;
 };
 
 // ---------------------------------------------------------------- sửa file nguồn
-
-const episodeFile = (week) => path.join(ROOT, "src", "episodes", `tuan-${week}.ts`);
 
 /** Vị trí khối makeEpisode({ day: N, ... }) trong file nguồn. */
 const episodeBlock = (source, day) => {
@@ -107,20 +99,20 @@ const parseLiteral = (lit) => {
 };
 
 /**
- * Áp dụng các thay đổi [{ code, text }] vào file nguồn của tập.
+ * Áp dụng các thay đổi [{ code, text }] vào file nguồn của tập (dự phòng khi Claude lỗi).
  * Kiểm tra lại bằng tsc; lỗi thì trả file về như cũ và ném lỗi.
  */
-export const applyChanges = (day, changes) => {
-  const { episode } = loadEpisode(day);
-  const all = slots(episode);
-  const file = episodeFile(episode.week);
+export const applyChanges = (project, day, changes) => {
+  const { episode } = loadEpisode(project, day);
+  const all = slots(project, episode);
+  const file = path.join(ROOT, project.sourceFile(episode.week));
   const original = readFileSync(file, "utf8");
   let source = original;
 
   for (const change of changes) {
     const slot = all.find((s) => s.code === change.code);
     if (!slot) throw new Error(`Không có mã ${change.code}`);
-    if (isGenerated(episode, change.code)) throw new Error(`${change.code} là câu tự sinh, cần sửa trong repo`);
+    if (project.isGenerated(episode, change.code)) throw new Error(`${change.code} là câu tự sinh, cần sửa trong repo`);
     const { start, end } = episodeBlock(source, day);
     const block = source.slice(start, end);
     const hits = [...block.matchAll(STRING)].filter((m) => parseLiteral(m[0]) === slot.text);
@@ -134,7 +126,7 @@ export const applyChanges = (day, changes) => {
   writeFileSync(file, source, "utf8");
   try {
     execFileSync(process.execPath, [path.join(ROOT, "node_modules", "typescript", "bin", "tsc")], { cwd: ROOT, stdio: "pipe" });
-    const after = slots(loadEpisode(day).episode);
+    const after = slots(project, loadEpisode(project, day).episode);
     for (const change of changes) {
       if (after.find((s) => s.code === change.code)?.text !== change.text) {
         throw new Error(`Kiểm tra lại ${change.code} không khớp`);
@@ -146,10 +138,11 @@ export const applyChanges = (day, changes) => {
   }
 };
 
-/** Đọc lệnh sửa trực tiếp: mỗi dòng "3.2: nội dung mới" (hoặc "nghia: ...", "hoi: ..."). */
-export const parseDirectEdits = (text) => {
+/** Đọc lệnh sửa trực tiếp: mỗi dòng "3.2: nội dung mới" (hoặc "<mã trường>: ..."). */
+export const parseDirectEdits = (project, episode, text) => {
   const lines = text.split(/\r?\n/).filter((l) => l.trim());
-  const re = /^\s*(\d+\.(?:\d+|c)|nghia|hoi)\s*[:：=]\s*(.+)$/i;
+  const codes = project.fields(episode).map((f) => f.code).join("|");
+  const re = new RegExp(`^\\s*(\\d+\\.(?:\\d+|c)${codes ? `|${codes}` : ""})\\s*[:：=]\\s*(.+)$`, "i");
   if (lines.length === 0 || !lines.every((l) => re.test(l))) return null;
   return lines.map((l) => {
     const [, code, value] = re.exec(l);

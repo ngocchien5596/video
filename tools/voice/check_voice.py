@@ -26,7 +26,8 @@ def words(text: str) -> list[str]:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--tts-root", required=True)
-    parser.add_argument("days", nargs="+", type=int)
+    # Danh sách file manifest.json, tương đối với gốc repo (public/voice/<dự án>/ngay-XX/manifest.json).
+    parser.add_argument("manifests", nargs="+")
     args = parser.parse_args()
 
     sys.path.insert(0, str(Path(args.tts_root) / "OmniVoice"))
@@ -36,11 +37,12 @@ def main() -> None:
     asr.load_model(str(Path(args.tts_root) / "OmniVoice" / "model_ASR_chunkformer_local"))
 
     bad = 0
-    for day in args.days:
-        manifest = PUBLIC / "voice" / f"ngay-{day:02d}" / "manifest.json"
+    for rel in args.manifests:
+        manifest = ROOT / rel
         if not manifest.exists():
-            print(f"Ngày {day}: chưa có tiếng (npm run voice -- {day})")
+            print(f"{rel}: chưa có tiếng (chạy npm run voice)")
             continue
+        day = json.loads(manifest.read_text(encoding="utf-8"))["day"]
         print(f"\nNgày {day}")
         for item in json.loads(manifest.read_text(encoding="utf-8"))["lines"]:
             heard = asr.transcribe(str(PUBLIC / item["file"]), "vi")

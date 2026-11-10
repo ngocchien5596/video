@@ -1,7 +1,7 @@
 /**
- * Bản nháp sửa một tập: thay cả khối makeEpisode({ day: N, ... }) trong src/episodes/tuan-X.ts.
- * Bản nháp được kiểm tra trên một bản sao của src/ (.bot/check/src) nên file thật không bị đụng
- * tới cho đến khi người dùng bấm Áp dụng.
+ * Bản nháp sửa một tập: thay cả khối makeEpisode({ day: N, ... }) trong file nguồn của dự án
+ * (projects/<dự án>/src/episodes/...). Bản nháp được kiểm tra trên một bản sao (.bot/check/, gồm
+ * engine/ và projects/<dự án>/src) nên file thật không bị đụng tới cho đến khi người dùng bấm Áp dụng.
  */
 import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
@@ -12,7 +12,7 @@ import { ROOT } from "./config.mjs";
 const CHECK_DIR = path.join(ROOT, ".bot", "check");
 const hash = (s) => createHash("sha1").update(s).digest("hex");
 
-export const episodeFile = (week) => path.join(ROOT, "src", "episodes", `tuan-${week}.ts`);
+export const episodeFile = (project, week) => path.join(ROOT, project.sourceFile(week));
 
 /**
  * Tìm khối `makeEpisode( ... )` của một tập: đếm ngoặc, bỏ qua chuỗi và chú thích.
@@ -49,28 +49,29 @@ export const findBlock = (source, day) => {
   throw new Error(`Khối makeEpisode của tập ${day} không cân ngoặc`);
 };
 
-export const readBlock = (week, day) => {
-  const source = readFileSync(episodeFile(week), "utf8");
+export const readBlock = (project, week, day) => {
+  const source = readFileSync(episodeFile(project, week), "utf8");
   const { start, end } = findBlock(source, day);
   const block = source.slice(start, end);
   return { source, start, end, block, hash: hash(block) };
 };
 
-const loadFrom = (day, srcDir) =>
+const loadFrom = (project, day, root) =>
   JSON.parse(
-    execFileSync(process.execPath, [path.join(ROOT, "tools", "bot", "episode-data.mjs"), String(day), srcDir], {
+    execFileSync(process.execPath, [path.join(ROOT, "tools", "bot", "episode-data.mjs"), project.id, String(day), root], {
       cwd: ROOT,
       encoding: "utf8",
       stdio: ["ignore", "pipe", "pipe"],
     }),
   );
 
-/** Kiểm tra cấu trúc tập sau khi sửa: số nhịp, chỉ số câu trong phần diễn, chữ không rỗng. */
-const structuralErrors = (before, after) => {
+/** Kiểm tra cấu trúc tập sau khi sửa: thứ tự nhịp, chỉ số câu trong phần diễn, chữ không rỗng, ràng buộc của dự án. */
+const structuralErrors = (project, before, after) => {
   const errors = [];
   if (after.day !== before.day || after.week !== before.week) errors.push("Không được đổi day / week của tập.");
   const kinds = after.beats.map((b) => b.kind).join(",");
-  if (kinds !== "hook,title,misread,flip,example,punchline") errors.push(`Thứ tự nhịp sai: ${kinds}`);
+  const expected = project.beatOrder.join(",");
+  if (kinds !== expected) errors.push(`Thứ tự nhịp sai: ${kinds} (phải là ${expected})`);
   after.beats.forEach((beat, b) => {
     if (beat.lines.length === 0) errors.push(`Nhịp ${b + 1} không có câu thoại nào.`);
     beat.lines.forEach((l, i) => {
@@ -83,22 +84,25 @@ const structuralErrors = (before, after) => {
       if (m.at !== undefined && (m.at < 0 || m.at > 1)) errors.push(`Phần diễn nhịp ${b + 1} có at = ${m.at} (phải 0..1).`);
     }
   });
+  // Ràng buộc nội dung của dự án (ví dụ phải có đủ nguồn) cũng chặn bản nháp.
+  errors.push(...project.validate(after));
   return errors;
 };
 
 /**
- * Kiểm tra một khối mới cho tập `day` trên bản sao của src/.
+ * Kiểm tra một khối mới cho tập `day` trên bản sao của engine/ và projects/<dự án>/src.
  * Trả về { ok: true, episode, next } hoặc { ok: false, errors } (lỗi TypeScript / cấu trúc).
  */
-export const validateDraft = (day, week, newBlock) => {
-  const before = loadFrom(day, path.join(ROOT, "src")).episode;
+export const validateDraft = (project, day, week, newBlock) => {
+  const before = loadFrom(project, day, ROOT).episode;
   rmSync(CHECK_DIR, { recursive: true, force: true });
-  cpSync(path.join(ROOT, "src"), path.join(CHECK_DIR, "src"), { recursive: true });
+  cpSync(path.join(ROOT, "engine"), path.join(CHECK_DIR, "engine"), { recursive: true });
+  cpSync(path.join(ROOT, project.rel, "src"), path.join(CHECK_DIR, project.rel, "src"), { recursive: true });
   writeFileSync(
     path.join(CHECK_DIR, "tsconfig.json"),
-    JSON.stringify({ extends: "../../tsconfig.json", include: ["src"] }),
+    JSON.stringify({ extends: "../../tsconfig.json", include: ["engine", "projects"] }),
   );
-  const copy = path.join(CHECK_DIR, "src", "episodes", `tuan-${week}.ts`);
+  const copy = path.join(CHECK_DIR, project.sourceFile(week));
   const source = readFileSync(copy, "utf8");
   const { start, end } = findBlock(source, day);
   writeFileSync(copy, source.slice(0, start) + newBlock + source.slice(end), "utf8");
@@ -115,24 +119,23 @@ export const validateDraft = (day, week, newBlock) => {
 
   let loaded;
   try {
-    loaded = loadFrom(day, path.join(CHECK_DIR, "src"));
+    loaded = loadFrom(project, day, CHECK_DIR);
   } catch (err) {
     return { ok: false, errors: [`Không chạy được kịch bản mới: ${err.stderr?.toString() || err.message}`] };
   }
-  const errors = structuralErrors(before, loaded.episode);
+  const errors = structuralErrors(project, before, loaded.episode);
   return errors.length ? { ok: false, errors } : { ok: true, episode: loaded.episode, next: loaded.next };
 };
 
 /** Ghi khối mới vào file thật. Từ chối nếu khối cũ đã bị sửa từ lúc tạo bản nháp. */
-export const applyDraft = (day, week, newBlock, expectedHash) => {
-  const cur = readBlock(week, day);
+export const applyDraft = (project, day, week, newBlock, expectedHash) => {
+  const cur = readBlock(project, week, day);
   if (cur.hash !== expectedHash) {
     throw new Error("Kịch bản trong repo vừa bị sửa ở chỗ khác. Gõ /tap để tải lại rồi sửa lại.");
   }
-  writeFileSync(episodeFile(week), cur.source.slice(0, cur.start) + newBlock + cur.source.slice(cur.end), "utf8");
+  writeFileSync(episodeFile(project, week), cur.source.slice(0, cur.start) + newBlock + cur.source.slice(cur.end), "utf8");
 };
 
-/** So sánh hai phiên bản của tập: các chỗ thoại / cảnh / nghĩa đổi, và nhịp nào đổi phần diễn. */
 /**
  * So khớp câu thoại cũ / mới trong một nhịp theo nội dung (dãy con chung dài nhất), để chèn
  * một câu vào giữa hiện là "thêm 3.3" chứ không phải "đổi 3.3 + thêm 3.4".
@@ -181,13 +184,20 @@ const diffLines = (oldLines, newLines, b, labelOf) => {
 
 const WHO = { CD: "Cụ Đồ", TC: "Cháu", NARRATOR: "Dẫn" };
 
-export const diffEpisodes = (before, after) => {
+/** So sánh hai phiên bản của tập: tiêu đề, các trường riêng, thoại / cảnh đổi, và nhịp nào đổi phần diễn. */
+export const diffEpisodes = (project, before, after) => {
   const text = [];
-  if (before.idiom !== after.idiom) text.push({ code: "cau", label: "Câu thành ngữ", kind: "change", old: before.idiom, text: after.idiom });
-  if (before.meaning !== after.meaning) text.push({ code: "nghia", label: "Nghĩa thật", kind: "change", old: before.meaning, text: after.meaning });
-  if (before.question !== after.question) text.push({ code: "hoi", label: "Câu hỏi cuối video", kind: "change", old: before.question, text: after.question });
+  if (project.headline(before) !== project.headline(after)) {
+    text.push({ code: "tieu-de", label: "Tiêu đề tập", kind: "change", old: project.headline(before), text: project.headline(after) });
+  }
+  const oldFields = project.fields(before);
+  for (const f of project.fields(after)) {
+    const old = oldFields.find((o) => o.code === f.code)?.text ?? "";
+    if (old !== f.text) text.push({ code: f.code, label: f.label, kind: "change", old, text: f.text });
+  }
   after.beats.forEach((beat, i) => {
     const old = before.beats[i];
+    if (!old) return;
     if (old.shot !== beat.shot) text.push({ code: `${i + 1}.c`, label: `Cảnh nhịp ${i + 1}`, kind: "change", old: old.shot, text: beat.shot });
     text.push(...diffLines(old.lines, beat.lines, i + 1, (l) => `${WHO[l.who]} (nhịp ${i + 1})`));
   });

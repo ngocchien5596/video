@@ -1,6 +1,6 @@
 /**
- * Lưu lịch sử: mọi lần sửa kịch bản (git commit + docs/lich-su/ngay-XX.md) và mọi video đã xuất
- * (out/versions/ngay-XX/vN/ gồm video, ảnh bìa, kịch bản lúc xuất, commit git tương ứng).
+ * Lưu lịch sử (theo từng dự án): mọi lần sửa kịch bản (git commit + projects/<dự án>/docs/lich-su/ngay-XX.md)
+ * và mọi video đã xuất (out/<dự án>/versions/ngay-XX/vN/ gồm video, ảnh bìa, kịch bản lúc xuất, commit git).
  */
 import { execFileSync } from "node:child_process";
 import { appendFileSync, copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
@@ -8,8 +8,6 @@ import path from "node:path";
 import { ROOT } from "./config.mjs";
 
 const pad2 = (n) => String(n).padStart(2, "0");
-const VERSIONS = path.join(ROOT, "out", "versions");
-const HISTORY = path.join(ROOT, "docs", "lich-su");
 
 export const stamp = (d = new Date()) =>
   new Intl.DateTimeFormat("sv-SE", {
@@ -45,20 +43,25 @@ export const push = () => {
   }
 };
 
-export const historyFile = (day) => `docs/lich-su/ngay-${pad2(day)}.md`;
+/** File lịch sử của một tập, tương đối với gốc repo. */
+export const historyFile = (project, day) => project.paths.history(day);
 
-const ensureHistory = (day, idiom) => {
-  mkdirSync(HISTORY, { recursive: true });
-  const file = path.join(ROOT, historyFile(day));
+const ensureHistory = (project, day, title) => {
+  const file = path.join(ROOT, historyFile(project, day));
+  mkdirSync(path.dirname(file), { recursive: true });
   if (!existsSync(file)) {
-    writeFileSync(file, `# Lịch sử tập ${day}: “${idiom}”\n\nGhi tự động bởi bot: mỗi lần sửa kịch bản và mỗi lần xuất video.\n`, "utf8");
+    writeFileSync(
+      file,
+      `# ${project.name} · lịch sử tập ${day}: “${title}”\n\nGhi tự động bởi bot: mỗi lần sửa kịch bản và mỗi lần xuất video.\n`,
+      "utf8",
+    );
   }
   return file;
 };
 
-/** Ghi một lần sửa kịch bản vào docs/lich-su/ngay-XX.md. */
-export const logScriptChange = (day, idiom, { request, summary, diff }) => {
-  const file = ensureHistory(day, idiom);
+/** Ghi một lần sửa kịch bản vào lịch sử của tập. */
+export const logScriptChange = (project, day, title, { request, summary, diff }) => {
+  const file = ensureHistory(project, day, title);
   const lines = diff.text.map((c) => {
     if (c.kind === "add") return `- \`${c.code}\` ${c.label} **(thêm)**: ${c.text}`;
     if (c.kind === "remove") return `- \`${c.code}\` ${c.label} **(bỏ)**: ~~${c.old}~~`;
@@ -73,20 +76,20 @@ export const logScriptChange = (day, idiom, { request, summary, diff }) => {
   );
 };
 
-/** Ghi một lần xuất video vào docs/lich-su/ngay-XX.md. */
-export const logRender = (day, idiom, { version, commit, seconds }) => {
-  const file = ensureHistory(day, idiom);
+/** Ghi một lần xuất video vào lịch sử của tập. */
+export const logRender = (project, day, title, { version, commit, seconds }) => {
+  const file = ensureHistory(project, day, title);
   appendFileSync(
     file,
     `\n## ${stamp()} · Xuất video v${version}\n\nKịch bản ở commit \`${commit}\`${seconds ? `, dài ${seconds} giây` : ""}. ` +
-      `File: \`out/versions/ngay-${pad2(day)}/v${version}/\`.\n`,
+      `File: \`${project.paths.versions}/ngay-${pad2(day)}/v${version}/\`.\n`,
     "utf8",
   );
 };
 
 /** Danh sách phiên bản video của một tập, cũ trước mới sau. */
-export const listVersions = (day) => {
-  const dir = path.join(VERSIONS, `ngay-${pad2(day)}`);
+export const listVersions = (project, day) => {
+  const dir = path.join(ROOT, project.paths.versions, `ngay-${pad2(day)}`);
   if (!existsSync(dir)) return [];
   return readdirSync(dir)
     .filter((n) => /^v\d+$/.test(n))
@@ -99,16 +102,23 @@ export const listVersions = (day) => {
 };
 
 /** Lưu video vừa xuất thành phiên bản mới (không bao giờ ghi đè bản cũ). */
-export const archiveVersion = (day, { video, cover, episode, commit, seconds, flagged }) => {
-  const version = (listVersions(day).at(-1)?.version ?? 0) + 1;
-  const dir = path.join(VERSIONS, `ngay-${pad2(day)}`, `v${version}`);
+export const archiveVersion = (project, day, { video, cover, episode, commit, seconds, flagged }) => {
+  const version = (listVersions(project, day).at(-1)?.version ?? 0) + 1;
+  const dir = path.join(ROOT, project.paths.versions, `ngay-${pad2(day)}`, `v${version}`);
   mkdirSync(dir, { recursive: true });
   copyFileSync(video, path.join(dir, "video.mp4"));
   if (existsSync(cover)) copyFileSync(cover, path.join(dir, "cover.png"));
-  const manifest = path.join(ROOT, "public", "voice", `ngay-${pad2(day)}`, "manifest.json");
+  const manifest = path.join(ROOT, project.paths.voiceDir(day), "manifest.json");
   if (existsSync(manifest)) copyFileSync(manifest, path.join(dir, "voice-manifest.json"));
   writeFileSync(path.join(dir, "kich-ban.json"), JSON.stringify(episode, null, 2), "utf8");
-  const info = { createdAt: new Date().toISOString(), time: stamp(), commit, seconds, flagged: flagged?.length ?? 0, idiom: episode.idiom };
+  const info = {
+    createdAt: new Date().toISOString(),
+    time: stamp(),
+    commit,
+    seconds,
+    flagged: flagged?.length ?? 0,
+    title: project.headline(episode),
+  };
   writeFileSync(path.join(dir, "info.json"), JSON.stringify(info, null, 2), "utf8");
   return { version, dir, ...info };
 };

@@ -1,0 +1,26 @@
+{
+  "id": "noi-vay",
+  "name": "Nói Vậy Mà Không Phải Vậy",
+  "short": "nv",
+  "emoji": "🧓",
+  "totalDays": 30,
+  "weeks": { "1": [1, 7], "2": [8, 14], "3": [15, 21], "4": [22, 30] },
+  "composition": "Ngay-{dd}",
+  "cover": "Bia-{dd}",
+  "source": "src/episodes/tuan-{week}.ts",
+  "schedule": { "notifyTime": "20:30", "startDate": null },
+  "publish": {
+    "seriesName": "Nói Vậy Mà Không Phải Vậy",
+    "postTime": "11:45",
+    "hashtags": ["thanhngu", "tucngu", "tiengviet", "hoctiengviet", "noivaymakhongphaivay"],
+    "themeHashtags": {
+      "Ăn uống": ["amthuc"],
+      "Con vật": ["convat"],
+      "Học hành, tiền bạc": ["hocsinh"],
+      "Cư xử, gia đình": ["giadinh"]
+    },
+    "maxHashtagsYoutube": 6,
+    "maxHashtagsTiktok": 6,
+    "aiNote": "Video có giọng đọc và hình ảnh được tạo với sự hỗ trợ của AI."
+  }
+}

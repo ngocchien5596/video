@@ -1,6 +1,7 @@
 """Sinh file tiếng cho từng câu thoại bằng OmniVoice (nhân bản từ voices/cu-do.wav, voices/thang-chau.wav).
 
-Gọi qua `npm run voice -- <ngày>`; không chạy trực tiếp.
+Gọi qua `npm run voice -- [-p <dự án>] <ngày>`; không chạy trực tiếp.
+Mỗi việc trong file jobs có "dir": thư mục tiếng của tập, tương đối với gốc repo (public/voice/<dự án>/ngay-XX).
 """
 from __future__ import annotations
 
@@ -53,7 +54,7 @@ def main() -> None:
     # Lập danh sách việc cần làm trước, để không phải nạp model nếu mọi câu đã có tiếng.
     plan = []
     for job in jobs:
-        day_dir = PUBLIC / "voice" / f'ngay-{job["day"]:02d}'
+        day_dir = ROOT / job["dir"]
         manifest_path = day_dir / "manifest.json"
         old = {}
         if manifest_path.exists() and not args.force:

@@ -19,21 +19,21 @@ const read = (...p) => {
   }
 };
 
-/** Phần khai báo EpisodeSpec trong make.ts: các trường được phép trong makeEpisode. */
-const specDoc = () => {
-  const src = read("src", "episodes", "make.ts");
+/** Phần khai báo EpisodeSpec trong make.ts của dự án: các trường được phép trong makeEpisode. */
+const specDoc = (project) => {
+  const src = read(project.rel, project.ai.spec);
   const start = src.indexOf("type Part");
   const end = src.indexOf("export const makeEpisode");
   return start >= 0 && end > start ? src.slice(start, end).trim() : src;
 };
 
-const buildPrompt = ({ day, block, example, history, errors }) => {
+const buildPrompt = ({ project, day, block, example, history, errors }) => {
   const talk = history.map((h) => `${h.role === "user" ? "ĐẠO DIỄN" : "BẠN"}: ${h.text}`).join("\n");
   const fix = errors?.length
     ? `\n--- LẦN TRƯỚC BẠN TRẢ VỀ KHỐI MÃ BỊ LỖI, HÃY SỬA ---\n${errors.join("\n")}\n`
     : "";
 
-  return `Bạn là biên kịch kiêm đạo diễn hoạt hình của series video ngắn hài "Nói Vậy Mà Không Phải Vậy".
+  return `${project.ai.role}
 Kịch bản mỗi tập là một khối mã TypeScript makeEpisode({...}). Đạo diễn nhắn yêu cầu sửa tập ${day}.
 
 NHIỆM VỤ: viết lại khối makeEpisode của tập ${day} theo yêu cầu, và SỬA LUÔN mọi phần liên quan:
@@ -42,17 +42,15 @@ NHIỆM VỤ: viết lại khối makeEpisode của tập ${day} theo yêu cầu
   · "line" là chỉ số câu trong nhịp, đếm từ 0. Thêm/xoá câu thì đánh lại "line" cho đúng.
   · "at" (0..1) là vị trí trong câu; đặt theo vị trí từ khoá trong câu mới (tính theo số từ).
   · Hành động, nét mặt, đạo cụ, hiệu ứng phải minh hoạ đúng câu đang được nói.
-  · Chỉ dùng đúng các giá trị có trong STAGE TYPES bên dưới (Expr, ArmPose, Move, PropId, SceneId, FxKind, Camera).
+  · Chỉ dùng đúng các giá trị có trong STAGE TYPES bên dưới (Expr, ArmPose, Move, PropId, SceneId, FxKind, Camera).${project.ai.stageNote ? `
+  · ${project.ai.stageNote}` : ""}
     Không có đạo cụ phù hợp thì chọn thứ gần nhất và nói rõ trong tóm tắt.
 - Tập chưa có phần diễn thì KHÔNG tự thêm, trừ khi đạo diễn yêu cầu viết phần diễn.
-- Nghĩa thật (meaning), câu hỏi (question) chỉ đổi khi được yêu cầu hoặc khi thoại đổi làm chúng sai.
 
 QUY TẮC:
 - Chỉ sửa những gì cần cho yêu cầu. Giữ nguyên phần còn lại từng ký tự (kể cả chú thích).
-- Không đổi day, week, theme. Giữ đủ các trường hook, ask, misread, explain, example, punchline.
-- Nhịp 2 (ĐẶT CÂU) tự sinh từ "ask" và "idiom"; nhịp 4 (LẬT NGHĨA) tự sinh từ câu cửa miệng + "explain".
+${project.ai.rules.map((r) => `- ${r}`).join("\n")}
 - Thoại để giọng AI ĐỌC: số viết bằng chữ, không viết tắt, không emoji, câu dài có dấu phẩy.
-- Giữ giọng nhân vật (xem quy tắc series). Cả tập phải dưới 60 giây khi đọc.
 - Yêu cầu mơ hồ, không chắc sửa chỗ nào: KHÔNG đoán, hỏi lại.
 
 ĐỊNH DẠNG TRẢ LỜI (bắt buộc, không thêm gì khác):
@@ -71,13 +69,13 @@ makeEpisode({
 >>>
 ${fix}
 --- QUY TẮC SERIES ---
-${read("docs", "series-bible.md")}
+${read(project.rel, project.ai.bible)}
 
---- CÁC TRƯỜNG CỦA makeEpisode (src/episodes/make.ts) ---
-${specDoc()}
+--- CÁC TRƯỜNG CỦA makeEpisode (${project.rel}/${project.ai.spec}) ---
+${specDoc(project)}
 
---- STAGE TYPES (src/lib/stage-types.ts) ---
-${read("src", "lib", "stage-types.ts")}
+--- STAGE TYPES (engine/lib/stage-types.ts) ---
+${read("engine", "lib", "stage-types.ts")}${(project.ai.extraDocs ?? []).map((p) => `\n--- ${p} ---\n${read(project.rel, p)}`).join("")}
 ${example ? `\n--- VÍ DỤ MỘT TẬP CÓ PHẦN DIỄN ĐẦY ĐỦ (tham khảo cách viết) ---\n${example}\n` : ""}
 --- KHỐI MÃ HIỆN TẠI CỦA TẬP ${day} ---
 ${block}
@@ -130,7 +128,7 @@ const runClaude = (prompt) =>
 
 /**
  * Trả về { question } hoặc { block, summary }.
- * ctx: { day, block (khối hiện tại), example (khối mẫu có phần diễn, tuỳ chọn), history, errors }
+ * ctx: { project, day, block (khối hiện tại), example (khối mẫu có phần diễn, tuỳ chọn), history, errors }
  */
 export const askClaude = async (ctx) => {
   const text = await runClaude(buildPrompt(ctx));

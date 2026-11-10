@@ -9,8 +9,9 @@
     "node": ">=22.18.0"
   },
   "scripts": {
+    "lenh": "node tools/commands.mjs",
     "dev": "remotion studio",
-    "lint": "eslint src && tsc",
+    "lint": "eslint src engine projects && tsc",
     "render": "node tools/render.mjs",
     "cover": "node tools/render.mjs --cover",
     "srt": "node tools/export-srt.mjs",

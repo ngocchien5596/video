@@ -1,17 +1,19 @@
 /**
  * Đọc danh sách ngày từ tham số dòng lệnh.
  * Ví dụ: `1`, `1 3 5`, `1-7`, `tuan-2`, `all`.
+ * `project` cho biết số tập và các tuần (project.json → totalDays, weeks).
  */
-export const parseDays = (args) => {
+export const parseDays = (args, project) => {
+  const total = project?.totalDays ?? 30;
+  const weeks = project?.weeks ?? {};
   const days = new Set();
   for (const arg of args) {
     if (arg === "all") {
-      for (let d = 1; d <= 30; d++) days.add(d);
-    } else if (/^tuan-[1-4]$/.test(arg)) {
-      const w = Number(arg.slice(5));
-      const ranges = { 1: [1, 7], 2: [8, 14], 3: [15, 21], 4: [22, 30] };
-      const [a, b] = ranges[w];
-      for (let d = a; d <= b; d++) days.add(d);
+      for (let d = 1; d <= total; d++) days.add(d);
+    } else if (/^tuan-\d+$/.test(arg)) {
+      const range = weeks[arg.slice(5)];
+      if (!range) throw new Error(`Dự án không có ${arg}. Các tuần: ${Object.keys(weeks).join(", ") || "(không chia tuần)"}`);
+      for (let d = range[0]; d <= range[1]; d++) days.add(d);
     } else if (/^\d+-\d+$/.test(arg)) {
       const [a, b] = arg.split("-").map(Number);
       for (let d = a; d <= b; d++) days.add(d);
@@ -22,8 +24,8 @@ export const parseDays = (args) => {
     }
   }
   const list = [...days].sort((a, b) => a - b);
-  if (list.some((d) => d < 1 || d > 30)) throw new Error("Ngày phải từ 1 đến 30");
+  if (list.some((d) => d < 1 || d > total)) throw new Error(`Ngày phải từ 1 đến ${total}`);
   return list;
 };
 
-export const pad2 = (n) => String(n).padStart(2, "0");
+export { pad2 } from "./projects.mjs";

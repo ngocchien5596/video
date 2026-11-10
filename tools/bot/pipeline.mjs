@@ -1,4 +1,4 @@
-/** Tạo video cho một tập: lồng tiếng → kiểm tra tiếng → xuất mp4 → xuất ảnh bìa. */
+/** Tạo video cho một tập của một dự án: lồng tiếng → kiểm tra tiếng → xuất mp4 → xuất ảnh bìa. */
 import { spawn } from "node:child_process";
 import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
@@ -26,11 +26,12 @@ export const STEPS = ["Lồng tiếng", "Kiểm tra tiếng", "Xuất video", "X
  * Chạy cả quy trình. onStep(i) được gọi khi bắt đầu bước i.
  * Trả về { video, cover, seconds, flagged, log } hoặc ném lỗi kèm đoạn cuối log.
  */
-export const produce = async (day, onStep) => {
-  const logDir = path.join(ROOT, "out", "bot");
+export const produce = async (project, day, onStep) => {
+  const logDir = path.join(ROOT, project.paths.botLogs);
   mkdirSync(logDir, { recursive: true });
   const log = path.join(logDir, `ngay-${pad2(day)}.log`);
-  writeFileSync(log, `Tạo video ngày ${day} lúc ${new Date().toISOString()}\n`);
+  writeFileSync(log, `Tạo video ${project.id} ngày ${day} lúc ${new Date().toISOString()}\n`);
+  const p = `-p ${project.id}`;
 
   const fail = (step, res) => {
     const tail = res.out.split(/\r?\n/).filter(Boolean).slice(-8).join("\n");
@@ -40,12 +41,12 @@ export const produce = async (day, onStep) => {
   };
 
   await onStep(0);
-  const voice = await run(`npm run voice -- ${day}`, log);
+  const voice = await run(`npm run voice -- ${p} ${day}`, log);
   if (voice.code !== 0) fail(0, voice);
   const seconds = /Ngày \d+: ([\d.]+)s/.exec(voice.out)?.[1];
 
   await onStep(1);
-  const check = await run(`npm run voice:check -- ${day}`, log);
+  const check = await run(`npm run voice:check -- ${p} ${day}`, log);
   if (check.code !== 0) fail(1, check);
   // Các câu máy nghe không khớp: dòng "XEM" kèm dòng "viết:" / "nghe:" ngay sau.
   const flagged = [];
@@ -62,22 +63,22 @@ export const produce = async (day, onStep) => {
   });
 
   await onStep(2);
-  const render = await run(`npm run render -- ${day}`, log);
+  const render = await run(`npm run render -- ${p} ${day}`, log);
   if (render.code !== 0) fail(2, render);
 
   await onStep(3);
-  const cover = await run(`npm run cover -- ${day}`, log);
+  const cover = await run(`npm run cover -- ${p} ${day}`, log);
   if (cover.code !== 0) fail(3, cover);
 
-  const video = path.join(ROOT, "out", "video", `ngay-${pad2(day)}.mp4`);
-  const coverFile = path.join(ROOT, "out", "cover", `ngay-${pad2(day)}.png`);
+  const video = path.join(ROOT, project.paths.video(day));
+  const coverFile = path.join(ROOT, project.paths.cover(day));
   if (!existsSync(video)) throw new Error(`Không thấy file ${video}`);
   return { video, cover: coverFile, seconds: seconds ? Number(seconds) : null, flagged, log };
 };
 
-/** Cập nhật các cột của một tập trong tracker.csv, ví dụ { trang_thai: "da-dung" }. Giữ BOM và định dạng. */
-export const updateTracker = (day, fields) => {
-  const file = path.join(ROOT, "tracker.csv");
+/** Cập nhật các cột của một tập trong tracker.csv của dự án, ví dụ { trang_thai: "da-dung" }. Giữ BOM và định dạng. */
+export const updateTracker = (project, day, fields) => {
+  const file = path.join(ROOT, project.paths.tracker);
   if (!existsSync(file)) return;
   const raw = readFileSync(file, "utf8");
   const bom = raw.startsWith("﻿") ? "﻿" : "";
