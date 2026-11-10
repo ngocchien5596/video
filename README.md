@@ -4,7 +4,7 @@ Repo sản xuất các series video ngắn (TikTok / YouTube Shorts) dùng chung
 
 | Dự án | Mã ngắn | Nội dung |
 | --- | --- | --- |
-| [`projects/noi-vay`](projects/noi-vay) | `nv` | **Nói Vậy Mà Không Phải Vậy**: 30 câu thành ngữ, tục ngữ bị Thằng Cháu hiểu theo nghĩa đen |
+| [`projects/noi-vay`](projects/noi-vay) | `nv` | **Nói Vậy Mà Không Phải Vậy**: mỗi ngày một câu thành ngữ, tục ngữ bị Thằng Cháu hiểu theo nghĩa đen |
 | [`projects/vi-sao`](projects/vi-sao) | `vs` | **Ông Ơi, Vì Sao?**: câu hỏi "vì sao" của trẻ về thế giới, giải thích đúng khoa học, có nguồn kiểm chứng |
 
 Từ dữ liệu kịch bản, repo sinh ra video hoạt hình có lồng tiếng và phụ đề, ảnh bìa, phụ đề .srt, kịch bản in và gói đăng bài.

@@ -9,7 +9,6 @@ import { EpisodeVideo, type EpisodeProps } from "./Episode.tsx";
 import { EPISODES, nextTeaser } from "./episodes/index.ts";
 import { PlaylistCover } from "./PlaylistCover.tsx";
 
-const WEEKS = [1, 2, 3, 4] as const;
 const calculateMetadata = voicedMetadata<EpisodeProps>(PROJECT_ID);
 
 export const NoiVayCompositions: React.FC = () => (
@@ -18,7 +17,7 @@ export const NoiVayCompositions: React.FC = () => (
       <Still id="Playlist-Ngang" component={PlaylistCover} width={1280} height={720} />
       <Still id="Playlist-Vuong" component={PlaylistCover} width={1080} height={1080} />
     </Folder>
-    {WEEKS.map((week) => (
+    {[...new Set(EPISODES.map((e) => e.week))].map((week) => (
       <Folder key={week} name={`Tuan-${week}`}>
         {EPISODES.filter((e) => e.week === week).map((episode) => {
           const props: EpisodeProps = { episode, next: nextTeaser(episode.day), voice: null };

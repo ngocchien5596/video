@@ -29,7 +29,7 @@ export const Cover: React.FC<EpisodeProps> = ({ episode }) => (
         ...outline(20),
       }}
     >
-      CÂU {episode.day}
+      #{episode.day}
     </div>
     <div
       style={{
@@ -57,7 +57,7 @@ export const Cover: React.FC<EpisodeProps> = ({ episode }) => (
         ...outline(10),
       }}
     >
-      Giải thích dễ hiểu cho bé {episode.ages}
+      Giải thích dễ hiểu cho bé
     </div>
   </AbsoluteFill>
 );

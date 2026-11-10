@@ -5,7 +5,7 @@ import { COLORS, outline, SAFE, SPEAKERS, TEXT_FONT, TITLE_FONT } from "./brand.
 
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 
-/** Nhãn series (ví dụ "TÊN SERIES · NGÀY 1/30") và tiêu đề tập ghim ở đầu khung hình. */
+/** Nhãn series (ví dụ "TÊN SERIES · #1") và tiêu đề tập ghim ở đầu khung hình. */
 export const TopBar: React.FC<{ label: string; title: string; showTitle: boolean }> = ({ label, title, showTitle }) => (
   <div
     style={{
@@ -168,7 +168,7 @@ export const SafeZones: React.FC = () => {
   );
 };
 
-/** Thẻ tiêu đề: dòng nhỏ (ví dụ "NGÀY 1/30") + tiêu đề trong khung vàng. */
+/** Thẻ tiêu đề: dòng nhỏ (ví dụ "#1") + tiêu đề trong khung vàng. */
 export const TitleCard: React.FC<{ kicker: string; title: string; startFrame: number; endFrame: number }> = ({
   kicker,
   title,

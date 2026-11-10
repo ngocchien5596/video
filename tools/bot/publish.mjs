@@ -3,7 +3,7 @@
  * Nội dung gói (tiêu đề, mô tả, caption, hashtag, bình luận ghim) do từng dự án sinh
  * trong projects/<dự án>/publish.mjs → buildPublishKit().
  *
- * Kit: { day, total, title, when, ytTitle, ytDescription, tiktokCaption, pinned, checklist: string[] }
+ * Kit: { day, title, when, ytTitle, ytDescription, tiktokCaption, pinned, checklist: string[] }
  */
 import { writeFileSync } from "node:fs";
 import path from "node:path";
@@ -43,7 +43,7 @@ export const BASE_CHECKLIST = [
 
 /** Tin nhắn Telegram (HTML): mỗi phần trong một khối <pre> để bấm là sao chép. */
 export const formatPublishKit = (kit, projectName = "") =>
-  `📣 <b>${projectName ? `${esc(projectName)} · ` : ""}Đăng bài ngày ${kit.day}/${kit.total} · “${esc(kit.title)}”</b>${kit.when ? `\n🕖 Đăng ${esc(kit.when)}` : ""}
+  `📣 <b>${projectName ? `${esc(projectName)} · ` : ""}Đăng bài tập #${kit.day} · “${esc(kit.title)}”</b>${kit.when ? `\n🕖 Đăng ${esc(kit.when)}` : ""}
 
 <b>YouTube Shorts: tiêu đề</b>
 <pre>${esc(kit.ytTitle)}</pre>
@@ -58,7 +58,7 @@ ${kit.checklist.map((c) => `☐ ${esc(c)}`).join("\n")}`;
 /** Bản chữ thường, lưu cạnh video trong out/<dự án>/versions/ngay-XX/vN/dang-bai.txt. */
 export const savePublishKit = (dir, kit) => {
   const text = [
-    `ĐĂNG BÀI NGÀY ${kit.day}/${kit.total} · “${kit.title}”${kit.when ? ` · đăng ${kit.when}` : ""}`,
+    `ĐĂNG BÀI TẬP #${kit.day} · “${kit.title}”${kit.when ? ` · đăng ${kit.when}` : ""}`,
     "",
     "== YouTube Shorts: tiêu đề ==",
     kit.ytTitle,

@@ -58,9 +58,9 @@ export const makeEpisode = (spec: EpisodeSpec): NoiVayEpisode => {
     {
       kind: "title",
       seconds: 3,
-      // Đủ thời gian cho thẻ "NGÀY X/30" chạy hiệu ứng.
+      // Đủ thời gian cho thẻ "#X" chạy hiệu ứng.
       minSeconds: 3,
-      shot: `Cụ Đồ hỏi, thẻ tiêu đề "NGÀY ${spec.day}/30" hiện lên, âm "ding"`,
+      shot: `Cụ Đồ hỏi, thẻ tiêu đề "#${spec.day}" hiện lên, âm "ding"`,
       lines: [cd(spec.ask), tc(`${spec.idiom} ạ!`)],
       stage: spec.titleStage,
     },

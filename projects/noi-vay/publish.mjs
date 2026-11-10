@@ -31,7 +31,7 @@ const PINS = [
 ];
 
 /** cfg = project.publish, startDate = ngày đăng tập 1 (YYYY-MM-DD) hoặc null. */
-export const buildPublishKit = (episode, next, { cfg, startDate = null, total = 30 }) => {
+export const buildPublishKit = (episode, next, { cfg, startDate = null }) => {
   const day = episode.day;
   const allTags = (max) => tags([slug(episode.idiom), ...cfg.hashtags, ...(cfg.themeHashtags?.[episode.theme] ?? [])], max);
 
@@ -42,23 +42,25 @@ export const buildPublishKit = (episode, next, { cfg, startDate = null, total = 
     episode.question,
     `Nghĩa thật: ${episode.meaning}`,
     "",
-    `Ngày ${day}/${total} của series “${cfg.seriesName}”: mỗi ngày một câu thành ngữ, tục ngữ bị hiểu sai theo nghĩa đen.`,
-    next ? `Mai là câu: “${next}”, đoán trước nghĩa trong bình luận nhé!` : `Đây là tập cuối của series, cảm ơn bạn đã xem hết ${total} ngày!`,
+    `Tập ${day} của series “${cfg.seriesName}”: mỗi ngày một câu thành ngữ, tục ngữ bị hiểu sai theo nghĩa đen.`,
+    next ? `Mai là câu: “${next}”, đoán trước nghĩa trong bình luận nhé!` : "",
     "",
     cfg.aiNote,
     "",
     allTags(cfg.maxHashtagsYoutube).join(" "),
-  ].join("\n");
+  ]
+    // Bỏ dòng trống liền nhau (khi chưa có câu ngày mai).
+    .filter((l, i, all) => !(l === "" && all[i - 1] === ""))
+    .join("\n");
 
   const tiktokCaption = [
     `${pick(TIKTOK_OPENERS, day)(episode)} ${episode.question}`,
-    `Ngày ${day}/${total}${next ? ` · Mai: “${next}”` : " · Tập cuối"}`,
+    `Tập ${day}${next ? ` · Mai: “${next}”` : ""}`,
     allTags(cfg.maxHashtagsTiktok).join(" "),
   ].join("\n");
 
   return {
     day,
-    total,
     title: episode.idiom,
     when: postWhen(startDate, day, cfg.postTime),
     ytTitle,

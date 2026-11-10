@@ -2,11 +2,12 @@
 import { spawnSync } from "node:child_process";
 import { existsSync } from "node:fs";
 import { parseDays } from "../days.mjs";
-import { loadProject, takeProjectArg } from "../projects.mjs";
+import { loadEpisodes, loadProject, takeProjectArg } from "../projects.mjs";
 
 const { id, rest } = takeProjectArg(process.argv.slice(2));
 const project = await loadProject(id);
-const manifests = parseDays(rest, project)
+const { EPISODES } = await loadEpisodes(project);
+const manifests = parseDays(rest, EPISODES)
   .map((d) => `${project.paths.voiceDir(d)}/manifest.json`)
   .filter((m) => existsSync(m));
 if (manifests.length === 0) {

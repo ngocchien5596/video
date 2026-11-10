@@ -22,7 +22,7 @@ const PINS = [
   (e, next) => `Bố mẹ lưu lại để kể cho bé nhé! ${e.question}${next ? `\nCâu tiếp: ${next}` : ""}`,
 ];
 
-export const buildPublishKit = (episode, next, { cfg, startDate = null, total = 30 }) => {
+export const buildPublishKit = (episode, next, { cfg, startDate = null }) => {
   const day = episode.day;
   const allTags = (max) => tags([...cfg.hashtags.slice(0, 1), slug(episode.ask), ...cfg.hashtags.slice(1), ...(cfg.themeHashtags?.[episode.theme] ?? [])], max);
 
@@ -56,7 +56,6 @@ export const buildPublishKit = (episode, next, { cfg, startDate = null, total = 
 
   return {
     day,
-    total,
     title: episode.ask,
     when: postWhen(startDate, day, cfg.postTime),
     ytTitle,

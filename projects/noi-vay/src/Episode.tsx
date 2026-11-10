@@ -17,12 +17,12 @@ export type EpisodeProps = {
 
 /** Bố cục 6 nhịp của series: hook → đặt câu → hiểu sai → lật nghĩa → ví dụ → punchline. */
 const layoutFor = (episode: NoiVayEpisode, next: string | null): EpisodeLayout => ({
-  topBar: { label: `${SERIES_NAME} · NGÀY ${episode.day}/30`, title: `“${episode.idiom}”`, showTitleAfter: "title" },
+  topBar: { label: `${SERIES_NAME} · #${episode.day}`, title: `“${episode.idiom}”`, showTitleAfter: "title" },
   hook: { beat: "hook", kicker: "BẠN HIỂU ĐÚNG CÂU NÀY CHƯA?", title: `“${episode.idiom}”` },
   cards: [
     {
       beat: "title",
-      render: (f) => <TitleCard kicker={`NGÀY ${episode.day}/30`} title={episode.idiom} {...f} />,
+      render: (f) => <TitleCard kicker={`#${episode.day}`} title={episode.idiom} {...f} />,
     },
     {
       beat: "flip",

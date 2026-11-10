@@ -23,7 +23,7 @@ const { id, rest } = takeProjectArg(process.argv.slice(2));
 const project = await loadProject(id);
 const { EPISODES } = await loadEpisodes(project);
 const args = rest.filter((a) => !a.startsWith("--"));
-const days = parseDays(args.length ? args : ["all"], project);
+const days = parseDays(args.length ? args : ["all"], EPISODES);
 const withNames = !rest.includes("--no-names");
 
 for (const day of days) {

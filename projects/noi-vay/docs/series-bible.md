@@ -10,7 +10,7 @@ Mỗi ngày một video 45–60 giây. Thằng Cháu hiểu sai câu thành ng�
 | Khung hình | 9:16, 1080×1920, 30fps, phụ đề cháy chữ |
 | Độ dài | Dưới 60 giây |
 | Lịch đăng | Mỗi ngày lúc 11:30 hoặc 20:00, giữ cố định một khung giờ cả tháng |
-| Ảnh bìa | "NGÀY X/30" + câu thành ngữ |
+| Ảnh bìa | "#X" + câu thành ngữ |
 
 ## Nhân vật
 
@@ -24,7 +24,7 @@ Một người có thể đóng cả hai vai, quay hết cảnh của CĐ trư�
 | Giây | Nhịp | Nội dung |
 | --- | --- | --- |
 | 0–3 | Hook | TC làm việc vô lý hoặc nói câu gây sốc. Không chào hỏi, không logo |
-| 3–6 | Đặt câu | CĐ hỏi, TC đáp bằng chính câu thành ngữ. Thẻ "NGÀY X/30" hiện lên |
+| 3–6 | Đặt câu | CĐ hỏi, TC đáp bằng chính câu thành ngữ. Thẻ "#X" hiện lên |
 | 6–25 | Hiểu sai | Diễn nghĩa đen, leo thang 2–3 bước, cắt cảnh mỗi 2–3 giây |
 | 25–40 | Lật nghĩa | Câu cửa miệng của CĐ, thẻ "NGHĨA THẬT" hiện lên |
 | 40–52 | Ví dụ | Tình huống hiện đại: công sở, học đường, mạng xã hội |

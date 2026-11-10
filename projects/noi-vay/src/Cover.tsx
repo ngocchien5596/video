@@ -29,7 +29,7 @@ export const Cover: React.FC<EpisodeProps> = ({ episode }) => (
         ...outline(22),
       }}
     >
-      NGÀY {episode.day}/30
+      #{episode.day}
     </div>
     <div
       style={{

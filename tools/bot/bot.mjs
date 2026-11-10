@@ -138,7 +138,6 @@ const publishKit = (project, episode, next) =>
   project.buildPublishKit(episode, next, {
     cfg: { ...project.publish, postTime: postTime(project) },
     startDate: startDate(project),
-    total: project.totalDays,
   });
 
 const runQueue = async () => {
@@ -180,7 +179,7 @@ const runQueue = async () => {
       await tg.sendVideo(
         chatId(),
         result.video,
-        `<b>${esc(project.name)} · ngày ${day}/${project.totalDays} · “${esc(title)}” · v${saved.version}</b>${result.seconds ? ` · ${result.seconds}s` : ""}\nKịch bản: commit <code>${commit}</code>`,
+        `<b>${esc(project.name)} · #${day} · “${esc(title)}” · v${saved.version}</b>${result.seconds ? ` · ${result.seconds}s` : ""}\nKịch bản: commit <code>${commit}</code>`,
       );
       const sendSec = Math.round((Date.now() - sendStart) / 1000);
       await tg.edit(chatId(), status.message_id, `${done}\n📤 Đã gửi video (${sizeMb}MB, ${sendSec} giây).`);
@@ -242,14 +241,16 @@ const applyButtons = (project, day) => [
 /** Khối mẫu có phần diễn đầy đủ để Claude tham khảo cách viết: ưu tiên cùng dự án. */
 const stageExample = (project, exceptDay) => {
   for (const p of [project, ...PROJECTS.filter((x) => x !== project)]) {
-    for (let d = 1; d <= p.totalDays; d++) {
+    // Các tập được đánh số liên tục từ 1: gặp tập chưa có là dừng.
+    for (let d = 1; ; d++) {
       if (p === project && d === exceptDay) continue;
+      let episode;
       try {
-        const { episode } = loadEpisode(p, d);
-        if (episode.beats.some((b) => b.stage?.length)) return readBlock(p, episode.week, d).block;
+        episode = loadEpisode(p, d).episode;
       } catch {
-        /* tập chưa có */
+        break;
       }
+      if (episode.beats.some((b) => b.stage?.length)) return readBlock(p, episode.week, d).block;
     }
   }
   return null;
@@ -413,7 +414,7 @@ const pickProject = (args) => {
 
 const dayArg = (project, arg) => {
   const day = Number(arg);
-  return day >= 1 && day <= project.totalDays ? day : null;
+  return Number.isInteger(day) && day >= 1 ? day : null;
 };
 
 const handleCommand = async (text) => {
@@ -445,7 +446,7 @@ const handleCommand = async (text) => {
       ps(project).startDate = arg;
       save();
       await send(
-        `📅 ${tag(project)}: tập 1 đăng ngày <b>${arg}</b>, tập ${project.totalDays} đăng ngày <b>${addDays(arg, project.totalDays - 1)}</b>.\n` +
+        `📅 ${tag(project)}: tập #1 đăng ngày <b>${arg}</b>, mỗi ngày một tập (tập #10 đăng ngày <b>${addDays(arg, 9)}</b>).\n` +
           (scheduled(project)
             ? `Bot gửi kịch bản để duyệt lúc <b>${notifyTime(project)}</b> hôm trước, nhắc đăng lúc <b>${postTime(project)}</b> hôm đăng.`
             : `Lịch tự gửi của dự án này đang tắt (project.json → schedule.enabled).`),
@@ -466,14 +467,14 @@ const handleCommand = async (text) => {
     }
     case "/tap": {
       const day = dayArg(project, arg);
-      if (!day) return send(`Cách dùng: <code>/tap ${project.short} 5</code> (1 đến ${project.totalDays}).`);
+      if (!day) return send(`Cách dùng: <code>/tap ${project.short} 5</code>`);
       return sendReview(project, day, `📄 Kịch bản tập ${day}`);
     }
     case "/trangthai": {
       const now = nowIn(config.timezone);
       const blocks = PROJECTS.map((p) => {
         const sd = startDate(p);
-        const tomorrow = dayForDate(sd, addDays(now.date, 1), p.totalDays);
+        const tomorrow = dayForDate(sd, addDays(now.date, 1));
         const done = Object.entries(ps(p).days)
           .filter(([, v]) => v.status === "done")
           .map(([d]) => d)
@@ -588,7 +589,7 @@ const handleCallback = async (q) => {
       return tg.sendVideo(
         chatId(),
         v.video,
-        `<b>${esc(project.name)} · ngày ${day}/${project.totalDays} · v${version}</b> · ${esc(v.time ?? "")} · commit <code>${esc(v.commit ?? "?")}</code>`,
+        `<b>${esc(project.name)} · #${day} · v${version}</b> · ${esc(v.time ?? "")} · commit <code>${esc(v.commit ?? "?")}</code>`,
       );
     }
     case "cancel":
@@ -686,8 +687,8 @@ async function tick() {
       continue;
     }
 
-    const today = dayForDate(sd, now.date, project.totalDays);
-    const tomorrow = dayForDate(sd, addDays(now.date, 1), project.totalDays);
+    const today = dayForDate(sd, now.date);
+    const tomorrow = dayForDate(sd, addDays(now.date, 1));
     // Gửi bù: hôm nay đến lượt đăng mà tập đó chưa từng được gửi duyệt (ví dụ máy tắt tối qua).
     if (today && !pst.notified[today]) await tryReview(project, today, `⚠️ <b>Hôm nay đăng tập ${today}</b> mà chưa duyệt:`);
     // Giờ đăng: nhắc đăng tập hôm nay (mỗi tập một lần).

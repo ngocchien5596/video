@@ -50,7 +50,7 @@ export const slots = (project, episode) => {
 /** Kịch bản dạng tin nhắn Telegram (HTML). Trả về mảng vì tin nhắn tối đa 4096 ký tự. */
 export const formatScript = (project, episode, next, header = "") => {
   const parts = [];
-  let msg = `${header}${project.emoji} <b>${esc(project.name)}</b>\n<b>NGÀY ${episode.day}/${project.totalDays} · “${esc(project.headline(episode))}”</b>\n`;
+  let msg = `${header}${project.emoji} <b>${esc(project.name)}</b>\n<b>#${episode.day} · “${esc(project.headline(episode))}”</b>\n`;
   for (const f of project.fields(episode)) msg += `<b>${esc(f.label)}</b> <code>${f.code}</code>: ${esc(f.text)}\n`;
   for (const line of project.extraInfo(episode)) msg += `${line}\n`;
   if (next) msg += `<b>${esc(project.teaserLabel)}:</b> ${esc(next)}\n`;

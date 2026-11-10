@@ -3,8 +3,6 @@
   "name": "Nói Vậy Mà Không Phải Vậy",
   "short": "nv",
   "emoji": "🧓",
-  "totalDays": 30,
-  "weeks": { "1": [1, 7], "2": [8, 14], "3": [15, 21], "4": [22, 30] },
   "composition": "Ngay-{dd}",
   "cover": "Bia-{dd}",
   "source": "src/episodes/tuan-{week}.ts",

@@ -107,7 +107,7 @@ const Title: React.FC<{ size: number }> = ({ size }) => (
 
 const Tagline: React.FC<{ size: number }> = ({ size }) => (
   <div style={{ fontFamily: TEXT_FONT, fontWeight: 900, fontSize: size, color: COLORS.white, lineHeight: 1.25, ...outline(size / 6) }}>
-    30 ngày · 30 câu thành ngữ
+    Mỗi ngày một câu thành ngữ
     <br />
     bị hiểu theo nghĩa đen
   </div>

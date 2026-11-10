@@ -15,7 +15,7 @@ const { id, rest } = takeProjectArg(process.argv.slice(2));
 const project = await loadProject(id);
 const cover = rest.includes("--cover");
 const { EPISODES } = await loadEpisodes(project);
-const days = parseDays(rest.filter((a) => a !== "--cover"), project).filter((d) => EPISODES.some((e) => e.day === d));
+const days = parseDays(rest.filter((a) => a !== "--cover"), EPISODES).filter((d) => EPISODES.some((e) => e.day === d));
 if (days.length === 0) {
   console.error("Thiếu ngày (hoặc tập chưa có). Ví dụ: npm run render -- 1   hoặc   npm run render -- -p vi-sao 1");
   process.exit(1);

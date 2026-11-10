@@ -21,7 +21,7 @@ Cột `trang_thai` trong `tracker.csv` dùng các giá trị: `chua-quay` → `d
 - [ ] Phụ đề không sai chính tả, không bị nút hoặc caption của ứng dụng che
 - [ ] Thoại to hơn nhạc nền rõ rệt (nghe thử bằng loa điện thoại)
 - [ ] Độ dài dưới 60 giây
-- [ ] Ảnh bìa có "NGÀY X/30" và câu thành ngữ
+- [ ] Ảnh bìa có "#X" và câu thành ngữ
 - [ ] Câu hỏi bình luận đã viết sẵn để ghim
 - [ ] Không chê vùng miền, ngoại hình, nghề nghiệp cụ thể của ai
 
@@ -32,7 +32,7 @@ Cột `trang_thai` trong `tracker.csv` dùng các giá trị: `chua-quay` → `d
 Mẫu caption:
 
 ```
-Ngày 1/30: "Ăn quả nhớ kẻ trồng cây" mà hiểu thế này thì ông bà khóc òa 😂
+Tập 1: "Ăn quả nhớ kẻ trồng cây" mà hiểu thế này thì ông bà khóc òa 😂
 Bạn muốn nhớ ơn ai nhất? Comment đi!
 #thanhngu #tucngu #tiengviet #hocvui #noivaymakhongphaivay #xuhuong
 ```

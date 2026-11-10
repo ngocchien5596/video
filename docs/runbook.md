@@ -133,7 +133,7 @@ Mở tập trong thư mục `Tuan-X` và xem hết từ đầu đến cuối, c�
 
 - [ ] Giọng đúng vai, không vấp, không nuốt chữ
 - [ ] Phụ đề hiện đúng lúc nhân vật nói
-- [ ] Thẻ "NGÀY X/30", "NGHĨA THẬT" và thẻ cuối không che phụ đề
+- [ ] Thẻ "#X", "NGHĨA THẬT" và thẻ cuối không che phụ đề
 - [ ] Tiếng "ding", record scratch, whoosh không át lời thoại
 - [ ] Không có chữ hay hành động quan trọng nằm trong vùng bị nút TikTok / Shorts che: ở bảng Props bên phải, đặt `"safeZones": true` để tô đỏ các vùng đó (chỉ hiện khi xem, video xuất ra không có)
 - [ ] Lệnh `npm run voice` không báo "trên 40 giây". Nếu có, nên cắt bớt thoại (qua bot: Sửa thoại, nhắn "rút gọn còn dưới 40 giây")
@@ -251,4 +251,4 @@ Sửa `speed` trong `SPEAKERS` ở `tools/voice/make_voice.py`. Hiện tại C�
 | Bot báo "Lỗi khi nhờ Claude hiểu yêu cầu" | Không tìm thấy lệnh `claude`, hoặc Claude Code chưa đăng nhập | Mở terminal gõ `claude` để đăng nhập. Nếu Task Scheduler không tìm thấy thì đặt `CLAUDE_BIN` trong `.env`. Trong lúc chờ, vẫn sửa được bằng cách nhắn `6.2: ...` |
 | Bot báo "Không tìm thấy nội dung của ..." khi áp dụng | Kịch bản trong repo vừa bị sửa tay, khác với bản bot đang hiện | Gõ `/tap <mã dự án> N` để tải lại kịch bản rồi sửa lại |
 | Bot báo "⛔ chưa xuất được: Cần ít nhất 2 nguồn" | Tập "Vì sao" thiếu nguồn kiểm chứng | Bấm Sửa thoại, nhắn thêm nguồn (tên trang + link), hoặc thêm vào `sources` trong kịch bản |
-| Máy mới không có tiếng | `public/voice/` không có trong git | Chạy `npm run voice -- all` và `npm run voice -- -p vs all` (khoảng 2 tiếng mỗi dự án 30 tập) |
+| Máy mới không có tiếng | `public/voice/` không có trong git | Chạy `npm run voice -- all` và `npm run voice -- -p vs all` (khoảng 4 phút mỗi tập) |

@@ -111,10 +111,10 @@ export const addDays = (date, n) => {
   return d.toISOString().slice(0, 10);
 };
 
-/** Tập số mấy được đăng vào ngày `date`, null nếu ngoài 1..total hoặc chưa đặt ngày bắt đầu. */
-export const dayForDate = (startDate, date, total = 30) => {
+/** Tập số mấy được đăng vào ngày `date` (không giới hạn số tập), null nếu trước tập 1 hoặc chưa đặt ngày bắt đầu. */
+export const dayForDate = (startDate, date) => {
   if (!startDate) return null;
   const diff = Math.round((new Date(`${date}T00:00:00Z`) - new Date(`${startDate}T00:00:00Z`)) / 86400000);
   const day = diff + 1;
-  return day >= 1 && day <= total ? day : null;
+  return day >= 1 ? day : null;
 };
