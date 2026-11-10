@@ -63,7 +63,7 @@ export const produce = async (project, day, onStep) => {
   });
 
   await onStep(2);
-  const render = await run(`npm run render -- ${p} ${day}`, log);
+  const render = await run(`npm run render -- ${p} ${day} --no-archive`, log);
   if (render.code !== 0) fail(2, render);
 
   await onStep(3);

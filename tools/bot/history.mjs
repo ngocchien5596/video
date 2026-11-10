@@ -52,7 +52,7 @@ const ensureHistory = (project, day, title) => {
   if (!existsSync(file)) {
     writeFileSync(
       file,
-      `# ${project.name} · lịch sử tập ${day}: “${title}”\n\nGhi tự động bởi bot: mỗi lần sửa kịch bản và mỗi lần xuất video.\n`,
+      `# ${project.name} · lịch sử tập ${day}: “${title}”\n\nGhi tự động (bot hoặc lệnh npm run render): mỗi lần sửa kịch bản và mỗi lần xuất video.\n`,
       "utf8",
     );
   }
@@ -87,6 +87,33 @@ export const logRender = (project, day, title, { version, commit, seconds }) => 
   );
 };
 
+/**
+ * Tên file theo nội dung tập, không dấu, nối bằng gạch dưới:
+ * "Vì sao bầu trời màu xanh?" → "vi_sao_bau_troi_mau_xanh".
+ */
+export const fileSlug = (text) =>
+  text
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/đ/g, "d")
+    .replace(/Đ/g, "D")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "")
+    .slice(0, 80) || "video";
+
+/** Tên file video và ảnh bìa của một tập trong thư mục phiên bản: cùng tên, khác đuôi. */
+export const versionFileNames = (project, episode) => {
+  const slug = fileSlug(project.headline(episode));
+  return { video: `${slug}.mp4`, cover: `${slug}.png` };
+};
+
+/** File đầu tiên có đuôi `ext` trong thư mục (phiên bản cũ đặt tên video.mp4 / cover.png). */
+const findFile = (dir, ext, fallback) => {
+  const hit = readdirSync(dir).find((f) => f.toLowerCase().endsWith(ext));
+  return path.join(dir, hit ?? fallback);
+};
+
 /** Danh sách phiên bản video của một tập, cũ trước mới sau. */
 export const listVersions = (project, day) => {
   const dir = path.join(ROOT, project.paths.versions, `ngay-${pad2(day)}`);
@@ -96,18 +123,30 @@ export const listVersions = (project, day) => {
     .map((n) => {
       const vdir = path.join(dir, n);
       const info = existsSync(path.join(vdir, "info.json")) ? JSON.parse(readFileSync(path.join(vdir, "info.json"), "utf8")) : {};
-      return { version: Number(n.slice(1)), dir: vdir, video: path.join(vdir, "video.mp4"), cover: path.join(vdir, "cover.png"), ...info };
+      return {
+        version: Number(n.slice(1)),
+        dir: vdir,
+        video: findFile(vdir, ".mp4", "video.mp4"),
+        cover: findFile(vdir, ".png", "cover.png"),
+        ...info,
+      };
     })
     .sort((a, b) => a.version - b.version);
 };
 
-/** Lưu video vừa xuất thành phiên bản mới (không bao giờ ghi đè bản cũ). */
+/**
+ * Lưu video vừa xuất thành phiên bản mới (không bao giờ ghi đè bản cũ).
+ * Video và ảnh bìa đặt tên theo nội dung tập (không dấu), ví dụ vi_sao_bau_troi_mau_xanh.mp4 / .png.
+ */
 export const archiveVersion = (project, day, { video, cover, episode, commit, seconds, flagged }) => {
   const version = (listVersions(project, day).at(-1)?.version ?? 0) + 1;
   const dir = path.join(ROOT, project.paths.versions, `ngay-${pad2(day)}`, `v${version}`);
   mkdirSync(dir, { recursive: true });
-  copyFileSync(video, path.join(dir, "video.mp4"));
-  if (existsSync(cover)) copyFileSync(cover, path.join(dir, "cover.png"));
+  const names = versionFileNames(project, episode);
+  const videoFile = path.join(dir, names.video);
+  const coverFile = path.join(dir, names.cover);
+  copyFileSync(video, videoFile);
+  if (existsSync(cover)) copyFileSync(cover, coverFile);
   const manifest = path.join(ROOT, project.paths.voiceDir(day), "manifest.json");
   if (existsSync(manifest)) copyFileSync(manifest, path.join(dir, "voice-manifest.json"));
   writeFileSync(path.join(dir, "kich-ban.json"), JSON.stringify(episode, null, 2), "utf8");
@@ -120,5 +159,5 @@ export const archiveVersion = (project, day, { video, cover, episode, commit, se
     title: project.headline(episode),
   };
   writeFileSync(path.join(dir, "info.json"), JSON.stringify(info, null, 2), "utf8");
-  return { version, dir, ...info };
+  return { version, dir, video: videoFile, cover: existsSync(coverFile) ? coverFile : null, ...info };
 };

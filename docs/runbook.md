@@ -1,6 +1,6 @@
 # Runbook: sản xuất một tập từ kịch bản đến lúc đăng
 
-Việc cần làm mỗi ngày nằm ngay mục đầu tiên. Quên lệnh thì gõ `npm run lenh` (máy tính) hoặc `/lenh` (Telegram). Các mục sau là cài đặt, làm tay không qua bot, bảng lệnh và xử lý sự cố. Mọi lệnh chạy trong thư mục `D:\Video` (Git Bash, PowerShell hay terminal của VS Code đều được).
+Việc cần làm mỗi ngày nằm ngay mục đầu tiên. Các mục sau là cài đặt, làm tay không qua bot, bảng lệnh và xử lý sự cố. Mọi lệnh chạy trong thư mục `D:\Video` (Git Bash, PowerShell hay terminal của VS Code đều được).
 
 Repo có nhiều dự án (series) trong `projects/`: `noi-vay` (mã ngắn `nv`, Nói Vậy Mà Không Phải Vậy) và `vi-sao` (mã ngắn `vs`, Ông Ơi, Vì Sao?). **Mọi lệnh `npm run` nhận dự án bằng `-p <mã>`**, ví dụ `npm run voice -- -p vs 1`; bỏ trống thì là `noi-vay`. Các ví dụ dưới đây viết cho `noi-vay`, dự án khác thì thêm `-p`. Trong Telegram, ghi mã dự án ngay sau lệnh, ví dụ `/tap vs 1`.
 
@@ -14,16 +14,16 @@ Nguyên tắc: **tối nay duyệt video của ngày mai, ngày mai đăng video
 
 Bắt đầu một series: gõ `/batdau nv 2026-12-01` (ngày đăng tập 1). Series "Vì sao" đang **tắt lịch tự gửi**; khi muốn chạy thật thì đặt `"enabled": true` trong `projects/vi-sao/project.json` → `schedule`, khởi động lại bot (`npm run bot:install`), rồi `/batdau vs <ngày>`. Trước đó vẫn xem và duyệt từng tập bằng `/tap vs 1`.
 
-### Sáng, trước giờ đăng (2 phút)
+### Sáng (2 phút)
 
 - [ ] Gõ `/trangthai` trong Telegram: bot trả lời là đang chạy, thấy "Ngày mai: tập N" đúng.
 - [ ] Không thấy bot trả lời: xem mục 4 (Xử lý sự cố), dòng "Không nhận được tin nhắn".
 
-### 11:30 và 11:45, đăng bài (10 phút mỗi series)
+### Giờ đăng (10 phút mỗi series, giờ gợi ý ghi trong gói đăng bài: Nói vậy 19:00, Vì sao 18:30)
 
-Đăng **Ông Ơi, Vì Sao? lúc 11:30**, **Nói Vậy Mà Không Phải Vậy lúc 11:45**. Đúng giờ của từng series, bot nhắn **📣 Đến giờ đăng tập N** kèm gói đăng bài (tiêu đề, mô tả, caption, hashtag, bình luận ghim) và nút **📤 Gửi lại video**. Mỗi phần nằm trong một khối, bấm vào là sao chép. Tập chưa được duyệt thì bot báo và gửi nút Duyệt để làm gấp (mất 5–10 phút). Đổi giờ đăng: `/giodang nv 11:45`, `/giodang vs 11:30`.
+Mở tin **📣 Đăng bài** của tập hôm nay mà bot gửi tối qua (mất tin thì gõ `/dangbai nv N`). Mỗi phần nằm trong một khối, bấm vào là sao chép.
 
-- [ ] Lưu video về điện thoại (bấm giữ video bot gửi tối qua → Lưu; không thấy thì bấm **📤 Gửi lại video**).
+- [ ] Tải video mp4 bot gửi tối qua về điện thoại (bấm giữ video trong Telegram → Lưu). File video và ảnh bìa đã đặt tên theo nội dung tập, không dấu, ví dụ `vi_sao_bau_troi_mau_xanh.mp4`.
 - [ ] **YouTube Shorts**: tải lên → dán tiêu đề, mô tả → chọn ảnh bìa → thêm vào playlist của series → **bật "Nội dung bị thay đổi / tạo bằng AI"** → khai báo **"Dành cho trẻ em" đúng sự thật** (series Vì sao: xem mục Đối tượng trong quy tắc series) → đăng.
 - [ ] **TikTok**: tải lên cùng file → dán caption → chọn ảnh bìa → **bật nhãn "Nội dung do AI tạo"** → đăng.
 - [ ] Ghim bình luận (khối "Bình luận ghim") trên cả hai nơi.
@@ -34,9 +34,9 @@ Bắt đầu một series: gõ `/batdau nv 2026-12-01` (ngày đăng tập 1). S
 - [ ] Trả lời bình luận, nhất là câu trả lời cho câu hỏi ghim. Giờ đầu ảnh hưởng nhiều nhất tới việc nền tảng có đẩy video hay không.
 - [ ] Bình luận nào chỉ ra sai sót: ghi lại, sửa kịch bản qua bot, ghim bình luận đính chính.
 
-### 20:00 và 20:30, duyệt kịch bản ngày mai (10–15 phút mỗi series)
+### 20:00, duyệt kịch bản ngày mai (10–15 phút mỗi series)
 
-Bot gửi kịch bản ngày mai kèm 3 nút: **Ông Ơi, Vì Sao? lúc 20:00**, **Nói Vậy Mà Không Phải Vậy lúc 20:30** (đổi giờ: `/gio nv 20:30`, `/gio vs 20:00`). Đọc theo checklist của series:
+Bot gửi kịch bản ngày mai kèm 3 nút. Đọc theo checklist của series:
 
 **Nói Vậy Mà Không Phải Vậy**
 - [ ] Nghĩa thật (`nghia`) đúng với từ điển thành ngữ.
@@ -63,7 +63,7 @@ Xem video **trên điện thoại, bật loa**:
 
 Có lỗi thì sửa qua bot rồi Duyệt lại: video mới lưu thành phiên bản mới (v2, v3…), bản cũ không mất (`/lichsu nv N`).
 
-### Cuối tuần (30 phút, trên máy tính)
+### Cuối tuần (30 phút, trên máy tính)ví
 
 - [ ] Xem số liệu tuần: YouTube Studio → tỉ lệ "Đã xem" so với "Đã lướt qua"; TikTok → thời gian xem trung bình, tỉ lệ xem hết. Tập nào tụt người xem ở giây nào thì ghi lại để viết tập sau.
 - [ ] Đọc trước kịch bản 7 tập tuần sau (`/tap nv N` hoặc `projects/<dự án>/docs/kich-ban/`), sửa sớm những tập cần sửa nhiều.
@@ -133,7 +133,7 @@ Mở tập trong thư mục `Tuan-X` và xem hết từ đầu đến cuối, c�
 
 - [ ] Giọng đúng vai, không vấp, không nuốt chữ
 - [ ] Phụ đề hiện đúng lúc nhân vật nói
-- [ ] Thẻ "#X", "NGHĨA THẬT" và thẻ cuối không che phụ đề
+- [ ] Thẻ "NGÀY X/30", "NGHĨA THẬT" và thẻ cuối không che phụ đề
 - [ ] Tiếng "ding", record scratch, whoosh không át lời thoại
 - [ ] Không có chữ hay hành động quan trọng nằm trong vùng bị nút TikTok / Shorts che: ở bảng Props bên phải, đặt `"safeZones": true` để tô đỏ các vùng đó (chỉ hiện khi xem, video xuất ra không có)
 - [ ] Lệnh `npm run voice` không báo "trên 40 giây". Nếu có, nên cắt bớt thoại (qua bot: Sửa thoại, nhắn "rút gọn còn dưới 40 giây")
@@ -147,6 +147,8 @@ npm run render -- tuan-1     # out/noi-vay/video/ngay-XX.mp4
 npm run cover  -- tuan-1     # out/noi-vay/cover/ngay-XX.png
 npm run srt    -- tuan-1     # out/noi-vay/srt/ngay-XX.srt (chỉ cần khi dựng thêm trong CapCut)
 ```
+
+Lệnh `render` tự xuất luôn ảnh bìa và lưu thành phiên bản mới trong `out/<dự án>/versions/ngay-XX/vN/` (video, ảnh bìa, kịch bản lúc xuất, gói đăng bài), ghi vào `projects/<dự án>/docs/lich-su/ngay-XX.md`. Bản cũ không bị ghi đè. Nên commit kịch bản trước khi xuất để lịch sử ghi đúng mã commit (chưa commit thì ghi kèm chữ "+sửa").
 
 Chép file mp4 sang điện thoại và xem một lần trên màn hình thật, bằng loa điện thoại.
 
@@ -194,8 +196,6 @@ Qua bot có thể sửa, thêm, xoá câu, đổi cảnh, viết phần diễn. 
 | `npm run srt -- <ngày>` | Xuất phụ đề .srt (`--no-names` để bỏ tên người nói) |
 | `npm run sheets -- -p <dự án>` | Sinh lại kịch bản in trong `projects/<dự án>/docs/kich-ban/` |
 | `npm run bot` | Chạy bot Telegram ở cửa sổ hiện tại (để thử) |
-| `/giodang nv 11:45` (Telegram) | Đổi giờ bot nhắc đăng bài (hiện tại: Vì sao 11:30, Nói vậy 11:45; mặc định trong `project.json` → `publish.postTime`) |
-| `/gio nv 20:30` (Telegram) | Đổi giờ bot gửi kịch bản để duyệt (hiện tại: Vì sao 20:00, Nói vậy 20:30; mặc định trong `project.json` → `schedule.notifyTime`) |
 | `/duan vs` (Telegram) | Chọn dự án làm việc; lệnh không ghi mã dự án sẽ dùng dự án này |
 | `/lichsu nv 5` (Telegram) | Xem các phiên bản video đã xuất của tập 5, gửi lại bản cũ. Lịch sử sửa kịch bản ở `projects/<dự án>/docs/lich-su/ngay-05.md` |
 | `/dangbai nv 5` (Telegram) | Gửi lại gói đăng bài của tập 5. Giờ đăng, hashtag, câu ghi chú AI sửa trong `projects/<dự án>/project.json` → `publish` |
@@ -247,8 +247,8 @@ Sửa `speed` trong `SPEAKERS` ở `tools/voice/make_voice.py`. Hiện tại C�
 | Một câu đọc sai dù đã sửa chữ | Model khó đọc từ đó | Viết lại câu bằng từ dễ đọc hơn, hoặc tách thành 2 câu ngắn |
 | Tập dài hơn 60 giây | Thoại quá dài | Cắt bớt thoại ở nhịp hiểu sai hoặc ví dụ, rồi chạy lại voice |
 | `npm run lint` báo lỗi trong `tuan-X.ts` | Thiếu dấu phẩy, ngoặc hoặc dấu nháy | Xem số dòng trong lỗi và sửa ở đó |
-| Không nhận được kịch bản lúc 20:00 / 20:30 | Bot không chạy, hoặc chưa đặt ngày bắt đầu | Gõ `/trangthai` trong Telegram. Bot không trả lời thì xem `out/bot/bot.log` và chạy lại `npm run bot:install` |
+| Không nhận được tin nhắn lúc 20:00 | Bot không chạy, hoặc chưa đặt ngày bắt đầu | Gõ `/trangthai` trong Telegram. Bot không trả lời thì xem `out/bot/bot.log` và chạy lại `npm run bot:install` |
 | Bot báo "Lỗi khi nhờ Claude hiểu yêu cầu" | Không tìm thấy lệnh `claude`, hoặc Claude Code chưa đăng nhập | Mở terminal gõ `claude` để đăng nhập. Nếu Task Scheduler không tìm thấy thì đặt `CLAUDE_BIN` trong `.env`. Trong lúc chờ, vẫn sửa được bằng cách nhắn `6.2: ...` |
 | Bot báo "Không tìm thấy nội dung của ..." khi áp dụng | Kịch bản trong repo vừa bị sửa tay, khác với bản bot đang hiện | Gõ `/tap <mã dự án> N` để tải lại kịch bản rồi sửa lại |
 | Bot báo "⛔ chưa xuất được: Cần ít nhất 2 nguồn" | Tập "Vì sao" thiếu nguồn kiểm chứng | Bấm Sửa thoại, nhắn thêm nguồn (tên trang + link), hoặc thêm vào `sources` trong kịch bản |
-| Máy mới không có tiếng | `public/voice/` không có trong git | Chạy `npm run voice -- all` và `npm run voice -- -p vs all` (khoảng 4 phút mỗi tập) |
+| Máy mới không có tiếng | `public/voice/` không có trong git | Chạy `npm run voice -- all` và `npm run voice -- -p vs all` (khoảng 2 tiếng mỗi dự án 30 tập) |

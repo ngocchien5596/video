@@ -171,19 +171,21 @@ const runQueue = async () => {
       updateTracker(project, day, { trang_thai: "da-dung" });
       commitFiles([historyFile(project, day), project.paths.tracker], `${project.name} · tập ${day}: xuất video v${saved.version}`);
       if (config.autoPush) push();
-      const sizeMb = (statSync(result.video).size / 1048576).toFixed(0);
+      // Gửi file trong thư mục phiên bản: tên theo nội dung tập (không dấu), tải về là đúng tên.
+      const sizeMb = (statSync(saved.video).size / 1048576).toFixed(0);
       const done = `✅ ${tag(project)} · tập ${day}: xuất xong sau ${minutes} phút, lưu thành <b>v${saved.version}</b>.`;
       // Tải video lên Telegram có thể mất vài phút nếu mạng tải lên chậm.
       await tg.edit(chatId(), status.message_id, `${done}\n📤 Đang gửi video (${sizeMb}MB) vào chat, có thể mất vài phút…`);
       const sendStart = Date.now();
       await tg.sendVideo(
         chatId(),
-        result.video,
+        saved.video,
         `<b>${esc(project.name)} · #${day} · “${esc(title)}” · v${saved.version}</b>${result.seconds ? ` · ${result.seconds}s` : ""}\nKịch bản: commit <code>${commit}</code>`,
       );
       const sendSec = Math.round((Date.now() - sendStart) / 1000);
       await tg.edit(chatId(), status.message_id, `${done}\n📤 Đã gửi video (${sizeMb}MB, ${sendSec} giây).`);
-      await tg.sendPhoto(chatId(), result.cover, `Ảnh bìa ${esc(project.name)} ngày ${day}`);
+      // Ảnh bìa gửi dạng file để giữ tên và chất lượng gốc (gửi dạng ảnh thì Telegram nén và đổi tên).
+      if (saved.cover) await tg.sendDocument(chatId(), saved.cover, `Ảnh bìa ${esc(project.name)} #${day}`);
       if (result.seconds && result.seconds > 60) {
         await send(`⚠️ Video dài ${result.seconds}s, quá 60 giây. Nên rút gọn thoại rồi duyệt lại.`);
       }

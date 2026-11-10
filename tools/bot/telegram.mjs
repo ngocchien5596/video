@@ -57,6 +57,9 @@ export const createTelegram = (token) => {
     sendVideo: (chatId, file, caption) =>
       upload("sendVideo", "video", file, { chat_id: String(chatId), caption, parse_mode: "HTML", supports_streaming: "true" }),
     sendPhoto: (chatId, file, caption) => upload("sendPhoto", "photo", file, { chat_id: String(chatId), caption, parse_mode: "HTML" }),
+    /** Gửi dạng file (giữ nguyên tên file và chất lượng gốc, khác sendPhoto bị nén và đổi tên). */
+    sendDocument: (chatId, file, caption) =>
+      upload("sendDocument", "document", file, { chat_id: String(chatId), caption, parse_mode: "HTML" }),
     setCommands: (commands) => call("setMyCommands", { commands }),
   };
 };

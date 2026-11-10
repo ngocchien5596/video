@@ -97,8 +97,8 @@ export type Item = {
   scale?: number;
 };
 
-/** home: phòng khách · kitchen: bếp có bàn ăn (đồ `on: "table"` đặt trên bàn) · classroom: lớp học · yard: sân ngoài trời */
-export type SceneId = "home" | "kitchen" | "classroom" | "yard";
+/** home: phòng khách · kitchen: bếp có bàn ăn (đồ `on: "table"` đặt trên bàn) · classroom: lớp học · yard: sân ngoài trời · night: sân ban đêm (trăng, sao) */
+export type SceneId = "home" | "kitchen" | "classroom" | "yard" | "night";
 /** Phông cảnh, `text` là chữ trên bảng (lớp học). */
 export type SceneRef = SceneId | { id: SceneId; text?: string };
 

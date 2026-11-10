@@ -1,9 +1,13 @@
 import React from "react";
+import { fitText } from "@remotion/layout-utils";
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import type { Cue } from "../lib/timing.ts";
 import { COLORS, outline, SAFE, SPEAKERS, TEXT_FONT, TITLE_FONT } from "./brand.ts";
 
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
+
+/** Bề ngang dành cho tiêu đề trên thanh trên cùng (khung 1080 trừ hai lề an toàn). */
+const TITLE_WIDTH = 1080 - SAFE.left - SAFE.right;
 
 /** Nhãn series (ví dụ "TÊN SERIES · #1") và tiêu đề tập ghim ở đầu khung hình. */
 export const TopBar: React.FC<{ label: string; title: string; showTitle: boolean }> = ({ label, title, showTitle }) => (
@@ -21,7 +25,16 @@ export const TopBar: React.FC<{ label: string; title: string; showTitle: boolean
       {label}
     </div>
     {showTitle ? (
-      <div style={{ fontSize: 56, color: COLORS.idiom, lineHeight: 1.1, ...outline(10) }}>
+      // Tiêu đề luôn nằm trên một dòng: dài quá thì thu nhỏ chữ (dòng thứ hai sẽ đè lên bảng minh hoạ / thẻ chữ).
+      <div
+        style={{
+          fontSize: Math.min(56, Math.floor(fitText({ text: title, withinWidth: TITLE_WIDTH, fontFamily: TITLE_FONT }).fontSize)),
+          color: COLORS.idiom,
+          lineHeight: 1.1,
+          whiteSpace: "nowrap",
+          ...outline(10),
+        }}
+      >
         {title}
       </div>
     ) : null}

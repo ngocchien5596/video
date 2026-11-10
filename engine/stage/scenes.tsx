@@ -143,7 +143,48 @@ const Yard: React.FC = () => (
   </>
 );
 
+/** Sân ban đêm: trời tối, trăng, sao, hàng rào và cỏ sẫm màu. */
+const Night: React.FC = () => (
+  <>
+    <defs>
+      <linearGradient id="night-sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stopColor="#0B1433" />
+        <stop offset="1" stopColor="#25346B" />
+      </linearGradient>
+    </defs>
+    <rect x="0" y="0" width="1080" height={FLOOR} fill="url(#night-sky)" />
+    {[
+      [120, 260], [260, 420], [420, 300], [540, 520], [700, 380], [820, 600], [960, 470], [180, 640], [620, 700], [330, 760],
+    ].map(([x, y], i) => (
+      <path
+        key={i}
+        d={`M${x} ${y - 12} L${x + 4} ${y - 4} L${x + 12} ${y} L${x + 4} ${y + 4} L${x} ${y + 12} L${x - 4} ${y + 4} L${x - 12} ${y} L${x - 4} ${y - 4} Z`}
+        fill="#FFF3A0"
+        opacity={0.6 + (i % 3) * 0.15}
+      />
+    ))}
+    <circle cx="860" cy="300" r="70" fill="#FFF3C4" stroke="#FFE27A" strokeWidth="8" />
+    <circle cx="890" cy="280" r="62" fill="#14204A" />
+    <rect x="0" y="930" width="1080" height="18" fill="#9AA3BF" stroke={INK} strokeWidth="5" />
+    <rect x="0" y="990" width="1080" height="18" fill="#9AA3BF" stroke={INK} strokeWidth="5" />
+    {Array.from({ length: 14 }, (_, i) => (
+      <path
+        key={i}
+        d={`M${i * 80 + 18} ${FLOOR} L${i * 80 + 18} 900 L${i * 80 + 36} 876 L${i * 80 + 54} 900 L${i * 80 + 54} ${FLOOR} Z`}
+        fill="#B8C0D9"
+        stroke={INK}
+        strokeWidth="6"
+        strokeLinejoin="round"
+      />
+    ))}
+    <ellipse cx="120" cy="900" rx="150" ry="70" fill="#2C5A37" stroke={INK} strokeWidth="6" />
+    <ellipse cx="980" cy="890" rx="170" ry="80" fill="#2C5A37" stroke={INK} strokeWidth="6" />
+    <Floor color="#2F6B34" line="#285C2D" />
+  </>
+);
+
 export const SceneBackground: React.FC<{ id: SceneId; text?: string }> = ({ id, text }) => {
+  if (id === "night") return <Night />;
   if (id === "yard") return <Yard />;
   if (id === "kitchen") return <Kitchen />;
   if (id === "classroom") return <Classroom text={text} />;

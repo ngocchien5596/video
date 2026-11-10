@@ -26,7 +26,7 @@ Mọi lệnh nhận dự án bằng `-p <id hoặc mã ngắn>`; bỏ trống th
 | --- | --- |
 | `npm run dev` | Mở Studio, xem và chỉnh từng tập của mọi dự án |
 | `npm run render -- 1` | Xuất `out/noi-vay/video/ngay-01.mp4` |
-| `npm run render -- -p vs 1` | Xuất `out/vi-sao/video/ngay-01.mp4` |
+| `npm run render -- -p vs 1` | Xuất `out/vi-sao/video/ngay-01.mp4` + ảnh bìa, lưu thành phiên bản mới trong `out/vi-sao/versions/ngay-01/vN/` (thêm `--no-archive` để không lưu) |
 | `npm run render -- tuan-1` | Xuất cả tuần 1 (cũng nhận `1-7`, `1 3 5`, `all`) |
 | `npm run cover -- -p vs 1` | Xuất ảnh bìa vào `out/<dự án>/cover/` |
 | `npm run srt -- all` | Xuất phụ đề nháp vào `out/<dự án>/srt/` (thêm `--no-names` để bỏ tên người nói) |
@@ -119,7 +119,7 @@ Mỗi tin ghi rõ dự án nào.
 
 **Lưu lịch sử:**
 - Mỗi lần áp dụng sửa kịch bản, bot tự commit git: file kịch bản, kịch bản in, `tracker.csv`, và ghi yêu cầu, tóm tắt, câu cũ, câu mới vào `projects/<dự án>/docs/lich-su/ngay-XX.md`.
-- Mỗi lần xuất video, bot lưu thành phiên bản mới trong `out/<dự án>/versions/ngay-XX/vN/`: `video.mp4`, `cover.png`, `kich-ban.json`, `voice-manifest.json`, `info.json` (có mã commit), `dang-bai.txt`. Bản cũ không bị ghi đè.
+- Mỗi lần xuất video (qua bot, hoặc chạy tay `npm run render`), video được lưu thành phiên bản mới trong `out/<dự án>/versions/ngay-XX/vN/`: video và ảnh bìa đặt tên theo nội dung tập, không dấu (ví dụ `an_qua_nho_ke_trong_cay.mp4` và `an_qua_nho_ke_trong_cay.png`), cùng `kich-ban.json`, `voice-manifest.json`, `info.json` (có mã commit), `dang-bai.txt`. Bản cũ không bị ghi đè.
 - Bot chỉ commit trên máy. Đặt `"autoPush": true` trong `bot.config.json` để tự đẩy lên GitHub.
 - `out/` không vào git vì video nặng, cần sao lưu riêng.
 
