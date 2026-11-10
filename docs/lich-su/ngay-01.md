@@ -119,3 +119,7 @@ Kịch bản ở commit `786d2ea`, dài 56 giây. File: `out/versions/ngay-01/v2
 ## 2026-11-09 21:22 · Xuất video v3
 
 Kịch bản ở commit `2b99cc0`, dài 56 giây. File: `out/versions/ngay-01/v3/`.
+
+## 2026-11-10 07:55 · Xuất video v4
+
+Kịch bản ở commit `5221439`, dài 53.8 giây. File: `out/versions/ngay-01/v4/`.
