@@ -105,11 +105,18 @@ const Title: React.FC<{ size: number }> = ({ size }) => (
   </div>
 );
 
-const Tagline: React.FC<{ size: number }> = ({ size }) => (
+/** Khổ ngang hẹp nên ngắt thành 2 dòng cân nhau, khổ vuông để 1 dòng. */
+const Tagline: React.FC<{ size: number; twoLines?: boolean }> = ({ size, twoLines }) => (
   <div style={{ fontFamily: TEXT_FONT, fontWeight: 900, fontSize: size, color: COLORS.white, lineHeight: 1.25, ...outline(size / 6) }}>
-    Mỗi ngày một câu thành ngữ
-    <br />
-    bị hiểu theo nghĩa đen
+    {twoLines ? (
+      <>
+        Series hiểu đúng
+        <br />
+        thành ngữ mỗi ngày
+      </>
+    ) : (
+      "Series hiểu đúng thành ngữ mỗi ngày"
+    )}
   </div>
 );
 
@@ -128,7 +135,7 @@ export const PlaylistCover: React.FC = () => {
       <AbsoluteFill style={{ background: bg, flexDirection: "row" }}>
         <div style={{ width: "52%", padding: "56px 0 0 64px", display: "flex", flexDirection: "column", gap: 34 }}>
           <Title size={150} />
-          <Tagline size={34} />
+          <Tagline size={34} twoLines />
         </div>
         <div style={{ width: "48%", height: "100%", display: "flex", alignItems: "flex-end" }}>
           <Duo />
