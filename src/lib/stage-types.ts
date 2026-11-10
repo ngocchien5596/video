@@ -40,7 +40,34 @@ export type PropId =
   | "bowls"
   | "bowl"
   | "book"
-  | "rice-tray";
+  | "rice-tray"
+  // Đồ ăn, đồ bếp
+  | "bowl-empty"
+  | "chicken-plate"
+  | "drumstick"
+  | "bun-plate"
+  | "bun"
+  | "milk"
+  | "cucumber"
+  | "candy"
+  | "pan"
+  | "fridge"
+  // Đồ dùng
+  | "compass"
+  | "alarm-clock"
+  | "pillow"
+  | "tent"
+  | "ball"
+  | "broom"
+  | "pen"
+  | "paper"
+  | "plant";
+
+/**
+ * Đạo cụ có chữ (`{ id, text }`):
+ * sign: dòng chữ dưới tấm truy nã · book: chữ trên bìa · paper: tờ giấy ghi chữ (điểm, nhãn "CỦA CHÁU"...)
+ * fridge: chữ trên băng dán chéo · alarm-clock: chữ trên mặt đồng hồ · plant: chữ trên bảng cắm trong chậu
+ */
 
 /** Đạo cụ, kèm chữ cho loại có chữ (ví dụ tấm biển). */
 export type PropRef = PropId | { id: PropId; text?: string };
@@ -70,7 +97,8 @@ export type Item = {
   scale?: number;
 };
 
-export type SceneId = "home" | "kitchen" | "classroom";
+/** home: phòng khách · kitchen: bếp có bàn ăn (đồ `on: "table"` đặt trên bàn) · classroom: lớp học · yard: sân ngoài trời */
+export type SceneId = "home" | "kitchen" | "classroom" | "yard";
 /** Phông cảnh, `text` là chữ trên bảng (lớp học). */
 export type SceneRef = SceneId | { id: SceneId; text?: string };
 

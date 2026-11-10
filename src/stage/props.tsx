@@ -49,6 +49,76 @@ const Bowl: React.FC<{ y?: number; dirty?: boolean; rice?: boolean }> = ({ y = 0
   </g>
 );
 
+/** Cỡ chữ vừa một khung rộng `width` (ước lượng chữ in hoa rộng ~0,6 cỡ chữ). */
+const fitSize = (text: string, width: number, max: number) => Math.min(max, width / Math.max(1, text.length * 0.6));
+
+/** Chữ nhiều dòng (tách bằng \n), căn giữa quanh (0, cy). */
+const Lines: React.FC<{ text: string; cy: number; width: number; max: number; color?: string; font?: string }> = ({
+  text,
+  cy,
+  width,
+  max,
+  color = INK,
+  font = TITLE_FONT,
+}) => {
+  const lines = text.split("\n");
+  const size = Math.min(...lines.map((l) => fitSize(l, width, max)));
+  return (
+    <>
+      {lines.map((l, i) => (
+        <text
+          key={i}
+          x="0"
+          y={cy + (i - (lines.length - 1) / 2) * size * 1.05}
+          textAnchor="middle"
+          dominantBaseline="middle"
+          fontFamily={font}
+          fontWeight="900"
+          fontSize={size}
+          fill={color}
+        >
+          {l}
+        </text>
+      ))}
+    </>
+  );
+};
+
+const Plate: React.FC<{ rx?: number }> = ({ rx = 110 }) => (
+  <>
+    <ellipse cx="0" cy="-12" rx={rx} ry="22" fill="#FFFFFF" stroke={INK} strokeWidth="7" />
+    <ellipse cx="0" cy="-16" rx={rx - 26} ry="12" fill="#EEF3F7" />
+  </>
+);
+
+const Drumstick: React.FC<{ x?: number; y?: number; r?: number; s?: number }> = ({ x = 0, y = 0, r = 0, s = 1 }) => (
+  <g transform={`translate(${x} ${y}) rotate(${r}) scale(${s})`}>
+    <rect x="-8" y="-44" width="16" height="44" rx="8" fill="#FFF8E7" stroke={INK} strokeWidth="5" />
+    <circle cx="-9" cy="-2" r="9" fill="#FFF8E7" stroke={INK} strokeWidth="5" />
+    <circle cx="9" cy="-2" r="9" fill="#FFF8E7" stroke={INK} strokeWidth="5" />
+    <ellipse cx="0" cy="-78" rx="34" ry="42" fill="#C8762E" stroke={INK} strokeWidth="6" />
+    <ellipse cx="-10" cy="-92" rx="10" ry="16" fill="#E9A75A" />
+  </g>
+);
+
+const Bun: React.FC<{ x?: number; y?: number; s?: number }> = ({ x = 0, y = 0, s = 1 }) => (
+  <g transform={`translate(${x} ${y}) scale(${s})`}>
+    <path d="M-44 0 Q-46 -62 0 -66 Q46 -62 44 0 Z" fill="#FFFDF6" stroke={INK} strokeWidth="6" strokeLinejoin="round" />
+    <path d="M-8 -60 Q0 -48 8 -60 M0 -66 L0 -52" stroke="#D9C9A8" strokeWidth="4" fill="none" strokeLinecap="round" />
+  </g>
+);
+
+const Milk: React.FC<{ x?: number; s?: number }> = ({ x = 0, s = 1 }) => (
+  <g transform={`translate(${x} 0) scale(${s})`}>
+    <rect x="-30" y="-96" width="60" height="96" rx="4" fill="#FFFFFF" stroke={INK} strokeWidth="6" />
+    <path d="M-30 -96 L0 -124 L30 -96 Z" fill="#7FB8F0" stroke={INK} strokeWidth="6" strokeLinejoin="round" />
+    <rect x="-30" y="-70" width="60" height="30" fill="#3D7BD9" />
+    <text x="0" y="-48" textAnchor="middle" fontFamily={TITLE_FONT} fontSize="22" fill="#FFFFFF">
+      SỮA
+    </text>
+  </g>
+);
+
 export const PROPS: Record<PropId, PropDef> = {
   fan: {
     mode: "extend",
@@ -153,13 +223,13 @@ export const PROPS: Record<PropId, PropDef> = {
   bowl: { mode: "upright", draw: () => <Bowl rice /> },
   book: {
     mode: "upright",
-    draw: ({ mirrored }) => (
+    draw: ({ text, mirrored }) => (
       <Unmirror mirrored={mirrored}>
         <g>
           <rect x="-56" y="-120" width="112" height="120" rx="8" fill="#3FA34D" stroke={INK} strokeWidth="7" />
-          <rect x="-40" y="-100" width="80" height="34" rx="4" fill="#FFF8E7" />
-          <text x="0" y="-75" textAnchor="middle" fontFamily={TITLE_FONT} fontSize="24" fill={INK}>
-            VỞ BÀI
+          <rect x="-46" y="-100" width="92" height="34" rx="4" fill="#FFF8E7" />
+          <text x="0" y="-75" textAnchor="middle" fontFamily={TITLE_FONT} fontSize={fitSize(text ?? "VỞ BÀI", 84, 26)} fill={INK}>
+            {text ?? "VỞ BÀI"}
           </text>
         </g>
       </Unmirror>
@@ -180,6 +250,241 @@ export const PROPS: Record<PropId, PropDef> = {
         <ellipse cx="-14" cy="-38" rx="26" ry="12" fill="#3FA34D" />
         <ellipse cx="18" cy="-36" rx="20" ry="10" fill="#E8A33D" />
       </g>
+    ),
+  },
+
+  // ------------------------------------------------------------ đồ ăn, đồ bếp
+  "bowl-empty": { mode: "upright", draw: () => <Bowl /> },
+  "chicken-plate": {
+    mode: "upright",
+    draw: () => (
+      <g>
+        <Drumstick x={-56} y={-14} r={-62} s={0.75} />
+        <Drumstick x={-14} y={-18} r={-20} s={0.75} />
+        <Drumstick x={22} y={-18} r={18} s={0.75} />
+        <Drumstick x={60} y={-14} r={58} s={0.75} />
+        <Plate />
+      </g>
+    ),
+  },
+  drumstick: { mode: "upright", draw: () => <Drumstick /> },
+  "bun-plate": {
+    mode: "upright",
+    draw: () => (
+      <g>
+        <Plate />
+        <Bun x={-50} y={-16} s={0.8} />
+        <Bun x={50} y={-16} s={0.8} />
+        <Bun x={0} y={-30} s={0.85} />
+      </g>
+    ),
+  },
+  bun: { mode: "upright", draw: () => <Bun /> },
+  milk: { mode: "upright", draw: () => <Milk /> },
+  cucumber: {
+    mode: "upright",
+    draw: () => (
+      <g transform="rotate(12)">
+        <rect x="-20" y="-120" width="40" height="120" rx="20" fill="#3FA34D" stroke={INK} strokeWidth="6" />
+        {[-96, -70, -44, -20].map((y, i) => (
+          <circle key={y} cx={i % 2 ? 6 : -6} cy={y} r="3.5" fill="#2A7A37" />
+        ))}
+        <rect x="-6" y="-132" width="12" height="16" rx="4" fill="#2A7A37" stroke={INK} strokeWidth="4" />
+      </g>
+    ),
+  },
+  candy: {
+    mode: "upright",
+    draw: () => (
+      <g transform="translate(0 -30) rotate(-15)">
+        <path d="M-30 0 L-58 -20 L-58 20 Z M30 0 L58 -20 L58 20 Z" fill="#FF8FB1" stroke={INK} strokeWidth="5" strokeLinejoin="round" />
+        <ellipse cx="0" cy="0" rx="34" ry="24" fill="#FF5C8A" stroke={INK} strokeWidth="6" />
+        <path d="M-16 -10 Q0 4 16 -10" stroke="#FFFFFF" strokeWidth="5" fill="none" strokeLinecap="round" />
+      </g>
+    ),
+  },
+  pan: {
+    mode: "upright",
+    draw: () => (
+      <g>
+        <rect x="70" y="-36" width="110" height="18" rx="9" fill="#3A3A3A" stroke={INK} strokeWidth="5" />
+        <ellipse cx="0" cy="-26" rx="84" ry="26" fill="#4A4A4A" stroke={INK} strokeWidth="7" />
+        <ellipse cx="0" cy="-30" rx="66" ry="17" fill="#2B2B2B" />
+        <ellipse cx="-4" cy="-32" rx="38" ry="11" fill="#1A1A1A" />
+        <circle cx="-4" cy="-33" r="9" fill="#3B2A16" />
+        {[-30, 0, 30].map((x, i) => (
+          <path
+            key={x}
+            d={`M${x} -60 q-14 -18 0 -36 q14 -18 0 -36`}
+            stroke="#9A9A9A"
+            strokeWidth="9"
+            fill="none"
+            strokeLinecap="round"
+            opacity={0.8 - i * 0.1}
+          />
+        ))}
+      </g>
+    ),
+  },
+  fridge: {
+    mode: "upright",
+    draw: ({ text }) => (
+      <g>
+        <rect x="-110" y="-400" width="220" height="400" rx="22" fill="#E8F1F8" stroke={INK} strokeWidth="8" />
+        <line x1="-110" y1="-262" x2="110" y2="-262" stroke={INK} strokeWidth="7" />
+        <rect x="74" y="-330" width="14" height="50" rx="7" fill="#9AA8B4" stroke={INK} strokeWidth="4" />
+        <rect x="74" y="-236" width="14" height="80" rx="7" fill="#9AA8B4" stroke={INK} strokeWidth="4" />
+        {text ? (
+          <>
+            {/* Bìa carton và băng dính quấn kín */}
+            <rect x="-100" y="-250" width="200" height="170" rx="6" fill="#C9A26B" stroke={INK} strokeWidth="5" />
+            <g stroke="#E8C547" strokeWidth="26" opacity="0.92">
+              <line x1="-118" y1="-360" x2="118" y2="-40" />
+              <line x1="118" y1="-360" x2="-118" y2="-40" />
+            </g>
+            <rect x="-104" y="-200" width="208" height="70" rx="6" fill="#FFF8E7" stroke={INK} strokeWidth="5" />
+            <Lines text={text} cy={-165} width={190} max={34} color={COLORS.red} />
+          </>
+        ) : null}
+      </g>
+    ),
+  },
+
+  // ------------------------------------------------------------ đồ dùng
+  compass: {
+    mode: "upright",
+    draw: () => (
+      <g transform="translate(0 -48)">
+        <circle r="46" fill="#C99A3B" stroke={INK} strokeWidth="7" />
+        <circle r="34" fill="#FFF8E7" stroke={INK} strokeWidth="4" />
+        <path d="M0 -28 L9 0 L-9 0 Z" fill={COLORS.red} stroke={INK} strokeWidth="3" strokeLinejoin="round" />
+        <path d="M0 28 L9 0 L-9 0 Z" fill="#FFFFFF" stroke={INK} strokeWidth="3" strokeLinejoin="round" />
+        <circle r="5" fill={INK} />
+      </g>
+    ),
+  },
+  "alarm-clock": {
+    mode: "upright",
+    draw: ({ text, mirrored }) => (
+      <Unmirror mirrored={mirrored}>
+        <g transform="translate(0 -58)">
+          <circle cx="-34" cy="-40" r="18" fill="#FFD93D" stroke={INK} strokeWidth="6" />
+          <circle cx="34" cy="-40" r="18" fill="#FFD93D" stroke={INK} strokeWidth="6" />
+          <path d="M-30 44 L-40 58 M30 44 L40 58" stroke={INK} strokeWidth="8" strokeLinecap="round" />
+          <circle r="50" fill={COLORS.red} stroke={INK} strokeWidth="7" />
+          <circle r="38" fill="#FFF8E7" />
+          {text ? (
+            <Lines text={text} cy={2} width={64} max={34} />
+          ) : (
+            <path d="M0 0 L0 -26 M0 0 L18 8" stroke={INK} strokeWidth="6" strokeLinecap="round" />
+          )}
+        </g>
+      </Unmirror>
+    ),
+  },
+  pillow: {
+    mode: "upright",
+    draw: () => (
+      <g>
+        <path
+          d="M-80 -6 Q-92 -44 -76 -82 Q0 -96 76 -82 Q92 -44 80 -6 Q0 6 -80 -6 Z"
+          fill="#E9E1FF"
+          stroke={INK}
+          strokeWidth="7"
+          strokeLinejoin="round"
+        />
+        <path d="M-50 -44 Q0 -34 50 -44" stroke="#C3B6EE" strokeWidth="6" fill="none" strokeLinecap="round" />
+      </g>
+    ),
+  },
+  tent: {
+    mode: "upright",
+    draw: () => (
+      <g>
+        <path d="M-160 0 L0 -250 L160 0 Z" fill="#F28C38" stroke={INK} strokeWidth="8" strokeLinejoin="round" />
+        <path d="M0 -250 L-44 0 L44 0 Z" fill="#B85A18" stroke={INK} strokeWidth="6" strokeLinejoin="round" />
+        <path d="M0 -250 L0 -282" stroke={INK} strokeWidth="8" strokeLinecap="round" />
+        <path d="M0 -282 L36 -270 L0 -258 Z" fill={COLORS.red} stroke={INK} strokeWidth="4" />
+      </g>
+    ),
+  },
+  ball: {
+    mode: "upright",
+    draw: () => (
+      <g transform="translate(0 -48)">
+        <circle r="48" fill="#FFFFFF" stroke={INK} strokeWidth="7" />
+        <polygon points="0,-16 15,-5 9,13 -9,13 -15,-5" fill={INK} />
+        {[0, 72, 144, 216, 288].map((a) => (
+          <g key={a} transform={`rotate(${a})`}>
+            <path d="M0 -16 L0 -30" stroke={INK} strokeWidth="4" />
+            <path d="M-12 -44 Q0 -36 12 -44 L8 -30 L-8 -30 Z" fill={INK} />
+          </g>
+        ))}
+      </g>
+    ),
+  },
+  broom: {
+    mode: "extend",
+    draw: () => (
+      <g>
+        <line x1="0" y1="-20" x2="0" y2="150" stroke={INK} strokeWidth="16" strokeLinecap="round" />
+        <line x1="0" y1="-20" x2="0" y2="150" stroke="#C8934E" strokeWidth="9" strokeLinecap="round" />
+        <path d="M-14 146 L14 146 L46 240 L-46 240 Z" fill="#E8C547" stroke={INK} strokeWidth="6" strokeLinejoin="round" />
+        <path d="M-20 172 L20 172" stroke="#B5892A" strokeWidth="6" />
+        {[-30, -10, 10, 30].map((x) => (
+          <line key={x} x1={x * 0.4} y1="180" x2={x} y2="236" stroke="#B5892A" strokeWidth="3" />
+        ))}
+      </g>
+    ),
+  },
+  pen: {
+    mode: "extend",
+    draw: () => (
+      <g>
+        <rect x="-9" y="-20" width="18" height="110" rx="4" fill="#3D7BD9" stroke={INK} strokeWidth="5" />
+        <rect x="-9" y="-20" width="18" height="18" rx="4" fill="#E5484D" stroke={INK} strokeWidth="5" />
+        <path d="M-9 90 L0 118 L9 90 Z" fill="#F6E7C1" stroke={INK} strokeWidth="5" strokeLinejoin="round" />
+      </g>
+    ),
+  },
+  paper: {
+    mode: "upright",
+    draw: ({ text, mirrored }) => (
+      <Unmirror mirrored={mirrored}>
+        <g transform="rotate(-4)">
+          <rect x="-86" y="-130" width="172" height="130" rx="6" fill="#FFFFFF" stroke={INK} strokeWidth="6" />
+          {[-104, -84, -64, -44, -24].map((y) => (
+            <line key={y} x1="-70" y1={y} x2="70" y2={y} stroke="#BFD7F2" strokeWidth="3" />
+          ))}
+          {text ? <Lines text={text} cy={-65} width={150} max={46} color={COLORS.red} /> : null}
+        </g>
+      </Unmirror>
+    ),
+  },
+  plant: {
+    mode: "upright",
+    draw: ({ text, mirrored }) => (
+      <Unmirror mirrored={mirrored}>
+        <g>
+          <path d="M-56 -90 L56 -90 L42 0 L-42 0 Z" fill="#C0663A" stroke={INK} strokeWidth="7" strokeLinejoin="round" />
+          <rect x="-8" y="-200" width="16" height="112" fill="#8B5A2B" stroke={INK} strokeWidth="5" />
+          <circle cx="0" cy="-230" r="74" fill="#3FA34D" stroke={INK} strokeWidth="7" />
+          <circle cx="-30" cy="-250" r="13" fill="#B7E36A" stroke={INK} strokeWidth="4" />
+          <circle cx="28" cy="-220" r="13" fill="#B7E36A" stroke={INK} strokeWidth="4" />
+          <circle cx="4" cy="-266" r="13" fill="#B7E36A" stroke={INK} strokeWidth="4" />
+          {text ? (
+            <>
+              {/* Rào: dây quấn quanh tán cây và bảng tên */}
+              <g stroke="#E8C547" strokeWidth="9" fill="none">
+                <ellipse cx="0" cy="-230" rx="82" ry="22" transform="rotate(-12 0 -230)" />
+                <ellipse cx="0" cy="-200" rx="80" ry="18" transform="rotate(10 0 -200)" />
+              </g>
+              <rect x="-80" y="-80" width="160" height="50" rx="6" fill="#FFF8E7" stroke={INK} strokeWidth="5" />
+              <Lines text={text} cy={-55} width={150} max={30} color={COLORS.red} />
+            </>
+          ) : null}
+        </g>
+      </Unmirror>
     ),
   },
 };

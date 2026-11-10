@@ -102,7 +102,49 @@ const Classroom: React.FC<{ text?: string }> = ({ text }) => (
   </>
 );
 
+/** Sân ngoài trời: trời, mây, hàng rào, khung thành nhỏ, nền cỏ. */
+const Yard: React.FC = () => (
+  <>
+    <defs>
+      <linearGradient id="yard-sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stopColor="#6EC6F0" />
+        <stop offset="1" stopColor="#CDEFFC" />
+      </linearGradient>
+    </defs>
+    <rect x="0" y="0" width="1080" height={FLOOR} fill="url(#yard-sky)" />
+    <circle cx="860" cy="330" r="70" fill="#FFE27A" stroke="#FFD24A" strokeWidth="10" />
+    {[
+      [240, 380, 1],
+      [620, 470, 0.8],
+    ].map(([x, y, s]) => (
+      <g key={x} transform={`translate(${x} ${y}) scale(${s})`} fill="#FFFFFF">
+        <ellipse cx="0" cy="0" rx="90" ry="40" />
+        <ellipse cx="-60" cy="12" rx="60" ry="30" />
+        <ellipse cx="64" cy="10" rx="64" ry="32" />
+      </g>
+    ))}
+    {/* Hàng rào */}
+    <rect x="0" y="930" width="1080" height="18" fill="#F4F1E8" stroke={INK} strokeWidth="5" />
+    <rect x="0" y="990" width="1080" height="18" fill="#F4F1E8" stroke={INK} strokeWidth="5" />
+    {Array.from({ length: 14 }, (_, i) => (
+      <path
+        key={i}
+        d={`M${i * 80 + 18} ${FLOOR} L${i * 80 + 18} 900 L${i * 80 + 36} 876 L${i * 80 + 54} 900 L${i * 80 + 54} ${FLOOR} Z`}
+        fill="#FFFFFF"
+        stroke={INK}
+        strokeWidth="6"
+        strokeLinejoin="round"
+      />
+    ))}
+    {/* Bụi cây sau rào */}
+    <ellipse cx="120" cy="900" rx="150" ry="70" fill="#4FA85A" stroke={INK} strokeWidth="6" />
+    <ellipse cx="980" cy="890" rx="170" ry="80" fill="#4FA85A" stroke={INK} strokeWidth="6" />
+    <Floor color="#6DBE45" line="#5DAA3A" />
+  </>
+);
+
 export const SceneBackground: React.FC<{ id: SceneId; text?: string }> = ({ id, text }) => {
+  if (id === "yard") return <Yard />;
   if (id === "kitchen") return <Kitchen />;
   if (id === "classroom") return <Classroom text={text} />;
   return <Home />;
