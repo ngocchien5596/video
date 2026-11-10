@@ -90,6 +90,88 @@ export const Subtitle: React.FC<{ cue: Cue | undefined }> = ({ cue }) => {
   );
 };
 
+/**
+ * Câu hỏi móc ở nhịp hook: hiện đủ ngay từ khung hình đầu tiên (không hiệu ứng vào),
+ * để người lướt tới thấy ngay video nói về câu gì. Nhịp đặt câu thay bằng TitleCard.
+ */
+export const HookBanner: React.FC<{ idiom: string; endFrame: number }> = ({ idiom, endFrame }) => {
+  const frame = useCurrentFrame();
+  const out = interpolate(frame, [endFrame - 6, endFrame], [1, 0], clamp);
+  const wobble = Math.sin(frame / 6) * 1.5;
+
+  return (
+    <div
+      style={{
+        position: "absolute",
+        top: 290,
+        left: SAFE.left,
+        right: SAFE.right,
+        textAlign: "center",
+        opacity: out,
+        rotate: `${-2 + wobble * 0.4}deg`,
+      }}
+    >
+      <div
+        style={{
+          display: "inline-block",
+          padding: "6px 22px",
+          borderRadius: 14,
+          backgroundColor: COLORS.red,
+          color: COLORS.white,
+          fontFamily: TEXT_FONT,
+          fontWeight: 900,
+          fontSize: 38,
+        }}
+      >
+        BẠN HIỂU ĐÚNG CÂU NÀY CHƯA?
+      </div>
+      <div
+        style={{
+          marginTop: 12,
+          padding: "14px 24px",
+          backgroundColor: COLORS.idiom,
+          border: `8px solid ${COLORS.ink}`,
+          borderRadius: 24,
+          fontFamily: TITLE_FONT,
+          fontSize: 80,
+          lineHeight: 1.05,
+          color: COLORS.ink,
+        }}
+      >
+        “{idiom}”
+      </div>
+    </div>
+  );
+};
+
+/** Khung đánh dấu vùng bị nút / chữ của TikTok và YouTube Shorts che (chỉ để xem trước, không xuất). */
+export const SafeZones: React.FC = () => {
+  const zone = (style: React.CSSProperties, label: string) => (
+    <div
+      style={{
+        position: "absolute",
+        backgroundColor: "rgba(229,72,77,0.28)",
+        border: "3px dashed #E5484D",
+        color: COLORS.white,
+        fontFamily: TEXT_FONT,
+        fontWeight: 700,
+        fontSize: 26,
+        padding: 8,
+        ...style,
+      }}
+    >
+      {label}
+    </div>
+  );
+  return (
+    <>
+      {zone({ top: 0, left: 0, right: 0, height: 150 }, "Thanh trên (Following / For You)")}
+      {zone({ top: 860, right: 0, width: 150, bottom: 0 }, "Nút like / bình luận / chia sẻ")}
+      {zone({ top: 1520, left: 0, right: 150, bottom: 0 }, "Tên kênh, mô tả, nhạc")}
+    </>
+  );
+};
+
 /** Thẻ tiêu đề "NGÀY X/30" + câu thành ngữ, hiện ở nhịp đặt câu. */
 export const TitleCard: React.FC<{ day: number; idiom: string; startFrame: number; endFrame: number }> = ({
   day,

@@ -89,7 +89,7 @@ Tiếng sinh ra nằm trong `public/voice/` và không đưa vào git (chạy l�
 
 Mỗi ngày lúc 20:00, bot gửi kịch bản của ngày mai vào Telegram kèm 3 nút: **Duyệt**, **Sửa thoại**, **Bỏ qua**.
 
-- **Duyệt:** bot lồng tiếng, kiểm tra tiếng, xuất video và ảnh bìa, gửi lại file mp4, ảnh bìa và caption gợi ý, rồi cập nhật `tracker.csv`.
+- **Duyệt:** bot lồng tiếng, kiểm tra tiếng, xuất video và ảnh bìa, gửi lại file mp4, ảnh bìa và gói đăng bài (tiêu đề, mô tả YouTube Shorts, caption TikTok, hashtag, bình luận ghim; lưu ở `out/versions/ngay-XX/vN/dang-bai.txt`), rồi cập nhật `tracker.csv`.
 - **Sửa thoại:** nhắn `6.2: nội dung mới` để sửa đúng một câu, hoặc nhắn tự nhiên, ví dụ "câu cuối của cháu cho hài hơn", "thêm một câu ở nhịp 3", "viết phần diễn cho tập này". Bot sửa luôn mô tả cảnh và phần diễn hoạt hình của những câu bị đổi. Với cách nhắn tự nhiên, Claude Code trên máy đọc yêu cầu và đề xuất thay đổi. Bot cho xem bản trước và sau, chỉ sửa `src/episodes/` khi bạn bấm **Áp dụng**.
 - **Bỏ qua:** bot nhắc lại sau 2 giờ.
 
@@ -104,6 +104,7 @@ Mỗi ngày lúc 20:00, bot gửi kịch bản của ngày mai vào Telegram kè
 - Mỗi lần áp dụng sửa kịch bản, bot tự commit git: file kịch bản, kịch bản in, `tracker.csv`, và ghi yêu cầu, tóm tắt, câu cũ, câu mới vào `docs/lich-su/ngay-XX.md`.
 - Mỗi lần xuất video, bot commit kịch bản đang dùng, rồi lưu thành phiên bản mới trong `out/versions/ngay-XX/vN/`: `video.mp4`, `cover.png`, `kich-ban.json`, `voice-manifest.json`, `info.json` (có mã commit). Bản cũ không bị ghi đè.
 - Gõ `/lichsu 5` để xem các phiên bản của tập 5 và gửi lại bản cũ.
+- Gõ `/dangbai 5` để nhận lại gói đăng bài của tập 5. Cấu hình hashtag, giờ đăng ở `bot.config.json` → `publish`.
 - Bot chỉ commit trên máy. Đặt `"autoPush": true` trong `bot.config.json` để tự đẩy lên GitHub sau mỗi lần commit.
 - `out/versions/` không vào git vì video nặng, nên cần sao lưu thư mục này cùng `out/video/`.
 

@@ -7,13 +7,15 @@ export const HEIGHT = 1920;
 /** Số từ tối đa trên một khung phụ đề. */
 const MAX_WORDS = 7;
 
-/** Thời lượng (giây) cuối video dành riêng cho thẻ câu hỏi và "Mai là câu: ...". */
-export const END_CARD_SECONDS = 3;
+/** Thời lượng (giây) cuối video dành riêng cho thẻ câu hỏi và "Mai là câu: ...", tính cả đoạn nối về đầu. */
+export const END_CARD_SECONDS = 2.4;
+/** Đoạn cuối cùng: vòng tròn mở ra khung hình đầu tiên, để video lặp lại liền mạch. */
+export const LOOP_SECONDS = 0.4;
 
 /** Khi có tiếng: nghỉ trước câu đầu, giữa hai câu, và sau câu cuối của mỗi nhịp. */
-const VOICE_LEAD = 0.2;
-const VOICE_GAP = 0.3;
-const VOICE_TAIL = 0.4;
+const VOICE_LEAD = 0.15;
+const VOICE_GAP = 0.2;
+const VOICE_TAIL = 0.3;
 /** Nhịp tiêu đề cần đủ thời gian cho thẻ "NGÀY X/30" chạy hiệu ứng. */
 const MIN_BEAT_SECONDS: Partial<Record<BeatKind, number>> = { title: 3 };
 const DEFAULT_MIN_BEAT_SECONDS = 1.5;

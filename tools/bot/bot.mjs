@@ -11,6 +11,7 @@ import { addDays, dayForDate, loadConfig, loadEnv, loadState, nowIn, ROOT, saveS
 import { applyDraft, diffEpisodes, readBlock, validateDraft } from "./draft.mjs";
 import { archiveVersion, commitFiles, historyFile, listVersions, logRender, logScriptChange, push } from "./history.mjs";
 import { produce, STEPS, updateTracker } from "./pipeline.mjs";
+import { buildPublishKit, formatPublishKit, savePublishKit } from "./publish.mjs";
 import { applyChanges, formatScript, loadEpisode, parseDirectEdits } from "./script.mjs";
 import { createTelegram, esc } from "./telegram.mjs";
 
@@ -35,7 +36,7 @@ const send = (text, buttons) => tg.send(chatId(), text, buttons);
 const HELP = `<b>Bot duyệt kịch bản "Nói Vậy Mà Không Phải Vậy"</b>
 
 Mỗi ngày lúc <b>${"{gio}"}</b> bot gửi kịch bản của ngày mai, kèm 3 nút:
-✅ <b>Duyệt</b>: lồng tiếng, xuất video, gửi file mp4 + ảnh bìa + caption về đây.
+✅ <b>Duyệt</b>: lồng tiếng, xuất video, gửi về đây file mp4, ảnh bìa và gói đăng bài (tiêu đề, mô tả YouTube, caption TikTok, hashtag, bình luận ghim).
 ✏️ <b>Sửa thoại</b>: nhắn chỗ cần sửa. Bot sửa thoại kèm phần diễn và mô tả cảnh liên quan, cho xem trước rồi mới áp dụng.
 ⏭ <b>Bỏ qua</b>: nhắc lại sau vài giờ.
 
@@ -49,6 +50,7 @@ Sửa câu nào thì phần diễn và cảnh của câu đó được sửa the
 /gio 20:00: đổi giờ thông báo
 /tap 5: xem và duyệt tập 5 ngay
 /lichsu 5: các phiên bản video đã xuất của tập 5, gửi lại bản cũ
+/dangbai 5: gửi lại gói đăng bài của tập 5
 /trangthai: ngày bắt đầu, tập sắp tới, việc đang chạy
 /huy: thoát chế độ sửa`;
 
@@ -81,18 +83,7 @@ const sendReview = async (day, header) => {
 const queue = [];
 let busy = false;
 
-const captionFor = (episode, next) => {
-  const pin = `${episode.question}${next ? ` Mai là câu: “${next}”` : ""}`;
-  return `<b>Caption gợi ý</b>
-<code>Ngày ${episode.day}/30: "${esc(episode.idiom)}" mà hiểu theo nghĩa đen thì toang 😂
-${esc(episode.question)}
-#thanhngu #tucngu #tiengviet #hocvui #noivaymakhongphaivay</code>
-
-<b>Bình luận ghim</b>
-<code>${esc(pin)}</code>
-
-⚠️ Nhớ bật nhãn <b>"nội dung do AI tạo"</b> khi đăng TikTok và YouTube.`;
-};
+const publishKit = (episode, next) => buildPublishKit(episode, next, { config, startDate: startDate() });
 
 const runQueue = async () => {
   if (busy) return;
@@ -116,6 +107,8 @@ const runQueue = async () => {
       const result = await produce(day, progress);
       const minutes = ((Date.now() - started) / 60000).toFixed(1);
       const saved = archiveVersion(day, { ...result, episode, commit });
+      const kit = publishKit(episode, next);
+      savePublishKit(saved.dir, kit);
       logRender(day, episode.idiom, { version: saved.version, commit, seconds: result.seconds });
       updateTracker(day, { trang_thai: "da-dung" });
       commitFiles([historyFile(day), "tracker.csv"], `Tập ${day}: xuất video v${saved.version}`);
@@ -143,7 +136,7 @@ const runQueue = async () => {
             `\n\nTên file dạng <code>nhịp-câu-vai</code>, ví dụ 3-2-cd = câu 3.2.`,
         );
       }
-      await send(captionFor(episode, next));
+      await send(formatPublishKit(kit));
       state.days[day] = { ...state.days[day], status: "done", doneAt: new Date().toISOString(), version: saved.version };
     } catch (err) {
       log("produce error", err);
@@ -398,6 +391,12 @@ const handleCommand = async (text) => {
         [buttons.slice(0, 3), buttons.slice(3)].filter((r) => r.length),
       );
     }
+    case "/dangbai": {
+      const day = Number(arg);
+      if (!(day >= 1 && day <= 30)) return send("Cách dùng: <code>/dangbai 5</code>");
+      const { episode, next } = loadEpisode(day);
+      return send(formatPublishKit(publishKit(episode, next)));
+    }
     case "/huy":
       state.editing = null;
       save();
@@ -532,6 +531,7 @@ const main = async () => {
       { command: "gio", description: "Đổi giờ thông báo: /gio 20:00" },
       { command: "trangthai", description: "Xem trạng thái" },
       { command: "lichsu", description: "Các phiên bản video của một tập: /lichsu 5" },
+      { command: "dangbai", description: "Gói đăng bài (tiêu đề, caption, hashtag): /dangbai 5" },
       { command: "huy", description: "Thoát chế độ sửa" },
     ])
     .catch((e) => log("setMyCommands", e.message));

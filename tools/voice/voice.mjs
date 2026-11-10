@@ -49,6 +49,11 @@ for (const day of days) {
   const episode = EPISODES.find((e) => e.day === day);
   const voice = JSON.parse(readFileSync(`public/${voiceManifestPath(day)}`, "utf8"));
   const seconds = episodeSeconds(episode, voice);
-  const warn = seconds > 60 ? "  <- quá 60 giây, nên rút gọn thoại" : "";
+  const warn =
+    seconds > 60
+      ? "  <- quá 60 giây, phải rút gọn thoại"
+      : seconds > 40
+        ? "  <- trên 40 giây, nên cắt bớt thoại để giữ người xem"
+        : "";
   console.log(`  Ngày ${day}: ${seconds.toFixed(1)}s${warn}`);
 }

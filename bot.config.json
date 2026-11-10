@@ -3,5 +3,18 @@
   "timezone": "Asia/Ho_Chi_Minh",
   "remindAfterHours": 2,
   "startDate": null,
-  "autoPush": false
+  "autoPush": false,
+  "publish": {
+    "postTime": "19:00",
+    "hashtags": ["thanhngu", "tucngu", "tiengviet", "hoctiengviet", "noivaymakhongphaivay"],
+    "themeHashtags": {
+      "Ăn uống": ["amthuc"],
+      "Con vật": ["convat"],
+      "Học hành, tiền bạc": ["hocsinh"],
+      "Cư xử, gia đình": ["giadinh"]
+    },
+    "maxHashtagsYoutube": 6,
+    "maxHashtagsTiktok": 6,
+    "aiNote": "Video có giọng đọc và hình ảnh được tạo với sự hỗ trợ của AI."
+  }
 }

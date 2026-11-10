@@ -69,6 +69,8 @@ Mở tập trong thư mục `Tuan-X` và xem hết từ đầu đến cuối, c�
 - [ ] Phụ đề hiện đúng lúc nhân vật nói
 - [ ] Thẻ "NGÀY X/30", "NGHĨA THẬT" và thẻ cuối không che phụ đề
 - [ ] Tiếng "ding", record scratch, whoosh không át lời thoại
+- [ ] Không có chữ hay hành động quan trọng nằm trong vùng bị nút TikTok / Shorts che: ở bảng Props bên phải, đặt `"safeZones": true` để tô đỏ các vùng đó (chỉ hiện khi xem, video xuất ra không có)
+- [ ] Lệnh `npm run voice` không báo "trên 40 giây". Nếu có, nên cắt bớt thoại (qua bot: Sửa thoại, nhắn "rút gọn còn dưới 40 giây")
 
 Xem xong thì **tắt Studio** (Ctrl+C) trước khi xuất video.
 
@@ -86,7 +88,7 @@ Chép file mp4 sang điện thoại và xem một lần trên màn hình thật,
 
 1. Đăng cùng một file mp4 lên TikTok và YouTube Shorts.
 2. **Bật nhãn "nội dung do AI tạo"** trên cả hai nền tảng, vì giọng là giọng AI.
-3. Viết caption theo mẫu trong [quy-trinh.md](quy-trinh.md#đăng-bài).
+3. Lấy tiêu đề, mô tả YouTube, caption TikTok, hashtag và bình luận ghim trong `out/versions/ngay-XX/vN/dang-bai.txt` (bot gửi sẵn qua Telegram, gõ `/dangbai X` để gửi lại). Muốn tự viết thì xem mẫu ở [quy-trinh.md](quy-trinh.md#đăng-bài).
 4. Ghim câu hỏi của tập vào phần bình luận.
 5. Cập nhật `tracker.csv`: cột `trang_thai` lần lượt `da-dung` → `da-hen-gio` → `da-dang`, rồi điền link bài đăng.
 
@@ -110,7 +112,7 @@ Cài bot một lần theo mục "Bot Telegram" trong README. Sau đó mỗi ngà
 2. Chỗ chưa ổn thì bấm **Sửa thoại** rồi nhắn yêu cầu.
    - Bot gửi bản so sánh trước và sau, bấm **Áp dụng** để sửa. Bot gửi lại kịch bản mới để duyệt tiếp.
    - Cách nhắn chính xác nhất: `6.2: nội dung mới`, mỗi dòng một chỗ.
-3. Bấm **Duyệt**. Khoảng 5–10 phút sau, bot gửi về video, ảnh bìa, caption và bình luận ghim. Bot cũng báo nếu có câu bị đọc sai hoặc video dài quá 60 giây.
+3. Bấm **Duyệt**. Khoảng 5–10 phút sau, bot gửi về video, ảnh bìa và gói đăng bài: tiêu đề + mô tả YouTube Shorts, caption TikTok, hashtag, bình luận ghim, giờ đăng gợi ý (mỗi phần một khối, bấm vào là sao chép). Bot cũng báo nếu có câu bị đọc sai hoặc video dài quá 60 giây.
 4. Xem video trên điện thoại rồi đăng theo Bước 6 ở trên.
 
 Qua bot có thể sửa, thêm, xoá câu, đổi cảnh, viết phần diễn. Mỗi lần sửa mất khoảng một phút vì bot nhờ Claude Code viết lại cả tập, rồi kiểm tra lỗi trên bản sao trước khi cho xem. Không có gì bị sửa khi chưa bấm **Áp dụng**. Phần diễn do bot viết chỉ dùng được đạo cụ và cảnh có sẵn; thiếu thứ gì thì bot dùng đồ gần giống và nói rõ trong tóm tắt.
@@ -134,6 +136,7 @@ Qua bot có thể sửa, thêm, xoá câu, đổi cảnh, viết phần diễn. 
 | `npm run sheets` | Sinh lại kịch bản in trong `docs/kich-ban/` |
 | `npm run bot` | Chạy bot Telegram ở cửa sổ hiện tại (để thử) |
 | `/lichsu 5` (Telegram) | Xem các phiên bản video đã xuất của tập 5, gửi lại bản cũ. Lịch sử sửa kịch bản ở `docs/lich-su/ngay-05.md` |
+| `/dangbai 5` (Telegram) | Gửi lại gói đăng bài của tập 5. Giờ đăng, hashtag, câu ghi chú AI sửa trong `bot.config.json` → `publish` |
 | `npm run bot:install` / `bot:uninstall` | Cài / gỡ bot chạy ngầm khi đăng nhập Windows |
 
 Cách ghi `<ngày>`: `5`, `1 3 5`, `1-7`, `tuan-2`, `all`.
