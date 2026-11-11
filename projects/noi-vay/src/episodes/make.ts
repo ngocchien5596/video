@@ -1,5 +1,5 @@
 import type { Moment } from "../../../../engine/lib/stage-types.ts";
-import type { Beat, Episode, Line } from "../../../../engine/lib/types.ts";
+import type { Beat, Episode, Line, Memory } from "../../../../engine/lib/types.ts";
 
 export const CATCHPHRASE = "Ông bà nói vậy, mà không phải vậy!";
 
@@ -19,6 +19,11 @@ type Part = {
   seconds?: number;
   /** Kịch bản diễn của nhịp (xem src/lib/stage-types.ts). */
   stage?: Moment[];
+  /**
+   * Cảnh hồi ức (TV đen trắng ngày xưa). Chuẩn của series: ví dụ kể một câu chuyện
+   * (truyện cổ tích, chuyện ngày xưa, tích cổ) thì bật `memory` và diễn lại đúng câu chuyện bằng vai (`role`), phông, đạo cụ.
+   */
+  memory?: Memory;
 };
 
 export type EpisodeSpec = {
@@ -42,7 +47,7 @@ export type EpisodeSpec = {
   /** Kịch bản diễn cho nhịp đặt câu và lật nghĩa (hai nhịp này dựng tự động). */
   titleStage?: Moment[];
   flipStage?: Moment[];
-  /** 40–52s: ví dụ đời thường. */
+  /** 40–52s: ví dụ đời thường, hoặc một câu chuyện kể lại (khi đó bật `memory`). */
   example: Part;
   /** 52–60s: Thằng Cháu áp dụng sai kiểu mới. */
   punchline: Part;

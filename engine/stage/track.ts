@@ -1,8 +1,9 @@
-import type { Board, Camera, Fx, Item, Moment, Pose, PropRef, SceneRef } from "../lib/stage-types.ts";
+import type { Board, Camera, Fx, Item, Moment, Pose, PropRef, RoleId, SceneRef } from "../lib/stage-types.ts";
 import type { Timeline } from "../lib/timing.ts";
 import type { Episode } from "../lib/types.ts";
 
 export type CharState = Required<Pick<Pose, "expr" | "arms" | "move" | "x">> & {
+  role: RoleId | null;
   hand: PropRef | null;
   head: PropRef | null;
   face: PropRef | null;
@@ -10,6 +11,7 @@ export type CharState = Required<Pick<Pose, "expr" | "arms" | "move" | "x">> & {
 };
 
 export const DEFAULT_CD: CharState = {
+  role: null,
   expr: "neutral",
   arms: "down",
   move: "idle",
@@ -21,6 +23,7 @@ export const DEFAULT_CD: CharState = {
 };
 
 export const DEFAULT_TC: CharState = {
+  role: null,
   expr: "neutral",
   arms: "down",
   move: "idle",
@@ -46,13 +49,23 @@ export type StageTrack = {
 
 const merge = (prev: CharState, pose: Pose): CharState => ({ ...prev, ...pose }) as CharState;
 
-/** Tính thời điểm của từng khoảnh khắc trong kịch bản diễn rồi gom thành các kênh. */
+type Timed = { time: number; order: number; m?: Moment; snapshot?: number; restore?: number };
+
+/**
+ * Tính thời điểm của từng khoảnh khắc trong kịch bản diễn rồi gom thành các kênh.
+ * Nhịp hồi ức (`memory`): chụp lại sân khấu ngay trước nhịp, hết nhịp thì đặt lại y nguyên (cắt thẳng, không chuyển động).
+ */
 export const buildTrack = (episode: Episode, timeline: Timeline): StageTrack => {
-  const timed: { time: number; order: number; m: Moment }[] = [];
+  const timed: Timed[] = [];
   let order = 0;
 
   episode.beats.forEach((beat, b) => {
     const tb = timeline.beats[b];
+    if (beat.memory) {
+      // order âm: chạy trước mọi khoảnh khắc cùng thời điểm.
+      timed.push({ time: tb.start, order: -2, snapshot: b });
+      timed.push({ time: tb.end, order: -1, restore: b });
+    }
     for (const m of beat.stage ?? []) {
       const at = m.at ?? 0;
       const line = m.line === undefined ? undefined : timeline.lines.find((l) => l.beat === b && l.line === m.line);
@@ -71,10 +84,35 @@ export const buildTrack = (episode: Episode, timeline: Timeline): StageTrack => 
     fx: [],
     board: [{ time: -1, value: null }],
   };
+  const last = <T,>(c: Change<T>[]) => c[c.length - 1].value;
+  const saved = new Map<number, { cd: CharState; tc: CharState; camera: Camera; scene: SceneRef; items: Item[]; board: Board | null }>();
 
-  for (const { time, m } of timed) {
-    if (m.cd) track.cd.push({ time, cut: m.cut, value: merge(track.cd[track.cd.length - 1].value, m.cd) });
-    if (m.tc) track.tc.push({ time, cut: m.cut, value: merge(track.tc[track.tc.length - 1].value, m.tc) });
+  for (const { time, m, snapshot, restore } of timed) {
+    if (snapshot !== undefined) {
+      saved.set(snapshot, {
+        cd: last(track.cd),
+        tc: last(track.tc),
+        camera: last(track.camera),
+        scene: last(track.scene),
+        items: last(track.items),
+        board: last(track.board),
+      });
+      continue;
+    }
+    if (restore !== undefined) {
+      const s = saved.get(restore);
+      if (!s) continue;
+      track.cd.push({ time, cut: true, value: s.cd });
+      track.tc.push({ time, cut: true, value: s.tc });
+      track.camera.push({ time, cut: true, value: s.camera });
+      track.scene.push({ time, value: s.scene });
+      track.items.push({ time, cut: true, value: s.items });
+      track.board.push({ time, cut: true, value: s.board });
+      continue;
+    }
+    if (!m) continue;
+    if (m.cd) track.cd.push({ time, cut: m.cut, value: merge(last(track.cd), m.cd) });
+    if (m.tc) track.tc.push({ time, cut: m.cut, value: merge(last(track.tc), m.tc) });
     if (m.camera) track.camera.push({ time, cut: m.cut, value: m.camera });
     if (m.scene) track.scene.push({ time, value: m.scene });
     if (m.items) track.items.push({ time, cut: m.cut, value: m.items });

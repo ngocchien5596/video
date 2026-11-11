@@ -6,6 +6,7 @@ import type { Episode } from "../lib/types.ts";
 import { BoardPanel, type BoardRegistry } from "./board.tsx";
 import { Puppet, PUPPET_H, PUPPET_W } from "./Character.tsx";
 import { FX_FRAMES, FxShape } from "./fx.tsx";
+import { MemoryTV } from "./memory.tsx";
 import { animateArms, type ArmAngles } from "./poses.ts";
 import { PROPS } from "./props.tsx";
 import { FLOOR, KitchenTable, SceneBackground, TABLE_TOP } from "./scenes.tsx";
@@ -102,8 +103,10 @@ export const Stage: React.FC<{
   const ctx: Ctx = { frame, fps, t };
   const track = useMemo(() => buildTrack(episode, timeline), [episode, timeline]);
 
-  const cd = resolveChar(ctx, track.cd, speaking && cue?.who === "CD", 0);
-  const tc = resolveChar(ctx, track.tc, speaking && cue?.who === "TC", 37);
+  // Nhịp hồi ức đang chiếu (nếu có): con rối không mấp máy môi, vai (role) mới hiện.
+  const memoryBeat = timeline.beats.find((b) => b.memory && t >= b.start && t < b.end);
+  const cd = resolveChar(ctx, track.cd, !memoryBeat && speaking && cue?.who === "CD", 0);
+  const tc = resolveChar(ctx, track.tc, !memoryBeat && speaking && cue?.who === "TC", 37);
 
   const sceneNow = at(track.scene, t).cur.value;
   const scene = typeof sceneNow === "string" ? { id: sceneNow } : sceneNow;
@@ -135,6 +138,7 @@ export const Stage: React.FC<{
       <g transform={`translate(${c.x * W - (PUPPET_W * SCALE) / 2 + c.dx} ${FLOOR - (PUPPET_H - 14) * SCALE + c.dy}) scale(${SCALE})`}>
         <Puppet
           who={who}
+          role={memoryBeat ? c.state.role : null}
           expr={c.state.expr}
           arms={c.arms}
           hand={c.state.hand}
@@ -151,20 +155,24 @@ export const Stage: React.FC<{
     );
   };
 
-  return (
+  const items = (front: boolean) =>
+    it.cur.value
+      .filter((i) => (i.on !== "table" || !table) && Boolean(i.front) === front)
+      .map((item) => {
+        const old = it.prev.value.find((o) => o.id === item.id);
+        const x = old ? old.x + (item.x - old.x) * pi : item.x;
+        return <ItemShape key={item.id} item={item} x={x} pop={old ? 1 : pi} table={table} />;
+      });
+
+  const picture = (
     <AbsoluteFill>
       <svg viewBox="0 0 1080 1920" width="100%" height="100%">
         <g transform={camera}>
           <SceneBackground id={scene.id} text={"text" in scene ? scene.text : undefined} />
-          {it.cur.value
-            .filter((i) => i.on !== "table" || !table)
-            .map((item) => {
-              const old = it.prev.value.find((o) => o.id === item.id);
-              const x = old ? old.x + (item.x - old.x) * pi : item.x;
-              return <ItemShape key={item.id} item={item} x={x} pop={old ? 1 : pi} table={table} />;
-            })}
+          {items(false)}
           {placeChar(cd, "CD")}
           {placeChar(tc, "TC")}
+          {items(true)}
           {table ? <KitchenTable /> : null}
           {table
             ? it.cur.value
@@ -176,6 +184,8 @@ export const Stage: React.FC<{
                 })
             : null}
           {track.fx.map((c, i) => {
+            // Hiệu ứng không tràn qua ranh giới cảnh hồi ức.
+            if (timeline.beats.find((b) => b.memory && c.time >= b.start && c.time < b.end) !== memoryBeat) return null;
             const start = Math.round(c.time * fps);
             const local = frame - start;
             if (local < 0 || local >= FX_FRAMES[c.value.kind]) return null;
@@ -199,5 +209,13 @@ export const Stage: React.FC<{
         {boards ? <BoardPanel changes={track.board} registry={boards} frame={frame} fps={fps} /> : null}
       </svg>
     </AbsoluteFill>
+  );
+
+  if (!memoryBeat) return picture;
+  const label = typeof memoryBeat.memory === "object" ? memoryBeat.memory.label : undefined;
+  return (
+    <MemoryTV frame={frame} startFrame={Math.round(memoryBeat.start * fps)} endFrame={Math.round(memoryBeat.end * fps)} label={label}>
+      {picture}
+    </MemoryTV>
   );
 };

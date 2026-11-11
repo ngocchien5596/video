@@ -28,7 +28,16 @@ export type Beat = {
   lines: Line[];
   /** Kịch bản diễn cho hoạt hình (engine/stage). Bỏ trống thì dùng animatic chân dung. */
   stage?: Moment[];
+  /**
+   * Cảnh hồi ức: hình chuyển sang kiểu TV đen trắng ngày xưa (bật TV lúc vào, tắt TV lúc ra),
+   * nhân vật được đóng vai (`role`), hết nhịp thì sân khấu tự về đúng trạng thái trước nhịp.
+   * Dùng cho ví dụ kể chuyện (truyện cổ tích, chuyện ngày xưa, kỷ niệm). Xem engine/stage/memory.tsx.
+   */
+  memory?: Memory;
 };
+
+/** `true` hoặc kèm nhãn nhỏ góc màn hình (ví dụ "TRUYỆN CỔ TÍCH: THẠCH SANH"). */
+export type Memory = true | { label?: string };
 
 /** Phần chung của mọi tập. Dự án thêm trường riêng (câu thành ngữ, câu hỏi, nguồn...). */
 export type Episode = {

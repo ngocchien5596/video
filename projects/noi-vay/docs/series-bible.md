@@ -27,8 +27,19 @@ Một người có thể đóng cả hai vai, quay hết cảnh của CĐ trư�
 | 3–6 | Đặt câu | CĐ hỏi, TC đáp bằng chính câu thành ngữ. Thẻ "#X" hiện lên |
 | 6–25 | Hiểu sai | Diễn nghĩa đen, leo thang 2–3 bước, cắt cảnh mỗi 2–3 giây |
 | 25–40 | Lật nghĩa | Câu cửa miệng của CĐ, thẻ "NGHĨA THẬT" hiện lên |
-| 40–52 | Ví dụ | Tình huống hiện đại: công sở, học đường, mạng xã hội |
+| 40–52 | Ví dụ | Tình huống hiện đại (công sở, học đường, mạng xã hội) hoặc một câu chuyện dựng thành cảnh hồi ức (xem bên dưới) |
 | 52–60 | Punchline | TC áp dụng sai kiểu mới, thẻ câu hỏi bình luận và "Mai là câu…" |
+
+### Chuẩn dựng nhịp Ví dụ
+
+- **Ví dụ đời thường ngắn** (một câu, tình huống hiện đại): diễn ngay tại cảnh, hai nhân vật giơ biển chữ / đạo cụ như bình thường.
+- **Ví dụ kể một câu chuyện** (truyện cổ tích, tích xưa, chuyện ngày xưa, kể dài từ 2 câu trở lên): bắt buộc dựng thành **cảnh hồi ức**.
+  - Bật `memory` ở nhịp `example` (kèm nhãn, ví dụ `{ label: "TRUYỆN CỔ TÍCH: THẠCH SANH" }`). Hình tự chuyển sang kiểu TV đen trắng ngày xưa: bật TV lúc vào, sọc quét, nhiễu hạt, tắt TV lúc ra. Thanh tiêu đề và phụ đề giữ màu.
+  - Diễn lại **đúng từng ý trong lời kể**, mỗi ý một khoảnh khắc: đổi phông cho đúng nơi chốn (`tavern`, `temple`, `cave`…), hai con rối đóng vai nhân vật trong truyện (`role`), dùng đạo cụ đúng truyện. Không dùng biển chữ thay cho hình nếu đã có đạo cụ vẽ được.
+  - Lời kể là giọng Cụ Đồ đọc dẫn; trong hồi ức con rối không mấp máy môi.
+  - Hết nhịp, sân khấu tự về đúng cảnh trước hồi ức. Nhịp Punchline vẫn mở bằng một khoảnh khắc `cut` đặt lại cảnh.
+  - Thiếu vai / phông / đạo cụ cho câu chuyện mới thì vẽ thêm trong `engine/stage` (`Character.tsx` mục vai, `scenes.tsx`, `props.tsx`) và ghi vào `engine/lib/stage-types.ts`.
+- Mẫu chuẩn: tập 1 "Ăn cháo đá bát" (`projects/noi-vay/src/episodes/tuan-1.ts`).
 
 Độ dài từng nhịp có thể đổi theo từng tập (`seconds` trong `projects/noi-vay/src/episodes/`), nhưng thứ tự nhịp thì giữ nguyên.
 

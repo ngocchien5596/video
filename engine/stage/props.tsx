@@ -487,4 +487,130 @@ export const PROPS: Record<PropId, PropDef> = {
       </Unmirror>
     ),
   },
+  // ------------------------------------------------ truyện cổ tích (cảnh hồi ức)
+  axe: {
+    mode: "extend",
+    draw: () => (
+      <g>
+        <line x1="0" y1="-10" x2="0" y2="150" stroke={INK} strokeWidth="18" strokeLinecap="round" />
+        <line x1="0" y1="-10" x2="0" y2="150" stroke="#9C6B3C" strokeWidth="10" strokeLinecap="round" />
+        <path d="M-4 112 L52 92 Q78 136 52 182 L-4 162 Z" fill="#C9CED6" stroke={INK} strokeWidth="7" strokeLinejoin="round" />
+        <path d="M50 100 Q70 136 50 174" fill="none" stroke="#FFFFFF" strokeWidth="5" strokeLinecap="round" />
+      </g>
+    ),
+  },
+  bow: {
+    mode: "extend",
+    draw: () => (
+      <g>
+        <path d="M-96 40 Q0 -40 96 40" fill="none" stroke={INK} strokeWidth="20" strokeLinecap="round" />
+        <path d="M-96 40 Q0 -40 96 40" fill="none" stroke="#B5892A" strokeWidth="11" strokeLinecap="round" />
+        <line x1="-96" y1="40" x2="96" y2="40" stroke={INK} strokeWidth="4" />
+        <line x1="0" y1="-30" x2="0" y2="96" stroke={INK} strokeWidth="6" />
+        <path d="M-12 96 L0 124 L12 96 Z" fill="#C9CED6" stroke={INK} strokeWidth="5" strokeLinejoin="round" />
+      </g>
+    ),
+  },
+  "wine-jar": {
+    mode: "upright",
+    draw: ({ text, mirrored }) => (
+      <g>
+        <path d="M-46 -150 Q-86 -116 -76 -56 Q-66 0 0 0 Q66 0 76 -56 Q86 -116 46 -150 Z" fill="#9C5B2E" stroke={INK} strokeWidth="7" strokeLinejoin="round" />
+        <rect x="-38" y="-176" width="76" height="30" rx="8" fill="#7A4421" stroke={INK} strokeWidth="6" />
+        <path d="M-30 -176 Q0 -206 30 -176 Z" fill="#E8C547" stroke={INK} strokeWidth="5" />
+        <Unmirror mirrored={mirrored}>
+          <rect x="-34" y="-112" width="68" height="68" fill="#C0392B" stroke={INK} strokeWidth="5" transform="rotate(45 0 -78)" />
+          <Lines text={text ?? "RƯỢU"} cy={-78} width={56} max={26} color="#FFE27A" font={TEXT_FONT} />
+        </Unmirror>
+      </g>
+    ),
+  },
+  firewood: {
+    mode: "upright",
+    draw: () => (
+      <g>
+        {[-42, -20, 2, 24, 44].map((x, i) => (
+          <rect key={x} x={x - 11} y={-330 + (i % 2) * 18} width="22" height="300" rx="10" fill="#9C6B3C" stroke={INK} strokeWidth="6" />
+        ))}
+        <path d="M-58 -250 Q0 -232 58 -250 M-58 -110 Q0 -92 58 -110" fill="none" stroke="#5C4128" strokeWidth="10" strokeLinecap="round" />
+      </g>
+    ),
+  },
+  "mandarin-hat": {
+    mode: "upright",
+    draw: () => (
+      <g>
+        <ellipse cx="-118" cy="-40" rx="56" ry="18" fill="#1E1B2E" stroke={INK} strokeWidth="6" transform="rotate(-10 -118 -40)" />
+        <ellipse cx="118" cy="-40" rx="56" ry="18" fill="#1E1B2E" stroke={INK} strokeWidth="6" transform="rotate(10 118 -40)" />
+        <path d="M-92 0 Q-96 -96 0 -100 Q96 -96 92 0 Z" fill="#1E1B2E" stroke={INK} strokeWidth="7" strokeLinejoin="round" />
+        <path d="M-90 -18 Q0 -4 90 -18" fill="none" stroke="#E8C547" strokeWidth="8" />
+        <circle cx="0" cy="-60" r="12" fill="#E8C547" stroke={INK} strokeWidth="5" />
+      </g>
+    ),
+  },
+  "demon-head": {
+    mode: "upright",
+    draw: () => (
+      <g transform="scale(0.8)">
+        <path d="M-60 -120 L-84 -190 L-30 -140 Z M60 -120 L84 -190 L30 -140 Z" fill="#F2EBDD" stroke={INK} strokeWidth="6" strokeLinejoin="round" />
+        <ellipse cx="0" cy="-70" rx="86" ry="78" fill="#5E8C3E" stroke={INK} strokeWidth="7" />
+        <path d="M-50 -96 L-14 -82 M50 -96 L14 -82" stroke={INK} strokeWidth="8" strokeLinecap="round" />
+        <circle cx="-32" cy="-72" r="11" fill="#FFE27A" stroke={INK} strokeWidth="4" />
+        <circle cx="32" cy="-72" r="11" fill="#FFE27A" stroke={INK} strokeWidth="4" />
+        <path d="M-46 -26 Q0 -6 46 -26 L36 -12 Q0 6 -36 -12 Z" fill="#3B1E1E" stroke={INK} strokeWidth="5" />
+        <path d="M-30 -24 L-24 -6 L-18 -22 M18 -22 L24 -6 L30 -24" fill="#FFFFFF" stroke={INK} strokeWidth="3" />
+      </g>
+    ),
+  },
+  "python-demon": {
+    mode: "upright",
+    draw: () => (
+      <g>
+        {/* Thân trăn cuộn tròn */}
+        <ellipse cx="0" cy="-60" rx="210" ry="66" fill="#4E7A3A" stroke={INK} strokeWidth="9" />
+        <ellipse cx="-10" cy="-140" rx="170" ry="58" fill="#5E8C3E" stroke={INK} strokeWidth="9" />
+        <ellipse cx="0" cy="-212" rx="128" ry="48" fill="#4E7A3A" stroke={INK} strokeWidth="9" />
+        {[-150, -90, -30, 30, 90, 150].map((x) => (
+          <path key={x} d={`M${x - 18} -64 q18 -22 36 0`} fill="none" stroke="#9BC06B" strokeWidth="6" />
+        ))}
+        {/* Cổ vươn lên, đầu có sừng */}
+        <path d="M40 -230 Q120 -330 70 -440" fill="none" stroke={INK} strokeWidth="78" strokeLinecap="round" />
+        <path d="M40 -230 Q120 -330 70 -440" fill="none" stroke="#5E8C3E" strokeWidth="62" strokeLinecap="round" />
+        <path d="M14 -530 L-4 -600 L40 -540 Z M110 -530 L132 -600 L86 -540 Z" fill="#F2EBDD" stroke={INK} strokeWidth="6" strokeLinejoin="round" />
+        <ellipse cx="62" cy="-482" rx="88" ry="64" fill="#5E8C3E" stroke={INK} strokeWidth="8" />
+        <path d="M14 -508 L46 -494 M110 -508 L78 -494" stroke={INK} strokeWidth="8" strokeLinecap="round" />
+        <circle cx="32" cy="-486" r="12" fill="#FFE27A" stroke={INK} strokeWidth="5" />
+        <circle cx="92" cy="-486" r="12" fill="#FFE27A" stroke={INK} strokeWidth="5" />
+        <path d="M10 -444 Q62 -420 114 -444 L100 -430 Q62 -410 24 -430 Z" fill="#3B1E1E" stroke={INK} strokeWidth="5" />
+        <path d="M30 -442 L36 -424 L42 -440 M82 -440 L88 -424 L94 -442" fill="#FFFFFF" stroke={INK} strokeWidth="3" />
+        <path d="M62 -420 L58 -392 L48 -380 M58 -392 L68 -380" fill="none" stroke="#D62828" strokeWidth="6" strokeLinecap="round" />
+      </g>
+    ),
+  },
+  eagle: {
+    mode: "upright",
+    draw: () => (
+      <g transform="translate(0 -760)">
+        <path d="M-20 -10 Q-120 -110 -230 -70 Q-170 -40 -190 -10 Q-130 -20 -120 10 Q-70 0 -20 20 Z" fill="#6B4423" stroke={INK} strokeWidth="7" strokeLinejoin="round" />
+        <path d="M20 -10 Q120 -110 230 -70 Q170 -40 190 -10 Q130 -20 120 10 Q70 0 20 20 Z" fill="#6B4423" stroke={INK} strokeWidth="7" strokeLinejoin="round" />
+        <ellipse cx="0" cy="10" rx="44" ry="66" fill="#7A4E2D" stroke={INK} strokeWidth="7" />
+        <path d="M-30 70 L0 110 L30 70 Z" fill="#6B4423" stroke={INK} strokeWidth="6" strokeLinejoin="round" />
+        <circle cx="0" cy="-56" r="36" fill="#F2EBDD" stroke={INK} strokeWidth="7" />
+        <path d="M-6 -48 L30 -40 L0 -26 Z" fill="#FFB22C" stroke={INK} strokeWidth="5" strokeLinejoin="round" />
+        <path d="M-22 -66 L-2 -58" stroke={INK} strokeWidth="6" strokeLinecap="round" />
+        <circle cx="-12" cy="-60" r="5" fill={INK} />
+        <path d="M-20 70 l-8 26 M20 70 l8 26" stroke="#FFB22C" strokeWidth="7" strokeLinecap="round" />
+      </g>
+    ),
+  },
+  boulder: {
+    mode: "upright",
+    draw: () => (
+      <g>
+        <path d="M-190 0 L-200 -150 Q-170 -300 -40 -320 Q110 -330 180 -220 Q214 -120 196 0 Z" fill="#8A8F99" stroke={INK} strokeWidth="10" strokeLinejoin="round" />
+        <path d="M-120 -230 Q-60 -270 20 -262 M-60 -100 L-10 -160 L40 -120 M90 -60 L130 -140" fill="none" stroke="#5E626B" strokeWidth="8" strokeLinecap="round" />
+        <path d="M-150 -170 Q-130 -250 -60 -276" fill="none" stroke="#B4B9C2" strokeWidth="10" strokeLinecap="round" />
+      </g>
+    ),
+  },
 };

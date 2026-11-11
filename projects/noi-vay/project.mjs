@@ -52,6 +52,7 @@ export const ai = {
     `Nhịp 2 (ĐẶT CÂU) tự sinh từ "ask" và "idiom"; nhịp 4 (LẬT NGHĨA) tự sinh từ câu cửa miệng + "explain".`,
     `Nghĩa thật (meaning), câu hỏi (question) chỉ đổi khi được yêu cầu hoặc khi thoại đổi làm chúng sai.`,
     `Giữ giọng nhân vật (xem quy tắc series). Cả tập phải dưới 60 giây khi đọc.`,
+    `Ví dụ kể một câu chuyện (truyện cổ tích, tích xưa, kể từ 2 câu trở lên) thì dựng thành cảnh hồi ức: bật memory ở example, diễn đúng từng ý bằng role, phông, đạo cụ (xem mục "Chuẩn dựng nhịp Ví dụ" trong quy tắc series, mẫu là tập 1).`,
   ],
   bible: "docs/series-bible.md",
   spec: "src/episodes/make.ts",

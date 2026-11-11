@@ -245,7 +245,103 @@ const Beach: React.FC = () => (
   </>
 );
 
+// ------------------------------------------------ truyện cổ tích (cảnh hồi ức)
+
+/** Quán rượu ngày xưa: vách đất, mái tranh, cột tre, biển "QUÁN RƯỢU", chum rượu xếp góc phải. */
+const Tavern: React.FC = () => (
+  <>
+    <rect x="0" y="0" width="1080" height={FLOOR} fill="#CDB892" />
+    {/* Vách đất có vệt */}
+    {Array.from({ length: 9 }, (_, i) => (
+      <path key={i} d={`M${i * 130 + 20} ${560 + (i % 3) * 120} q40 -16 80 0`} fill="none" stroke="#A8916A" strokeWidth="6" strokeLinecap="round" />
+    ))}
+    {/* Mái tranh */}
+    <path d="M-40 0 L1120 0 L1120 330 Q540 430 -40 330 Z" fill="#B08A3E" stroke={INK} strokeWidth="10" strokeLinejoin="round" />
+    {Array.from({ length: 22 }, (_, i) => (
+      <line key={i} x1={i * 52} y1="40" x2={i * 52 - 18} y2={350 + Math.sin(i) * 20} stroke="#8C6A2A" strokeWidth="5" />
+    ))}
+    {/* Cột tre */}
+    {[70, 1010].map((x) => (
+      <g key={x}>
+        <rect x={x - 22} y="340" width="44" height={FLOOR - 340} fill="#C9A24E" stroke={INK} strokeWidth="7" />
+        {[520, 720, 920, 1120].map((y) => (
+          <line key={y} x1={x - 22} y1={y} x2={x + 22} y2={y} stroke={INK} strokeWidth="6" />
+        ))}
+      </g>
+    ))}
+    {/* Biển quán */}
+    <line x1="440" y1="380" x2="440" y2="440" stroke={INK} strokeWidth="6" />
+    <line x1="640" y1="380" x2="640" y2="440" stroke={INK} strokeWidth="6" />
+    <rect x="390" y="440" width="300" height="96" rx="8" fill="#7A2E22" stroke={INK} strokeWidth="8" />
+    <text x="540" y="503" textAnchor="middle" fontFamily={TEXT_FONT} fontWeight="900" fontSize="50" fill="#FFE27A">
+      QUÁN RƯỢU
+    </text>
+    {/* Kệ chum rượu sau quầy */}
+    {[820, 920].map((x, i) => (
+      <g key={x} transform={`translate(${x} ${1000 - i * 10})`}>
+        <path d="M-40 -130 Q-74 -100 -66 -48 Q-58 0 0 0 Q58 0 66 -48 Q74 -100 40 -130 Z" fill="#9C5B2E" stroke={INK} strokeWidth="7" />
+        <rect x="-32" y="-152" width="64" height="26" rx="8" fill="#7A4421" stroke={INK} strokeWidth="6" />
+      </g>
+    ))}
+    <rect x="740" y="1000" width="280" height="24" fill="#8B5A2B" stroke={INK} strokeWidth="6" />
+    <Floor color="#9C7A4E" line="#8A6B42" />
+  </>
+);
+
+/** Miếu cổ dưới gốc đa trong rừng đêm. */
+const Temple: React.FC = () => (
+  <>
+    <defs>
+      <linearGradient id="temple-sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stopColor="#0E1430" />
+        <stop offset="1" stopColor="#36406E" />
+      </linearGradient>
+    </defs>
+    <rect x="0" y="0" width="1080" height={FLOOR} fill="url(#temple-sky)" />
+    <circle cx="200" cy="300" r="64" fill="#FFF3C4" stroke="#FFE27A" strokeWidth="8" />
+    {/* Rặng cây xa */}
+    <path d={`M0 900 Q120 760 240 880 Q360 740 480 870 Q620 760 740 880 Q880 760 1080 860 L1080 ${FLOOR} L0 ${FLOOR} Z`} fill="#1F3A2A" stroke={INK} strokeWidth="6" />
+    {/* Cây đa: thân to, rễ phụ thõng xuống */}
+    <path d={`M840 ${FLOOR} Q860 900 820 700 L940 700 Q920 900 980 ${FLOOR} Z`} fill="#5C4128" stroke={INK} strokeWidth="8" strokeLinejoin="round" />
+    <ellipse cx="880" cy="560" rx="300" ry="200" fill="#2C5A37" stroke={INK} strokeWidth="8" />
+    <ellipse cx="700" cy="640" rx="170" ry="110" fill="#2C5A37" stroke={INK} strokeWidth="8" />
+    {[620, 690, 760, 1000, 1050].map((x, i) => (
+      <line key={x} x1={x} y1="680" x2={x + (i % 2 ? 8 : -6)} y2={980 + (i % 3) * 60} stroke="#5C4128" strokeWidth="7" strokeLinecap="round" />
+    ))}
+    {/* Ngôi miếu */}
+    <rect x="390" y="900" width="250" height={FLOOR - 900} fill="#B9A27A" stroke={INK} strokeWidth="8" />
+    <rect x="470" y="980" width="90" height={FLOOR - 980} fill="#1A1626" stroke={INK} strokeWidth="6" />
+    <path d="M350 910 Q515 800 680 910 Q690 880 660 870 Q515 770 370 870 Q340 880 350 910 Z" fill="#7A2E22" stroke={INK} strokeWidth="8" strokeLinejoin="round" />
+    <path d="M350 910 Q330 880 320 860 M680 910 Q700 880 710 860" fill="none" stroke={INK} strokeWidth="8" strokeLinecap="round" />
+    <Floor color="#2F5A30" line="#284E29" />
+  </>
+);
+
+/** Vách núi đá, cửa hang tối bên trái (tâm x ≈ 290). */
+const Cave: React.FC = () => (
+  <>
+    <rect x="0" y="0" width="1080" height={FLOOR} fill="#9FB4C7" />
+    {/* Núi đá */}
+    <path d={`M-20 ${FLOOR} L-20 420 Q120 300 260 360 Q400 220 560 330 Q700 260 820 380 Q960 320 1100 420 L1100 ${FLOOR} Z`} fill="#7B7F8A" stroke={INK} strokeWidth="10" strokeLinejoin="round" />
+    {[
+      "M120 560 L220 520 L300 580",
+      "M620 520 L700 470 L780 540",
+      "M840 700 L940 660 L1020 720",
+      "M560 860 L640 820 L700 880",
+    ].map((d) => (
+      <path key={d} d={d} fill="none" stroke="#5E626B" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
+    ))}
+    {/* Cửa hang */}
+    <path d={`M110 ${FLOOR} Q110 760 290 740 Q470 760 470 ${FLOOR} Z`} fill="#15131C" stroke={INK} strokeWidth="10" />
+    <path d={`M140 ${FLOOR} Q150 800 290 784`} fill="none" stroke="#2A2733" strokeWidth="14" />
+    <Floor color="#6E6A62" line="#5E5A53" />
+  </>
+);
+
 export const SceneBackground: React.FC<{ id: SceneId; text?: string }> = ({ id, text }) => {
+  if (id === "tavern") return <Tavern />;
+  if (id === "temple") return <Temple />;
+  if (id === "cave") return <Cave />;
   if (id === "space") return <Space />;
   if (id === "beach") return <Beach />;
   if (id === "night") return <Night />;

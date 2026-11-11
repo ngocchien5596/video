@@ -61,18 +61,43 @@ export type PropId =
   | "broom"
   | "pen"
   | "paper"
-  | "plant";
+  | "plant"
+  // Truyện cổ tích (dùng trong cảnh hồi ức)
+  | "axe"
+  | "bow"
+  | "wine-jar"
+  | "firewood"
+  | "mandarin-hat"
+  | "demon-head"
+  | "python-demon"
+  | "eagle"
+  | "boulder";
 
 /**
  * Đạo cụ có chữ (`{ id, text }`):
  * sign: dòng chữ dưới tấm truy nã · book: chữ trên bìa · paper: tờ giấy ghi chữ (điểm, nhãn "CỦA CHÁU"...)
  * fridge: chữ trên băng dán chéo · alarm-clock: chữ trên mặt đồng hồ · plant: chữ trên bảng cắm trong chậu
+ * wine-jar: chữ trên nhãn chum (mặc định "RƯỢU")
+ *
+ * Đồ truyện cổ tích: axe (rìu, cầm tay) · bow (cung, cầm tay) · wine-jar (chum rượu) · firewood (bó củi, đeo lưng `back`)
+ * · mandarin-hat (mũ quan, đội `head`) · demon-head (đầu chằn tinh, cầm bằng `hold2`)
+ * · python-demon (chằn tinh, đồ to đặt trên sàn) · eagle (đại bàng, tự bay cao trên trời) · boulder (tảng đá to, nên đặt `front: true`)
  */
 
 /** Đạo cụ, kèm chữ cho loại có chữ (ví dụ tấm biển). */
 export type PropRef = PropId | { id: PropId; text?: string };
 
+/**
+ * Vai trong truyện / hồi ức: con rối mặc trang phục và mang mặt của nhân vật khác.
+ * thach-sanh: chàng trai khoẻ mạnh, búi tóc, áo nâu, tay trần · ly-thong: gã bán rượu gian xảo, khăn vấn, ria vểnh
+ * Vai chỉ hiện trong nhịp hồi ức (`memory`); hết nhịp là tự về lại Cụ Đồ / Thằng Cháu.
+ * Trong nhịp hồi ức con rối không mấp máy môi (lời kể là giọng dẫn).
+ */
+export type RoleId = "thach-sanh" | "ly-thong";
+
 export type Pose = {
+  /** Đóng vai nhân vật khác (null = về lại chính mình). */
+  role?: RoleId | null;
   expr?: Expr;
   arms?: ArmPose;
   move?: Move;
@@ -95,11 +120,15 @@ export type Item = {
   x: number;
   on?: "floor" | "table";
   scale?: number;
+  /** true = vẽ trước mặt nhân vật (ví dụ tảng đá lấp cửa hang che người phía sau). */
+  front?: boolean;
 };
 
 /** home: phòng khách · kitchen: bếp có bàn ăn (đồ `on: "table"` đặt trên bàn) · classroom: lớp học · yard: sân ngoài trời · night: sân ban đêm (trăng, sao)
- * · space: ngoài vũ trụ (đứng trên mặt trăng, thấy Trái Đất, sao) · beach: bãi biển (biển, cát) */
-export type SceneId = "home" | "kitchen" | "classroom" | "yard" | "night" | "space" | "beach";
+ * · space: ngoài vũ trụ (đứng trên mặt trăng, thấy Trái Đất, sao) · beach: bãi biển (biển, cát)
+ * · tavern: quán rượu mái tranh ngày xưa (chum rượu, biển "QUÁN RƯỢU") · temple: miếu cổ dưới gốc đa trong rừng đêm
+ * · cave: vách núi đá, cửa hang tối ở bên trái (x ≈ 0.27) */
+export type SceneId = "home" | "kitchen" | "classroom" | "yard" | "night" | "space" | "beach" | "tavern" | "temple" | "cave";
 /** Phông cảnh, `text` là chữ trên bảng (lớp học). */
 export type SceneRef = SceneId | { id: SceneId; text?: string };
 

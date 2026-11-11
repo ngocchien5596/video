@@ -1,5 +1,5 @@
 import React from "react";
-import type { Expr, PropRef } from "../lib/stage-types.ts";
+import type { Expr, PropRef, RoleId } from "../lib/stage-types.ts";
 import { COLORS } from "../components/brand.ts";
 import type { ArmAngles } from "./poses.ts";
 import { PROPS } from "./props.tsx";
@@ -22,6 +22,8 @@ type Look = {
   sleeve: string;
   legs: string;
   shoe: string;
+  /** Độ dày tay (mặc định 22). */
+  arm?: number;
 };
 
 const LOOK: Record<"CD" | "TC", Look> = {
@@ -274,10 +276,94 @@ const Worn: React.FC<{ prop: PropRef | null; x: number; y: number; scale?: numbe
   );
 };
 
+// ---------------------------------------------------------------- vai trong truyện (cảnh hồi ức)
+
+type Role = {
+  look: Look;
+  Head: React.FC<{ expr: Expr; talk: number; blink: boolean }>;
+  Torso: React.FC;
+  /** Toạ độ y đáy đồ đội đầu. */
+  headY: number;
+};
+
+const ROLES: Record<RoleId, Role> = {
+  /** Thạch Sanh: chàng trai khoẻ mạnh, da rám nắng, búi tóc, khăn đỏ buộc trán, áo cánh nâu, tay trần. */
+  "thach-sanh": {
+    look: { skin: "#E2A574", sleeve: "#E2A574", legs: "#6B4423", shoe: "#E2A574", arm: 28 },
+    headY: 70,
+    Head: ({ expr, talk, blink }) => {
+      const skin = "#E2A574";
+      const g: FaceGeo = { eyeL: 150, eyeR: 210, eyeY: 200, browY: 172, mouthY: 252, browColor: INK };
+      return (
+        <g>
+          <ellipse cx="92" cy="208" rx="15" ry="20" fill={skin} stroke={INK} strokeWidth="6" />
+          <ellipse cx="268" cy="208" rx="15" ry="20" fill={skin} stroke={INK} strokeWidth="6" />
+          <rect x="92" y="112" width="176" height="178" rx="74" fill={skin} stroke={INK} strokeWidth="7" />
+          {/* Búi tóc trên đỉnh đầu */}
+          <circle cx="180" cy="80" r="30" fill="#1E1B2E" stroke={INK} strokeWidth="7" />
+          <path d="M86 160 C80 84 280 84 274 160 Q230 140 180 142 Q130 140 86 160 Z" fill="#1E1B2E" stroke={INK} strokeWidth="7" />
+          {/* Khăn đỏ buộc trán, đuôi khăn bay sau gáy */}
+          <path d="M88 150 Q180 126 272 150" fill="none" stroke="#C0392B" strokeWidth="16" strokeLinecap="round" />
+          <path d="M92 150 Q62 160 48 196 M92 152 Q70 176 70 212" fill="none" stroke="#C0392B" strokeWidth="10" strokeLinecap="round" />
+          <Brows expr={expr} g={g} />
+          <Eyes expr={expr} g={g} blink={blink} big={false} />
+          <Mouth expr={expr} y={g.mouthY} talk={talk} color="#B03A2E" />
+        </g>
+      );
+    },
+    Torso: () => (
+      <g>
+        {/* Quần nâu, thắt lưng đỏ */}
+        <path d="M120 420 L240 420 L248 470 L112 470 Z" fill="#6B4423" stroke={INK} strokeWidth="7" strokeLinejoin="round" />
+        {/* Ngực trần + áo cánh nâu mở vạt */}
+        <path d="M112 312 Q180 290 248 312 L242 430 L118 430 Z" fill="#E2A574" stroke={INK} strokeWidth="8" strokeLinejoin="round" />
+        <path d="M112 312 Q140 302 158 300 L150 430 L118 430 Z" fill="#7A4E2D" stroke={INK} strokeWidth="7" strokeLinejoin="round" />
+        <path d="M248 312 Q220 302 202 300 L210 430 L242 430 Z" fill="#7A4E2D" stroke={INK} strokeWidth="7" strokeLinejoin="round" />
+        <path d="M162 350 Q180 360 198 350" fill="none" stroke="#B9814F" strokeWidth="5" strokeLinecap="round" />
+        <rect x="114" y="412" width="132" height="20" rx="6" fill="#C0392B" stroke={INK} strokeWidth="6" />
+      </g>
+    ),
+  },
+  /** Lý Thông: gã bán rượu gian xảo, mặt dài, khăn vấn nâu đỏ, ria mép vểnh, râu dê, áo dài nâu đỏ. */
+  "ly-thong": {
+    look: { skin: "#F3CFA6", sleeve: "#8E3B2F", legs: "#F2EBDD", shoe: "#1E1B2E" },
+    headY: 150,
+    Head: ({ expr, talk, blink }) => {
+      const skin = "#F3CFA6";
+      const g: FaceGeo = { eyeL: 154, eyeR: 206, eyeY: 194, browY: 168, mouthY: 254, browColor: INK };
+      return (
+        <g>
+          <ellipse cx="100" cy="206" rx="13" ry="20" fill={skin} stroke={INK} strokeWidth="6" />
+          <ellipse cx="260" cy="206" rx="13" ry="20" fill={skin} stroke={INK} strokeWidth="6" />
+          <rect x="100" y="112" width="160" height="184" rx="68" fill={skin} stroke={INK} strokeWidth="7" />
+          {/* Khăn vấn */}
+          <path d="M90 156 C86 70 274 70 270 156 Z" fill="#6E2430" stroke={INK} strokeWidth="7" strokeLinejoin="round" />
+          <path d="M98 132 Q180 104 262 132 M104 112 Q180 86 256 112" fill="none" stroke="#9C3A48" strokeWidth="6" />
+          <Brows expr={expr} g={g} />
+          <Eyes expr={expr} g={g} blink={blink} big={false} />
+          <Mouth expr={expr} y={g.mouthY} talk={talk} color="#8B1E24" />
+          {/* Ria mép vểnh và râu dê */}
+          <path d="M178 234 Q150 238 132 216 M182 234 Q210 238 228 216" fill="none" stroke={INK} strokeWidth="7" strokeLinecap="round" />
+          <path d="M170 284 L180 316 L190 284 Z" fill="#1E1B2E" stroke={INK} strokeWidth="4" strokeLinejoin="round" />
+        </g>
+      );
+    },
+    Torso: () => (
+      <g>
+        <path d="M116 312 Q180 292 244 312 L264 480 Q180 494 96 480 Z" fill="#8E3B2F" stroke={INK} strokeWidth="8" strokeLinejoin="round" />
+        <path d="M150 304 L180 344 L210 304" fill="none" stroke="#F2EBDD" strokeWidth="7" strokeLinecap="round" />
+        <rect x="108" y="396" width="144" height="18" rx="6" fill="#E8C547" stroke={INK} strokeWidth="6" />
+      </g>
+    ),
+  },
+};
+
 // ---------------------------------------------------------------- con rối
 
 export type PuppetProps = {
   who: "CD" | "TC";
+  /** Đóng vai nhân vật trong truyện (cảnh hồi ức). */
+  role?: RoleId | null;
   expr: Expr;
   arms: ArmAngles;
   /** Đồ trên tay, đội đầu, dán trán, đeo lưng. */
@@ -298,7 +384,9 @@ export type PuppetProps = {
 
 /** Con rối vẽ trong khung PUPPET_W × PUPPET_H, đáy khung là mặt sàn. */
 export const Puppet: React.FC<PuppetProps> = (p) => {
-  const look = LOOK[p.who];
+  const role = p.role ? ROLES[p.role] : null;
+  const look = role ? role.look : LOOK[p.who];
+  const arm = look.arm ?? 22;
   const front = armPoints(1, p.arms.front);
   const back = armPoints(-1, p.arms.back);
   const twoHanded = p.arms.front[1] < -60 && p.arms.back[1] < -60;
@@ -309,18 +397,20 @@ export const Puppet: React.FC<PuppetProps> = (p) => {
     <g transform={p.mirrored ? `translate(${PUPPET_W} 0) scale(-1 1)` : undefined}>
       <Worn prop={p.back} x={128} y={452} mirrored={p.mirrored} />
       <Legs look={look} swing={p.legSwing} />
-      <Torso who={p.who} />
+      {role ? <role.Torso /> : <Torso who={p.who} />}
       <g transform={`rotate(${p.headTilt} 180 300)`}>
-        {p.who === "CD" ? (
+        {role ? (
+          <role.Head expr={p.expr} talk={p.talk} blink={p.blink} />
+        ) : p.who === "CD" ? (
           <CuDoHead expr={p.expr} talk={p.talk} blink={p.blink} />
         ) : (
           <ThangChauHead expr={p.expr} talk={p.talk} blink={p.blink} />
         )}
         <Worn prop={p.face} x={180} y={182} scale={0.72} mirrored={p.mirrored} />
-        <Worn prop={p.head} x={180} y={p.who === "CD" ? 112 : 132} mirrored={p.mirrored} />
+        <Worn prop={p.head} x={180} y={role ? role.headY : p.who === "CD" ? 112 : 132} mirrored={p.mirrored} />
       </g>
       {[back, front].map((a, i) => (
-        <Limb key={i} d={armPath(a)} color={look.sleeve} width={22} />
+        <Limb key={i} d={armPath(a)} color={look.sleeve} width={arm} />
       ))}
       <HeldProp prop={p.hand} at={handAt} fore={front.fore} side={1} mirrored={p.mirrored} two={twoHanded} />
       {[back, front].map((a, i) => (
