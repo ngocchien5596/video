@@ -9,6 +9,7 @@
  */
 import { spawn } from "node:child_process";
 import { statSync } from "node:fs";
+import path from "node:path";
 import { loadProjects, matchProject } from "../projects.mjs";
 import { askClaude } from "./ai-edit.mjs";
 import { addDays, dayForDate, EMPTY_PROJECT_STATE, loadConfig, loadEnv, loadState, nowIn, ROOT, saveState } from "./config.mjs";
@@ -20,6 +21,7 @@ import { isTime, PLATFORMS, postSlots, slotsText, tableText } from "../schedule.
 import { formatPublishKit, METRICS_CHECKLIST, postDate, savePublishKit } from "./publish.mjs";
 import { applyChanges, formatScript, loadEpisode, parseDirectEdits } from "./script.mjs";
 import { createTelegram, esc } from "./telegram.mjs";
+import { telegramReadyVideo } from "./telegram-video.mjs";
 
 loadEnv();
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
@@ -185,13 +187,20 @@ const runQueue = async () => {
       // Tải video lên Telegram có thể mất vài phút nếu mạng tải lên chậm.
       await tg.edit(chatId(), status.message_id, `${done}\n📤 Đang gửi video (${sizeMb}MB) vào chat, có thể mất vài phút…`);
       const sendStart = Date.now();
+      // Quá 50MB (giới hạn của Telegram) thì gửi bản nén; bản gốc vẫn nằm trên máy để đăng bài.
+      const tgVideo = await telegramReadyVideo(saved.video);
+      const tgMb = (tgVideo.size / 1048576).toFixed(0);
+      const original = path.relative(ROOT, saved.video);
       await tg.sendVideo(
         chatId(),
-        saved.video,
-        `<b>${esc(project.name)} · #${day} · “${esc(title)}” · v${saved.version}</b>${result.seconds ? ` · ${result.seconds}s` : ""}\nKịch bản: commit <code>${commit}</code>`,
+        tgVideo.file,
+        `<b>${esc(project.name)} · #${day} · “${esc(title)}” · v${saved.version}</b>${result.seconds ? ` · ${result.seconds}s` : ""}\nKịch bản: commit <code>${commit}</code>` +
+          (tgVideo.compressed
+            ? `\n⚠️ Bản nén ${tgMb}MB để gửi Telegram (giới hạn 50MB). Bản gốc ${sizeMb}MB nét hơn, nằm trên máy: <code>${esc(original)}</code>. Đăng bài nên dùng bản gốc.`
+            : ""),
       );
       const sendSec = Math.round((Date.now() - sendStart) / 1000);
-      await tg.edit(chatId(), status.message_id, `${done}\n📤 Đã gửi video (${sizeMb}MB, ${sendSec} giây).`);
+      await tg.edit(chatId(), status.message_id, `${done}\n📤 Đã gửi video (${tgVideo.compressed ? `bản nén ${tgMb}MB` : `${sizeMb}MB`}, ${sendSec} giây).`);
       // Ảnh bìa gửi dạng file để giữ tên và chất lượng gốc (gửi dạng ảnh thì Telegram nén và đổi tên).
       if (saved.cover) await tg.sendDocument(chatId(), saved.cover, `Ảnh bìa ${esc(project.name)} #${day}`);
       if (result.seconds && result.seconds > 60) {
@@ -625,10 +634,11 @@ const handleCallback = async (q) => {
       const version = Number(extra);
       const v = listVersions(project, day).find((x) => x.version === version);
       if (!v) return send("Không tìm thấy phiên bản này.");
+      const tgVideo = await telegramReadyVideo(v.video);
       return tg.sendVideo(
         chatId(),
-        v.video,
-        `<b>${esc(project.name)} · #${day} · v${version}</b> · ${esc(v.time ?? "")} · commit <code>${esc(v.commit ?? "?")}</code>`,
+        tgVideo.file,
+        `<b>${esc(project.name)} · #${day} · v${version}</b> · ${esc(v.time ?? "")} · commit <code>${esc(v.commit ?? "?")}</code>${tgVideo.compressed ? " · bản nén cho Telegram" : ""}`,
       );
     }
     case "cancel":

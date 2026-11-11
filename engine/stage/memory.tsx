@@ -40,12 +40,16 @@ export const MemoryTV: React.FC<{
     show: random(`sc-${i}-${Math.floor(frame / 2)}`) < 0.35,
     x: random(`sx-${i}-${Math.floor(frame / 2)}`) * 1080,
   }));
-  const specks = Array.from({ length: 6 }, (_, i) => ({
-    x: random(`dx-${i}-${frame}`) * 1080,
-    y: random(`dy-${i}-${frame}`) * 1920,
-    r: 2 + random(`dr-${i}-${frame}`) * 5,
-    show: random(`ds-${i}-${frame}`) < 0.5,
+  const speckStep = Math.floor(frame / 3);
+  const specks = Array.from({ length: 4 }, (_, i) => ({
+    x: random(`dx-${i}-${speckStep}`) * 1080,
+    y: random(`dy-${i}-${speckStep}`) * 1920,
+    r: 2 + random(`dr-${i}-${speckStep}`) * 5,
+    show: random(`ds-${i}-${speckStep}`) < 0.5,
   }));
+
+  // Nhiễu hạt đổi mỗi 4 khung hình và nhạt: đổi từng khung làm video nặng gấp đôi (Telegram chỉ nhận file ≤ 50MB).
+  const grain = Math.floor(frame / 4) % 6;
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#050505" }}>
@@ -76,11 +80,11 @@ export const MemoryTV: React.FC<{
         />
         {/* Nhiễu hạt */}
         <svg viewBox="0 0 1080 1920" width="100%" height="100%" style={{ position: "absolute", inset: 0 }}>
-          <filter id={`grain-${frame % 8}`}>
-            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed={frame % 8} />
+          <filter id={`grain-${grain}`}>
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed={grain} />
             <feColorMatrix type="saturate" values="0" />
           </filter>
-          <rect width="1080" height="1920" filter={`url(#grain-${frame % 8})`} opacity="0.16" />
+          <rect width="1080" height="1920" filter={`url(#grain-${grain})`} opacity="0.09" />
           {scratches.map((s, i) =>
             s.show ? <line key={i} x1={s.x} y1="0" x2={s.x + 6} y2="1920" stroke="#FFFFFF" strokeOpacity="0.25" strokeWidth="2" /> : null,
           )}
