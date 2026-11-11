@@ -15,7 +15,7 @@
 | 3–6 | ĐẶT CÂU | Cụ Đồ hỏi, thẻ tiêu đề "#1" hiện lên, âm "ding" | **CĐ**: Mang bát ăn cơm ra sân làm gì?<br>**TC**: Ăn cháo đá bát ạ! |
 | 6–25 | HIỂU SAI | TC húp xong cháo, đặt bát nhựa xuống sút tung lên trời, rồi xếp tiếp một hàng bát nhựa | **TC**: Thì ông dạy thế nào cháu làm đúng thế đấy! Ăn xong bát cháo là phải sút một cú thật đẹp!<br>**TC**: Sáng nay cháu ăn hai bát, nên phải đá đủ hai quả mới đúng luật!<br>**CĐ**: Mày đá vỡ hết bát thì trưa nay cả nhà ăn cơm bằng vung nồi à?! |
 | 25–40 | LẬT NGHĨA | Cụ Đồ dùng chổi đỡ cái bát nhựa như thủ môn bắt bóng | **CĐ**: Ông bà nói vậy, mà không phải vậy!<br>**CĐ**: Ngày xưa lúc đói được người ta thương, cho bát cháo ăn. Ăn no xong lại đá tung cái bát đi — nghĩa là kẻ vô ơn, được bạn giúp xong lại quay ra đối xử tệ với bạn! |
-| 40–52 | VÍ DỤ | Phòng học đại học, bảng ghi 'BÀI NHÓM', rồi màn hình nhóm chat | **CĐ**: Như làm bài nhóm ở đại học, bạn thức đêm gánh hết phần khó giúp mày qua môn. Xong mày lên nhóm chat chê bạn ấy làm chậm, chẳng đóng góp gì! |
+| 40–52 | VÍ DỤ | Phòng trọ, bạn cùng phòng nấu cháo cho người đang ốm, rồi màn hình nhóm chat | **CĐ**: Như ở phòng trọ, hôm mày ốm, bạn cùng phòng nấu cháo, mua thuốc, giúp mày suốt tuần. Khỏi bệnh xong mày kể với cả nhóm là bạn ấy ồn ào, khó chịu! |
 | 52–60 | PUNCHLINE | TC ôm cái bát vào lòng, lấy chăn đắp cho cái bát trên ghế sofa | **TC**: Cháu sợ mang tiếng vô ơn lắm! Ăn cháo xong cháu đắp chăn ru cái bát ngủ luôn...<br>**TC**: ...Rửa nước lạnh bát nó cảm lạnh ông ạ, đống bát trong bồn ông rửa hộ cháu nhé! |
 
 ## Ngày 2: Ăn trông nồi ngồi trông hướng

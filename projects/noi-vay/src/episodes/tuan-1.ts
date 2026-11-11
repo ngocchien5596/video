@@ -87,30 +87,31 @@ export const TUAN_1 = [
       "Ngày xưa lúc đói được người ta thương, cho bát cháo ăn. Ăn no xong lại đá tung cái bát đi — nghĩa là kẻ vô ơn, được bạn giúp xong lại quay ra đối xử tệ với bạn!",
     flipShot: "Cụ Đồ dùng chổi đỡ cái bát nhựa như thủ môn bắt bóng",
     example: {
-      shot: "Phòng học đại học, bảng ghi 'BÀI NHÓM', rồi màn hình nhóm chat",
+      shot: "Phòng trọ, bạn cùng phòng nấu cháo cho người đang ốm, rồi màn hình nhóm chat",
       lines: [
-        cd("Như làm bài nhóm ở đại học, bạn thức đêm gánh hết phần khó giúp mày qua môn. Xong mày lên nhóm chat chê bạn ấy làm chậm, chẳng đóng góp gì!"),
+        cd("Như ở phòng trọ, hôm mày ốm, bạn cùng phòng nấu cháo, mua thuốc, giúp mày suốt tuần. Khỏi bệnh xong mày kể với cả nhóm là bạn ấy ồn ào, khó chịu!"),
       ],
       stage: [
-        // "Như làm bài nhóm ở đại học"
+        // "Như ở phòng trọ, hôm mày ốm"
         {
           line: 0,
           cut: true,
-          scene: { id: "classroom", text: "BÀI NHÓM\nHẠN NỘP: MAI" },
+          scene: "home",
           camera: "wide",
           cd: { x: 0.27, hand: null, arms: "down", expr: "neutral" },
           tc: { x: 0.68, hand: null, arms: "shrug", expr: "sad", move: "idle" },
           items: [],
         },
-        // "bạn thức đêm gánh hết phần khó"
-        { line: 0, at: 0.2, cd: { hand: "book", arms: "hold2", expr: "happy" }, fx: { kind: "sweat", on: "CD" } },
-        // "giúp mày qua môn"
-        { line: 0, at: 0.38, cd: { hand: null, arms: "down" }, tc: { hand: { id: "paper", text: "QUA MÔN!" }, arms: "hold", expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
-        // "Xong mày lên nhóm chat"
-        { line: 0, at: 0.58, camera: "TC", tc: { hand: { id: "paper", text: "NHÓM CHAT" }, expr: "smug", move: "idle" } },
-        // "chê bạn ấy làm chậm, chẳng đóng góp gì!"
-        { line: 0, at: 0.75, tc: { hand: { id: "paper", text: "BẠN ẤY\nLÀM CHẬM!" }, arms: "hold", expr: "smug" }, cd: { expr: "confused" }, fx: { kind: "question", on: "CD" } },
-        { line: 0, at: 0.9, camera: "wide", cd: { expr: "angry", arms: "point" }, fx: { kind: "anger", on: "CD" } },
+        // "bạn cùng phòng nấu cháo": bưng bát cháo cho mày
+        { line: 0, at: 0.35, cd: { hand: "bowl", arms: "hold", expr: "happy" }, fx: { kind: "hearts", on: "CD" } },
+        // "giúp mày suốt tuần": bỏ bát xuống, mày vẫn lơ đãng
+        { line: 0, at: 0.5, cd: { hand: null, arms: "down", expr: "neutral" }, tc: { expr: "smug", arms: "shrug" } },
+        // "Khỏi bệnh xong mày kể với cả nhóm": giơ tờ giấy nhóm chat
+        { line: 0, at: 0.6, camera: "TC", tc: { hand: { id: "paper", text: "NHÓM CHAT" }, arms: "hold", expr: "smug", move: "bounce" } },
+        // "bạn ấy ồn ào": chê bạn trên nhóm chat
+        { line: 0, at: 0.85, tc: { hand: { id: "paper", text: "BẠN ẤY\nỒN ÀO!" }, arms: "hold", expr: "smug", move: "idle" }, cd: { expr: "confused" }, fx: { kind: "question", on: "CD" } },
+        // "khó chịu!": Cụ Đồ chỉ tay quở
+        { line: 0, at: 0.95, camera: "wide", cd: { expr: "angry", arms: "point" }, fx: { kind: "anger", on: "CD" } },
       ],
     },
     punchline: {
