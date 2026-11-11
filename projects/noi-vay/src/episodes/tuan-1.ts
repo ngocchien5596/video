@@ -87,31 +87,76 @@ export const TUAN_1 = [
       "Ngày xưa lúc đói được người ta thương, cho bát cháo ăn. Ăn no xong lại đá tung cái bát đi — nghĩa là kẻ vô ơn, được bạn giúp xong lại quay ra đối xử tệ với bạn!",
     flipShot: "Cụ Đồ dùng chổi đỡ cái bát nhựa như thủ môn bắt bóng",
     example: {
-      shot: "Phòng trọ, bạn cùng phòng nấu cháo cho người đang ốm, rồi màn hình nhóm chat",
+      shot: "HỒI ỨC (TV đen trắng): quán rượu, Lý Thông lân la kết nghĩa với Thạch Sanh vác củi; miếu cổ, Thạch Sanh chém chằn tinh, bắn đại bàng; Lý Thông cướp đầu chằn tinh, đội mũ quan; cửa hang, Lý Thông đẩy tảng đá lấp hang",
+      memory: { label: "TRUYỆN CỔ TÍCH: THẠCH SANH" },
       lines: [
-        cd("Như ở phòng trọ, hôm mày ốm, bạn cùng phòng nấu cháo, mua thuốc, giúp mày suốt tuần. Khỏi bệnh xong mày kể với cả nhóm là bạn ấy ồn ào, khó chịu!"),
+        cd("Như Lý Thông trong truyện Thạch Sanh ấy: vốn chỉ là kẻ bán rượu tầm thường, thấy Thạch Sanh khỏe mạnh nên lân la kết nghĩa anh em để lợi dụng."),
+        cd("Sau khi Thạch Sanh diệt chằn tinh và đại bàng, lập công lớn, Lý Thông không những cướp công, mà còn nhẫn tâm lấp cửa hang, hòng giết hại người em đã hết lòng giúp mình!"),
       ],
+      // Cụ Đồ đóng Thạch Sanh, Thằng Cháu đóng Lý Thông.
       stage: [
-        // "Như ở phòng trọ, hôm mày ốm"
+        // "Như Lý Thông trong truyện Thạch Sanh ấy": quán rượu, Lý Thông ôm chum rượu
         {
           line: 0,
           cut: true,
-          scene: "home",
+          scene: "tavern",
           camera: "wide",
-          cd: { x: 0.27, hand: null, arms: "down", expr: "neutral" },
-          tc: { x: 0.68, hand: null, arms: "shrug", expr: "sad", move: "idle" },
+          cd: { role: "thach-sanh", x: -0.25, hand: "axe", back: "firewood", head: null, face: null, arms: "down", expr: "neutral", move: "idle" },
+          tc: { role: "ly-thong", x: 0.66, hand: "wine-jar", back: null, head: null, face: null, arms: "hold", expr: "smug", move: "idle" },
           items: [],
         },
-        // "bạn cùng phòng nấu cháo": bưng bát cháo cho mày
-        { line: 0, at: 0.35, cd: { hand: "bowl", arms: "hold", expr: "happy" }, fx: { kind: "hearts", on: "CD" } },
-        // "giúp mày suốt tuần": bỏ bát xuống, mày vẫn lơ đãng
-        { line: 0, at: 0.5, cd: { hand: null, arms: "down", expr: "neutral" }, tc: { expr: "smug", arms: "shrug" } },
-        // "Khỏi bệnh xong mày kể với cả nhóm": giơ tờ giấy nhóm chat
-        { line: 0, at: 0.6, camera: "TC", tc: { hand: { id: "paper", text: "NHÓM CHAT" }, arms: "hold", expr: "smug", move: "bounce" } },
-        // "bạn ấy ồn ào": chê bạn trên nhóm chat
-        { line: 0, at: 0.85, tc: { hand: { id: "paper", text: "BẠN ẤY\nỒN ÀO!" }, arms: "hold", expr: "smug", move: "idle" }, cd: { expr: "confused" }, fx: { kind: "question", on: "CD" } },
-        // "khó chịu!": Cụ Đồ chỉ tay quở
-        { line: 0, at: 0.95, camera: "wide", cd: { expr: "angry", arms: "point" }, fx: { kind: "anger", on: "CD" } },
+        // "vốn chỉ là kẻ bán rượu tầm thường": mời khách
+        { line: 0, at: 0.27, camera: "TC", tc: { hand: null, arms: "wave", expr: "happy", move: "bounce" } },
+        // "thấy Thạch Sanh khỏe mạnh": Thạch Sanh vác củi đi vào
+        { line: 0, at: 0.5, camera: "wide", cd: { x: 0.28, expr: "happy" }, tc: { arms: "down", expr: "neutral", move: "idle" } },
+        { line: 0, at: 0.62, cd: { arms: "raise" }, tc: { expr: "shock" }, fx: [{ kind: "sparkle", on: "CD" }, { kind: "exclaim", on: "TC" }] },
+        // "nên lân la kết nghĩa anh em": sán lại gần, tay bắt mặt mừng
+        { line: 0, at: 0.72, cd: { arms: "down" }, tc: { x: 0.52, arms: "wave", expr: "happy" }, fx: { kind: "hearts", on: "TC" } },
+        // "để lợi dụng": quay ra cười nham hiểm
+        { line: 0, at: 0.92, camera: "TC", tc: { arms: "hips", expr: "smug" }, fx: { kind: "exclaim", on: "TC", text: "HÌ HÌ" } },
+
+        // "Sau khi Thạch Sanh diệt chằn tinh": miếu cổ trong rừng đêm
+        {
+          line: 1,
+          cut: true,
+          scene: "temple",
+          camera: "wide",
+          cd: { x: 0.26, back: null, hand: "axe", arms: "raise", expr: "angry" },
+          tc: { x: 1.4, hand: null, arms: "down", expr: "neutral", move: "idle" },
+          items: [{ id: "chan", prop: "python-demon", x: 0.72, scale: 0.9 }],
+        },
+        { line: 1, at: 0.1, cd: { arms: "hit", move: "jump" }, fx: { kind: "bop", on: "CD", text: "XẢ!" } },
+        { line: 1, at: 0.17, cd: { arms: "down", move: "idle", expr: "happy" }, items: [] },
+        // "và đại bàng": giương cung bắn
+        { line: 1, at: 0.2, cd: { hand: "bow", arms: "raise", expr: "angry" }, items: [{ id: "ob", prop: "eagle", x: 0.7 }] },
+        { line: 1, at: 0.27, fx: { kind: "bop", on: "CD", text: "VÚT!" } },
+        // "lập công lớn": giơ đầu chằn tinh
+        { line: 1, at: 0.31, cd: { hand: "demon-head", arms: "hold2", expr: "happy", move: "bounce" }, items: [], fx: { kind: "sparkle", on: "CD" } },
+        // "Lý Thông không những cướp công": đi vào, giật lấy đầu chằn tinh, đội mũ quan
+        { line: 1, at: 0.37, tc: { x: 0.64, expr: "smug" } },
+        {
+          line: 1,
+          at: 0.47,
+          cd: { hand: null, arms: "shrug", expr: "confused", move: "idle" },
+          tc: { hand: "demon-head", arms: "hold2", head: "mandarin-hat", move: "bounce" },
+          fx: [{ kind: "sparkle", on: "TC" }, { kind: "question", on: "CD" }],
+        },
+        // "mà còn nhẫn tâm lấp cửa hang": Thạch Sanh dưới hang, Lý Thông đẩy tảng đá
+        {
+          line: 1,
+          at: 0.55,
+          cut: true,
+          scene: "cave",
+          camera: "wide",
+          cd: { x: 0.27, hand: null, arms: "up2", expr: "shock", move: "idle" },
+          tc: { x: 0.9, hand: null, arms: "hit", expr: "angry", move: "idle" },
+          items: [{ id: "da", prop: "boulder", x: 0.64, scale: 1.1, front: true }],
+        },
+        { line: 1, at: 0.64, tc: { x: 0.6 }, items: [{ id: "da", prop: "boulder", x: 0.28, scale: 1.1, front: true }], fx: { kind: "bop", on: "TC", text: "ẦM!" } },
+        { line: 1, at: 0.7, cut: true, cd: { x: -0.4 } },
+        // "hòng giết hại người em đã hết lòng giúp mình!": phủi tay, cười đắc ý
+        { line: 1, at: 0.8, camera: "TC", tc: { arms: "hips", expr: "smug" } },
+        { line: 1, at: 0.94, camera: "wide", tc: { arms: "shrug" }, fx: { kind: "exclaim", on: "TC", text: "HỪ!" } },
       ],
     },
     punchline: {
