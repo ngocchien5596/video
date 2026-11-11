@@ -17,3 +17,7 @@ Ghi tự động (bot hoặc lệnh npm run render): mỗi lần sửa kịch b�
 - `5.1` Cụ Đồ (nhịp 5): ~~Như làm bài nhóm ở đại học, bạn thức đêm gánh hết phần khó giúp mày qua môn. Xong mày lên nhóm chat chê bạn ấy làm chậm, chẳng đóng góp gì!~~ → Như ở phòng trọ, hôm mày ốm, bạn cùng phòng nấu cháo, mua thuốc, giúp mày suốt tuần. Khỏi bệnh xong mày kể với cả nhóm là bạn ấy ồn ào, khó chịu!
 
 Phần diễn đổi ở nhịp 5.
+
+## 2026-11-11 21:23 · Xuất video v1
+
+Kịch bản ở commit `2ca0811`, dài 61.8 giây. File: `out/noi-vay/versions/ngay-01/v1/`.
