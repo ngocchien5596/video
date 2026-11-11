@@ -24,6 +24,7 @@ const GROUPS = [
       ["cover", "-- 1", "Xuất ảnh bìa vào out/<dự án>/cover/"],
       ["srt", "-- 1", "Xuất phụ đề .srt (--no-names để bỏ tên người nói)"],
       ["sheets", "", "Sinh lại kịch bản in trong projects/<dự án>/docs/kich-ban/"],
+      ["playlist", "", "Tiêu đề, mô tả để tạo playlist YouTube/TikTok, ghi vào docs/playlist.md"],
       ["build", "", "Đóng gói Remotion (ít khi cần)"],
     ],
   },

@@ -6,19 +6,63 @@
   "composition": "Ngay-{dd}",
   "cover": "Bia-{dd}",
   "source": "src/episodes/tuan-{week}.ts",
-  "schedule": { "notifyTime": "20:30", "startDate": null },
+  "schedule": {
+    "notifyTime": "20:30",
+    "startDate": null
+  },
   "publish": {
     "seriesName": "Nói Vậy Mà Không Phải Vậy",
-    "postTime": "11:45",
-    "hashtags": ["thanhngu", "tucngu", "tiengviet", "hoctiengviet", "noivaymakhongphaivay"],
-    "themeHashtags": {
-      "Ăn uống": ["amthuc"],
-      "Con vật": ["convat"],
-      "Học hành, tiền bạc": ["hocsinh"],
-      "Cư xử, gia đình": ["giadinh"]
+    "postTimes": {
+      "youtube": {
+        "weekday": "12:00",
+        "weekend": "12:00"
+      },
+      "tiktok": {
+        "weekday": "12:00",
+        "weekend": "12:00"
+      }
     },
-    "maxHashtagsYoutube": 6,
-    "maxHashtagsTiktok": 6,
+    "hashtags": [
+      "thanhngu",
+      "noivaymakhongphaivay",
+      "tucngu",
+      "tiengviet",
+      "hoctiengviet"
+    ],
+    "themeHashtags": {
+      "Ăn uống": [
+        "amthuc"
+      ],
+      "Con vật": [
+        "convat"
+      ],
+      "Học hành, tiền bạc": [
+        "hocsinh"
+      ],
+      "Cư xử, gia đình": [
+        "giadinh"
+      ]
+    },
+    "maxHashtagsYoutube": 3,
+    "maxHashtagsTiktok": 3,
     "aiNote": "Video có giọng đọc và hình ảnh được tạo với sự hỗ trợ của AI."
+  },
+  "playlist": {
+    "title": "Nói Vậy Mà Không Phải Vậy | Hiểu đúng thành ngữ, tục ngữ tiếng Việt",
+    "description": [
+      "Mỗi ngày một câu thành ngữ, tục ngữ tiếng Việt. Thằng Cháu hiểu theo nghĩa đen cho vui, rồi Cụ Đồ giải thích nghĩa thật kèm một ví dụ đời thường.",
+      "",
+      "🧓 Cụ Đồ: khăn đóng áo the mà nói chuyện như dân mạng.",
+      "👦 Thằng Cháu: câu nào cũng hiểu theo nghĩa đen.",
+      "",
+      "📅 Mỗi ngày một video mới.",
+      "💬 Bạn muốn hiểu đúng câu nào? Để lại bình luận, Cụ Đồ chọn làm tập sau.",
+      "",
+      "{aiNote}"
+    ],
+    "tiktokTitle": "Hiểu đúng thành ngữ",
+    "visibility": "Công khai",
+    "order": "Ngày xuất bản (cũ nhất trước), để người xem bắt đầu từ #1",
+    "madeForKids": "Không (khán giả 16–35 tuổi). Khai báo ở từng video, playlist không có mục này."
   }
 }

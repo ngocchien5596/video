@@ -87,7 +87,7 @@ Khi đăng, **bật nhãn "nội dung do AI tạo"** trên TikTok và YouTube.
 
 Một bot phục vụ mọi dự án. Dự án nào bật lịch (`project.json` → `schedule.enabled`) thì mỗi ngày:
 
-- **Giờ đăng** (`publish.postTime`: Vì sao 11:30, Nói vậy 11:45): bot nhắc đăng tập hôm nay, gửi lại gói đăng bài kèm nút gửi lại video.
+- **Giờ đăng** (`publish.postTimes`, riêng YouTube Shorts / TikTok, ngày thường / cuối tuần): đến giờ nơi nào bot nhắc đăng nơi đó, gửi phần gói đăng bài của nơi đó kèm nút gửi lại video. Hai ngày sau nhắc xem số liệu tập đó.
 - **Giờ duyệt** (`schedule.notifyTime`: Vì sao 20:00, Nói vậy 20:30): bot gửi kịch bản của ngày mai kèm 3 nút **Duyệt**, **Sửa thoại**, **Bỏ qua**.
 
 Mỗi tin ghi rõ dự án nào.
@@ -104,7 +104,7 @@ Mỗi tin ghi rõ dự án nào.
 | `/tap vs 1` | Xem và duyệt tập 1 |
 | `/batdau vs 2026-12-01` | Đặt ngày đăng tập 1 |
 | `/gio vs 20:00` | Đổi giờ gửi kịch bản để duyệt |
-| `/giodang vs 11:30` | Đổi giờ nhắc đăng bài |
+| `/giodang vs yt 18:30` | Xem / đổi giờ nhắc đăng (`yt`, `tt`, `cuoituan`, `thuong`; bỏ trống nền tảng là đổi cả hai) |
 | `/lichsu vs 1` | Các phiên bản video đã xuất, gửi lại bản cũ |
 | `/dangbai vs 1` | Gửi lại gói đăng bài |
 | `/trangthai` | Tình hình mọi dự án |

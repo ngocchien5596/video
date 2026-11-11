@@ -57,7 +57,7 @@ export const Cover: React.FC<EpisodeProps> = ({ episode }) => (
         ...outline(10),
       }}
     >
-      Giải thích dễ hiểu cho bé
+      Người lớn cũng hay trả lời sai
     </div>
   </AbsoluteFill>
 );

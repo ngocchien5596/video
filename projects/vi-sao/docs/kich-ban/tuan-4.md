@@ -7,8 +7,7 @@
 
 - **Hiểu lầm phổ biến:** Máu trong gân có màu xanh, ra ngoài gặp không khí mới hoá đỏ.
 - **Trả lời một câu:** Máu lúc nào cũng đỏ, gân trông xanh là do ánh sáng đi qua da rồi dội lại mắt.
-- **Câu hỏi cuối video:** Bé nhà bạn từng nghĩ máu trong gân màu xanh chưa? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Bạn từng nghĩ máu trong gân tay màu xanh chưa?
 - **Nguồn:** [Ask A Biologist (Arizona State University): Is blood blue?](https://askabiologist.asu.edu/questions/is-blood-blue) · [West Texas A&M University (C. Baird): Why are veins blue?](https://www.wtamu.edu/~cbaird/sq/2012/12/18/why-are-veins-blue/)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -24,8 +23,7 @@
 
 - **Hiểu lầm phổ biến:** Da ngón tay hút no nước nên nhăn lại.
 - **Trả lời một câu:** Ngón tay nhăn vì thần kinh ra lệnh cho mạch máu đầu ngón co lại, làm đầu ngón bớt đầy.
-- **Câu hỏi cuối video:** Bé nhà bạn thích tắm lâu đến mức ngón tay nhăn nheo không? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Bạn có hay ngâm nước lâu đến mức ngón tay nhăn nheo không?
 - **Nguồn:** [West Texas A&M University (C. Baird): Why do my fingers absorb water and become wrinkled?](https://www.wtamu.edu/~cbaird/sq/2015/02/18/why-do-my-fingers-absorb-water-and-become-wrinkled/) · [Binghamton University News: Fingers wrinkle the same way with every water immersion](https://www.binghamton.edu/news/story/5547/do-your-fingers-wrinkle-the-same-way-every-time-youre-in-the-water-too-long-new-research-says-yes) · [UTMB Medical Discovery News: Why Do We Prune in Water?](https://www.utmb.edu/mdnews/welcome/episode/why-do-we-prune-in-water)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -41,8 +39,7 @@
 
 - **Hiểu lầm phổ biến:** Mồ hôi tự nó có mùi hôi.
 - **Trả lời một câu:** Mồ hôi bay hơi làm người mình mát đi cho khỏi nóng quá, còn mùi hôi là do vi khuẩn trên da biến đổi mồ hôi.
-- **Câu hỏi cuối video:** Bé nhà bạn hay đổ mồ hôi nhất lúc nào: lúc chạy nhảy hay lúc trời nắng? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Bạn hay đổ mồ hôi nhất lúc nào: lúc vận động hay lúc trời nắng?
 - **Nguồn:** [Cleveland Clinic: Sweat](https://my.clevelandclinic.org/health/body/sweat) · [Cleveland Clinic: Body Odor](https://my.clevelandclinic.org/health/symptoms/17865-body-odor) · [Harvard Health Publishing: What’s that smell? Common and less common causes of body odor](https://www.health.harvard.edu/healthy-aging-and-longevity/whats-that-smell-common-and-less-common-causes-of-body-odor) · [Ohio State University Wexner Medical Center: How to combat excessive sweating](https://health.osu.edu/health/skin-and-body/excessive-sweating)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -58,8 +55,7 @@
 
 - **Hiểu lầm phổ biến:** Hắt xì hơi là do có người đang nhắc tên mình.
 - **Trả lời một câu:** Hắt xì là cách cơ thể tống bụi, phấn hoa ra khỏi mũi bằng một luồng hơi thật mạnh.
-- **Câu hỏi cuối video:** Ở nhà bạn, mỗi lần bé hắt xì mọi người hay nói câu gì? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Ở nhà bạn, mỗi lần có người hắt xì, mọi người hay nói câu gì?
 - **Nguồn:** [Ask Dr. Universe (Washington State University): Why do we sneeze?](https://askdruniverse.wsu.edu/2019/07/12/why-do-we-sneeze/) · [Cleveland Clinic: Sneezing](https://my.clevelandclinic.org/health/symptoms/sneezing)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -75,8 +71,7 @@
 
 - **Hiểu lầm phổ biến:** Ăn kem lạnh làm não bị đông cứng.
 - **Trả lời một câu:** Kem lạnh chạm vòm miệng làm mạch máu ở đó đổi kích thước thật nhanh, dây thần kinh báo về não thành cơn buốt đầu, nên ăn kem chậm thôi.
-- **Câu hỏi cuối video:** Bé nhà bạn thích kem vị gì nhất? Bình luận cho ông biết nhé!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Bạn thích kem vị gì nhất?
 - **Nguồn:** [Harvard Health Publishing: What causes brain freeze?](https://www.health.harvard.edu/diseases-and-conditions/what-causes-brain-freeze) · [Virginia Tech News: Neuroscientist explains the science of the ‘brain freeze’](https://news.vt.edu/articles/2023/05/Brain_freeze_expert.html)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -92,8 +87,7 @@
 
 - **Hiểu lầm phổ biến:** Chỉ khi bị lạnh, mình mới nổi da gà.
 - **Trả lời một câu:** Lúc lạnh hay xúc động, cơ tí hon dưới mỗi sợi lông co lại, kéo lông dựng lên thành những nốt nhỏ.
-- **Câu hỏi cuối video:** Bé nhà bạn hay nổi da gà lúc nào: lúc lạnh hay lúc nghe nhạc hay? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Bạn hay nổi da gà lúc nào: lúc lạnh hay lúc nghe một bản nhạc hay?
 - **Nguồn:** [Ask Dr. Universe (Washington State University): Why do we get goosebumps?](https://askdruniverse.wsu.edu/2021/03/09/why-do-we-get-goosebumps/) · [Cleveland Clinic: Goosebumps: What They Are and Why They Happen](https://health.clevelandclinic.org/why-do-you-get-goosebumps) · [Harvard Stem Cell & Regenerative Biology: The real reason behind goosebumps](https://hscrb.harvard.edu/news/the-real-reason-behind-goosebumps) · [Ask Dr. Universe (Washington State University): Why does music give us chills?](https://askdruniverse.wsu.edu/2018/06/21/music-part-one/)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -109,8 +103,7 @@
 
 - **Hiểu lầm phổ biến:** Tự cù không nhột là vì mình không có máu buồn.
 - **Trả lời một câu:** Não đoán trước được cú cù của chính tay mình, không bất ngờ nên không thấy nhột.
-- **Câu hỏi cuối video:** Tuần sau là chủ đề cây cối và trái cây. Bé nhà bạn muốn hỏi ông câu gì về cây? Bình luận để ông trả lời nhé!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Tuần sau là chuyện cây cối, trái cây. Bạn muốn ông giải đáp câu nào?
 - **Nguồn:** [Ask Dr. Universe (Washington State University): Why can’t we tickle ourselves?](https://askdruniverse.wsu.edu/2024/10/31/why-cant-we-tickle-ourselves/) · [Neuroscience for Kids (University of Washington): Tickling](https://faculty.washington.edu/chudler/funny.html)
 - **Footage:** chưa có (đặt file vào public/footage/)
 

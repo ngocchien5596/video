@@ -14,8 +14,6 @@ export type ViSaoEpisode = Episode & {
   answer: string;
   /** Nguồn kiểm chứng, ít nhất 2 nguồn uy tín (cơ quan khoa học, bảo tàng, đại học). */
   sources: Source[];
-  /** Lứa tuổi phù hợp, ví dụ "5–9 tuổi". */
-  ages: string;
   /** Câu hỏi hẹn tập sau, khi tập sau chưa viết. */
   teaser?: string;
 };
@@ -39,8 +37,7 @@ export type EpisodeSpec = {
   myth: string;
   answer: string;
   sources: Source[];
-  ages: string;
-  /** Câu hỏi kéo bình luận (hướng tới phụ huynh), hiện ở thẻ cuối và để ghim. */
+  /** Câu hỏi cho người xem (người lớn), hiện ở thẻ cuối và để ghim. */
   question: string;
   teaser?: string;
   footage?: string;
@@ -88,7 +85,6 @@ export const makeEpisode = (spec: EpisodeSpec): ViSaoEpisode => {
     myth: spec.myth,
     answer: spec.answer,
     sources: spec.sources,
-    ages: spec.ages,
     question: spec.question,
     teaser: spec.teaser,
     footage: spec.footage,

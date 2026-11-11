@@ -7,8 +7,7 @@
 
 - **Hiểu lầm phổ biến:** Nước sông không có tí muối nào, muối có sẵn trong biển từ đầu.
 - **Trả lời một câu:** Mưa hoà tan chút muối trong đất đá, sông mang ra biển, nước biển bốc hơi còn muối ở lại, lâu dần biển mặn.
-- **Câu hỏi cuối video:** Lần đầu tắm biển, bé nhà bạn có lỡ uống phải ngụm nước mặn chát không? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Lần đầu tắm biển, bạn có lỡ uống phải ngụm nước mặn chát không?
 - **Nguồn:** [NOAA National Ocean Service: Why is the ocean salty?](https://oceanservice.noaa.gov/facts/whysalty.html) · [Woods Hole Oceanographic Institution: What makes the ocean salty?](https://www.whoi.edu/ocean-learning-hub/ocean-facts/what-makes-the-ocean-salty/) · [Ask Dr. Universe (Washington State University): Oceans – Why are they salty?](https://askdruniverse.wsu.edu/2016/04/18/oceans-why-are-they-salty/)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -24,8 +23,7 @@
 
 - **Hiểu lầm phổ biến:** Biển xanh chỉ vì soi bóng bầu trời.
 - **Trả lời một câu:** Nước hút bớt ánh đỏ, cam, vàng của nắng, còn ánh xanh bị hắt ngược ra tới mắt mình, nên biển xanh.
-- **Câu hỏi cuối video:** Biển ở chỗ nhà bạn màu xanh lam, xanh lục hay nâu đục? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Biển chỗ bạn hay đi màu xanh lam, xanh lục hay nâu đục?
 - **Nguồn:** [NOAA National Ocean Service: Why is the ocean blue?](https://oceanservice.noaa.gov/facts/oceanblue.html) · [University of Illinois Physics Van: Why the Ocean is Blue](https://van.physics.illinois.edu/ask/listing/22358) · [Scripps Institution of Oceanography (UC San Diego): Why is the ocean blue?](https://scripps.ucsd.edu/news/voyager-why-ocean-blue)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -41,8 +39,7 @@
 
 - **Hiểu lầm phổ biến:** Giọt mưa có hình giọt lệ, đầu nhọn, đáy tròn.
 - **Trả lời một câu:** Giọt mưa nhỏ thì tròn xoe, giọt to rơi xuống bị không khí đẩy dẹt đáy như chiếc bánh hamburger, chứ không nhọn đầu.
-- **Câu hỏi cuối video:** Bé nhà bạn hay vẽ giọt mưa hình gì? Thử cùng bé vẽ một giọt mưa hình chiếc bánh hamburger nhé!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Hồi nhỏ, bạn hay vẽ giọt mưa hình gì?
 - **Nguồn:** [NASA Scientific Visualization Studio (GPM): Anatomy of a Raindrop – script](https://svs.gsfc.nasa.gov/vis/a010000/a011200/a011288/script_17936_00.html) · [UCAR Center for Science Education: The Shape of Raindrops](https://scied.ucar.edu/video/shape-raindrops) · [Penn State University (Alistair B. Fraser): Bad Rain](https://personal.ems.psu.edu/~fraser/Bad/BadRain.html)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -58,8 +55,7 @@
 
 - **Hiểu lầm phổ biến:** Nhện nước là một loài nhện.
 - **Trả lời một câu:** Nhện nước rất nhẹ, chân dang rộng lại có lông đẩy nước, nên không làm đứt mối níu của các hạt nước trên mặt nước.
-- **Câu hỏi cuối video:** Ở Việt Nam có loài nhện nước khổng lồ, dài tới hai mươi xăng-ti-mét! Bé nhà bạn đã thấy nhện nước lướt trên ao chưa? Ra ao hồ nhớ đi cùng người lớn nhé!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Ở Việt Nam có loài nhện nước khổng lồ, dài tới hai mươi xăng-ti-mét! Bạn đã thấy nhện nước lướt trên ao chưa?
 - **Nguồn:** [MIT News: MIT leaps to solution of walking-on-water mystery](https://news.mit.edu/2003/robostrider) · [EarthDate (Bureau of Economic Geology, University of Texas at Austin): Walking on Water](https://www.earthdate.org/episodes/walking-on-water) · [Ask Dr. Universe (Washington State University): How do bugs walk on water?](https://askdruniverse.wsu.edu/2016/12/12/bugs_on_water/)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -75,8 +71,7 @@
 
 - **Hiểu lầm phổ biến:** Vật nặng thì chìm, vật nhẹ thì nổi.
 - **Trả lời một câu:** Tàu rỗng, bên trong nhiều không khí, nên nhẹ hơn khối nước cùng một cỡ, và nước đẩy tàu nổi lên.
-- **Câu hỏi cuối video:** Bé nhà bạn đoán đồ vật nào trong nhà sẽ nổi, đồ nào sẽ chìm? Thử cùng bé trong chậu nước, có người lớn bên cạnh nhé!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Trong nhà bạn, đồ gì to mà vẫn nổi trên nước?
 - **Nguồn:** [University of Illinois Physics Van: Why do Ships Float? Why Don't They Sink?](https://van.physics.illinois.edu/ask/listing/2174) · [Alabama Cooperative Extension System: Understanding Buoyancy & Barge Building](https://www.aces.edu/blog/topics/4h/understanding-buoyancy-barge-building/) · [Texas A&M Engineering: Floating masterpieces – How engineers design ships to stay afloat](https://engineering.tamu.edu/news/2021/10/ocen-floating-masterpieces-how-engineers-design-ships-to-stay-afloat.html)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -92,8 +87,7 @@
 
 - **Hiểu lầm phổ biến:** Đông cứng lại thì phải nặng hơn nước và chìm xuống.
 - **Trả lời một câu:** Khi đông thành đá, nước nở ra, các hạt nước đứng thưa hơn, nên đá nhẹ hơn nước cùng một cỡ và nổi lên.
-- **Câu hỏi cuối video:** Bé nhà bạn thích uống nước có đá không? Lần tới thử cùng bé ngắm xem cục đá nổi thế nào nhé!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Bạn thích uống nước có đá không? Lần tới thử ngắm xem cục đá nổi thế nào nhé!
 - **Nguồn:** [University of Alaska Fairbanks, Geophysical Institute: Freezing of Water](https://www.gi.alaska.edu/alaska-science-forum/freezing-water) · [Ohio State University, Beyond Penguins and Polar Bears: All About Icebergs](https://beyondpenguins.ehe.osu.edu/issue/icebergs-and-glaciers/all-about-icebergs) · [Penn State EMS (EARTH 111): Thermal Expansion and Density](https://courses.ems.psu.edu/earth111/node/842)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -109,8 +103,7 @@
 
 - **Hiểu lầm phổ biến:** Nước trong cốc thấm qua thành cốc ra ngoài.
 - **Trả lời một câu:** Hơi nước vô hình trong không khí chạm vào thành cốc lạnh thì đọng lại thành giọt nước.
-- **Câu hỏi cuối video:** Bé nhà bạn từng nghĩ cốc nước đá “đổ mồ hôi” vì sao? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Hồi nhỏ, bạn từng nghĩ cốc nước đá “đổ mồ hôi” vì sao?
 - **Nguồn:** [NOAA JetStream: Sweatin' to the Coldies](https://www.noaa.gov/jetstream/ll-sweatin) · [Ohio State University, Beyond Penguins and Polar Bears: Common Misconceptions about States and Changes of Matter and the Water Cycle](https://beyondpenguins.ehe.osu.edu/issue/water-ice-and-snow/common-misconceptions-about-states-and-changes-of-matter-and-the-water-cycle) · [TERC Inquiry Project: Condensation Concept Cartoon](https://inquiryproject.terc.edu/curriculum/curriculum5/concept_cartoon/condensation/index.html)
 - **Footage:** chưa có (đặt file vào public/footage/)
 

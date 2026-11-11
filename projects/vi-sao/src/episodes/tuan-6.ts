@@ -19,8 +19,7 @@ export const TUAN_6 = [
       },
       { title: "Ask Dr. Universe (Washington State University): Oceans – Why are they salty?", url: "https://askdruniverse.wsu.edu/2016/04/18/oceans-why-are-they-salty/" },
     ],
-    ages: "5–9 tuổi",
-    question: "Lần đầu tắm biển, bé nhà bạn có lỡ uống phải ngụm nước mặn chát không? Kể ông nghe với!",
+    question: "Lần đầu tắm biển, bạn có lỡ uống phải ngụm nước mặn chát không?",
     hook: {
       shot: "Trên bãi biển, Thằng Cháu nhăn mặt lè lưỡi vì nước mặn, hỏi ông",
       lines: [tc("Ông ơi, nước sông ngọt chảy ra biển, sao nước biển lại mặn thế ạ?")],
@@ -90,8 +89,7 @@ export const TUAN_6 = [
       { title: "University of Illinois Physics Van: Why the Ocean is Blue", url: "https://van.physics.illinois.edu/ask/listing/22358" },
       { title: "Scripps Institution of Oceanography (UC San Diego): Why is the ocean blue?", url: "https://scripps.ucsd.edu/news/voyager-why-ocean-blue" },
     ],
-    ages: "5–9 tuổi",
-    question: "Biển ở chỗ nhà bạn màu xanh lam, xanh lục hay nâu đục? Kể ông nghe với!",
+    question: "Biển chỗ bạn hay đi màu xanh lam, xanh lục hay nâu đục?",
     hook: {
       shot: "Trên bãi biển, Thằng Cháu giơ tay chỉ ra mặt biển xanh",
       lines: [tc("Ông ơi, vì sao nước biển lại màu xanh ạ?")],
@@ -164,8 +162,7 @@ export const TUAN_6 = [
       { title: "UCAR Center for Science Education: The Shape of Raindrops", url: "https://scied.ucar.edu/video/shape-raindrops" },
       { title: "Penn State University (Alistair B. Fraser): Bad Rain", url: "https://personal.ems.psu.edu/~fraser/Bad/BadRain.html" },
     ],
-    ages: "5–9 tuổi",
-    question: "Bé nhà bạn hay vẽ giọt mưa hình gì? Thử cùng bé vẽ một giọt mưa hình chiếc bánh hamburger nhé!",
+    question: "Hồi nhỏ, bạn hay vẽ giọt mưa hình gì?",
     hook: {
       shot: "Bên bờ biển lất phất mưa, Thằng Cháu xoè tay hứng giọt mưa, nhìn chăm chú",
       lines: [tc("Ông ơi, giọt mưa thật ra có hình gì thế ạ?")],
@@ -235,8 +232,7 @@ export const TUAN_6 = [
       { title: "EarthDate (Bureau of Economic Geology, University of Texas at Austin): Walking on Water", url: "https://www.earthdate.org/episodes/walking-on-water" },
       { title: "Ask Dr. Universe (Washington State University): How do bugs walk on water?", url: "https://askdruniverse.wsu.edu/2016/12/12/bugs_on_water/" },
     ],
-    ages: "5–9 tuổi",
-    question: "Ở Việt Nam có loài nhện nước khổng lồ, dài tới hai mươi xăng-ti-mét! Bé nhà bạn đã thấy nhện nước lướt trên ao chưa? Ra ao hồ nhớ đi cùng người lớn nhé!",
+    question: "Ở Việt Nam có loài nhện nước khổng lồ, dài tới hai mươi xăng-ti-mét! Bạn đã thấy nhện nước lướt trên ao chưa?",
     hook: {
       shot: "Ngoài sân, cạnh cái ao nhỏ, Thằng Cháu cúi xuống nhìn con nhện nước lướt trên mặt nước",
       lines: [tc("Ông ơi, vì sao con nhện nước lại đi được trên mặt nước thế ạ?")],
@@ -312,8 +308,7 @@ export const TUAN_6 = [
         url: "https://engineering.tamu.edu/news/2021/10/ocen-floating-masterpieces-how-engineers-design-ships-to-stay-afloat.html",
       },
     ],
-    ages: "5–9 tuổi",
-    question: "Bé nhà bạn đoán đồ vật nào trong nhà sẽ nổi, đồ nào sẽ chìm? Thử cùng bé trong chậu nước, có người lớn bên cạnh nhé!",
+    question: "Trong nhà bạn, đồ gì to mà vẫn nổi trên nước?",
     hook: {
       shot: "Trên bãi biển, Thằng Cháu chỉ con tàu to ngoài khơi",
       lines: [tc("Ông ơi, tàu bằng sắt nặng thế, sao lại không chìm ạ?")],
@@ -386,8 +381,7 @@ export const TUAN_6 = [
       },
       { title: "Penn State EMS (EARTH 111): Thermal Expansion and Density", url: "https://courses.ems.psu.edu/earth111/node/842" },
     ],
-    ages: "5–9 tuổi",
-    question: "Bé nhà bạn thích uống nước có đá không? Lần tới thử cùng bé ngắm xem cục đá nổi thế nào nhé!",
+    question: "Bạn thích uống nước có đá không? Lần tới thử ngắm xem cục đá nổi thế nào nhé!",
     hook: {
       shot: "Trong bếp, Thằng Cháu ngồi cạnh bàn nhìn cốc nước có cục đá nổi",
       lines: [tc("Ông ơi, vì sao cục đá lại nổi trên nước thế ạ?")],
@@ -463,8 +457,7 @@ export const TUAN_6 = [
         url: "https://inquiryproject.terc.edu/curriculum/curriculum5/concept_cartoon/condensation/index.html",
       },
     ],
-    ages: "5–9 tuổi",
-    question: "Bé nhà bạn từng nghĩ cốc nước đá “đổ mồ hôi” vì sao? Kể ông nghe với!",
+    question: "Hồi nhỏ, bạn từng nghĩ cốc nước đá “đổ mồ hôi” vì sao?",
     hook: {
       shot: "Trong bếp, Thằng Cháu sờ thành cốc nước đá ướt, giơ tay ướt lên hỏi ông",
       lines: [tc("Ông ơi, vì sao cốc nước đá lại đổ mồ hôi thế ạ?")],

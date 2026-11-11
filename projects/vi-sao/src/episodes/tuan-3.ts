@@ -19,8 +19,7 @@ export const TUAN_3 = [
       },
       { title: "National Weather Service: What Causes the Seasons?", url: "https://www.weather.gov/fsd/season" },
     ],
-    ages: "5–9 tuổi",
-    question: "Nhà bạn ở nơi có mùa đông rét, hay chỉ có mùa mưa, mùa khô? Bé nhà bạn thích mùa nào nhất?",
+    question: "Chỗ bạn ở có mùa đông rét, hay chỉ có mùa mưa, mùa khô?",
     hook: {
       shot: "Đứng trên Mặt Trăng nhìn về Trái Đất, Thằng Cháu ôm người run run như đang rét, hỏi ông",
       lines: [tc("Ông ơi, vì sao có mùa hè nóng nực, lại có mùa đông rét thế ạ?")],
@@ -92,8 +91,7 @@ export const TUAN_3 = [
         url: "https://imagine.gsfc.nasa.gov/ask_astro/night_sky.html",
       },
     ],
-    ages: "5–9 tuổi",
-    question: "Bé nhà bạn đã thuộc bài “Một ông sao sáng, hai ông sáng sao” chưa? Tối nay thử cùng bé đếm sao nhé!",
+    question: "Bạn còn nhớ bài “Một ông sao sáng, hai ông sáng sao” không?",
     hook: {
       shot: "Ngoài sân ban đêm, Thằng Cháu ngửa cổ ngắm sao lấp lánh",
       lines: [tc("Ông ơi, vì sao ngôi sao cứ lấp lánh lấp lánh thế ạ?")],
@@ -167,8 +165,7 @@ export const TUAN_3 = [
       },
       { title: "Caltech IPAC Cool Cosmos: What is a shooting star?", url: "https://coolcosmos.ipac.caltech.edu/ask/255-What-is-a-shooting-star" },
     ],
-    ages: "5–9 tuổi",
-    question: "Bé nhà bạn đã từng thấy sao băng chưa? Nếu thấy, bé muốn ước điều gì? Kể ông nghe với!",
+    question: "Bạn đã từng thấy sao băng chưa? Lúc ấy bạn ước gì?",
     hook: {
       shot: "Ngoài sân ban đêm, Thằng Cháu chỉ theo một vệt sáng vụt qua bầu trời",
       lines: [tc("Ông ơi, vì sao có sao băng vụt qua bầu trời thế ạ?")],
@@ -238,8 +235,7 @@ export const TUAN_3 = [
       { title: "NASA Space Place: All About the Moon", url: "https://spaceplace.nasa.gov/all-about-the-moon/en/" },
       { title: "NASA Science: Top Moon Questions", url: "https://moon.nasa.gov/inside-and-out/top-moon-questions/" },
     ],
-    ages: "5–9 tuổi",
-    question: "Nhìn những vết đen trên Mặt Trăng, bé nhà bạn thấy giống hình gì? Kể ông nghe với!",
+    question: "Hồi nhỏ, bạn có tin chuyện chú Cuội ngồi gốc cây đa không?",
     hook: {
       shot: "Ngoài sân ban đêm, Thằng Cháu chỉ lên Mặt Trăng có vết đen",
       lines: [tc("Ông ơi, vì sao trên Mặt Trăng có những vết đen loang lổ thế ạ?")],
@@ -311,8 +307,7 @@ export const TUAN_3 = [
       },
       { title: "NASA Science: Earth's Moon – Facts", url: "https://science.nasa.gov/moon/facts/" },
     ],
-    ages: "5–9 tuổi",
-    question: "Tối nay trăng nhà bạn tròn hay khuyết? Cùng bé ngắm rồi kể ông nghe nhé!",
+    question: "Tối nay trăng chỗ bạn tròn hay khuyết?",
     hook: {
       shot: "Ngoài sân ban đêm, Thằng Cháu giơ tay vẽ hình trăng khuyết trong không trung",
       lines: [tc("Ông ơi, vì sao Mặt Trăng lúc thì tròn, lúc lại khuyết ạ?")],
@@ -387,8 +382,7 @@ export const TUAN_3 = [
         url: "https://www.wtamu.edu/~cbaird/sq/2012/12/18/why-is-there-no-gravity-in-space/",
       },
     ],
-    ages: "5–9 tuổi",
-    question: "Nếu được bay lơ lửng như phi hành gia, bé nhà bạn muốn làm gì đầu tiên? Kể ông nghe với!",
+    question: "Nếu được bay lơ lửng như phi hành gia, bạn muốn làm gì đầu tiên?",
     hook: {
       shot: "Ngoài vũ trụ, Thằng Cháu giơ hai tay như đang bay, hỏi ông",
       lines: [tc("Ông ơi, vì sao phi hành gia lại bay lơ lửng trong tàu vũ trụ ạ?")],
@@ -459,8 +453,7 @@ export const TUAN_3 = [
       { title: "NASA Astronomy Picture of the Day, 1996 April 29: Saturn's Rings Seen Sideways", url: "https://apod.nasa.gov/apod/ap960429.html" },
       { title: "University of Oregon (Davison Soper), Astronomy notes: Saturn", url: "https://pages.uoregon.edu/soper/Jovian/saturn.html" },
     ],
-    ages: "5–9 tuổi",
-    question: "Nếu được bay tới gần vành đai Sao Thổ, bé nhà bạn muốn ngắm mẩu băng bé như hạt cát hay mẩu to bằng ngôi nhà? Kể ông nghe với!",
+    question: "Nếu được bay tới gần vành đai Sao Thổ, bạn muốn ngắm mẩu băng nhỏ như hạt cát hay to bằng ngôi nhà?",
     hook: {
       shot: "Ngoài vũ trụ, Thằng Cháu khoanh tay vẽ một vòng tròn to trong không trung, hỏi ông",
       lines: [tc("Ông ơi, vành đai to quanh Sao Thổ làm bằng gì thế ạ?")],

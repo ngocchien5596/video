@@ -13,13 +13,22 @@
   },
   "publish": {
     "seriesName": "Ông Ơi, Vì Sao?",
-    "postTime": "11:30",
+    "postTimes": {
+      "youtube": {
+        "weekday": "20:30",
+        "weekend": "20:30"
+      },
+      "tiktok": {
+        "weekday": "20:30",
+        "weekend": "20:30"
+      }
+    },
     "hashtags": [
+      "ongoivisao",
+      "khoahocthuongthuc",
       "visao",
-      "khoahocchobe",
       "hoidap",
-      "10vancauhoivisao",
-      "ongoivisao"
+      "10vancauhoivisao"
     ],
     "themeHashtags": {
       "Bầu trời và thời tiết": [
@@ -51,8 +60,23 @@
         "khoahocvui"
       ]
     },
-    "maxHashtagsYoutube": 6,
-    "maxHashtagsTiktok": 6,
+    "maxHashtagsYoutube": 3,
+    "maxHashtagsTiktok": 3,
     "aiNote": "Video có giọng đọc và hình ảnh được tạo với sự hỗ trợ của AI. Nội dung đã được người thật đối chiếu với các nguồn bên dưới."
+  },
+  "playlist": {
+    "title": "Ông Ơi, Vì Sao? | Câu hỏi tưởng dễ mà người lớn cũng hay trả lời sai",
+    "description": [
+      "Vì sao bầu trời màu xanh? Vì sao mắt mèo ánh lên trong đêm? Những câu hỏi tưởng dễ mà người lớn cũng hay trả lời sai. Mỗi tập Cụ Đồ giải thích ngắn gọn, đúng khoa học, kèm một điều nhiều người vẫn hiểu lầm.",
+      "",
+      "✅ Mỗi tập được đối chiếu với ít nhất 2 nguồn từ cơ quan khoa học, trường đại học, sở thú, bảo tàng. Nguồn ghi trong mô tả từng video.",
+      "📅 Mỗi ngày một video mới.",
+      "",
+      "Video có giọng đọc và hình ảnh được tạo với sự hỗ trợ của AI. Nội dung do người thật đối chiếu với nguồn trước khi đăng."
+    ],
+    "tiktokTitle": "Ông Ơi, Vì Sao?",
+    "visibility": "Công khai",
+    "order": "Ngày xuất bản (cũ nhất trước), để người xem bắt đầu từ #1",
+    "madeForKids": "Không (series cho người từ 13 tuổi và người lớn). Khai báo ở từng video, playlist không có mục này."
   }
 }

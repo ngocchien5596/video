@@ -7,8 +7,7 @@
 
 - **Hiểu lầm phổ biến:** Hồng hạc sinh ra đã có sẵn bộ lông màu hồng.
 - **Trả lời một câu:** Hồng hạc màu hồng vì thức ăn của nó có sắc tố, giống chất màu trong củ cà rốt.
-- **Câu hỏi cuối video:** Bé nhà bạn thích con vật nào có màu sắc lạ nhất? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Theo bạn, con vật nào có màu sắc lạ nhất?
 - **Nguồn:** [Smithsonian's National Zoo: American flamingo](https://nationalzoo.si.edu/animals/american-flamingo) · [San Diego Zoo Animals & Plants: Flamingo](https://animals.sandiegozoo.org/animals/flamingo)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -24,8 +23,7 @@
 
 - **Hiểu lầm phổ biến:** Bò có bốn cái dạ dày.
 - **Trả lời một câu:** Bò ợ cỏ tiêu hoá dở lên miệng để nhai lại, nhờ thế bò dùng được cả cỏ cứng mà người không ăn nổi.
-- **Câu hỏi cuối video:** Bé nhà bạn đã thấy con bò nhai lại bao giờ chưa? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Bạn đã từng thấy con bò nhai lại ngoài đời chưa?
 - **Nguồn:** [SDSU Extension (South Dakota State University): Ruminants, A Digestive Powerhouse](https://extension.sdstate.edu/ruminants-digestive-powerhouse) · [USDA Agricultural Research Service, U.S. Dairy Forage Research Center: Rumens Make Cows Special](https://www.ars.usda.gov/ARSUserFiles/50901500/pdf's/rumens%20are%20special_v2.pdf)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -41,8 +39,7 @@
 
 - **Hiểu lầm phổ biến:** Chân tắc kè có keo dính, hoặc có giác hút.
 - **Trả lời một câu:** Chân tắc kè có hàng triệu sợi lông li ti, áp sát tường sinh ra lực hút nhỏ, cộng lại đủ giữ tắc kè trên trần nhà.
-- **Câu hỏi cuối video:** Nhà bạn có thạch sùng hay tắc kè bò trên tường không? Bé có thích ngắm chúng không?
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Nhà bạn có thạch sùng hay tắc kè bò trên tường không?
 - **Nguồn:** [UC Berkeley News: It's not glue, suction or static electricity that keep geckos from falling off the ceiling](https://newsarchive.berkeley.edu/news/media/releases/2000/06/07_gecko.html) · [Lewis & Clark College: Biologists unlock secret of gecko sticking power](https://www.lclark.edu/live/news/19290-biologists-unlock-secret-of-gecko-sticking-power) · [Georgia Tech, Agile Systems Lab: How do geckos stick to almost any surface?](https://sponberg.gatech.edu/2015/10/09/how-do-geckos-adhere-to-nearly-any-surface/)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -58,8 +55,7 @@
 
 - **Hiểu lầm phổ biến:** Gấu trúc là loài ăn cỏ, bụng sinh ra để tiêu hoá tre.
 - **Trả lời một câu:** Bụng gấu trúc tiêu hoá tre kém, tre lại ít chất bổ, nên phải ăn thật nhiều, mỗi ngày ít nhất mười hai tiếng.
-- **Câu hỏi cuối video:** Nếu được ăn một món suốt cả ngày, bé nhà bạn sẽ chọn món gì? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Nếu phải ăn một món suốt cả ngày như gấu trúc, bạn sẽ chọn món gì?
 - **Nguồn:** [Smithsonian's National Zoo: Giant panda](https://nationalzoo.si.edu/animals/giant-panda) · [Smithsonian's National Zoo: To Keep the National Zoo's Pandas Satisfied, Staff Prepare an Endless Supply of Bamboo](https://nationalzoo.si.edu/node/17420) · [San Diego Zoo Animals & Plants: Giant panda](https://animals.sandiegozoo.org/animals/giant-panda)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -75,8 +71,7 @@
 
 - **Hiểu lầm phổ biến:** Cú quay đầu được trọn một vòng tròn.
 - **Trả lời một câu:** Cú có số đốt xương cổ nhiều gấp đôi người, nên quay đầu được khoảng ba phần tư vòng, chưa đủ một vòng.
-- **Câu hỏi cuối video:** Bé nhà bạn thích con vật nào ăn đêm nhất: cú, dơi hay đom đóm? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Cú, dơi hay đom đóm: bạn thấy con vật ăn đêm nào thú vị nhất?
 - **Nguồn:** [WSU College of Veterinary Medicine: Eugene, great horned owl](https://vetmed.wsu.edu/eugene-great-horned-owl/) · [University of Illinois Veterinary Medicine: Owl Oddities](https://vetmed.illinois.edu/vetmed-wildlife-blog/owl-oddities/)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -92,8 +87,7 @@
 
 - **Hiểu lầm phổ biến:** Mèo nhìn được cả trong bóng tối đen kịt.
 - **Trả lời một câu:** Phía sau mắt mèo có lớp đặc biệt hắt ánh sáng lại như tấm gương, giúp mèo nhìn trong tối, nên đèn chiếu vào là mắt ánh lên.
-- **Câu hỏi cuối video:** Bé nhà bạn đã bao giờ thấy mắt mèo sáng lên trong đêm chưa? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Bạn đã bao giờ giật mình vì đôi mắt mèo ánh lên trong đêm chưa?
 - **Nguồn:** [San Diego Zoo Animals & Plants: Small cats](https://animals.sandiegozoo.org/animals/small-cat) · [National Park Service: Deer Monitoring at Pea Ridge National Military Park, 2023 (eyeshine)](https://www.nps.gov/articles/000/peri-deer-2023.htm) · [Ask Extension (Cooperative Extension): Human and cat eyes](https://ask.extension.org/kb/faq.php?id=215821) · [University of Tennessee College of Veterinary Medicine (VOLVet Vision): Why do cats' eyes glow?](https://volvetvision.tennessee.edu/periodical/fall-2024/answers-big-and-small/)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -109,8 +103,7 @@
 
 - **Hiểu lầm phổ biến:** Trong bụng đom đóm có một đốm lửa nhỏ, hay một bóng đèn nóng.
 - **Trả lời một câu:** Đom đóm phát sáng nhờ một phản ứng hoá học trong bụng, tạo ra ánh sáng mát, để nháy đèn tìm bạn.
-- **Câu hỏi cuối video:** Bé nhà bạn đã từng ngắm đom đóm chưa? Cùng bé ngắm thôi, đừng bắt nhốt đom đóm nhé! Tuần sau bé muốn hỏi ông gì về vũ trụ?
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Lần cuối bạn thấy đom đóm là ở đâu? Tuần sau là chuyện vũ trụ, bạn muốn ông giải đáp câu nào?
 - **Nguồn:** [Ask Dr. Universe (Washington State University): What makes fireflies light up at night?](https://askdruniverse.wsu.edu/2023/08/31/makes-fireflies-light-night/) · [National Park Service: Fireflies – Great Smoky Mountains](https://www.nps.gov/grsm/learn/nature/fireflies.htm)
 - **Footage:** chưa có (đặt file vào public/footage/)
 

@@ -15,7 +15,9 @@ import { addDays, dayForDate, EMPTY_PROJECT_STATE, loadConfig, loadEnv, loadStat
 import { applyDraft, diffEpisodes, readBlock, validateDraft } from "./draft.mjs";
 import { archiveVersion, commitFiles, historyFile, listVersions, logRender, logScriptChange, push } from "./history.mjs";
 import { produce, STEPS, updateTracker } from "./pipeline.mjs";
-import { formatPublishKit, savePublishKit } from "./publish.mjs";
+import { formatPlaylistKit, playlistKit } from "../playlist.mjs";
+import { isTime, PLATFORMS, postSlots, slotsText, tableText } from "../schedule.mjs";
+import { formatPublishKit, METRICS_CHECKLIST, postDate, savePublishKit } from "./publish.mjs";
 import { applyChanges, formatScript, loadEpisode, parseDirectEdits } from "./script.mjs";
 import { createTelegram, esc } from "./telegram.mjs";
 
@@ -47,8 +49,12 @@ const ps = (project) => {
 };
 const startDate = (project) => ps(project).startDate || project.schedule?.startDate || null;
 const notifyTime = (project) => ps(project).notifyTime || project.schedule?.notifyTime || "20:00";
-/** Giờ đăng bài hằng ngày: bot nhắc đăng và gửi lại gói đăng bài của tập hôm nay lúc này. */
-const postTime = (project) => ps(project).postTime || project.publish?.postTime || "11:30";
+/**
+ * Giờ đăng theo nền tảng (YouTube Shorts / TikTok, ngày thường / cuối tuần): bot nhắc đăng
+ * và gửi gói đăng bài của nền tảng đó đúng giờ. Xem tools/schedule.mjs.
+ */
+const postTimes = (project) => tableText(project, ps(project));
+const slotsOn = (project, date) => postSlots(project, date, ps(project));
 /** Dự án có tự gửi kịch bản hằng ngày không (project.json → schedule.enabled, mặc định có). */
 const scheduled = (project) => project.schedule?.enabled !== false;
 const tag = (project) => `${project.emoji} <b>${esc(project.name)}</b>`;
@@ -62,8 +68,9 @@ const COMMANDS = [
   ["tap", "Xem và duyệt một tập", "/tap vs 5"],
   ["dangbai", "Gửi lại gói đăng bài của một tập", "/dangbai vs 5"],
   ["lichsu", "Các bản video đã xuất, gửi lại bản cũ", "/lichsu vs 5"],
+  ["playlist", "Tiêu đề, mô tả, ảnh bìa để tạo playlist", "/playlist vs"],
   ["batdau", "Đặt ngày đăng tập 1", "/batdau vs 2026-12-01"],
-  ["giodang", "Đổi giờ nhắc đăng bài", "/giodang vs 11:30"],
+  ["giodang", "Xem / đổi giờ nhắc đăng từng nền tảng (yt, tt, cuoituan)", "/giodang vs yt 18:30"],
   ["gio", "Đổi giờ gửi kịch bản để duyệt", "/gio vs 20:00"],
   ["huy", "Thoát chế độ sửa thoại", "/huy"],
 ];
@@ -78,10 +85,10 @@ const HELP = () => `<b>Bot duyệt kịch bản</b>
 Gõ /lenh để xem nhanh danh sách lệnh.
 
 <b>Dự án</b> (gõ mã ngay sau lệnh, ví dụ <code>/tap ${PROJECTS[1]?.short ?? PROJECTS[0].short} 1</code>):
-${PROJECTS.map((p) => `${p.emoji} <code>${p.short}</code> ${esc(p.name)}${p.id === activeProject().id ? " ← đang chọn" : ""}${scheduled(p) ? ` · đăng ${postTime(p)}, duyệt ${notifyTime(p)}` : " · chưa bật lịch"}`).join("\n")}
+${PROJECTS.map((p) => `${p.emoji} <code>${p.short}</code> ${esc(p.name)}${p.id === activeProject().id ? " ← đang chọn" : ""}${scheduled(p) ? ` · đăng ${postTimes(p)}, duyệt ${notifyTime(p)}` : " · chưa bật lịch"}`).join("\n")}
 
 Lịch mỗi ngày:
-📣 <b>Giờ đăng</b> (ví dụ 11:30): bot nhắc đăng tập hôm nay, gửi lại gói đăng bài và nút gửi lại video.
+📣 <b>Giờ đăng</b> (riêng YouTube Shorts và TikTok, xem /giodang): đến giờ nơi nào, bot nhắc đăng nơi đó, gửi phần gói đăng bài của nơi đó và nút gửi lại video. Hai ngày sau còn nhắc xem số liệu.
 🔔 <b>Giờ duyệt</b> (ví dụ 20:00): bot gửi kịch bản của ngày mai kèm 3 nút:
 ✅ <b>Duyệt</b>: lồng tiếng, xuất video, gửi về đây file mp4, ảnh bìa và gói đăng bài.
 ✏️ <b>Sửa thoại</b>: nhắn chỗ cần sửa. Bot sửa thoại kèm phần diễn và mô tả cảnh liên quan, cho xem trước rồi mới áp dụng.
@@ -96,9 +103,10 @@ Lịch mỗi ngày:
 /tap vs 5: xem và duyệt tập 5
 /batdau vs 2026-12-01: đặt ngày đăng tập 1
 /gio vs 20:00: đổi giờ gửi kịch bản để duyệt
-/giodang vs 11:30: đổi giờ nhắc đăng bài
+/giodang vs: xem giờ đăng · /giodang vs yt 18:30 · /giodang vs tt cuoituan 20:30: đổi giờ nhắc đăng YouTube / TikTok
 /lichsu vs 5: các phiên bản video đã xuất, gửi lại bản cũ
 /dangbai vs 5: gửi lại gói đăng bài
+/playlist vs: thông tin và ảnh bìa để tạo playlist YouTube, TikTok
 /trangthai: tình hình mọi dự án
 /huy: thoát chế độ sửa`;
 
@@ -136,7 +144,7 @@ let busy = false;
 
 const publishKit = (project, episode, next) =>
   project.buildPublishKit(episode, next, {
-    cfg: { ...project.publish, postTime: postTime(project) },
+    cfg: { ...project.publish, postTime: slotsText(project, postDate(startDate(project), episode.day), ps(project)) },
     startDate: startDate(project),
   });
 
@@ -450,7 +458,7 @@ const handleCommand = async (text) => {
       await send(
         `📅 ${tag(project)}: tập #1 đăng ngày <b>${arg}</b>, mỗi ngày một tập (tập #10 đăng ngày <b>${addDays(arg, 9)}</b>).\n` +
           (scheduled(project)
-            ? `Bot gửi kịch bản để duyệt lúc <b>${notifyTime(project)}</b> hôm trước, nhắc đăng lúc <b>${postTime(project)}</b> hôm đăng.`
+            ? `Bot gửi kịch bản để duyệt lúc <b>${notifyTime(project)}</b> hôm trước, nhắc đăng hôm đăng: <b>${esc(postTimes(project))}</b>.`
             : `Lịch tự gửi của dự án này đang tắt (project.json → schedule.enabled).`),
       );
       return tick();
@@ -462,10 +470,28 @@ const handleCommand = async (text) => {
       return send(`⏰ ${tag(project)}: từ giờ bot gửi kịch bản để duyệt lúc <b>${arg}</b> hằng ngày.`);
     }
     case "/giodang": {
-      if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(arg ?? "")) return send(`Cách dùng: <code>/giodang ${project.short} 11:30</code>`);
-      ps(project).postTime = arg;
+      // /giodang vs 18:30 (mọi nền tảng) · /giodang vs yt 18:30 · /giodang vs tt cuoituan 20:30
+      const time = args.find(isTime);
+      const platform = PLATFORMS.find((p) => args.some((a) => a.toLowerCase() === p.short || a.toLowerCase() === p.id));
+      const weekendOnly = args.some((a) => /^(cuoituan|cn|t7cn)$/i.test(a));
+      const weekdayOnly = args.some((a) => /^(thuong|ngaythuong)$/i.test(a));
+      if (!time) {
+        return send(
+          `📣 ${tag(project)} đang đăng: <b>${esc(postTimes(project))}</b>\n` +
+            `Đổi: <code>/giodang ${project.short} 18:30</code> (mọi nơi, mọi ngày) · <code>/giodang ${project.short} yt 18:30</code> · ` +
+            `<code>/giodang ${project.short} tt cuoituan 20:30</code> (chỉ T7, CN) · <code>/giodang ${project.short} yt thuong 18:30</code> (chỉ T2–T6)`,
+        );
+      }
+      const pst = ps(project);
+      delete pst.postTime;
+      pst.postTimes ??= {};
+      for (const p of platform ? [platform] : PLATFORMS) {
+        pst.postTimes[p.id] ??= {};
+        if (!weekendOnly) pst.postTimes[p.id].weekday = time;
+        if (!weekdayOnly) pst.postTimes[p.id].weekend = time;
+      }
       save();
-      return send(`📣 ${tag(project)}: từ giờ bot nhắc đăng bài lúc <b>${arg}</b> hằng ngày.`);
+      return send(`📣 ${tag(project)}: từ giờ bot nhắc đăng bài: <b>${esc(postTimes(project))}</b>.`);
     }
     case "/tap": {
       const day = dayArg(project, arg);
@@ -484,7 +510,7 @@ const handleCommand = async (text) => {
         return (
           `${tag(p)}${p.id === activeProject().id ? " (đang chọn)" : ""}\n` +
           `📅 Ngày đăng tập 1: <b>${sd ?? `chưa đặt (/batdau ${p.short} …)`}</b>\n` +
-          `⏰ ${scheduled(p) ? `Đăng bài <b>${postTime(p)}</b> · duyệt kịch bản <b>${notifyTime(p)}</b>` : "Chưa bật lịch tự gửi"}\n` +
+          `⏰ ${scheduled(p) ? `Đăng bài <b>${esc(postTimes(p))}</b> · duyệt kịch bản <b>${notifyTime(p)}</b>` : "Chưa bật lịch tự gửi"}\n` +
           `➡️ Ngày mai: ${tomorrow ? `tập <b>${tomorrow}</b>` : "không có tập"}\n` +
           `✅ Đã tạo video: ${done || "chưa có"}`
         );
@@ -519,6 +545,17 @@ const handleCommand = async (text) => {
       if (!day) return send(`Cách dùng: <code>/dangbai ${project.short} 5</code>`);
       const { episode, next } = loadEpisode(project, day);
       return send(formatPublishKit(publishKit(project, episode, next), project.name));
+    }
+    case "/playlist": {
+      let kit;
+      try {
+        kit = playlistKit(project);
+      } catch (e) {
+        return send(`⚠️ ${esc(e.message)}`);
+      }
+      await send(formatPlaylistKit(kit, project.name));
+      for (const file of kit.covers) await tg.sendDocument(chatId(), `${ROOT}/${file}`, `Ảnh bìa playlist ${esc(project.name)}`);
+      return;
     }
     case "/huy":
       state.editing = null;
@@ -645,25 +682,26 @@ const tryReview = async (project, day, header) => {
 };
 
 /**
- * Nhắc đăng bài tập hôm nay: gửi lại gói đăng bài kèm nút gửi lại video bản mới nhất.
- * Tập chưa có video thì báo và gửi nút Duyệt để làm gấp.
+ * Nhắc đăng bài tập hôm nay trên một nền tảng (slot = { platform, name, time }): gửi phần gói đăng bài
+ * của nền tảng đó kèm nút gửi lại video bản mới nhất. Tập chưa có video thì báo và gửi nút Duyệt để làm gấp.
  */
-const sendPostReminder = async (project, day) => {
+const sendPostReminder = async (project, day, slot) => {
   const info = ps(project).days[day];
   const latest = listVersions(project, day).at(-1);
+  const when = `${slot.name} ${slot.time}`;
   if (info?.status === "done" && latest) {
     const { episode, next } = loadEpisode(project, day);
     await send(
-      `📣 ${tag(project)} · <b>Đến giờ đăng tập ${day}</b> (${postTime(project)})\n` +
+      `📣 ${tag(project)} · <b>Đến giờ đăng tập ${day} lên ${esc(slot.name)}</b> (${slot.time})\n` +
         `Video đã gửi lúc duyệt (v${latest.version}). Chưa lưu về điện thoại thì bấm nút dưới để gửi lại.`,
       [[{ text: `📤 Gửi lại video v${latest.version}`, callback_data: cb("resend", project, day, latest.version) }]],
     );
-    await send(formatPublishKit(publishKit(project, episode, next), project.name));
+    await send(formatPublishKit(publishKit(project, episode, next), project.name, slot.platform));
     return;
   }
   const why = info?.status === "rendering" || info?.status === "approved" ? "đang tạo video" : "chưa có video đã duyệt";
   await send(
-    `⚠️ ${tag(project)} · <b>Đến giờ đăng tập ${day}</b> (${postTime(project)}) nhưng ${why}.\n` +
+    `⚠️ ${tag(project)} · <b>Đến giờ đăng tập ${day}</b> (${esc(when)}) nhưng ${why}.\n` +
       (why === "đang tạo video" ? "Bot sẽ gửi video ngay khi xong." : "Duyệt ngay để kịp đăng (mất khoảng 5–10 phút):"),
     why === "đang tạo video" ? undefined : reviewButtons(project, day),
   );
@@ -693,11 +731,25 @@ async function tick() {
     const tomorrow = dayForDate(sd, addDays(now.date, 1));
     // Gửi bù: hôm nay đến lượt đăng mà tập đó chưa từng được gửi duyệt (ví dụ máy tắt tối qua).
     if (today && !pst.notified[today]) await tryReview(project, today, `⚠️ <b>Hôm nay đăng tập ${today}</b> mà chưa duyệt:`);
-    // Giờ đăng: nhắc đăng tập hôm nay (mỗi tập một lần).
-    if (today && now.time >= postTime(project) && !pst.notified[`post-${today}`]) {
-      pst.notified[`post-${today}`] = true;
-      save();
-      await sendPostReminder(project, today).catch((e) => log("post reminder", project.id, today, e.message));
+    // Giờ đăng: nhắc đăng tập hôm nay, mỗi nền tảng một lần đúng giờ của nền tảng đó.
+    if (today) {
+      for (const slot of slotsOn(project, now.date)) {
+        const key = `post-${today}-${slot.platform}`;
+        if (now.time < slot.time || pst.notified[key] || pst.notified[`post-${today}`]) continue;
+        pst.notified[key] = true;
+        save();
+        await sendPostReminder(project, today, slot).catch((e) => log("post reminder", project.id, today, e.message));
+      }
+      // Hai ngày sau khi đăng: nhắc xem số liệu (một lần, sau mốc đăng đầu tiên trong ngày).
+      const checkDay = today - 2;
+      const first = slotsOn(project, now.date)[0];
+      if (checkDay >= 1 && now.time >= first.time && !pst.notified[`metrics-${checkDay}`] && pst.days[checkDay]?.status === "done") {
+        pst.notified[`metrics-${checkDay}`] = true;
+        save();
+        await send(
+          `📊 ${tag(project)} · <b>Tập ${checkDay} đã đăng 48 giờ: xem số liệu</b>\n` + METRICS_CHECKLIST.map((c) => `☐ ${esc(c)}`).join("\n"),
+        ).catch((e) => log("metrics reminder", project.id, checkDay, e.message));
+      }
     }
     // Giờ duyệt: gửi kịch bản của ngày mai.
     if (due && tomorrow && !pst.notified[tomorrow]) {

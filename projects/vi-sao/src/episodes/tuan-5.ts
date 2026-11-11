@@ -15,8 +15,7 @@ export const TUAN_5 = [
       { title: "San Diego Zoo Wildlife Explorers: Venus Flytrap", url: "https://kids.sandiegozoo.org/animals/venus-flytrap" },
       { title: "NC State Extension Gardener Plant Toolbox: Dionaea muscipula", url: "https://plants.ces.ncsu.edu/plants/dionaea-muscipula/" },
     ],
-    ages: "5–9 tuổi",
-    question: "Bé nhà bạn đã thấy cây bắt ruồi thật chưa? Bé đoán một chiếc bẫy lá bắt được mấy con côn trùng? Kể ông nghe với!",
+    question: "Bạn đoán một chiếc bẫy lá của cây bắt ruồi bắt được mấy con côn trùng?",
     hook: {
       shot: "Ngoài sân, Thằng Cháu ngồi xổm cạnh chậu cây bắt ruồi đang há bẫy lá, mặt thắc mắc",
       lines: [tc("Ông ơi, vì sao cây bắt ruồi ăn côn trùng thế ạ?")],
@@ -85,8 +84,7 @@ export const TUAN_5 = [
       { title: "Ask A Biologist (Arizona State University): The Recipe for Plant Growth", url: "https://askabiologist.asu.edu/recipe-plant-growth" },
       { title: "California State University, Northridge: Plant Mass", url: "http://www.csun.edu/scied/2-longitudinal/plant_mass/index.htm" },
     ],
-    ages: "5–9 tuổi",
-    question: "Bé nhà bạn nghĩ cây lớn lên nhờ ăn gì? Kể ông nghe với!",
+    question: "Hồi nhỏ, bạn nghĩ cây lớn lên nhờ ăn gì?",
     hook: {
       shot: "Ngoài sân, Thằng Cháu giang tay ôm thử thân cây, ngước lên hỏi",
       lines: [tc("Ông ơi, cây to như thế, là lớn lên từ đâu ra ạ?")],
@@ -157,8 +155,7 @@ export const TUAN_5 = [
         url: "https://askabiologist.asu.edu/questions/why-do-leaves-change-color",
       },
     ],
-    ages: "5–9 tuổi",
-    question: "Ở chỗ nhà bạn, cây nào hay đổi màu lá? Kể ông nghe với!",
+    question: "Chỗ bạn ở, cây nào hay đổi màu lá?",
     hook: {
       shot: "Ngoài sân, Thằng Cháu giơ cao một chiếc lá vàng, hỏi Cụ Đồ",
       lines: [tc("Ông ơi, vì sao lá cây chuyển vàng rồi rụng xuống ạ?")],
@@ -229,8 +226,7 @@ export const TUAN_5 = [
         url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8969559/",
       },
     ],
-    ages: "5–9 tuổi",
-    question: "Bé nhà bạn đã từng thấy hoa hướng dương thật chưa? Kể ông nghe với!",
+    question: "Bạn đã từng thấy cánh đồng hoa hướng dương ngoài đời chưa?",
     hook: {
       shot: "Ngoài sân buổi sáng, Thằng Cháu cầm bông hướng dương, hỏi Cụ Đồ",
       lines: [tc("Ông ơi, vì sao hoa hướng dương lại quay theo Mặt Trời ạ?")],
@@ -304,8 +300,7 @@ export const TUAN_5 = [
         url: "https://sites.harvard.edu/sitn/2012/11/29/issue131b",
       },
     ],
-    ages: "5–9 tuổi",
-    question: "Bé nhà bạn đã bao giờ lỡ cắn phải ớt chưa? Lúc ấy bé làm gì? Kể ông nghe với!",
+    question: "Bạn ăn cay giỏi không? Món cay nhất bạn từng ăn là món gì?",
     hook: {
       shot: "Ngoài sân, cạnh cây ớt chín đỏ, Thằng Cháu thè lưỡi quạt quạt, hỏi ông",
       lines: [tc("Ông ơi, vì sao quả ớt cay xè lưỡi thế ạ?")],
@@ -376,8 +371,7 @@ export const TUAN_5 = [
         url: "https://extension.umaine.edu/food-health/2024/04/15/fruit-or-vegetable/",
       },
     ],
-    ages: "5–9 tuổi",
-    question: "Nhà bạn hay nấu cà chua thành món gì? Bé có đoán được dưa chuột là quả hay rau không?",
+    question: "Nhà bạn hay nấu cà chua thành món gì? Bạn đoán dưa chuột là quả hay rau?",
     hook: {
       shot: "Trong bếp, Thằng Cháu cầm quả cà chua, nghiêng đầu hỏi",
       lines: [tc("Ông ơi, vì sao cà chua là quả, mà người ta lại nấu như rau ạ?")],
@@ -446,8 +440,7 @@ export const TUAN_5 = [
       { title: "Duke Gardens: Five Ways Plants Adapt To Heat", url: "https://gardens.duke.edu/garden-talk/five-ways-plants-adapt-to-heat/" },
       { title: "National Park Service: Cacti / Desert Succulents – Arches National Park", url: "https://www.nps.gov/arch/learn/nature/cacti.htm" },
     ],
-    ages: "5–9 tuổi",
-    question: "Nhà bạn có trồng xương rồng không? Nhớ dặn bé chỉ ngắm, đừng sờ vào gai nhé! Tuần sau bé muốn hỏi ông gì về nước?",
+    question: "Nhà bạn có trồng xương rồng không? Tuần sau là chuyện nước quanh ta, bạn muốn ông giải đáp câu nào?",
     hook: {
       shot: "Ngoài sân, Thằng Cháu đứng cách chậu xương rồng một quãng, chỉ vào và hỏi",
       lines: [tc("Ông ơi, vì sao cây xương rồng lại có gai ạ?")],
@@ -467,7 +460,7 @@ export const TUAN_5 = [
       shot: "Thằng Cháu đoán gai để đâm người, Cụ Đồ bảo gai chính là lá đã biến thành, dặn cháu chỉ nhìn thôi",
       lines: [
         tc("Có phải xương rồng chẳng có lá, mọc gai ra chỉ để đâm người không ông?"),
-        cd("Chưa đúng đâu! Gai nhọn ấy chính là lá xương rồng đã biến thành nhỏ xíu, cháu chỉ nhìn thôi, đừng sờ nhé."),
+        cd("Chưa đúng đâu! Gai nhọn ấy chính là lá xương rồng đã biến thành nhỏ xíu, nhìn thì đẹp mà sờ vào là đau đấy."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "bounce" } },

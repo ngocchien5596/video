@@ -3,7 +3,6 @@ import { cd, makeEpisode, tc } from "./make.ts";
 
 const week = 4;
 const theme = "Cơ thể mình";
-const ages = "5–9 tuổi";
 
 /** Mở tập: trong phòng khách, Thằng Cháu hỏi. */
 const hookStage = (extra: Partial<Moment> = {}): Moment[] => [
@@ -41,8 +40,7 @@ export const TUAN_4 = [
       { title: "Ask A Biologist (Arizona State University): Is blood blue?", url: "https://askabiologist.asu.edu/questions/is-blood-blue" },
       { title: "West Texas A&M University (C. Baird): Why are veins blue?", url: "https://www.wtamu.edu/~cbaird/sq/2012/12/18/why-are-veins-blue/" },
     ],
-    ages,
-    question: "Bé nhà bạn từng nghĩ máu trong gân màu xanh chưa? Kể ông nghe với!",
+    question: "Bạn từng nghĩ máu trong gân tay màu xanh chưa?",
     hook: {
       shot: "Trong phòng khách, Thằng Cháu giơ mu bàn tay lên, chỉ vào những đường gân xanh",
       lines: [tc("Ông ơi, vì sao gân tay cháu màu xanh, mà máu lại đỏ ạ?")],
@@ -103,8 +101,7 @@ export const TUAN_4 = [
       },
       { title: "UTMB Medical Discovery News: Why Do We Prune in Water?", url: "https://www.utmb.edu/mdnews/welcome/episode/why-do-we-prune-in-water" },
     ],
-    ages,
-    question: "Bé nhà bạn thích tắm lâu đến mức ngón tay nhăn nheo không? Kể ông nghe với!",
+    question: "Bạn có hay ngâm nước lâu đến mức ngón tay nhăn nheo không?",
     hook: {
       shot: "Trong phòng khách, Thằng Cháu vừa tắm xong, giơ mười đầu ngón tay nhăn nheo lên ngắm",
       lines: [tc("Ông ơi, vì sao ngâm nước lâu, ngón tay cháu lại nhăn nheo thế ạ?")],
@@ -160,8 +157,7 @@ export const TUAN_4 = [
       { title: "Harvard Health Publishing: What’s that smell? Common and less common causes of body odor", url: "https://www.health.harvard.edu/healthy-aging-and-longevity/whats-that-smell-common-and-less-common-causes-of-body-odor" },
       { title: "Ohio State University Wexner Medical Center: How to combat excessive sweating", url: "https://health.osu.edu/health/skin-and-body/excessive-sweating" },
     ],
-    ages,
-    question: "Bé nhà bạn hay đổ mồ hôi nhất lúc nào: lúc chạy nhảy hay lúc trời nắng? Kể ông nghe với!",
+    question: "Bạn hay đổ mồ hôi nhất lúc nào: lúc vận động hay lúc trời nắng?",
     hook: {
       shot: "Trong phòng khách, Thằng Cháu vừa chạy nhảy xong, mồ hôi lấm tấm trên trán",
       lines: [tc("Ông ơi, vì sao chạy nhảy xong, cháu lại đổ mồ hôi ạ?")],
@@ -214,8 +210,7 @@ export const TUAN_4 = [
       { title: "Ask Dr. Universe (Washington State University): Why do we sneeze?", url: "https://askdruniverse.wsu.edu/2019/07/12/why-do-we-sneeze/" },
       { title: "Cleveland Clinic: Sneezing", url: "https://my.clevelandclinic.org/health/symptoms/sneezing" },
     ],
-    ages,
-    question: "Ở nhà bạn, mỗi lần bé hắt xì mọi người hay nói câu gì? Kể ông nghe với!",
+    question: "Ở nhà bạn, mỗi lần có người hắt xì, mọi người hay nói câu gì?",
     hook: {
       shot: "Trong phòng khách, Thằng Cháu hỏi rồi hắt xì một cái thật to",
       lines: [tc("Ông ơi, vì sao cháu lại hắt xì hơi ạ? Hắt xì!")],
@@ -272,8 +267,7 @@ export const TUAN_4 = [
       { title: "Harvard Health Publishing: What causes brain freeze?", url: "https://www.health.harvard.edu/diseases-and-conditions/what-causes-brain-freeze" },
       { title: "Virginia Tech News: Neuroscientist explains the science of the ‘brain freeze’", url: "https://news.vt.edu/articles/2023/05/Brain_freeze_expert.html" },
     ],
-    ages,
-    question: "Bé nhà bạn thích kem vị gì nhất? Bình luận cho ông biết nhé!",
+    question: "Bạn thích kem vị gì nhất?",
     hook: {
       shot: "Trong phòng khách, Thằng Cháu ôm đầu, nhăn mặt sau khi ăn kem vội",
       lines: [tc("Ông ơi, vì sao cháu ăn kem nhanh lại bị buốt đầu thế ạ?")],
@@ -331,8 +325,7 @@ export const TUAN_4 = [
       { title: "Harvard Stem Cell & Regenerative Biology: The real reason behind goosebumps", url: "https://hscrb.harvard.edu/news/the-real-reason-behind-goosebumps" },
       { title: "Ask Dr. Universe (Washington State University): Why does music give us chills?", url: "https://askdruniverse.wsu.edu/2018/06/21/music-part-one/" },
     ],
-    ages,
-    question: "Bé nhà bạn hay nổi da gà lúc nào: lúc lạnh hay lúc nghe nhạc hay? Kể ông nghe với!",
+    question: "Bạn hay nổi da gà lúc nào: lúc lạnh hay lúc nghe một bản nhạc hay?",
     hook: {
       shot: "Trong phòng khách, Thằng Cháu xoa hai cánh tay nổi da gà, nhìn những nốt nhỏ li ti",
       lines: [tc("Ông ơi, vì sao tay cháu lại nổi da gà thế ạ?")],
@@ -386,8 +379,7 @@ export const TUAN_4 = [
       { title: "Ask Dr. Universe (Washington State University): Why can’t we tickle ourselves?", url: "https://askdruniverse.wsu.edu/2024/10/31/why-cant-we-tickle-ourselves/" },
       { title: "Neuroscience for Kids (University of Washington): Tickling", url: "https://faculty.washington.edu/chudler/funny.html" },
     ],
-    ages,
-    question: "Tuần sau là chủ đề cây cối và trái cây. Bé nhà bạn muốn hỏi ông câu gì về cây? Bình luận để ông trả lời nhé!",
+    question: "Tuần sau là chuyện cây cối, trái cây. Bạn muốn ông giải đáp câu nào?",
     hook: {
       shot: "Trong phòng khách, Thằng Cháu tự cù nách mình, mặt tỉnh bơ",
       lines: [tc("Ông ơi, vì sao cháu tự cù mình mà chẳng thấy nhột gì ạ?")],

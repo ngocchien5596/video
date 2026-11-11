@@ -16,6 +16,7 @@
     "cover": "node tools/render.mjs --cover",
     "srt": "node tools/export-srt.mjs",
     "sheets": "node tools/script-sheets.mjs",
+    "playlist": "node tools/playlist.mjs",
     "build": "remotion bundle",
     "voice:design": "node tools/voice/run-python.mjs design_voices.py",
     "voice:pick": "node tools/voice/pick.mjs",

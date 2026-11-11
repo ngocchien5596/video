@@ -3,7 +3,6 @@ import { cd, makeEpisode, tc } from "./make.ts";
 
 const week = 7;
 const theme = "Căn bếp nhà mình";
-const ages = "5–9 tuổi";
 
 /** Mở tập: trong bếp, Thằng Cháu hỏi. */
 const hookStage = (opts: { tc?: Pose; items?: Item[]; fx?: Moment["fx"] } = {}): Moment[] => [
@@ -40,7 +39,6 @@ export const TUAN_7 = [
       { title: "Ask Dr. Universe (Washington State University): Onions: Why do they make us cry?", url: "https://askdruniverse.wsu.edu/2016/08/22/onions-make-us-cry/" },
       { title: "University of Illinois Extension: Preparing Onions", url: "https://extension.illinois.edu/gardening/preparing-onions" },
     ],
-    ages,
     question: "Nhà bạn có mẹo gì để thái hành đỡ cay mắt? Các nhà khoa học gợi ý cho hành vào tủ lạnh một lúc trước khi thái đấy!",
     hook: {
       shot: "Trong bếp, Thằng Cháu đứng xa xem mẹ thái hành, dụi mắt rưng rưng",
@@ -63,7 +61,7 @@ export const TUAN_7 = [
       shot: "Bảng minh hoạ: củ hành và kính lúp thấy tế bào; dao (thẻ NGƯỜI LỚN CẦM DAO) làm vỡ tế bào; làn chất có lưu huỳnh bay lên mắt; mắt chảy nước mắt",
       lines: [
         cd("Củ hành cũng được làm từ vô số tế bào nhỏ xíu, xếp sát bên nhau."),
-        cd("Khi người lớn thái hành, dao làm vỡ tế bào, các chất bên trong trộn vào nhau."),
+        cd("Khi thái hành, dao làm vỡ tế bào, các chất bên trong trộn vào nhau."),
         cd("Chúng biến thành một chất mới có lưu huỳnh, bay lên không khí, tới tận mắt mình."),
         cd("Dây thần kinh ở mắt thấy cay, liền báo cho tuyến nước mắt, thế là nước mắt chảy ra."),
       ],
@@ -98,7 +96,6 @@ export const TUAN_7 = [
         url: "https://www.nutritionletter.tufts.edu/ask-experts/q-why-do-sliced-fruits-turn-brown-when-sitting-for-a-period-of-time-at-room-temperature-is-it-safe-to-eat-brown-fruit/",
       },
     ],
-    ages,
     question: "Nhà bạn có mẹo gì giữ táo cắt sẵn không bị thâm? Kể ông nghe với!",
     hook: {
       shot: "Trong bếp, Thằng Cháu nhìn đĩa táo cắt để từ sáng, mặt táo đã ngả nâu",
@@ -120,7 +117,7 @@ export const TUAN_7 = [
     explain: {
       shot: "Bảng minh hoạ: nửa quả táo, dao cắt (thẻ NGƯỜI LỚN CẦM DAO); chấm xanh enzim tràn ra; bong bóng ôxy bay tới; mặt cắt ngả nâu, giống sắt gỉ, vẫn ăn được",
       lines: [
-        cd("Khi người lớn cắt táo, dao làm vỡ các tế bào ở mặt cắt."),
+        cd("Khi cắt táo, dao làm vỡ các tế bào ở mặt cắt."),
         cd("Một chất tên là enzim, vốn nằm yên trong tế bào, liền tràn ra."),
         cd("Enzim gặp ôxy trong không khí, cùng nhau biến đổi các chất có sẵn trong táo."),
         cd("Các chất mới sinh ra có màu nâu, nên mặt cắt thâm dần, giống như sắt để lâu bị gỉ."),
@@ -154,8 +151,7 @@ export const TUAN_7 = [
       { title: "Virginia Cooperative Extension (Virginia Tech): Food Storage Guidelines For Consumers", url: "https://www.pubs.ext.vt.edu/348/348-960/348-960.html" },
       { title: "Penn State Extension: Refrigerator and Freezer Storage Guidelines", url: "https://extension.psu.edu/refrigerator-and-freezer-storage-guidelines" },
     ],
-    ages,
-    question: "Tủ lạnh nhà bạn có món gì bé thích nhất? Nhớ cùng bé ăn đồ trong tủ sớm, đừng để lâu nhé!",
+    question: "Tủ lạnh nhà bạn có món gì hay bị để quên lâu nhất? Nhớ ăn đồ trong tủ sớm nhé!",
     hook: {
       shot: "Trong bếp, cạnh tủ lạnh, Thằng Cháu tò mò nhìn hộp đồ ăn mẹ vừa cất vào",
       lines: [tc("Ông ơi, vì sao cất đồ ăn vào tủ lạnh lại lâu hỏng ạ?")],
@@ -211,8 +207,7 @@ export const TUAN_7 = [
         url: "https://source.colostate.edu/what-every-new-baker-should-know-about-the-yeast-all-around-us/",
       },
     ],
-    ages,
-    question: "Bé nhà bạn đã bao giờ cùng bố mẹ nhào bột làm bánh chưa? Kể ông nghe với!",
+    question: "Bạn đã bao giờ tự nhào bột làm bánh chưa?",
     hook: {
       shot: "Trong bếp, cạnh âu bột đã phồng to, Thằng Cháu tròn mắt ngạc nhiên",
       lines: [tc("Ông ơi, vì sao bột bánh mì lại phồng lên được ạ?")],
@@ -266,8 +261,7 @@ export const TUAN_7 = [
       { title: "University of Houston, The Engines of Our Ingenuity No. 1149: Heat Transfer", url: "https://www.uh.edu/engines/epi1149.htm" },
       { title: "HyperPhysics (Georgia State University): Steel and Wood at Zero Celsius", url: "http://hyperphysics.phy-astr.gsu.edu/hbase/thermo/woodmet.html" },
     ],
-    ages,
-    question: "Bé nhà bạn thử sờ thìa inox và thìa gỗ chưa? Nhớ chỉ thử với thìa nguội, đồ nóng thì nhờ người lớn nhé!",
+    question: "Bạn thử sờ thìa inox và thìa gỗ để cạnh nhau chưa? Nhớ chỉ thử với thìa nguội nhé!",
     hook: {
       shot: "Trong bếp, Thằng Cháu cầm thử chiếc thìa inox rồi chiếc thìa gỗ để trên bàn, rụt tay lại",
       lines: [tc("Ông ơi, vì sao thìa inox sờ vào lại lạnh hơn thìa gỗ thế ạ?")],
@@ -291,7 +285,7 @@ export const TUAN_7 = [
         cd("Tay cháu ấm hơn không khí trong phòng, nên hơi ấm từ tay chảy sang cái thìa."),
         cd("Gỗ dẫn hơi ấm chậm, nên thìa gỗ chỉ lấy đi hơi ấm của tay cháu từ từ thôi."),
         cd("Inox là kim loại, dẫn hơi ấm tốt hơn gỗ nhiều, kéo hơi ấm khỏi ngón tay thật nhanh."),
-        cd("Tay nguội nhanh nên thấy lạnh, còn khi thìa nóng, inox lại thấy nóng hơn, nên đồ nóng nhờ người lớn nhé."),
+        cd("Tay nguội nhanh nên thấy lạnh, còn khi thìa nóng, inox lại thấy nóng hơn, nên đồ nóng phải cẩn thận nhé."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w7-spoon", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "confused", arms: "down" } },
@@ -326,8 +320,7 @@ export const TUAN_7 = [
       { title: "Illinois Physics Van: What is in the Bubbles When Water Boils?", url: "https://van.physics.illinois.edu/ask/listing/29573" },
       { title: "Bigelow Laboratory for Ocean Sciences: Observing Dissolved Air in Water", url: "https://archive.bigelow.org/virtual/handson/diss_air.html" },
     ],
-    ages,
-    question: "Bé nhà bạn đã từng cùng bố mẹ ngắm nồi nước sôi từ xa chưa? Nhớ luôn để bé đứng cách xa bếp nhé!",
+    question: "Bạn có để ý bong bóng nổi lên lúc nước gần sôi không? Nhớ đứng xa nồi nước sôi nhé!",
     hook: {
       shot: "Trong bếp, nồi nước sôi trên bàn bếp, Thằng Cháu đứng xa nhìn bong bóng sùng sục",
       lines: [tc("Ông ơi, nước sôi thì bong bóng ở đâu ra ạ?")],
@@ -348,10 +341,10 @@ export const TUAN_7 = [
     explain: {
       shot: "Bảng minh hoạ: nồi nước trên lửa (thẻ NGƯỜI LỚN ĐUN BẾP), đáy nồi đỏ lên; túi hơi nước nhỏ ở đáy; bong bóng hơi nước nổi lên; hơi nước bay ra, nhắc đứng xa nồi",
       lines: [
-        cd("Khi người lớn đun nước, phần nước sát đáy nồi được hơ nóng trước."),
+        cd("Khi đun nước, phần nước sát đáy nồi được hơ nóng trước."),
         cd("Nóng đủ rồi, nước ở đáy biến thành hơi nước, tức là nước ở dạng khí."),
         cd("Hơi nước gom lại thành bong bóng, rồi nổi dần lên trên."),
-        cd("Lên tới mặt nước, bong bóng vỡ, hơi nước thoát ra rất nóng, nên cháu nhớ đứng xa nồi nhé."),
+        cd("Lên tới mặt nước, bong bóng vỡ, hơi nước thoát ra rất nóng, nên phải đứng xa nồi nhé."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w7-boil", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "confused", arms: "down" } },
@@ -382,8 +375,7 @@ export const TUAN_7 = [
       { title: "Illinois Physics Van: Soda Explosions!", url: "https://van.physics.illinois.edu/ask/listing/623" },
       { title: "Illinois Physics Van: Soda Equilibria", url: "https://van.physics.illinois.edu/ask/listing/16078" },
     ],
-    ages,
-    question: "Tuần sau bé nhà bạn muốn hỏi ông câu gì? Bình luận để ông trả lời nhé!",
+    question: "Tuần sau là chuyện con vật. Bạn muốn ông giải đáp câu nào?",
     hook: {
       shot: "Trong bếp, Thằng Cháu nhìn cốc nước ngọt có ga sủi bọt lăn tăn",
       lines: [tc("Ông ơi, vì sao mở nắp chai nước ngọt có ga, bọt lại sủi lên ạ?")],

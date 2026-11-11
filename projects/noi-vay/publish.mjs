@@ -27,7 +27,8 @@ const TIKTOK_OPENERS = [
 const PINS = [
   (e, next) => `${e.question} 👇${next ? `\nMai là câu “${next}”, ai đoán trước được nghĩa?` : ""}`,
   (e, next) => `Trả lời giúp Cụ Đồ: ${e.question}${next ? `\nTập sau: “${next}”, đoán thử xem thằng cháu sẽ hiểu sai thế nào 😆` : ""}`,
-  (e, next) => `${e.question} Bình luận đi, Cụ Đồ chấm điểm 😄${next ? `\nMai: “${next}”` : ""}`,
+  // Chỉ hỏi thật, không xin like / follow / bình luận (TikTok coi là mồi tương tác).
+  (e, next) => `Cụ Đồ hỏi thật: ${e.question} 😄${next ? `\nMai: “${next}”` : ""}`,
 ];
 
 /** cfg = project.publish, startDate = ngày đăng tập 1 (YYYY-MM-DD) hoặc null. */

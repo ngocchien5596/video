@@ -9,7 +9,7 @@ Mỗi ngày một video 45–60 giây. Thằng Cháu hiểu sai câu thành ng�
 | Khán giả | 16–35 tuổi: học sinh, sinh viên, dân văn phòng; phụ huynh muốn dạy con tiếng Việt |
 | Khung hình | 9:16, 1080×1920, 30fps, phụ đề cháy chữ |
 | Độ dài | Dưới 60 giây |
-| Lịch đăng | Mỗi ngày lúc 11:30 hoặc 20:00, giữ cố định một khung giờ cả tháng |
+| Lịch đăng | Mỗi ngày 12:00 trên cả YouTube Shorts và TikTok (thử 2–3 tuần, sau đó thử 21:00); giờ đặt trong project.json → publish.postTimes |
 | Ảnh bìa | "#X" + câu thành ngữ |
 
 ## Nhân vật

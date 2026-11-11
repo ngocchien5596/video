@@ -7,8 +7,7 @@
 
 - **Hiểu lầm phổ biến:** Trời xanh vì soi bóng nước biển.
 - **Trả lời một câu:** Không khí hắt ánh sáng xanh đi khắp bầu trời, nên trời có màu xanh.
-- **Câu hỏi cuối video:** Bé nhà bạn từng hỏi câu “vì sao” nào khiến bạn bí nhất? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Câu “vì sao” nào từng làm bạn bí nhất?
 - **Nguồn:** [NASA Space Place: Why Is the Sky Blue?](https://spaceplace.nasa.gov/blue-sky/en/) · [Royal Museums Greenwich: Why is the sky blue?](https://www.rmg.co.uk/stories/topics/why-sky-blue)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -24,8 +23,7 @@
 
 - **Hiểu lầm phổ biến:** Buổi chiều, mặt trời đổi sang màu đỏ.
 - **Trả lời một câu:** Chiều tà, nắng đi quãng rất dài qua không khí, màu xanh bị hắt hết, chỉ còn đỏ cam tới mắt mình.
-- **Câu hỏi cuối video:** Bé nhà bạn thích ngắm hoàng hôn hay bình minh hơn? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Bạn thích ngắm hoàng hôn hay bình minh hơn?
 - **Nguồn:** [Met Office: Why is the sky blue and sunsets red?](https://www.metoffice.gov.uk/weather/learn-about/weather/optical-effects/why-is-the-sky-blue) · [Royal Museums Greenwich: Why is the sky blue?](https://www.rmg.co.uk/stories/topics/why-sky-blue) · [NASA Space Place: Why Is the Sky Blue?](https://spaceplace.nasa.gov/blue-sky/en/)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -41,8 +39,7 @@
 
 - **Hiểu lầm phổ biến:** Mây đen là mây bẩn, chứa nhiều khói bụi.
 - **Trả lời một câu:** Mây hắt ánh nắng nên trông trắng, còn đáy mây mưa nhận rất ít ánh sáng nên trông đen.
-- **Câu hỏi cuối video:** Bé nhà bạn từng nghĩ mây làm bằng gì? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Hồi nhỏ, bạn từng nghĩ mây làm bằng gì?
 - **Nguồn:** [Met Office: Why are clouds white?](https://www.metoffice.gov.uk/weather/learn-about/weather/types-of-weather/clouds/why-are-clouds-white) · [Met Office: Clouds](https://www.metoffice.gov.uk/weather/learn-about/weather/types-of-weather/clouds) · [National Weather Service: Cloud development and types](https://www.weather.gov/source/zhu/ZHU_Training_Page/clouds/cloud_development/clouds.htm)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -58,8 +55,7 @@
 
 - **Hiểu lầm phổ biến:** Mây chỉ là hơi nước.
 - **Trả lời một câu:** Nước bốc hơi bay lên, gặp lạnh thành giọt li ti làm mây, giọt to dần, nặng quá thì rơi xuống thành mưa.
-- **Câu hỏi cuối video:** Bé nhà bạn từng hỏi mưa từ đâu ra chưa? Bạn đã trả lời bé thế nào?
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Nếu có người hỏi “mưa từ đâu ra”, bạn sẽ trả lời thế nào?
 - **Nguồn:** [Met Office: Rain](https://www.metoffice.gov.uk/weather/learn-about/weather/types-of-weather/rain) · [Met Office: Clouds](https://www.metoffice.gov.uk/weather/learn-about/weather/types-of-weather/clouds) · [UCAR Center for Science Education: The Water Cycle](https://scied.ucar.edu/learning-zone/how-weather-works/water-cycle)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -75,8 +71,7 @@
 
 - **Hiểu lầm phổ biến:** Mưa đá chỉ rơi vào mùa đông, lúc trời lạnh.
 - **Trả lời một câu:** Trong mây giông, gió đưa giọt nước lên cao lạnh giá, đông thành đá, to dần, nặng quá thì rơi xuống, kể cả mùa hè.
-- **Câu hỏi cuối video:** Bé nhà bạn đã bao giờ thấy mưa đá chưa? Gặp mưa đá, nhớ cho bé vào nhà ngay nhé!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Bạn đã bao giờ gặp mưa đá giữa trời nóng chưa? Gặp mưa đá, nhớ vào nhà ngay nhé!
 - **Nguồn:** [Met Office: Hail](https://www.metoffice.gov.uk/weather/learn-about/weather/types-of-weather/hail) · [NOAA National Severe Storms Laboratory: Severe Weather 101, Hail Basics](https://www.nssl.noaa.gov/education/svrwx101/hail/)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -92,8 +87,7 @@
 
 - **Hiểu lầm phổ biến:** Chớp có trước, sấm đến sau.
 - **Trả lời một câu:** Sấm và chớp sinh ra cùng lúc, nhưng ánh sáng đi nhanh hơn âm thanh rất nhiều, nên mình thấy chớp trước.
-- **Câu hỏi cuối video:** Bé nhà bạn có sợ tiếng sấm không? Bạn thường dỗ bé thế nào?
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Bạn có hay đếm từ lúc thấy chớp đến lúc nghe sấm không? Nghe sấm là vào nhà ngay nhé!
 - **Nguồn:** [Met Office: Thunder and lightning](https://www.metoffice.gov.uk/weather/learn-about/weather/types-of-weather/thunder-and-lightning) · [National Weather Service: Lightning science, thunder](https://www.weather.gov/safety/lightning-science-thunder)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -109,8 +103,7 @@
 
 - **Hiểu lầm phổ biến:** Ban đêm mặt trời đi ngủ.
 - **Trả lời một câu:** Trái Đất luôn tự quay, chỗ mình quay sang phía không có mặt trời chiếu thì thành ban đêm.
-- **Câu hỏi cuối video:** Tuần sau bé nhà bạn muốn hỏi ông câu gì? Bình luận để ông trả lời nhé!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Tuần sau là chuyện con vật. Bạn muốn ông giải đáp câu nào?
 - **Nguồn:** [NASA Space Place: What Causes the Seasons?](https://spaceplace.nasa.gov/seasons/en/) · [NASA Science: Earth Facts](https://science.nasa.gov/earth/facts/)
 - **Footage:** chưa có (đặt file vào public/footage/)
 

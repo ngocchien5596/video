@@ -15,8 +15,7 @@ export const TUAN_2 = [
       { title: "Smithsonian's National Zoo: American flamingo", url: "https://nationalzoo.si.edu/animals/american-flamingo" },
       { title: "San Diego Zoo Animals & Plants: Flamingo", url: "https://animals.sandiegozoo.org/animals/flamingo" },
     ],
-    ages: "5–9 tuổi",
-    question: "Bé nhà bạn thích con vật nào có màu sắc lạ nhất? Kể ông nghe với!",
+    question: "Theo bạn, con vật nào có màu sắc lạ nhất?",
     hook: {
       shot: "Ngoài sân, Thằng Cháu giơ tay hỏi về chim hồng hạc, mặt thắc mắc",
       lines: [tc("Ông ơi, vì sao chim hồng hạc lại màu hồng ạ?")],
@@ -88,8 +87,7 @@ export const TUAN_2 = [
         url: "https://www.ars.usda.gov/ARSUserFiles/50901500/pdf's/rumens%20are%20special_v2.pdf",
       },
     ],
-    ages: "5–9 tuổi",
-    question: "Bé nhà bạn đã thấy con bò nhai lại bao giờ chưa? Kể ông nghe với!",
+    question: "Bạn đã từng thấy con bò nhai lại ngoài đời chưa?",
     hook: {
       shot: "Ngoài sân, Thằng Cháu phồng má nhai nhóp nhép bắt chước con bò, rồi hỏi Cụ Đồ",
       lines: [tc("Ông ơi, vì sao con bò cứ nhai đi nhai lại mãi thế ạ?")],
@@ -168,8 +166,7 @@ export const TUAN_2 = [
         url: "https://sponberg.gatech.edu/2015/10/09/how-do-geckos-adhere-to-nearly-any-surface/",
       },
     ],
-    ages: "5–9 tuổi",
-    question: "Nhà bạn có thạch sùng hay tắc kè bò trên tường không? Bé có thích ngắm chúng không?",
+    question: "Nhà bạn có thạch sùng hay tắc kè bò trên tường không?",
     hook: {
       shot: "Trong nhà, Thằng Cháu ngửa cổ chỉ lên trần nhà nơi có con tắc kè đang bò, mặt thắc mắc",
       lines: [tc("Ông ơi, vì sao tắc kè bò trên trần nhà mà không bị rơi ạ?")],
@@ -241,8 +238,7 @@ export const TUAN_2 = [
       },
       { title: "San Diego Zoo Animals & Plants: Giant panda", url: "https://animals.sandiegozoo.org/animals/giant-panda" },
     ],
-    ages: "5–9 tuổi",
-    question: "Nếu được ăn một món suốt cả ngày, bé nhà bạn sẽ chọn món gì? Kể ông nghe với!",
+    question: "Nếu phải ăn một món suốt cả ngày như gấu trúc, bạn sẽ chọn món gì?",
     hook: {
       shot: "Ngoài sân, Thằng Cháu ôm một cành tre giả làm gấu trúc gặm, rồi hỏi Cụ Đồ",
       lines: [tc("Ông ơi, vì sao gấu trúc ăn tre gần như cả ngày thế ạ?")],
@@ -311,8 +307,7 @@ export const TUAN_2 = [
       { title: "WSU College of Veterinary Medicine: Eugene, great horned owl", url: "https://vetmed.wsu.edu/eugene-great-horned-owl/" },
       { title: "University of Illinois Veterinary Medicine: Owl Oddities", url: "https://vetmed.illinois.edu/vetmed-wildlife-blog/owl-oddities/" },
     ],
-    ages: "5–9 tuổi",
-    question: "Bé nhà bạn thích con vật nào ăn đêm nhất: cú, dơi hay đom đóm? Kể ông nghe với!",
+    question: "Cú, dơi hay đom đóm: bạn thấy con vật ăn đêm nào thú vị nhất?",
     hook: {
       shot: "Sân ban đêm, Thằng Cháu nghiêng đầu bắt chước con cú, hỏi Cụ Đồ",
       lines: [tc("Ông ơi, vì sao con cú quay đầu được xa thế ạ?")],
@@ -382,8 +377,7 @@ export const TUAN_2 = [
       { title: "Ask Extension (Cooperative Extension): Human and cat eyes", url: "https://ask.extension.org/kb/faq.php?id=215821" },
       { title: "University of Tennessee College of Veterinary Medicine (VOLVet Vision): Why do cats' eyes glow?", url: "https://volvetvision.tennessee.edu/periodical/fall-2024/answers-big-and-small/" },
     ],
-    ages: "5–9 tuổi",
-    question: "Bé nhà bạn đã bao giờ thấy mắt mèo sáng lên trong đêm chưa? Kể ông nghe với!",
+    question: "Bạn đã bao giờ giật mình vì đôi mắt mèo ánh lên trong đêm chưa?",
     hook: {
       shot: "Sân ban đêm, Thằng Cháu chỉ vào góc tối có hai đốm mắt mèo sáng xanh, mặt thắc mắc",
       lines: [tc("Ông ơi, vì sao mắt mèo lại sáng lên trong đêm ạ?")],
@@ -452,8 +446,7 @@ export const TUAN_2 = [
       { title: "Ask Dr. Universe (Washington State University): What makes fireflies light up at night?", url: "https://askdruniverse.wsu.edu/2023/08/31/makes-fireflies-light-night/" },
       { title: "National Park Service: Fireflies – Great Smoky Mountains", url: "https://www.nps.gov/grsm/learn/nature/fireflies.htm" },
     ],
-    ages: "5–9 tuổi",
-    question: "Bé nhà bạn đã từng ngắm đom đóm chưa? Cùng bé ngắm thôi, đừng bắt nhốt đom đóm nhé! Tuần sau bé muốn hỏi ông gì về vũ trụ?",
+    question: "Lần cuối bạn thấy đom đóm là ở đâu? Tuần sau là chuyện vũ trụ, bạn muốn ông giải đáp câu nào?",
     hook: {
       shot: "Sân ban đêm, Thằng Cháu chụm tay nhìn theo những đốm sáng đom đóm",
       lines: [tc("Ông ơi, vì sao đom đóm lại phát sáng được ạ?")],

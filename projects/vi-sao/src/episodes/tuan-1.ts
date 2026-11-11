@@ -15,8 +15,7 @@ export const TUAN_1 = [
       { title: "NASA Space Place: Why Is the Sky Blue?", url: "https://spaceplace.nasa.gov/blue-sky/en/" },
       { title: "Royal Museums Greenwich: Why is the sky blue?", url: "https://www.rmg.co.uk/stories/topics/why-sky-blue" },
     ],
-    ages: "5–9 tuổi",
-    question: "Bé nhà bạn từng hỏi câu “vì sao” nào khiến bạn bí nhất? Kể ông nghe với!",
+    question: "Câu “vì sao” nào từng làm bạn bí nhất?",
     teaser: "Vì sao hoàng hôn lại đỏ cam?",
     hook: {
       shot: "Ngoài sân, Thằng Cháu giơ tay chỉ lên trời, mặt thắc mắc",
@@ -96,8 +95,7 @@ export const TUAN_1 = [
       { title: "Royal Museums Greenwich: Why is the sky blue?", url: "https://www.rmg.co.uk/stories/topics/why-sky-blue" },
       { title: "NASA Space Place: Why Is the Sky Blue?", url: "https://spaceplace.nasa.gov/blue-sky/en/" },
     ],
-    ages: "5–9 tuổi",
-    question: "Bé nhà bạn thích ngắm hoàng hôn hay bình minh hơn? Kể ông nghe với!",
+    question: "Bạn thích ngắm hoàng hôn hay bình minh hơn?",
     hook: {
       shot: "Ngoài sân lúc chiều, Thằng Cháu chỉ lên bầu trời đỏ cam",
       lines: [tc("Ông ơi, vì sao lúc hoàng hôn, trời lại đỏ cam thế ạ?")],
@@ -170,8 +168,7 @@ export const TUAN_1 = [
       { title: "Met Office: Clouds", url: "https://www.metoffice.gov.uk/weather/learn-about/weather/types-of-weather/clouds" },
       { title: "National Weather Service: Cloud development and types", url: "https://www.weather.gov/source/zhu/ZHU_Training_Page/clouds/cloud_development/clouds.htm" },
     ],
-    ages: "5–9 tuổi",
-    question: "Bé nhà bạn từng nghĩ mây làm bằng gì? Kể ông nghe với!",
+    question: "Hồi nhỏ, bạn từng nghĩ mây làm bằng gì?",
     hook: {
       shot: "Ngoài sân, Thằng Cháu nhìn lên trời có cả mây trắng lẫn mây đen",
       lines: [tc("Ông ơi, sao mây lúc thì trắng tinh, lúc lại đen sì thế ạ?")],
@@ -241,8 +238,7 @@ export const TUAN_1 = [
       { title: "Met Office: Clouds", url: "https://www.metoffice.gov.uk/weather/learn-about/weather/types-of-weather/clouds" },
       { title: "UCAR Center for Science Education: The Water Cycle", url: "https://scied.ucar.edu/learning-zone/how-weather-works/water-cycle" },
     ],
-    ages: "5–9 tuổi",
-    question: "Bé nhà bạn từng hỏi mưa từ đâu ra chưa? Bạn đã trả lời bé thế nào?",
+    question: "Nếu có người hỏi “mưa từ đâu ra”, bạn sẽ trả lời thế nào?",
     hook: {
       shot: "Ngoài sân, Thằng Cháu ngửa mặt nhìn trời, tay hứng như đợi mưa",
       lines: [tc("Ông ơi, mưa từ đâu ra thế ạ?")],
@@ -310,8 +306,7 @@ export const TUAN_1 = [
       { title: "Met Office: Hail", url: "https://www.metoffice.gov.uk/weather/learn-about/weather/types-of-weather/hail" },
       { title: "NOAA National Severe Storms Laboratory: Severe Weather 101, Hail Basics", url: "https://www.nssl.noaa.gov/education/svrwx101/hail/" },
     ],
-    ages: "5–9 tuổi",
-    question: "Bé nhà bạn đã bao giờ thấy mưa đá chưa? Gặp mưa đá, nhớ cho bé vào nhà ngay nhé!",
+    question: "Bạn đã bao giờ gặp mưa đá giữa trời nóng chưa? Gặp mưa đá, nhớ vào nhà ngay nhé!",
     hook: {
       shot: "Ngoài sân nắng nóng, trời bỗng tối sầm, Thằng Cháu xoè tay hứng như có hạt đá rơi, mặt ngạc nhiên",
       lines: [tc("Ông ơi, trời đang nóng thế này, sao vẫn có mưa đá ạ?")],
@@ -380,8 +375,7 @@ export const TUAN_1 = [
       { title: "Met Office: Thunder and lightning", url: "https://www.metoffice.gov.uk/weather/learn-about/weather/types-of-weather/thunder-and-lightning" },
       { title: "National Weather Service: Lightning science, thunder", url: "https://www.weather.gov/safety/lightning-science-thunder" },
     ],
-    ages: "5–9 tuổi",
-    question: "Bé nhà bạn có sợ tiếng sấm không? Bạn thường dỗ bé thế nào?",
+    question: "Bạn có hay đếm từ lúc thấy chớp đến lúc nghe sấm không? Nghe sấm là vào nhà ngay nhé!",
     hook: {
       shot: "Ngoài sân, trời giông, Thằng Cháu bịt tai, mặt giật mình",
       lines: [tc("Ông ơi, sao lúc mưa giông, cháu thấy chớp trước rồi mới nghe sấm ạ?")],
@@ -453,8 +447,7 @@ export const TUAN_1 = [
       { title: "NASA Space Place: What Causes the Seasons?", url: "https://spaceplace.nasa.gov/seasons/en/" },
       { title: "NASA Science: Earth Facts", url: "https://science.nasa.gov/earth/facts/" },
     ],
-    ages: "5–9 tuổi",
-    question: "Tuần sau bé nhà bạn muốn hỏi ông câu gì? Bình luận để ông trả lời nhé!",
+    question: "Tuần sau là chuyện con vật. Bạn muốn ông giải đáp câu nào?",
     hook: {
       shot: "Ngoài sân ban đêm, trăng sao, Thằng Cháu nhìn quanh tìm mặt trời",
       lines: [tc("Ông ơi, sao ban đêm trời lại tối thế ạ?")],

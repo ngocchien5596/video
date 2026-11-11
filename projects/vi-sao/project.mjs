@@ -29,15 +29,13 @@ export const fields = (episode) => [
 export const isGenerated = (episode, code) => code === "4.1" && episode.beats[3]?.kind === "recap";
 export const generatedNote = "🔒 = câu tự sinh từ “Trả lời một câu” (mã dap).";
 
-/** Nguồn kiểm chứng và lứa tuổi, hiện trong tin nhắn kịch bản. */
+/** Nguồn kiểm chứng, hiện trong tin nhắn kịch bản. */
 export const extraInfo = (episode) => [
-  `<b>Lứa tuổi:</b> ${esc(episode.ages ?? "")}`,
   `<b>Nguồn (${episode.sources?.length ?? 0}):</b>`,
   ...(episode.sources ?? []).map((s) => `• <a href="${esc(s.url)}">${esc(s.title)}</a>`),
 ];
 
 export const sheetInfo = (episode) => [
-  `**Lứa tuổi:** ${episode.ages}`,
   `**Nguồn:** ${(episode.sources ?? []).map((s) => `[${s.title}](${s.url})`).join(" · ")}`,
 ];
 
@@ -56,12 +54,12 @@ export const validate = (episode) => {
 
 export const ai = {
   role:
-    `Bạn là biên kịch kiêm đạo diễn hoạt hình của series video ngắn khoa học cho trẻ 5–9 tuổi và phụ huynh "Ông Ơi, Vì Sao?". ` +
+    `Bạn là biên kịch kiêm đạo diễn hoạt hình của series video ngắn khoa học thường thức "Ông Ơi, Vì Sao?" cho người từ 13 tuổi (học sinh THCS, THPT) và người lớn: những câu "vì sao" tưởng dễ mà người lớn cũng hay trả lời sai. KHÔNG phải nội dung dành cho trẻ dưới 13 tuổi. ` +
     `Thằng Cháu hỏi một câu "vì sao", Cụ Đồ giải thích đúng khoa học, ngắn, dễ hiểu.`,
   rules: [
-    `Không đổi day, week, theme. Giữ đủ các trường ask, myth, answer, sources, ages, question, hook, guess, explain, outro.`,
+    `Không đổi day, week, theme. Giữ đủ các trường ask, myth, answer, sources, question, hook, guess, explain, outro.`,
     `CHÍNH XÁC LÀ TRÊN HẾT: chỉ nói điều có trong nguồn (sources). Không thêm số liệu, tên khoa học hay khẳng định mới nếu không có nguồn; cần thì hỏi lại đạo diễn. Không đơn giản hoá đến mức sai.`,
-    `Mỗi tập một ý chính. Mỗi câu giải thích một bước. Từ ngữ quen thuộc với trẻ 5–9 tuổi, so sánh bằng đồ vật quen thuộc. Cả tập dưới 45 giây khi đọc.`,
+    `Mỗi tập một ý chính. Mỗi câu giải thích một bước. Lời dễ hiểu cho người lớn không chuyên, so sánh bằng đồ vật quen thuộc; không nói giọng dỗ trẻ, không nói trực tiếp với trẻ nhỏ. Câu hỏi cuối video (question) hỏi người xem từ 13 tuổi trở lên ("bạn"), không dùng "bé". Cả tập dưới 45 giây khi đọc.`,
     `Nhịp 4 (TÓM LẠI) tự sinh từ "answer": muốn đổi câu tóm lại thì sửa "answer".`,
     `Không nội dung đáng sợ, không khuyến khích hành động nguy hiểm (nhìn thẳng mặt trời, thí nghiệm với lửa, điện...).`,
     `Bảng minh hoạ: dùng kênh "board" trong stage với id và bước có trong danh sách BẢNG MINH HOẠ; mỗi bước phải khớp câu đang nói. Không có sơ đồ phù hợp thì nói rõ trong tóm tắt.`,

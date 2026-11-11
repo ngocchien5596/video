@@ -7,8 +7,7 @@
 
 - **Hiểu lầm phổ biến:** Cây bắt ruồi không cần nắng, chỉ ăn côn trùng thay cơm để sống.
 - **Trả lời một câu:** Cây bắt ruồi vẫn lấy năng lượng từ nắng, nó bắt côn trùng để có thêm chất bổ mà đất đầm lầy thiếu.
-- **Câu hỏi cuối video:** Bé nhà bạn đã thấy cây bắt ruồi thật chưa? Bé đoán một chiếc bẫy lá bắt được mấy con côn trùng? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Bạn đoán một chiếc bẫy lá của cây bắt ruồi bắt được mấy con côn trùng?
 - **Nguồn:** [San Diego Zoo Wildlife Explorers: Venus Flytrap](https://kids.sandiegozoo.org/animals/venus-flytrap) · [NC State Extension Gardener Plant Toolbox: Dionaea muscipula](https://plants.ces.ncsu.edu/plants/dionaea-muscipula/)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -24,8 +23,7 @@
 
 - **Hiểu lầm phổ biến:** Cây ăn đất để lớn.
 - **Trả lời một câu:** Ngoài nước, phần lớn cái cây được làm từ khí cacbonic lấy trong không khí, nhờ năng lượng ánh nắng.
-- **Câu hỏi cuối video:** Bé nhà bạn nghĩ cây lớn lên nhờ ăn gì? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Hồi nhỏ, bạn nghĩ cây lớn lên nhờ ăn gì?
 - **Nguồn:** [Ask A Biologist (Arizona State University): The Recipe for Plant Growth](https://askabiologist.asu.edu/recipe-plant-growth) · [California State University, Northridge: Plant Mass](http://www.csun.edu/scied/2-longitudinal/plant_mass/index.htm)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -41,8 +39,7 @@
 
 - **Hiểu lầm phổ biến:** Trời lạnh đã sơn lá thành màu vàng.
 - **Trả lời một câu:** Khi ngày ngắn lại, chất diệp lục xanh trong lá bị phân huỷ, để lộ ra màu vàng cam vốn có sẵn trong lá.
-- **Câu hỏi cuối video:** Ở chỗ nhà bạn, cây nào hay đổi màu lá? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Chỗ bạn ở, cây nào hay đổi màu lá?
 - **Nguồn:** [SUNY College of Environmental Science and Forestry: Why Leaves Change Color](https://www.esf.edu/eis/eis-leaves-color-change.php) · [Ask A Biologist (Arizona State University): Why do leaves change color in the fall season?](https://askabiologist.asu.edu/questions/why-do-leaves-change-color)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -58,8 +55,7 @@
 
 - **Hiểu lầm phổ biến:** Hoa hướng dương lúc nào cũng xoay theo Mặt Trời, kể cả khi đã nở to.
 - **Trả lời một câu:** Chỉ cây hướng dương non mới xoay theo Mặt Trời, còn hoa đã nở thì đứng yên, quay về phía đông.
-- **Câu hỏi cuối video:** Bé nhà bạn đã từng thấy hoa hướng dương thật chưa? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Bạn đã từng thấy cánh đồng hoa hướng dương ngoài đời chưa?
 - **Nguồn:** [Cambridge University Botanic Garden: Sunflower (Helianthus annuus)](https://www.botanic.cam.ac.uk/learning/trails/plant-rhythms/sunflower/) · [Takács et al. 2022, Frontiers in Plant Science: Mature Sunflower Inflorescences Face Geographical East](https://pmc.ncbi.nlm.nih.gov/articles/PMC8969559/)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -75,8 +71,7 @@
 
 - **Hiểu lầm phổ biến:** Ớt cay là để không con vật nào dám ăn nó.
 - **Trả lời một câu:** Ớt cay để đuổi những con thú hay nhai nát hạt, còn chim không thấy cay, ăn ớt rồi mang hạt đi gieo chỗ mới.
-- **Câu hỏi cuối video:** Bé nhà bạn đã bao giờ lỡ cắn phải ớt chưa? Lúc ấy bé làm gì? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Bạn ăn cay giỏi không? Món cay nhất bạn từng ăn là món gì?
 - **Nguồn:** [University of Florida News: For peppers, 'hot' quite literally the spice of life, UF research shows](https://archive.news.ufl.edu/articles/2001/07/for-peppers-hot-quite-literally-the-spice-of-life-uf-research-shows.html) · [Harvard University, Science in the News: The Complicated Evolutionary History of Spicy Chili Peppers](https://sites.harvard.edu/sitn/2012/11/29/issue131b)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -92,8 +87,7 @@
 
 - **Hiểu lầm phổ biến:** Cà chua chỉ là rau.
 - **Trả lời một câu:** Nhà khoa học gọi cà chua là quả vì nó mọc từ hoa và có hạt bên trong, còn trong bếp, người ta nấu nó như rau.
-- **Câu hỏi cuối video:** Nhà bạn hay nấu cà chua thành món gì? Bé có đoán được dưa chuột là quả hay rau không?
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Nhà bạn hay nấu cà chua thành món gì? Bạn đoán dưa chuột là quả hay rau?
 - **Nguồn:** [Iowa State University Extension, Yard and Garden: Is a tomato a fruit or a vegetable?](https://yardandgarden.extension.iastate.edu/faq/tomato-fruit-or-vegetable) · [University of Maine Cooperative Extension: Ask EFNEP – Is a Tomato a Fruit or a Vegetable?](https://extension.umaine.edu/food-health/2024/04/15/fruit-or-vegetable/)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -109,15 +103,14 @@
 
 - **Hiểu lầm phổ biến:** Xương rồng không có lá, gai mọc ra chỉ để đâm người.
 - **Trả lời một câu:** Gai xương rồng chính là lá đã biến đổi, giúp cây giữ nước trong sa mạc và không bị con vật ăn.
-- **Câu hỏi cuối video:** Nhà bạn có trồng xương rồng không? Nhớ dặn bé chỉ ngắm, đừng sờ vào gai nhé! Tuần sau bé muốn hỏi ông gì về nước?
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Nhà bạn có trồng xương rồng không? Tuần sau là chuyện nước quanh ta, bạn muốn ông giải đáp câu nào?
 - **Nguồn:** [Duke Gardens: Five Ways Plants Adapt To Heat](https://gardens.duke.edu/garden-talk/five-ways-plants-adapt-to-heat/) · [National Park Service: Cacti / Desert Succulents – Arches National Park](https://www.nps.gov/arch/learn/nature/cacti.htm)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
 | Giây | Nhịp | Cảnh | Thoại |
 | --- | --- | --- | --- |
 | 0–3 | CÂU HỎI | Ngoài sân, Thằng Cháu đứng cách chậu xương rồng một quãng, chỉ vào và hỏi | **TC**: Ông ơi, vì sao cây xương rồng lại có gai ạ? |
-| 3–10 | ĐOÁN THỬ | Thằng Cháu đoán gai để đâm người, Cụ Đồ bảo gai chính là lá đã biến thành, dặn cháu chỉ nhìn thôi | **TC**: Có phải xương rồng chẳng có lá, mọc gai ra chỉ để đâm người không ông?<br>**CĐ**: Chưa đúng đâu! Gai nhọn ấy chính là lá xương rồng đã biến thành nhỏ xíu, cháu chỉ nhìn thôi, đừng sờ nhé. |
+| 3–10 | ĐOÁN THỬ | Thằng Cháu đoán gai để đâm người, Cụ Đồ bảo gai chính là lá đã biến thành, dặn cháu chỉ nhìn thôi | **TC**: Có phải xương rồng chẳng có lá, mọc gai ra chỉ để đâm người không ông?<br>**CĐ**: Chưa đúng đâu! Gai nhọn ấy chính là lá xương rồng đã biến thành nhỏ xíu, nhìn thì đẹp mà sờ vào là đau đấy. |
 | 10–32 | GIẢI THÍCH | Bảng minh hoạ: lá to làm cây mất nước; lá xương rồng biến thành gai; gai che bóng, chắn gió khô, chống bị ăn; thân xanh làm thức ăn | **CĐ**: Lá to thì làm cây mất nhiều nước, mà sa mạc lại rất khô.<br>**CĐ**: Vì thế, lá xương rồng biến thành gai rất nhỏ, ít làm mất nước.<br>**CĐ**: Gai còn che bóng, chắn gió khô cho thân cây, và giữ cho cây khỏi bị con vật ăn.<br>**CĐ**: Còn thân màu xanh thì làm thay việc của lá, là làm thức ăn cho cây. |
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, gai xương rồng chính là lá đã biến đổi, giúp cây giữ nước trong sa mạc và không bị con vật ăn. |
 | 37–43 | HỎI TIẾP | Thằng Cháu khen xương rồng giữ nước giỏi, hỏi sang chuyện nước quanh mình; Cụ Đồ hẹn tuần sau hỏi tiếp | **TC**: Xương rồng giữ nước giỏi thật! Thế nước quanh mình còn có điều gì lạ nữa hả ông?<br>**CĐ**: Nhiều lắm cháu ạ! Tuần sau, cháu lại hỏi ông tiếp nhé! |

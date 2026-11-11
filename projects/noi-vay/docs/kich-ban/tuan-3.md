@@ -1,109 +1,109 @@
-# Kịch bản tuần 3: Học hành, tiền bạc
+# Kịch bản tuần 3: Học hành, công việc, tiền bạc
 
 > File sinh tự động bằng `npm run sheets -- -p noi-vay` từ `projects/noi-vay/src/episodes/`. Sửa ở đó, đừng sửa ở đây.
 > CĐ = Cụ Đồ, TC = Thằng Cháu.
 
 ## Ngày 15: Nước đến chân mới nhảy
 
-- **Nghĩa thật:** Thói quen chần chừ, để mọi việc đến sát giờ cuối cùng mới cuống cuồng lo làm.
-- **Câu hỏi cuối video:** Bạn từng đợi đến tối Chủ nhật mới nhớ ra bài tập vẽ hoặc thủ công chưa?
+- **Nghĩa thật:** Chê thói chần chừ, việc để đến sát giờ chót mới cuống cuồng lo làm.
+- **Câu hỏi cuối video:** Deadline nào bạn từng làm xong chỉ vài phút trước giờ nộp?
 - **Footage:** chưa có (đặt file vào public/footage/)
 
 | Giây | Nhịp | Cảnh | Thoại |
 | --- | --- | --- | --- |
-| 0–3 | HOOK | TC mặc quần xắn cao, cầm chậu nước đổ từng cốc xuống sàn cạnh bàn chân mình | **TC**: Sắp chạm ngón chân cái rồi, chuẩn bị bật nhảy nhé! |
-| 3–6 | ĐẶT CÂU | Cụ Đồ hỏi, thẻ tiêu đề "NGÀY 15/30" hiện lên, âm "ding" | **CĐ**: Mày đổ nước ra nhà làm cái trò gì thế?<br>**TC**: Nước đến chân mới nhảy ạ! |
-| 6–25 | HIỂU SAI | Nước vừa chạm đầu ngón chân, TC lập tức nhảy lò cò tưng bừng khắp phòng | **TC**: Cháu đang luyện phản xạ 'nước đến chân mới nhảy' đấy ông ạ!<br>**TC**: Nước chưa chạm chân là tuyệt đối đứng im, vừa chạm một cái là nhảy cao hai mét!<br>**CĐ**: Mày làm ướt nhẹp cả sàn nhà thế này thì mẹ mày về nhảy dựng lên trước đấy! |
-| 25–40 | LẬT NGHĨA | Cụ Đồ gõ quạt lên đầu Thằng Cháu, nhạc dừng một nhịp | **CĐ**: Ông bà nói vậy, mà không phải vậy!<br>**CĐ**: Ngày xưa nước lũ dâng lên tận chân mới vội vàng nhảy chạy là quá muộn! Câu này chê thói quen lề mề, có việc cứ để đó chơi đã, đợi đến phút chót mới cuống cuồng làm. |
-| 40–52 | VÍ DỤ | Cảnh 10 giờ tối Chủ nhật, học sinh mếu máo tìm giấy màu thủ công | **CĐ**: Như cô giáo dặn chuẩn bị giấy màu, hồ dán từ thứ Hai, cả tuần cứ bảo 'từ từ', đến 10 giờ đêm Chủ nhật mới khóc thét vì tiệm tạp hóa đóng cửa hết rồi! |
-| 52–60 | PUNCHLINE | TC ngồi ngay ngắn vào bàn học, nhưng trước mặt là tấm lịch ghi 'Lịch bắt đầu chăm học: Ngày mai' | **TC**: Cháu chừa rồi! Từ giờ cháu sẽ làm bài tập từ sớm, không đợi nước đến chân nữa!<br>**CĐ**: Thế làm bài hôm nay luôn đi!<br>**TC**: Dạ... kế hoạch làm sớm của cháu bắt đầu từ... ngày mai ông ạ! |
+| 0–3 | HOOK | Phòng trọ, TC ngồi trên giường lướt điện thoại, hai chân thả hờ trên một xô nước đang được vòi nước rót dần | **TC**: Còn đúng 5 phân nữa thôi, nước chạm chân là cháu nhảy! |
+| 3–6 | ĐẶT CÂU | Cụ Đồ hỏi, thẻ tiêu đề "#15" hiện lên, âm "ding" | **CĐ**: Mày ngồi canh cái xô nước làm gì thế?<br>**TC**: Nước đến chân mới nhảy ạ! |
+| 6–25 | HIỂU SAI | TC nằm lướt điện thoại cạnh xô nước sắp tràn; nước vừa chạm ngón chân, TC bật dậy nhảy tưng tưng, nước bắn khắp phòng | **TC**: Ông bà dạy nước đến chân mới nhảy mà ông!<br>**TC**: Nước chưa đến thì cháu cứ nằm lướt điện thoại, chạm chân một cái là bật như lò xo.<br>**TC**: Cháu còn cài báo thức: nước chạm ngón cái là nhạc nhảy tự bật!<br>**CĐ**: Ngập cả phòng trọ rồi, chủ nhà sắp nhảy lên đây kìa! |
+| 25–40 | LẬT NGHĨA | Cụ Đồ gõ quạt lên đầu Thằng Cháu, nhạc dừng một nhịp | **CĐ**: Ông bà nói vậy, mà không phải vậy!<br>**CĐ**: Ngày xưa lũ dâng đến chân mới chạy thì đã muộn. Câu này chê thói chần chừ, việc gì cũng để sát nút mới cuống cuồng làm, nên vừa vội vừa dễ hỏng. |
+| 40–52 | VÍ DỤ | Văn phòng tối om, đồng hồ chỉ 23 giờ 50 Chủ nhật, một người gõ máy tính cuống cuồng, biểu tượng wifi chập chờn | **CĐ**: Như sếp giao báo cáo từ thứ Hai, cả tuần cứ bảo còn sớm.<br>**CĐ**: Mười một giờ đêm Chủ nhật mới mở máy, đúng lúc wifi rớt, file lại chưa lưu! |
+| 52–60 | PUNCHLINE | Sáng thứ Hai, TC đứng trong chậu, giơ tay ra hiệu cho bạn cùng phòng dội nguyên xô nước vào chân mình | **TC**: Cháu hiểu rồi, phải nhảy sớm!<br>**TC**: Nên cháu nhờ bạn cùng phòng, cứ sáng thứ Hai là dội một xô vào chân cháu.<br>**TC**: Thế là tuần nào cháu cũng nhảy từ sớm ông ạ! |
 
-## Ngày 16: Có công mài sắt có ngày nên kim
+## Ngày 16: Muốn ăn hét phải đào giun
 
-- **Nghĩa thật:** Kiên trì, nhẫn nại cố gắng mỗi ngày thì việc khó đến mấy cuối cùng cũng thành công.
-- **Câu hỏi cuối video:** Môn học hay kỹ năng nào bạn đã kiên trì tập luyện lâu nhất?
+- **Nghĩa thật:** Muốn hưởng thành quả thì phải chịu bỏ công sức, chuẩn bị từ trước.
+- **Câu hỏi cuối video:** Thành quả nào bạn từng phải chuẩn bị rất lâu mới có được?
 - **Footage:** chưa có (đặt file vào public/footage/)
 
 | Giây | Nhịp | Cảnh | Thoại |
 | --- | --- | --- | --- |
-| 0–3 | HOOK | Chữ 'NGÀY THỨ 100', TC cầm cục đá mài cật lực một cái thìa inox | **TC**: Cố lên, mài thêm 3 năm nữa là thành cây kim khâu áo cho bà rồi! |
-| 3–6 | ĐẶT CÂU | Cụ Đồ hỏi, thẻ tiêu đề "NGÀY 16/30" hiện lên, âm "ding" | **CĐ**: Mày lấy thìa ăn cơm của ông ra mài cái gì đấy?<br>**TC**: Có công mài sắt có ngày nên kim ạ! |
-| 6–25 | HIỂU SAI | TC mài cái thìa toát mồ hôi hột, rồi bất lực nhìn cái thìa vẫn to đùng | **TC**: Trong sách kể bà cụ mài thỏi sắt thành kim! Nhà mình không có thỏi sắt nên cháu lấy tạm cái thìa của ông!<br>**TC**: Mà sao cháu mài mỏi nhừ cả tay suốt 15 phút rồi nó vẫn chưa bé lại thành cây kim nhỉ?!<br>**CĐ**: Mày mài hết bộ thìa nhà mình thì lấy gì múc canh hả cháu?! |
-| 25–40 | LẬT NGHĨA | Cụ Đồ gõ quạt lên đầu Thằng Cháu, nhạc dừng một nhịp | **CĐ**: Ông bà nói vậy, mà không phải vậy!<br>**CĐ**: Thỏi sắt to thế mà kiên trì mài mãi còn thành cây kim nhỏ xíu được! Ý ông bà khuyên mình: làm việc gì khó, chỉ cần chịu khó rèn luyện từng chút một mỗi ngày thì nhất định sẽ thành công. |
-| 40–52 | VÍ DỤ | Cảnh tập viết chữ đẹp hoặc tập nhảy dây, đá cầu | **CĐ**: Như lúc mới tập đá cầu hay luyện chữ đẹp, ngày đầu chỉ tâng được 1 quả, nhưng ngày nào cũng kiên trì tập 15 phút thì cuối tháng đá vèo vèo cả trăm quả! |
-| 52–60 | PUNCHLINE | TC đặt đồng hồ bấm giờ đúng 10 giây, viết được đúng 1 chữ rồi ngả lưng nằm nghỉ | **TC**: Cháu hiểu rồi, phải kiên trì từng chút mỗi ngày!<br>**TC**: Hôm nay cháu viết 1 chữ cái, mài sắt từ từ đến Tết năm sau là xong bài tập làm văn ông nhé! |
+| 0–3 | HOOK | Ban công chung cư buổi tối, TC cầm xẻng nhỏ đào chậu hoa, rồi chúi đầu vào cái hố gào thật to | **TC**: Đào được con thứ ba rồi, giờ cháu được hét tiếp! |
+| 3–6 | ĐẶT CÂU | Cụ Đồ hỏi, thẻ tiêu đề "#16" hiện lên, âm "ding" | **CĐ**: Đêm hôm mày đào chậu hoa rồi gào cái gì thế?<br>**TC**: Muốn ăn hét phải đào giun ạ! |
+| 6–25 | HIỂU SAI | TC xếp từng con giun vào hộp, mỗi con lại cầm micro karaoke hét một câu; hàng xóm bên cạnh bịt tai, đèn các căn hộ lần lượt bật sáng | **TC**: Sách bảo muốn ăn hét phải đào giun. Cháu thèm hét cho đã!<br>**TC**: Đào một con giun được hét một câu. Năm con là đủ cả bài karaoke!<br>**TC**: Cháu còn tính xuống đào bồn hoa của tòa nhà, hét luôn cả album.<br>**CĐ**: Bảo vệ gọi lên ba lần rồi, ông cũng muốn hét theo đây! |
+| 25–40 | LẬT NGHĨA | Cụ Đồ gõ quạt lên đầu Thằng Cháu, nhạc dừng một nhịp | **CĐ**: Ông bà nói vậy, mà không phải vậy!<br>**CĐ**: Hét ở đây là con chim hét, lông đen, to hơn chim sáo và rất mê ăn giun. Muốn bẫy chim hét thì phải đào giun làm mồi trước. Ý là muốn có thành quả thì phải chịu bỏ công chuẩn bị. |
+| 40–52 | VÍ DỤ | Một bạn trẻ mở laptop sửa CV, xem video luyện phỏng vấn, bên cạnh là tờ lịch dán chi chít ghi chú | **CĐ**: Như muốn vào được công ty mơ ước, phải sửa CV, luyện phỏng vấn, làm vài dự án nhỏ trước.<br>**CĐ**: Chứ gửi đúng một cái CV từ năm ngoái rồi ngồi chờ thì ai gọi! |
+| 52–60 | PUNCHLINE | TC đứng ở quầy bưu điện, đặt lên bàn phong bì CV kèm một hộp nhựa có lỗ thở, bên trong lúc nhúc giun | **TC**: Cháu hiểu rồi, muốn có thì phải chuẩn bị mồi!<br>**TC**: Nên cháu gửi CV kèm luôn một hộp giun tươi. Công ty nào mê giun là gọi cháu ngay!<br>**CĐ**: Mày đi xin việc hay đi tuyển chim thế hả? |
 
-## Ngày 17: Một cây làm chẳng nên non
+## Ngày 17: Đẽo cày giữa đường
 
-- **Nghĩa thật:** Một mình đơn lẻ thì khó làm nên việc lớn, phải biết đoàn kết cùng bạn bè. Câu đầy đủ: 'Một cây làm chẳng nên non, ba cây chụm lại nên hòn núi cao'.
-- **Câu hỏi cuối video:** Trò chơi nào ở trường phải có đủ hội bạn thân chơi cùng mới vui?
+- **Nghĩa thật:** Chê người không có chủ kiến, ai bảo gì cũng nghe theo nên cuối cùng hỏng việc.
+- **Câu hỏi cuối video:** Bạn từng sửa một bài làm theo góp ý của quá nhiều người đến mức hỏng chưa?
 - **Footage:** chưa có (đặt file vào public/footage/)
 
 | Giây | Nhịp | Cảnh | Thoại |
 | --- | --- | --- | --- |
-| 0–3 | HOOK | TC đặt một chậu cây cảnh nhỏ xíu lên bàn, cầm thước kẻ đo rồi thở dài | **TC**: Nuôi mãi mà chẳng thấy biến thành ngọn núi gì cả! |
-| 3–6 | ĐẶT CÂU | Cụ Đồ hỏi, thẻ tiêu đề "NGÀY 17/30" hiện lên, âm "ding" | **CĐ**: Cây cảnh thì làm sao thành núi được mà đo?<br>**TC**: Một cây làm chẳng nên non ạ! |
-| 6–25 | HIỂU SAI | TC bê thêm 2 chậu cây nhỏ xíu nữa xếp sát vào nhau, đứng khoanh tay chờ đợi | **TC**: Ông dạy 'Một cây làm chẳng nên non, ba cây chụm lại nên hòn núi cao' còn gì!<br>**TC**: Cháu chụm đủ 3 chậu cây vào nhau từ sáng tới giờ rồi, sao nó vẫn chưa mọc thành núi Fansipan hả ông?!<br>**CĐ**: Chữ 'non' ở đây là núi non, rừng lớn, nhưng không phải cứ xếp 3 cái chậu là đất tự phồng lên đâu! |
-| 25–40 | LẬT NGHĨA | Cụ Đồ gõ quạt lên đầu Thằng Cháu, nhạc dừng một nhịp | **CĐ**: Ông bà nói vậy, mà không phải vậy!<br>**CĐ**: Một cái cây đứng trơ trọi thì không tạo thành rừng núi được, nhiều cây tụ họp lại mới thành rừng lớn! Ý nói một người làm một mình thì yếu sức, phải biết đoàn kết, chung tay cùng tập thể mới làm được việc lớn. |
-| 40–52 | VÍ DỤ | Cảnh trực nhật lớp học hoặc kéo co tập thể | **CĐ**: Như trực nhật lớp học, một mình mày vừa quét lớp vừa lau bảng, kê bàn thì bở hơi tai. Nhưng cả tổ 5 bạn cùng chia nhau làm thì 10 phút là lớp sạch bong! |
-| 52–60 | PUNCHLINE | TC gọi 2 đứa bạn hàng xóm sang đứng chụm đầu vào nhau trước quyển vở bài tập | **TC**: Đoàn kết là sức mạnh! Bài toán này có 3 câu...<br>**TC**: ...Cháu làm nhiệm vụ viết họ tên, bạn Bi chép đề, bạn Bo giải toán là thành 'hòn núi điểm 10' luôn! |
+| 0–3 | HOOK | Hành lang khu trọ chật hẹp, TC kê ghế ngồi chính giữa, ôm khúc gỗ to cầm cái bào gỗ; hàng xóm xách xe đạp phải nghiêng người lách qua | **TC**: Mọi người đi vòng giúp cháu nhé, cháu đang làm nghề truyền thống! |
+| 3–6 | ĐẶT CÂU | Cụ Đồ hỏi, thẻ tiêu đề "#17" hiện lên, âm "ding" | **CĐ**: Sao mày bày gỗ chắn hết lối đi thế này?<br>**TC**: Đẽo cày giữa đường ạ! |
+| 6–25 | HIỂU SAI | TC cầm thước dây đo hai bên tường, dịch khúc gỗ từng phân cho thật chính giữa; phía sau người xếp hàng chờ qua mỗi lúc một dài | **TC**: Ông bà dặn đẽo cày giữa đường mà ông! Đẽo trong phòng là sai bài.<br>**TC**: Cháu đo bằng thước hẳn hoi, lệch một phân là cháu dời ghế ngay.<br>**TC**: Chiều nay cháu chuyển ra giữa cầu thang, giữa hơn mà lại thoáng!<br>**CĐ**: Cả khu trọ phải trèo qua khúc gỗ đi làm, ông xin mày đấy! |
+| 25–40 | LẬT NGHĨA | Cụ Đồ gõ quạt lên đầu Thằng Cháu, nhạc dừng một nhịp | **CĐ**: Ông bà nói vậy, mà không phải vậy!<br>**CĐ**: Đây là truyện ngụ ngôn. Anh chàng ngồi bên đường đẽo cày, ai đi qua góp ý gì cũng sửa theo, người bảo to, người bảo nhỏ. Cuối cùng khúc gỗ thành đồ vô dụng. Câu này chê người không có chủ kiến. |
+| 40–52 | VÍ DỤ | Nhóm sinh viên trước màn hình slide thuyết trình, mỗi người chỉ một chỗ, slide đổi màu và đổi bố cục liên tục | **CĐ**: Như làm slide thuyết trình, nhóm trưởng bảo thêm chữ, bạn này bảo bớt chữ, bạn kia đòi đổi màu.<br>**CĐ**: Nghe hết thì sáng hôm nộp, slide thành ba kiểu đánh nhau. Góp ý thì nghe, nhưng phải tự chọn! |
+| 52–60 | PUNCHLINE | TC đeo tai nghe chụp to, khoanh tay quay lưng lại, Cụ Đồ đứng sau phe phẩy quạt nói vọng vào | **TC**: Cháu hiểu rồi! Từ nay cháu có chủ kiến, không nghe ai cả.<br>**CĐ**: Ừ, nhưng góp ý đúng thì vẫn nên nghe.<br>**TC**: Cháu không nghe! Kể cả câu ông vừa nói! |
 
-## Ngày 18: Tiền nào của nấy
+## Ngày 18: Đầu voi đuôi chuột
 
-- **Nghĩa thật:** Giá trị món đồ thường tương xứng với công sức hoặc số tiền bỏ ra, đừng ham rẻ mà mua phải đồ kém chất lượng.
-- **Câu hỏi cuối video:** Bạn từng mua món đồ chơi giá rẻ nào mà mới cầm lên đã hỏng chưa?
+- **Nghĩa thật:** Việc mở đầu rầm rộ, hoành tráng nhưng kết thúc nhỏ bé hoặc bỏ dở giữa chừng.
+- **Câu hỏi cuối video:** Kế hoạch đầu năm nào của bạn đang ở đoạn đuôi chuột?
 - **Footage:** chưa có (đặt file vào public/footage/)
 
 | Giây | Nhịp | Cảnh | Thoại |
 | --- | --- | --- | --- |
-| 0–3 | HOOK | TC cầm siêu nhân nhựa vừa giơ lên tạo dáng thì cánh tay siêu nhân rụng rời | **TC**: Ơ kìa! Siêu nhân giải cứu thế giới gì mà chưa bay đã rụng tay rồi?! |
-| 3–6 | ĐẶT CÂU | Cụ Đồ hỏi, thẻ tiêu đề "NGÀY 18/30" hiện lên, âm "ding" | **CĐ**: Siêu nhân gì mà mỏng manh thế?<br>**TC**: Tiền nào của nấy ạ! |
-| 6–25 | HIỂU SAI | TC dán tờ tiền 2 nghìn lên người con robot, dán tờ 5 nghìn lên chiếc xe đồ chơi | **TC**: Tại cháu chưa dán tiền lên đồ chơi đấy ông ạ! Ông bảo 'tiền nào của nấy' mà!<br>**TC**: Tờ tiền màu xanh thì dán vào siêu nhân xanh, tờ tiền màu đỏ thì dán vào xe cứu hỏa!<br>**CĐ**: Cất ngay tiền lẻ vào heo đất! Ai bảo mày lấy tiền làm nhãn vở dán đồ chơi thế?! |
-| 25–40 | LẬT NGHĨA | Cụ Đồ gõ quạt lên đầu Thằng Cháu, nhạc dừng một nhịp | **CĐ**: Ông bà nói vậy, mà không phải vậy!<br>**CĐ**: Của ở đây là của cải, đồ vật! Tiền nào của nấy nghĩa là món đồ tốt, bền đẹp thì phải tốn nhiều công sức, nhiều tiền hơn; còn ham đồ quá rẻ, làm ẩu thì rất nhanh hỏng. |
-| 40–52 | VÍ DỤ | Cảnh chọn mua bút và vở ở hiệu sách | **CĐ**: Như mua cục tẩy có 1 nghìn đồng nhìn thì to, nhưng tẩy đến đâu đen nhẻm trang vở đến đấy, không thể sạch bằng cục tẩy tốt được! |
-| 52–60 | PUNCHLINE | TC chìa tay ra trước mặt Cụ Đồ với vẻ mặt vô cùng nghiêm túc | **TC**: Ông nói chuẩn quá! 'Tiền nào của nấy' — hôm nay ông thưởng cho cháu 2 nghìn thì cháu đấm lưng nhẹ...<br>**TC**: ...Còn ông thưởng 10 nghìn là có ngay gói đấm lưng VIP khuyến mãi quạt mát luôn ạ! |
+| 0–3 | HOOK | TC áp điện thoại lên tai, nói rất nghiêm túc, phía sau là tấm ảnh shop thú cưng | **TC**: Alo shop ạ? Cho cháu một con đầu voi đuôi chuột, giao trong 2 giờ! |
+| 3–6 | ĐẶT CÂU | Cụ Đồ hỏi, thẻ tiêu đề "#18" hiện lên, âm "ding" | **CĐ**: Mày đặt con gì mà nghe lạ thế?<br>**TC**: Đầu voi đuôi chuột ạ! |
+| 6–25 | HIỂU SAI | TC ghép một cái đầu voi bằng thùng carton to tướng với sợi dây sạc làm đuôi; đầu voi chắn kín cửa phòng trọ, chỉ cái đuôi nằm lọt trong phòng | **TC**: Ông bà nói đầu voi đuôi chuột thì chắc phải có con này chứ ông!<br>**TC**: Shop bảo hết hàng, nên cháu tự ghép: đầu voi bằng thùng carton, đuôi là sợi dây sạc.<br>**TC**: Có điều đầu to quá không lọt cửa, nên đầu ở ngoài ngõ, đuôi nằm trong phòng.<br>**CĐ**: Phòng trọ mười lăm mét vuông mà mày nuôi cả con voi, ông chịu! |
+| 25–40 | LẬT NGHĨA | Cụ Đồ gõ quạt lên đầu Thằng Cháu, nhạc dừng một nhịp | **CĐ**: Ông bà nói vậy, mà không phải vậy!<br>**CĐ**: Đây là lối so sánh: đầu to như voi, đuôi bé như chuột. Câu này chê việc mở đầu thì hoành tráng, rầm rộ, càng về sau càng nhỏ dần rồi bỏ dở giữa chừng. |
+| 40–52 | VÍ DỤ | Bài đăng mạng xã hội 'Năm nay mình sẽ...' dài cả trang; ảnh tập gym tuần đầu, rồi tấm thẻ tập nằm trong ví, người nằm trên võng | **CĐ**: Như đầu năm đăng lên mạng: tập gym, học tiếng Anh, đọc năm mươi cuốn sách, mua hẳn thẻ tập một năm.<br>**CĐ**: Tuần đầu ngày nào cũng khoe ảnh. Sang tháng thứ hai, thẻ tập nằm trong ví, còn người nằm trên võng. |
+| 52–60 | PUNCHLINE | TC giơ tờ giấy ghi 'Mục tiêu năm nay: tập gym 1 buổi', mặt rạng rỡ như vừa giành giải | **TC**: Cháu hiểu rồi! Năm nay cháu chơi đầu chuột đuôi chuột.<br>**TC**: Mục tiêu cả năm: tập gym đúng một buổi. Đầu nhỏ đuôi nhỏ, không bao giờ bỏ dở! |
 
 ## Ngày 19: Năng nhặt chặt bị
 
-- **Nghĩa thật:** Chăm chỉ tích góp từng chút nhỏ nhặt mỗi ngày thì lâu dần sẽ có được số lượng lớn.
-- **Câu hỏi cuối video:** Bạn đang nuôi heo đất để dành mua món đồ gì đấy?
+- **Nghĩa thật:** Chăm chỉ góp nhặt từng chút nhỏ mỗi ngày thì lâu dần sẽ thành nhiều.
+- **Câu hỏi cuối video:** Khoản tiết kiệm nhỏ mỗi ngày nào của bạn đã thành số tiền đáng kể?
 - **Footage:** chưa có (đặt file vào public/footage/)
 
 | Giây | Nhịp | Cảnh | Thoại |
 | --- | --- | --- | --- |
-| 0–3 | HOOK | TC ôm cái túi vải to đùng, dùng dây thừng buộc thắt nút thật chặt | **TC**: Buộc chặt cứng thế này mới đúng chuẩn 'chặt bị'! |
-| 3–6 | ĐẶT CÂU | Cụ Đồ hỏi, thẻ tiêu đề "NGÀY 19/30" hiện lên, âm "ding" | **CĐ**: Mày nhét cái gì vào túi mà buộc bảy tám vòng thế?<br>**TC**: Năng nhặt chặt bị ạ! |
-| 6–25 | HIỂU SAI | TC đổ từ trong túi ra toàn lá cây khô, sỏi đá, vỏ kẹo, nắp chai nhựa | **TC**: Cháu thực hành 'năng nhặt chặt bị' đấy ông! Đi học về thấy cái gì rơi trên đường là cháu nhặt hết!<br>**TC**: Nào là lá bàng khô, hòn sỏi, que kem... nhặt xong phải lấy dây buộc cái bị thật chặt kẻo nó rơi!<br>**CĐ**: Chặt bị là đầy chặt cả túi, chứ không phải nhặt rác về rồi buộc thắt nút cái túi lại! |
-| 25–40 | LẬT NGHĨA | Cụ Đồ gõ quạt lên đầu Thằng Cháu, nhạc dừng một nhịp | **CĐ**: Ông bà nói vậy, mà không phải vậy!<br>**CĐ**: Chữ 'năng' là chăm chỉ, thường xuyên; 'bị' là cái túi cói ngày xưa, 'chặt bị' là đầy ắp cả túi! Ý khuyên mình biết tiết kiệm, góp nhặt từng chút nhỏ mỗi ngày thì lâu dần sẽ thành nhiều. |
-| 40–52 | VÍ DỤ | Cảnh bỏ tiền lẻ vào heo đất và gom giấy vụn Kế hoạch nhỏ | **CĐ**: Như mỗi ngày bỏ vào heo đất 2 nghìn tiền mừng tuổi hay tiền thưởng, hoặc gom từng tờ báo cũ làm Kế hoạch nhỏ, cuối năm mở ra là đủ mua cả bộ truyện tranh mơ ước! |
-| 52–60 | PUNCHLINE | TC cầm con heo đất nhựa lắc lắc bên tai Cụ Đồ, kêu lọc cọc đúng 1 đồng xu | **TC**: Cháu bắt đầu 'năng nhặt' từ hôm nay luôn! Cháu có cái bụng con heo đất rồi...<br>**TC**: ...Giờ ông cho cháu 'nhặt' tờ tiền đầu tiên từ ví của ông để làm vốn nhé! |
+| 0–3 | HOOK | TC ngồi đè lên một cái bị cói căng phồng, quấn dây thừng hết vòng này đến vòng khác, cắn răng siết thật mạnh | **TC**: Vòng thứ bảy rồi, thế này mới đúng chuẩn chặt bị! |
+| 3–6 | ĐẶT CÂU | Cụ Đồ hỏi, thẻ tiêu đề "#19" hiện lên, âm "ding" | **CĐ**: Mày nhét cái gì vào mà buộc bảy vòng thế?<br>**TC**: Năng nhặt chặt bị ạ! |
+| 6–25 | HIỂU SAI | TC mở bị đổ ra cả núi đồ: túi nilon siêu thị, đũa dùng một lần, gói tương ớt, gói mẫu thử, móc treo quần áo | **TC**: Cháu thực hành năng nhặt chặt bị đấy ông! Cái gì miễn phí là cháu nhặt.<br>**TC**: Túi nilon siêu thị, đũa dùng một lần, gói tương ớt, mẫu thử dầu gội. Nhặt xong phải buộc bị thật chặt kẻo rơi!<br>**CĐ**: Chặt bị là đầy chặt cái bị, chứ ai bảo mày buộc cho chặt! |
+| 25–40 | LẬT NGHĨA | Cụ Đồ gõ quạt lên đầu Thằng Cháu, nhạc dừng một nhịp | **CĐ**: Ông bà nói vậy, mà không phải vậy!<br>**CĐ**: Năng là chăm, thường xuyên. Bị là cái túi đan bằng cói ngày xưa, chặt bị là đầy ắp cả túi. Ý là chịu khó góp nhặt từng chút nhỏ mỗi ngày thì lâu dần sẽ thành nhiều. |
+| 40–52 | VÍ DỤ | Màn hình ứng dụng ngân hàng, mỗi ngày một khoản 40 nghìn chuyển vào tài khoản tiết kiệm, số dư tăng dần qua từng tháng | **CĐ**: Như mỗi ngày bớt một cốc trà sữa bốn mươi nghìn, chuyển vào tài khoản tiết kiệm.<br>**CĐ**: Một năm được hơn mười bốn triệu, đủ một chuyến du lịch mà chẳng thấy xót! |
+| 52–60 | PUNCHLINE | TC đập con heo đất, ôm đống tiền lẻ chạy thẳng ra quầy trà sữa, chỉ vào cốc size to nhất | **TC**: Cháu làm rồi! Mỗi ngày bỏ heo năm nghìn, hết tháng được trăm rưỡi.<br>**TC**: Thế là cháu đập heo mua ngay cốc trà sữa to nhất, thưởng cho sự kiên trì! |
 
-## Ngày 20: Đi một ngày đàng học một sàng khôn
+## Ngày 20: Vung tay quá trán
 
-- **Nghĩa thật:** Chịu khó đi nhiều nơi, quan sát và trải nghiệm thực tế thì sẽ mở mang thêm nhiều kiến thức bổ ích.
-- **Câu hỏi cuối video:** Chuyến đi chơi hay dã ngoại nào của trường làm bạn nhớ mãi?
+- **Nghĩa thật:** Tiêu xài quá tay, vượt quá khả năng tài chính của mình.
+- **Câu hỏi cuối video:** Đợt sale nào từng khiến bạn vung tay quá trán nhất?
 - **Footage:** chưa có (đặt file vào public/footage/)
 
 | Giây | Nhịp | Cảnh | Thoại |
 | --- | --- | --- | --- |
-| 0–3 | HOOK | TC đội mũ tai bèo, hai tay bưng cái sàng gạo (hoặc cái rổ lớn) đi vòng quanh sân | **TC**: Đi bộ mỏi nhừ cả chân rồi mà cái sàng vẫn trống trơn! |
-| 3–6 | ĐẶT CÂU | Cụ Đồ hỏi, thẻ tiêu đề "NGÀY 20/30" hiện lên, âm "ding" | **CĐ**: Mày bưng cái rổ đi hứng cái gì ngoài sân đấy?<br>**TC**: Đi một ngày đàng học một sàng khôn ạ! |
-| 6–25 | HIỂU SAI | TC vừa đi đều bước vừa ngửa cái rổ lên trời chờ đợi, thỉnh thoảng ngó vào rổ | **TC**: Cháu đang đi một ngày đàng để hứng 'một sàng khôn' đây ông!<br>**TC**: Cháu đi 50 vòng quanh sân rồi mà mới hứng được có 3 chiếc lá rụng, chưa thấy 'cục khôn' nào rơi xuống rổ cả!<br>**CĐ**: Làm gì có cục khôn nào rơi từ trên cây xuống cho mày hứng! |
-| 25–40 | LẬT NGHĨA | Cụ Đồ gõ quạt lên đầu Thằng Cháu, nhạc dừng một nhịp | **CĐ**: Ông bà nói vậy, mà không phải vậy!<br>**CĐ**: 'Đàng' là đường đi, 'sàng' là cái sàng tre đan để sàng gạo! Ông bà ví von: chịu khó bước ra ngoài đi đây đi đó, mắt thấy tai nghe nhiều điều thực tế thì đầu óc sẽ mở mang, học được bao nhiêu điều khôn ngoan. |
-| 40–52 | VÍ DỤ | Cảnh học sinh đi dã ngoại bảo tàng, trang trại | **CĐ**: Như đi dã ngoại cùng lớp ra trang trại, tận mắt thấy cây lúa lớn thế nào, con trâu ăn cỏ ra sao — nhớ nhanh và thú vị hơn chỉ ngồi lì trong phòng đọc sách! |
-| 52–60 | PUNCHLINE | TC khoác balo, cầm rổ đứng ngay cửa phòng khách vẫy tay | **TC**: Ông nói chí lý! Vậy chiều nay cháu xin phép nghỉ ở nhà quét sân...<br>**TC**: ...để đi 'một ngày đàng' ra tiệm tạp hóa đầu ngõ học một sàng khôn ông nhé! |
+| 0–3 | HOOK | TC đeo băng trán thể thao đứng trước gương, vung mạnh cánh tay lên rồi bốp một cái trúng ngay trán mình | **TC**: Ui da! Lần này quá trán chuẩn luôn! |
+| 3–6 | ĐẶT CÂU | Cụ Đồ hỏi, thẻ tiêu đề "#20" hiện lên, âm "ding" | **CĐ**: Mày tự vả vào trán từ sáng đến giờ là sao?<br>**TC**: Vung tay quá trán ạ! |
+| 6–25 | HIỂU SAI | TC dán một vạch kẻ trên trán; lần một vung tới mắt, lần hai qua trán, lần ba đứng nhón chân vung chạm cả bóng đèn trần, bóng đèn lắc lư | **TC**: Cháu luyện vung tay quá trán đấy ông. Tay phải vượt khỏi trán mới đạt!<br>**TC**: Lúc đầu cháu vung ngang mắt, rồi ngang trán, giờ đã chạm được cả bóng đèn.<br>**TC**: Cháu còn mở lớp online, ai vung qua vạch trên trán là được cấp chứng chỉ!<br>**CĐ**: Trán mày sưng như quả ổi rồi, tha cho nó đi con ơi! |
+| 25–40 | LẬT NGHĨA | Cụ Đồ gõ quạt lên đầu Thằng Cháu, nhạc dừng một nhịp | **CĐ**: Ông bà nói vậy, mà không phải vậy!<br>**CĐ**: Vung tay quá trán là vung quá đà, quá tầm của mình. Ông bà ví với chuyện tiêu tiền: chi tiêu vượt quá khả năng, kiếm được mười mà tiêu mười lăm. |
+| 40–52 | VÍ DỤ | Màn hình giỏ hàng online dài vượt khung hình; giữa tháng quẹt thẻ tín dụng, cuối tháng ngồi húp mì gói nhìn lịch chờ lương | **CĐ**: Như lương mười triệu, đầu tháng thấy sale là bấm đặt liên tục, giỏ hàng kéo mãi không hết.<br>**CĐ**: Giữa tháng đã quẹt thẻ tín dụng, cuối tháng ăn mì gói chờ lương. |
+| 52–60 | PUNCHLINE | TC ngồi trước điện thoại, tay giơ thấp đúng tầm lông mày, bấm nút đặt hàng; giỏ hàng vẫn hiện số 20 | **TC**: Cháu hiểu rồi! Từ nay mỗi lần bấm đặt hàng, cháu chỉ giơ tay đến lông mày thôi.<br>**CĐ**: Thế giỏ hàng còn bao nhiêu món?<br>**TC**: Vẫn hai mươi món ạ, nhưng tư thế rất tiết kiệm! |
 
 ## Ngày 21: Học thầy không tày học bạn
 
-- **Nghĩa thật:** Ngoài việc học thầy cô trên lớp, học hỏi từ bạn bè trang lứa cũng rất gần gũi, dễ hiểu và hiệu quả.
-- **Câu hỏi cuối video:** Bạn thân ở lớp đã từng chỉ cho bạn 'bí kíp' học tập hay trò chơi thú vị nào?
+- **Nghĩa thật:** Học thầy rất quý, nhưng học hỏi từ bạn bè, đồng nghiệp cũng gần gũi và hiệu quả không kém.
+- **Câu hỏi cuối video:** Mẹo hay nhất bạn từng học được từ bạn bè hay đồng nghiệp là gì?
 - **Footage:** chưa có (đặt file vào public/footage/)
 
 | Giây | Nhịp | Cảnh | Thoại |
 | --- | --- | --- | --- |
-| 0–3 | HOOK | TC ngồi khoanh tay nghiêm trang trước mặt đứa bạn, đặt quyển sổ ghi 'BÍ KÍP ĐÁ CẦU' | **TC**: Xin sư phụ truyền dạy tuyệt chiêu tâng cầu bằng đầu gối! |
-| 3–6 | ĐẶT CÂU | Cụ Đồ hỏi, thẻ tiêu đề "NGÀY 21/30" hiện lên, âm "ding" | **CĐ**: Sao lại gọi bạn cùng lớp là sư phụ thế kia?<br>**TC**: Học thầy không tày học bạn ạ! |
-| 6–25 | HIỂU SAI | TC cầm thước kẻ đo chiều cao của bạn, rồi chép từng hành động kỳ quặc của bạn vào sổ | **TC**: Ông bảo 'học thầy không tày học bạn'! Chữ 'tày' cháu không biết là gì nhưng chắc chắn là phải bắt chước bạn 100%!<br>**TC**: Bạn ấy ngoáy mũi bằng tay trái, cháu cũng ghi vào vở để tập ngoáy mũi tay trái cho giống!<br>**CĐ**: Ấy chết! Học là học cái giỏi của bạn, chứ ai bảo mày học cả tật xấu ngoáy mũi! |
-| 25–40 | LẬT NGHĨA | Cụ Đồ gõ quạt lên đầu Thằng Cháu, nhạc dừng một nhịp | **CĐ**: Ông bà nói vậy, mà không phải vậy!<br>**CĐ**: Chữ 'tày' ngày xưa nghĩa là 'bằng'! Thầy cô dạy cho mình kiến thức nền tảng rất quý, nhưng bạn bè cùng lứa lại gần gũi, đôi khi giảng bài cho nhau bằng cách nói của học trò thì lại dễ hiểu bất ngờ! |
-| 40–52 | VÍ DỤ | Cảnh hai bạn học sinh chỉ bài cho nhau trong giờ ra chơi | **CĐ**: Như có bài toán đố trên lớp mày còn ngại chưa dám hỏi lại thầy, giờ ra chơi nhờ bạn lớp trưởng giảng lại 5 phút bằng hình vẽ que tính là hiểu thông suốt ngay! |
-| 52–60 | PUNCHLINE | TC khoác vai Cụ Đồ cười híp mắt | **CĐ**: Nhưng nhớ là phải chọn bạn tốt, bạn giỏi mà học nhé!<br>**TC**: Cháu chọn được người bạn vừa thông thái vừa nhiều tiền lẻ nhất xóm rồi... Từ hôm nay ông làm bạn thân cùng bàn của cháu nhé! |
+| 0–3 | HOOK | Văn phòng, TC ngồi sát cạnh một đồng nghiệp, mở cuốn sổ đề 'BÍ KÍP SƯ PHỤ', vừa liếc vừa ghi lia lịa | **TC**: Chín giờ mười lăm, sư phụ ngáp. Cháu ngáp theo! |
+| 3–6 | ĐẶT CÂU | Cụ Đồ hỏi, thẻ tiêu đề "#21" hiện lên, âm "ding" | **CĐ**: Mày gọi đồng nghiệp là sư phụ rồi ngồi chép cái gì thế?<br>**TC**: Học thầy không tày học bạn ạ! |
+| 6–25 | HIỂU SAI | TC bắt chước y hệt đồng nghiệp: cùng cốc cà phê đen, giấu tám ngón tay vào túi để gõ phím bằng hai ngón, rồi đặt tờ đơn nghỉ phép lên bàn sếp ngay sau bạn | **TC**: Ông bà dạy học thầy không tày học bạn. Tày là gì cháu chưa rõ, nhưng học bạn thì phải giống hệt!<br>**TC**: Bạn ấy gõ phím bằng hai ngón, cháu cũng giấu tám ngón vào túi.<br>**TC**: Hôm nay bạn ấy xin nghỉ phép, thế là cháu cũng xin nghỉ theo!<br>**CĐ**: Học ai không học, mày học cả cái đơn nghỉ phép, ông chịu! |
+| 25–40 | LẬT NGHĨA | Cụ Đồ gõ quạt lên đầu Thằng Cháu, nhạc dừng một nhịp | **CĐ**: Ông bà nói vậy, mà không phải vậy!<br>**CĐ**: Tày nghĩa là bằng. Học từ bạn bè, đồng nghiệp rất quý vì gần gũi, hỏi nhiều cũng không ngại. Nhưng ông bà cũng dạy không thầy đố mày làm nên: học thầy để có nền, học bạn để hiểu sâu thêm. |
+| 40–52 | VÍ DỤ | Nhân viên mới lúng túng trước bảng Excel; đồng nghiệp ngồi cạnh kéo ghế sang chỉ vài phím tắt, bảng tính chạy vèo vèo | **CĐ**: Như mới vào công ty, có hàm Excel không dám hỏi sếp.<br>**CĐ**: Đồng nghiệp ngồi cạnh chỉ năm phút, kèm mấy phím tắt, thế là cả tuần làm nhanh gấp đôi. |
+| 52–60 | PUNCHLINE | TC hớn hở giơ điện thoại khoe lời mời kết bạn đã được chấp nhận, rồi màn hình hiện liền một loạt tin nhắn giao việc | **TC**: Cháu tính rồi: học bạn hơn học thầy, nên cháu kết bạn với sếp luôn!<br>**CĐ**: Thế sếp đồng ý chưa?<br>**TC**: Dạ, sếp vừa chấp nhận kết bạn, rồi giao cho cháu gấp đôi việc! |

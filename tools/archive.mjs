@@ -11,8 +11,9 @@ import path from "node:path";
 import { episodeSeconds } from "../engine/lib/timing.ts";
 import { archiveVersion, logRender } from "./bot/history.mjs";
 import { updateTracker } from "./bot/pipeline.mjs";
-import { savePublishKit } from "./bot/publish.mjs";
+import { postDate, savePublishKit } from "./bot/publish.mjs";
 import { ROOT } from "./projects.mjs";
+import { slotsText } from "./schedule.mjs";
 
 const git = (...args) => execFileSync("git", args, { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }).trim();
 
@@ -35,10 +36,7 @@ const schedule = (project) => {
   } catch {
     /* chưa có trạng thái bot */
   }
-  return {
-    startDate: st.startDate || project.schedule?.startDate || null,
-    postTime: st.postTime || project.publish?.postTime,
-  };
+  return { startDate: st.startDate || project.schedule?.startDate || null, override: st };
 };
 
 /**
@@ -62,7 +60,8 @@ export const archiveRender = (project, episode, next, opts = {}) => {
     seconds,
     flagged: opts.flagged,
   });
-  const { startDate, postTime } = schedule(project);
+  const { startDate, override } = schedule(project);
+  const postTime = slotsText(project, postDate(startDate, day), override);
   const kit = project.buildPublishKit(episode, next, { cfg: { ...project.publish, postTime }, startDate });
   savePublishKit(saved.dir, kit);
   logRender(project, day, project.headline(episode), { version: saved.version, commit, seconds });

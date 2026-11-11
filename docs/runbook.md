@@ -19,12 +19,21 @@ Bắt đầu một series: gõ `/batdau nv 2026-12-01` (ngày đăng tập 1). S
 - [ ] Gõ `/trangthai` trong Telegram: bot trả lời là đang chạy, thấy "Ngày mai: tập N" đúng.
 - [ ] Không thấy bot trả lời: xem mục 4 (Xử lý sự cố), dòng "Không nhận được tin nhắn".
 
-### Giờ đăng (10 phút mỗi series, giờ gợi ý ghi trong gói đăng bài: Nói vậy 19:00, Vì sao 18:30)
+### Giờ đăng (5 phút mỗi nền tảng; bot nhắc riêng YouTube và TikTok đúng giờ từng nơi)
+
+| Series | YouTube Shorts | TikTok |
+| --- | --- | --- |
+| Vì sao | 20:30 | 20:30 |
+| Nói vậy | 12:00 | 12:00 |
+
+Giờ chọn theo `reports/Giờ đăng và cách tăng view.md`, là giờ **thử nghiệm**: chạy mỗi khung 2–3 tuần rồi so. Nói vậy sau 3 tuần thử khung tối 21:00 (`/giodang nv 21:00`). Xem hoặc đổi giờ: `/giodang vs`, `/giodang vs yt 18:30`, `/giodang vs tt cuoituan 09:00`.
+
+Trước khi đăng, đọc checklist `reports/Giờ đăng và cách tăng view.md` (giờ đăng nên test, lưu ý để video được đề xuất).
 
 Mở tin **📣 Đăng bài** của tập hôm nay mà bot gửi tối qua (mất tin thì gõ `/dangbai nv N`). Mỗi phần nằm trong một khối, bấm vào là sao chép.
 
 - [ ] Tải video mp4 bot gửi tối qua về điện thoại (bấm giữ video trong Telegram → Lưu). File video và ảnh bìa đã đặt tên theo nội dung tập, không dấu, ví dụ `vi_sao_bau_troi_mau_xanh.mp4`.
-- [ ] **YouTube Shorts**: tải lên → dán tiêu đề, mô tả → chọn ảnh bìa → thêm vào playlist của series → **bật "Nội dung bị thay đổi / tạo bằng AI"** → khai báo **"Dành cho trẻ em" đúng sự thật** (series Vì sao: xem mục Đối tượng trong quy tắc series) → đăng.
+- [ ] **YouTube Shorts**: tải lên → dán tiêu đề, mô tả → chọn ảnh bìa → thêm vào playlist của series → **bật "Nội dung bị thay đổi / tạo bằng AI"** → Đối tượng: **"Không dành cho trẻ em"** cho cả hai series (cả hai hướng tới người lớn; kịch bản nào lỡ nói với trẻ thì sửa trước) → đăng.
 - [ ] **TikTok**: tải lên cùng file → dán caption → chọn ảnh bìa → **bật nhãn "Nội dung do AI tạo"** → đăng.
 - [ ] Ghim bình luận (khối "Bình luận ghim") trên cả hai nơi.
 - [ ] Cập nhật `projects/<dự án>/tracker.csv`: `trang_thai` = `da-dang`, dán link hai bài. (Làm trên máy tính, hoặc dồn lại làm một lần cuối tuần.)
@@ -63,7 +72,7 @@ Xem video **trên điện thoại, bật loa**:
 
 Có lỗi thì sửa qua bot rồi Duyệt lại: video mới lưu thành phiên bản mới (v2, v3…), bản cũ không mất (`/lichsu nv N`).
 
-### Cuối tuần (30 phút, trên máy tính)ví
+### Cuối tuần (30 phút, trên máy tính)
 
 - [ ] Xem số liệu tuần: YouTube Studio → tỉ lệ "Đã xem" so với "Đã lướt qua"; TikTok → thời gian xem trung bình, tỉ lệ xem hết. Tập nào tụt người xem ở giây nào thì ghi lại để viết tập sau.
 - [ ] Đọc trước kịch bản 7 tập tuần sau (`/tap nv N` hoặc `projects/<dự án>/docs/kich-ban/`), sửa sớm những tập cần sửa nhiều.
@@ -195,9 +204,11 @@ Qua bot có thể sửa, thêm, xoá câu, đổi cảnh, viết phần diễn. 
 | `npm run cover -- <ngày>` | Xuất ảnh bìa |
 | `npm run srt -- <ngày>` | Xuất phụ đề .srt (`--no-names` để bỏ tên người nói) |
 | `npm run sheets -- -p <dự án>` | Sinh lại kịch bản in trong `projects/<dự án>/docs/kich-ban/` |
+| `npm run playlist` | In tiêu đề, mô tả, cài đặt để tạo playlist YouTube / TikTok của mọi dự án, ghi vào `projects/<dự án>/docs/playlist.md` (`-p vs` cho một dự án) |
 | `npm run bot` | Chạy bot Telegram ở cửa sổ hiện tại (để thử) |
 | `/duan vs` (Telegram) | Chọn dự án làm việc; lệnh không ghi mã dự án sẽ dùng dự án này |
 | `/lichsu nv 5` (Telegram) | Xem các phiên bản video đã xuất của tập 5, gửi lại bản cũ. Lịch sử sửa kịch bản ở `projects/<dự án>/docs/lich-su/ngay-05.md` |
+| `/playlist vs` (Telegram) | Gửi thông tin tạo playlist kèm ảnh bìa playlist. Nội dung sửa trong `projects/<dự án>/project.json` → `playlist` |
 | `/dangbai nv 5` (Telegram) | Gửi lại gói đăng bài của tập 5. Giờ đăng, hashtag, câu ghi chú AI sửa trong `projects/<dự án>/project.json` → `publish` |
 | `npm run bot:install` / `bot:uninstall` | Cài / gỡ bot chạy ngầm khi đăng nhập Windows |
 
@@ -206,6 +217,13 @@ Cách ghi `<ngày>`: `5`, `1 3 5`, `1-7`, `tuan-2`, `all`.
 ---
 
 ## 3. Việc thỉnh thoảng mới làm
+
+### Tạo playlist cho một series (làm một lần, trước khi đăng tập 1)
+
+1. Gõ `/playlist vs` trong Telegram (hoặc `npm run playlist -- -p vs` trên máy, mở `projects/vi-sao/docs/playlist.md`).
+2. YouTube Studio → Nội dung → Danh sách phát → Danh sách phát mới: dán tiêu đề, mô tả; chọn chế độ hiển thị và thứ tự như trong tin nhắn. Ảnh bìa: chọn ảnh ngang 1280×720 nếu Studio cho tải ảnh, không thì đặt tập #1 làm ảnh danh sách phát.
+3. TikTok → Hồ sơ → Danh sách phát → Tạo: dán tên danh sách phát, thêm các video của series.
+4. **Dự án mới bắt buộc có mục `playlist` trong `project.json`** (title, description, tiktokTitle, visibility, order, madeForKids) và ảnh bìa playlist trong `out/<dự án>/playlist/`. Thiếu thì `npm run playlist` báo lỗi.
 
 ### Đổi giọng một vai
 

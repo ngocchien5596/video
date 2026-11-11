@@ -119,7 +119,7 @@ const Title: React.FC<{ size: number }> = ({ size }) => (
 
 const Tagline: React.FC<{ size: number }> = ({ size }) => (
   <div style={{ fontFamily: TEXT_FONT, fontWeight: 900, fontSize: size, color: COLORS.white, lineHeight: 1.25, ...outline(size / 6) }}>
-    Series giải đáp câu hỏi của bé
+    Hỏi tưởng dễ, đáp cho đúng
   </div>
 );
 

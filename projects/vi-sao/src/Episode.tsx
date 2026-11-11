@@ -19,7 +19,7 @@ export type EpisodeProps = {
 /** Bố cục 5 nhịp: hỏi → đoán thử → giải thích (bảng minh hoạ) → tóm lại → hỏi tiếp. */
 const layoutFor = (episode: ViSaoEpisode, next: string | null): EpisodeLayout => ({
   topBar: { label: `${SERIES_NAME} · #${episode.day}`, title: episode.ask, showTitleAfter: "hook" },
-  hook: { beat: "hook", kicker: "CÂU HỎI CỦA BÉ", title: episode.ask },
+  hook: { beat: "hook", kicker: "CÂU HỎI TƯỞNG DỄ", title: episode.ask },
   cards: [
     {
       beat: "guess",

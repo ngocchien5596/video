@@ -7,8 +7,7 @@
 
 - **Hiểu lầm phổ biến:** Mùa hè nóng vì Trái Đất đi tới gần Mặt Trời hơn.
 - **Trả lời một câu:** Trục Trái Đất nghiêng, nên mỗi nửa Trái Đất lần lượt được nắng chiếu thẳng hơn hay xiên hơn.
-- **Câu hỏi cuối video:** Nhà bạn ở nơi có mùa đông rét, hay chỉ có mùa mưa, mùa khô? Bé nhà bạn thích mùa nào nhất?
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Chỗ bạn ở có mùa đông rét, hay chỉ có mùa mưa, mùa khô?
 - **Nguồn:** [NASA Space Place: What Causes the Seasons?](https://spaceplace.nasa.gov/seasons/en/) · [NOAA NESDIS: Why Does Earth Have Seasons?](https://www.nesdis.noaa.gov/about/k-12-education/understanding-our-planet/why-does-earth-have-seasons) · [National Weather Service: What Causes the Seasons?](https://www.weather.gov/fsd/season)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -24,8 +23,7 @@
 
 - **Hiểu lầm phổ biến:** Ngôi sao tự nhấp nháy, lúc bật lúc tắt như đèn nháy.
 - **Trả lời một câu:** Không khí luôn chuyển động, bẻ cong ánh sao lúc lệch lúc thẳng, nên sao trông lấp lánh.
-- **Câu hỏi cuối video:** Bé nhà bạn đã thuộc bài “Một ông sao sáng, hai ông sáng sao” chưa? Tối nay thử cùng bé đếm sao nhé!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Bạn còn nhớ bài “Một ông sao sáng, hai ông sáng sao” không?
 - **Nguồn:** [NASA StarChild: Why do stars twinkle?](https://starchild.gsfc.nasa.gov/docs/StarChild/questions/question26.html) · [NASA Imagine the Universe: Ask an Astrophysicist (Why do the stars appear to twinkle?)](https://imagine.gsfc.nasa.gov/ask_astro/night_sky.html)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -41,8 +39,7 @@
 
 - **Hiểu lầm phổ biến:** Sao băng là một ngôi sao trên trời bị rơi xuống.
 - **Trả lời một câu:** Sao băng không phải ngôi sao, mà là mẩu đá vũ trụ lao vào lớp không khí, nóng rực lên thành một vệt sáng.
-- **Câu hỏi cuối video:** Bé nhà bạn đã từng thấy sao băng chưa? Nếu thấy, bé muốn ước điều gì? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Bạn đã từng thấy sao băng chưa? Lúc ấy bạn ước gì?
 - **Nguồn:** [NASA Space Place: What Is a Meteor Shower?](https://spaceplace.nasa.gov/meteor-shower/en/) · [NASA Science: Meteors and Meteorites – Facts](https://science.nasa.gov/solar-system/meteors-meteorites/facts/) · [Chandra X-ray Center (Smithsonian Astrophysical Observatory): Q&A – falling stars](https://chandra.si.edu/resources/faq/astrophysics/astrophysics-30.html) · [Caltech IPAC Cool Cosmos: What is a shooting star?](https://coolcosmos.ipac.caltech.edu/ask/255-What-is-a-shooting-star)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -58,8 +55,7 @@
 
 - **Hiểu lầm phổ biến:** Vết đen trên Mặt Trăng là chú Cuội ngồi gốc cây đa.
 - **Trả lời một câu:** Vết đen là những hố khổng lồ được đá nóng chảy lấp đầy, nguội lại thành đá sẫm màu.
-- **Câu hỏi cuối video:** Nhìn những vết đen trên Mặt Trăng, bé nhà bạn thấy giống hình gì? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Hồi nhỏ, bạn có tin chuyện chú Cuội ngồi gốc cây đa không?
 - **Nguồn:** [NASA Science: Earth's Moon – Facts](https://science.nasa.gov/moon/facts/) · [NASA Space Place: All About the Moon](https://spaceplace.nasa.gov/all-about-the-moon/en/) · [NASA Science: Top Moon Questions](https://moon.nasa.gov/inside-and-out/top-moon-questions/)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -75,8 +71,7 @@
 
 - **Hiểu lầm phổ biến:** Bóng Trái Đất che bớt Mặt Trăng.
 - **Trả lời một câu:** Mặt Trời luôn chiếu sáng một nửa Mặt Trăng, Mặt Trăng đi vòng quanh Trái Đất, nên mình thấy phần sáng ấy lúc nhiều lúc ít.
-- **Câu hỏi cuối video:** Tối nay trăng nhà bạn tròn hay khuyết? Cùng bé ngắm rồi kể ông nghe nhé!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Tối nay trăng chỗ bạn tròn hay khuyết?
 - **Nguồn:** [NASA Space Place: What Are the Moon's Phases?](https://spaceplace.nasa.gov/moon-phases/en/) · [University of Hawaiʻi, Exploring Our Fluid Earth: Weird Science – Phases of the Moon](https://manoa.hawaii.edu/exploringourfluidearth/physical/tides/tide-formation-gravitational-pull/weird-science-phases-moon) · [NASA Science: Earth's Moon – Facts](https://science.nasa.gov/moon/facts/)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -92,8 +87,7 @@
 
 - **Hiểu lầm phổ biến:** Ngoài vũ trụ không có sức hút của Trái Đất.
 - **Trả lời một câu:** Trạm vũ trụ và phi hành gia đang cùng nhau rơi vòng quanh Trái Đất, nên trông như bay lơ lửng.
-- **Câu hỏi cuối video:** Nếu được bay lơ lửng như phi hành gia, bé nhà bạn muốn làm gì đầu tiên? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Nếu được bay lơ lửng như phi hành gia, bạn muốn làm gì đầu tiên?
 - **Nguồn:** [NASA: What Is Microgravity? (Grades K-4)](https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-microgravity-grades-k-4/) · [West Texas A&M University (C. Baird): Why is there no gravity in space?](https://www.wtamu.edu/~cbaird/sq/2012/12/18/why-is-there-no-gravity-in-space/)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
@@ -109,8 +103,7 @@
 
 - **Hiểu lầm phổ biến:** Vành đai Sao Thổ là một chiếc vòng cứng, liền một khối.
 - **Trả lời một câu:** Vành đai Sao Thổ là hàng tỉ mẩu băng và đá, to nhỏ đủ cỡ, cùng bay vòng quanh Sao Thổ.
-- **Câu hỏi cuối video:** Nếu được bay tới gần vành đai Sao Thổ, bé nhà bạn muốn ngắm mẩu băng bé như hạt cát hay mẩu to bằng ngôi nhà? Kể ông nghe với!
-- **Lứa tuổi:** 5–9 tuổi
+- **Câu hỏi cuối video:** Nếu được bay tới gần vành đai Sao Thổ, bạn muốn ngắm mẩu băng nhỏ như hạt cát hay to bằng ngôi nhà?
 - **Nguồn:** [NASA Space Place: All About Saturn](https://spaceplace.nasa.gov/all-about-saturn/en/) · [NASA Science: Saturn Facts](https://science.nasa.gov/saturn/facts/) · [NASA Astronomy Picture of the Day, 1996 April 29: Saturn's Rings Seen Sideways](https://apod.nasa.gov/apod/ap960429.html) · [University of Oregon (Davison Soper), Astronomy notes: Saturn](https://pages.uoregon.edu/soper/Jovian/saturn.html)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
