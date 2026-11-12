@@ -41,3 +41,7 @@ Kịch bản ở commit `08b54cb`, dài 63.6 giây. File: `out/noi-vay/versions/
 - `6.2` Cháu (nhịp 6): ~~...Rửa nước lạnh bát nó cảm lạnh ông ạ, đống bát trong bồn ông rửa hộ cháu nhé!~~ → ...Cháu rửa bát bằng nước lạnh, cháu sợ bát nó cảm lạnh ông ạ, hay là đống bát trong bồn ông rửa hộ cháu nhé!
 
 Phần diễn đổi ở nhịp 3, 6.
+
+## 2026-11-12 10:18 · Xuất video v3
+
+Kịch bản ở commit `993f248`, dài 64.8 giây. File: `out/noi-vay/versions/ngay-01/v3/`.
