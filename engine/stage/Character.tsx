@@ -1,6 +1,8 @@
 import React from "react";
 import type { Expr, PropRef, RoleId } from "../lib/stage-types.ts";
 import { COLORS } from "../components/brand.ts";
+import { Brows, Eyes, type FaceGeo, type Look, Mouth, type Role } from "./face.tsx";
+import { STORY_ROLES } from "./story/index.ts";
 import type { ArmAngles } from "./poses.ts";
 import { PROPS } from "./props.tsx";
 import { propId, propText } from "./track.ts";
@@ -17,15 +19,6 @@ const FORE = 60;
 const HIP_Y = 452;
 const LEG = 74;
 
-type Look = {
-  skin: string;
-  sleeve: string;
-  legs: string;
-  shoe: string;
-  /** Độ dày tay (mặc định 22). */
-  arm?: number;
-};
-
 const LOOK: Record<"CD" | "TC", Look> = {
   CD: { skin: "#F6C89F", sleeve: "#2B3A55", legs: "#FFF8E7", shoe: "#1E1B2E" },
   TC: { skin: "#FAD2B0", sleeve: "#FAD2B0", legs: "#FAD2B0", shoe: "#E5484D" },
@@ -40,114 +33,6 @@ export const armPoints = (side: 1 | -1, [shoulder, elbow]: [number, number]) => 
   const fore = shoulder + elbow;
   const h = { x: e.x + side * Math.sin(rad(fore)) * FORE, y: e.y + Math.cos(rad(fore)) * FORE };
   return { s, e, h, fore };
-};
-
-// ---------------------------------------------------------------- nét mặt
-
-type FaceGeo = { eyeL: number; eyeR: number; eyeY: number; browY: number; mouthY: number; browColor: string };
-
-const Eyes: React.FC<{ expr: Expr; g: FaceGeo; blink: boolean; big: boolean }> = ({ expr, g, blink, big }) => {
-  const r = big ? 11 : 7;
-  return (
-    <>
-      {[g.eyeL, g.eyeR].map((x) => {
-        if (expr === "happy") {
-          return (
-            <path
-              key={x}
-              d={`M${x - 12} ${g.eyeY + 4} Q${x} ${g.eyeY - 12} ${x + 12} ${g.eyeY + 4}`}
-              fill="none"
-              stroke={INK}
-              strokeWidth="6"
-              strokeLinecap="round"
-            />
-          );
-        }
-        if (expr === "shock") {
-          return (
-            <g key={x}>
-              <circle cx={x} cy={g.eyeY} r={r + 7} fill="#FFFFFF" stroke={INK} strokeWidth="5" />
-              <circle cx={x} cy={g.eyeY} r="4" fill={INK} />
-            </g>
-          );
-        }
-        if (blink) {
-          return (
-            <line key={x} x1={x - 10} y1={g.eyeY} x2={x + 10} y2={g.eyeY} stroke={INK} strokeWidth="5" strokeLinecap="round" />
-          );
-        }
-        return (
-          <g key={x}>
-            <circle cx={x} cy={g.eyeY} r={r} fill={INK} />
-            {big ? <circle cx={x + 3} cy={g.eyeY - 4} r="3.5" fill="#FFFFFF" /> : null}
-            {expr === "smug" ? (
-              <path d={`M${x - 14} ${g.eyeY - 2} L${x + 14} ${g.eyeY - 2}`} stroke={INK} strokeWidth="6" strokeLinecap="round" />
-            ) : null}
-          </g>
-        );
-      })}
-    </>
-  );
-};
-
-/** Lông mày: [độ nghiêng trái, độ nghiêng phải, độ nhấc lên]. */
-const BROWS: Record<Expr, [number, number, number]> = {
-  neutral: [0, 0, 0],
-  happy: [-4, 4, 6],
-  shock: [-6, 6, 16],
-  angry: [10, -10, -2],
-  smug: [0, -8, 4],
-  confused: [-8, 8, 0],
-  sad: [-10, 10, 6],
-};
-
-const Brows: React.FC<{ expr: Expr; g: FaceGeo }> = ({ expr, g }) => {
-  const [tl, tr, lift] = BROWS[expr];
-  const y = g.browY - lift;
-  const confusedR = expr === "confused" ? 10 : 0;
-  return (
-    <>
-      <path
-        d={`M${g.eyeL - 16} ${y - tl} Q${g.eyeL} ${y - 8} ${g.eyeL + 14} ${y + tl}`}
-        fill="none"
-        stroke={g.browColor}
-        strokeWidth="7"
-        strokeLinecap="round"
-      />
-      <path
-        d={`M${g.eyeR - 14} ${y + tr + confusedR} Q${g.eyeR} ${y - 8 + confusedR} ${g.eyeR + 16} ${y - tr + confusedR}`}
-        fill="none"
-        stroke={g.browColor}
-        strokeWidth="7"
-        strokeLinecap="round"
-      />
-    </>
-  );
-};
-
-/** Miệng: talk 0..1 là độ mở khi đang nói. */
-const Mouth: React.FC<{ expr: Expr; y: number; talk: number; color: string }> = ({ expr, y, talk, color }) => {
-  const x = 180;
-  if (talk > 0) {
-    const wide = expr === "happy" ? 18 : expr === "angry" ? 17 : 13;
-    return <ellipse cx={x} cy={y} rx={wide} ry={4 + talk * 13} fill={color} stroke={INK} strokeWidth="5" />;
-  }
-  switch (expr) {
-    case "happy":
-      return <path d={`M${x - 20} ${y - 6} Q${x} ${y + 22} ${x + 20} ${y - 6} Z`} fill={color} stroke={INK} strokeWidth="5" strokeLinejoin="round" />;
-    case "shock":
-      return <ellipse cx={x} cy={y + 2} rx="12" ry="17" fill={color} stroke={INK} strokeWidth="5" />;
-    case "angry":
-      return <path d={`M${x - 18} ${y + 8} Q${x} ${y - 10} ${x + 18} ${y + 8} Z`} fill={color} stroke={INK} strokeWidth="5" strokeLinejoin="round" />;
-    case "smug":
-      return <path d={`M${x - 16} ${y + 2} Q${x + 2} ${y + 8} ${x + 20} ${y - 8}`} fill="none" stroke={INK} strokeWidth="6" strokeLinecap="round" />;
-    case "confused":
-      return <path d={`M${x - 16} ${y + 2} q8 -8 16 0 t16 0`} fill="none" stroke={INK} strokeWidth="6" strokeLinecap="round" />;
-    case "sad":
-      return <path d={`M${x - 16} ${y + 8} Q${x} ${y - 6} ${x + 16} ${y + 8}`} fill="none" stroke={INK} strokeWidth="6" strokeLinecap="round" />;
-    default:
-      return <path d={`M${x - 14} ${y} Q${x} ${y + 10} ${x + 14} ${y}`} fill="none" stroke={INK} strokeWidth="6" strokeLinecap="round" />;
-  }
 };
 
 const CuDoHead: React.FC<{ expr: Expr; talk: number; blink: boolean }> = ({ expr, talk, blink }) => {
@@ -278,15 +163,7 @@ const Worn: React.FC<{ prop: PropRef | null; x: number; y: number; scale?: numbe
 
 // ---------------------------------------------------------------- vai trong truyện (cảnh hồi ức)
 
-type Role = {
-  look: Look;
-  Head: React.FC<{ expr: Expr; talk: number; blink: boolean }>;
-  Torso: React.FC;
-  /** Toạ độ y đáy đồ đội đầu. */
-  headY: number;
-};
-
-const ROLES: Record<RoleId, Role> = {
+const BASE_ROLES = {
   /** Thạch Sanh: chàng trai khoẻ mạnh, da rám nắng, búi tóc, khăn đỏ buộc trán, áo cánh nâu, tay trần. */
   "thach-sanh": {
     look: { skin: "#E2A574", sleeve: "#E2A574", legs: "#6B4423", shoe: "#E2A574", arm: 28 },
@@ -356,7 +233,10 @@ const ROLES: Record<RoleId, Role> = {
       </g>
     ),
   },
-};
+} satisfies Partial<Record<RoleId, Role>>;
+
+/** Mọi vai: vai chung + vai truyện (engine/stage/story). */
+const ROLES = { ...BASE_ROLES, ...STORY_ROLES } as Record<RoleId, Role>;
 
 // ---------------------------------------------------------------- con rối
 

@@ -115,9 +115,9 @@ export const episodeTimeline = (episode: Episode, voice?: VoiceTrack | null): Ti
         cursor += v.seconds + (l < beat.lines.length - 1 ? VOICE_GAP : 0);
       });
       const min = beat.minSeconds ?? DEFAULT_MIN_BEAT_SECONDS;
-      t = Math.max(start + min, cursor + VOICE_TAIL) + endCard;
+      t = Math.max(start + min, cursor + VOICE_TAIL) + (beat.holdSeconds ?? 0) + endCard;
     } else {
-      t = start + beat.seconds;
+      t = start + beat.seconds + (beat.holdSeconds ?? 0);
       // Chia thời gian cho cả nhịp theo số từ; chừa thẻ cuối ở nhịp cuối.
       const speakSeconds = Math.max(1, beat.seconds - endCard);
       const words = beat.lines.map((line) => Math.max(3, line.text.split(/\s+/).length));

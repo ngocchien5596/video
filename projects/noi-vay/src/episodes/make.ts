@@ -3,6 +3,9 @@ import type { Beat, Episode, Line, Memory } from "../../../../engine/lib/types.t
 
 export const CATCHPHRASE = "Ông bà nói vậy, mà không phải vậy!";
 
+/** Quãng lặng sau nhịp đặt câu: thẻ "BẠN HIỂU ĐÚNG CÂU NÀY CHƯA?" bật lên, đứng yên cho kịp đọc, rồi câu bay lên thanh trên cùng. */
+export const IDIOM_REVEAL_SECONDS = 1.8;
+
 /** Một tập "Nói Vậy Mà Không Phải Vậy": thêm câu thành ngữ và nghĩa thật. */
 export type NoiVayEpisode = Episode & {
   idiom: string;
@@ -55,7 +58,7 @@ export type EpisodeSpec = {
 
 /**
  * Dựng một tập theo đúng 6 nhịp của series.
- * Mặc định: 3 + 3 + 19 + 15 + 12 + 8 = 60 giây.
+ * Mặc định: 3 + 3 + 19 + 15 + 12 + 8 = 60 giây, cộng quãng lặng hiện câu sau nhịp đặt câu.
  */
 export const makeEpisode = (spec: EpisodeSpec): NoiVayEpisode => {
   const beats: Beat[] = [
@@ -63,9 +66,10 @@ export const makeEpisode = (spec: EpisodeSpec): NoiVayEpisode => {
     {
       kind: "title",
       seconds: 3,
-      // Đủ thời gian cho thẻ "#X" chạy hiệu ứng.
       minSeconds: 3,
-      shot: `Cụ Đồ hỏi, thẻ tiêu đề "#${spec.day}" hiện lên, âm "ding"`,
+      // Nói xong câu thành ngữ thì lặng một nhịp: thẻ "BẠN HIỂU ĐÚNG CÂU NÀY CHƯA?" hiện lên, rồi câu bay lên thanh trên cùng.
+      holdSeconds: IDIOM_REVEAL_SECONDS,
+      shot: `Cụ Đồ hỏi, TC đáp; nói xong hiện thẻ "BẠN HIỂU ĐÚNG CÂU NÀY CHƯA?" + câu, âm "ding", rồi câu bay lên góc trên`,
       lines: [cd(spec.ask), tc(`${spec.idiom} ạ!`)],
       stage: spec.titleStage,
     },

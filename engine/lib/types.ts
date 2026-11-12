@@ -23,6 +23,8 @@ export type Beat = {
   seconds: number;
   /** Độ dài tối thiểu khi có tiếng (ví dụ cho thẻ tiêu đề kịp chạy hiệu ứng). Mặc định 1,5 giây. */
   minSeconds?: number;
+  /** Quãng lặng (giây) thêm vào cuối nhịp, sau câu cuối, để thẻ chữ chạy hết hiệu ứng. Có hay chưa có tiếng đều cộng. */
+  holdSeconds?: number;
   /** Mô tả cảnh cho người dựng / cho AI viết phần diễn. */
   shot: string;
   lines: Line[];

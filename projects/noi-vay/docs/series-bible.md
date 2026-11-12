@@ -24,7 +24,7 @@ Một người có thể đóng cả hai vai, quay hết cảnh của CĐ trư�
 | Giây | Nhịp | Nội dung |
 | --- | --- | --- |
 | 0–3 | Hook | TC làm việc vô lý hoặc nói câu gây sốc. Không chào hỏi, không logo |
-| 3–6 | Đặt câu | CĐ hỏi, TC đáp bằng chính câu thành ngữ. Thẻ "#X" hiện lên |
+| 3–6 | Đặt câu | CĐ hỏi, TC đáp bằng chính câu thành ngữ. Hook và đặt câu không có thẻ chữ. TC nói xong thì lặng 1,8 giây: thẻ "BẠN HIỂU ĐÚNG CÂU NÀY CHƯA?" + câu bật lên (âm "ding"), rồi câu thu nhỏ, bay lên nằm dưới tên series ở góc trên và ở đó hết video |
 | 6–25 | Hiểu sai | Diễn nghĩa đen, leo thang 2–3 bước, cắt cảnh mỗi 2–3 giây |
 | 25–40 | Lật nghĩa | Câu cửa miệng của CĐ, thẻ "NGHĨA THẬT" hiện lên |
 | 40–52 | Ví dụ | Tình huống hiện đại (công sở, học đường, mạng xã hội) hoặc một câu chuyện dựng thành cảnh hồi ức (xem bên dưới) |

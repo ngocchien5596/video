@@ -1,5 +1,5 @@
 import React from "react";
-import { StampCard, TitleCard } from "../../../engine/components/Overlays.tsx";
+import { IdiomReveal, StampCard } from "../../../engine/components/Overlays.tsx";
 import { EpisodePlayer, type EpisodeLayout } from "../../../engine/EpisodePlayer.tsx";
 import type { VoiceTrack } from "../../../engine/lib/types.ts";
 import { SERIES_NAME } from "./brand.ts";
@@ -15,14 +15,19 @@ export type EpisodeProps = {
   safeZones?: boolean;
 };
 
-/** Bố cục 6 nhịp của series: hook → đặt câu → hiểu sai → lật nghĩa → ví dụ → punchline. */
+/**
+ * Bố cục 6 nhịp của series: hook → đặt câu → hiểu sai → lật nghĩa → ví dụ → punchline.
+ * Hook và đặt câu không có thẻ chữ. Nói xong câu thành ngữ thì lặng một nhịp: hiện "BẠN HIỂU ĐÚNG CÂU NÀY CHƯA?" + câu,
+ * rồi câu bay lên nằm dưới tên series ở góc trên (thay cho thẻ "#X" cũ).
+ */
 const layoutFor = (episode: NoiVayEpisode, next: string | null): EpisodeLayout => ({
   topBar: { label: `${SERIES_NAME} · #${episode.day}`, title: `“${episode.idiom}”`, showTitleAfter: "title" },
-  hook: { beat: "hook", kicker: "BẠN HIỂU ĐÚNG CÂU NÀY CHƯA?", title: `“${episode.idiom}”` },
   cards: [
     {
       beat: "title",
-      render: (f) => <TitleCard kicker={`#${episode.day}`} title={episode.idiom} {...f} />,
+      render: (f) => (
+        <IdiomReveal kicker="BẠN HIỂU ĐÚNG CÂU NÀY CHƯA?" title={`“${episode.idiom}”`} startFrame={f.holdFrame} endFrame={f.endFrame} />
+      ),
     },
     {
       beat: "flip",
@@ -31,7 +36,7 @@ const layoutFor = (episode: NoiVayEpisode, next: string | null): EpisodeLayout =
   ],
   endCard: { question: episode.question, teaser: next ? `Mai là câu: “${next}”` : null },
   sfx: [
-    { beat: "title", file: "ding.wav", volume: 0.7 },
+    { beat: "title", file: "ding.wav", volume: 0.7, at: "hold" },
     { beat: "flip", file: "record-scratch.wav", volume: 0.8 },
   ],
 });

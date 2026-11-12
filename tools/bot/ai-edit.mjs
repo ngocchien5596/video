@@ -75,7 +75,9 @@ ${read(project.rel, project.ai.bible)}
 ${specDoc(project)}
 
 --- STAGE TYPES (engine/lib/stage-types.ts) ---
-${read("engine", "lib", "stage-types.ts")}${(project.ai.extraDocs ?? []).map((p) => `\n--- ${p} ---\n${read(project.rel, p)}`).join("")}
+${read("engine", "lib", "stage-types.ts")}${["1", "2", "2b", "3", "4", "4b"].map((n) => `
+--- engine/lib/story/tuan-${n}.ts ---
+${read("engine", "lib", "story", `tuan-${n}.ts`)}`).join("")}${(project.ai.extraDocs ?? []).map((p) => `\n--- ${p} ---\n${read(project.rel, p)}`).join("")}
 ${example ? `\n--- VÍ DỤ MỘT TẬP CÓ PHẦN DIỄN ĐẦY ĐỦ (tham khảo cách viết) ---\n${example}\n` : ""}
 --- KHỐI MÃ HIỆN TẠI CỦA TẬP ${day} ---
 ${block}

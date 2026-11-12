@@ -19,17 +19,106 @@ export const TUAN_2 = [
     misread: {
       shot: "TC đeo kính bảo hộ, cầm cục nam châm to đi quanh bếp; nồi, chìa khóa, kính của CĐ bay dính vào",
       lines: [
-        tc("Thì phải đi săn sắt trước đã! Cháu lùng hết sắt vụn trong nhà rồi."),
-        tc("Cái nồi, chùm chìa khóa, cả cặp kính của ông cũng là sắt. Thả hết xuống ao!"),
+        tc("Thì phải đi săn sắt trước đã! Cháu lùng hết sắt vụn rồi."),
+        tc("Cái nồi, chùm chìa khóa, cả cặp kính của ông. Thả hết xuống ao!"),
         cd("Cá rô chưa thấy đâu, nhà mình sắp thành bãi phế liệu rồi đấy!"),
       ],
     },
     explain:
       "Săn sắt là một loài cá bé tí ở ruộng, nhỏ hơn cá rô. Dùng con cá bé làm mồi để bắt con cá to hơn, tức là chịu bỏ cái lợi nhỏ để được cái lợi lớn. Còn bỏ to lấy nhỏ thì là thả con cá rô, vồ con săn sắt.",
     example: {
-      shot: "Quán trà sữa mới mở treo biển tặng ly đầu tiên, khách xếp hàng, tháng sau vẫn quay lại",
+      shot: "HỒI ỨC (TV đen trắng): sông Bạch Đằng, Ngô Quyền cho cắm bãi cọc đầu bịt sắt; triều lên che kín cọc, thuyền nhẹ ra khiêu chiến rồi giả thua chạy; thuyền chiến Nam Hán đuổi theo; triều rút, thuyền giặc mắc cọc vỡ toác, Ngô Quyền mừng thắng lớn",
+      memory: { label: "LỊCH SỬ: BẠCH ĐẰNG 938" },
       lines: [
-        cd("Như quán trà sữa mới mở tặng mỗi người ly đầu tiên. Mất vài trăm ly, đổi lại một xóm khách quen uống cả năm."),
+        cd("Như Ngô Quyền trên sông Bạch Đằng năm 938 ấy: cho cắm cọc gỗ đầu bịt sắt dưới lòng sông, triều lên thì sai thuyền nhẹ ra đánh rồi giả thua bỏ chạy."),
+        cd("Thuyền chiến Nam Hán hăm hở đuổi theo vào bãi cọc. Triều rút, thuyền mắc cọc vỡ tan. Chịu lép một keo nhỏ, đổi lấy cả trận thắng lớn!"),
+      ],
+      // Cụ Đồ đóng Ngô Quyền, Thằng Cháu đóng tướng Nam Hán Lưu Hoằng Tháo.
+      // Thứ tự items khi có nước: bãi cọc, nước triều (bd-tide), rồi thuyền (cùng x với người đứng trong thuyền).
+      stage: [
+        // "Như Ngô Quyền trên sông Bạch Đằng năm 938 ấy": đứng bên bờ sông lúc triều rút
+        {
+          line: 0,
+          cut: true,
+          scene: "bd-river",
+          camera: "wide",
+          cd: { role: "ngo-quyen", x: 0.24, hand: null, back: null, head: null, face: null, arms: "hips", expr: "neutral", move: "idle" },
+          tc: { role: "luu-hoang-thao", x: 1.4, hand: null, back: null, head: null, face: null, arms: "down", expr: "neutral", move: "idle" },
+          items: [],
+        },
+        // "cho cắm cọc gỗ đầu bịt sắt dưới lòng sông": cầm cọc nện xuống, bãi cọc mọc lên
+        { line: 0, at: 0.31, cd: { hand: "bd-stake", arms: "hit", expr: "angry" }, items: [{ id: "c1", prop: "bd-stakes", x: 0.6 }], fx: { kind: "bop", on: "CD", text: "CẮM!" } },
+        { line: 0, at: 0.46, items: [{ id: "c1", prop: "bd-stakes", x: 0.6 }, { id: "c2", prop: "bd-stakes", x: 0.86 }], fx: { kind: "sparkle", on: "CD" } },
+        // "triều lên": nước dâng che kín bãi cọc
+        {
+          line: 0,
+          at: 0.61,
+          cd: { hand: null, arms: "point", expr: "smug" },
+          items: [
+            { id: "nuoc", prop: "bd-tide", x: 0.5, front: true },
+          ],
+        },
+        // "thì sai thuyền nhẹ ra đánh": Ngô Quyền trên thuyền nhẹ, thuyền chiến Nam Hán đậu bên phải
+        {
+          line: 0,
+          at: 0.68,
+          cut: true,
+          cd: { x: 0.4, arms: "raise", expr: "angry", move: "idle" },
+          tc: { x: 0.8, arms: "hips", expr: "angry", move: "idle" },
+          items: [
+            { id: "buom", prop: "bd-sail", x: 0.8 },
+            { id: "nuoc", prop: "bd-tide", x: 0.5, front: true },
+            { id: "ta", prop: "bd-boat", x: 0.4, front: true },
+            { id: "han", prop: "bd-warship", x: 0.8, front: true },
+          ],
+        },
+        { line: 0, at: 0.74, fx: { kind: "bop", on: "CD", text: "ĐÁNH!" } },
+        // "rồi giả thua bỏ chạy": thuyền nhẹ lùi về trái, mặt giả vờ hoảng
+        {
+          line: 0,
+          at: 0.86,
+          cd: { x: 0.2, arms: "up2", expr: "shock" },
+          tc: { arms: "point", expr: "smug" },
+          items: [
+            { id: "buom", prop: "bd-sail", x: 0.8 },
+            { id: "nuoc", prop: "bd-tide", x: 0.5, front: true },
+            { id: "ta", prop: "bd-boat", x: 0.2, front: true },
+            { id: "han", prop: "bd-warship", x: 0.8, front: true },
+          ],
+          fx: { kind: "sweat", on: "CD" },
+        },
+        { line: 0, at: 0.95, camera: "CD", cd: { expr: "smug" }, fx: { kind: "exclaim", on: "CD", text: "HÌ!" } },
+
+        // "Thuyền chiến Nam Hán hăm hở đuổi theo vào bãi cọc"
+        {
+          line: 1,
+          camera: "wide",
+          tc: { x: 0.62, arms: "point", expr: "happy" },
+          items: [
+            { id: "buom", prop: "bd-sail", x: 0.62 },
+            { id: "nuoc", prop: "bd-tide", x: 0.5, front: true },
+            { id: "ta", prop: "bd-boat", x: 0.2, front: true },
+            { id: "han", prop: "bd-warship", x: 0.62, front: true },
+          ],
+        },
+        { line: 1, at: 0.17, fx: { kind: "exclaim", on: "TC", text: "ĐUỔI!" } },
+        // "Triều rút, thuyền mắc cọc vỡ tan": nước rút lộ bãi cọc, thuyền chiến vỡ toác
+        {
+          line: 1,
+          at: 0.38,
+          cut: true,
+          cd: { arms: "down", expr: "neutral" },
+          tc: { arms: "up2", expr: "shock" },
+          items: [
+            { id: "c2", prop: "bd-stakes", x: 0.86 },
+            { id: "vo", prop: "bd-wreck", x: 0.62, front: true },
+          ],
+        },
+        { line: 1, at: 0.48, camera: "TC", tc: { move: "tremble" }, fx: [{ kind: "bop", on: "TC", text: "RẮC!" }, { kind: "sweat", on: "TC" }] },
+        // "Chịu lép một keo nhỏ": Ngô Quyền nhún vai cười
+        { line: 1, at: 0.64, camera: "CD", cd: { arms: "shrug", expr: "smug" } },
+        // "đổi lấy cả trận thắng lớn!"
+        { line: 1, at: 0.8, camera: "wide", cd: { arms: "up2", expr: "happy", move: "jump" }, tc: { expr: "sad", move: "idle", arms: "down" }, fx: { kind: "sparkle", on: "CD" } },
       ],
     },
     punchline: {
@@ -65,9 +154,48 @@ export const TUAN_2 = [
     explain:
       "Con trâu đâu biết thưởng thức tiếng đàn. Ông bà ví việc mình nói điều hay ý đẹp với người không hiểu, hoặc người cứ bỏ ngoài tai, thì nói mấy cũng bằng không. Đôi khi chẳng phải lỗi con trâu, mà là mình chọn nhầm người nghe.",
     example: {
-      shot: "Màn hình nhóm chat: một tin nhắn kế hoạch dài dằng dặc, cả nhóm thả tim, rồi một tin nhắn hỏi lại",
+      shot: "HỒI ỨC (TV đen trắng): đồng cỏ, Công Minh Nghi ôm đàn gảy khúc hay, nốt nhạc bay, con trâu vẫn cầm nắm cỏ nhai; ông đổi sang tiếng muỗi vo ve, tiếng nghé ọ, trâu vểnh tai vẫy tay mừng; rồi ông gảy khúc hay, trâu lại nhai cỏ, ông nhún vai",
+      memory: { label: "TÍCH XƯA: ĐÀN GẢY TAI TRÂU" },
       lines: [
-        cd("Như mày gửi vào nhóm chat kế hoạch đi chơi dài ba trang. Cả nhóm thả tim. Năm phút sau có đứa hỏi: Ơ thế mai đi đâu?"),
+        cd("Như ngày xưa ông Công Minh Nghi gảy một khúc đàn thật hay cho con trâu nghe, trâu vẫn cúi đầu gặm cỏ như không."),
+        cd("Đến khi ông gảy tiếng như muỗi vo ve, như nghé con gọi mẹ, trâu mới vẫy đuôi vểnh tai. Khúc hay đến mấy mà người nghe không hiểu thì gảy cũng phí công."),
+      ],
+      // Cụ Đồ đóng Công Minh Nghi, Thằng Cháu đóng con trâu (nét mặt happy/shock thì tai trâu vểnh lên).
+      stage: [
+        // "Như ngày xưa ông Công Minh Nghi": ôm đàn giữa đồng, trâu cầm nắm cỏ
+        {
+          line: 0,
+          cut: true,
+          scene: "cmn-field",
+          camera: "wide",
+          cd: { role: "cong-minh-nghi", x: 0.27, hand: "cmn-qin", back: null, head: null, face: null, arms: "hold2", expr: "neutral", move: "idle" },
+          tc: { role: "con-trau", x: 0.72, hand: "cmn-grass", back: null, head: null, face: null, arms: "hold", expr: "neutral", move: "idle" },
+          items: [],
+        },
+        // "gảy một khúc đàn thật hay": nốt nhạc bay
+        { line: 0, at: 0.29, cd: { expr: "happy", move: "bounce" }, items: [{ id: "not", prop: "cmn-notes", x: 0.5 }], fx: { kind: "sparkle", on: "CD" } },
+        // "trâu vẫn cúi đầu gặm cỏ như không"
+        { line: 0, at: 0.69, fx: { kind: "exclaim", on: "TC", text: "NHAI..." } },
+        { line: 0, at: 0.9, camera: "wide", cd: { expr: "sad", move: "idle" }, items: [], fx: { kind: "sweat", on: "CD" } },
+
+        // "Đến khi ông gảy tiếng như muỗi vo ve"
+        { line: 1, cd: { expr: "smug", move: "bounce" }, items: [{ id: "muoi", prop: "cmn-buzz", x: 0.42 }] },
+        // "như nghé con gọi mẹ"
+        { line: 1, at: 0.25, items: [{ id: "nghe", prop: "cmn-calf-call", x: 0.42 }] },
+        // "trâu mới vẫy đuôi vểnh tai"
+        { line: 1, at: 0.39, tc: { hand: null, arms: "up2", expr: "happy", move: "bounce" }, fx: { kind: "exclaim", on: "TC" } },
+        { line: 1, at: 0.51, camera: "TC", items: [], fx: { kind: "hearts", on: "TC" } },
+        // "Khúc hay đến mấy mà người nghe không hiểu": lại gảy khúc hay, trâu lại nhai cỏ
+        {
+          line: 1,
+          at: 0.58,
+          camera: "wide",
+          cd: { expr: "happy", move: "bounce" },
+          tc: { hand: "cmn-grass", arms: "hold", expr: "neutral", move: "idle" },
+          items: [{ id: "not", prop: "cmn-notes", x: 0.5 }],
+        },
+        // "thì gảy cũng phí công"
+        { line: 1, at: 0.85, camera: "CD", cd: { hand: null, arms: "shrug", expr: "sad", move: "idle" }, items: [], fx: { kind: "sweat", on: "CD" } },
       ],
     },
     punchline: {
@@ -139,9 +267,64 @@ export const TUAN_2 = [
     explain:
       "Câu đầy đủ là: nuôi ong tay áo, nuôi cáo trong nhà. Mình thương, mình che chở người ta ngay sát bên cạnh, rồi chính người ta quay lại làm hại mình.",
     example: {
-      shot: "Văn phòng: một người kiên nhẫn chỉ việc cho đồng nghiệp mới; cảnh sau, người mới đứng thuyết trình nhận công trước sếp",
+      shot: "HỒI ỨC (TV đen trắng): thành Cổ Loa, An Dương Vương cầm nỏ thần, gả Mị Châu cho Trọng Thủy, vẫy chàng rể vào ở trong thành; Trọng Thủy dỗ Mị Châu, lẻn tới giá nỏ tráo lẫy; quân Triệu Đà kéo tới, nỏ xịt, nhà vua thất thế, Trọng Thủy giơ lẫy nỏ cười",
+      memory: { label: "TRUYỀN THUYẾT: NỎ THẦN" },
       lines: [
-        cd("Như mày tận tình chỉ việc cho đồng nghiệp mới, đưa cả tài liệu của mình. Đến buổi họp, nó nhận hết công, còn nói mày làm chậm."),
+        cd("Như An Dương Vương trong truyện Mị Châu, Trọng Thủy ấy: gả con gái cho Trọng Thủy, con trai Triệu Đà, rồi cho chàng rể ở ngay trong thành Cổ Loa."),
+        cd("Trọng Thủy dỗ vợ cho xem nỏ thần, lén tráo mất lẫy. Triệu Đà kéo quân sang đánh, nỏ hết thiêng, nhà vua mất nước chỉ vì chàng rể mình nuôi trong nhà."),
+      ],
+      // Cụ Đồ đóng An Dương Vương, Thằng Cháu đóng Trọng Thủy; Mị Châu là hình đứng (adv-mi-chau).
+      stage: [
+        // "Như An Dương Vương trong truyện Mị Châu, Trọng Thủy ấy": nhà vua cầm nỏ thần, Mị Châu bên cạnh
+        {
+          line: 0,
+          cut: true,
+          scene: "adv-citadel",
+          camera: "wide",
+          cd: { role: "an-duong-vuong", x: 0.22, hand: "adv-crossbow", back: null, head: null, face: null, arms: "hold", expr: "happy", move: "idle" },
+          tc: { role: "trong-thuy", x: 1.4, hand: null, back: null, head: null, face: null, arms: "down", expr: "neutral", move: "idle" },
+          items: [{ id: "mc", prop: "adv-mi-chau", x: 0.45 }],
+        },
+        // "gả con gái cho Trọng Thủy": chàng rể đi vào, Mị Châu bước sang
+        { line: 0, at: 0.39, cd: { hand: null, arms: "point" }, tc: { x: 0.78, arms: "wave", expr: "happy" }, items: [{ id: "mc", prop: "adv-mi-chau", x: 0.56 }], fx: { kind: "hearts", on: "TC" } },
+        // "con trai Triệu Đà"
+        { line: 0, at: 0.57, camera: "TC", tc: { arms: "hips", expr: "smug" }, fx: { kind: "exclaim", on: "TC", text: "HÌ HÌ" } },
+        // "rồi cho chàng rể ở ngay trong thành Cổ Loa": vua vẫy mời vào thành
+        { line: 0, at: 0.7, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy" } },
+
+        // "Trọng Thủy dỗ vợ cho xem nỏ thần": nỏ thần trên giá, Trọng Thủy dỗ Mị Châu
+        {
+          line: 1,
+          cut: true,
+          camera: "wide",
+          cd: { x: -0.4, hand: null, arms: "down", expr: "neutral" },
+          tc: { x: 0.74, hand: null, arms: "point", expr: "happy" },
+          items: [
+            { id: "gia", prop: "adv-crossbow-rack", x: 0.18 },
+            { id: "mc", prop: "adv-mi-chau", x: 0.48 },
+          ],
+          fx: { kind: "hearts", on: "TC" },
+        },
+        // "lén tráo mất lẫy": lẻn tới giá nỏ, cầm lẫy móng rùa
+        { line: 1, at: 0.23, camera: "TC", tc: { x: 0.36, arms: "hold", hand: "adv-trigger", expr: "smug" }, fx: { kind: "exclaim", on: "TC", text: "TRÁO!" } },
+        // "Triệu Đà kéo quân sang đánh": quân Triệu kéo tới, nhà vua giương nỏ
+        {
+          line: 1,
+          at: 0.35,
+          cut: true,
+          camera: "wide",
+          cd: { x: 0.26, hand: "adv-crossbow", arms: "point", expr: "angry" },
+          tc: { x: 1.4, hand: null, arms: "down" },
+          items: [{ id: "quan", prop: "adv-army", x: 0.86 }],
+          fx: { kind: "exclaim", on: "CD" },
+        },
+        // "nỏ hết thiêng"
+        { line: 1, at: 0.54, cd: { expr: "shock" }, fx: [{ kind: "bop", on: "CD", text: "XỊT!" }, { kind: "sweat", on: "CD" }] },
+        // "nhà vua mất nước": quân tràn vào, vua buông nỏ
+        { line: 1, at: 0.64, cd: { hand: null, arms: "down", expr: "sad", move: "tremble" }, items: [{ id: "quan", prop: "adv-army", x: 0.66 }] },
+        // "chỉ vì chàng rể mình nuôi trong nhà": Trọng Thủy giơ lẫy nỏ đắc ý
+        { line: 1, at: 0.76, cut: true, tc: { x: 0.84, hand: "adv-trigger", arms: "raise", expr: "smug" } },
+        { line: 1, at: 0.8, camera: "TC", fx: { kind: "sparkle", on: "TC" } },
       ],
     },
     punchline: {
@@ -176,9 +359,134 @@ export const TUAN_2 = [
     explain:
       "Hai con gà trống nghe nhau gáy là tức, cứ cố gáy to hơn cho bằng được. Câu này nói chuyện người với người ganh tị, thấy ai hơn mình một chút là phải hơn thua, dù chẳng đáng gì.",
     example: {
-      shot: "Màn hình ứng dụng chạy bộ: bạn thân khoe 5 km, cảnh sau TC chạy 6 km, về ôm đầu gối nhăn nhó",
+      shot: "HỒI ỨC (TV đen trắng): cung điện vua Hùng, Sơn Tinh dắt voi chín ngà, gà chín cựa, ngựa chín hồng mao tới trước, rước Mị Nương đi; Thủy Tinh đến sau tức tối; dưới núi Tản Viên, Thủy Tinh dâng sóng, Sơn Tinh bốc đồi chặn lại; Thủy Tinh thua vẫn dâng nước đánh tiếp",
+      memory: { label: "TRUYỀN THUYẾT: SƠN TINH" },
       lines: [
-        cd("Như đứa bạn khoe sáng nay chạy được 5 cây số. Thế là mình đau đầu gối vẫn cố chạy 6 cây, chỉ để đăng ảnh cho bõ tức."),
+        cd("Như trong truyện Sơn Tinh, Thủy Tinh ấy: vua Hùng đòi voi chín ngà, gà chín cựa, ngựa chín hồng mao. Sơn Tinh mang đến trước, rước luôn Mị Nương về núi."),
+        cd("Thủy Tinh đến sau, tức tối dâng nước đánh, Sơn Tinh bốc đồi dời núi chặn lại. Thua mà không chịu, năm nào hắn cũng dâng nước đòi đánh lại."),
+      ],
+      // Cụ Đồ đóng Sơn Tinh, Thằng Cháu đóng Thủy Tinh.
+      stage: [
+        // "Như trong truyện Sơn Tinh, Thủy Tinh ấy": cung điện, vua Hùng ngồi ngai
+        {
+          line: 0,
+          cut: true,
+          scene: "hung-palace",
+          camera: "wide",
+          cd: { role: "son-tinh", x: -0.3, hand: null, back: null, head: null, face: null, arms: "down", expr: "neutral", move: "idle" },
+          tc: { role: "thuy-tinh", x: 1.4, hand: null, back: null, head: null, face: null, arms: "down", expr: "neutral", move: "idle" },
+          items: [],
+        },
+        // Sơn Tinh bước vào sân rồng
+        { line: 0, at: 0.1, cd: { x: 0.16, expr: "happy" } },
+        // "vua Hùng đòi": chắp tay nghe
+        { line: 0, at: 0.25, cd: { arms: "hold2", expr: "neutral" }, fx: { kind: "question", on: "CD" } },
+        // "voi chín ngà"
+        { line: 0, at: 0.34, cd: { arms: "point", expr: "happy" }, items: [{ id: "voi", prop: "st-elephant", x: 0.77, scale: 0.55 }] },
+        // "gà chín cựa"
+        {
+          line: 0,
+          at: 0.44,
+          items: [
+            { id: "voi", prop: "st-elephant", x: 0.77, scale: 0.55 },
+            { id: "ga", prop: "st-rooster", x: 0.4, scale: 1 },
+          ],
+        },
+        // "ngựa chín hồng mao"
+        {
+          line: 0,
+          at: 0.53,
+          items: [
+            { id: "voi", prop: "st-elephant", x: 0.77, scale: 0.55 },
+            { id: "ga", prop: "st-rooster", x: 0.4, scale: 1 },
+            { id: "ngua", prop: "st-horse", x: 0.58, scale: 0.6 },
+          ],
+        },
+        // "Sơn Tinh mang đến trước"
+        { line: 0, at: 0.66, cd: { arms: "up2", move: "jump" }, fx: { kind: "bop", on: "CD", text: "ĐẾN TRƯỚC!" } },
+        // "rước luôn Mị Nương về núi"
+        {
+          line: 0,
+          at: 0.8,
+          cd: { arms: "wave", move: "idle" },
+          items: [
+            { id: "voi", prop: "st-elephant", x: 0.77, scale: 0.55 },
+            { id: "ga", prop: "st-rooster", x: 0.5, scale: 1 },
+            { id: "ngua", prop: "st-horse", x: 0.66, scale: 0.6 },
+            { id: "mi", prop: "st-mi-nuong", x: 0.34 },
+          ],
+          fx: { kind: "hearts", on: "CD" },
+        },
+        {
+          line: 0,
+          at: 0.92,
+          cd: { x: -0.4, arms: "down" },
+          items: [
+            { id: "voi", prop: "st-elephant", x: -0.3, scale: 0.55 },
+            { id: "ga", prop: "st-rooster", x: -0.2, scale: 1 },
+            { id: "ngua", prop: "st-horse", x: -0.25, scale: 0.6 },
+            { id: "mi", prop: "st-mi-nuong", x: -0.15 },
+          ],
+        },
+
+        // "Thủy Tinh đến sau": sân rồng đã vắng
+        { line: 1, items: [], tc: { x: 0.6, expr: "happy" } },
+        // "tức tối"
+        { line: 1, at: 0.13, camera: "TC", tc: { arms: "hips", expr: "angry", move: "shake" }, fx: { kind: "anger", on: "TC" } },
+        // "dâng nước đánh": dưới núi Tản Viên, sóng dâng
+        {
+          line: 1,
+          at: 0.2,
+          cut: true,
+          scene: "st-mountain",
+          camera: "wide",
+          cd: { x: 0.24, hand: null, arms: "down", expr: "neutral", move: "idle" },
+          tc: { x: 0.84, hand: null, arms: "up2", expr: "angry", move: "idle" },
+          items: [{ id: "song", prop: "st-wave", x: 0.72, scale: 0.9 }],
+          fx: { kind: "bop", on: "TC", text: "ÀO!" },
+        },
+        { line: 1, at: 0.27, cd: { expr: "shock" }, items: [{ id: "song", prop: "st-wave", x: 0.55, scale: 0.9 }], fx: { kind: "sweat", on: "CD" } },
+        // "Sơn Tinh bốc đồi"
+        { line: 1, at: 0.33, cd: { hand: "st-hill-held", arms: "up2", expr: "angry", move: "jump" } },
+        // "dời núi chặn lại"
+        {
+          line: 1,
+          at: 0.45,
+          cd: { hand: null, arms: "hit", move: "idle" },
+          items: [
+            { id: "song", prop: "st-wave", x: 0.64, scale: 0.9 },
+            { id: "doi1", prop: "st-hill", x: 0.42, scale: 0.85 },
+          ],
+          fx: { kind: "bop", on: "CD", text: "ẦM!" },
+        },
+        {
+          line: 1,
+          at: 0.52,
+          cd: { arms: "hips", expr: "smug" },
+          tc: { arms: "down", expr: "shock", move: "tremble" },
+          items: [
+            { id: "song", prop: "st-wave", x: 0.78, scale: 0.65 },
+            { id: "doi1", prop: "st-hill", x: 0.42, scale: 0.85 },
+            { id: "doi2", prop: "st-hill", x: 0.56, scale: 1.05 },
+          ],
+          fx: { kind: "sweat", on: "TC" },
+        },
+        // "Thua mà không chịu"
+        { line: 1, at: 0.6, camera: "TC", tc: { arms: "hips", expr: "angry", move: "shake" }, fx: { kind: "exclaim", on: "TC", text: "HỪ!" } },
+        // "năm nào hắn cũng dâng nước đòi đánh lại"
+        {
+          line: 1,
+          at: 0.73,
+          camera: "wide",
+          tc: { arms: "up2", move: "idle" },
+          items: [
+            { id: "song2", prop: "st-wave", x: 0.7, scale: 1.3 },
+            { id: "doi1", prop: "st-hill", x: 0.42, scale: 0.85 },
+            { id: "doi2", prop: "st-hill", x: 0.56, scale: 1.05 },
+          ],
+          fx: { kind: "bop", on: "TC", text: "ÀO!" },
+        },
+        { line: 1, at: 0.86, cd: { hand: "st-hill-held", arms: "up2", expr: "angry" }, fx: { kind: "bop", on: "CD", text: "LẠI NỮA À?" } },
       ],
     },
     punchline: {
@@ -211,11 +519,112 @@ export const TUAN_2 = [
       ],
     },
     explain:
-      "Chuyện xưa kể mấy người thi vẽ rắn để giành một bình rượu. Người vẽ xong trước lại ngứa tay vẽ thêm chân, thế là mất phần. Ý nói việc đã ổn mà cứ bày thêm cái thừa thì hỏng bét.",
+      "Con rắn vẽ xong là đủ rồi, thêm chân vào nó chẳng còn là con rắn nữa. Ý nói việc đã ổn mà cứ bày thêm cái thừa thì hỏng bét.",
     example: {
-      shot: "Màn hình máy chiếu: slide gọn gàng, rồi chữ bay lượn, pháo hoa, nhạc nền; sếp nheo mắt xoa thái dương",
+      shot: "HỒI ỨC (TV đen trắng): sân nhà quan nước Sở, bình rượu thưởng đặt giữa sân, hai người khách thi vẽ rắn trên ô đất; người xong trước cầm bình rượu rồi vẽ thêm chân; người kia vẽ xong giật bình rượu, chỉ vào con rắn có chân",
+      memory: { label: "TÍCH XƯA: VẼ RẮN THÊM CHÂN" },
       lines: [
-        cd("Như bộ slide đã gọn gàng, đủ ý. Mày cố thêm chữ bay lượn, pháo hoa với nhạc nền. Sếp xem xong chỉ nhớ mỗi cái chóng mặt."),
+        cd("Như tích xưa nước Sở ấy: mấy người được thưởng một bình rượu, bèn thi vẽ rắn trên đất, ai xong trước thì được uống."),
+        cd("Anh xong đầu tiên, thắng rồi còn ngứa tay vẽ thêm chân cho rắn. Người xong sau giật luôn bình rượu: rắn vốn không có chân!"),
+      ],
+      // Cụ Đồ đóng người khách thắng bình rượu, Thằng Cháu đóng người vẽ thêm chân.
+      stage: [
+        // "Như tích xưa nước Sở ấy": sân nhà quan
+        {
+          line: 0,
+          cut: true,
+          scene: "so-courtyard",
+          camera: "wide",
+          cd: { role: "so-khach-ruou", x: 0.14, hand: null, back: null, head: null, face: null, arms: "down", expr: "neutral", move: "idle" },
+          tc: { role: "so-khach-chan", x: 0.86, hand: null, back: null, head: null, face: null, arms: "down", expr: "neutral", move: "idle" },
+          items: [],
+        },
+        // "mấy người được thưởng một bình rượu"
+        {
+          line: 0,
+          at: 0.26,
+          cd: { expr: "happy" },
+          tc: { expr: "happy", move: "bounce" },
+          items: [{ id: "binh", prop: "so-flask", x: 0.5, scale: 1.3 }],
+          fx: [
+            { kind: "sparkle", on: "CD" },
+            { kind: "hearts", on: "TC" },
+          ],
+        },
+        // "bèn thi vẽ rắn trên đất"
+        {
+          line: 0,
+          at: 0.52,
+          cd: { hand: "so-stick", arms: "hit", expr: "angry" },
+          tc: { hand: "so-stick", arms: "hit", expr: "angry", move: "idle" },
+          items: [
+            { id: "binh", prop: "so-flask", x: 0.5, scale: 1.3 },
+            { id: "cat1", prop: "so-sand", x: 0.33, scale: 0.95, front: true },
+            { id: "cat2", prop: "so-sand", x: 0.67, scale: 0.95, front: true },
+          ],
+        },
+        // "ai xong trước thì được uống"
+        { line: 0, at: 0.78, cd: { move: "tremble" }, tc: { move: "tremble" }, fx: { kind: "sweat", on: "TC" } },
+
+        // "Anh xong đầu tiên"
+        {
+          line: 1,
+          cd: { arms: "hit", move: "idle" },
+          tc: { arms: "raise", expr: "happy", move: "jump" },
+          items: [
+            { id: "binh", prop: "so-flask", x: 0.5, scale: 1.3 },
+            { id: "cat1", prop: "so-sand", x: 0.33, scale: 0.95, front: true },
+            { id: "cat2", prop: "so-sand-snake", x: 0.67, scale: 0.95, front: true },
+          ],
+          fx: { kind: "bop", on: "TC", text: "XONG!" },
+        },
+        // "thắng rồi": cầm lấy bình rượu
+        {
+          line: 1,
+          at: 0.13,
+          tc: { x: 0.6, hand: "so-flask", arms: "hold", expr: "smug", move: "idle" },
+          items: [
+            { id: "cat1", prop: "so-sand", x: 0.33, scale: 0.95, front: true },
+            { id: "cat2", prop: "so-sand-snake", x: 0.67, scale: 0.95, front: true },
+          ],
+          fx: { kind: "sparkle", on: "TC" },
+        },
+        // "còn ngứa tay vẽ thêm chân cho rắn": tay cầm bình, quay về vẽ tiếp
+        { line: 1, at: 0.3, tc: { x: 0.86, expr: "happy" } },
+        {
+          line: 1,
+          at: 0.4,
+          tc: { move: "bounce" },
+          items: [
+            { id: "cat1", prop: "so-sand", x: 0.33, scale: 0.95, front: true },
+            { id: "cat2", prop: "so-sand-legs", x: 0.67, scale: 0.95, front: true },
+          ],
+          fx: { kind: "bop", on: "TC", text: "+CHÂN!" },
+        },
+        // "Người xong sau"
+        {
+          line: 1,
+          at: 0.54,
+          cd: { arms: "raise", expr: "happy" },
+          tc: { move: "idle" },
+          items: [
+            { id: "cat1", prop: "so-sand-snake", x: 0.33, scale: 0.95, front: true },
+            { id: "cat2", prop: "so-sand-legs", x: 0.67, scale: 0.95, front: true },
+          ],
+          fx: { kind: "bop", on: "CD", text: "XONG!" },
+        },
+        // "giật luôn bình rượu"
+        { line: 1, at: 0.62, cd: { x: 0.6, hand: null, arms: "down" } },
+        {
+          line: 1,
+          at: 0.71,
+          cd: { hand: "so-flask", arms: "hold", expr: "smug" },
+          tc: { hand: null, arms: "shrug", expr: "shock" },
+          fx: { kind: "bop", on: "CD", text: "GIẬT!" },
+        },
+        // "rắn vốn không có chân!": lùi lại, chỉ con rắn có chân
+        { line: 1, at: 0.8, cd: { x: 0.36, arms: "point", expr: "angry" }, tc: { expr: "sad", arms: "down" }, fx: { kind: "sweat", on: "TC" } },
+        { line: 1, at: 0.93, cd: { arms: "raise", expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "CD" } },
       ],
     },
     punchline: {
@@ -250,9 +659,53 @@ export const TUAN_2 = [
     explain:
       "Mèo thì đuôi dài là chuyện bình thường, có gì mà khen. Câu này chê người tự khen mình, hoặc người cùng phe cứ tâng bốc nhau, nghe chẳng khách quan tí nào.",
     example: {
-      shot: "Màn hình trang bán hàng: toàn đánh giá 5 sao từ tài khoản cùng họ; khách thật đứng ngoài cửa lắc đầu",
+      shot: "HỒI ỨC (TV đen trắng): cổng tre nhà quê, anh áo mới đứng chống nạnh chờ người khen; anh tìm lợn cầm sợi dây đứt chạy tới hỏi; anh áo mới giơ vạt áo lên khoe, anh tìm lợn ngơ ngác",
+      memory: { label: "TRUYỆN CƯỜI: LỢN CƯỚI ÁO MỚI" },
       lines: [
-        cd("Như quán mới mở, chủ quán tự chấm 5 sao, họ hàng vào bình luận ngon nhất thành phố. Còn khách thật thì chưa ai bước vào."),
+        cd("Như truyện cười Lợn cưới, áo mới ấy: anh kia mặc áo mới, đứng ở cửa cả buổi chờ người khen. Có anh tìm lợn hỏi: có thấy con lợn cưới của tôi chạy qua không?"),
+        cd("Anh kia giơ ngay vạt áo: từ lúc tôi mặc cái áo mới này, tôi chẳng thấy con lợn nào chạy qua cả! Chẳng ai khen thì tự khen vậy."),
+      ],
+      // Cụ Đồ đóng anh tìm lợn, Thằng Cháu đóng anh áo mới.
+      stage: [
+        // "Như truyện cười Lợn cưới, áo mới ấy": anh áo mới đứng ở cổng
+        {
+          line: 0,
+          cut: true,
+          scene: "village-gate",
+          camera: "wide",
+          cd: { role: "tim-lon", x: -0.4, hand: "pig-rope", back: null, head: null, face: null, arms: "down", expr: "shock", move: "idle" },
+          tc: { role: "ao-moi", x: 0.64, hand: null, back: null, head: null, face: null, arms: "hips", expr: "smug", move: "idle" },
+          items: [],
+        },
+        // "anh kia mặc áo mới"
+        { line: 0, at: 0.22, camera: "TC", tc: { move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
+        // "đứng ở cửa cả buổi chờ người khen"
+        { line: 0, at: 0.36, camera: "wide", tc: { arms: "wave", expr: "happy", move: "idle" } },
+        { line: 0, at: 0.48, tc: { arms: "down", expr: "sad" }, fx: { kind: "sweat", on: "TC" } },
+        // "Có anh tìm lợn hỏi"
+        { line: 0, at: 0.58, cd: { x: 0.26, move: "shake" }, fx: { kind: "sweat", on: "CD" } },
+        // "có thấy con lợn cưới của tôi chạy qua không?"
+        {
+          line: 0,
+          at: 0.72,
+          cd: { arms: "point", expr: "confused", move: "idle" },
+          tc: { expr: "happy", move: "bounce" },
+          fx: [
+            { kind: "question", on: "CD" },
+            { kind: "exclaim", on: "TC" },
+          ],
+        },
+
+        // "Anh kia giơ ngay vạt áo"
+        { line: 1, camera: "TC", tc: { hand: "ao-moi-flap", arms: "raise", expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
+        // "từ lúc tôi mặc cái áo mới này"
+        { line: 1, at: 0.22, tc: { expr: "smug", move: "idle" }, fx: { kind: "bop", on: "TC", text: "ÁO MỚI!" } },
+        // "tôi chẳng thấy con lợn nào chạy qua cả!"
+        { line: 1, at: 0.46, camera: "wide", cd: { hand: "pig-rope", arms: "shrug", expr: "shock" }, fx: { kind: "sweat", on: "CD" } },
+        { line: 1, at: 0.62, cd: { expr: "confused" }, fx: { kind: "question", on: "CD" } },
+        // "Chẳng ai khen thì tự khen vậy."
+        { line: 1, at: 0.76, tc: { hand: null, arms: "hips", expr: "smug", move: "bounce" }, fx: { kind: "hearts", on: "TC" } },
+        { line: 1, at: 0.88, cd: { x: -0.4, arms: "down", expr: "sad", move: "idle" } },
       ],
     },
     punchline: {

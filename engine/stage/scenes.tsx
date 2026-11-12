@@ -1,30 +1,14 @@
 import React from "react";
 import type { SceneId } from "../lib/stage-types.ts";
 import { COLORS, TEXT_FONT } from "../components/brand.ts";
+import { Floor, FLOOR } from "./draw.tsx";
+import { STORY_SCENES } from "./story/index.ts";
 
 const INK = COLORS.ink;
+export { FLOOR } from "./draw.tsx";
 
-/** Mặt sàn (toạ độ y trên khung 1080×1920). Phụ đề nằm ngay dưới. */
-export const FLOOR = 1240;
 /** Mặt bàn trong cảnh bếp: đồ đặt `on: "table"` đứng ở đây. */
 export const TABLE_TOP = 1112;
-
-const Floor: React.FC<{ color: string; line: string }> = ({ color, line }) => (
-  <>
-    <defs>
-      <linearGradient id="floor-shade" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stopColor="#000000" stopOpacity="0" />
-        <stop offset="1" stopColor="#000000" stopOpacity="0.75" />
-      </linearGradient>
-    </defs>
-    <rect x="0" y={FLOOR} width="1080" height={1920 - FLOOR} fill={color} />
-    {[0, 1, 2, 3, 4, 5].map((i) => (
-      <line key={i} x1="0" y1={FLOOR + 30 + i * 60} x2="1080" y2={FLOOR + 30 + i * 60} stroke={line} strokeWidth="4" />
-    ))}
-    <rect x="0" y={FLOOR} width="1080" height={1920 - FLOOR} fill="url(#floor-shade)" />
-    <rect x="0" y={FLOOR - 6} width="1080" height="12" fill={INK} />
-  </>
-);
 
 const Home: React.FC = () => (
   <>
@@ -339,6 +323,8 @@ const Cave: React.FC = () => (
 );
 
 export const SceneBackground: React.FC<{ id: SceneId; text?: string }> = ({ id, text }) => {
+  const Story = STORY_SCENES[id];
+  if (Story) return <Story />;
   if (id === "tavern") return <Tavern />;
   if (id === "temple") return <Temple />;
   if (id === "cave") return <Cave />;

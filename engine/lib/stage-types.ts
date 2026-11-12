@@ -1,3 +1,10 @@
+import type { PropTuan1, RoleTuan1, SceneTuan1 } from "./story/tuan-1.ts";
+import type { PropTuan2, RoleTuan2, SceneTuan2 } from "./story/tuan-2.ts";
+import type { PropTuan3, RoleTuan3, SceneTuan3 } from "./story/tuan-3.ts";
+import type { PropTuan2B, RoleTuan2B, SceneTuan2B } from "./story/tuan-2b.ts";
+import type { PropTuan4, RoleTuan4, SceneTuan4 } from "./story/tuan-4.ts";
+import type { PropTuan4B, RoleTuan4B, SceneTuan4B } from "./story/tuan-4b.ts";
+
 /**
  * Kịch bản diễn cho hoạt hình con rối: mỗi nhịp có một danh sách "khoảnh khắc" (Moment),
  * mỗi khoảnh khắc đổi trạng thái sân khấu tại một thời điểm trong câu thoại.
@@ -71,7 +78,14 @@ export type PropId =
   | "demon-head"
   | "python-demon"
   | "eagle"
-  | "boulder";
+  | "boulder"
+  // Đồ của các truyện khác: xem engine/lib/story/tuan-*.ts
+  | PropTuan1
+  | PropTuan2
+  | PropTuan2B
+  | PropTuan3
+  | PropTuan4
+  | PropTuan4B;
 
 /**
  * Đạo cụ có chữ (`{ id, text }`):
@@ -90,10 +104,11 @@ export type PropRef = PropId | { id: PropId; text?: string };
 /**
  * Vai trong truyện / hồi ức: con rối mặc trang phục và mang mặt của nhân vật khác.
  * thach-sanh: chàng trai khoẻ mạnh, búi tóc, áo nâu, tay trần · ly-thong: gã bán rượu gian xảo, khăn vấn, ria vểnh
+ * Vai của các truyện khác: xem engine/lib/story/tuan-*.ts.
  * Vai chỉ hiện trong nhịp hồi ức (`memory`); hết nhịp là tự về lại Cụ Đồ / Thằng Cháu.
  * Trong nhịp hồi ức con rối không mấp máy môi (lời kể là giọng dẫn).
  */
-export type RoleId = "thach-sanh" | "ly-thong";
+export type RoleId = "thach-sanh" | "ly-thong" | RoleTuan1 | RoleTuan2 | RoleTuan2B | RoleTuan3 | RoleTuan4 | RoleTuan4B;
 
 export type Pose = {
   /** Đóng vai nhân vật khác (null = về lại chính mình). */
@@ -127,8 +142,9 @@ export type Item = {
 /** home: phòng khách · kitchen: bếp có bàn ăn (đồ `on: "table"` đặt trên bàn) · classroom: lớp học · yard: sân ngoài trời · night: sân ban đêm (trăng, sao)
  * · space: ngoài vũ trụ (đứng trên mặt trăng, thấy Trái Đất, sao) · beach: bãi biển (biển, cát)
  * · tavern: quán rượu mái tranh ngày xưa (chum rượu, biển "QUÁN RƯỢU") · temple: miếu cổ dưới gốc đa trong rừng đêm
- * · cave: vách núi đá, cửa hang tối ở bên trái (x ≈ 0.27) */
-export type SceneId = "home" | "kitchen" | "classroom" | "yard" | "night" | "space" | "beach" | "tavern" | "temple" | "cave";
+ * · cave: vách núi đá, cửa hang tối ở bên trái (x ≈ 0.27)
+ * Phông của các truyện khác: xem engine/lib/story/tuan-*.ts */
+export type SceneId = "home" | "kitchen" | "classroom" | "yard" | "night" | "space" | "beach" | "tavern" | "temple" | "cave" | SceneTuan1 | SceneTuan2 | SceneTuan2B | SceneTuan3 | SceneTuan4 | SceneTuan4B;
 /** Phông cảnh, `text` là chữ trên bảng (lớp học). */
 export type SceneRef = SceneId | { id: SceneId; text?: string };
 

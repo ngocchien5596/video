@@ -59,7 +59,7 @@ export const TUAN_4 = [
     misread: {
       shot: "TC dán mười cái tai giả lên tường, rồi đeo ống nghe áp vào tường như bác sĩ",
       lines: [
-        tc("Vách có tai thì phải nghe. Cháu dán thêm mười cái tai giả cho nó rõ."),
+        tc("Vách có tai thì phải nghe. Cháu dán thêm mười cái tai giả."),
         tc("Còn mạch thì cháu đo rồi. Tường nhà mình mạch đập bảy mươi, khỏe re!"),
         tc("Mà sao lại là dừng? À, nói xong phải dừng ngay, không thì tường đi mách!"),
         cd("Trời ơi, nó còn khám sức khỏe cho cái tường!"),
@@ -68,10 +68,55 @@ export const TUAN_4 = [
     explain:
       "Ngày xưa vách nhà trát bằng đất, bên trong là nan tre đan làm cốt, gọi là dừng. Vách mỏng, có khe, ngoài sân nghe được hết. Ý là chuyện tưởng kín vẫn lọt ra ngoài, nên nói chuyện riêng phải giữ lời. Dạng gốc là dừng, nhiều người quen nói là rừng.",
     example: {
-      shot: "Màn hình nhóm chat ba người, rồi một tấm ảnh chụp màn hình bay sang nhóm cả phòng",
+      shot: "HỒI ỨC (TV đen trắng): cung điện Hy Lạp, vua Mi-đát bỏ mũ lộ đôi tai lừa, đội mũ giấu lại, thợ cạo cầm kéo trố mắt; bãi đất ven sông, thợ cạo đào hố nói thầm rồi lấp lại, lau sậy mọc lên, gió thổi ra chữ \"VUA CÓ TAI LỪA!\", vua chạy ra hốt hoảng",
+      memory: { label: "THẦN THOẠI: VUA MI-ĐÁT" },
       lines: [
-        cd("Như nói xấu ai trong nhóm chat ba người. Một tấm chụp màn hình, chiều nay cả phòng biết."),
-        cd("Nhóm chat bây giờ chính là cái vách đất ngày xưa."),
+        cd("Như vua Mi-đát trong thần thoại Hy Lạp ấy: có đôi tai lừa, giấu kỹ dưới mũ, chỉ người thợ cạo biết."),
+        cd("Ông thợ cạo không nhịn được, đào hố nói thầm vào rồi lấp đất lại. Ai ngờ lau sậy mọc lên, gió thổi rì rào, cả nước biết vua có tai lừa."),
+      ],
+      // Cụ Đồ đóng vua Mi-đát, Thằng Cháu đóng thợ cạo.
+      stage: [
+        // "Như vua Mi-đát trong thần thoại Hy Lạp ấy": vua đội mũ, oai vệ trong cung
+        {
+          line: 0,
+          cut: true,
+          scene: "midas-cung",
+          camera: "wide",
+          cd: { role: "midas-vua", x: 0.3, hand: null, back: null, head: "midas-mu", face: null, arms: "hips", expr: "smug", move: "idle" },
+          tc: { role: "midas-tho-cao", x: 1.4, hand: "midas-keo", back: null, head: null, face: null, arms: "down", expr: "neutral", move: "idle" },
+          items: [],
+        },
+        // "có đôi tai lừa": bỏ mũ, lộ tai
+        { line: 0, at: 0.43, camera: "CD", cd: { head: null, arms: "shrug", expr: "sad" }, fx: { kind: "surprise", on: "CD" } },
+        // "giấu kỹ dưới mũ": đội mũ lại, liếc ngang
+        { line: 0, at: 0.6, cd: { head: "midas-mu", arms: "up2", expr: "smug", move: "bounce" } },
+        // "chỉ người thợ cạo biết": thợ cạo vào, vua bỏ mũ cho cắt tóc, thợ cạo trố mắt
+        { line: 0, at: 0.75, camera: "wide", cd: { head: null, arms: "down", expr: "neutral", move: "idle" }, tc: { x: 0.66, arms: "hold" } },
+        { line: 0, at: 0.9, tc: { expr: "shock", move: "tremble" }, fx: { kind: "exclaim", on: "TC" } },
+
+        // "Ông thợ cạo không nhịn được": ra bãi vắng, run bần bật vì ngứa miệng
+        {
+          line: 1,
+          cut: true,
+          scene: "midas-dong-co",
+          camera: "TC",
+          cd: { x: -0.4, head: null, arms: "down", expr: "neutral", move: "idle" },
+          tc: { x: 0.68, hand: null, arms: "up2", expr: "confused", move: "tremble" },
+          items: [],
+          fx: { kind: "sweat", on: "TC" },
+        },
+        // "đào hố": cầm xẻng đào
+        { line: 1, at: 0.2, camera: "wide", tc: { hand: "midas-xeng", arms: "hit", expr: "angry", move: "idle" }, items: [{ id: "ho", prop: "midas-ho", x: 0.5 }], fx: { kind: "bop", on: "TC", text: "XÚC!" } },
+        // "nói thầm vào": ghé xuống hố thì thầm
+        { line: 1, at: 0.27, tc: { hand: null, arms: "hold", expr: "happy" }, fx: { kind: "exclaim", on: "TC", text: "TAI LỪA..." } },
+        // "rồi lấp đất lại": lấp hố
+        { line: 1, at: 0.38, tc: { hand: "midas-xeng", arms: "hit", expr: "smug" }, items: [{ id: "u", prop: "midas-u-dat", x: 0.5 }] },
+        // "Ai ngờ lau sậy mọc lên"
+        { line: 1, at: 0.53, tc: { hand: null, arms: "down", expr: "shock" }, items: [{ id: "lau", prop: "midas-lau-say", x: 0.47 }], fx: { kind: "exclaim", on: "TC" } },
+        // "gió thổi rì rào": lau sậy nói ra bí mật
+        { line: 1, at: 0.67, items: [{ id: "lau", prop: { id: "midas-lau-say", text: "VUA CÓ TAI LỪA!" }, x: 0.47 }], tc: { arms: "up2", move: "tremble" }, fx: { kind: "sweat", on: "TC" } },
+        // "cả nước biết vua có tai lừa": vua chạy ra ôm đầu
+        { line: 1, at: 0.79, cd: { x: 0.12, arms: "up2", expr: "shock", move: "tremble" }, tc: { expr: "sad" }, fx: { kind: "surprise", on: "CD" } },
       ],
     },
     punchline: {
@@ -99,19 +144,53 @@ export const TUAN_4 = [
     misread: {
       shot: "TC bịt mắt thò tay mò trong rổ, mỗi lần bốc được một thứ lại phán to; cuối cùng bốc trúng lọ mắm đổ lên áo CĐ",
       lines: [
-        tc("Ăn ốc thì phải nói, mà nói thì phải mò. Cháu nhắm mắt mò trong rổ, trúng gì nói nấy."),
-        tc("Trúng con ốc to: chị kia sắp lấy chồng. Trúng con ốc bé: anh kia sắp mất ví."),
-        tc("Trúng lọ mắm: ông sắp bị dính mắm!"),
-        cd("Câu này đúng duy nhất, vì mày vừa đổ mắm lên áo ông!"),
+        tc("Ăn ốc thì phải nói, mà nói thì phải mò. Nhắm mắt mò rổ, trúng gì nói nấy."),
+        tc("Ốc to: chị kia sắp cưới. Ốc bé: anh kia sắp mất ví."),
+        tc("Lọ mắm: ông sắp dính mắm!"),
+        cd("Đúng mỗi câu này, vì mày vừa đổ mắm lên áo ông!"),
       ],
     },
     explain:
       "Ăn ốc nói mò là nói không có căn cứ, chẳng biết gì cũng phán bừa. Có cách giải thích là mò ốc dưới nước đục, chẳng nhìn thấy gì, mò được đâu hay đấy. Nói năng kiểu đó dễ gây hiểu lầm, có khi làm khổ người khác.",
     example: {
-      shot: "Màn hình mạng xã hội: một người đổi ảnh đại diện, bên dưới bình luận bàn tán xôn xao",
+      shot: "HỒI ỨC (TV đen trắng): đầu làng, con voi to đứng giữa, hai ông thầy bói (ông béo mắt nhắm, ông gầy kính đen) chống gậy dò tới; ông béo sờ vòi, ông gầy sờ đuôi, ông béo sờ chân voi; hai ông cãi nhau rồi vung gậy đánh nhau \"BỐP!\"",
+      memory: { label: "NGỤ NGÔN: THẦY BÓI XEM VOI" },
       lines: [
-        cd("Như thấy bạn đổi ảnh đại diện, chưa hỏi han gì đã đi kể là chia tay rồi."),
-        cd("Hôm sau hóa ra người ta chỉ đổi kiểu tóc."),
+        cd("Như năm ông thầy bói mù trong truyện Thầy bói xem voi ấy: mỗi ông sờ một chỗ, rồi phán voi sun sun như con đỉa, tun tủn như cái chổi sể cùn, sừng sững như cột đình."),
+        cd("Chẳng ai thấy cả con voi, thế mà ai cũng quả quyết mình đúng, cãi nhau rồi đánh nhau tơi bời."),
+      ],
+      // Cụ Đồ đóng thầy bói béo (sờ vòi, chân), Thằng Cháu đóng thầy bói gầy (sờ đuôi).
+      stage: [
+        // "Như năm ông thầy bói mù": chống gậy dò đường tới chỗ con voi
+        {
+          line: 0,
+          cut: true,
+          scene: "thay-boi-lang",
+          camera: "wide",
+          cd: { role: "thay-boi-beo", x: -0.3, hand: "thay-boi-gay-truc", back: null, head: null, face: null, arms: "down", expr: "neutral", move: "idle" },
+          tc: { role: "thay-boi-gay", x: 1.3, hand: "thay-boi-gay-truc", back: null, head: null, face: null, arms: "down", expr: "neutral", move: "idle" },
+          items: [{ id: "voi", prop: "thay-boi-voi", x: 0.52 }],
+        },
+        { line: 0, at: 0.06, cd: { x: 0.08 }, tc: { x: 0.88 } },
+        // "mỗi ông sờ một chỗ": bỏ gậy, giơ tay sờ
+        { line: 0, at: 0.35, cd: { hand: null, arms: "point", expr: "confused" }, tc: { hand: null, arms: "point", expr: "confused" }, fx: [{ kind: "question", on: "CD" }, { kind: "question", on: "TC" }] },
+        // "sun sun như con đỉa": ông béo sờ vòi
+        { line: 0, at: 0.53, camera: "CD", cd: { arms: "hold", expr: "smug", move: "bounce" }, fx: { kind: "exclaim", on: "CD", text: "ĐỈA!" } },
+        // "tun tủn như cái chổi sể cùn": ông gầy sờ đuôi
+        { line: 0, at: 0.68, camera: "TC", cd: { move: "idle" }, tc: { arms: "raise", expr: "smug", move: "bounce" }, fx: { kind: "exclaim", on: "TC", text: "CHỔI!" } },
+        // "sừng sững như cột đình": ông béo sờ chân voi
+        { line: 0, at: 0.86, camera: "wide", cd: { x: 0.3, arms: "point", expr: "shock" }, tc: { move: "idle", arms: "hips" }, fx: { kind: "exclaim", on: "CD", text: "CỘT ĐÌNH!" } },
+
+        // "Chẳng ai thấy cả con voi": nhún vai, ngơ ngác
+        { line: 1, camera: "wide", cd: { x: 0.24, arms: "shrug", expr: "confused" }, tc: { x: 0.78, arms: "shrug", expr: "confused" }, fx: [{ kind: "question", on: "CD" }, { kind: "question", on: "TC" }] },
+        // "ai cũng quả quyết mình đúng": chống nạnh
+        { line: 1, at: 0.3, cd: { arms: "hips", expr: "smug" }, tc: { arms: "hips", expr: "smug" } },
+        // "cãi nhau": chỉ mặt nhau
+        { line: 1, at: 0.64, cd: { x: 0.34, arms: "point", expr: "angry", move: "shake" }, tc: { x: 0.66, arms: "point", expr: "angry", move: "shake" }, fx: [{ kind: "anger", on: "CD" }, { kind: "anger", on: "TC" }] },
+        // "rồi đánh nhau tơi bời": vung gậy (diễn nhẹ, kiểu hoạt hình)
+        { line: 1, at: 0.79, cd: { hand: "thay-boi-gay-truc", arms: "hit", move: "jump" }, tc: { hand: "thay-boi-gay-truc", arms: "hit", move: "jump" }, fx: { kind: "bop", on: "TC", text: "BỐP!" } },
+        { line: 1, at: 0.89, fx: { kind: "bop", on: "CD", text: "CỐP!" } },
+        { line: 1, at: 0.97, cd: { arms: "down", expr: "sad", move: "tremble" }, tc: { arms: "down", expr: "sad", move: "tremble" }, fx: [{ kind: "sweat", on: "CD" }, { kind: "sweat", on: "TC" }] },
       ],
     },
     punchline: {
@@ -148,10 +227,41 @@ export const TUAN_4 = [
     explain:
       "Mật ngọt chết ruồi là lời ngon ngọt, món lợi bày sẵn trước mắt có khi lại là cái bẫy. Ruồi ham ngọt, sà vào là dính, không ra được nữa. Người cũng vậy, nghe lời đường mật mà không tỉnh táo thì dễ mắc lừa.",
     example: {
-      shot: "Tin nhắn trúng thưởng nhấp nháy trên điện thoại, rồi cảnh người lạ nhắn rủ góp vốn",
+      shot: "HỒI ỨC (TV đen trắng): rừng, quạ đen ngậm miếng pho mát đứng trên cành cây; cáo đi tới dưới gốc, khen lông đẹp giọng hay; quạ khoái chí há mỏ hát, pho mát rơi, cáo đớp gọn rồi cười đắc ý, quạ tròn mắt",
+      memory: { label: "NGỤ NGÔN: QUẠ VÀ CÁO" },
       lines: [
-        cd("Như tin nhắn báo bạn trúng điện thoại xịn, chỉ cần chuyển phí ship trước."),
-        cd("Hay người lạ trên mạng khen bạn hết lời, rồi rủ góp vốn lãi gấp đôi."),
+        cd("Như con quạ trong truyện Quạ và Cáo ấy: đang ngậm miếng pho mát trên cành, cáo đứng dưới gốc khen lông đẹp, khen giọng hay."),
+        cd("Quạ sướng quá há mỏ ra hát, miếng pho mát rơi tọt vào miệng cáo."),
+      ],
+      // Cụ Đồ đóng quạ, Thằng Cháu đóng cáo.
+      stage: [
+        // "Như con quạ trong truyện Quạ và Cáo ấy": quạ đứng trên cành
+        {
+          line: 0,
+          cut: true,
+          scene: "qua-cao-rung",
+          camera: "wide",
+          cd: { role: "qua-cao-qua", x: 0.27, hand: null, back: null, head: null, face: "qua-cao-pho-mat-mo", arms: "down", expr: "smug", move: "idle" },
+          tc: { role: "qua-cao-cao", x: 1.4, hand: null, back: null, head: null, face: null, arms: "down", expr: "neutral", move: "idle" },
+          items: [],
+        },
+        // "đang ngậm miếng pho mát trên cành"
+        { line: 0, at: 0.33, camera: "CD", cd: { move: "bounce" }, fx: { kind: "sparkle", on: "CD" } },
+        // "cáo đứng dưới gốc": cáo đi vào, nhìn lên thèm thuồng
+        { line: 0, at: 0.56, camera: "wide", cd: { move: "idle" }, tc: { x: 0.7, expr: "smug", arms: "hips" } },
+        // "khen lông đẹp"
+        { line: 0, at: 0.76, tc: { arms: "point", expr: "happy", move: "bounce" }, fx: { kind: "hearts", on: "TC" } },
+        // "khen giọng hay": quạ phổng mũi
+        { line: 0, at: 0.88, tc: { arms: "wave" }, cd: { arms: "hips", move: "bounce" }, fx: [{ kind: "exclaim", on: "TC", text: "HAY QUÁ!" }, { kind: "sparkle", on: "CD" }] },
+
+        // "Quạ sướng quá": dang cánh
+        { line: 1, camera: "CD", cd: { arms: "up2", move: "bounce" }, tc: { move: "idle" }, fx: { kind: "hearts", on: "CD" } },
+        // "há mỏ ra hát": pho mát rơi khỏi mỏ
+        { line: 1, at: 0.24, camera: "wide", cd: { face: null, expr: "happy" }, items: [{ id: "pm", prop: "qua-cao-pho-mat", x: 0.5 }], fx: { kind: "exclaim", on: "CD", text: "QUÁ!" } },
+        // "rơi tọt vào miệng cáo": cáo đớp gọn
+        { line: 1, at: 0.66, camera: "TC", tc: { face: "qua-cao-pho-mat-cao", arms: "hips", expr: "smug", move: "bounce" }, items: [], fx: { kind: "sparkle", on: "TC" } },
+        // quạ tròn mắt
+        { line: 1, at: 0.9, camera: "wide", cd: { arms: "down", expr: "shock", move: "idle" }, fx: { kind: "surprise", on: "CD" } },
       ],
     },
     punchline: {
@@ -188,10 +298,48 @@ export const TUAN_4 = [
     explain:
       "Ngày xưa con trâu bị buộc ở cọc, nhìn con khác thong thả gặm cỏ thì bực bội. Ý câu là mình gặp cảnh không như ý thì đâm ra ghen tị với người đang được hưởng. Ông bà nói ra để mình tự soi lại, chứ không phải để làm theo.",
     example: {
-      shot: "Văn phòng ngày lễ vắng tanh, một người trực ca lướt ảnh đồng nghiệp đi biển",
+      shot: "HỒI ỨC (TV đen trắng): điện vua, Cám ướm chiếc hài không vừa, giậm chân; Tấm đi vừa hài, được đội mũ phượng làm hoàng hậu; nhà tranh ban đêm, dì ghẻ và Cám chống nạnh tức tối, chụm đầu bày mưu, Cám mơ đội mũ phượng",
+      memory: { label: "TRUYỆN CỔ TÍCH: TẤM CÁM" },
       lines: [
-        cd("Như mình phải trực lễ ở công ty, lướt thấy đồng nghiệp đi biển, thế là bình luận: chắc ảnh mạng."),
-        cd("Người ta có lỗi gì đâu, chỉ là mình đang bị buộc thôi."),
+        cd("Như mẹ con Cám trong truyện Tấm Cám ấy: Cám thử chiếc hài không vừa, còn Tấm đi vừa, được vua cưới làm hoàng hậu."),
+        cd("Thế là hai mẹ con ghen tức đỏ mắt, ngày đêm bày mưu hại Tấm, mong Cám được vào cung thay."),
+      ],
+      // Cụ Đồ đóng Tấm rồi dì ghẻ, Thằng Cháu đóng Cám.
+      stage: [
+        // "Như mẹ con Cám trong truyện Tấm Cám ấy": điện vua, Cám cầm chiếc hài, Tấm đứng nép
+        {
+          line: 0,
+          cut: true,
+          scene: "tam-cam-cung",
+          camera: "wide",
+          cd: { role: "tam-cam-tam", x: 0.26, hand: null, back: null, head: null, face: null, arms: "down", expr: "neutral", move: "idle" },
+          tc: { role: "tam-cam-cam", x: 0.68, hand: "tam-cam-hai", back: null, head: null, face: null, arms: "hold", expr: "smug", move: "idle" },
+          items: [],
+        },
+        // "Cám thử chiếc hài không vừa": ướm mãi không vừa, giậm chân
+        { line: 0, at: 0.4, camera: "TC", tc: { arms: "hit", expr: "angry", move: "shake" }, fx: { kind: "exclaim", on: "TC", text: "KHÔNG VỪA!" } },
+        // "còn Tấm đi vừa": hài sang tay Tấm
+        { line: 0, at: 0.61, camera: "wide", cd: { hand: "tam-cam-hai", arms: "hold", expr: "happy" }, tc: { hand: null, arms: "down", expr: "shock", move: "idle" }, fx: { kind: "sparkle", on: "CD" } },
+        // "được vua cưới làm hoàng hậu": đội mũ phượng
+        { line: 0, at: 0.76, camera: "CD", cd: { hand: null, head: "tam-cam-mu-phuong", arms: "up2", move: "bounce" }, fx: { kind: "hearts", on: "CD" } },
+        { line: 0, at: 0.93, camera: "wide", cd: { move: "idle" }, tc: { arms: "hips", expr: "angry" }, fx: { kind: "anger", on: "TC" } },
+
+        // "Thế là hai mẹ con ghen tức đỏ mắt": nhà tranh ban đêm
+        {
+          line: 1,
+          cut: true,
+          scene: "tam-cam-nha",
+          camera: "wide",
+          cd: { role: "tam-cam-di-ghe", x: 0.3, hand: null, head: null, arms: "hips", expr: "angry", move: "idle" },
+          tc: { x: 0.7, hand: null, head: null, arms: "hips", expr: "angry", move: "idle" },
+          items: [],
+          fx: [{ kind: "anger", on: "CD" }, { kind: "anger", on: "TC" }],
+        },
+        // "ngày đêm bày mưu hại Tấm": chụm đầu thì thầm
+        { line: 1, at: 0.42, cd: { x: 0.36, arms: "point", expr: "smug" }, tc: { x: 0.62, arms: "shrug", expr: "smug" }, fx: { kind: "exclaim", on: "CD", text: "HỪ HỪ..." } },
+        // "mong Cám được vào cung thay": Cám mơ đội mũ phượng
+        { line: 1, at: 0.72, camera: "TC", tc: { head: "tam-cam-mu-phuong", arms: "up2", expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
+        { line: 1, at: 0.9, camera: "wide", cd: { arms: "hips", expr: "happy" }, fx: { kind: "hearts", on: "TC" } },
       ],
     },
     punchline: {
@@ -228,10 +376,79 @@ export const TUAN_4 = [
     explain:
       "Chữ tàu ở đây là chuồng ngựa, chỗ đặt máng cỏ, không phải tàu hỏa. Một con ngựa ốm, cả chuồng lo lắng, không buồn ăn. Ý câu là một người trong tập thể gặp chuyện thì mọi người cùng lo, cùng sẻ chia.",
     example: {
-      shot: "Bàn làm việc trống, cả nhóm chia nhau việc trên bảng, cảnh sau cầm hộp cháo đến thăm",
+      shot: "HỒI ỨC (TV đen trắng): làng ngập trong mưa lũ; điểm nhận hàng, người ôm thùng mì, bọc quần áo, áo phao; xe tải cứu trợ chở hàng vào vùng ngập; người ở xa đứng trước ti vi xem tin lũ, bỏ bát cơm xuống",
+      memory: { label: "CHUYỆN THẬT: MÙA LŨ" },
       lines: [
-        cd("Như trong nhóm có bạn ốm phải nghỉ, cả nhóm chia nhau làm phần việc còn dang dở."),
-        cd("Tan làm còn rủ nhau mang cháo đến thăm."),
+        cd("Như mỗi mùa lũ ấy: một vùng bị ngập, cả nước người gom mì gói, người gom quần áo, áo phao, rồi lái xe chở hàng vào tận nơi."),
+        cd("Người ở xa chưa giúp được gì cũng ngồi canh tin, thương đến bỏ cả bữa."),
+      ],
+      // Cụ Đồ đóng bác tài xế, Thằng Cháu đóng bạn tình nguyện; cảnh cuối cả hai là người ở xa xem tin.
+      stage: [
+        // "Như mỗi mùa lũ ấy: một vùng bị ngập": làng ngập trong mưa
+        {
+          line: 0,
+          cut: true,
+          scene: "lu-vung-ngap",
+          camera: "wide",
+          cd: { role: "lu-tai-xe", x: -0.4, hand: null, back: null, head: null, face: null, arms: "down", expr: "neutral", move: "idle" },
+          tc: { role: "lu-tinh-nguyen", x: 1.4, hand: null, back: null, head: null, face: null, arms: "down", expr: "neutral", move: "idle" },
+          items: [],
+        },
+        // "cả nước người gom mì gói": điểm nhận hàng, bạn tình nguyện ôm thùng mì
+        {
+          line: 0,
+          at: 0.3,
+          cut: true,
+          scene: "lu-diem-gom",
+          camera: "wide",
+          cd: { x: 0.3, arms: "down", expr: "neutral" },
+          tc: { x: 0.7, hand: "lu-mi-goi", arms: "hold2", expr: "happy", move: "bounce" },
+          items: [],
+        },
+        // "người gom quần áo": bác tài ôm bọc quần áo
+        { line: 0, at: 0.5, cd: { hand: "lu-quan-ao", arms: "hold2", expr: "happy", move: "bounce" }, tc: { move: "idle" } },
+        // "áo phao": bạn tình nguyện giơ áo phao
+        { line: 0, at: 0.6, cd: { move: "idle" }, tc: { hand: "lu-ao-phao", arms: "hold2", move: "jump" }, fx: { kind: "sparkle", on: "TC" } },
+        // "rồi lái xe chở hàng": xe tải cứu trợ lăn bánh vào làng ngập
+        {
+          line: 0,
+          at: 0.72,
+          cut: true,
+          scene: "lu-vung-ngap",
+          camera: "wide",
+          cd: { x: -0.4, hand: null, arms: "down", move: "idle" },
+          tc: { x: 1.4, hand: null, arms: "down", move: "idle" },
+          items: [{ id: "xe", prop: "lu-xe-cuu-tro", x: -0.35 }],
+        },
+        { line: 0, at: 0.76, items: [{ id: "xe", prop: "lu-xe-cuu-tro", x: 0.36 }] },
+        // "vào tận nơi": bạn tình nguyện ôm thùng mì xuống phát
+        { line: 0, at: 0.88, tc: { x: 0.8, hand: "lu-mi-goi", arms: "hold2", expr: "happy" }, fx: { kind: "hearts", on: "TC" } },
+
+        // "Người ở xa chưa giúp được gì": hai người ở xa, cầm bát cơm, đứng trước ti vi
+        {
+          line: 1,
+          cut: true,
+          scene: "home",
+          camera: "wide",
+          cd: { role: null, x: 0.18, hand: "bowl", arms: "hold", expr: "neutral", move: "idle" },
+          tc: { role: null, x: 0.82, hand: "bowl", arms: "hold", expr: "neutral", move: "idle" },
+          items: [{ id: "tv", prop: "lu-ti-vi", x: 0.5, scale: 1.15 }],
+        },
+        // "cũng ngồi canh tin": lo lắng nhìn ti vi
+        { line: 1, at: 0.4, cd: { expr: "sad" }, tc: { expr: "shock" }, fx: [{ kind: "sweat", on: "CD" }, { kind: "exclaim", on: "TC" }] },
+        // "thương đến bỏ cả bữa": đặt bát xuống, không buồn ăn
+        {
+          line: 1,
+          at: 0.65,
+          cd: { hand: null, arms: "down", expr: "sad" },
+          tc: { hand: null, arms: "down", expr: "sad", move: "tremble" },
+          items: [
+            { id: "tv", prop: "lu-ti-vi", x: 0.5, scale: 1.15 },
+            { id: "b1", prop: "bowl", x: 0.06 },
+            { id: "b2", prop: "bowl", x: 0.95 },
+          ],
+        },
+        { line: 1, at: 0.85, camera: "TC", tc: { move: "idle" }, fx: { kind: "hearts", on: "TC" } },
       ],
     },
     punchline: {
@@ -268,10 +485,84 @@ export const TUAN_4 = [
     explain:
       "Ma ở đây là cách nói ví von, chỉ người. Ma cũ là người đến trước, ma mới là người mới đến. Câu này chê người cậy mình có thâm niên, đem người mới ra sai vặt, làm khó.",
     example: {
-      shot: "Phòng ký túc xá, anh năm cuối nằm chỉ tay, cậu năm nhất ôm túi rác và chậu đồ",
+      shot: "HỒI ỨC (TV đen trắng): sân chuồng, vịt con lông xám chui ra từ vỏ trứng; vịt, gà mái, gà tây xúm lại mổ, xua đuổi; gà tây chống nạnh ra oai; bên hồ mùa xuân, vịt con hoá thiên nga trắng",
+      memory: { label: "CỔ TÍCH: VỊT CON XẤU XÍ" },
       lines: [
-        cd("Như ở ký túc xá, anh năm cuối bắt tân sinh viên đổ rác, giặt đồ hộ."),
-        cd("Quên mất ngày xưa chính mình cũng từng là ma mới."),
+        cd("Như truyện Vịt con xấu xí ấy: chú vịt vừa nở đã bị cả sân chuồng, vịt, gà, gà tây, xúm vào mổ, xua đuổi."),
+        cd("Con nào cũng cậy mình ở sân trước, bắt nạt đứa mới đến, đâu biết sau này nó lớn lên thành thiên nga."),
+      ],
+      // Thằng Cháu đóng vịt con (rồi thiên nga), Cụ Đồ đóng gà tây bắt nạt.
+      stage: [
+        // "Như truyện Vịt con xấu xí ấy": sân chuồng, vịt con đứng trong vỏ trứng
+        {
+          line: 0,
+          cut: true,
+          scene: "vit-san-chuong",
+          camera: "wide",
+          cd: { role: "ga-tay", x: -0.4, hand: null, back: null, head: null, face: null, arms: "down", expr: "neutral", move: "idle" },
+          tc: { role: "vit-con-xau", x: 0.62, hand: null, back: null, head: null, face: null, arms: "down", expr: "confused", move: "idle" },
+          items: [{ id: "trung", prop: "vit-trung", x: 0.62, front: true }],
+        },
+        // "chú vịt vừa nở": nhảy ra khỏi vỏ trứng
+        { line: 0, at: 0.27, camera: "TC", tc: { arms: "up2", expr: "happy", move: "jump" }, fx: { kind: "sparkle", on: "TC" } },
+        // "đã bị cả sân chuồng": cả sân quay ra nhìn
+        { line: 0, at: 0.42, camera: "wide", tc: { x: 0.75, arms: "down", expr: "shock", move: "idle" }, items: [], fx: { kind: "exclaim", on: "TC" } },
+        // "vịt": con vịt lao tới
+        { line: 0, at: 0.55, items: [{ id: "vit", prop: "vit-vit", x: 0.5 }], fx: { kind: "bop", on: "TC", text: "QUẠC!" } },
+        // "gà": con gà mái
+        {
+          line: 0,
+          at: 0.62,
+          items: [
+            { id: "vit", prop: "vit-vit", x: 0.5 },
+            { id: "ga", prop: "vit-ga", x: 0.3 },
+          ],
+        },
+        // "gà tây": gà tây xoè đuôi đi vào
+        { line: 0, at: 0.68, cd: { x: 0.14, arms: "up2", expr: "angry" }, fx: { kind: "anger", on: "CD" } },
+        // "xúm vào mổ": cả bọn dồn tới mổ
+        {
+          line: 0,
+          at: 0.8,
+          cd: { arms: "hit" },
+          tc: { expr: "sad", move: "tremble" },
+          items: [
+            { id: "vit", prop: "vit-vit", x: 0.58 },
+            { id: "ga", prop: "vit-ga", x: 0.42 },
+          ],
+          fx: { kind: "bop", on: "TC", text: "MỔ!" },
+        },
+        // "xua đuổi": vịt con chạy dạt ra mép sân
+        { line: 0, at: 0.92, cd: { x: 0.18, arms: "point" }, tc: { x: 0.86, move: "idle" }, fx: { kind: "sweat", on: "TC" } },
+
+        // "Con nào cũng cậy mình ở sân trước": gà tây chống nạnh ra oai
+        {
+          line: 1,
+          camera: "CD",
+          cd: { arms: "hips", expr: "smug", move: "bounce" },
+          fx: { kind: "exclaim", on: "CD", text: "HỪ!" },
+        },
+        // "bắt nạt đứa mới đến": chỉ mặt, vịt con co rúm
+        { line: 1, at: 0.36, camera: "wide", cd: { arms: "point", expr: "angry", move: "idle" }, tc: { expr: "sad", move: "tremble" }, fx: { kind: "anger", on: "CD" } },
+        // "đâu biết sau này nó lớn lên": bên hồ mùa xuân, vịt con ngơ ngác
+        {
+          line: 1,
+          at: 0.58,
+          cut: true,
+          scene: "vit-ho",
+          camera: "wide",
+          cd: { x: -0.4, arms: "down", expr: "neutral", move: "idle" },
+          tc: { x: 0.5, arms: "down", expr: "sad", move: "idle" },
+          items: [],
+        },
+        // "thành thiên nga": hoá thiên nga trắng, dang cánh
+        {
+          line: 1,
+          at: 0.82,
+          tc: { role: "thien-nga", arms: "up2", expr: "happy", move: "bounce" },
+          fx: { kind: "sparkle", on: "TC" },
+        },
+        { line: 1, at: 0.94, camera: "TC", fx: { kind: "hearts", on: "TC" } },
       ],
     },
     punchline: {
@@ -309,10 +600,90 @@ export const TUAN_4 = [
     explain:
       "Đồ gỗ mà gỗ tốt thì dùng được mấy chục năm, còn nước sơn đẹp đến đâu cũng có ngày bong. Ý câu là phẩm chất bên trong quan trọng hơn vẻ đẹp bên ngoài. Câu này dùng cho cả đồ vật lẫn con người.",
     example: {
-      shot: "Hai bản CV đặt cạnh nhau: một bản màu mè, một bản trắng đen; bảng tiến độ dự án phía sau",
+      shot: "HỒI ỨC (TV đen trắng): đồi cỏ, Sọ Dừa tròn như quả dừa, con bò béo gặm cỏ; hai cô chị đi tới chỉ trỏ chê bai; cô út xách giỏ cơm, Sọ Dừa hoá chàng trai khôi ngô thổi sáo, rồi đội mũ trạng nguyên",
+      memory: { label: "TRUYỆN CỔ TÍCH: SỌ DỪA" },
       lines: [
-        cd("Như tuyển người vào nhóm, có bạn CV thiết kế lung linh, nhưng hạn nào cũng trễ."),
-        cd("Có bạn CV một trang trắng đen, việc gì giao cũng xong. Làm lâu mới biết ai là gỗ."),
+        cd("Như truyện Sọ Dừa ấy: sinh ra không chân không tay, tròn như quả dừa, chăn bò cho phú ông rất giỏi, vậy mà hai cô chị vẫn chê bai."),
+        cd("Chỉ cô út thấy được bên trong là chàng trai khôi ngô thổi sáo hay, về sau còn đỗ trạng nguyên."),
+      ],
+      // Câu 1: Cụ Đồ và Thằng Cháu đóng hai cô chị. Câu 2: Thằng Cháu đóng cô út, Cụ Đồ đóng chàng trai Sọ Dừa.
+      stage: [
+        // "Như truyện Sọ Dừa ấy: sinh ra không chân không tay": quả dừa có mặt giữa đồi
+        {
+          line: 0,
+          cut: true,
+          scene: "so-dua-doi",
+          camera: "wide",
+          cd: { role: "so-dua-co-chi", x: -0.4, hand: null, back: null, head: null, face: null, arms: "down", expr: "neutral", move: "idle" },
+          tc: { role: "so-dua-co-chi", x: 1.4, hand: null, back: null, head: null, face: null, arms: "down", expr: "neutral", move: "idle" },
+          items: [{ id: "sd", prop: "so-dua", x: 0.5 }],
+        },
+        // "tròn như quả dừa": lăn một vòng
+        { line: 0, at: 0.4, items: [{ id: "sd", prop: "so-dua", x: 0.32 }] },
+        // "chăn bò cho phú ông rất giỏi": con bò béo tròn gặm cỏ bên cạnh
+        {
+          line: 0,
+          at: 0.52,
+          items: [
+            { id: "sd", prop: "so-dua", x: 0.26 },
+            { id: "bo", prop: "so-dua-bo", x: 0.66, scale: 0.9 },
+          ],
+        },
+        // "vậy mà hai cô chị vẫn chê bai": hai cô chị đi tới chỉ trỏ
+        {
+          line: 0,
+          at: 0.76,
+          cd: { x: 0.25, expr: "smug" },
+          tc: { x: 0.75, expr: "smug" },
+          items: [{ id: "sd", prop: "so-dua", x: 0.5 }],
+        },
+        {
+          line: 0,
+          at: 0.88,
+          cd: { arms: "point", expr: "angry" },
+          tc: { arms: "point", expr: "smug" },
+          fx: [
+            { kind: "exclaim", on: "CD", text: "XẤU!" },
+            { kind: "exclaim", on: "TC", text: "EO!" },
+          ],
+        },
+
+        // "Chỉ cô út thấy được bên trong": cô út xách giỏ cơm lên đồi
+        {
+          line: 1,
+          cut: true,
+          scene: "so-dua-doi",
+          camera: "wide",
+          cd: { role: "so-dua-chang-trai", x: -0.4, arms: "down", expr: "happy", move: "idle" },
+          tc: { role: "so-dua-co-ut", x: 0.78, hand: "so-dua-gio-com", arms: "hold", expr: "happy", move: "idle" },
+          items: [{ id: "sd", prop: "so-dua", x: 0.38 }],
+        },
+        { line: 1, at: 0.16, fx: { kind: "hearts", on: "TC" } },
+        // "là chàng trai khôi ngô": vỏ dừa biến mất, hiện ra chàng trai
+        {
+          line: 1,
+          at: 0.33,
+          cut: true,
+          cd: { x: 0.36 },
+          tc: { expr: "shock" },
+          items: [],
+          fx: [
+            { kind: "sparkle", on: "CD" },
+            { kind: "exclaim", on: "TC" },
+          ],
+        },
+        // "thổi sáo hay": thổi sáo, nốt nhạc bay
+        { line: 1, at: 0.53, cd: { hand: "so-dua-sao", arms: "hold", move: "bounce" }, tc: { expr: "happy" }, fx: { kind: "hearts", on: "TC" } },
+        // "về sau còn đỗ trạng nguyên": đội mũ trạng nguyên
+        {
+          line: 1,
+          at: 0.7,
+          camera: "CD",
+          cd: { hand: null, head: "mandarin-hat", arms: "up2", expr: "happy", move: "bounce" },
+          tc: { hand: null, arms: "wave" },
+          fx: { kind: "sparkle", on: "CD" },
+        },
+        { line: 1, at: 0.9, camera: "wide", tc: { move: "bounce" }, fx: { kind: "hearts", on: "TC" } },
       ],
     },
     punchline: {

@@ -1,21 +1,12 @@
 import React from "react";
 import type { PropId } from "../lib/stage-types.ts";
 import { COLORS, TEXT_FONT, TITLE_FONT } from "../components/brand.ts";
+import { fitSize, Lines, type PropDef, Unmirror } from "./draw.tsx";
+
+export type { PropDef };
+import { STORY_PROPS } from "./story/index.ts";
 
 const INK = COLORS.ink;
-
-/**
- * extend: đồ có cán (quạt, kính lúp), vẽ dọc theo trục +y từ điểm cầm (0,0), xoay theo cẳng tay.
- * upright: đồ đứng thẳng, vẽ với đáy ở (0,0).
- */
-export type PropDef = {
-  mode: "extend" | "upright";
-  draw: (opts: { text?: string; mirrored: boolean }) => React.ReactNode;
-};
-
-/** Giữ chữ không bị lật khi nhân vật quay sang trái. */
-const Unmirror: React.FC<{ mirrored: boolean; children: React.ReactNode }> = ({ mirrored, children }) =>
-  mirrored ? <g transform="scale(-1,1)">{children}</g> : <>{children}</>;
 
 const Mango: React.FC<{ bitten?: boolean }> = ({ bitten }) => (
   <g>
@@ -48,41 +39,6 @@ const Bowl: React.FC<{ y?: number; dirty?: boolean; rice?: boolean }> = ({ y = 0
     ) : null}
   </g>
 );
-
-/** Cỡ chữ vừa một khung rộng `width` (ước lượng chữ in hoa rộng ~0,6 cỡ chữ). */
-const fitSize = (text: string, width: number, max: number) => Math.min(max, width / Math.max(1, text.length * 0.6));
-
-/** Chữ nhiều dòng (tách bằng \n), căn giữa quanh (0, cy). */
-const Lines: React.FC<{ text: string; cy: number; width: number; max: number; color?: string; font?: string }> = ({
-  text,
-  cy,
-  width,
-  max,
-  color = INK,
-  font = TITLE_FONT,
-}) => {
-  const lines = text.split("\n");
-  const size = Math.min(...lines.map((l) => fitSize(l, width, max)));
-  return (
-    <>
-      {lines.map((l, i) => (
-        <text
-          key={i}
-          x="0"
-          y={cy + (i - (lines.length - 1) / 2) * size * 1.05}
-          textAnchor="middle"
-          dominantBaseline="middle"
-          fontFamily={font}
-          fontWeight="900"
-          fontSize={size}
-          fill={color}
-        >
-          {l}
-        </text>
-      ))}
-    </>
-  );
-};
 
 const Plate: React.FC<{ rx?: number }> = ({ rx = 110 }) => (
   <>
@@ -119,7 +75,7 @@ const Milk: React.FC<{ x?: number; s?: number }> = ({ x = 0, s = 1 }) => (
   </g>
 );
 
-export const PROPS: Record<PropId, PropDef> = {
+const BASE_PROPS = {
   fan: {
     mode: "extend",
     draw: () => (
@@ -613,4 +569,8 @@ export const PROPS: Record<PropId, PropDef> = {
       </g>
     ),
   },
-};
+} satisfies Partial<Record<PropId, PropDef>>;
+
+/** Mọi đạo cụ: đạo cụ chung + đạo cụ truyện (engine/stage/story). */
+export const PROPS = { ...BASE_PROPS, ...STORY_PROPS } as Record<PropId, PropDef>;
+

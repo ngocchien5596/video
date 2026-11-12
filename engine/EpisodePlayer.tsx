@@ -17,7 +17,13 @@ import type { BoardRegistry } from "./stage/board.tsx";
 import { Stage } from "./stage/Stage.tsx";
 
 /** Khoảng khung hình của một nhịp (và của từng câu trong nhịp), truyền cho thẻ chữ để làm hiệu ứng vào / ra. */
-export type BeatFrames = { startFrame: number; endFrame: number; lines: { startFrame: number; endFrame: number }[] };
+export type BeatFrames = {
+  startFrame: number;
+  endFrame: number;
+  /** Đầu quãng lặng cuối nhịp (Beat.holdSeconds); bằng endFrame khi nhịp không có quãng lặng. */
+  holdFrame: number;
+  lines: { startFrame: number; endFrame: number }[];
+};
 
 export type EpisodeLayout = {
   /** Thanh trên cùng: nhãn series + tiêu đề tập. Tiêu đề chỉ hiện sau khi nhịp `showTitleAfter` kết thúc. */
@@ -28,8 +34,8 @@ export type EpisodeLayout = {
   cards?: { beat: BeatKind; render: (f: BeatFrames) => React.ReactNode }[];
   /** Thẻ cuối: câu hỏi kéo bình luận + dòng hẹn tập sau. */
   endCard: { question: string; teaser: string | null };
-  /** Hiệu ứng âm thanh lúc bắt đầu một nhịp (file trong public/sfx). */
-  sfx?: { beat: BeatKind; file: string; volume?: number }[];
+  /** Hiệu ứng âm thanh lúc bắt đầu một nhịp, hoặc lúc vào quãng lặng cuối nhịp (`at: "hold"`). File trong public/sfx. */
+  sfx?: { beat: BeatKind; file: string; volume?: number; at?: "start" | "hold" }[];
   /** Sơ đồ cho bảng minh hoạ (kênh "board" của phần diễn). */
   boards?: BoardRegistry;
 };
@@ -56,9 +62,12 @@ const Picture: React.FC<PictureProps> = ({ episode, timeline, layout }) => {
   const { fps, durationInFrames } = useVideoConfig();
   const t = frame / fps;
   const { beats, cues } = timeline;
-  const hasStage = episode.beats.some((b) => b.stage?.length);
+  // Tập có phần diễn ở nhịp thường thì dựng sân khấu suốt tập. Tập chỉ có phần diễn ở cảnh hồi ức
+  // thì các nhịp khác vẫn dùng animatic chân dung, riêng nhịp hồi ức dựng sân khấu.
+  const fullStage = episode.beats.some((b) => b.stage?.length && !b.memory);
 
   const beat = beats.find((b) => t >= b.start && t < b.end) ?? beats[beats.length - 1];
+  const hasStage = fullStage || Boolean(beat.stage?.length);
   const cue = cues.find((c) => t >= c.start && t < c.end);
   const f = (seconds: number) => Math.round(seconds * fps);
   const find = (kind?: BeatKind) => (kind ? beats.find((b) => b.kind === kind) : undefined);
@@ -96,7 +105,8 @@ const Picture: React.FC<PictureProps> = ({ episode, timeline, layout }) => {
         const lines = timeline.lines
           .filter((l) => l.beat === index)
           .map((l) => ({ startFrame: f(l.start), endFrame: f(l.end) }));
-        return <React.Fragment key={i}>{card.render({ startFrame: f(b.start), endFrame: f(b.end), lines })}</React.Fragment>;
+        const holdFrame = f(b.end - (b.holdSeconds ?? 0));
+        return <React.Fragment key={i}>{card.render({ startFrame: f(b.start), endFrame: f(b.end), holdFrame, lines })}</React.Fragment>;
       })}
 
       {frame >= endStart ? (
@@ -178,7 +188,9 @@ export const EpisodePlayer: React.FC<EpisodePlayerProps> = ({ episode, voice, la
 
       {(layout.sfx ?? []).map((s) => {
         const b = beats.find((x) => x.kind === s.beat);
-        return b ? <Sfx key={`${s.beat}-${s.file}`} file={s.file} at={f(b.start)} volume={s.volume} /> : null;
+        if (!b) return null;
+        const at = s.at === "hold" ? f(b.end - (b.holdSeconds ?? 0)) : f(b.start);
+        return <Sfx key={`${s.beat}-${s.file}`} file={s.file} at={at} volume={s.volume} />;
       })}
       <Sfx file="whoosh.wav" at={endStart} volume={0.6} />
       <Sfx file="whoosh.wav" at={loopStart} volume={0.45} />
