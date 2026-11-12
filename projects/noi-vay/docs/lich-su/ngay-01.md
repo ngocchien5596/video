@@ -21,3 +21,7 @@ Phần diễn đổi ở nhịp 5.
 ## 2026-11-11 21:23 · Xuất video v1
 
 Kịch bản ở commit `2ca0811`, dài 61.8 giây. File: `out/noi-vay/versions/ngay-01/v1/`.
+
+## 2026-11-12 09:56 · Xuất video v2
+
+Kịch bản ở commit `08b54cb`, dài 63.6 giây. File: `out/noi-vay/versions/ngay-01/v2/`.
