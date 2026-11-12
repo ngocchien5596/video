@@ -7,19 +7,19 @@
   "cover": "Bia-{dd}",
   "source": "src/episodes/tuan-{week}.ts",
   "schedule": {
-    "notifyTime": "20:30",
+    "notifyTime": "08:00",
     "startDate": null
   },
   "publish": {
     "seriesName": "Nói Vậy Mà Không Phải Vậy",
     "postTimes": {
       "youtube": {
-        "weekday": "12:00",
-        "weekend": "12:00"
+        "weekday": "11:30",
+        "weekend": "11:30"
       },
       "tiktok": {
-        "weekday": "12:00",
-        "weekend": "12:00"
+        "weekday": "11:30",
+        "weekend": "11:30"
       }
     },
     "hashtags": [

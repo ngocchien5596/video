@@ -7,20 +7,19 @@
   "cover": "ViSao-Bia-{dd}",
   "source": "src/episodes/tuan-{week}.ts",
   "schedule": {
-    "enabled": false,
-    "notifyTime": "20:00",
+    "notifyTime": "08:15",
     "startDate": null
   },
   "publish": {
     "seriesName": "Ông Ơi, Vì Sao?",
     "postTimes": {
       "youtube": {
-        "weekday": "20:30",
-        "weekend": "20:30"
+        "weekday": "11:45",
+        "weekend": "11:45"
       },
       "tiktok": {
-        "weekday": "20:30",
-        "weekend": "20:30"
+        "weekday": "11:45",
+        "weekend": "11:45"
       }
     },
     "hashtags": [
@@ -62,7 +61,7 @@
     },
     "maxHashtagsYoutube": 3,
     "maxHashtagsTiktok": 3,
-    "aiNote": "Video có giọng đọc và hình ảnh được tạo với sự hỗ trợ của AI. Nội dung đã được người thật đối chiếu với các nguồn bên dưới."
+    "aiNote": "Video có giọng đọc và hình ảnh được tạo với sự hỗ trợ của AI. Nội dung đã được người thật đối chiếu với các nguồn tham khảo ở trên."
   },
   "playlist": {
     "title": "Ông Ơi, Vì Sao? | Câu hỏi tưởng dễ mà người lớn cũng hay trả lời sai",

@@ -279,12 +279,12 @@ export const TUAN_1 = [
       },
       // "mà chừa phần cho cả nhà"
       { line: 1, at: 0.4, camera: "wide", cd: { arms: "wave", expr: "happy" } },
-      // "Ngồi trông hướng là ngồi ngay ngắn, lịch sự"
+      // "Ngồi trông hướng là nhìn trước nhìn sau mà ngồi cho đúng chỗ"
       { line: 1, at: 0.62, cd: { arms: "raise" }, tc: { arms: "down", expr: "neutral" } },
       { line: 1, at: 0.9, tc: { expr: "happy", arms: "raise" }, fx: { kind: "exclaim", on: "TC", text: "À!" } },
     ],
     explain:
-      "Trông nồi là để ý xem cơm canh còn nhiều hay ít mà chừa phần cho cả nhà. Ngồi trông hướng là ngồi ngay ngắn, lịch sự, không chắn lối đi.",
+      "Trông nồi là để ý xem cơm canh còn nhiều hay ít mà chừa phần cho cả nhà. Ngồi trông hướng là nhìn trước nhìn sau mà ngồi cho đúng chỗ, lịch sự, không chắn lối người khác.",
     example: {
       shot: "Bữa liên hoan công ty, đĩa gà rán giữa bàn",
       lines: [
