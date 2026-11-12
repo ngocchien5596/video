@@ -39,7 +39,7 @@ export const TUAN_1 = [
       lines: [
         tc("Thì ông dạy thế nào cháu làm đúng thế đấy! Ăn xong bát cháo là phải sút một cú thật đẹp!"),
         tc("Sáng nay cháu ăn hai bát, nên phải đá đủ hai quả mới đúng luật!"),
-        cd("Mày đá vỡ hết bát thì trưa nay cả nhà ăn cơm bằng vung nồi à?!"),
+        cd("Mày đá vỡ hết bát thì trưa nay cả nhà ăn cơm bằng gì?!"),
       ],
       stage: [
         // "Thì ông dạy thế nào cháu làm đúng thế đấy!": cầm bát húp
@@ -65,8 +65,8 @@ export const TUAN_1 = [
         { line: 1, at: 0.5, camera: "TC", tc: { expr: "happy", move: "bounce" }, fx: { kind: "exclaim", on: "TC", text: "2!" } },
         // "Mày đá vỡ hết bát"
         { line: 2, camera: "CD", cd: { expr: "angry", arms: "point", move: "shake" }, tc: { move: "idle" }, fx: { kind: "anger", on: "CD" } },
-        // "ăn cơm bằng vung nồi à?!"
-        { line: 2, at: 0.6, camera: "wide", cd: { move: "idle" }, tc: { expr: "shock", move: "tremble" }, fx: { kind: "sweat", on: "TC" } },
+        // "ăn cơm bằng gì?!"
+        { line: 2, at: 0.71, camera: "wide", cd: { move: "idle" }, tc: { expr: "shock", move: "tremble" }, fx: { kind: "sweat", on: "TC" } },
       ],
     },
     flipStage: [
@@ -163,7 +163,7 @@ export const TUAN_1 = [
       shot: "TC ôm cái bát vào lòng, lấy chăn đắp cho cái bát trên ghế sofa",
       lines: [
         tc("Cháu sợ mang tiếng vô ơn lắm! Ăn cháo xong cháu đắp chăn ru cái bát ngủ luôn..."),
-        tc("...Rửa nước lạnh bát nó cảm lạnh ông ạ, đống bát trong bồn ông rửa hộ cháu nhé!"),
+        tc("...Cháu rửa bát bằng nước lạnh, cháu sợ bát nó cảm lạnh ông ạ, hay là đống bát trong bồn ông rửa hộ cháu nhé!"),
       ],
       stage: [
         // "Cháu sợ mang tiếng vô ơn lắm!": ôm cái bát vào lòng
@@ -178,12 +178,14 @@ export const TUAN_1 = [
         },
         // "đắp chăn ru cái bát ngủ luôn"
         { line: 0, at: 0.5, camera: "TC", tc: { expr: "happy", move: "bounce" }, items: [{ id: "goi", prop: "pillow", x: 0.86 }], fx: { kind: "hearts", on: "TC" } },
-        // "Rửa nước lạnh bát nó cảm lạnh ông ạ"
-        { line: 1, tc: { expr: "sad", move: "tremble" }, fx: { kind: "sweat", on: "TC" } },
+        // "Cháu rửa bát bằng nước lạnh": sợ, run
+        { line: 1, tc: { expr: "sad", move: "tremble" } },
+        // "bát nó cảm lạnh": mồ hôi
+        { line: 1, at: 0.4, fx: { kind: "sweat", on: "TC" } },
         // "đống bát trong bồn ông rửa hộ cháu nhé!": đẩy chồng bát bẩn sang ông
         {
           line: 1,
-          at: 0.5,
+          at: 0.64,
           camera: "wide",
           tc: { arms: "point", expr: "smug", move: "idle" },
           items: [
@@ -193,13 +195,13 @@ export const TUAN_1 = [
         },
         {
           line: 1,
-          at: 0.72,
+          at: 0.8,
           items: [
             { id: "goi", prop: "pillow", x: 0.86 },
             { id: "chong", prop: "bowls", x: 0.36 },
           ],
         },
-        { line: 1, at: 0.9, cd: { expr: "angry", move: "tremble" }, tc: { expr: "happy", move: "bounce" }, fx: { kind: "anger", on: "CD" } },
+        { line: 1, at: 0.92, cd: { expr: "angry", move: "tremble" }, tc: { expr: "happy", move: "bounce" }, fx: { kind: "anger", on: "CD" } },
       ],
     },
   }),

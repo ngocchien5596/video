@@ -25,3 +25,19 @@ Kịch bản ở commit `2ca0811`, dài 61.8 giây. File: `out/noi-vay/versions/
 ## 2026-11-12 09:56 · Xuất video v2
 
 Kịch bản ở commit `08b54cb`, dài 63.6 giây. File: `out/noi-vay/versions/ngay-01/v2/`.
+
+## 2026-11-12 10:12 · Sửa kịch bản
+
+**Yêu cầu:** đoạn 3.3 đổi thành "Mày đá vỡ hết bát thì trưa nay cả nhà ăn cơm bằng gì?!". đoạn 6.2 đổi thành " ...Cháu rửa bát bằng nước lạnh cháu sợ bát nó cảm lạnh ông ạ, hay là đống bát trong bồn ông rửa hộ cháu nhé!"
+
+**Tóm tắt:**
+- Nhịp Hiểu sai, câu 3 (đoạn 3.3): đổi thoại thành "...ăn cơm bằng gì?!". Vì câu mới ngắn hơn, mốc biểu cảm "ăn cơm" chuyển từ 0.6 sang 0.71 (từ "ăn" nằm ở đầu từ thứ 11 trên 14 từ). Hình và đoạn mô tả cảnh không đổi.
+- Nhịp Punchline, câu 2 (đoạn 6.2): đổi thoại thành "...Cháu rửa bát bằng nước lạnh, cháu sợ bát nó cảm lạnh ông ạ, hay là đống bát trong bồn ông rửa hộ cháu nhé!". Tôi bỏ khoảng trắng đầu dòng và thêm dấu phẩy sau "nước lạnh" cho đúng nhịp đọc.
+- Đánh lại mốc diễn theo số từ của câu mới: Thằng Cháu rùng mình và ra mồ hôi đúng lúc nói "cảm lạnh" (0.4, trước đây mồ hôi hiện ở đầu câu); đẩy chồng bát sang ông từ 0.5 lên 0.64 ("đống bát"); chồng bát trượt sang trái từ 0.72 lên 0.8 ("trong bồn ông"); ông Cụ Đồ nổi giận từ 0.9 lên 0.92 ("rửa hộ cháu").
+- Câu punchline dài thêm khoảng 7 từ, nên nên nghe lại tổng thời lượng (dưới 60 giây). Nhịp này chưa đặt "seconds" nên đang dùng mặc định.
+
+**Thay đổi:**
+- `3.3` Cụ Đồ (nhịp 3): ~~Mày đá vỡ hết bát thì trưa nay cả nhà ăn cơm bằng vung nồi à?!~~ → Mày đá vỡ hết bát thì trưa nay cả nhà ăn cơm bằng gì?!
+- `6.2` Cháu (nhịp 6): ~~...Rửa nước lạnh bát nó cảm lạnh ông ạ, đống bát trong bồn ông rửa hộ cháu nhé!~~ → ...Cháu rửa bát bằng nước lạnh, cháu sợ bát nó cảm lạnh ông ạ, hay là đống bát trong bồn ông rửa hộ cháu nhé!
+
+Phần diễn đổi ở nhịp 3, 6.
