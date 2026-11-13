@@ -51,12 +51,15 @@ export type PropId =
   // Đồ ăn, đồ bếp
   | "bowl-empty"
   | "chicken-plate"
+  | "chicken-plate-2"
+  | "chicken-plate-1"
   | "drumstick"
   | "bun-plate"
   | "bun"
   | "milk"
   | "cucumber"
   | "candy"
+  | "phone"
   | "pan"
   | "fridge"
   // Đồ dùng

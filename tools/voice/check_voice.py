@@ -12,6 +12,9 @@ import sys
 import unicodedata
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from vi_text import normalize_numbers  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[2]
 PUBLIC = ROOT / "public"
 # Tỉ lệ từ khớp dưới mức này thì đánh dấu để nghe lại.
@@ -46,7 +49,7 @@ def main() -> None:
         print(f"\nNgày {day}")
         for item in json.loads(manifest.read_text(encoding="utf-8"))["lines"]:
             heard = asr.transcribe(str(PUBLIC / item["file"]), "vi")
-            score = difflib.SequenceMatcher(None, words(item["text"]), words(heard)).ratio()
+            score = difflib.SequenceMatcher(None, words(normalize_numbers(item["text"])), words(heard)).ratio()
             mark = "OK " if score >= THRESHOLD else "XEM"
             bad += score < THRESHOLD
             print(f"  {mark} {score:4.0%}  {Path(item['file']).name}")

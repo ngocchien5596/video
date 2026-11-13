@@ -12,6 +12,9 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from vi_text import normalize_numbers  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[2]
 PUBLIC = ROOT / "public"
 
@@ -23,12 +26,14 @@ SPEAKERS = {
 
 
 def tts_text(text: str) -> str:
-    """Bỏ ký tự chỉ có nghĩa trên phụ đề (ngoặc kép, dấu ba chấm ở đầu câu...)."""
+    """Bỏ ký tự chỉ có nghĩa trên phụ đề (ngoặc kép, dấu ba chấm ở đầu câu...) và đổi số sang chữ."""
     t = re.sub(r"[\"'‘’“”«»]", "", text)
     t = re.sub(r"^\s*(\.\.\.|…)\s*", "", t)
     t = re.sub(r"\s*(\.\.\.|…)\s*$", ".", t)
     t = re.sub(r"\s*(\.\.\.|…)\s*", ", ", t)
     t = re.sub(r"([?!])[?!]+", r"\1", t)
+    # Mô hình đọc không hiểu chữ số ("15", "1950", "5:00"), phải đổi sang chữ tiếng Việt.
+    t = normalize_numbers(t)
     return re.sub(r"\s+", " ", t).strip()
 
 

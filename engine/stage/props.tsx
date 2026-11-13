@@ -223,6 +223,27 @@ const BASE_PROPS = {
       </g>
     ),
   },
+  /** Đĩa gà chỉ còn 2 miếng. */
+  "chicken-plate-2": {
+    mode: "upright",
+    draw: () => (
+      <g>
+        <Drumstick x={-30} y={-16} r={-35} s={0.75} />
+        <Drumstick x={30} y={-16} r={35} s={0.75} />
+        <Plate />
+      </g>
+    ),
+  },
+  /** Đĩa gà chỉ còn 1 miếng. */
+  "chicken-plate-1": {
+    mode: "upright",
+    draw: () => (
+      <g>
+        <Drumstick x={10} y={-16} r={20} s={0.75} />
+        <Plate />
+      </g>
+    ),
+  },
   drumstick: { mode: "upright", draw: () => <Drumstick /> },
   "bun-plate": {
     mode: "upright",
@@ -256,6 +277,20 @@ const BASE_PROPS = {
         <path d="M-30 0 L-58 -20 L-58 20 Z M30 0 L58 -20 L58 20 Z" fill="#FF8FB1" stroke={INK} strokeWidth="5" strokeLinejoin="round" />
         <ellipse cx="0" cy="0" rx="34" ry="24" fill="#FF5C8A" stroke={INK} strokeWidth="6" />
         <path d="M-16 -10 Q0 4 16 -10" stroke="#FFFFFF" strokeWidth="5" fill="none" strokeLinecap="round" />
+      </g>
+    ),
+  },
+  /** Điện thoại đang mở tin nhắn. */
+  phone: {
+    mode: "upright",
+    draw: () => (
+      <g transform="translate(0 -70) rotate(-8)">
+        <rect x="-38" y="-68" width="76" height="136" rx="14" fill="#2B2B2B" stroke={INK} strokeWidth="6" />
+        <rect x="-29" y="-54" width="58" height="104" rx="6" fill="#E9F4FF" />
+        <rect x="-24" y="-44" width="40" height="18" rx="8" fill="#FFFFFF" stroke="#9BB7D4" strokeWidth="2" />
+        <rect x="-16" y="-18" width="40" height="18" rx="8" fill="#5BB5FF" />
+        <rect x="-24" y="8" width="34" height="18" rx="8" fill="#FFFFFF" stroke="#9BB7D4" strokeWidth="2" />
+        <circle cx="0" cy="58" r="4" fill="#777777" />
       </g>
     ),
   },
