@@ -20,18 +20,18 @@
 
 ## Ngày 2: Ăn trông nồi ngồi trông hướng
 
-- **Nghĩa thật:** Ăn uống, đi đứng phải lịch sự, biết quan tâm và nhường nhịn mọi người xung quanh.
+- **Nghĩa thật:** Ăn uống cho đúng mực, đi đứng ngồi đúng vị trí, cư xử hợp với hoàn cảnh và người xung quanh.
 - **Câu hỏi cuối video:** Đi liên hoan, bạn là người hay gắp cho cả bàn hay là người được gắp cho?
 - **Footage:** chưa có (đặt file vào public/footage/)
 
 | Giây | Nhịp | Cảnh | Thoại |
 | --- | --- | --- | --- |
 | 0–3 | HOOK | Bàn ăn có đĩa đùi gà rán, TC cầm la bàn xoay ghế liên tục | **TC**: Lệch 15 độ Bắc... Thảo nào ăn cơm mãi không thấy no! |
-| 3–7.8 | ĐẶT CÂU | Cụ Đồ hỏi, TC đáp; nói xong hiện thẻ "BẠN HIỂU ĐÚNG CÂU NÀY CHƯA?" + câu, âm "ding", rồi câu bay lên góc trên | **CĐ**: Xoay chóng cả mặt, làm trò gì đấy?<br>**TC**: Ăn trông nồi ngồi trông hướng ạ! |
-| 7.8–26.8 | HIỂU SAI | TC chỉnh ghế theo la bàn, hai tay ôm khư khư nồi cơm điện, mắt nhìn CĐ đầy cảnh giác | **TC**: Ngồi trông hướng là phải tra la bàn cho chuẩn hướng Đông Nam!<br>**TC**: Còn ăn trông nồi là cháu phải ôm chặt nồi cơm để canh chừng, kẻo có ai ăn vụng!<br>**CĐ**: Ông ăn cơm nhà ông mà mày canh như canh trộm thế à?! |
-| 26.8–41.8 | LẬT NGHĨA | Cụ Đồ gõ quạt lên đầu Thằng Cháu, nhạc dừng một nhịp | **CĐ**: Ông bà nói vậy, mà không phải vậy!<br>**CĐ**: Trông nồi là để ý xem cơm canh còn nhiều hay ít mà chừa phần cho cả nhà. Ngồi trông hướng là nhìn trước nhìn sau mà ngồi cho đúng chỗ, lịch sự, không chắn lối người khác. |
-| 41.8–53.8 | VÍ DỤ | Bữa liên hoan công ty, đĩa gà rán giữa bàn | **CĐ**: Như đi liên hoan công ty, đĩa gà 4 miếng cho cả bàn, mày gắp một mình 3 miếng là không 'trông nồi'. Ngồi gác chân chắn lối người ta đi là không 'trông hướng'! |
-| 53.8–61.8 | PUNCHLINE | CĐ lén gắp miếng gà, TC nhắc 'trông nồi' nên ông ngượng đặt lại; TC giơ điện thoại 'bố mẹ nhắn về muộn' rồi bê nốt đĩa gà, CĐ há miệng cứng họng | **TC**: Ông ơi, trông nồi ạ! Đĩa còn hai miếng, phần bố mẹ cháu chưa về đấy.<br>**TC**: À, bố mẹ cháu vừa nhắn về muộn, dặn cháu ăn luôn cho khỏi nguội ạ! |
+| 3–7.8 | ĐẶT CÂU | Cụ Đồ hỏi, TC đáp; nói xong hiện thẻ "BẠN HIỂU ĐÚNG CÂU NÀY CHƯA?" + câu, âm "ding", rồi câu bay lên góc trên | **CĐ**: Xoay chóng cả mặt, mày làm trò gì đấy cháu?<br>**TC**: À, không có gì đâu. Cháu làm theo câu Ăn trông nồi ngồi trông hướng ạ! |
+| 7.8–26.8 | HIỂU SAI | TC chỉnh ghế theo la bàn, hai tay ôm khư khư nồi cơm điện, mắt nhìn CĐ đầy cảnh giác | **TC**: Ngồi trông hướng là phải tra la bàn cho chuẩn hướng Đông Nam!<br>**TC**: Còn ăn trông nồi là cháu phải ôm chặt nồi cơm để canh chừng, kẻo có ai ăn vụng!<br>**CĐ**: Vớ vẩn, đã ai làm gì đâu, đã ai động vào đâu mà sợ ăn vụng! |
+| 26.8–41.8 | LẬT NGHĨA | Cụ Đồ gõ quạt lên đầu Thằng Cháu, nhạc dừng một nhịp | **CĐ**: Ông bà nói vậy, mà không phải vậy!<br>**CĐ**: Ăn trông nồi là ăn cho đúng mực: để ý cơm canh còn nhiều hay ít, mọi người đã ăn chưa, đừng ăn lấn phần ai. Ngồi trông hướng là xem mình ngồi đâu cho hợp, nhất là khi có người lớn. Ra xe buýt hay ở công ty cũng vậy: đi, đứng, ngồi phải biết vị trí của mình. |
+| 41.8–53.8 | VÍ DỤ | Bữa liên hoan công ty, đĩa gà rán giữa bàn; TC gắp liền mấy miếng, rồi balo của TC vứt chiếm cả chỗ ông | **CĐ**: Như đi liên hoan công ty, đĩa gà 4 miếng cho cả bàn, mày gắp một mình 3 miếng là không 'trông nồi'. Đồ đạc mày vứt bừa bộn hết cả chỗ của người khác là không 'trông hướng'! |
+| 53.8–63.1 | PUNCHLINE | CĐ lén gắp miếng gà, TC nhắc 'trông nồi' nên ông ngượng đặt lại; điện thoại reo 'ting ting' báo tin nhắn, TC giơ điện thoại 'bố mẹ nhắn về muộn' rồi bê nốt đĩa gà, CĐ há miệng cứng họng | **TC**: Ông ơi, trông nồi ạ! Đĩa còn hai miếng, phần bố mẹ cháu chưa về đấy.<br>**TC**: À, bố mẹ cháu vừa nhắn về muộn, dặn cháu ăn luôn cho khỏi nguội ạ! |
 
 ## Ngày 3: Chó treo mèo đậy
 

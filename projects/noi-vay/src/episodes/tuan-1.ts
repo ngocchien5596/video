@@ -211,7 +211,7 @@ export const TUAN_1 = [
     week,
     theme,
     idiom: "Ăn trông nồi ngồi trông hướng",
-    meaning: "Ăn uống, đi đứng phải lịch sự, biết quan tâm và nhường nhịn mọi người xung quanh.",
+    meaning: "Ăn uống cho đúng mực, đi đứng ngồi đúng vị trí, cư xử hợp với hoàn cảnh và người xung quanh.",
     question: "Đi liên hoan, bạn là người hay gắp cho cả bàn hay là người được gắp cho?",
     hook: {
       shot: "Bàn ăn có đĩa đùi gà rán, TC cầm la bàn xoay ghế liên tục",
@@ -234,13 +234,14 @@ export const TUAN_1 = [
       { line: 0, camera: "CD", cd: { expr: "confused", arms: "hips" }, tc: { move: "idle" }, fx: { kind: "question", on: "CD" } },
       { line: 1, camera: "wide", cd: { arms: "down", expr: "neutral" }, tc: { arms: "raise", expr: "smug", move: "bounce" } },
     ],
-    ask: "Xoay chóng cả mặt, làm trò gì đấy?",
+    ask: "Xoay chóng cả mặt, mày làm trò gì đấy cháu?",
+    answer: "À, không có gì đâu. Cháu làm theo câu Ăn trông nồi ngồi trông hướng ạ!",
     misread: {
       shot: "TC chỉnh ghế theo la bàn, hai tay ôm khư khư nồi cơm điện, mắt nhìn CĐ đầy cảnh giác",
       lines: [
         tc("Ngồi trông hướng là phải tra la bàn cho chuẩn hướng Đông Nam!"),
         tc("Còn ăn trông nồi là cháu phải ôm chặt nồi cơm để canh chừng, kẻo có ai ăn vụng!"),
-        cd("Ông ăn cơm nhà ông mà mày canh như canh trộm thế à?!"),
+        cd("Vớ vẩn, đã ai làm gì đâu, đã ai động vào đâu mà sợ ăn vụng!"),
       ],
       stage: [
         // "Ngồi trông hướng là phải tra la bàn"
@@ -258,7 +259,7 @@ export const TUAN_1 = [
         { line: 1, at: 0.55, tc: { expr: "angry", move: "tremble" }, fx: { kind: "anger", on: "TC" } },
         // "kẻo có ai ăn vụng!"
         { line: 1, at: 0.78, cd: { expr: "confused" }, tc: { move: "idle" }, fx: { kind: "question", on: "CD" } },
-        // "Ông ăn cơm nhà ông mà mày canh như canh trộm"
+        // "Vớ vẩn, đã ai làm gì đâu, đã ai động vào đâu"
         { line: 2, camera: "CD", cd: { expr: "angry", arms: "point" }, fx: { kind: "anger", on: "CD" } },
         { line: 2, at: 0.65, camera: "wide", cd: { move: "shake" }, tc: { expr: "shock" }, fx: { kind: "surprise", on: "TC" } },
       ],
@@ -266,7 +267,7 @@ export const TUAN_1 = [
     flipStage: [
       { line: 0, camera: "wide", cd: { x: 0.42, hand: "fan", arms: "hit", expr: "angry", move: "idle" }, tc: { move: "idle", arms: "down" } },
       { line: 0, at: 0.3, fx: { kind: "bop", on: "TC" }, tc: { expr: "shock", move: "tremble", hand: null } },
-      // "Trông nồi là để ý xem cơm canh còn nhiều hay ít"
+      // "Ăn trông nồi là ăn cho đúng mực: để ý cơm canh còn nhiều hay ít"
       {
         line: 1,
         camera: "CD",
@@ -277,18 +278,23 @@ export const TUAN_1 = [
           { id: "noi", prop: "rice-cooker", x: 0.72, on: "table" },
         ],
       },
-      // "mà chừa phần cho cả nhà"
-      { line: 1, at: 0.4, camera: "wide", cd: { arms: "wave", expr: "happy" } },
-      // "Ngồi trông hướng là nhìn trước nhìn sau mà ngồi cho đúng chỗ"
-      { line: 1, at: 0.62, cd: { arms: "raise" }, tc: { arms: "down", expr: "neutral" } },
-      { line: 1, at: 0.9, tc: { expr: "happy", arms: "raise" }, fx: { kind: "exclaim", on: "TC", text: "À!" } },
+      // "mọi người đã ăn chưa, đừng ăn lấn phần ai"
+      { line: 1, at: 0.25, camera: "wide", cd: { arms: "wave", expr: "happy" } },
+      // "Ngồi trông hướng là xem mình ngồi đâu cho hợp"
+      { line: 1, at: 0.42, cd: { arms: "raise", expr: "neutral" }, tc: { arms: "down", expr: "neutral" } },
+      // "nhất là khi có người lớn": Cụ Đồ tự chỉ mình, vuốt râu đắc ý
+      { line: 1, at: 0.6, camera: "CD", cd: { arms: "hips", expr: "smug" }, fx: { kind: "sparkle", on: "CD" } },
+      // "Ra xe buýt hay ở công ty cũng vậy"
+      { line: 1, at: 0.7, camera: "wide", cd: { arms: "point", expr: "neutral" }, tc: { expr: "confused" } },
+      // "đi, đứng, ngồi phải biết vị trí của mình"
+      { line: 1, at: 0.93, tc: { expr: "happy", arms: "raise" }, fx: { kind: "exclaim", on: "TC", text: "À!" } },
     ],
     explain:
-      "Trông nồi là để ý xem cơm canh còn nhiều hay ít mà chừa phần cho cả nhà. Ngồi trông hướng là nhìn trước nhìn sau mà ngồi cho đúng chỗ, lịch sự, không chắn lối người khác.",
+      "Ăn trông nồi là ăn cho đúng mực: để ý cơm canh còn nhiều hay ít, mọi người đã ăn chưa, đừng ăn lấn phần ai. Ngồi trông hướng là xem mình ngồi đâu cho hợp, nhất là khi có người lớn. Ra xe buýt hay ở công ty cũng vậy: đi, đứng, ngồi phải biết vị trí của mình.",
     example: {
-      shot: "Bữa liên hoan công ty, đĩa gà rán giữa bàn",
+      shot: "Bữa liên hoan công ty, đĩa gà rán giữa bàn; TC gắp liền mấy miếng, rồi balo của TC vứt chiếm cả chỗ ông",
       lines: [
-        cd("Như đi liên hoan công ty, đĩa gà 4 miếng cho cả bàn, mày gắp một mình 3 miếng là không 'trông nồi'. Ngồi gác chân chắn lối người ta đi là không 'trông hướng'!"),
+        cd("Như đi liên hoan công ty, đĩa gà 4 miếng cho cả bàn, mày gắp một mình 3 miếng là không 'trông nồi'. Đồ đạc mày vứt bừa bộn hết cả chỗ của người khác là không 'trông hướng'!"),
       ],
       stage: [
         // "Như đi liên hoan công ty, đĩa gà 4 miếng cho cả bàn"
@@ -296,18 +302,28 @@ export const TUAN_1 = [
         // "mày gắp một mình 3 miếng"
         { line: 0, at: 0.3, tc: { hand: "drumstick", arms: "hold", expr: "happy", move: "bounce" }, fx: { kind: "hearts", on: "TC" } },
         // "là không 'trông nồi'"
-        { line: 0, at: 0.52, cd: { expr: "angry" }, tc: { expr: "shock", move: "idle" }, fx: { kind: "anger", on: "CD" } },
-        // "Ngồi gác chân chắn lối người ta đi"
-        { line: 0, at: 0.66, tc: { arms: "hips", expr: "smug", move: "bounce" }, fx: { kind: "sweat", on: "CD" } },
+        { line: 0, at: 0.45, cd: { expr: "angry" }, tc: { expr: "shock", move: "idle" }, fx: { kind: "anger", on: "CD" } },
+        // "Đồ đạc mày vứt bừa bộn hết cả chỗ của người khác": balo của TC chiếm luôn chỗ của ông
+        {
+          line: 0,
+          at: 0.58,
+          tc: { arms: "hips", expr: "smug", move: "bounce" },
+          items: [
+            { id: "ga", prop: "chicken-plate", x: 0.5, on: "table" },
+            { id: "balo", prop: "backpack", x: 0.3, on: "table" },
+          ],
+          fx: { kind: "sweat", on: "CD" },
+        },
         // "là không 'trông hướng'!"
         { line: 0, at: 0.87, camera: "CD", cd: { arms: "point", expr: "angry" }, tc: { move: "idle" }, fx: { kind: "exclaim", on: "CD" } },
       ],
     },
     punchline: {
       // Lách luật: TC bắt quả tang ông bằng chính bài ông vừa dạy, ông ngượng trả miếng gà; rồi TC có "lý do hợp lệ" để ăn nốt. Cụ Đồ cứng họng, không nói câu nào.
-      shot: "CĐ lén gắp miếng gà, TC nhắc 'trông nồi' nên ông ngượng đặt lại; TC giơ điện thoại 'bố mẹ nhắn về muộn' rồi bê nốt đĩa gà, CĐ há miệng cứng họng",
+      shot: "CĐ lén gắp miếng gà, TC nhắc 'trông nồi' nên ông ngượng đặt lại; điện thoại reo 'ting ting' báo tin nhắn, TC giơ điện thoại 'bố mẹ nhắn về muộn' rồi bê nốt đĩa gà, CĐ há miệng cứng họng",
       lines: [
-        tc("Ông ơi, trông nồi ạ! Đĩa còn hai miếng, phần bố mẹ cháu chưa về đấy."),
+        // Sau câu này lặng một nhịp: điện thoại "ting ting" báo tin nhắn mới của bố mẹ.
+        { ...tc("Ông ơi, trông nồi ạ! Đĩa còn hai miếng, phần bố mẹ cháu chưa về đấy."), pauseAfter: 1.3 },
         tc("À, bố mẹ cháu vừa nhắn về muộn, dặn cháu ăn luôn cho khỏi nguội ạ!"),
       ],
       stage: [
@@ -331,8 +347,19 @@ export const TUAN_1 = [
           tc: { arms: "hips", expr: "happy" },
           items: [{ id: "ga", prop: "chicken-plate-2", x: 0.5, on: "table" }],
         },
-        // "À, bố mẹ cháu vừa nhắn về muộn": TC giơ điện thoại
-        { line: 1, camera: "TC", tc: { hand: "phone", arms: "raise", expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
+        // Lặng: điện thoại reo "ting ting", TC rút điện thoại ra xem, Cụ Đồ ngơ ngác
+        {
+          line: 0,
+          inPause: true,
+          at: 0.05,
+          camera: "wide",
+          tc: { hand: "phone", arms: "raise", expr: "shock", move: "idle" },
+          fx: { kind: "exclaim", on: "TC", text: "TING!" },
+          sfx: { file: "tin-nhan.wav", volume: 0.9 },
+        },
+        { line: 0, inPause: true, at: 0.6, camera: "wide", cd: { expr: "confused" }, tc: { expr: "happy" }, fx: { kind: "question", on: "CD" } },
+        // "À, bố mẹ cháu vừa nhắn về muộn": TC giơ điện thoại cho ông xem
+        { line: 1, tc: { hand: "phone", arms: "raise", expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
         // "dặn cháu ăn luôn cho khỏi nguội ạ!": bê nốt đĩa gà
         {
           line: 1,
