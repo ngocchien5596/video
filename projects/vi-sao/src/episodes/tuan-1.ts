@@ -127,17 +127,17 @@ export const TUAN_1 = [
       ],
     },
     explain: {
-      shot: "Bảng minh hoạ: mặt trời trên cao đi quãng ngắn, mặt trời thấp đi quãng dài, xanh bị hắt đi, đỏ cam tới mắt",
+      shot: "Bảng minh hoạ: mặt trời trên cao đi quãng ngắn qua khí quyển, mặt trời thấp đi quãng dài trong khí quyển, xanh bị hắt đi, đỏ cam tới mắt",
       lines: [
-        cd("Buổi trưa, mặt trời ở trên cao, nắng chỉ đi một quãng ngắn qua không khí."),
-        cd("Buổi chiều, mặt trời xuống thấp, nắng phải đi một quãng rất dài mới tới mắt mình."),
+        cd("Buổi trưa, mặt trời ở trên cao, nắng chỉ đi một quãng ngắn qua khí quyển, tức lớp không khí bao quanh Trái Đất."),
+        cd("Buổi chiều, mặt trời xuống thấp, nắng phải đi một quãng rất dài trong khí quyển mới tới mắt mình."),
         cd("Dọc quãng đường dài ấy, màu xanh bị các hạt khí hắt văng đi hết."),
         cd("Chỉ còn màu đỏ, màu cam tới được mắt, nên trời chiều đỏ cam."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "sunset", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "confused" } },
         { line: 1, board: { id: "sunset", step: 1 }, cd: { arms: "wave" }, tc: { expr: "neutral" } },
-        { line: 1, at: 0.6, tc: { expr: "shock" }, fx: { kind: "exclaim", on: "TC" } },
+        { line: 1, at: 0.55, tc: { expr: "shock" }, fx: { kind: "exclaim", on: "TC" } },
         { line: 2, board: { id: "sunset", step: 2 }, cd: { arms: "point", expr: "neutral" }, tc: { expr: "confused" } },
         { line: 3, board: { id: "sunset", step: 3 }, cd: { arms: "raise", expr: "happy" } },
         { line: 3, at: 0.5, tc: { arms: "raise", expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
