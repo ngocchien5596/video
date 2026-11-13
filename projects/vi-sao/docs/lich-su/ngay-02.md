@@ -19,3 +19,7 @@ Ghi tự động (bot hoặc lệnh npm run render): mỗi lần sửa kịch b�
 - `3.2` Cụ Đồ (nhịp 3): ~~Buổi chiều, mặt trời xuống thấp, nắng phải đi một quãng rất dài mới tới mắt mình.~~ → Buổi chiều, mặt trời xuống thấp, nắng phải đi một quãng rất dài trong khí quyển mới tới mắt mình.
 
 Phần diễn đổi ở nhịp 3.
+
+## 2026-11-13 11:56 · Xuất video v1
+
+Kịch bản ở commit `2a9091a`, dài 49.2 giây. File: `out/vi-sao/versions/ngay-02/v1/`.
