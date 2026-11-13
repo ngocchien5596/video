@@ -304,38 +304,46 @@ export const TUAN_1 = [
       ],
     },
     punchline: {
-      shot: "TC gắp 1 miếng gà vào bát CĐ, rồi bê nguyên đĩa gà còn lại chạy biến",
+      // Lách luật: TC bắt quả tang ông bằng chính bài ông vừa dạy, ông ngượng trả miếng gà; rồi TC có "lý do hợp lệ" để ăn nốt. Cụ Đồ cứng họng, không nói câu nào.
+      shot: "CĐ lén gắp miếng gà, TC nhắc 'trông nồi' nên ông ngượng đặt lại; TC giơ điện thoại 'bố mẹ nhắn về muộn' rồi bê nốt đĩa gà, CĐ há miệng cứng họng",
       lines: [
-        tc("Cháu trông kỹ rồi! Nồi cơm vẫn còn đầy nên cháu nhường ông trông nồi..."),
-        tc("...còn cháu xin phép trông hộ ông đĩa gà rán ạ!"),
+        tc("Ông ơi, trông nồi ạ! Đĩa còn hai miếng, phần bố mẹ cháu chưa về đấy."),
+        tc("À, bố mẹ cháu vừa nhắn về muộn, dặn cháu ăn luôn cho khỏi nguội ạ!"),
       ],
       stage: [
-        // "Cháu trông kỹ rồi! Nồi cơm vẫn còn đầy"
+        // Cụ Đồ lén gắp miếng gà lên, khoái chí
         {
           line: 0,
           camera: "wide",
-          cd: { expr: "neutral", arms: "down" },
-          tc: { hand: null, arms: "point", expr: "smug", move: "idle" },
-          items: [
-            { id: "noi", prop: "rice-cooker", x: 0.45, on: "table" },
-            { id: "ga", prop: "chicken-plate", x: 0.62, on: "table" },
-          ],
+          cd: { hand: "drumstick", arms: "hold", expr: "happy", move: "idle" },
+          tc: { hand: null, arms: "down", expr: "neutral", move: "idle" },
+          items: [{ id: "ga", prop: "chicken-plate-1", x: 0.5, on: "table" }],
         },
-        // "nên cháu nhường ông trông nồi": đẩy nồi cơm sang phía ông
+        // "Ông ơi, trông nồi ạ!": TC chỉ tay nhắc
+        { line: 0, at: 0.15, camera: "TC", tc: { arms: "point", expr: "smug" }, fx: { kind: "exclaim", on: "TC" } },
+        // "Đĩa còn hai miếng, phần bố mẹ cháu chưa về": ông ngượng, đặt miếng gà lại
+        { line: 0, at: 0.45, camera: "CD", cd: { expr: "shock" }, fx: { kind: "sweat", on: "CD" } },
         {
           line: 0,
-          at: 0.6,
-          cd: { expr: "happy" },
-          items: [
-            { id: "noi", prop: "rice-cooker", x: 0.27, on: "table" },
-            { id: "ga", prop: "chicken-plate", x: 0.62, on: "table" },
-          ],
+          at: 0.75,
+          camera: "wide",
+          cd: { hand: null, arms: "down", expr: "sad" },
+          tc: { arms: "hips", expr: "happy" },
+          items: [{ id: "ga", prop: "chicken-plate-2", x: 0.5, on: "table" }],
         },
-        // "còn cháu xin phép trông hộ ông đĩa gà rán": bê nguyên đĩa gà
-        { line: 1, camera: "TC", tc: { hand: "chicken-plate", arms: "hold2", expr: "happy" }, items: [{ id: "noi", prop: "rice-cooker", x: 0.27, on: "table" }] },
-        // ...rồi chạy biến
-        { line: 1, at: 0.5, camera: "wide", tc: { x: 1.25, move: "bounce" }, cd: { expr: "shock", arms: "up2", move: "jump" }, fx: { kind: "surprise", on: "CD" } },
-        { line: 1, at: 0.9, cd: { expr: "angry", move: "tremble" }, fx: { kind: "anger", on: "CD" } },
+        // "À, bố mẹ cháu vừa nhắn về muộn": TC giơ điện thoại
+        { line: 1, camera: "TC", tc: { hand: "phone", arms: "raise", expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
+        // "dặn cháu ăn luôn cho khỏi nguội ạ!": bê nốt đĩa gà
+        {
+          line: 1,
+          at: 0.55,
+          camera: "wide",
+          tc: { hand: "chicken-plate-2", arms: "hold2", expr: "happy", move: "bounce" },
+          items: [],
+          fx: { kind: "hearts", on: "TC" },
+        },
+        // Cụ Đồ há miệng định cãi mà cứng họng
+        { line: 1, at: 0.85, camera: "CD", cd: { expr: "shock", move: "tremble" }, tc: { move: "idle" }, fx: { kind: "exclaim", on: "CD", text: "..." } },
       ],
     },
   }),
