@@ -13,3 +13,7 @@ Kịch bản ở commit `59ff629`, dài 53.8 giây. File: `out/noi-vay/versions/
 ## 2026-11-13 11:20 · Xuất video v3
 
 Kịch bản ở commit `038312d`, dài 63.5 giây. File: `out/noi-vay/versions/ngay-02/v3/`.
+
+## 2026-11-13 11:23 · Xuất video v4
+
+Kịch bản ở commit `e239df2`, dài 63.5 giây. File: `out/noi-vay/versions/ngay-02/v4/`.
