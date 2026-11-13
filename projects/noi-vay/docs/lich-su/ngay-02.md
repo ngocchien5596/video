@@ -36,3 +36,7 @@ Kịch bản ở commit `e239df2`, dài 63.5 giây. File: `out/noi-vay/versions/
 - `6.2` Cháu (nhịp 6): ~~À, bố mẹ cháu vừa nhắn về muộn, dặn cháu ăn luôn cho khỏi nguội ạ!~~ → À, bố mẹ cháu vừa nhắn là về muộn, dặn cháu ăn luôn cho khỏi nguội ạ. Cháu xin nhé hi hi!
 
 Phần diễn đổi ở nhịp 5, 6.
+
+## 2026-11-13 11:35 · Xuất video v5
+
+Kịch bản ở commit `3221b71`, dài 65.2 giây. File: `out/noi-vay/versions/ngay-02/v5/`.
