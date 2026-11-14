@@ -384,47 +384,46 @@ export const TUAN_1 = [
     meaning: "Có của phải biết cất giữ cẩn thận, cảnh giác kẻ gian, và phòng mỗi thứ đúng cách của nó.",
     question: "Đồ gì của bạn hay bị 'mượn mà không trả' nhất: sạc điện thoại, ô hay hộp cơm trong tủ lạnh?",
     hook: {
-      shot: "Phòng khách, cái lều đậy kín giữa nhà; TC giơ hai tay lên trần, gọi ông giữ thang",
-      lines: [tc("Ông giữ thang giúp cháu, cháu treo con chó lên trần nhà!")],
+      shot: "Phòng khách, cái lều vải dựng giữa nhà; TC kiễng chân giơ cao bức ảnh thẻ con Vàng lên tường",
+      lines: [tc("Ông ngắm hộ cháu xem, treo con Vàng ở độ cao này đã chuẩn chưa ạ?")],
       stage: [
-        // Lều đậy kín giữa nhà, Thằng Cháu giơ hai tay lên trần
+        // Lều vải dựng sẵn, Thằng Cháu giơ cao bức ảnh thẻ con Vàng lên tường
         {
           cut: true,
           scene: "home",
           camera: "wide",
-          cd: { x: 0.2, expr: "shock" },
-          tc: { x: 0.56, arms: "up2", expr: "smug", move: "bounce" },
-          items: [{ id: "leu", prop: "tent", x: 0.85, scale: 0.8 }],
+          cd: { x: 0.2, expr: "confused" },
+          tc: { x: 0.54, hand: { id: "paper", text: "ẢNH THẺ\nCON VÀNG" }, arms: "raise", expr: "smug", move: "bounce" },
+          items: [{ id: "leu", prop: "tent", x: 0.8, scale: 0.82 }],
         },
-        // "cháu treo con chó lên trần nhà!"
-        { line: 0, at: 0.55, camera: "TC", tc: { arms: "point", expr: "happy" }, fx: { kind: "exclaim", on: "TC" } },
+        // "treo con Vàng ở độ cao này đã chuẩn chưa ạ?"
+        { line: 0, at: 0.5, camera: "TC", tc: { expr: "happy", move: "idle" }, fx: { kind: "exclaim", on: "TC" } },
       ],
     },
     titleStage: [
-      { line: 0, camera: "CD", cd: { expr: "angry", arms: "hips" }, tc: { move: "idle" }, fx: { kind: "anger", on: "CD" } },
-      { line: 1, camera: "wide", cd: { arms: "down", expr: "confused" }, tc: { arms: "raise", expr: "smug", move: "bounce" } },
+      { line: 0, camera: "CD", cd: { expr: "angry", arms: "hips" }, tc: { move: "idle" }, fx: { kind: "question", on: "CD" } },
+      { line: 1, camera: "wide", cd: { arms: "down", expr: "confused" }, tc: { hand: null, arms: "raise", expr: "smug", move: "bounce" } },
     ],
-    ask: "Treo con Vàng lên trần? Mày định làm gì nó?",
+    ask: "Tao bảo mày trông mâm cơm, tự dưng đi dựng lều với treo ảnh chó làm gì?",
     misread: {
-      shot: "TC khoe cái lều đã đậy kín con mèo, rồi giơ ảnh thẻ con chó lên tường; cắt sang bếp, bát cá kho trên bàn đã sạch trơn",
+      shot: "TC chỉ cái lều vải đã đậy kín con mèo, rồi khoe bức ảnh thẻ con Vàng treo lên tường; cắt sang bếp, mâm cơm đã bị chó mèo chén sạch",
       lines: [
-        tc("Ông dạy chó treo mèo đậy mà! Con Mướp cháu đậy vào lều rồi, kín mít luôn!"),
-        tc("Còn con Vàng thì thương lắm, cháu không nỡ treo, nên cháu treo tạm ảnh thẻ của nó lên tường!"),
-        cd("Treo với đậy gì nữa! Bát cá kho mày để trần trên bàn, con Vàng nó liếm sạch rồi kia kìa!"),
+        tc("Con Mướp đang ngủ, cháu lấy cả cái lều vải đậy kín mít lại, đúng vế 'mèo đậy' nhé!"),
+        tc("Còn con Vàng béo quá cháu bế không nổi, nên cháu in ảnh thẻ của nó treo lên tường cho nhẹ!"),
+        cd("Treo ảnh với đậy lều cái gì! Trong bếp thịt để dưới thấp con Vàng ngoạm mất, còn cá trên bàn không đậy thì con Mướp cũng chui khỏi lều vào chén sạch rồi kia kìa!"),
       ],
       stage: [
-        // "Ông dạy chó treo mèo đậy mà!"
-        { line: 0, camera: "wide", cd: { expr: "confused" }, tc: { x: 0.6, arms: "point", expr: "smug", move: "idle" } },
-        // "Con Mướp cháu đậy vào lều rồi"
-        { line: 0, at: 0.4, tc: { x: 0.64, arms: "hips", expr: "happy" }, fx: { kind: "sparkle", on: "TC" } },
-        // "kín mít luôn!"
+        // "Con Mướp đang ngủ, cháu lấy cả cái lều vải đậy kín mít lại"
+        { line: 0, camera: "wide", cd: { expr: "confused" }, tc: { x: 0.58, hand: null, arms: "point", expr: "smug", move: "idle" } },
+        { line: 0, at: 0.45, tc: { x: 0.62, arms: "hips", expr: "happy" }, fx: { kind: "sparkle", on: "TC" } },
+        // "đúng vế 'mèo đậy' nhé!"
         { line: 0, at: 0.75, camera: "TC", tc: { move: "bounce" }, fx: { kind: "exclaim", on: "TC", text: "KÍN!" } },
-        // "Còn con Vàng thì thương lắm, cháu không nỡ treo"
+        // "Còn con Vàng béo quá cháu bế không nổi"
         { line: 1, camera: "wide", tc: { arms: "up2", expr: "shock", move: "tremble" }, fx: { kind: "sweat", on: "TC" } },
-        // "nên cháu treo tạm ảnh thẻ của nó lên tường!"
-        { line: 1, at: 0.5, tc: { hand: { id: "paper", text: "ẢNH THẺ\nCON VÀNG" }, arms: "raise", expr: "smug", move: "idle" }, cd: { expr: "shock" }, fx: { kind: "question", on: "CD" } },
-        { line: 1, at: 0.85, camera: "TC", tc: { expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
-        // "Bát cá kho mày để trần trên bàn": cắt sang bếp
+        // "nên cháu in ảnh thẻ của nó treo lên tường cho nhẹ!"
+        { line: 1, at: 0.45, tc: { hand: { id: "paper", text: "ẢNH THẺ\nCON VÀNG" }, arms: "raise", expr: "smug", move: "idle" }, cd: { expr: "shock" }, fx: { kind: "question", on: "CD" } },
+        { line: 1, at: 0.82, camera: "TC", tc: { expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
+        // "Treo ảnh với đậy lều cái gì! Trong bếp thịt để dưới thấp con Vàng ngoạm mất": cắt sang bếp
         {
           line: 2,
           cut: true,
@@ -435,8 +434,8 @@ export const TUAN_1 = [
           items: [{ id: "bat", prop: "bowl-empty", x: 0.5, on: "table" }],
           fx: { kind: "anger", on: "CD" },
         },
-        // "con Vàng nó liếm sạch rồi kia kìa!"
-        { line: 2, at: 0.6, camera: "wide", cd: { move: "idle" }, tc: { expr: "shock", move: "tremble" }, fx: { kind: "surprise", on: "TC" } },
+        // "còn cá trên bàn không đậy thì con Mướp cũng chui khỏi lều vào chén sạch rồi kia kìa!"
+        { line: 2, at: 0.52, camera: "wide", cd: { move: "idle" }, tc: { arms: "up2", expr: "shock", move: "tremble" }, fx: { kind: "surprise", on: "TC" } },
       ],
     },
     flipStage: [
@@ -446,7 +445,7 @@ export const TUAN_1 = [
       { line: 1, camera: "CD", cd: { x: 0.3, arms: "point", expr: "neutral", move: "idle" }, tc: { move: "idle", expr: "confused" } },
       // "Chó không trèo được thì treo đồ ăn lên cao": giơ bát lên cao
       { line: 1, at: 0.21, camera: "wide", cd: { hand: "bowl-empty", arms: "raise", expr: "smug" }, items: [] },
-      // "mèo trèo giỏi thì phải đậy cho kín.": chỉ nồi cơm đậy nắp
+      // "mèo trèo giỏi thì phải đậy vung, úp lồng bàn cho kín.": chỉ nồi đậy nắp kín
       {
         line: 1,
         at: 0.42,
@@ -455,82 +454,88 @@ export const TUAN_1 = [
         fx: { kind: "sparkle", on: "CD" },
       },
       // "Ý là có của phải biết giữ"
-      { line: 1, at: 0.58, cd: { arms: "wave", expr: "happy" }, tc: { expr: "neutral" } },
+      { line: 1, at: 0.62, cd: { arms: "wave", expr: "happy" }, tc: { expr: "neutral" } },
       // "cảnh giác kẻ gian"
-      { line: 1, at: 0.7, cd: { arms: "point", expr: "angry" }, fx: { kind: "exclaim", on: "CD" } },
+      { line: 1, at: 0.73, cd: { arms: "point", expr: "angry" }, fx: { kind: "exclaim", on: "CD" } },
       // "và phòng cái gì thì phải đúng cách với cái đó!"
-      { line: 1, at: 0.79, camera: "CD", cd: { arms: "raise", expr: "happy" } },
+      { line: 1, at: 0.82, camera: "CD", cd: { arms: "raise", expr: "happy" } },
       { line: 1, at: 0.94, camera: "wide", tc: { expr: "happy", arms: "raise" }, fx: { kind: "exclaim", on: "TC", text: "À!" } },
     ],
     explain:
-      "Câu này là: với chó thì treo, với mèo thì đậy. Chó không trèo được thì treo đồ ăn lên cao, mèo trèo giỏi thì phải đậy cho kín. Ý là có của phải biết giữ, cảnh giác kẻ gian, và phòng cái gì thì phải đúng cách với cái đó!",
+      "Câu này là: với chó thì treo, với mèo thì đậy. Chó không trèo được thì treo đồ ăn lên cao, mèo trèo giỏi thì phải đậy vung, úp lồng bàn cho kín. Ý là có của phải biết giữ, cảnh giác kẻ gian, và phòng cái gì thì phải đúng cách với cái đó!",
     flipShot: "Cụ Đồ gõ quạt, giơ cái bát lên cao rồi chỉ vào nồi cơm đậy kín nắp",
     example: {
-      shot: "Văn phòng: màn hình bảo mật hai lớp, tài liệu khoá quyền xem, tủ lạnh chung dán tên hộp cơm",
+      shot: "Lớp học / văn phòng: điện thoại cài mật khẩu, ví cất kỹ trong balo, cho mượn bút hay sạc thì ghi vào sổ đòi đồ",
       lines: [
-        cd("Như ở công ty: mật khẩu thì bật bảo mật hai lớp, tài liệu thì khoá quyền xem, hộp cơm để tủ lạnh chung thì dán tên. Mỗi thứ một cách giữ!"),
+        cd("Như đi học hay đi làm cũng thế: điện thoại thì phải cài mật khẩu, ví tiền thì cất kỹ trong balo, còn bút xịn hay sạc điện thoại cho bạn mượn là phải ghi sổ đòi ngay. Mỗi thứ một cách giữ!"),
       ],
       stage: [
-        // "Như ở công ty: mật khẩu thì bật bảo mật hai lớp"
+        // "Như đi học hay đi làm cũng thế: điện thoại thì phải cài mật khẩu"
         {
           line: 0,
           cut: true,
-          scene: { id: "classroom", text: "BẢO MẬT\n2 LỚP" },
+          scene: { id: "classroom", text: "CÁCH\nGIỮ ĐỒ" },
           camera: "wide",
           cd: { x: 0.27, hand: null, arms: "point", expr: "neutral" },
-          tc: { x: 0.68, hand: { id: "paper", text: "MẬT KHẨU\n******" }, arms: "hold", expr: "smug", move: "idle" },
+          tc: { x: 0.68, hand: "phone", arms: "hold", expr: "smug", move: "idle" },
           items: [],
+          fx: { kind: "exclaim", on: "TC", text: "****" },
         },
-        // "tài liệu thì khoá quyền xem"
-        { line: 0, at: 0.32, tc: { hand: { id: "paper", text: "CHỈ SẾP\nĐƯỢC XEM" }, expr: "neutral" }, fx: { kind: "exclaim", on: "TC" } },
-        // "hộp cơm để tủ lạnh chung thì dán tên"
+        // "ví tiền thì cất kỹ trong balo"
+        { line: 0, at: 0.3, tc: { hand: null, back: "backpack", arms: "hips", expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
+        // "còn bút xịn hay sạc điện thoại cho bạn mượn là phải ghi sổ đòi ngay"
         {
           line: 0,
-          at: 0.55,
-          cut: true,
-          scene: "kitchen",
-          cd: { arms: "down" },
-          tc: { x: 0.6, hand: null, arms: "point", expr: "happy" },
-          items: [{ id: "tu", prop: { id: "fridge", text: "CƠM CỦA\nCHÁU" }, x: 0.86, scale: 1.1 }],
+          at: 0.54,
+          tc: { hand: { id: "paper", text: "SỔ ĐÒI ĐỒ\nCHO MƯỢN" }, arms: "raise", expr: "smug", move: "idle" },
+          fx: { kind: "exclaim", on: "TC" },
         },
         // "Mỗi thứ một cách giữ!"
-        { line: 0, at: 0.85, camera: "CD", cd: { arms: "raise", expr: "happy" }, fx: { kind: "sparkle", on: "CD" } },
+        { line: 0, at: 0.86, camera: "CD", cd: { arms: "raise", expr: "happy" }, tc: { back: null }, fx: { kind: "sparkle", on: "CD" } },
       ],
     },
     punchline: {
-      shot: "TC khoe mật khẩu 20 số, rồi dán tờ giấy 'MẬT KHẨU CỦA CHÁU' lên trán Cụ Đồ",
+      shot: "Trong bếp, TC khoe đã treo thịt và đậy cá; CĐ chỉ cái tủ lạnh bị dán bìa carton và quấn băng dính chữ X 'CẤM MỞ', TC cười bảo để phòng người hay lục tủ ăn đêm",
       lines: [
-        tc("Cháu hiểu rồi! Điện thoại cháu, cháu đặt mật khẩu dài 20 số cho chắc!"),
-        cd("Lỡ quên thì sao?"),
-        tc("Thì cháu dán mật khẩu lên trán ông, ông giữ hộ cháu nhé!"),
+        tc("Cháu hiểu rồi! Phòng ai là phải tuỳ tính người đấy! Nên thịt cháu treo cao phòng con Vàng, cá cháu đậy kín phòng con Mướp..."),
+        cd("Giỏi lắm! Ơ... thế sao cái tủ lạnh mày lại dán băng dính kín mít thế kia?"),
+        tc("À, trong đấy có đĩa đùi gà của cháu. Chó với mèo không biết mở tủ... cái này là cháu phòng người hay đi lục tủ ăn đêm ông ạ!"),
       ],
       stage: [
-        // "Điện thoại cháu, cháu đặt mật khẩu dài 20 số"
+        // "Cháu hiểu rồi! Phòng ai là phải tuỳ tính người đấy!": trong bếp, nồi đậy kín trên bàn
         {
           line: 0,
           cut: true,
-          scene: "home",
+          scene: "kitchen",
           camera: "wide",
-          cd: { x: 0.27, hand: "fan", arms: "down", expr: "neutral" },
-          tc: { x: 0.66, hand: { id: "paper", text: "MẬT KHẨU\n20 SỐ" }, arms: "hold", expr: "smug", move: "idle" },
-          items: [],
+          cd: { x: 0.24, hand: "fan", arms: "down", expr: "neutral" },
+          tc: { x: 0.62, hand: null, back: null, arms: "raise", expr: "smug", move: "bounce" },
+          items: [{ id: "noi", prop: "rice-cooker", x: 0.44, on: "table" }],
         },
-        { line: 0, at: 0.6, tc: { expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
-        // "Lỡ quên thì sao?"
-        { line: 1, camera: "CD", cd: { arms: "hips", expr: "confused" }, tc: { move: "idle" }, fx: { kind: "question", on: "CD" } },
-        // "Thì cháu dán mật khẩu lên trán ông"
-        { line: 2, camera: "TC", tc: { expr: "smug" } },
+        // "Nên thịt cháu treo cao phòng con Vàng, cá cháu đậy kín phòng con Mướp..."
+        { line: 0, at: 0.5, tc: { arms: "point", expr: "happy", move: "idle" }, fx: { kind: "sparkle", on: "TC" } },
+        // "Giỏi lắm!"
+        { line: 1, camera: "CD", cd: { arms: "raise", expr: "happy" }, fx: { kind: "sparkle", on: "CD" } },
+        // "Ơ... thế sao cái tủ lạnh mày lại dán băng dính kín mít thế kia?": lộ ra tủ lạnh quấn băng dính CẤM MỞ
         {
-          line: 2,
-          at: 0.4,
+          line: 1,
+          at: 0.25,
           camera: "wide",
-          tc: { x: 0.46, hand: null, arms: "up2", expr: "happy", move: "bounce" },
-          cd: { arms: "down", expr: "shock", face: { id: "paper", text: "MẬT KHẨU\nCỦA CHÁU" } },
-          fx: { kind: "surprise", on: "CD" },
+          cd: { arms: "point", expr: "confused" },
+          tc: { x: 0.56, expr: "smug" },
+          items: [
+            { id: "noi", prop: "rice-cooker", x: 0.42, on: "table" },
+            { id: "tu", prop: { id: "fridge", text: "CẤM MỞ!" }, x: 0.86, scale: 1.1 },
+          ],
+          fx: { kind: "question", on: "CD" },
         },
-        // "ông giữ hộ cháu nhé!"
-        { line: 2, at: 0.72, tc: { x: 0.66, arms: "hips", expr: "smug", move: "idle" } },
-        { line: 2, at: 0.9, cd: { expr: "angry", move: "tremble" }, fx: { kind: "anger", on: "CD" } },
+        // "À, trong đấy có đĩa đùi gà của cháu."
+        { line: 2, camera: "TC", tc: { arms: "hips", expr: "happy", move: "bounce" }, fx: { kind: "hearts", on: "TC" } },
+        // "Chó với mèo không biết mở tủ..."
+        { line: 2, at: 0.35, camera: "wide", tc: { arms: "shrug", expr: "smug", move: "idle" } },
+        // "cái này là cháu phòng người hay đi lục tủ ăn đêm ông ạ!"
+        { line: 2, at: 0.6, tc: { arms: "point", expr: "happy", move: "bounce" }, cd: { arms: "up2", expr: "shock" }, fx: { kind: "sweat", on: "CD" } },
+        { line: 2, at: 0.88, cd: { expr: "angry", move: "tremble" }, fx: { kind: "anger", on: "CD" } },
       ],
     },
   }),
