@@ -110,6 +110,12 @@ SYMBOLS = {
     "⊥": " vuông góc với ",
     "≈": " xấp xỉ bằng ",
 }
+# Tên chữ cái Latin đọc theo tiếng Việt, dùng khi viết "chữ L", "hình chữ U"...
+LETTERS = {
+    "A": "a", "B": "bê", "C": "xê", "D": "đê", "Đ": "đê", "E": "e", "F": "ép", "G": "giê", "H": "hát", "I": "i",
+    "J": "gi", "K": "ca", "L": "en lờ", "M": "em mờ", "N": "en nờ", "O": "o", "P": "pê", "Q": "quy", "R": "e rờ",
+    "S": "ét xì", "T": "tê", "U": "u", "V": "vê", "W": "vê kép", "X": "ích xì", "Y": "i dài", "Z": "dét",
+}
 _NUM = r"\d+(?:[.,]\d+)*"
 _UNIT_RE = "|".join(re.escape(u) for u in sorted(UNITS, key=len, reverse=True))
 
@@ -120,6 +126,8 @@ def normalize_numbers(text: str) -> str:
         t = t.replace(sym, word)
     t = re.sub(r"\bTCN\b", "trước công nguyên", t)
     t = re.sub(r"\bSCN\b", "sau công nguyên", t)
+    # "chữ L" → "chữ en lờ": một chữ cái in hoa đứng ngay sau "chữ".
+    t = re.sub(r"\b([Cc]hữ)\s+([A-ZĐ])(?![\wÀ-ỹ])", lambda m: f"{m.group(1)} {LETTERS[m.group(2)]}", t)
     # Giờ: 5:00 → năm giờ, 9:15 → chín giờ mười lăm.
     def clock(m: re.Match) -> str:
         h, mi = int(m.group(1)), int(m.group(2))

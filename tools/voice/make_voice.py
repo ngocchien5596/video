@@ -6,10 +6,12 @@ Mỗi việc trong file jobs có "dir": thư mục tiếng của tập, tương 
 from __future__ import annotations
 
 import argparse
+import difflib
 import hashlib
 import json
 import re
 import sys
+import unicodedata
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -44,9 +46,53 @@ def tts_text(text: str) -> str:
     t = re.sub(r"\s*(\.\.\.|…)\s*$", ".", t)
     t = re.sub(r"\s*(\.\.\.|…)\s*", ", ", t)
     t = re.sub(r"([?!])[?!]+", r"\1", t)
+    # Ngoặc đơn đọc thành quãng ngắt (câu có "(115m)" từng làm mô hình đọc lặp chữ).
+    t = re.sub(r"\s*[()]\s*", ", ", t)
+    t = re.sub(r"(,\s*)+([,.!?;:])", r"\2", t)
+    t = re.sub(r",\s*$", ".", t)
     # Mô hình đọc không hiểu chữ số ("15", "1950", "5:00"), phải đổi sang chữ tiếng Việt.
     t = normalize_numbers(t)
     return re.sub(r"\s+", " ", t).strip()
+
+
+# Nghe lại mỗi câu vừa sinh: khớp từ dưới mức này thì sinh lại (tối đa len(SEEDS) lần).
+# Mô hình chạy chế độ tất định nên chỉ đổi hạt giống có thể ra y hệt; mỗi lần đọc lại đổi nhẹ cả tốc độ.
+GOOD_MATCH = 0.9
+SEEDS = [0, 1, 2, 3]
+SPEED_JITTER = [1.0, 0.96, 1.04, 0.93]
+
+# ASR viết tắt đơn vị: đổi lại thành chữ trước khi so.
+ASR_ABBR = {"m": ["mét"], "km": ["ki", "lô", "mét"], "cm": ["xen", "ti", "mét"], "kg": ["ki", "lô", "gam"], "g": ["gam"]}
+
+
+def words(text: str) -> list[str]:
+    out: list[str] = []
+    for w in re.findall(r"\w+", unicodedata.normalize("NFC", text.lower())):
+        out.extend(ASR_ABBR.get(w, [w]))
+    return out
+
+
+def match_score(expected: str, heard: str) -> float:
+    """Tỉ lệ từ khớp giữa câu cần đọc và câu ASR nghe được (đọc thừa, lặp, thiếu chữ đều làm giảm điểm)."""
+    return difflib.SequenceMatcher(None, words(expected), words(heard)).ratio()
+
+
+def load_listener(tts_root: Path):
+    """ASR Chunkformer của repo giọng nói: trả về hàm (đường dẫn wav) -> chữ nghe được."""
+    sys.path.insert(0, str(tts_root / "OmniVoice"))
+    from omnivoice.models.asr_chunkformer import ASRChunkformer  # type: ignore
+
+    asr = ASRChunkformer()
+    asr.load_model(str(tts_root / "OmniVoice" / "model_ASR_chunkformer_local"))
+    import contextlib
+    import io
+
+    def listen(path: str) -> str:
+        # ASR in nhiều dòng tiến trình; nuốt đi cho log gọn.
+        with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+            return asr.transcribe(path, "vi")
+
+    return listen
 
 
 def file_md5(path: Path) -> str:
@@ -102,6 +148,7 @@ def main() -> None:
         import torch
 
         model = load_model(Path(args.tts_root))
+        listen = load_listener(Path(args.tts_root))
         prompts = {
             who: model.create_voice_clone_prompt(
                 ref_audio=str(ref_paths[who]),
@@ -123,15 +170,30 @@ def main() -> None:
                 done += 1
                 text = tts_text(spoken_raw(line))
                 print(f'  [{done}/{todo}] Ngày {job["day"]} {line["name"]}: {text}', flush=True)
-                torch.manual_seed(0)
-                audio = model.generate(
-                    text=text,
-                    language="vi",
-                    voice_clone_prompt=prompts[line["who"]],
-                    speed=SPEAKERS[line["who"]]["speed"],
-                )[0]
                 wav = day_dir / line["name"]
+                # Sinh, nghe lại bằng ASR, chưa khớp thì sinh lại với hạt giống khác; giữ bản khớp nhất.
+                # (Bắt lỗi mô hình đọc lặp chữ, hoặc đọc lẫn câu mẫu của giọng như "…ông giảng cho mà nghe".)
+                best = None
+                for attempt, seed in enumerate(SEEDS):
+                    torch.manual_seed(seed)
+                    audio = model.generate(
+                        text=text,
+                        language="vi",
+                        voice_clone_prompt=prompts[line["who"]],
+                        speed=SPEAKERS[line["who"]]["speed"] * SPEED_JITTER[attempt],
+                    )[0]
+                    save_wav(wav, audio, model.sampling_rate)
+                    heard = listen(str(wav))
+                    score = match_score(text, heard)
+                    if best is None or score > best[0]:
+                        best = (score, audio, heard)
+                    if score >= GOOD_MATCH:
+                        break
+                    print(f"        lần {attempt + 1}: khớp {score:.0%}, nghe thành: {heard}", flush=True)
+                score, audio, heard = best
                 save_wav(wav, audio, model.sampling_rate)
+                if score < GOOD_MATCH:
+                    print(f"        ⚠ sau {len(SEEDS)} lần vẫn chỉ khớp {score:.0%}, cần nghe lại: {heard}", flush=True)
                 entry = {
                     "beat": line["beat"],
                     "line": line["line"],
@@ -139,6 +201,7 @@ def main() -> None:
                     "seconds": round(len(audio) / model.sampling_rate, 3),
                     "text": line["text"],
                     "key": line["key"],
+                    "asr": round(score, 3),
                 }
                 if line.get("tts"):
                     entry["tts"] = line["tts"]

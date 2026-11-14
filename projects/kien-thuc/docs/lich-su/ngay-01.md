@@ -6,10 +6,10 @@ Ghi tự động (bot hoặc lệnh npm run render): mỗi lần sửa kịch b�
 
 Kịch bản ở commit `686b9a9`, dài 154.2 giây. File: `out/kien-thuc/versions/ngay-01/v1/`.
 
-## 2026-11-14 15:44 · Xuất video v2
+## 2026-11-14 16:05 · Xuất video v2
 
-Kịch bản ở commit `d930915+sửa`, dài 154.2 giây. File: `out/kien-thuc/versions/ngay-01/v2/`.
+Kịch bản ở commit `5257cc6`, dài 154.2 giây. File: `out/kien-thuc/versions/ngay-01/v2/`.
 
-## 2026-11-14 15:52 · Xuất video v3
+## 2026-11-14 16:35 · Xuất video v3
 
-Kịch bản ở commit `d930915+sửa`, dài 154.2 giây. File: `out/kien-thuc/versions/ngay-01/v3/`.
+Kịch bản ở commit `5257cc6+sửa`, dài 156 giây. File: `out/kien-thuc/versions/ngay-01/v3/`.

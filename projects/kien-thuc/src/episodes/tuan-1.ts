@@ -16,6 +16,7 @@ export const TUAN_1 = [
     sources: [
       { title: "SGK Toán lớp 8 — Định lý Thales trong tam giác", url: "https://hanhtrangso.nxbgd.vn/" },
       { title: "Britannica — Thales of Miletus", url: "https://www.britannica.com/biography/Thales-of-Miletus" },
+      { title: "MacTutor (ĐH St Andrews) — Thales of Miletus", url: "https://mathshistory.st-andrews.ac.uk/Biographies/Thales/" },
     ],
     hook: {
       shot: "Sa mạc Giza năm 600 TCN, Đại kim tự tháp Cheops xoay 2.5D, Milo (vai Thales) đứng dưới chân tháp cầm 1 chiếc cọc gỗ",
@@ -25,8 +26,8 @@ export const TUAN_1 = [
           "Cách đây hai nghìn sáu trăm năm tại Ai Cập, Đại kim tự tháp Kê-ốp đã đứng sừng sững như một ngọn núi nhân tạo suốt hai thiên niên kỷ.",
         ),
         nar(
-          "Nhưng kỳ lạ thay, không một ai trong suốt 2.000 năm đó biết chính xác nó cao bao nhiêu mét!",
-          "Nhưng kỳ lạ thay, không một ai trong suốt hai nghìn năm đó biết chính xác nó cao bao nhiêu mét!",
+          "Nó cao đến mức đứng dưới chân, chẳng ai đo nổi bằng thước dây. Vậy nó cao bao nhiêu mét?",
+          "Nó cao đến mức đứng dưới chân, chẳng ai đo nổi bằng thước dây. Vậy nó cao bao nhiêu mét?",
         ),
         nar(
           "Vậy mà nhà thông thái Hy Lạp Thales chỉ cần đúng một chiếc cọc gỗ đã giải gọn bài toán này. Ông đã làm thế nào?",
@@ -59,33 +60,33 @@ export const TUAN_1 = [
           "Khi mọi cách đo trực tiếp đều bế tắc, Tha-lét không nhìn vào khối đá nữa, mà nhìn vào bóng nắng của nó trên cát!",
         ),
         nar(
-          "Ông cắm một chiếc cọc thẳng đứng xuống cát và nhận ra: Vì Mặt Trời ở rất xa, mọi tia nắng chiếu xuống đều song song với nhau.",
-          "Ông cắm một chiếc cọc thẳng đứng xuống cát và nhận ra: vì Mặt Trời ở rất xa, mọi tia nắng chiếu xuống đều song song với nhau.",
+          "Rồi ông cắm một chiếc cọc thẳng đứng xuống cát và nhận ra: Vì Mặt Trời ở rất xa, mọi tia nắng chiếu xuống đều song song với nhau.",
+          "Rồi ông cắm một chiếc cọc thẳng đứng xuống cát và nhận ra: vì Mặt Trời ở rất xa, mọi tia nắng chiếu xuống đều song song với nhau.",
         ),
         nar(
-          "Ông kiên nhẫn chờ đến khoảnh khắc mặt trời nghiêng đúng góc 45° — lúc cái bóng của chiếc cọc dài bằng chính chiều cao chiếc cọc!",
-          "Ông kiên nhẫn chờ đến khoảnh khắc mặt trời nghiêng đúng góc bốn mươi lăm độ, lúc cái bóng của chiếc cọc dài bằng chính chiều cao chiếc cọc!",
+          "Thales kiên nhẫn chờ đến khoảnh khắc mặt trời nghiêng đúng góc 45° — lúc cái bóng của chiếc cọc dài bằng chính chiều cao chiếc cọc!",
+          "Tha-lét kiên nhẫn chờ đến khoảnh khắc mặt trời nghiêng đúng góc bốn mươi lăm độ, lúc cái bóng của chiếc cọc dài bằng chính chiều cao chiếc cọc!",
         ),
         nar(
-          "Ngay giây phút đó, chiều cao kim tự tháp cũng bằng đúng tổng một nửa cạnh đáy (115m) cộng với phần bóng nhô ra (31,6m), tức là 146,6m!",
-          "Ngay giây phút đó, chiều cao kim tự tháp cũng bằng đúng tổng một nửa cạnh đáy một trăm mười lăm mét, cộng với phần bóng nhô ra ba mươi mốt phẩy sáu mét, tức là một trăm bốn mươi sáu phẩy sáu mét!",
+          "Ngay lúc đó, chiều cao kim tự tháp bằng nửa cạnh đáy, 115 mét, cộng với phần bóng nhô ra, 31,6 mét, tức là 146,6 mét!",
+          "Ngay lúc đó, chiều cao kim tự tháp bằng nửa cạnh đáy, một trăm mười lăm mét, cộng với phần bóng nhô ra, ba mươi mốt mét sáu, tức là một trăm bốn mươi sáu mét sáu!",
         ),
       ],
     },
     theorem: {
-      shot: "Mở trang SGK Toán lớp 8, dịch chuyển cọc DE song song BC trong tam giác ABC, hiện công thức AD/AB = DE/BC ở Tầng 2B",
+      shot: "Cắm cọc ở mút bóng tháp: hai tam giác đồng dạng (tháp + bóng tháp, cọc + bóng cọc); trang Toán 8 mở ra, cọc DE song song BC, công thức tỉ lệ ở Tầng 2B",
       lines: [
         nar(
-          "Nhưng nếu không có thời gian ngồi chờ nắng đúng góc 45° thì sao? Đó chính là lúc trang Sách giáo khoa Toán lớp 8 của chúng ta xuất hiện!",
-          "Nhưng nếu không có thời gian ngồi chờ nắng đúng góc bốn mươi lăm độ thì sao? Đó chính là lúc trang Sách giáo khoa Toán lớp tám của chúng ta xuất hiện!",
+          "Nhưng chờ đúng lúc nắng nghiêng 45° đâu phải lúc nào cũng có. Theo nhà sử học Plutarch kể lại, Thales còn một cách khác: cắm cọc ở mút bóng tháp, rồi so hai cái bóng.",
+          "Nhưng chờ đúng lúc nắng nghiêng bốn mươi lăm độ đâu phải lúc nào cũng có. Theo nhà sử học Plu-tác kể lại, Tha-lét còn một cách khác: cắm cọc ở mút bóng tháp, rồi so hai cái bóng.",
         ),
         nar(
-          "Khi đặt chiếc cọc DE song song với chiều cao BC, hai tam giác lớn và nhỏ luôn đồng dạng theo Định lý Thales: AD/AB = DE/BC.",
-          "Khi đặt chiếc cọc Đê E song song với chiều cao Bê Xê, hai tam giác lớn và nhỏ luôn đồng dạng theo Định lý Tha-lét: A Đê phần A Bê, bằng Đê E phần Bê Xê.",
+          "Tháp và cọc cùng đứng thẳng, tia nắng song song, nên tạo ra hai tam giác đồng dạng: chiều cao tháp chia chiều cao cọc, đúng bằng bóng tháp chia bóng cọc.",
+          "Tháp và cọc cùng đứng thẳng, tia nắng song song, nên tạo ra hai tam giác đồng dạng: chiều cao tháp chia chiều cao cọc, đúng bằng bóng tháp chia bóng cọc.",
         ),
         nar(
-          "Nhờ tỉ lệ vàng này, vào bất kỳ giờ nào có nắng, bạn chỉ cần đo bóng cọc và bóng tháp là tính ra ngay chiều cao mà chẳng cần chờ đợi!",
-          "Nhờ tỉ lệ vàng này, vào bất kỳ giờ nào có nắng, bạn chỉ cần đo bóng cọc và bóng tháp là tính ra ngay chiều cao mà chẳng cần chờ đợi!",
+          "Tỉ lệ ấy chính là Định lý Thales mà bạn học trong Toán lớp 8. Giờ nào có nắng cũng đo được, chẳng cần chờ đợi!",
+          "Tỉ lệ ấy chính là Định lý Tha-lét mà bạn học trong Toán lớp tám. Giờ nào có nắng cũng đo được, chẳng cần chờ đợi!",
         ),
       ],
     },
@@ -98,24 +99,24 @@ export const TUAN_1 = [
         ),
         nar(
           "Không hề! Những người kiểm lâm chỉ cần ghép hai thanh gỗ bằng nhau thành chiếc thước chữ L để tự tạo tia ngắm 45° từ mắt lên ngọn cây: Đứng cách gốc bao nhiêu mét, cộng thêm chiều cao ngang mắt là ra ngay chiều cao cây!",
-          "Không hề! Những người kiểm lâm chỉ cần ghép hai thanh gỗ bằng nhau thành chiếc thước chữ L để tự tạo tia ngắm bốn mươi lăm độ từ mắt lên ngọn cây: đứng cách gốc bao nhiêu mét, cộng thêm chiều cao ngang mắt là ra ngay chiều cao cây!",
+          "Không hề! Những người kiểm lâm chỉ cần ghép hai thanh gỗ bằng nhau thành chiếc thước chữ en lờ để tự tạo tia ngắm bốn mươi lăm độ từ mắt lên ngọn cây: đứng cách gốc bao nhiêu mét, cộng thêm chiều cao ngang mắt là ra ngay chiều cao cây!",
         ),
       ],
     },
     cosmic: {
-      shot: "Phóng ra vũ trụ: Trái Đất – Mặt Trăng – Mặt Trời thẳng hàng trong Nhật thực toàn phần với tỉ lệ đồng dạng 1/400",
+      shot: "Phóng ra vũ trụ: Trái Đất – Mặt Trăng – Mặt Trời thẳng hàng trong Nhật thực toàn phần với tỉ lệ đồng dạng khoảng 1/400; kết: Thales đoán trước nhật thực, quay về chiếc cọc gỗ và cái bóng",
       lines: [
         nar(
           "Và kỳ diệu hơn cả, nếu kéo dài những đường thẳng của Thales vượt ra khỏi bầu khí quyển, bạn sẽ chạm tới bí mật của hiện tượng Nhật thực toàn phần!",
           "Và kỳ diệu hơn cả, nếu kéo dài những đường thẳng của Tha-lét vượt ra khỏi bầu khí quyển, bạn sẽ chạm tới bí mật của hiện tượng Nhật thực toàn phần!",
         ),
         nar(
-          "Mặt Trời có đường kính lớn gấp 400 lần Mặt Trăng, nhưng lại nằm xa Trái Đất hơn đúng 400 lần — tạo nên hai tam giác đồng dạng khổng lồ giúp Mặt Trăng che vừa khít Mặt Trời!",
-          "Mặt Trời có đường kính lớn gấp bốn trăm lần Mặt Trăng, nhưng lại nằm xa Trái Đất hơn đúng bốn trăm lần, tạo nên hai tam giác đồng dạng khổng lồ giúp Mặt Trăng che vừa khít Mặt Trời!",
+          "Mặt Trời to gấp khoảng 400 lần Mặt Trăng, nhưng cũng ở xa Trái Đất hơn khoảng 400 lần — hai tam giác đồng dạng khổng lồ, nên Mặt Trăng che vừa khít Mặt Trời!",
+          "Mặt Trời to gấp khoảng bốn trăm lần Mặt Trăng, nhưng cũng ở xa Trái Đất hơn khoảng bốn trăm lần, hai tam giác đồng dạng khổng lồ, nên Mặt Trăng che vừa khít Mặt Trời!",
         ),
         nar(
-          "Từ một chiếc cọc gỗ trên cát sa mạc đến trật tự của các thiên hà — đôi khi công cụ mạnh nhất để đo cả vũ trụ lại nằm ngay trong trang vở học trò của bạn.",
-          "Từ một chiếc cọc gỗ trên cát sa mạc đến trật tự của các thiên hà, đôi khi công cụ mạnh nhất để đo cả vũ trụ, lại nằm ngay trong trang vở học trò của bạn.",
+          "Mà theo sử gia Herodotus, chính Thales còn đoán trước được một lần nhật thực. Hóa ra muốn đo một kỳ quan, chẳng cần thang cao hay thước dài: chỉ cần một chiếc cọc gỗ, một cái bóng, và một cái đầu biết nhìn ra tỉ lệ.",
+          "Mà theo sử gia Hê-rô-đốt, chính Tha-lét còn đoán trước được một lần nhật thực. Hóa ra muốn đo một kỳ quan, chẳng cần thang cao hay thước dài: chỉ cần một chiếc cọc gỗ, một cái bóng, và một cái đầu biết nhìn ra tỉ lệ.",
         ),
       ],
     },
@@ -125,106 +126,131 @@ export const TUAN_1 = [
     day: 2,
     week,
     theme,
-    title: "Đo chu vi Trái Đất 2.200 năm trước chỉ bằng một cái giếng và một chiếc gậy",
-    hudTitle: "ĐO TRÁI ĐẤT BẰNG MỘT CHIẾC GẬY",
-    textbook: "Toán 7 · Hai góc so le trong",
-    era: "Alexandria, Ai Cập · 240 TCN",
-    question: "Nếu không có vệ tinh hay internet, bạn có nghĩ ra cách nào để tự chứng minh Trái Đất hình cầu không?",
+    title: "Đo chu vi Trái Đất 2.200 năm trước bằng một cái giếng và một chiếc cọc",
+    hudTitle: "ĐO TRÁI ĐẤT BẰNG MỘT CHIẾC CỌC",
+    textbook: "Toán 7 · Hai đường thẳng song song",
+    era: "Alexandria, Ai Cập · khoảng 240 TCN",
+    question: "Nếu Trái Đất to gấp đôi, bóng cọc ở Alexandria sẽ lệch nhiều hơn hay ít hơn 7,2°?",
     sources: [
-      { title: "SGK Toán lớp 7 — Hai đường thẳng song song", url: "https://hanhtrangso.nxbgd.vn/" },
-      { title: "NASA — Eratosthenes Measures the Earth", url: "https://www.nasa.gov/" },
+      { title: "MacTutor (ĐH St Andrews) — Eratosthenes of Cyrene", url: "https://mathshistory.st-andrews.ac.uk/Biographies/Eratosthenes/" },
+      { title: "Strabo, Geography 17.1.48 — giếng ở Syene (LacusCurtius, ĐH Chicago)", url: "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Strabo/17A3*.html" },
+      { title: "Ohio State University, Astronomy 161 — Eratosthenes measures the Earth", url: "https://www.astronomy.ohio-state.edu/~thompson/161/measearth.html" },
+      { title: "Toán 7 Kết nối tri thức, Bài 10 — Tính chất hai đường thẳng song song (HĐ2 tr. 52)", url: "https://www.vietjack.com/toan-7-kn/hd2-trang-52-toan-7-tap-1.jsp" },
+      { title: "NOAA — What is the difference between a nautical mile and a knot?", url: "https://oceanservice.noaa.gov/facts/nauticalmile_knot.html" },
+      { title: "NASA — Sun Fact Sheet", url: "https://nssdc.gsfc.nasa.gov/planetary/factsheet/sunfact.html" },
+      { title: "HISTORY — Magellan's expedition circumnavigates globe (1522)", url: "https://www.history.com/this-day-in-history/september-6/magellans-expedition-circumnavigates-globe" },
     ],
     hook: {
-      shot: "Thư viện Alexandria năm 240 TCN, Milo (vai Eratosthenes) đứng cạnh quả địa cầu 40.000 km cùng 1 cái giếng đá và 1 chiếc gậy gỗ",
+      shot: "Alexandria khoảng 240 TCN, Milo (vai Eratosthenes) đứng cạnh quả địa cầu có dấu hỏi, bên cạnh một cái giếng đá và một chiếc cọc đo bóng",
       lines: [
         nar(
-          "Năm 240 TCN, khi con người chưa có máy bay, vệ tinh hay thậm chí một tấm bản đồ thế giới hoàn chỉnh...",
-          "Năm hai trăm bốn mươi trước công nguyên, khi con người chưa có máy bay, vệ tinh hay thậm chí một tấm bản đồ thế giới hoàn chỉnh.",
+          "Hơn 2.200 năm trước, người Hy Lạp đã biết Trái Đất hình cầu. Nhưng quả cầu ấy to cỡ nào?",
+          "Hơn hai nghìn hai trăm năm trước, người Hy Lạp đã biết Trái Đất hình cầu. Nhưng quả cầu ấy to cỡ nào?",
         ),
         nar(
-          "Nhà bác học Eratosthenes đã đo được chu vi Trái Đất với sai số chỉ khoảng 1% — mà không cần bước chân ra khỏi Ai Cập, chỉ nhờ một cái giếng và một chiếc gậy!",
-          "Nhà bác học Ê-ra-tô-xten đã đo được chu vi Trái Đất với sai số chỉ khoảng một phần trăm, mà không cần bước chân ra khỏi Ai Cập, chỉ nhờ một cái giếng và một chiếc gậy!",
+          "Nhà bác học Eratosthenes đã đo được nó mà không cần rời khỏi Ai Cập.",
+          "Nhà bác học Ê-ra-tốt-xten đã đo được nó mà không cần rời khỏi Ai Cập.",
+        ),
+        nar(
+          "Thứ ông dùng chỉ là một cái giếng, một chiếc cọc và một quãng đường. Bằng cách nào?",
+          "Thứ ông dùng chỉ là một cái giếng, một chiếc cọc và một quãng đường. Bằng cách nào?",
         ),
       ],
     },
     barrier: {
-      shot: "Giếng nước sâu tại Syene trưa Hạ chí nắng chiếu thẳng đáy không bóng, trong khi cột ở Alexandria cách 800 km lại đổ bóng nghiêng",
+      shot: "Milo cầm cuộn dây định đi vòng quanh quả địa cầu, bị đại dương mênh mông chắn lối (✖); mốc thời gian 240 TCN → 1522 chạy qua",
       lines: [
         nar(
-          "Thời cổ đại, việc đi vòng quanh Trái Đất để căng dây đo là điều hoàn toàn viển vông vì đại dương mênh mông chắn lối.",
-          "Thời cổ đại, việc đi vòng quanh Trái Đất để căng dây đo là điều hoàn toàn viển vông, vì đại dương mênh mông chắn lối.",
+          "Muốn biết chu vi một quả cầu, cách dễ nghĩ nhất là đi trọn một vòng quanh nó rồi đo.",
+          "Muốn biết chu vi một quả cầu, cách dễ nghĩ nhất là đi trọn một vòng quanh nó rồi đo.",
         ),
         nar(
-          "Manh mối bắt đầu từ một bức thư lạ: Tại thành phố Syene, đúng 12 giờ trưa ngày Hạ chí, ánh nắng chiếu thẳng đứng xuống tận đáy giếng sâu mà không để lại chút bóng nào!",
-          "Manh mối bắt đầu từ một bức thư lạ: tại thành phố Xuyên, đúng mười hai giờ trưa ngày Hạ chí, ánh nắng chiếu thẳng đứng xuống tận đáy giếng sâu mà không để lại chút bóng nào!",
+          "Nhưng với Trái Đất thì không thể: đại dương và những vùng đất chưa ai biết chắn mọi lối.",
+          "Nhưng với Trái Đất thì không thể: đại dương và những vùng đất chưa ai biết chắn mọi lối.",
         ),
         nar(
-          "Nếu mặt đất là một mặt phẳng, thì cùng giờ phút đó tại Alexandria cách 800 km về phía Bắc, mọi cây cột cũng phải không có bóng. Nhưng thực tế, chiếc cột lại đổ bóng nghiêng rất rõ!",
-          "Nếu mặt đất là một mặt phẳng, thì cùng giờ phút đó tại A-lếch-xan-đri-a cách tám trăm ki lô mét về phía Bắc, mọi cây cột cũng phải không có bóng. Nhưng thực tế, chiếc cột lại đổ bóng nghiêng rất rõ!",
+          "Gần 1.800 năm sau, năm 1522, đoàn thuyền của Magellan mới lần đầu đi hết một vòng.",
+          "Gần một nghìn tám trăm năm sau, năm một nghìn năm trăm hai mươi hai, đoàn thuyền của Ma-gien-lăng mới lần đầu đi hết một vòng.",
         ),
       ],
     },
     eureka: {
-      shot: "Mặt đất uốn cong thành cung tròn, Milo đo góc bóng gậy tại Alexandria được 7,2° = 1/50 vòng tròn 360°",
+      shot: "Trưa Hạ chí: ở Syene nắng rọi thẳng đáy giếng, cọc không bóng; ở Alexandria cọc đổ bóng, tia nắng lệch khỏi cọc 7,2° = 1/50 vòng tròn; các tia nắng vẽ song song",
       lines: [
         nar(
-          "Khoảnh khắc đó, Eratosthenes bừng tỉnh: Cách duy nhất để hai chiếc cột thẳng đứng cùng lúc có bóng khác nhau là bề mặt Trái Đất phải cong!",
-          "Khoảnh khắc đó, Ê-ra-tô-xten bừng tỉnh: cách duy nhất để hai chiếc cột thẳng đứng cùng lúc có bóng khác nhau, là bề mặt Trái Đất phải cong!",
+          "Eratosthenes không đi hết cả vòng, mà chỉ đo một khúc nhỏ của nó.",
+          "Ê-ra-tốt-xten không đi hết cả vòng, mà chỉ đo một khúc nhỏ của nó.",
         ),
         nar(
-          "Ông cắm một chiếc gậy tại Alexandria đúng trưa ngày Hạ chí và đo góc lệch giữa bóng nắng với đầu gậy: Góc đó bằng đúng 7,2°!",
-          "Ông cắm một chiếc gậy tại A-lếch-xan-đri-a đúng trưa ngày Hạ chí và đo góc lệch giữa bóng nắng với đầu gậy: góc đó bằng đúng bảy phẩy hai độ!",
+          "Sách cổ chép rằng ở Syene, phía nam Ai Cập, trưa Hạ chí nắng rọi thẳng đáy giếng, cọc không có bóng.",
+          "Sách cổ chép rằng ở Xi-ê-nê, phía nam Ai Cập, trưa Hạ chí nắng rọi thẳng đáy giếng, cọc không có bóng.",
         ),
         nar(
-          "Mà 7,2° lại chính bằng đúng 1/50 của một vòng tròn 360° trọn vẹn!",
-          "Mà bảy phẩy hai độ lại chính bằng đúng một phần năm mươi của một vòng tròn ba trăm sáu mươi độ trọn vẹn!",
+          "Cũng trưa ngày ấy ở Alexandria, cọc vẫn đổ bóng: tia nắng lệch khỏi cọc 1/50 vòng tròn, tức 7,2°.",
+          "Cũng trưa ngày ấy ở A-lếch-xan-đri-a, cọc vẫn đổ bóng: tia nắng lệch khỏi cọc một phần năm mươi vòng tròn, tức bảy phẩy hai độ.",
+        ),
+        nar(
+          "Mặt Trời rất xa nên tia nắng tới hai nơi song song. Bóng khác nhau chỉ vì mặt đất cong.",
+          "Mặt Trời rất xa nên tia nắng tới hai nơi song song. Bóng khác nhau chỉ vì mặt đất cong.",
         ),
       ],
     },
     theorem: {
-      shot: "Mở SGK Toán lớp 7 — Hai góc so le trong bằng nhau (7,2°), nhân 800 km × 50 = 40.000 km",
+      shot: "Mặt cắt Trái Đất: kéo dài hai cọc gặp nhau ở tâm; tia nắng ở Alexandria song song đường cọc Syene, cọc Alexandria là cát tuyến, tô hai góc so le trong 7,2°; trang Toán 7 mở ra, 5.000 × 50 = 250.000 stadion",
       lines: [
         nar(
-          "Nhưng làm sao góc bóng nắng trên mặt đất lại bằng đúng góc ở tâm Trái Đất sâu hàng nghìn cây số? Câu trả lời nằm ngay ở bài Toán lớp 7: Hai góc so le trong!",
-          "Nhưng làm sao góc bóng nắng trên mặt đất lại bằng đúng góc ở tâm Trái Đất sâu hàng nghìn cây số? Câu trả lời nằm ngay ở bài Toán lớp bảy: hai góc so le trong!",
+          "Kéo dài hai chiếc cọc, chúng gặp nhau ở tâm Trái Đất. Cọc ở Alexandria cắt hai đường song song: tia nắng và đường cọc ở Syene.",
+          "Kéo dài hai chiếc cọc, chúng gặp nhau ở tâm Trái Đất. Cọc ở A-lếch-xan-đri-a cắt hai đường song song: tia nắng, và đường cọc ở Xi-ê-nê.",
         ),
         nar(
-          "Vì tia nắng tại Syene và Alexandria song song với nhau, nên góc bóng gậy 7,2° trên mặt đất bằng hệt góc mở ở tâm Trái Đất. Chỉ cần lấy khoảng cách 800 km nhân với 50, ông tìm ra chu vi Trái Đất là 40.000 km!",
-          "Vì tia nắng tại Xuyên và A-lếch-xan-đri-a song song với nhau, nên góc bóng gậy bảy phẩy hai độ trên mặt đất bằng hệt góc mở ở tâm Trái Đất. Chỉ cần lấy khoảng cách tám trăm ki lô mét nhân với năm mươi, ông tìm ra chu vi Trái Đất là bốn mươi nghìn ki lô mét!",
+          "Hai góc so le trong bằng nhau, nên góc ở tâm cũng là 7,2°. Đó chính là tính chất hai đường thẳng song song trong Toán lớp 7.",
+          "Hai góc so le trong bằng nhau, nên góc ở tâm cũng là bảy phẩy hai độ. Đó chính là tính chất hai đường thẳng song song trong Toán lớp bảy.",
         ),
         nar(
-          "Ngày nay, vệ tinh hiện đại đo qua hai cực được 40.008 km — nghĩa là phép tính bằng gậy gỗ 2.200 năm trước gần như trúng phóc!",
-          "Ngày nay, vệ tinh hiện đại đo qua hai cực được bốn mươi nghìn không trăm lẻ tám ki lô mét, nghĩa là phép tính bằng gậy gỗ hai nghìn hai trăm năm trước gần như trúng phóc!",
+          "Góc ở tâm bằng 1/50 vòng tròn, nên chu vi gấp 50 lần quãng 5.000 stadion từ Syene tới Alexandria: 250.000 stadion.",
+          "Góc ở tâm bằng một phần năm mươi vòng tròn, nên chu vi gấp năm mươi lần quãng năm nghìn xta-đi-ông từ Xi-ê-nê tới A-lếch-xan-đri-a: hai trăm năm mươi nghìn xta-đi-ông.",
+        ),
+        nar(
+          "Tùy một stadion dài 157 hay 185 mét, con số ấy cỡ 39.000 đến 46.000 km, so với chừng 40.000 km đo ngày nay.",
+          "Tùy một xta-đi-ông dài một trăm năm mươi bảy hay một trăm tám mươi lăm mét, con số ấy cỡ ba mươi chín nghìn đến bốn mươi sáu nghìn ki lô mét, so với chừng bốn mươi nghìn ki lô mét đo ngày nay.",
         ),
       ],
     },
     realworld: {
-      shot: "Milo trên tàu buồm giữa đại dương ban đêm đo góc cao của sao Bắc Đẩu để suy ra Vĩ độ Bắc",
+      shot: "Milo trên tàu buồm ban đêm giơ thước đo góc ngắm sao Bắc Cực; tàu chạy về phía bắc, sao nhô cao thêm 1°, thước hải đồ ghi 111 km ≈ 60 hải lý",
       lines: [
         nar(
-          "Cũng nhờ nguyên lý hai tia sáng song song này, các thủy thủ hàng trăm năm qua chỉ cần đo góc cao của sao Bắc Đẩu trên đường chân trời...",
-          "Cũng nhờ nguyên lý hai tia sáng song song này, các thủy thủ hàng trăm năm qua chỉ cần đo góc cao của sao Bắc Đẩu trên đường chân trời.",
+          "Người đi biển dùng phép tính ấy theo chiều ngược lại, với ánh sao Bắc Cực cũng song song như tia nắng.",
+          "Người đi biển dùng phép tính ấy theo chiều ngược lại, với ánh sao Bắc Cực cũng song song như tia nắng.",
         ),
         nar(
-          "Góc ngước lên bao nhiêu độ thì con tàu đang ở đúng bấy nhiêu độ Vĩ Bắc — định vị giữa biển khơi mà không cần bất kỳ vệ tinh GPS nào!",
-          "Góc ngước lên bao nhiêu độ thì con tàu đang ở đúng bấy nhiêu độ Vĩ Bắc, định vị giữa biển khơi mà không cần bất kỳ vệ tinh định vị nào!",
+          "Tàu chạy thẳng về phía bắc, sao Bắc Cực nhô cao thêm 1° nghĩa là tàu đã đi thêm 1/360 vòng Trái Đất, khoảng 111 km.",
+          "Tàu chạy thẳng về phía bắc, sao Bắc Cực nhô cao thêm một độ, nghĩa là tàu đã đi thêm một phần ba trăm sáu mươi vòng Trái Đất, khoảng một trăm mười một ki lô mét.",
+        ),
+        nar(
+          "Vì thế một hải lý, 1.852 mét, vốn được định bằng một phút góc vĩ độ.",
+          "Vì thế một hải lý, một nghìn tám trăm năm mươi hai mét, vốn được định bằng một phút góc vĩ độ.",
         ),
       ],
     },
     cosmic: {
-      shot: "Bóng Trái Đất in lên Mặt Trăng trong đêm Nguyệt thực, tính ra khoảng cách 384.000 km từ Đất lên Trăng",
+      shot: "Phóng ra vũ trụ: từ Trái Đất kẻ hai tia tới hai mép Mặt Trời cách 150 triệu km, góc 0,53°; vòng tròn bán kính 150 triệu km dài 940 triệu km; kết: quay về cái giếng không bóng và chiếc cọc có bóng",
       lines: [
         nar(
-          "Thậm chí, ngay sau khi biết kích thước Trái Đất, các nhà thiên văn cổ đại đã nhìn vào cái bóng của Trái Đất in lên Mặt Trăng trong đêm Nguyệt thực...",
-          "Thậm chí, ngay sau khi biết kích thước Trái Đất, các nhà thiên văn cổ đại đã nhìn vào cái bóng của Trái Đất in lên Mặt Trăng trong đêm Nguyệt thực.",
+          "Cũng tỉ lệ góc và cung ấy, ngày nay ta đo được cả Mặt Trời.",
+          "Cũng tỉ lệ góc và cung ấy, ngày nay ta đo được cả Mặt Trời.",
         ),
         nar(
-          "Thấy bóng Trái Đất rộng gấp gần 4 lần Mặt Trăng, họ tính tiếp được luôn đường kính Mặt Trăng và khoảng cách 384.000 km từ Đất lên Trăng!",
-          "Thấy bóng Trái Đất rộng gấp gần bốn lần Mặt Trăng, họ tính tiếp được luôn đường kính Mặt Trăng và khoảng cách ba trăm tám mươi tư nghìn ki lô mét từ Đất lên Trăng!",
+          "Mặt Trời cách ta khoảng 150 triệu km và chiếm chừng 0,53° trên bầu trời, khoảng 1/675 vòng tròn.",
+          "Mặt Trời cách ta khoảng một trăm năm mươi triệu ki lô mét và chiếm chừng không phẩy năm mươi ba độ trên bầu trời, khoảng một phần sáu trăm bảy mươi lăm vòng tròn.",
         ),
         nar(
-          "Đôi chân con người có thể bị giữ lại trên mặt đất, nhưng chỉ cần một định lý hình học lớp 7, trí tuệ đã bước những bước đầu tiên ra ngoài vũ trụ.",
-          "Đôi chân con người có thể bị giữ lại trên mặt đất, nhưng chỉ cần một định lý hình học lớp bảy, trí tuệ đã bước những bước đầu tiên ra ngoài vũ trụ.",
+          "Vòng tròn bán kính ấy dài khoảng 940 triệu km. Chia cho 675, Mặt Trời rộng gần 1,4 triệu km, khớp với số đo hiện đại.",
+          "Vòng tròn bán kính ấy dài khoảng chín trăm bốn mươi triệu ki lô mét. Chia cho sáu trăm bảy mươi lăm, Mặt Trời rộng gần một phẩy bốn triệu ki lô mét, khớp với số đo hiện đại.",
+        ),
+        nar(
+          "Tất cả bắt đầu từ một cái giếng không có bóng, một chiếc cọc có bóng, và một người biết đổi góc lệch thành quãng đường.",
+          "Tất cả bắt đầu từ một cái giếng không có bóng, một chiếc cọc có bóng, và một người biết đổi góc lệch thành quãng đường.",
         ),
       ],
     },
@@ -234,98 +260,119 @@ export const TUAN_1 = [
     day: 3,
     week,
     theme,
-    title: "Sợi dây thừng 12 nút thắt của người Ai Cập & Định lý Pythagoras",
-    hudTitle: "BÍ MẬT SỢI DÂY 12 NÚT THẮT",
+    title: "Sợi dây 12 nút, tấm bảng đất sét 3.600 năm & Định lý Pythagoras",
+    hudTitle: "GÓC VUÔNG TỪ SỢI DÂY 12 NÚT",
     textbook: "Toán 8 · Định lý Pythagoras",
-    era: "Thung lũng sông Nile · 2500 TCN",
-    question: "Bạn đã từng thấy các bác thợ xây dùng mẹo đo 60 – 80 – 100 để lấy góc vuông ngoài đời chưa?",
+    era: "Sippar, Lưỡng Hà · 1900–1600 TCN",
+    question: "Nếu hai cạnh góc tường dài 6 mét và 8 mét, đường chéo phải dài bao nhiêu mét thì góc ấy vuông?",
     sources: [
-      { title: "SGK Toán lớp 8 — Định lý Pythagoras", url: "https://hanhtrangso.nxbgd.vn/" },
-      { title: "Britannica — Pythagorean theorem", url: "https://www.britannica.com/science/Pythagorean-theorem" },
+      { title: "UNSW Sydney — Australian mathematician reveals world's oldest example of applied geometry (tấm bảng Si.427)", url: "https://www.unsw.edu.au/news/2021/08/australian-mathematician-reveals-world-s-oldest-example-of-appli" },
+      { title: "ScienceDaily — Mathematician reveals world's oldest example of applied geometry (Mansfield, Foundations of Science 2021)", url: "https://www.sciencedaily.com/releases/2021/08/210804123503.htm" },
+      { title: "MacTutor (ĐH St Andrews) — Pythagoras of Samos", url: "https://mathshistory.st-andrews.ac.uk/Biographies/Pythagoras/" },
+      { title: "SGK Toán 8 Kết nối tri thức — Bài 35: Định lí Pythagore và ứng dụng (lý thuyết)", url: "https://vietjack.com/toan-8-kn/ly-thuyet-bai-35-dinh-li-pythagore-va-ung-dung.jsp" },
+      { title: "JLC — Snapping Layout Lines for Walls (phương pháp 3-4-5)", url: "https://www.jlconline.com/Training-the-Trades/snapping-layout-lines-for-walls_o?o=1" },
+      { title: "NASA — International Space Station (độ cao khoảng 250 dặm)", url: "https://www.nasa.gov/International%20Space%20Station/" },
+      { title: "NASA NSSDC — Earth Fact Sheet (bán kính trung bình 6.371 km)", url: "https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html" },
     ],
     hook: {
-      shot: "Thung lũng sông Nile 2500 TCN, Milo cầm sợi dây thừng 12 nút thắt phát sáng trước nền móng Kim tự tháp",
+      shot: "Milo cầm sợi dây 12 nút trước nền kim tự tháp, dấu hỏi lớn hiện trên sợi dây; cảnh lật sang một cánh đồng Lưỡng Hà và tấm bảng đất sét nhỏ vừa lòng bàn tay",
       lines: [
         nar(
-          "Làm thế nào người Ai Cập cổ đại kẻ được bốn góc vuông 90° hoàn hảo cho đáy Kim tự tháp rộng bằng 10 sân bóng đá, khi nhân loại chưa hề có thước ê-ke hay tia laser?",
-          "Làm thế nào người Ai Cập cổ đại kẻ được bốn góc vuông chín mươi độ hoàn hảo cho đáy Kim tự tháp rộng bằng mười sân bóng đá, khi nhân loại chưa hề có thước ê ke hay tia la-de?",
+          "Có lẽ bạn từng nghe: người Ai Cập cổ dùng một sợi dây thắt 12 nút để kẻ góc vuông cho kim tự tháp.",
+          "Có lẽ bạn từng nghe: người Ai Cập cổ dùng một sợi dây thắt mười hai nút để kẻ góc vuông cho kim tự tháp.",
         ),
         nar(
-          "Bí mật quốc gia của các Pharaoh hóa ra lại nằm gọn trong một sợi dây thừng thắt đúng 12 cái nút!",
-          "Bí mật quốc gia của các Pha-ra-ông hóa ra lại nằm gọn trong một sợi dây thừng thắt đúng mười hai cái nút!",
+          "Thực ra đó chỉ là giả thuyết từ thế kỷ 19, chưa có văn bản Ai Cập nào ghi lại cách ấy.",
+          "Thực ra đó chỉ là giả thuyết từ thế kỷ mười chín, chưa có văn bản Ai Cập nào ghi lại cách ấy.",
+        ),
+        nar(
+          "Nhưng bài toán thì có thật: trên cánh đồng rộng, làm sao kẻ góc vuông thật chuẩn? Dấu vết lời giải nằm trên một tấm bảng đất sét hơn 3.600 năm tuổi.",
+          "Nhưng bài toán thì có thật: trên cánh đồng rộng, làm sao kẻ góc vuông thật chuẩn? Dấu vết lời giải nằm trên một tấm bảng đất sét hơn ba nghìn sáu trăm năm tuổi.",
         ),
       ],
     },
     barrier: {
-      shot: "Lũ sông Nile xóa bờ ruộng; nếu góc móng dài 230m lệch 1° thì hai tường lệch nhau 4m làm sập kim tự tháp",
+      shot: "Thành Sippar cổ: Milo vai người đo đất đứng giữa thửa ruộng có hàng chà là ở ranh giới; Milo nheo mắt ngắm góc rồi ướm góc viên gạch, đường ranh kéo dài 100 m lệch dần 1°, hở ra 1,75 m và một dải tam giác đỏ ~87 m² (✖)",
       lines: [
         nar(
-          "Hàng năm, lũ sông Nile tràn về xóa sạch mọi bờ ruộng, buộc các kỹ sư phải chia lại đất vuông vức và dựng móng đền đài từ con số không.",
-          "Hàng năm, lũ sông Nin tràn về xóa sạch mọi bờ ruộng, buộc các kỹ sư phải chia lại đất vuông vức và dựng móng đền đài từ con số không.",
+          "Tấm bảng đào được ở thành Sippar, nay thuộc Iraq, là bản vẽ của người đo đất khi chia lại một thửa ruộng.",
+          "Tấm bảng đào được ở thành Xíp-pa, nay thuộc I-rắc, là bản vẽ của người đo đất khi chia lại một thửa ruộng.",
         ),
         nar(
-          "Nếu chỉ ngắm góc vuông bằng mắt thường, chỉ cần lệch đúng 1° ở góc móng dài 230m, hai bức tường sẽ lệch nhau tới 4m và làm sập cả kim tự tháp khi xây lên đỉnh!",
-          "Nếu chỉ ngắm góc vuông bằng mắt thường, chỉ cần lệch đúng một độ ở góc móng dài hai trăm ba mươi mét, hai bức tường sẽ lệch nhau tới bốn mét và làm sập cả kim tự tháp khi xây lên đỉnh!",
+          "Đất thời ấy là chuyện lớn: một tấm bảng khác ghi vụ hai người quyền thế tranh chấp hàng chà là trên đường ranh.",
+          "Đất thời ấy là chuyện lớn: một tấm bảng khác ghi vụ hai người quyền thế tranh chấp hàng chà là trên đường ranh.",
+        ),
+        nar(
+          "Cách dễ nghĩ nhất là ngắm bằng mắt, hay ướm theo góc viên gạch. Nhưng lệch 1 độ thôi, cuối cạnh 100 mét đã hở gần 1,75 mét, lấn mất gần 90 mét vuông đất!",
+          "Cách dễ nghĩ nhất là ngắm bằng mắt, hay ướm theo góc viên gạch. Nhưng lệch một độ thôi, cuối cạnh một trăm mét đã hở gần một mét bảy lăm, lấn mất gần chín mươi mét vuông đất!",
         ),
       ],
     },
     eureka: {
-      shot: "Milo cùng đội kỹ sư căng dây 12 nút thành tam giác 3 - 4 - 5 khoảng nút, tạo góc vuông 90° tuyệt đối",
+      shot: "Milo bỏ việc ngắm góc, cầm dây đo độ dài; trên tấm bảng hiện hình chữ nhật cạnh 3 và 4 với đường chéo 5; rồi Milo căng sợi dây 12 nút thành tam giác 3 – 4 – 5 khoảng nút, góc vuông sáng lên; phóng to thành 30 – 40 – 50 m",
       lines: [
         nar(
-          "Để giải bài toán sinh tử này, một nhóm kỹ sư đặc biệt gọi là 'Những người căng dây' đã lấy một sợi dây thừng thắt 12 nút cách đều nhau.",
-          "Để giải bài toán sinh tử này, một nhóm kỹ sư đặc biệt gọi là Những người căng dây, đã lấy một sợi dây thừng thắt mười hai nút cách đều nhau.",
+          "Bí quyết của người đo đất Babylon: đừng đo góc, hãy đo độ dài, thứ đo chính xác dễ hơn nhiều.",
+          "Bí quyết của người đo đất Ba-bi-lon: đừng đo góc, hãy đo độ dài, thứ đo chính xác dễ hơn nhiều.",
         ),
         nar(
-          "Họ đóng chiếc cọc thứ nhất ở nút đầu tiên, đếm 3 khoảng đóng cọc thứ hai, đếm tiếp 4 khoảng đóng cọc thứ ba, rồi kéo căng phần dây 5 khoảng còn lại về cọc đầu!",
-          "Họ đóng chiếc cọc thứ nhất ở nút đầu tiên, đếm ba khoảng đóng cọc thứ hai, đếm tiếp bốn khoảng đóng cọc thứ ba, rồi kéo căng phần dây năm khoảng còn lại về cọc đầu!",
+          "Theo nhà toán học Daniel Mansfield, người giải mã tấm bảng, họ dùng những bộ ba số đặc biệt. Đơn giản nhất là 3, 4, 5: hình chữ nhật cạnh 3 và 4 thì đường chéo đúng bằng 5.",
+          "Theo nhà toán học Đa-ni-en Men-phin, người giải mã tấm bảng, họ dùng những bộ ba số đặc biệt. Đơn giản nhất là ba, bốn, năm: hình chữ nhật cạnh ba và bốn thì đường chéo đúng bằng năm.",
         ),
         nar(
-          "Ngay khi ba cạnh dây 3 - 4 - 5 căng thẳng tắp, góc kẹp giữa cạnh 3 và cạnh 4 tự khắc tạo thành một góc vuông 90° tuyệt đối trên mọi địa hình!",
-          "Ngay khi ba cạnh dây ba, bốn, năm căng thẳng tắp, góc kẹp giữa cạnh ba và cạnh bốn tự khắc tạo thành một góc vuông chín mươi độ tuyệt đối trên mọi địa hình!",
+          "Bạn tự thử được với sợi dây 12 nút cách đều: căng thành tam giác 3, 4, 5 khoảng, góc giữa cạnh 3 và cạnh 4 tự khắc vuông.",
+          "Bạn tự thử được với sợi dây mười hai nút cách đều: căng thành tam giác ba, bốn, năm khoảng, góc giữa cạnh ba và cạnh bốn tự khắc vuông.",
+        ),
+        nar(
+          "Phóng to thành 30, 40, 50 mét, dây lệch 5 phân thì góc chỉ sai khoảng 0,12 độ, nhỏ hơn ngắm bằng mắt tám lần.",
+          "Phóng to thành ba mươi, bốn mươi, năm mươi mét, dây lệch năm phân thì góc chỉ sai khoảng không phẩy mười hai độ, nhỏ hơn ngắm bằng mắt tám lần.",
         ),
       ],
     },
     theorem: {
-      shot: "Mở SGK Toán lớp 8 — Định lý Pythagoras đảo: 3² + 4² = 5² (9 + 16 = 25)",
+      shot: "Ba hình vuông dựng trên ba cạnh tam giác 3 – 4 – 5: 9 ô + 16 ô xếp vừa khít 25 ô; trang Toán 8 mở ra với Định lý Pythagoras thuận và đảo ở Tầng 2B",
       lines: [
         nar(
-          "Hơn một thiên niên kỷ sau, nhà toán học Pythagoras đã chứng minh bí mật của sợi dây ấy thành định lý nổi tiếng nhất trong Sách giáo khoa Toán lớp 8!",
-          "Hơn một thiên niên kỷ sau, nhà toán học Pi-ta-go đã chứng minh bí mật của sợi dây ấy thành định lý nổi tiếng nhất trong Sách giáo khoa Toán lớp tám!",
+          "Vì sao ba số ấy luôn cho góc vuông? Vì 3 bình phương cộng 4 bình phương là 9 cộng 16, bằng 25, đúng 5 bình phương.",
+          "Vì sao ba số ấy luôn cho góc vuông? Vì ba bình phương cộng bốn bình phương là chín cộng mười sáu, bằng hai mươi lăm, đúng năm bình phương.",
         ),
         nar(
-          "Theo Định lý Pythagoras đảo: Trong một tam giác, nếu bình phương hai cạnh nhỏ cộng lại bằng đúng bình phương cạnh lớn (3² + 4² = 5²), thì đó bắt buộc phải là tam giác vuông!",
-          "Theo Định lý Pi-ta-go đảo: trong một tam giác, nếu bình phương hai cạnh nhỏ cộng lại bằng đúng bình phương cạnh lớn, ba bình phương cộng bốn bình phương bằng năm bình phương, thì đó bắt buộc phải là tam giác vuông!",
+          "Đó chính là Định lý Pythagoras đảo mà bạn học trong Toán lớp 8: tam giác có bình phương một cạnh bằng tổng bình phương hai cạnh kia thì là tam giác vuông.",
+          "Đó chính là Định lý Pi-ta-go đảo mà bạn học trong Toán lớp tám: tam giác có bình phương một cạnh bằng tổng bình phương hai cạnh kia thì là tam giác vuông.",
+        ),
+        nar(
+          "Chiều thuận thì nói: tam giác vuông luôn có a² + b² = c². Định lý mang tên Pythagoras, người sinh sau tấm bảng hơn một nghìn năm.",
+          "Chiều thuận thì nói: tam giác vuông luôn có a bình phương cộng bê bình phương bằng xê bình phương. Định lý mang tên Pi-ta-go, người sinh sau tấm bảng hơn một nghìn năm.",
         ),
       ],
     },
     realworld: {
-      shot: "Milo tại công trường xây dựng đo hai cạnh tường 60 cm – 80 cm và đường chéo 100 cm để bắt góc vuông móng nhà",
+      shot: "Công trường hiện đại: Milo đội mũ bảo hộ, căng thước dây 3 m và 4 m dọc hai đường tường, kéo thước chéo đúng 5 m; bên cạnh hiện các bội 6 – 8 – 10 và 9 – 12 – 15 m cho tường dài",
       lines: [
         nar(
-          "Cho tới tận hôm nay, trên khắp các công trường xây dựng, các bác thợ cả vẫn dùng nguyên xi tuyệt chiêu của người Ai Cập cổ đại!",
-          "Cho tới tận hôm nay, trên khắp các công trường xây dựng, các bác thợ cả vẫn dùng nguyên xi tuyệt chiêu của người Ai Cập cổ đại!",
+          "Mẹo ấy vẫn sống trên công trường hôm nay. Muốn góc tường vuông, thợ xây đo một cạnh 3 mét, cạnh kia 4 mét.",
+          "Mẹo ấy vẫn sống trên công trường hôm nay. Muốn góc tường vuông, thợ xây đo một cạnh ba mét, cạnh kia bốn mét.",
         ),
         nar(
-          "Khi xây móng nhà, thợ xây chỉ cần đo một vạch 60 cm, một vạch 80 cm; nếu kéo thước chéo giữa hai vạch đúng bằng 100 cm thì góc nhà đã vuông chuẩn không lệch một ly!",
-          "Khi xây móng nhà, thợ xây chỉ cần đo một vạch sáu mươi xen ti mét, một vạch tám mươi xen ti mét; nếu kéo thước chéo giữa hai vạch đúng bằng một trăm xen ti mét, thì góc nhà đã vuông chuẩn không lệch một ly!",
+          "Đường chéo nối hai vạch đúng 5 mét là góc đã vuông. Tường dài thì nhân lên thành 6, 8, 10 hay 9, 12, 15 mét.",
+          "Đường chéo nối hai vạch đúng năm mét là góc đã vuông. Tường dài thì nhân lên thành sáu, tám, mười hay chín, mười hai, mười lăm mét.",
         ),
       ],
     },
     cosmic: {
-      shot: "Phương pháp Thị sai (Stellar Parallax) lấy quỹ đạo Trái Đất (150 triệu km) làm cạnh góc vuông đo khoảng cách tới các vì sao",
+      shot: "Phóng ra vũ trụ: trạm vũ trụ quốc tế cao ~400 km, tia nhìn sượt mép Trái Đất, ô vuông nhỏ đánh dấu góc vuông giữa tia nhìn và bán kính 6.371 km; cạnh huyền 6.771 km; kết: cảnh thu về tấm bảng đất sét và sợi dây 12 nút căng thành tam giác 3 – 4 – 5",
       lines: [
         nar(
-          "Và khi phóng tam giác vuông ấy lên bầu trời đêm, các nhà thiên văn đã dựng một tam giác khổng lồ lấy chính khoảng cách từ Trái Đất tới Mặt Trời làm cạnh góc vuông!",
-          "Và khi phóng tam giác vuông ấy lên bầu trời đêm, các nhà thiên văn đã dựng một tam giác khổng lồ, lấy chính khoảng cách từ Trái Đất tới Mặt Trời làm cạnh góc vuông!",
+          "Chiều thuận giúp tính khoảng cách. Từ trạm vũ trụ quốc tế, cao khoảng 400 km, đường chân trời cách bao xa?",
+          "Chiều thuận giúp tính khoảng cách. Từ trạm vũ trụ quốc tế, cao khoảng bốn trăm ki-lô-mét, đường chân trời cách bao xa?",
         ),
         nar(
-          "Quan sát một ngôi sao vào tháng Một và tháng Bảy từ hai đầu quỹ đạo Trái Đất, họ dùng tam giác vuông để đo được khoảng cách tới những vì sao xa hàng chục năm ánh sáng!",
-          "Quan sát một ngôi sao vào tháng Một và tháng Bảy từ hai đầu quỹ đạo Trái Đất, họ dùng tam giác vuông để đo được khoảng cách tới những vì sao xa hàng chục năm ánh sáng!",
+          "Tia nhìn sượt mép Trái Đất vuông góc với bán kính 6.371 km, cạnh huyền là 6.371 cộng 400: một tam giác vuông khổng lồ.",
+          "Tia nhìn sượt mép Trái Đất vuông góc với bán kính sáu nghìn ba trăm bảy mốt ki-lô-mét, cạnh huyền là sáu nghìn ba trăm bảy mốt cộng bốn trăm: một tam giác vuông khổng lồ.",
         ),
         nar(
-          "Từ 12 nút thắt trên bãi bùn sông Nile đến thước đo những vì sao — toàn bộ nền văn minh của chúng ta đều được dựng lên từ một góc vuông giản dị.",
-          "Từ mười hai nút thắt trên bãi bùn sông Nin đến thước đo những vì sao, toàn bộ nền văn minh của chúng ta đều được dựng lên từ một góc vuông giản dị.",
+          "Lấy 6.771 bình phương trừ 6.371 bình phương rồi khai căn: chân trời xa khoảng 2.300 km. Tất cả bắt đầu từ tấm bảng đất sét, và một sợi dây 12 nút căng thành 3, 4, 5.",
+          "Lấy sáu nghìn bảy trăm bảy mốt bình phương trừ sáu nghìn ba trăm bảy mốt bình phương rồi khai căn: chân trời xa khoảng hai nghìn ba trăm ki-lô-mét. Tất cả bắt đầu từ tấm bảng đất sét, và một sợi dây mười hai nút căng thành ba, bốn, năm.",
         ),
       ],
     },
@@ -335,98 +382,129 @@ export const TUAN_1 = [
     day: 4,
     week,
     theme,
-    title: "Đào hầm xuyên núi từ hai đầu — Làm sao gặp nhau giữa lòng đá đặc?",
+    title: "Đào hầm xuyên núi từ hai đầu — Làm sao hai đội gặp nhau giữa lòng đá?",
     hudTitle: "ĐÀO HẦM XUYÊN NÚI TỪ HAI ĐẦU",
-    textbook: "Toán 10 · Định lý Sin & Cosin",
-    era: "Hy Lạp cổ đại & Hầm Hải Vân",
-    question: "Mỗi lần đi qua Hầm Hải Vân hay hầm đường bộ, bạn có từng tự hỏi làm sao họ đào xuyên núi mà không bị lệch hướng không?",
+    textbook: "Toán 10 · Định lý côsin & Định lý sin",
+    era: "Đảo Samos, Hy Lạp · thế kỷ 6 TCN",
+    question: "Đứng ở cửa hầm A, muốn biết hướng đào, bạn cần đo những gì ngoài trời?",
     sources: [
-      { title: "SGK Toán lớp 10 — Hệ thức lượng trong tam giác", url: "https://hanhtrangso.nxbgd.vn/" },
-      { title: "Britannica — Tunnel of Eupalinos", url: "https://www.britannica.com/" },
+      { title: "Tom M. Apostol — The Tunnel of Samos, Engineering & Science (Caltech), 2004", url: "https://calteches.library.caltech.edu/689/2/Samos.pdf" },
+      { title: "Toán 10 Kết nối tri thức — Bài 6. Hệ thức lượng trong tam giác (có Bài 3.11 đường hầm xuyên núi)", url: "https://loigiaihay.com/bai-6-he-thuc-luong-trong-tam-giac-toan-10-ket-noi-tri-thuc-e24966.html" },
+      { title: "Les Bâtisseurs du Tunnel sous la Manche — Jonctions et percée (1/12/1990)", url: "https://batisseurs-tunnel.com/?p=3845" },
+      { title: "MacTutor (ĐH St Andrews) — Nicolas Louis de Lacaille", url: "https://mathshistory.st-andrews.ac.uk/Biographies/Lacaille/" },
+      { title: "MacTutor (ĐH St Andrews) — Joseph-Jérôme Lefrançais de Lalande", url: "https://mathshistory.st-andrews.ac.uk/Biographies/Lalande/" },
     ],
     hook: {
-      shot: "Mặt cắt quả núi đá dài hơn 6 km, Milo cùng hai đội khoan từ hai sườn núi đối diện tiến vào giữa lòng đá đặc",
+      shot: "Đảo Samos thế kỷ 6 TCN, mặt cắt núi đá vôi, hai đội thợ cầm cuốc, búa, đục ở hai cửa hầm A và B; Milo (vai Eupalinos) đứng giữa, nhìn hai mũi hầm tiến vào lòng núi tối",
       lines: [
         nar(
-          "Khi đào một đường hầm xuyên núi dài hơn 6 km như Hầm Hải Vân, để tiết kiệm một nửa thời gian, các kỹ sư buộc phải khoan đồng thời từ hai sườn núi đối diện vào giữa!",
-          "Khi đào một đường hầm xuyên núi dài hơn sáu ki lô mét như Hầm Hải Vân, để tiết kiệm một nửa thời gian, các kỹ sư buộc phải khoan đồng thời từ hai sườn núi đối diện vào giữa!",
+          "Hơn 2.500 năm trước, trên đảo Samos của Hy Lạp, kỹ sư Eupalinos phải đục một đường hầm dẫn nước dài hơn 1 km xuyên lòng núi đá vôi.",
+          "Hơn hai nghìn năm trăm năm trước, trên đảo Xa-mốt của Hy Lạp, kỹ sư Ơ-pa-li-nốt phải đục một đường hầm dẫn nước dài hơn một ki-lô-mét xuyên lòng núi đá vôi.",
         ),
         nar(
-          "Nhưng trong lòng đá đặc quánh hàng triệu tấn, không nhìn thấy nhau và cũng không có sóng GPS, làm sao hai mũi khoan gặp nhau ở giữa núi mà chỉ lệch vài centimet?",
-          "Nhưng trong lòng đá đặc quánh hàng triệu tấn, không nhìn thấy nhau và cũng không có sóng định vị, làm sao hai mũi khoan gặp nhau ở giữa núi mà chỉ lệch vài xen ti mét?",
+          "Hai đội thợ đục cùng lúc từ hai phía núi, chỉ bằng cuốc, búa và đục.",
+          "Hai đội thợ đục cùng lúc từ hai phía núi, chỉ bằng cuốc, búa và đục.",
+        ),
+        nar(
+          "Giữa lòng đá tối om, không đội nào thấy đội kia. Làm sao họ biết phải đào hướng nào để gặp nhau?",
+          "Giữa lòng đá tối om, không đội nào thấy đội kia. Làm sao họ biết phải đào hướng nào để gặp nhau?",
         ),
       ],
     },
     barrier: {
-      shot: "Nếu lệch góc 0,5° sau 3 km đào hầm, hai đường hầm sẽ trượt qua nhau gần 30m thành hai hang cụt",
+      shot: "Hai mũi hầm rộng 2 m; mũi phía Bắc lệch 1° so với đường đúng, sau khoảng 500 m hai đầu hầm cách nhau khoảng 9 m và trượt qua nhau (✖); rồi chiếc la bàn bị gạch chéo (✖)",
       lines: [
         nar(
-          "Sai lầm ở đây không có chỗ để sửa: Chỉ cần lệch góc nửa độ (0,5°), sau 3 km đào hầm, hai đội sẽ đi trượt qua nhau tới gần 30m — biến một đường hầm thành hai cái hang cụt!",
-          "Sai lầm ở đây không có chỗ để sửa: chỉ cần lệch góc nửa độ, sau ba ki lô mét đào hầm, hai đội sẽ đi trượt qua nhau tới gần ba mươi mét, biến một đường hầm thành hai cái hang cụt!",
+          "Cách dễ nghĩ nhất là mỗi đội cứ nhắm chừng về phía bên kia núi mà đào.",
+          "Cách dễ nghĩ nhất là mỗi đội cứ nhắm chừng về phía bên kia núi mà đào.",
         ),
         nar(
-          "Bạn cũng không thể kéo một sợi dây thẳng tắp vượt qua đỉnh núi dựng đứng hay nhìn xuyên qua khối đá để ngắm hướng giữa cửa Bắc và cửa Nam!",
-          "Bạn cũng không thể kéo một sợi dây thẳng tắp vượt qua đỉnh núi dựng đứng, hay nhìn xuyên qua khối đá để ngắm hướng giữa cửa Bắc và cửa Nam!",
+          "Nhưng hầm chỉ rộng chừng 2 mét. Một đội lệch 1 độ thôi, sau khoảng 500 mét đã trượt xa chừng 9 mét, thành hai cái hang cụt.",
+          "Nhưng hầm chỉ rộng chừng hai mét. Một đội lệch một độ thôi, sau khoảng năm trăm mét đã trượt xa chừng chín mét, thành hai cái hang cụt.",
+        ),
+        nar(
+          "La bàn thì người Hy Lạp thời ấy chưa có. Mà có la bàn, bạn vẫn phải biết cửa bên kia ở hướng nào.",
+          "La bàn thì người Hy Lạp thời ấy chưa có. Mà có la bàn, bạn vẫn phải biết cửa bên kia ở hướng nào.",
         ),
       ],
     },
     eureka: {
-      shot: "Milo chọn đỉnh mốc C bên ngoài sườn núi nhìn thấy cả hai cửa hầm A và B, tạo thành tam giác ABC",
+      shot: "Nhìn từ trên cao: Milo (vai Heron) đi vòng chân núi từ cửa A sang cửa B theo những đoạn Đông–Tây, Bắc–Nam vuông góc; cộng lại thành hai cạnh góc vuông, cạnh huyền AB xuyên núi chính là đường hầm; hai tam giác nhỏ cùng hình dạng cắm cọc ở hai cửa",
       lines: [
         nar(
-          "Thế nhưng từ 2.500 năm trước, khi đào đường hầm Eupalinos xuyên núi ở Hy Lạp cho đến các kỹ sư hiện đại, con người đã dùng một lối đi vòng cực kỳ thông minh!",
-          "Thế nhưng từ hai nghìn năm trăm năm trước, khi đào đường hầm Ơ-pa-li-nốt xuyên núi ở Hy Lạp cho đến các kỹ sư hiện đại, con người đã dùng một lối đi vòng cực kỳ thông minh!",
+          "Không ai biết chắc Eupalinos đã làm thế nào, vì không còn ghi chép nào về cách làm.",
+          "Không ai biết chắc Ơ-pa-li-nốt đã làm thế nào, vì không còn ghi chép nào về cách làm.",
         ),
         nar(
-          "Không nhìn xuyên được qua núi từ A sang B, các kỹ sư chọn một đỉnh mốc C bên ngoài sườn núi — nơi có thể nhìn thấy rõ cả hai cửa hầm A và B!",
-          "Không nhìn xuyên được qua núi từ A sang Bê, các kỹ sư chọn một đỉnh mốc Xê bên ngoài sườn núi, nơi có thể nhìn thấy rõ cả hai cửa hầm A và Bê!",
+          "Khoảng 500 năm sau, kỹ sư Heron ở Alexandria viết ra một lời giải: không nhìn xuyên núi được thì đi vòng quanh núi.",
+          "Khoảng năm trăm năm sau, kỹ sư Hê-rông ở A-lếch-xan-đri-a viết ra một lời giải: không nhìn xuyên núi được thì đi vòng quanh núi.",
         ),
         nar(
-          "Khi đó, hai đường ngắm bên ngoài và trục hầm xuyên núi hợp thành một tam giác ABC mà ta đo được dễ dàng hai cạnh ngoài trời cùng góc kẹp giữa chúng!",
-          "Khi đó, hai đường ngắm bên ngoài và trục hầm xuyên núi hợp thành một tam giác A Bê Xê, mà ta đo được dễ dàng hai cạnh ngoài trời cùng góc kẹp giữa chúng!",
+          "Đi từ cửa A sang cửa B, cộng các quãng đi theo hướng Đông Tây và Bắc Nam, ta có hai cạnh góc vuông của một tam giác có cạnh huyền chính là đường hầm.",
+          "Đi từ cửa a sang cửa bê, cộng các quãng đi theo hướng Đông Tây và Bắc Nam, ta có hai cạnh góc vuông của một tam giác có cạnh huyền chính là đường hầm.",
+        ),
+        nar(
+          "Dựng ở mỗi cửa một tam giác nhỏ cùng hình dạng, mỗi đội có một hàng cọc chỉ đúng hướng đào.",
+          "Dựng ở mỗi cửa một tam giác nhỏ cùng hình dạng, mỗi đội có một hàng cọc chỉ đúng hướng đào.",
         ),
       ],
     },
     theorem: {
-      shot: "Mở SGK Toán lớp 10 — Định lý Cosin và Định lý Sin tính chính xác cạnh AB và góc khoan tại A, B",
+      shot: "Tam giác vuông của Heron biến thành tam giác ABC bất kỳ: mốc C trên sườn núi nhìn thấy cả hai cửa A, B; đo CA, CB và góc C; trang Toán 10 mở ra với định lý côsin tính AB và định lý sin tính góc A",
       lines: [
         nar(
-          "Và để tính chính xác độ dài cũng như góc khoan của cạnh AB nằm khuất trong lòng núi, các kỹ sư mở đúng công thức trong Sách giáo khoa Toán lớp 10!",
-          "Và để tính chính xác độ dài cũng như góc khoan của cạnh A Bê nằm khuất trong lòng núi, các kỹ sư mở đúng công thức trong Sách giáo khoa Toán lớp mười!",
+          "Nhưng đi vòng toàn góc vuông vừa mệt vừa dễ sai. Thật ra tam giác chẳng cần vuông: chỉ cần một mốc C nhìn thấy cả hai cửa A và B.",
+          "Nhưng đi vòng toàn góc vuông vừa mệt vừa dễ sai. Thật ra tam giác chẳng cần vuông: chỉ cần một mốc xê nhìn thấy cả hai cửa a và bê.",
         ),
         nar(
-          "Nhờ Định lý Cosin (c² = a² + b² - 2ab·cosC), họ tính ra độ dài chính xác của đường hầm; và nhờ Định lý Sin, họ tìm ra góc khoan tại cửa A và cửa B chính xác tới từng giây độ!",
-          "Nhờ Định lý Cô-sin, xê bình phương bằng a bình phương cộng bê bình phương trừ hai a bê cô-sin Xê, họ tính ra độ dài chính xác của đường hầm; và nhờ Định lý Sin, họ tìm ra góc khoan tại cửa A và cửa Bê chính xác tới từng giây độ!",
+          "Đo hai cạnh CA, CB và góc C xen giữa. AB bình phương bằng CA bình phương cộng CB bình phương, trừ hai lần CA nhân CB nhân côsin C.",
+          "Đo hai cạnh xê a, xê bê và góc xê xen giữa. A bê bình phương bằng xê a bình phương cộng xê bê bình phương, trừ hai lần xê a nhân xê bê nhân cô-sin xê.",
+        ),
+        nar(
+          "Có AB rồi, tỉ số giữa mỗi cạnh và sin góc đối diện cho ra góc A, tức là hướng mũi đào so với đường ngắm AC.",
+          "Có a bê rồi, tỉ số giữa mỗi cạnh và sin góc đối diện cho ra góc a, tức là hướng mũi đào so với đường ngắm a xê.",
+        ),
+        nar(
+          "Đó chính là Định lý côsin và Định lý sin mà bạn học trong Toán lớp 10, nơi có hẳn một bài tập về đường hầm xuyên núi.",
+          "Đó chính là Định lý cô-sin và Định lý sin mà bạn học trong Toán lớp mười, nơi có hẳn một bài tập về đường hầm xuyên núi.",
         ),
       ],
     },
     realworld: {
-      shot: "Tia laser dẫn hướng trong lòng hầm kết hợp lưới tam giác trắc địa ôm quanh đèo Hải Vân",
+      shot: "Mặt cắt eo biển Manche: hai máy khoan từ bờ Anh và bờ Pháp tiến vào dưới đáy biển; trên mặt đất, lưới tam giác đo đạc nối mốc hai bờ, vệ tinh phía trên; hai mũi hầm dịch vụ gặp nhau năm 1990",
       lines: [
         nar(
-          "Khi bắt đầu khoan sâu vào lòng núi, các kỹ sư lắp máy chiếu tia laser dọc theo đúng góc đã tính để dẫn đường cho máy đào không lệch một milimet.",
-          "Khi bắt đầu khoan sâu vào lòng núi, các kỹ sư lắp máy chiếu tia la-de dọc theo đúng góc đã tính, để dẫn đường cho máy đào không lệch một mi li mét.",
+          "Đường hầm dưới eo biển Manche nối Anh và Pháp cũng được đào từ hai phía, với gần 38 km nằm dưới đáy biển.",
+          "Đường hầm dưới eo biển Măng-sơ nối Anh và Pháp cũng được đào từ hai phía, với gần ba mươi tám ki-lô-mét nằm dưới đáy biển.",
         ),
         nar(
-          "Thậm chí với những dãy núi ngoằn ngoèo như đèo Hải Vân, họ nối hàng chục tam giác liên tiếp quanh núi thành một 'lưới tam giác trắc địa' khóa chặt tọa độ hai đầu hầm!",
-          "Thậm chí với những dãy núi ngoằn ngoèo như đèo Hải Vân, họ nối hàng chục tam giác liên tiếp quanh núi thành một lưới tam giác trắc địa, khóa chặt tọa độ hai đầu hầm!",
+          "Trước khi đào, người ta nối mốc đo hai bờ vào cùng một lưới tam giác, có vệ tinh hỗ trợ, rồi tính hướng cho từng máy.",
+          "Trước khi đào, người ta nối mốc đo hai bờ vào cùng một lưới tam giác, có vệ tinh hỗ trợ, rồi tính hướng cho từng máy.",
+        ),
+        nar(
+          "Năm 1990, hai mũi hầm dịch vụ gặp nhau dưới đáy biển, lệch nhau chỉ vài chục xen-ti-mét.",
+          "Năm một nghìn chín trăm chín mươi, hai mũi hầm dịch vụ gặp nhau dưới đáy biển, lệch nhau chỉ vài chục xen-ti-mét.",
         ),
       ],
     },
     cosmic: {
-      shot: "Đường hầm Eo biển Manche dài 50 km dưới đáy đại dương giữa Anh và Pháp gặp nhau lệch chưa tới một gang tay",
+      shot: "Phóng ra vũ trụ: Berlin và Mũi Hảo Vọng là hai đầu cạnh đáy gần 10.000 km, hai tia ngắm cùng chụm vào Mặt Trăng thành một tam giác khổng lồ; kết: quay về hai đội thợ Samos gặp nhau trong lòng núi",
       lines: [
         nar(
-          "Đỉnh cao của phương pháp này là khi nhân loại đào đường hầm Eo biển Manche dài tới 50 km nằm sâu dưới đáy biển nối liền nước Anh và nước Pháp!",
-          "Đỉnh cao của phương pháp này là khi nhân loại đào đường hầm Eo biển Măng-sơ dài tới năm mươi ki lô mét nằm sâu dưới đáy biển, nối liền nước Anh và nước Pháp!",
+          "Còn nếu điểm cần tới là Mặt Trăng, nơi không sợi thước dây nào kéo tới được thì sao?",
+          "Còn nếu điểm cần tới là Mặt Trăng, nơi không sợi thước dây nào kéo tới được thì sao?",
         ),
         nar(
-          "Hai cỗ máy khoan khổng lồ xuất phát từ hai quốc gia, đi ngầm dưới đáy đại dương suốt ba năm trời, rồi gặp nhau giữa lòng biển với độ lệch tâm chưa tới một gang tay!",
-          "Hai cỗ máy khoan khổng lồ xuất phát từ hai quốc gia, đi ngầm dưới đáy đại dương suốt ba năm trời, rồi gặp nhau giữa lòng biển với độ lệch tâm chưa tới một gang tay!",
+          "Từ năm 1751, Lacaille ở Mũi Hảo Vọng và Lalande ở Berlin cùng ngắm Mặt Trăng, hai nơi cách nhau gần 10.000 km.",
+          "Từ năm một nghìn bảy trăm năm mươi mốt, La-cai ở Mũi Hảo Vọng và La-lăng ở Béc-lin cùng ngắm Mặt Trăng, hai nơi cách nhau gần mười nghìn ki-lô-mét.",
         ),
         nar(
-          "Toán học không cho chúng ta đôi mắt nhìn xuyên qua đá tảng, nhưng lại trao cho con người chiếc la bàn để đi xuyên qua cả những ngọn núi hùng vĩ nhất.",
-          "Toán học không cho chúng ta đôi mắt nhìn xuyên qua đá tảng, nhưng lại trao cho con người chiếc la bàn, để đi xuyên qua cả những ngọn núi hùng vĩ nhất.",
+          "Biết cạnh đáy và hai góc ngắm ở hai đầu, định lý sin cho ra khoảng cách tới Mặt Trăng, đúng như cách tìm hướng hầm.",
+          "Biết cạnh đáy và hai góc ngắm ở hai đầu, định lý sin cho ra khoảng cách tới Mặt Trăng, đúng như cách tìm hướng hầm.",
+        ),
+        nar(
+          "Hai đội thợ Samos gặp nhau giữa lòng núi tối om không nhờ đôi mắt nhìn xuyên đá, mà nhờ một tam giác vẽ được bên ngoài núi.",
+          "Hai đội thợ Xa-mốt gặp nhau giữa lòng núi tối om không nhờ đôi mắt nhìn xuyên đá, mà nhờ một tam giác vẽ được bên ngoài núi.",
         ),
       ],
     },
@@ -437,97 +515,123 @@ export const TUAN_1 = [
     week,
     theme,
     title: "Chiếc vương miện vàng & Lực đẩy Archimedes",
-    hudTitle: "VƯƠNG MIỆN VÀNG & ĐIỂM TỰA ARCHIMEDES",
-    textbook: "Vật lý 8 · Lực đẩy Archimedes",
-    era: "Syracuse, Hy Lạp · 250 TCN",
-    question: "Theo bạn, câu nói 'Hãy cho tôi một điểm tựa, tôi sẽ nhấc bổng Trái Đất' của Archimedes là nói quá hay hoàn toàn tính được bằng toán học?",
+    hudTitle: "VƯƠNG MIỆN VÀNG CÓ PHA BẠC KHÔNG?",
+    textbook: "KHTN 8 · Lực đẩy Archimedes",
+    era: "Syracuse, đảo Sicily · khoảng 250 TCN",
+    question: "Cùng nặng 1 kg, khi nhúng vào nước, thỏi vàng ròng hay vương miện pha bạc bị nước đẩy lên mạnh hơn?",
     sources: [
-      { title: "SGK Khoa học tự nhiên / Vật lý 8 — Lực đẩy Archimedes", url: "https://hanhtrangso.nxbgd.vn/" },
-      { title: "Britannica — Archimedes' principle", url: "https://www.britannica.com/science/Archimedes-principle" },
+      { title: "SGK KHTN 8 Kết nối tri thức — Bài 17. Lực đẩy Archimedes", url: "https://loigiaihay.com/giai-khoa-hoc-tu-nhien-8-bai-17-luc-day-archimedes-trang-73-74-75-ket-noi-tri-thuc-a135334.html" },
+      { title: "Vitruvius, De Architectura, Quyển IX — chuyện vương miện (C. Rorres, ĐH New York)", url: "https://www.math.nyu.edu/~crorres/Archimedes/Crown/Vitruvius.html" },
+      { title: "Galileo, La Bilancetta (1586) — phương pháp cân trong nước (C. Rorres, ĐH New York)", url: "https://www.math.nyu.edu/~crorres/Archimedes/Crown/bilancetta.html" },
+      { title: "The Golden Crown — tính chênh mực nước và chênh cân (C. Rorres, ĐH New York)", url: "https://www.math.nyu.edu/~crorres/Archimedes/Crown/CrownIntro.html" },
+      { title: "MacTutor (ĐH St Andrews) — Archimedes of Syracuse", url: "https://mathshistory.st-andrews.ac.uk/Biographies/Archimedes/" },
+      { title: "SAGE Encyclopedia of Obesity — Hydrodensitometry", url: "https://sk.sagepub.com/ency/edvol/embed/obesity/chpt/hydrodensitometry" },
+      { title: "NASA Science — Saturn Facts", url: "https://science.nasa.gov/saturn/facts/" },
+      { title: "NASA NSSDC — Saturn Fact Sheet", url: "https://nssdc.gsfc.nasa.gov/planetary/factsheet/saturnfact.html" },
     ],
     hook: {
-      shot: "Cung điện Syracuse năm 250 TCN, vua Hiero II giao chiếc vương miện vàng cho Milo (vai Archimedes) kiểm tra mà cấm làm trầy xước",
+      shot: "Cung điện Syracuse thế kỷ 3 TCN, vua Hiero II cầm chiếc vương miện lá vàng, người thợ kim hoàn khúm núm; Milo (vai Archimedes) được gọi tới, dấu hỏi lớn trên vương miện",
       lines: [
         nar(
-          "Nhà vua Hiero II giao cho thợ kim hoàn một thỏi vàng ròng để đúc vương miện, nhưng khi nhận lại, ông nghi ngờ người thợ đã lén ăn bớt vàng rồi pha bạc vào bên trong!",
-          "Nhà vua Hi-ê-rô hai giao cho thợ kim hoàn một thỏi vàng ròng để đúc vương miện, nhưng khi nhận lại, ông nghi ngờ người thợ đã lén ăn bớt vàng rồi pha bạc vào bên trong!",
+          "Theo Vitruvius kể lại, hơn 2.200 năm trước, vua Hiero II của thành Syracuse đặt thợ làm một vương miện vàng ròng để dâng thần.",
+          "Theo Vi-tơ-ru-vi-út kể lại, hơn hai nghìn hai trăm năm trước, vua Hi-ê-rông thứ hai của thành Xi-ra-cút đặt thợ làm một vương miện vàng ròng để dâng thần.",
         ),
         nar(
-          "Nhà vua ra một đề bài hóc búa cho nhà bác học Archimedes: Phải vạch trần sự gian dối này mà tuyệt đối không được nấu chảy hay làm trầy xước chiếc vương miện!",
-          "Nhà vua ra một đề bài hóc búa cho nhà bác học Ác-si-mét: phải vạch trần sự gian dối này, mà tuyệt đối không được nấu chảy hay làm trầy xước chiếc vương miện!",
+          "Vương miện giao đủ cân nặng, nhưng có lời tố rằng người thợ đã bớt vàng và tráo vào đúng chừng ấy bạc.",
+          "Vương miện giao đủ cân nặng, nhưng có lời tố rằng người thợ đã bớt vàng, và tráo vào đúng chừng ấy bạc.",
+        ),
+        nar(
+          "Nhà vua giao Archimedes vạch trần, mà đồ dâng thần thì không được nấu chảy hay cưa ra. Làm sao biết bên trong có bạc?",
+          "Nhà vua giao Ác-si-mét vạch trần, mà đồ dâng thần thì không được nấu chảy hay cưa ra. Làm sao biết bên trong có bạc?",
         ),
       ],
     },
     barrier: {
-      shot: "Cân khô chỉ đúng 1 kg bằng nhau (✖), hoa văn lá nguyệt quế tinh xảo không thể dùng thước đo thể tích (✖)",
+      shot: "Cân khô hai bên bằng nhau tăm tắp (✖); hai khối cùng nặng, khối bạc to gần gấp đôi khối vàng; cây thước bất lực trước những chiếc lá vàng uốn lượn (✖)",
       lines: [
         nar(
-          "Nếu chỉ đặt lên bàn cân thông thường thì vô ích: Vì người thợ rất tinh vi, hắn rút ra bao nhiêu gam vàng thì bù vào đúng bấy nhiêu gam bạc để cân nặng y hệt ban đầu!",
-          "Nếu chỉ đặt lên bàn cân thông thường thì vô ích: vì người thợ rất tinh vi, hắn rút ra bao nhiêu gam vàng thì bù vào đúng bấy nhiêu gam bạc, để cân nặng y hệt ban đầu!",
+          "Cách dễ nghĩ nhất là đem cân. Nhưng vô ích: bớt bao nhiêu gam vàng thì bù bấy nhiêu gam bạc, cân nặng vẫn y như cũ.",
+          "Cách dễ nghĩ nhất là đem cân. Nhưng vô ích: bớt bao nhiêu gam vàng thì bù bấy nhiêu gam bạc, cân nặng vẫn y như cũ.",
         ),
         nar(
-          "Muốn biết có pha bạc hay không thì phải đo được thể tích của vương miện, nhưng với hàng trăm chiếc lá vàng chạm khắc uốn lượn, không một cây thước hình học nào đo nổi!",
-          "Muốn biết có pha bạc hay không thì phải đo được thể tích của vương miện, nhưng với hàng trăm chiếc lá vàng chạm khắc uốn lượn, không một cây thước hình học nào đo nổi!",
+          "Chỗ khác nằm ở độ to: cùng một khối, bạc chỉ nặng chừng nửa vàng, nên cùng cân nặng, vương miện pha bạc phải to hơn.",
+          "Chỗ khác nằm ở độ to: cùng một khối, bạc chỉ nặng chừng nửa vàng, nên cùng cân nặng, vương miện pha bạc phải to hơn.",
+        ),
+        nar(
+          "Vậy thì đo thể tích? Với hàng chục chiếc lá vàng chạm khắc uốn lượn, chẳng cây thước nào đo nổi.",
+          "Vậy thì đo thể tích? Với hàng chục chiếc lá vàng chạm khắc uốn lượn, chẳng cây thước nào đo nổi.",
         ),
       ],
     },
     eureka: {
-      shot: "Nước tràn bồn tắm EUREKA; treo thỏi vàng và vương miện vào hai đầu cân đòn bẩy rồi nhúng chìm vào bể nước",
+      shot: "Bồn tắm nước tràn, Milo reo EUREKA; bình nước rộng 20 cm chỉ dâng chênh 0,4 mm (kính lúp); rồi cân đòn treo vương miện và thỏi vàng cùng 1 kg, nhúng vào chậu nước, cán cân nghiêng về phía thỏi vàng, nhãn 13 g",
       lines: [
         nar(
-          "Bế tắc suốt nhiều ngày, cho đến khi bước vào bồn tắm đầy ắp, Archimedes chợt thấy nước tràn ra sàn tương ứng đúng với phần cơ thể mình chìm xuống!",
-          "Bế tắc suốt nhiều ngày, cho đến khi bước vào bồn tắm đầy ắp, Ác-si-mét chợt thấy nước tràn ra sàn tương ứng đúng với phần cơ thể mình chìm xuống!",
+          "Tương truyền, khi bước vào bồn tắm, Archimedes thấy người chìm xuống bao nhiêu thì nước tràn ra bấy nhiêu, liền reo lên: Eureka, tìm ra rồi!",
+          "Tương truyền, khi bước vào bồn tắm, Ác-si-mét thấy người chìm xuống bao nhiêu thì nước tràn ra bấy nhiêu, liền reo lên: Ơ-rê-ca, tìm ra rồi!",
         ),
         nar(
-          "Ông reo lên 'Eureka — Tìm ra rồi!': Vì bạc nhẹ hơn vàng gần một nửa, nên nếu vương miện bị pha bạc, dù có cùng cân nặng nó bắt buộc phải có thể tích phình to hơn vàng nguyên chất!",
-          "Ông reo lên Ơ-rê-ka, tìm ra rồi! Vì bạc nhẹ hơn vàng gần một nửa, nên nếu vương miện bị pha bạc, dù có cùng cân nặng, nó bắt buộc phải có thể tích phình to hơn vàng nguyên chất!",
+          "Nhưng đong nước tràn thì khó: giả sử vương miện nặng 1 kg bị tráo 300 g bạc, nước trong bình rộng 20 cm chỉ dâng cao hơn chừng 0,4 mm.",
+          "Nhưng đong nước tràn thì khó: giả sử vương miện nặng một ki-lô-gam bị tráo ba trăm gam bạc, nước trong bình rộng hai mươi xen-ti-mét chỉ dâng cao hơn chừng không phẩy bốn mi-li-mét.",
         ),
         nar(
-          "Thay vì chỉ đong nước tràn dễ sai số, Archimedes treo thỏi vàng mẫu và chiếc vương miện vào hai đầu một chiếc cân đòn bẩy, rồi nhúng chìm cả hai xuống bể nước: Lập tức cán cân nghiêng hẳn xuống phía thỏi vàng!",
-          "Thay vì chỉ đong nước tràn dễ sai số, Ác-si-mét treo thỏi vàng mẫu và chiếc vương miện vào hai đầu một chiếc cân đòn bẩy, rồi nhúng chìm cả hai xuống bể nước: lập tức cán cân nghiêng hẳn xuống phía thỏi vàng!",
+          "Năm 1586, Galileo cho rằng Archimedes đã dùng một chiếc cân: treo vương miện và một thỏi vàng nặng y hệt lên hai đầu cân, rồi nhúng cả hai vào nước.",
+          "Năm một nghìn năm trăm tám mươi sáu, Ga-li-lê cho rằng Ác-si-mét đã dùng một chiếc cân: treo vương miện và một thỏi vàng nặng y hệt lên hai đầu cân, rồi nhúng cả hai vào nước.",
+        ),
+        nar(
+          "Cân lập tức nghiêng về phía thỏi vàng, chênh khoảng 13 gam, nhìn là thấy. Vương miện to hơn nên bị nước đẩy lên mạnh hơn: nó có pha bạc!",
+          "Cân lập tức nghiêng về phía thỏi vàng, chênh khoảng mười ba gam, nhìn là thấy. Vương miện to hơn nên bị nước đẩy lên mạnh hơn: nó có pha bạc!",
         ),
       ],
     },
     theorem: {
-      shot: "Mở SGK Vật lý lớp 8 — Công thức Lực đẩy Archimedes F_A = d·V và Quy tắc Đòn bẩy F₁·l₁ = F₂·l₂",
+      shot: "Cận cảnh chậu nước: mũi tên lực đẩy hướng lên dưới vương miện dài hơn dưới thỏi vàng; khối nước 13 cm³ tách ra đặt lên đĩa cân 13 g; trang KHTN 8 mở ra, công thức FA = d · V",
       lines: [
         nar(
-          "Chiếc cân định mệnh ấy chính là sự kết hợp hoàn hảo của hai định luật kinh điển trong Sách giáo khoa Vật lý lớp 8!",
-          "Chiếc cân định mệnh ấy chính là sự kết hợp hoàn hảo của hai định luật kinh điển trong Sách giáo khoa Vật lý lớp tám!",
+          "Bí mật nằm ở lực đẩy của nước: vật chìm trong nước bị đẩy lên một lực bằng đúng trọng lượng phần nước mà nó chiếm chỗ.",
+          "Bí mật nằm ở lực đẩy của nước: vật chìm trong nước bị đẩy lên một lực bằng đúng trọng lượng phần nước mà nó chiếm chỗ.",
         ),
         nar(
-          "Theo công thức F_A = d · V, vật nào có thể tích V lớn hơn sẽ bị nước đẩy lên mạnh hơn. Vương miện bị pha bạc nên to hơn, chịu lực đẩy lớn hơn và bị hất bồng lên ngay trước mắt nhà vua!",
-          "Theo công thức ép A bằng đê nhân vê, vật nào có thể tích vê lớn hơn sẽ bị nước đẩy lên mạnh hơn. Vương miện bị pha bạc nên to hơn, chịu lực đẩy lớn hơn và bị hất bồng lên ngay trước mắt nhà vua!",
+          "Vương miện chiếm chỗ nhiều hơn thỏi vàng khoảng 13 cm³ nước, nên được nâng thêm đúng sức nặng của 13 gam nước.",
+          "Vương miện chiếm chỗ nhiều hơn thỏi vàng khoảng mười ba xen-ti-mét khối nước, nên được nâng thêm đúng sức nặng của mười ba gam nước.",
+        ),
+        nar(
+          "Lực ấy chính là Lực đẩy Archimedes, FA = d · V, mà bạn học trong Khoa học tự nhiên lớp 8: vật chiếm chỗ càng nhiều, càng bị đẩy mạnh.",
+          "Lực ấy chính là Lực đẩy Ác-si-mét, ép a bằng đê nhân vê, mà bạn học trong Khoa học tự nhiên lớp tám: vật chiếm chỗ càng nhiều, càng bị đẩy mạnh.",
         ),
       ],
     },
     realworld: {
-      shot: "Tàu biển bằng thép nặng 100.000 tấn nổi trên đại dương nhờ khoang rỗng tăng thể tích V",
+      shot: "Phòng thí nghiệm thể thao: Milo (vai kỹ thuật viên) cân một vận động viên trên cạn, rồi cân khi người đó ngồi ghế treo chìm hẳn trong bể nước; hai khối cùng nặng, khối mỡ to hơn khối cơ",
       lines: [
         nar(
-          "Chính định luật từ bồn tắm của Archimedes đã giải thích vì sao một viên bi sắt thì chìm nghỉm, nhưng con tàu thép nặng 100.000 tấn lại nổi hiên ngang trên đại dương!",
-          "Chính định luật từ bồn tắm của Ác-si-mét đã giải thích vì sao một viên bi sắt thì chìm nghỉm, nhưng con tàu thép nặng một trăm nghìn tấn lại nổi hiên ngang trên đại dương!",
+          "Ngày nay, mẹo cân trong nước vẫn được dùng để đo tỉ lệ mỡ cơ thể, gọi là cân thủy tĩnh.",
+          "Ngày nay, mẹo cân trong nước vẫn được dùng để đo tỉ lệ mỡ cơ thể, gọi là cân thủy tĩnh.",
         ),
         nar(
-          "Bằng cách làm rỗng lòng tàu để tăng thể tích V lên hàng trăm nghìn mét khối, lực đẩy của nước dễ dàng nâng bổng cả tòa lâu đài thép trên mặt biển!",
-          "Bằng cách làm rỗng lòng tàu để tăng thể tích vê lên hàng trăm nghìn mét khối, lực đẩy của nước dễ dàng nâng bổng cả tòa lâu đài thép trên mặt biển!",
+          "Người ta cân bạn trên cạn, rồi cân lại khi bạn ngồi chìm hẳn trong bể nước. Hai lần cân chênh nhau bao nhiêu, nước đã bị chiếm chỗ bấy nhiêu.",
+          "Người ta cân bạn trên cạn, rồi cân lại khi bạn ngồi chìm hẳn trong bể nước. Hai lần cân chênh nhau bao nhiêu, nước đã bị chiếm chỗ bấy nhiêu.",
+        ),
+        nar(
+          "Mỡ nhẹ hơn cơ và xương, nên cùng cân nặng, người nhiều mỡ to hơn, bị nước đẩy mạnh hơn, và cân dưới nước nhẹ hơn.",
+          "Mỡ nhẹ hơn cơ và xương, nên cùng cân nặng, người nhiều mỡ to hơn, bị nước đẩy mạnh hơn, và cân dưới nước nhẹ hơn.",
         ),
       ],
     },
     cosmic: {
-      shot: "Milo (vai Archimedes) đẩy đòn bẩy vũ trụ nhấc Trái Đất với tỉ lệ khối lượng 10²³ lần và quãng đường đẩy 1 tỷ năm ánh sáng",
+      shot: "Phóng ra vũ trụ: Sao Thổ đặt cạnh 95 quả Trái Đất trên đĩa cân; rồi Sao Thổ nổi lềnh bềnh trong một bồn tắm khổng lồ; kết: thu về chậu nước, chiếc cân và vương miện nguyên vẹn",
       lines: [
         nar(
-          "Không dừng lại ở đó, khi khám phá ra quy tắc Đòn bẩy, Archimedes đã tuyên bố câu nói bất hủ: 'Hãy cho tôi một điểm tựa, tôi sẽ nhấc bổng cả Trái Đất!'",
-          "Không dừng lại ở đó, khi khám phá ra quy tắc Đòn bẩy, Ác-si-mét đã tuyên bố câu nói bất hủ: Hãy cho tôi một điểm tựa, tôi sẽ nhấc bổng cả Trái Đất!",
+          "Còn nếu đặt cả một hành tinh vào phép so ấy? Sao Thổ nặng gấp khoảng 95 lần Trái Đất.",
+          "Còn nếu đặt cả một hành tinh vào phép so ấy? Sao Thổ nặng gấp khoảng chín mươi lăm lần Trái Đất.",
         ),
         nar(
-          "Về mặt toán học, ông hoàn toàn đúng! Chỉ có điều Trái Đất nặng gấp 10²³ lần cơ thể người, nên để nhấc Trái Đất nhích lên đúng 1 cm, Archimedes sẽ phải đẩy đầu đòn bẩy bên kia đi một quãng đường dài... hơn một tỷ năm ánh sáng!",
-          "Về mặt toán học, ông hoàn toàn đúng! Chỉ có điều Trái Đất nặng gấp mười mũ hai mươi ba lần cơ thể người, nên để nhấc Trái Đất nhích lên đúng một xen ti mét, Ác-si-mét sẽ phải đẩy đầu đòn bẩy bên kia đi một quãng đường dài hơn một tỷ năm ánh sáng!",
+          "Nhưng nó to đến mức, theo NASA, khối lượng riêng trung bình chỉ khoảng 0,69 g/cm³, nhỏ hơn cả nước. Vật có khối lượng riêng nhỏ hơn nước thì nổi.",
+          "Nhưng nó to đến mức, theo Na-sa, khối lượng riêng trung bình chỉ khoảng không phẩy sáu chín gam trên mỗi xen-ti-mét khối, nhỏ hơn cả nước. Vật có khối lượng riêng nhỏ hơn nước thì nổi.",
         ),
         nar(
-          "Dù không ai sống đủ lâu để đi hết cánh tay đòn ấy, các định luật vật lý từ hai nghìn năm trước vẫn đang nâng đỡ từng con tàu và từng giấc mơ chinh phục vũ trụ của con người.",
-          "Dù không ai sống đủ lâu để đi hết cánh tay đòn ấy, các định luật vật lý từ hai nghìn năm trước vẫn đang nâng đỡ từng con tàu và từng giấc mơ chinh phục vũ trụ của con người.",
+          "Nên NASA nói vui: nếu có một bồn tắm đủ lớn, Sao Thổ sẽ nổi. Còn để bắt quả tang người thợ năm xưa, chỉ cần một chiếc cân, một chậu nước, và chiếc vương miện không một vết xước.",
+          "Nên Na-sa nói vui: nếu có một bồn tắm đủ lớn, Sao Thổ sẽ nổi. Còn để bắt quả tang người thợ năm xưa, chỉ cần một chiếc cân, một chậu nước, và chiếc vương miện không một vết xước.",
         ),
       ],
     },
@@ -537,98 +641,125 @@ export const TUAN_1 = [
     day: 6,
     week,
     theme,
-    title: "Bí mật Đường cong nhanh nhất — Tại sao đường thẳng chưa chắc về đích sớm nhất?",
-    hudTitle: "ĐƯỜNG THẲNG CÓ PHẢI ĐƯỜNG NHANH NHẤT?",
-    textbook: "Toán 9 & Vật lý 10 · Parabol & Cơ năng",
-    era: "Châu Âu · Lời thách đố 1696",
-    question: "Trước khi xem video này, nếu được chọn 1 trong 3 đường trượt để đua xuống dốc, bạn sẽ chọn đường nào?",
+    title: "Đường cong nhanh nhất: vì sao máng thẳng không về đích trước?",
+    hudTitle: "ĐƯỜNG THẲNG CÓ PHẢI NHANH NHẤT?",
+    textbook: "Vật lí 10 · Định luật bảo toàn cơ năng",
+    era: "Châu Âu · Lời thách đố năm 1696",
+    question: "Vì sao máng cong dốc đứng lúc đầu lại thắng máng thẳng ngắn hơn?",
     sources: [
-      { title: "SGK Toán lớp 9 — Đồ thị hàm số y = ax²", url: "https://hanhtrangso.nxbgd.vn/" },
-      { title: "Britannica — Brachistochrone problem", url: "https://www.britannica.com/science/brachistochrone" },
+      { title: "MacTutor (ĐH St Andrews) — The brachistochrone problem", url: "https://mathshistory.st-andrews.ac.uk/HistTopics/Brachistochrone/" },
+      { title: "MacTutor (ĐH St Andrews) — Christiaan Huygens", url: "https://mathshistory.st-andrews.ac.uk/Biographies/Huygens/" },
+      { title: "Linda Hall Library — Scientist of the Day: Christiaan Huygens", url: "https://www.lindahall.org/about/news/scientist-of-the-day/christian-huygens/" },
+      { title: "Klotz, The Gravity Tunnel in a Non-Uniform Earth, Am. J. Phys. 83, 231 (2015)", url: "https://arxiv.org/abs/1308.1342" },
+      { title: "Vật lí 10 Kết nối tri thức — Bài 26: Cơ năng và định luật bảo toàn cơ năng", url: "https://www.vietjack.com/vat-li-10-kn/ly-thuyet-bai-26-co-nang-va-dinh-luat-bao-toan-co-nang.jsp" },
     ],
     hook: {
-      shot: "Lời thách đố năm 1696 của Johann Bernoulli: Milo đứng trước 3 đường trượt đua 3 viên bi lăn từ điểm A trên cao xuống điểm B ở thấp",
+      shot: "Milo vai Johann Bernoulli cầm tờ tạp chí năm 1696, trước mặt là điểm A trên cao và điểm B thấp hơn lệch sang bên, ba máng trượt trống chờ viên bi",
       lines: [
         nar(
-          "Ai cũng thuộc lòng câu nói: 'Đường thẳng là khoảng cách ngắn nhất giữa hai điểm'. Nhưng nếu thả một viên bi lăn từ điểm A trên cao xuống điểm B ở thấp, đường thẳng có phải là đường về đích nhanh nhất?",
-          "Ai cũng thuộc lòng câu nói: đường thẳng là khoảng cách ngắn nhất giữa hai điểm. Nhưng nếu thả một viên bi lăn từ điểm A trên cao xuống điểm Bê ở thấp, đường thẳng có phải là đường về đích nhanh nhất?",
+          "Thả một viên bi trượt từ điểm A trên cao xuống điểm B thấp hơn. Uốn máng theo hình gì thì bi về đích nhanh nhất?",
+          "Thả một viên bi trượt từ điểm A trên cao xuống điểm Bê thấp hơn. Uốn máng theo hình gì thì bi về đích nhanh nhất?",
         ),
         nar(
-          "Năm 1696, nhà toán học Johann Bernoulli đã gửi bài toán này đi thách đố toàn bộ giới khoa học châu Âu, và câu trả lời đã làm đảo lộn trực giác của tất cả mọi người!",
-          "Năm một nghìn sáu trăm chín mươi sáu, nhà toán học Giô-han Béc-nu-li đã gửi bài toán này đi thách đố toàn bộ giới khoa học châu Âu, và câu trả lời đã làm đảo lộn trực giác của tất cả mọi người!",
+          "Năm 1696, Johann Bernoulli đăng câu hỏi này để thách đố các nhà toán học châu Âu.",
+          "Năm một nghìn sáu trăm chín mươi sáu, Giô-han Béc-nu-li đăng câu hỏi này để thách đố các nhà toán học châu Âu.",
+        ),
+        nar(
+          "Và người thắng cuộc không phải đường thẳng ngắn nhất.",
+          "Và người thắng cuộc không phải đường thẳng ngắn nhất.",
         ),
       ],
     },
     barrier: {
-      shot: "Đường thẳng ngắn nhất nhưng dốc thoai thoải nên tăng tốc chậm (✖); đường võng quá sâu lấy đà nhanh nhưng quãng đường quá dài (✖)",
+      shot: "Máng thẳng A–B dốc đều thoai thoải, bi bò chậm (✖); máng gãy rơi thẳng đứng rồi chạy ngang, bi nhanh nhưng đường quá dài (✖); Galileo 1638 vẽ cung tròn, gắn dấu hỏi",
       lines: [
         nar(
-          "Hãy thử phương án đầu tiên là Đường thẳng: Dù quãng đường ngắn nhất, nhưng vì độ dốc quá thoai thoải nên viên bi tăng tốc cực kỳ chậm chạp!",
-          "Hãy thử phương án đầu tiên là Đường thẳng: dù quãng đường ngắn nhất, nhưng vì độ dốc quá thoai thoải nên viên bi tăng tốc cực kỳ chậm chạp!",
+          "Máng thẳng ngắn nhất, nhưng dốc thoai thoải suốt đường nên bi tăng tốc rất chậm.",
+          "Máng thẳng ngắn nhất, nhưng dốc thoai thoải suốt đường nên bi tăng tốc rất chậm.",
         ),
         nar(
-          "Còn nếu cho bi rơi thẳng đứng xuống thật sâu để lấy vận tốc tối đa rồi mới chạy ngang sang B? Viên bi lao đi rất nhanh lúc đầu, nhưng quãng đường lại bị kéo dài quá mức nên vẫn thua cuộc!",
-          "Còn nếu cho bi rơi thẳng đứng xuống thật sâu để lấy vận tốc tối đa rồi mới chạy ngang sang Bê? Viên bi lao đi rất nhanh lúc đầu, nhưng quãng đường lại bị kéo dài quá mức nên vẫn thua cuộc!",
+          "Cho bi rơi thẳng đứng rồi mới chạy ngang thì nhanh thật, nhưng quãng đường lại dài ra quá nhiều.",
+          "Cho bi rơi thẳng đứng rồi mới chạy ngang thì nhanh thật, nhưng quãng đường lại dài ra quá nhiều.",
+        ),
+        nar(
+          "Ngay cả Galileo năm 1638 cũng đoán nhầm rằng cung tròn là nhanh nhất.",
+          "Ngay cả Ga-li-lê năm một nghìn sáu trăm ba mươi tám cũng đoán nhầm rằng cung tròn là nhanh nhất.",
         ),
       ],
     },
     eureka: {
-      shot: "Isaac Newton tìm ra đường cong Cycloid (quỹ đạo điểm trên vành bánh xe lăn) về đích đầu tiên và có tính đẳng thời",
+      shot: "Tia sáng bẻ hướng qua các lớp; chồng lên là các lớp mỏng nằm ngang, viên bi bẻ hướng qua từng lớp và vẽ ra đường cycloid; bánh xe lăn với một điểm đỏ trên vành vạch đúng đường ấy; bi trên máng cycloid về B trước; góc khung: Newton bên ngọn nến, đồng hồ chỉ 4 giờ sáng",
       lines: [
         nar(
-          "Khi bài toán gửi tới tay Isaac Newton, ông chỉ mất đúng một đêm thức trắng để tìm ra đường cong chiến thắng: Đó là đường Cycloid — quỹ đạo của một điểm nằm trên vành bánh xe đang lăn!",
-          "Khi bài toán gửi tới tay I-sắc Niu-tơn, ông chỉ mất đúng một đêm thức trắng để tìm ra đường cong chiến thắng: đó là đường Xi-clô-ít, quỹ đạo của một điểm nằm trên vành bánh xe đang lăn!",
+          "Bernoulli coi viên bi như tia sáng: qua những lớp có tốc độ khác nhau, ánh sáng tự bẻ hướng để tới đích sớm nhất.",
+          "Béc-nu-li coi viên bi như tia sáng: qua những lớp có tốc độ khác nhau, ánh sáng tự bẻ hướng để tới đích sớm nhất.",
         ),
         nar(
-          "Đường cong này tạo ra sự cân bằng hoàn hảo: Đủ dốc ở ngay đoạn đầu để trọng lực kéo viên bi vọt lên tốc độ cao, rồi uốn mượt mà để giữ trọn đà lao về đích sớm nhất!",
-          "Đường cong này tạo ra sự cân bằng hoàn hảo: đủ dốc ở ngay đoạn đầu để trọng lực kéo viên bi vọt lên tốc độ cao, rồi uốn mượt mà để giữ trọn đà lao về đích sớm nhất!",
+          "Viên bi cũng càng xuống sâu càng nhanh. Cho bi bẻ hướng như ánh sáng qua vô số lớp mỏng, Bernoulli thu được đường cycloid.",
+          "Viên bi cũng càng xuống sâu càng nhanh. Cho bi bẻ hướng như ánh sáng qua vô số lớp mỏng, Béc-nu-li thu được đường xi-clô-ít.",
         ),
         nar(
-          "Kỳ lạ hơn nữa, trên đường cong này, dù bạn thả viên bi từ đỉnh cao hay từ lưng chừng dốc, tất cả đều chạm tới điểm đáy trong cùng một khoảng thời gian y hệt nhau!",
-          "Kỳ lạ hơn nữa, trên đường cong này, dù bạn thả viên bi từ đỉnh cao hay từ lưng chừng dốc, tất cả đều chạm tới điểm đáy trong cùng một khoảng thời gian y hệt nhau!",
+          "Đó là đường một điểm trên vành bánh xe vạch ra khi bánh lăn: dốc đứng lúc đầu để lấy tốc độ, rồi thoải dần về B.",
+          "Đó là đường một điểm trên vành bánh xe vạch ra khi bánh lăn: dốc đứng lúc đầu để lấy tốc độ, rồi thoải dần về Bê.",
+        ),
+        nar(
+          "Theo lời kể lại, Newton nhận đề khi vừa đi làm về, thức tới bốn giờ sáng thì giải xong.",
+          "Theo lời kể lại, Niu-tơn nhận đề khi vừa đi làm về, thức tới bốn giờ sáng thì giải xong.",
         ),
       ],
     },
     theorem: {
-      shot: "Mở SGK Vật lý 10 (Bảo toàn cơ năng v = √2gh) và Toán 9 (Đường cong Parabol y = ax² hội tụ tại tiêu điểm F)",
+      shot: "Trang Vật lí 10 mở ra: viên bi ở độ sâu h dưới điểm thả trên ba máng khác nhau, cả ba đều có cùng tốc độ v; công thức mgh = ½mv² → v = √(2gh) ở Tầng 2B",
       lines: [
         nar(
-          "Bí mật đằng sau những đường cong kỳ diệu ấy bắt nguồn ngay từ bài Bảo toàn cơ năng trong Vật lý 10 và họ hàng gần của nó trong Toán lớp 9: Đường cong Parabol!",
-          "Bí mật đằng sau những đường cong kỳ diệu ấy bắt nguồn ngay từ bài Bảo toàn cơ năng trong Vật lý mười, và họ hàng gần của nó trong Toán lớp chín: đường cong Pa-ra-bôn!",
+          "Chìa khóa ấy là định luật bảo toàn cơ năng mà bạn học trong Vật lí 10.",
+          "Chìa khóa ấy là định luật bảo toàn cơ năng mà bạn học trong Vật lí lớp mười.",
         ),
         nar(
-          "Nếu đường Đoản thời giúp chuyển hóa độ cao thành tốc độ v = √(2gh) tối ưu nhất, thì đường cong Parabol (y = ax²) lại có khả năng gom mọi tia sáng song song hội tụ về đúng một điểm duy nhất gọi là Tiêu điểm!",
-          "Nếu đường Đoản thời giúp chuyển hóa độ cao thành tốc độ tối ưu nhất, thì đường cong Pa-ra-bôn y bằng a nhân ích bình phương lại có khả năng gom mọi tia sáng song song hội tụ về đúng một điểm duy nhất, gọi là Tiêu điểm!",
+          "Bỏ qua ma sát, thế năng mất đi biến thành động năng, nên ở độ sâu h, bi luôn có tốc độ v = √2gh, dù máng uốn kiểu gì.",
+          "Bỏ qua ma sát, thế năng mất đi biến thành động năng, nên ở độ sâu hát, bi luôn có tốc độ vê bằng căn bậc hai của hai giê hát, dù máng uốn kiểu gì.",
+        ),
+        nar(
+          "Vậy máng nào xuống sâu sớm thì bi chạy nhanh sớm. Cycloid cân bằng vừa khít giữa xuống sâu và đi ngắn.",
+          "Vậy máng nào xuống sâu sớm thì bi chạy nhanh sớm. Xi-clô-ít cân bằng vừa khít giữa xuống sâu và đi ngắn.",
         ),
       ],
     },
     realworld: {
-      shot: "Mái đình chùa cổ Việt Nam ('tàu đao lá mái') uốn cong giúp nước mưa trượt nhanh nhất và phóng xa khỏi chân cột gỗ",
+      shot: "Ba viên bi thả ở ba độ cao khác nhau trên máng cycloid cùng chạm đáy một lúc; chuyển sang đồng hồ quả lắc Huygens năm 1673 với hai má kim loại cong hình cycloid kẹp dây treo",
       lines: [
         nar(
-          "Ông cha ta từ hàng trăm năm trước, dù không viết phương trình vi phân, đã uốn cong mái đình chùa theo đúng dáng đường trượt nhanh ấy!",
-          "Ông cha ta từ hàng trăm năm trước, dù không viết phương trình vi phân, đã uốn cong mái đình chùa theo đúng dáng đường trượt nhanh ấy!",
+          "Bernoulli sững sờ khi nhận ra Huygens đã dùng đường cong này từ trước: trên máng cycloid, thả bi ở độ cao nào cũng tới đáy cùng lúc.",
+          "Béc-nu-li sững sờ khi nhận ra Huy-ghen đã dùng đường cong này từ trước: trên máng xi-clô-ít, thả bi ở độ cao nào cũng tới đáy cùng lúc.",
         ),
         nar(
-          "Nhờ mái ngói dốc đứng ở trên rồi uốn cong vút lên ở diềm mái, nước mưa trượt xuống với tốc độ nhanh nhất và phóng vọt ra xa, giúp chân cột gỗ không bị ẩm mục suốt hàng thế kỷ!",
-          "Nhờ mái ngói dốc đứng ở trên rồi uốn cong vút lên ở diềm mái, nước mưa trượt xuống với tốc độ nhanh nhất và phóng vọt ra xa, giúp chân cột gỗ không bị ẩm mục suốt hàng thế kỷ!",
+          "Thả càng cao, đoạn đầu càng dốc, bi càng nhanh, bù vừa khít cho quãng đường dài hơn.",
+          "Thả càng cao, đoạn đầu càng dốc, bi càng nhanh, bù vừa khít cho quãng đường dài hơn.",
+        ),
+        nar(
+          "Năm 1673, Huygens mô tả đồng hồ quả lắc có hai má kim loại cong hình cycloid, giúp quả lắc đưa rộng hay hẹp vẫn đúng nhịp.",
+          "Năm một nghìn sáu trăm bảy mươi ba, Huy-ghen mô tả đồng hồ quả lắc có hai má kim loại cong hình xi-clô-ít, giúp quả lắc đưa rộng hay hẹp vẫn đúng nhịp.",
         ),
       ],
     },
     cosmic: {
-      shot: "Chảo kính thiên văn vô tuyến Parabol khổng lồ hội tụ tín hiệu sóng từ các thiên hà cách đây 13 tỷ năm ánh sáng",
+      shot: "Cắt đôi Trái Đất: hầm thẳng Hà Nội – TP Hồ Chí Minh nông, 42 phút; hầm cong cùng họ cycloid chúi sâu khoảng 360 km, 14 phút; kết: thu nhỏ về viên bi lao dốc trên máng cycloid ở đầu tập",
       lines: [
         nar(
-          "Và khi con người ngước nhìn lên bầu trời, chúng ta lại dùng chính đường cong Parabol để chế tạo những chiếc chảo kính thiên văn khổng lồ rộng hàng trăm mét!",
-          "Và khi con người ngước nhìn lên bầu trời, chúng ta lại dùng chính đường cong Pa-ra-bôn để chế tạo những chiếc chảo kính thiên văn khổng lồ rộng hàng trăm mét!",
+          "Giờ phóng lên cỡ hành tinh: đào hầm xuyên đất từ Hà Nội tới TP Hồ Chí Minh, thả một toa tàu không động cơ.",
+          "Giờ phóng lên cỡ hành tinh: đào hầm xuyên đất từ Hà Nội tới Thành phố Hồ Chí Minh, thả một toa tàu không động cơ.",
         ),
         nar(
-          "Những tín hiệu sóng yếu ớt phát ra từ các thiên hà cách đây 13 tỷ năm ánh sáng, khi chạm vào lòng chảo Parabol đều được gom về đúng một tiêu điểm để kể cho chúng ta nghe lịch sử buổi bình minh của vũ trụ!",
-          "Những tín hiệu sóng yếu ớt phát ra từ các thiên hà cách đây mười ba tỷ năm ánh sáng, khi chạm vào lòng chảo Pa-ra-bôn đều được gom về đúng một tiêu điểm, để kể cho chúng ta nghe lịch sử buổi bình minh của vũ trụ!",
+          "Trên giấy, coi Trái Đất đồng chất và không ma sát, hầm thẳng mất khoảng 42 phút.",
+          "Trên giấy, coi Trái Đất đồng chất và không ma sát, hầm thẳng mất khoảng bốn mươi hai phút.",
         ),
         nar(
-          "Trong toán học cũng như trong cuộc đời, con đường thẳng tắp trước mắt chưa chắc đã là con đường nhanh nhất — đôi khi một đường cong đúng quy luật mới đưa bạn đi xa nhất.",
-          "Trong toán học cũng như trong cuộc đời, con đường thẳng tắp trước mắt chưa chắc đã là con đường nhanh nhất, đôi khi một đường cong đúng quy luật mới đưa bạn đi xa nhất.",
+          "Còn hầm nhanh nhất là một đường cong cùng họ với cycloid, chúi sâu khoảng 360 km rồi vòng lên, chỉ mất chừng 14 phút.",
+          "Còn hầm nhanh nhất là một đường cong cùng họ với xi-clô-ít, chúi sâu khoảng ba trăm sáu mươi ki-lô-mét rồi vòng lên, chỉ mất chừng mười bốn phút.",
+        ),
+        nar(
+          "Từ máng nhỏ tới hầm xuyên Trái Đất, bí quyết vẫn vậy: muốn viên bi về sớm, hãy cho nó lao dốc thật sớm.",
+          "Từ máng nhỏ tới hầm xuyên Trái Đất, bí quyết vẫn vậy: muốn viên bi về sớm, hãy cho nó lao dốc thật sớm.",
         ),
       ],
     },
