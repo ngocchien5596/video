@@ -54,9 +54,11 @@ export const formatScript = (project, episode, next, header = "") => {
   for (const f of project.fields(episode)) msg += `<b>${esc(f.label)}</b> <code>${f.code}</code>: ${esc(f.text)}\n`;
   for (const line of project.extraInfo(episode)) msg += `${line}\n`;
   if (next) msg += `<b>${esc(project.teaserLabel)}:</b> ${esc(next)}\n`;
-  msg += episode.beats.some((b) => b.stage?.length)
-    ? "🎭 Có phần diễn hoạt hình\n"
-    : "🎭 Chưa có phần diễn (video dạng chân dung). Muốn có thì bấm Sửa thoại, nhắn “viết phần diễn”.\n";
+  msg += project.stageStatus
+    ? `${project.stageStatus(episode)}\n`
+    : episode.beats.some((b) => b.stage?.length)
+      ? "🎭 Có phần diễn hoạt hình\n"
+      : "🎭 Chưa có phần diễn (video dạng chân dung). Muốn có thì bấm Sửa thoại, nhắn “viết phần diễn”.\n";
   const problems = project.validate(episode);
   if (problems.length) msg += `⛔ <b>Chưa xuất được:</b>\n${problems.map((p) => `• ${esc(p)}`).join("\n")}\n`;
 

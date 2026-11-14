@@ -26,6 +26,10 @@ CHARACTERS = {
         "instruct": "male, teenager, high pitch",
         "text": "Ơ, cháu hiểu rồi mà ông! Chuyện này dễ ợt, để cháu làm cho ông xem luôn nhé!",
     },
+    "narrator": {
+        "instruct": "male, mature, warm, calm storyteller, low pitch",
+        "text": "Cách đây hơn hai nghìn năm, chỉ với một chiếc cọc gỗ nhỏ cắm trên cát, con người đã đo được chiều cao của Đại kim tự tháp.",
+    },
 }
 
 

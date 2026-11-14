@@ -86,10 +86,14 @@ UNITS = {
     "°C": "độ C",
     "°": "độ",
     "km/h": "ki lô mét một giờ",
+    "km2": "ki lô mét vuông",
+    "km²": "ki lô mét vuông",
     "km": "ki lô mét",
     "kg": "ki lô gam",
     "cm": "xen ti mét",
     "mm": "mi li mét",
+    "m3": "mét khối",
+    "m³": "mét khối",
     "m2": "mét vuông",
     "m²": "mét vuông",
     "m": "mét",
@@ -100,12 +104,22 @@ UNITS = {
     "đ": "đồng",
     "k": "nghìn",
 }
+SYMBOLS = {
+    "△": " tam giác ",
+    "//": " song song với ",
+    "⊥": " vuông góc với ",
+    "≈": " xấp xỉ bằng ",
+}
 _NUM = r"\d+(?:[.,]\d+)*"
 _UNIT_RE = "|".join(re.escape(u) for u in sorted(UNITS, key=len, reverse=True))
 
 
 def normalize_numbers(text: str) -> str:
     t = text
+    for sym, word in SYMBOLS.items():
+        t = t.replace(sym, word)
+    t = re.sub(r"\bTCN\b", "trước công nguyên", t)
+    t = re.sub(r"\bSCN\b", "sau công nguyên", t)
     # Giờ: 5:00 → năm giờ, 9:15 → chín giờ mười lăm.
     def clock(m: re.Match) -> str:
         h, mi = int(m.group(1)), int(m.group(2))

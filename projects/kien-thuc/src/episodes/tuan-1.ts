@@ -18,7 +18,7 @@ export const TUAN_1 = [
       { title: "Britannica — Thales of Miletus", url: "https://www.britannica.com/biography/Thales-of-Miletus" },
     ],
     hook: {
-      shot: "Sa mạc Giza năm 600 TCN, Đại kim tự tháp Cheops xoay 2.5D, Stickman Thales đứng dưới chân tháp cầm 1 chiếc cọc gỗ",
+      shot: "Sa mạc Giza năm 600 TCN, Đại kim tự tháp Cheops xoay 2.5D, Milo (vai Thales) đứng dưới chân tháp cầm 1 chiếc cọc gỗ",
       lines: [
         nar(
           "Cách đây 2.600 năm tại Ai Cập, Đại kim tự tháp Cheops đã đứng sừng sững như một ngọn núi nhân tạo suốt hai thiên niên kỷ.",
@@ -35,7 +35,7 @@ export const TUAN_1 = [
       ],
     },
     barrier: {
-      shot: "Stickman trèo lên đỉnh thả dây dọc sườn nghiêng (186m ✖), rồi chuyển sang cắt lớp X-quang 2,3 triệu khối đá đè tâm đáy O (✖)",
+      shot: "Milo trèo lên đỉnh thả dây dọc sườn nghiêng (186m ✖), rồi chuyển sang cắt lớp X-quang 2,3 triệu khối đá đè tâm đáy O (✖)",
       lines: [
         nar(
           "Bạn có thể nghĩ ngay tới cách đầu tiên: Cứ trèo lên đỉnh rồi thả một sợi dây thừng xuống đất mà đo!",
@@ -90,7 +90,7 @@ export const TUAN_1 = [
       ],
     },
     realworld: {
-      shot: "Rừng rậm không có bóng nắng, Stickman kiểm lâm giơ thước ngắm chữ L tạo góc 45° lên ngọn cây lim cổ thụ",
+      shot: "Rừng rậm không có bóng nắng, Milo đội mũ kiểm lâm giơ thước ngắm chữ L tạo góc 45° lên ngọn cây lim cổ thụ",
       lines: [
         nar(
           "Thế nhưng, nếu bước vào một khu rừng rậm âm u không hề có bóng nắng, định lý này liệu có bó tay?",
@@ -135,7 +135,7 @@ export const TUAN_1 = [
       { title: "NASA — Eratosthenes Measures the Earth", url: "https://www.nasa.gov/" },
     ],
     hook: {
-      shot: "Thư viện Alexandria năm 240 TCN, quả địa cầu 40.000 km cùng 1 cái giếng đá và 1 chiếc gậy gỗ",
+      shot: "Thư viện Alexandria năm 240 TCN, Milo (vai Eratosthenes) đứng cạnh quả địa cầu 40.000 km cùng 1 cái giếng đá và 1 chiếc gậy gỗ",
       lines: [
         nar(
           "Năm 240 TCN, khi con người chưa có máy bay, vệ tinh hay thậm chí một tấm bản đồ thế giới hoàn chỉnh...",
@@ -165,7 +165,7 @@ export const TUAN_1 = [
       ],
     },
     eureka: {
-      shot: "Mặt đất uốn cong thành cung tròn, đo góc bóng gậy tại Alexandria được 7,2° = 1/50 vòng tròn 360°",
+      shot: "Mặt đất uốn cong thành cung tròn, Milo đo góc bóng gậy tại Alexandria được 7,2° = 1/50 vòng tròn 360°",
       lines: [
         nar(
           "Khoảnh khắc đó, Eratosthenes bừng tỉnh: Cách duy nhất để hai chiếc cột thẳng đứng cùng lúc có bóng khác nhau là bề mặt Trái Đất phải cong!",
@@ -199,7 +199,7 @@ export const TUAN_1 = [
       ],
     },
     realworld: {
-      shot: "Tàu buồm trên đại dương ban đêm đo góc cao của sao Bắc Đẩu để suy ra Vĩ độ Bắc",
+      shot: "Milo trên tàu buồm giữa đại dương ban đêm đo góc cao của sao Bắc Đẩu để suy ra Vĩ độ Bắc",
       lines: [
         nar(
           "Cũng nhờ nguyên lý hai tia sáng song song này, các thủy thủ hàng trăm năm qua chỉ cần đo góc cao của sao Bắc Đẩu trên đường chân trời...",
@@ -244,7 +244,7 @@ export const TUAN_1 = [
       { title: "Britannica — Pythagorean theorem", url: "https://www.britannica.com/science/Pythagorean-theorem" },
     ],
     hook: {
-      shot: "Thung lũng sông Nile 2500 TCN, sợi dây thừng 12 nút thắt phát sáng trước nền móng Kim tự tháp",
+      shot: "Thung lũng sông Nile 2500 TCN, Milo cầm sợi dây thừng 12 nút thắt phát sáng trước nền móng Kim tự tháp",
       lines: [
         nar(
           "Làm thế nào người Ai Cập cổ đại kẻ được bốn góc vuông 90° hoàn hảo cho đáy Kim tự tháp rộng bằng 10 sân bóng đá, khi nhân loại chưa hề có thước ê-ke hay tia laser?",
@@ -270,7 +270,7 @@ export const TUAN_1 = [
       ],
     },
     eureka: {
-      shot: "Kỹ sư căng dây 12 nút thành tam giác 3 - 4 - 5 khoảng nút, tạo góc vuông 90° tuyệt đối",
+      shot: "Milo cùng đội kỹ sư căng dây 12 nút thành tam giác 3 - 4 - 5 khoảng nút, tạo góc vuông 90° tuyệt đối",
       lines: [
         nar(
           "Để giải bài toán sinh tử này, một nhóm kỹ sư đặc biệt gọi là 'Những người căng dây' đã lấy một sợi dây thừng thắt 12 nút cách đều nhau.",
@@ -300,7 +300,7 @@ export const TUAN_1 = [
       ],
     },
     realworld: {
-      shot: "Thợ xây hiện đại đo hai cạnh tường 60 cm – 80 cm và đường chéo 100 cm để bắt góc vuông móng nhà",
+      shot: "Milo tại công trường xây dựng đo hai cạnh tường 60 cm – 80 cm và đường chéo 100 cm để bắt góc vuông móng nhà",
       lines: [
         nar(
           "Cho tới tận hôm nay, trên khắp các công trường xây dựng, các bác thợ cả vẫn dùng nguyên xi tuyệt chiêu của người Ai Cập cổ đại!",
@@ -345,7 +345,7 @@ export const TUAN_1 = [
       { title: "Britannica — Tunnel of Eupalinos", url: "https://www.britannica.com/" },
     ],
     hook: {
-      shot: "Mặt cắt quả núi đá dài hơn 6 km, hai đội khoan từ hai sườn núi đối diện tiến vào giữa lòng đá đặc",
+      shot: "Mặt cắt quả núi đá dài hơn 6 km, Milo cùng hai đội khoan từ hai sườn núi đối diện tiến vào giữa lòng đá đặc",
       lines: [
         nar(
           "Khi đào một đường hầm xuyên núi dài hơn 6 km như Hầm Hải Vân, để tiết kiệm một nửa thời gian, các kỹ sư buộc phải khoan đồng thời từ hai sườn núi đối diện vào giữa!",
@@ -371,7 +371,7 @@ export const TUAN_1 = [
       ],
     },
     eureka: {
-      shot: "Chọn đỉnh mốc C bên ngoài sườn núi nhìn thấy cả hai cửa hầm A và B, tạo thành tam giác ABC",
+      shot: "Milo chọn đỉnh mốc C bên ngoài sườn núi nhìn thấy cả hai cửa hầm A và B, tạo thành tam giác ABC",
       lines: [
         nar(
           "Thế nhưng từ 2.500 năm trước, khi đào đường hầm Eupalinos xuyên núi ở Hy Lạp cho đến các kỹ sư hiện đại, con người đã dùng một lối đi vòng cực kỳ thông minh!",
@@ -446,7 +446,7 @@ export const TUAN_1 = [
       { title: "Britannica — Archimedes' principle", url: "https://www.britannica.com/science/Archimedes-principle" },
     ],
     hook: {
-      shot: "Cung điện Syracuse năm 250 TCN, vua Hiero II giao chiếc vương miện vàng cho Archimedes kiểm tra mà cấm làm trầy xước",
+      shot: "Cung điện Syracuse năm 250 TCN, vua Hiero II giao chiếc vương miện vàng cho Milo (vai Archimedes) kiểm tra mà cấm làm trầy xước",
       lines: [
         nar(
           "Nhà vua Hiero II giao cho thợ kim hoàn một thỏi vàng ròng để đúc vương miện, nhưng khi nhận lại, ông nghi ngờ người thợ đã lén ăn bớt vàng rồi pha bạc vào bên trong!",
@@ -515,7 +515,7 @@ export const TUAN_1 = [
       ],
     },
     cosmic: {
-      shot: "Đòn bẩy vũ trụ của Archimedes nhấc Trái Đất với tỉ lệ khối lượng 10²³ lần và quãng đường đẩy 1 tỷ năm ánh sáng",
+      shot: "Milo (vai Archimedes) đẩy đòn bẩy vũ trụ nhấc Trái Đất với tỉ lệ khối lượng 10²³ lần và quãng đường đẩy 1 tỷ năm ánh sáng",
       lines: [
         nar(
           "Không dừng lại ở đó, khi khám phá ra quy tắc Đòn bẩy, Archimedes đã tuyên bố câu nói bất hủ: 'Hãy cho tôi một điểm tựa, tôi sẽ nhấc bổng cả Trái Đất!'",
@@ -547,7 +547,7 @@ export const TUAN_1 = [
       { title: "Britannica — Brachistochrone problem", url: "https://www.britannica.com/science/brachistochrone" },
     ],
     hook: {
-      shot: "Lời thách đố năm 1696 của Johann Bernoulli: Đua 3 viên bi lăn từ điểm A trên cao xuống điểm B ở thấp",
+      shot: "Lời thách đố năm 1696 của Johann Bernoulli: Milo đứng trước 3 đường trượt đua 3 viên bi lăn từ điểm A trên cao xuống điểm B ở thấp",
       lines: [
         nar(
           "Ai cũng thuộc lòng câu nói: 'Đường thẳng là khoảng cách ngắn nhất giữa hai điểm'. Nhưng nếu thả một viên bi lăn từ điểm A trên cao xuống điểm B ở thấp, đường thẳng có phải là đường về đích nhanh nhất?",

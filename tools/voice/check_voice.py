@@ -49,12 +49,13 @@ def main() -> None:
         print(f"\nNgày {day}")
         for item in json.loads(manifest.read_text(encoding="utf-8"))["lines"]:
             heard = asr.transcribe(str(PUBLIC / item["file"]), "vi")
-            score = difflib.SequenceMatcher(None, words(normalize_numbers(item["text"])), words(heard)).ratio()
+            ref_str = item.get("tts") or item["text"]
+            score = difflib.SequenceMatcher(None, words(normalize_numbers(ref_str)), words(heard)).ratio()
             mark = "OK " if score >= THRESHOLD else "XEM"
             bad += score < THRESHOLD
             print(f"  {mark} {score:4.0%}  {Path(item['file']).name}")
             if score < THRESHOLD:
-                print(f"        viết: {item['text']}\n        nghe: {heard}")
+                print(f"        viết: {ref_str}\n        nghe: {heard}")
     print(f"\n{bad} câu cần nghe lại." if bad else "\nTất cả câu đều khớp.")
 
 

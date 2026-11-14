@@ -8,7 +8,7 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { timedBeats } from "../engine/lib/timing.ts";
 import { loadEpisodes, loadProject, takeProjectArg } from "./projects.mjs";
 
-const WHO = { CD: "**CĐ**", TC: "**TC**", NARRATOR: "" };
+const WHO = { CD: "**CĐ**", TC: "**TC**", NARRATOR: "**Dẫn**" };
 const cell = (s) => s.replace(/\|/g, "\|");
 const sec = (n) => (Number.isInteger(n) ? n : n.toFixed(1));
 

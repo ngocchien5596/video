@@ -17,15 +17,21 @@ export const TUAN_1: ChoLaEpisode[] = [
     question: "Quê bạn có ngã tư nào không đèn mà xe vẫn đi êm không? Kể tên nghe với!",
     sources: [
       { title: "VnExpress: Lên núi học đi (6/7/2017)", url: "https://vnexpress.net/len-nui-hoc-di-3609420.html" },
+      { title: "VnExpress: Đà Lạt sẽ lắp đèn xanh đèn đỏ (11/3/2021)", url: "https://vnexpress.net/da-lat-se-lap-den-xanh-den-do-4246962.html" },
       {
         title: "Báo Pháp Luật Việt Nam: Người Đà Lạt ngỡ ngàng với đèn xanh đèn đỏ (18/11/2021)",
         url: "https://baophapluat.vn/nguoi-da-lat-ngo-ngang-voi-den-xanh-den-do-post422402.html",
       },
+      {
+        title: "Việt Nam News: Đà Lạt gets 1st traffic signal, more planned (8/10/2021)",
+        url: "https://vietnamnews.vn/society/1055420/da-lat-gets-1st-traffic-signal-more-planned.html",
+      },
     ],
     facts: [
       { beat: "call", big: "GẦN 100 NĂM", label: "Đà Lạt không có một cột đèn giao thông nào" },
-      { beat: "twist", line: 1, big: "ÍT NHẤT 4 LẦN", label: "công an xin lắp đèn trong 12 năm, đều không được" },
-      { beat: "twist", line: 2, big: "14/11/2021", label: "đèn xanh đèn đỏ lần đầu bật lên, ở 5 nút giao" },
+      { beat: "twist", line: 1, big: "ÍT NHẤT 4 LẦN", label: "công an đề xuất lắp đèn trong 12 năm, đều không được chấp thuận" },
+      { beat: "twist", line: 2, big: "HƠN 7 TRIỆU", label: "lượt khách mỗi năm, cuối tuần, lễ Tết là kẹt xe" },
+      { beat: "twist", line: 3, big: "CUỐI 2021", label: "đèn xanh đèn đỏ bắt đầu chạy thử ở các nút giao" },
     ],
     hook: {
       shot: "Ngã tư Đà Lạt không có đèn, xe máy đi qua lại, TC đứng giữa vỉa hè ngơ ngác chỉ lên chỗ trống",
@@ -83,10 +89,10 @@ export const TUAN_1: ChoLaEpisode[] = [
       ],
     },
     reason: {
-      shot: "Ông kể (khung gọi phóng to); cảnh dốc có xe máy leo, đèn đỏ tưởng tượng bắt dừng giữa dốc; TC leo dốc thở dốc",
+      shot: "Ông kể (khung gọi phóng to); cảnh dốc có xe máy leo, đèn đỏ tưởng tượng bắt dừng giữa dốc; TC làm động tác bóp phanh mỏi tay",
       lines: [
         cd("Đà Lạt toàn đường dốc. Đang leo mà gặp đèn đỏ, xe phải dừng giữa dốc thì rất nguy hiểm."),
-        tc("Thảo nào, cháu đi bộ thôi mà đã thở không ra hơi!"),
+        tc("Thảo nào! Bắt dừng xe giữa con dốc thế này thì giữ phanh mỏi cả tay."),
       ],
       stage: [
         // Ông kể: khung gọi phóng to
@@ -103,16 +109,18 @@ export const TUAN_1: ChoLaEpisode[] = [
         },
         // "dừng giữa dốc thì rất nguy hiểm"
         { line: 0, at: 0.75, fx: { kind: "exclaim", on: "TC", text: "NGUY!" }, tc: { expr: "shock" } },
-        // TC thở dốc
-        { line: 1, items: [], tc: { arms: "hips", expr: "sad", move: "tremble" }, fx: { kind: "sweat", on: "TC" } },
+        // "giữ phanh mỏi cả tay": TC làm động tác bóp phanh, run tay
+        { line: 1, tc: { arms: "hold2", expr: "sad", move: "tremble" }, fx: { kind: "sweat", on: "TC" } },
       ],
     },
     twist: {
-      shot: "Ông bảo lý do lạ nhất là con người; ngã tư xe đi chậm, không lấn làn; thẻ số 4 lần; đèn xanh đỏ lần đầu bật lên năm 2021",
+      shot: "Ông bảo lý do lạ nhất là con người; ngã tư xe đi chậm; công an đề xuất 4 lần không được; khách đông, kẹt xe; cuối 2021 đèn chạy thử, những ngày đầu lúng túng, có xe vượt đèn đỏ; ý kiến người dân: bất tiện nhưng cần thiết",
       lines: [
         cd("Nhưng lý do lạ nhất lại nằm ở con người."),
-        cd("Người Đà Lạt quen đi chậm, không lấn làn, không có gì phải vội. Mười hai năm, công an ít nhất bốn lần xin lắp đèn, đều không được."),
-        cd("Mãi đến tháng 11 năm 2021, đèn xanh đèn đỏ mới lần đầu bật lên. Nhiều người còn lúng túng không biết xử lý sao."),
+        cd("Người Đà Lạt quen đi chậm, không lấn làn, không có gì phải vội. Mười hai năm, công an ít nhất bốn lần đề xuất lắp đèn, đều không được chấp thuận."),
+        cd("Có điều, mỗi năm Đà Lạt đón hơn 7 triệu lượt khách, xe cộ ngày càng đông, cứ cuối tuần, lễ Tết là kẹt."),
+        cd("Cuối năm 2021, đèn xanh đèn đỏ bắt đầu chạy thử. Những ngày đầu nhiều người lúng túng, dừng quá vạch, có xe còn vượt đèn đỏ, cảnh sát giao thông phải đứng hướng dẫn."),
+        cd("Một chị ở Đà Lạt nói với báo: chờ đèn đỏ khá là bất tiện, nhưng về lâu dài thì rất cần thiết."),
       ],
       stage: [
         { line: 0, camera: "CD", cd: { expr: "smug", arms: "raise" }, fx: { kind: "sparkle", on: "CD" } },
@@ -137,20 +145,57 @@ export const TUAN_1: ChoLaEpisode[] = [
           ],
           tc: { expr: "happy" },
         },
-        // "công an ít nhất bốn lần xin lắp đèn, đều không được"
+        // "công an ít nhất bốn lần đề xuất lắp đèn, đều không được chấp thuận"
         { line: 1, at: 0.62, tc: { expr: "shock", arms: "up2" }, fx: { kind: "surprise", on: "TC" } },
-        // "Mãi đến tháng 11 năm 2021": đèn bật lên
+        // "hơn 7 triệu lượt khách, xe cộ ngày càng đông": xe nối đuôi nhau kẹt ở ngã tư
         {
           line: 2,
+          items: [
+            { id: "xe1", prop: { id: "cl-xe-may", text: "do" }, x: 0.62, scale: 0.7 },
+            { id: "xe2", prop: { id: "cl-xe-may", text: "vang" }, x: 0.84, scale: 0.65 },
+            { id: "xe4", prop: { id: "cl-xe-may", text: "xanh" }, x: 0.12, scale: 0.68 },
+          ],
+          tc: { arms: "down", expr: "shock", move: "idle" },
+        },
+        { line: 2, at: 0.7, tc: { arms: "hips", expr: "sad" }, fx: { kind: "sweat", on: "TC" } },
+        // "Cuối năm 2021, đèn xanh đèn đỏ bắt đầu chạy thử"
+        {
+          line: 3,
           items: [
             { id: "xe1", prop: { id: "cl-xe-may", text: "do" }, x: 0.78, scale: 0.7 },
             { id: "den", prop: { id: "cl-den-giao-thong", text: "do" }, x: 0.16, scale: 0.75 },
           ],
-          tc: { arms: "down", expr: "neutral" },
+          tc: { arms: "down", expr: "happy" },
           fx: { kind: "exclaim", on: "TC" },
         },
-        // "Nhiều người còn lúng túng"
-        { line: 2, at: 0.65, tc: { expr: "confused", move: "shake" }, fx: { kind: "question", on: "TC" } },
+        // "nhiều người lúng túng, dừng quá vạch"
+        { line: 3, at: 0.3, tc: { expr: "confused", move: "shake" }, fx: { kind: "question", on: "TC" } },
+        // "có xe còn vượt đèn đỏ": một xe lao qua khi đèn đang đỏ
+        {
+          line: 3,
+          at: 0.55,
+          items: [
+            { id: "xe1", prop: { id: "cl-xe-may", text: "do" }, x: 0.78, scale: 0.7 },
+            { id: "den", prop: { id: "cl-den-giao-thong", text: "do" }, x: 0.16, scale: 0.75 },
+            { id: "xe5", prop: { id: "cl-xe-may", text: "vang" }, x: 0.5, scale: 0.65 },
+          ],
+          tc: { expr: "shock", move: "idle", arms: "up2" },
+          fx: { kind: "surprise", on: "TC" },
+        },
+        {
+          line: 3,
+          at: 0.75,
+          items: [
+            { id: "xe1", prop: { id: "cl-xe-may", text: "do" }, x: 0.78, scale: 0.7 },
+            { id: "den", prop: { id: "cl-den-giao-thong", text: "do" }, x: 0.16, scale: 0.75 },
+            { id: "xe5", prop: { id: "cl-xe-may", text: "vang" }, x: 1.35, scale: 0.65 },
+          ],
+          tc: { arms: "point", expr: "angry" },
+        },
+        // Ý kiến người dân: bất tiện nhưng cần thiết
+        // Giữ toàn cảnh (khung gọi nhỏ) để không che thẻ "CUỐI 2021"; TC gật gù đồng tình.
+        { line: 4, cd: { expr: "neutral", arms: "raise" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
+        { line: 4, at: 0.6, cd: { expr: "happy", arms: "point" }, fx: { kind: "sparkle", on: "CD" } },
       ],
     },
     chot: {

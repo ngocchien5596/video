@@ -1,0 +1,56 @@
+{
+  "id": "kien-thuc",
+  "name": "Thiên Đường Kiến Thức",
+  "short": "kt",
+  "emoji": "🏮",
+  "maxSeconds": 175,
+  "warnSeconds": 165,
+  "composition": "KienThuc-{dd}",
+  "cover": "KienThuc-Bia-{dd}",
+  "source": "src/episodes/tuan-{week}.ts",
+  "schedule": {
+    "enabled": false,
+    "notifyTime": "08:30",
+    "startDate": null
+  },
+  "publish": {
+    "seriesName": "Thiên Đường Kiến Thức",
+    "postTimes": {
+      "youtube": {
+        "weekday": "19:30",
+        "weekend": "19:30"
+      },
+      "tiktok": {
+        "weekday": "19:30",
+        "weekend": "19:30"
+      }
+    },
+    "hashtags": [
+      "thienduongkienthuc",
+      "toanhoc",
+      "vatly",
+      "lichsukhoahoc",
+      "kienthucthuvi"
+    ],
+    "themeHashtags": {
+      "Hình học cổ đại & Vũ trụ": ["hinhhoc", "thales", "pythagoras", "vutru"]
+    },
+    "maxHashtagsYoutube": 4,
+    "maxHashtagsTiktok": 5,
+    "aiNote": "Video có giọng đọc và đồ họa trực quan được tạo với sự hỗ trợ của AI. Nội dung toán học và lịch sử khoa học đã được đối chiếu với sách giáo khoa và tài liệu tham khảo."
+  },
+  "playlist": {
+    "title": "Thiên Đường Kiến Thức | Toán Học & Vật Lý Bước Ra Đời Thực",
+    "description": [
+      "Mỗi tập giải mã một bài toán vĩ đại trong lịch sử nhân loại bằng công cụ thô sơ, kết nối trực tiếp với định lý trong Sách giáo khoa Toán – Lý phổ thông và phóng tầm mắt ra quy mô Vũ trụ.",
+      "",
+      "✅ Trực quan hóa hình học trên nền giấy cổ (Parchment) giúp học sinh, phụ huynh và người yêu khoa học nhìn thấy vẻ đẹp thực sự của công thức.",
+      "",
+      "Video có giọng đọc và hình ảnh được tạo với sự hỗ trợ của AI."
+    ],
+    "tiktokTitle": "Thiên Đường Kiến Thức",
+    "visibility": "Công khai",
+    "order": "Ngày xuất bản (cũ nhất trước)",
+    "madeForKids": "Không. Khai báo ở từng video."
+  }
+}

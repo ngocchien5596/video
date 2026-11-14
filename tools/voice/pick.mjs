@@ -2,7 +2,7 @@
 import { copyFileSync, existsSync } from "node:fs";
 
 const [name, n] = process.argv.slice(2);
-const names = ["cu-do", "thang-chau"];
+const names = ["cu-do", "thang-chau", "narrator"];
 if (!names.includes(name) || !n) {
   console.error(`Cách dùng: npm run voice:pick -- <${names.join("|")}> <số phương án>`);
   process.exit(1);

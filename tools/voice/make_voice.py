@@ -22,7 +22,19 @@ PUBLIC = ROOT / "public"
 SPEAKERS = {
     "CD": {"ref": ROOT / "voices" / "cu-do.wav", "speed": 1.0},
     "TC": {"ref": ROOT / "voices" / "thang-chau.wav", "speed": 1.08},
+    "NARRATOR": {"ref": ROOT / "voices" / "narrator.wav", "fallback": ROOT / "voices" / "cu-do.wav", "speed": 1.0},
 }
+
+
+def resolve_ref(who: str) -> Path:
+    s = SPEAKERS[who]
+    ref = s["ref"]
+    if ref.exists():
+        return ref
+    fb = s.get("fallback")
+    if fb and fb.exists():
+        return fb
+    return ref
 
 
 def tts_text(text: str) -> str:
@@ -49,11 +61,16 @@ def main() -> None:
     args = parser.parse_args()
 
     jobs = json.loads((ROOT / args.jobs).read_text(encoding="utf-8"))
-    ref_md5 = {who: file_md5(s["ref"]) for who, s in SPEAKERS.items()}
+    used_speakers = {line["who"] for job in jobs for line in job["lines"] if line["who"] in SPEAKERS}
+    ref_paths = {who: resolve_ref(who) for who in used_speakers}
+    ref_md5 = {who: file_md5(p) for who, p in ref_paths.items()}
+
+    def spoken_raw(line: dict) -> str:
+        return line.get("tts") or line["text"]
 
     def key(line: dict) -> str:
         s = SPEAKERS[line["who"]]
-        raw = f'{line["who"]}|{tts_text(line["text"])}|{ref_md5[line["who"]]}|{s["speed"]}'
+        raw = f'{line["who"]}|{tts_text(spoken_raw(line))}|{ref_md5[line["who"]]}|{s["speed"]}'
         return hashlib.sha1(raw.encode("utf-8")).hexdigest()[:16]
 
     # Lập danh sách việc cần làm trước, để không phải nạp model nếu mọi câu đã có tiếng.
@@ -87,10 +104,10 @@ def main() -> None:
         model = load_model(Path(args.tts_root))
         prompts = {
             who: model.create_voice_clone_prompt(
-                ref_audio=str(s["ref"]),
-                ref_text=s["ref"].with_suffix(".txt").read_text(encoding="utf-8").strip(),
+                ref_audio=str(ref_paths[who]),
+                ref_text=ref_paths[who].with_suffix(".txt").read_text(encoding="utf-8").strip(),
             )
-            for who, s in SPEAKERS.items()
+            for who in used_speakers
         }
 
     done = 0
@@ -100,9 +117,11 @@ def main() -> None:
         for line in job["lines"]:
             if line["reuse"]:
                 entry = dict(line["reuse"], beat=line["beat"], line=line["line"], text=line["text"])
+                if line.get("tts"):
+                    entry["tts"] = line["tts"]
             else:
                 done += 1
-                text = tts_text(line["text"])
+                text = tts_text(spoken_raw(line))
                 print(f'  [{done}/{todo}] Ngày {job["day"]} {line["name"]}: {text}', flush=True)
                 torch.manual_seed(0)
                 audio = model.generate(
@@ -121,6 +140,8 @@ def main() -> None:
                     "text": line["text"],
                     "key": line["key"],
                 }
+                if line.get("tts"):
+                    entry["tts"] = line["tts"]
             entries.append(entry)
 
         manifest = {"day": job["day"], "lines": entries}

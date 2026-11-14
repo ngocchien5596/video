@@ -15,6 +15,8 @@ export type BeatKind = string;
 export type Line = {
   who: Speaker;
   text: string;
+  /** Câu viết thuần chữ tiếng Việt đưa cho mô hình TTS đọc (khi `text` có công thức Toán/Lý hoặc ký hiệu viết tắt). */
+  tts?: string;
   /** Quãng lặng (giây) sau câu này, trước câu kế tiếp: chỗ cho tiếng động / hành động không lời (ví dụ chuông tin nhắn). */
   pauseAfter?: number;
 };

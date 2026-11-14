@@ -34,10 +34,18 @@ const jobs = days.map((day) => {
     day,
     dir: project.paths.voiceDir(day),
     lines: episode.beats.flatMap((beat, b) =>
-      beat.lines.map((line, l) => ({ beat: b, line: l, who: line.who, text: line.text })),
+      beat.lines.map((line, l) => ({
+        beat: b,
+        line: l,
+        who: line.who,
+        text: line.text,
+        ...(line.tts ? { tts: line.tts } : {}),
+      })),
     ),
   };
 });
+const maxSeconds = project.maxSeconds ?? 60;
+const warnSeconds = project.warnSeconds ?? 40;
 mkdirSync("out", { recursive: true });
 const jobsFile = `out/voice-jobs-${project.id}.json`;
 writeFileSync(jobsFile, JSON.stringify(jobs, null, 2), "utf8");
@@ -55,10 +63,10 @@ for (const day of days) {
   const voice = JSON.parse(readFileSync(`${project.paths.voiceDir(day)}/manifest.json`, "utf8"));
   const seconds = episodeSeconds(episode, voice);
   const warn =
-    seconds > 60
-      ? "  <- quá 60 giây, phải rút gọn thoại"
-      : seconds > 40
-        ? "  <- trên 40 giây, nên cắt bớt thoại để giữ người xem"
+    seconds > maxSeconds
+      ? `  <- quá ${maxSeconds} giây, phải rút gọn thoại`
+      : seconds > warnSeconds
+        ? `  <- trên ${warnSeconds} giây, nên cắt bớt thoại để giữ người xem`
         : "";
   console.log(`  Ngày ${day}: ${seconds.toFixed(1)}s${warn}`);
 }
