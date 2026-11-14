@@ -9,7 +9,7 @@ export const TUAN_3 = [
     week,
     theme,
     idiom: "Nước đến chân mới nhảy",
-    meaning: "Chê thói chần chừ, việc để đến sát giờ chót mới cuống cuồng lo làm.",
+    meaning: "Chê thói chần chừ, không lo trước, việc đến sát nút mới cuống cuồng làm nên dễ hỏng.",
     question: "Deadline nào bạn từng làm xong chỉ vài phút trước giờ nộp?",
     hook: {
       shot: "Phòng trọ, TC ngồi trên giường lướt điện thoại, hai chân thả hờ trên một xô nước đang được vòi nước rót dần",
@@ -26,7 +26,7 @@ export const TUAN_3 = [
       ],
     },
     explain:
-      "Ngày xưa lũ dâng đến chân mới chạy thì đã muộn. Câu này chê thói chần chừ, việc gì cũng để sát nút mới cuống cuồng làm, nên vừa vội vừa dễ hỏng.",
+      "Nước dâng tới chân rồi mới nhảy lên tránh thì đã muộn. Câu này chê người chần chừ, không lo trước, việc gì cũng để sát nút mới cuống cuồng làm, nên vừa vội vừa dễ hỏng. Ôn thi sát ngày thi là đúng kiểu này.",
     example: {
       shot: "HỒI ỨC (TV đen trắng): đồng cỏ mùa hè, ve ôm đàn ca hát, kiến hì hục tha thóc về tổ; mùa đông tuyết rơi, ve run rẩy đói meo, chạy sang gõ cửa nhà kiến xin ăn",
       memory: { label: "NGỤ NGÔN: VE VÀ KIẾN" },
@@ -109,7 +109,7 @@ export const TUAN_3 = [
       ],
     },
     explain:
-      "Hét ở đây là con chim hét, lông đen, to hơn chim sáo và rất mê ăn giun. Muốn bẫy chim hét thì phải đào giun làm mồi trước. Ý là muốn có thành quả thì phải chịu bỏ công chuẩn bị.",
+      "Hét ở đây là chim hét, lông đen, trông tựa chim sáo, rất mê ăn giun. Muốn bẫy chim hét thì phải đào giun làm mồi trước. Ý là muốn hưởng thành quả thì phải chịu bỏ công sức, chuẩn bị từ trước. Có làm mới có ăn.",
     example: {
       shot: "HỒI ỨC (TV đen trắng): vua Hùng chỉ tay đày Mai An Tiêm ra đảo hoang; An Tiêm cầm cuốc phát cỏ; chim thả hạt lạ, chàng gieo thành ruộng dưa; ôm quả dưa khắc tên thả xuống biển, thuyền buôn cập đảo",
       memory: { label: "SỰ TÍCH: DƯA HẤU MAI AN TIÊM" },
@@ -343,7 +343,7 @@ export const TUAN_3 = [
       ],
     },
     explain:
-      "Đây là lối so sánh: đầu to như voi, đuôi bé như chuột. Câu này chê việc mở đầu thì hoành tráng, rầm rộ, càng về sau càng nhỏ dần rồi bỏ dở giữa chừng.",
+      "Đây là lối so sánh: đầu to như voi, đuôi bé như chuột. Câu này chê việc mở đầu thì rầm rộ, hoành tráng, càng về sau càng teo dần, kết thúc lèo tèo hoặc bỏ dở. Kế hoạch, dự án hay mắc bệnh này.",
     example: {
       shot: "HỒI ỨC (TV đen trắng): vạch xuất phát, thỏ vênh váo chống nạnh cạnh rùa; thỏ phóng vèo đi, rùa lũi thũi bò theo; thỏ lăn ra ngủ dưới gốc cây, rùa bò qua; thỏ tỉnh dậy thì rùa đã đứng dưới cổng ĐÍCH",
       memory: { label: "NGỤ NGÔN: RÙA VÀ THỎ" },
@@ -428,7 +428,7 @@ export const TUAN_3 = [
       ],
     },
     explain:
-      "Năng là chăm, thường xuyên. Bị là cái túi đan bằng cói ngày xưa, chặt bị là đầy ắp cả túi. Ý là chịu khó góp nhặt từng chút nhỏ mỗi ngày thì lâu dần sẽ thành nhiều.",
+      "Năng là chăm, thường xuyên. Bị là cái túi cói có quai ngày xưa, chặt bị là túi đầy chặt. Ý là chịu khó góp nhặt từng chút nhỏ mỗi ngày thì lâu dần sẽ thành nhiều. Tiền bạc, kiến thức hay kinh nghiệm đều thế cả.",
     example: {
       shot: "HỒI ỨC (TV đen trắng): bờ suối dưới chân núi, cậu bé Lý Bạch vứt sách trốn học; bà lão mài thanh sắt trên tảng đá, bảo để làm kim; bà giơ cây kim lấp lánh; cậu ôm sách quay về học",
       memory: { label: "TÍCH XƯA: MÀI SẮT NÊN KIM" },
@@ -496,7 +496,7 @@ export const TUAN_3 = [
     week,
     theme,
     idiom: "Vung tay quá trán",
-    meaning: "Tiêu xài quá tay, vượt quá khả năng tài chính của mình.",
+    meaning: "Chê tiêu xài quá tay, vượt khả năng tài chính; rộng ra là làm gì cũng quá đà.",
     question: "Đợt sale nào từng khiến bạn vung tay quá trán nhất?",
     hook: {
       shot: "TC đeo băng trán thể thao đứng trước gương, vung mạnh cánh tay lên rồi bốp một cái trúng ngay trán mình",
@@ -513,7 +513,7 @@ export const TUAN_3 = [
       ],
     },
     explain:
-      "Vung tay quá trán là vung quá đà, quá tầm của mình. Ông bà ví với chuyện tiêu tiền: chi tiêu vượt quá khả năng, kiếm được mười mà tiêu mười lăm.",
+      "Người xưa hay lấy thân mình làm mức đo: trán là chỗ cao nhất, vung tay quá trán là vượt giới hạn của mình. Câu này chủ yếu chê tiêu xài quá tay, kiếm được mười mà tiêu mười lăm. Rộng ra, làm gì quá đà cũng gọi thế.",
     example: {
       shot: "Màn hình giỏ hàng online dài vượt khung hình; giữa tháng quẹt thẻ tín dụng, cuối tháng ngồi húp mì gói nhìn lịch chờ lương",
       lines: [
@@ -553,7 +553,7 @@ export const TUAN_3 = [
       ],
     },
     explain:
-      "Tày nghĩa là bằng. Học từ bạn bè, đồng nghiệp rất quý vì gần gũi, hỏi nhiều cũng không ngại. Nhưng ông bà cũng dạy không thầy đố mày làm nên: học thầy để có nền, học bạn để hiểu sâu thêm.",
+      "Tày là bằng. Nghe như học thầy không bằng học bạn, nhưng ý ông bà là: bạn bè, đồng nghiệp gần gũi, hỏi mấy cũng không ngại, nên học được cả điều thầy chưa kịp chỉ. Câu này không coi nhẹ thầy đâu: học thầy để có nền, học bạn để hiểu sâu thêm.",
     example: {
       shot: "Nhân viên mới lúng túng trước bảng Excel; đồng nghiệp ngồi cạnh kéo ghế sang chỉ vài phím tắt, bảng tính chạy vèo vèo",
       lines: [

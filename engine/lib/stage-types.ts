@@ -4,6 +4,7 @@ import type { PropTuan3, RoleTuan3, SceneTuan3 } from "./story/tuan-3.ts";
 import type { PropTuan2B, RoleTuan2B, SceneTuan2B } from "./story/tuan-2b.ts";
 import type { PropTuan4, RoleTuan4, SceneTuan4 } from "./story/tuan-4.ts";
 import type { PropTuan4B, RoleTuan4B, SceneTuan4B } from "./story/tuan-4b.ts";
+import type { PropChoLa, RoleChoLa, SceneChoLa } from "./story/cho-la.ts";
 
 /**
  * Kịch bản diễn cho hoạt hình con rối: mỗi nhịp có một danh sách "khoảnh khắc" (Moment),
@@ -88,7 +89,8 @@ export type PropId =
   | PropTuan2B
   | PropTuan3
   | PropTuan4
-  | PropTuan4B;
+  | PropTuan4B
+  | PropChoLa;
 
 /**
  * Đạo cụ có chữ (`{ id, text }`):
@@ -111,7 +113,7 @@ export type PropRef = PropId | { id: PropId; text?: string };
  * Vai chỉ hiện trong nhịp hồi ức (`memory`); hết nhịp là tự về lại Cụ Đồ / Thằng Cháu.
  * Trong nhịp hồi ức con rối không mấp máy môi (lời kể là giọng dẫn).
  */
-export type RoleId = "thach-sanh" | "ly-thong" | RoleTuan1 | RoleTuan2 | RoleTuan2B | RoleTuan3 | RoleTuan4 | RoleTuan4B;
+export type RoleId = "thach-sanh" | "ly-thong" | RoleTuan1 | RoleTuan2 | RoleTuan2B | RoleTuan3 | RoleTuan4 | RoleTuan4B | RoleChoLa;
 
 export type Pose = {
   /** Đóng vai nhân vật khác (null = về lại chính mình). */
@@ -147,7 +149,7 @@ export type Item = {
  * · tavern: quán rượu mái tranh ngày xưa (chum rượu, biển "QUÁN RƯỢU") · temple: miếu cổ dưới gốc đa trong rừng đêm
  * · cave: vách núi đá, cửa hang tối ở bên trái (x ≈ 0.27)
  * Phông của các truyện khác: xem engine/lib/story/tuan-*.ts */
-export type SceneId = "home" | "kitchen" | "classroom" | "yard" | "night" | "space" | "beach" | "tavern" | "temple" | "cave" | SceneTuan1 | SceneTuan2 | SceneTuan2B | SceneTuan3 | SceneTuan4 | SceneTuan4B;
+export type SceneId = "home" | "kitchen" | "classroom" | "yard" | "night" | "space" | "beach" | "tavern" | "temple" | "cave" | SceneTuan1 | SceneTuan2 | SceneTuan2B | SceneTuan3 | SceneTuan4 | SceneTuan4B | SceneChoLa;
 /** Phông cảnh, `text` là chữ trên bảng (lớp học). */
 export type SceneRef = SceneId | { id: SceneId; text?: string };
 
@@ -174,6 +176,10 @@ export type Moment = {
   line?: number;
   /** Vị trí trong câu (hoặc trong nhịp nếu không có `line`), 0 = đầu, 1 = cuối. */
   at?: number;
+  /** true = `at` tính trong quãng lặng sau câu `line` (Line.pauseAfter): 0 = vừa nói xong, 1 = hết quãng lặng. */
+  inPause?: boolean;
+  /** Tiếng động phát đúng lúc khoảnh khắc này (file trong public/sfx). */
+  sfx?: { file: string; volume?: number };
   scene?: SceneRef;
   camera?: Camera;
   cd?: Pose;
@@ -183,6 +189,11 @@ export type Moment = {
   fx?: Fx | Fx[];
   /** Hiện / đổi bước bảng minh hoạ; null để cất bảng. */
   board?: Board | null;
+  /**
+   * Cuộc gọi video: true = Cụ Đồ ở nhà, hiện trong khung điện thoại ở góc màn hình (không đứng trên sân khấu);
+   * false = tắt máy, Cụ Đồ về lại sân khấu. Khi đang gọi, `camera: "CD"` phóng to khung gọi (Ông kể chuyện).
+   */
+  call?: boolean;
   /** true = đổi ngay, không chuyển động (ví dụ đặt nhân vật ngoài khung trước khi đi vào). */
   cut?: boolean;
 };

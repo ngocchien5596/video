@@ -1,5 +1,5 @@
 import type { Board, Camera, Fx, Item, Moment, Pose, PropRef, RoleId, SceneRef } from "../lib/stage-types.ts";
-import type { Timeline } from "../lib/timing.ts";
+import type { LineTime, Timeline } from "../lib/timing.ts";
 import type { Episode } from "../lib/types.ts";
 
 export type CharState = Required<Pick<Pose, "expr" | "arms" | "move" | "x">> & {
@@ -45,11 +45,31 @@ export type StageTrack = {
   items: Change<Item[]>[];
   fx: Change<Fx>[];
   board: Change<Board | null>[];
+  /** Cụ Đồ đang ở trong khung gọi video (xem Moment.call). */
+  call: Change<boolean>[];
 };
 
 const merge = (prev: CharState, pose: Pose): CharState => ({ ...prev, ...pose }) as CharState;
 
 type Timed = { time: number; order: number; m?: Moment; snapshot?: number; restore?: number };
+
+/** Thời điểm (giây) của một khoảnh khắc: theo câu, theo quãng lặng sau câu (`inPause`), hoặc theo cả nhịp. */
+export const momentTime = (m: Moment, line: LineTime | undefined, beat: { start: number; end: number }): number => {
+  const at = m.at ?? 0;
+  if (line && m.inPause) return line.end + at * line.pause;
+  if (line) return line.start + at * (line.end - line.start);
+  return beat.start + at * (beat.end - beat.start);
+};
+
+/** Mọi tiếng động gắn với khoảnh khắc diễn (`Moment.sfx`), kèm giây phát. */
+export const momentSounds = (episode: Episode, timeline: Timeline) =>
+  episode.beats.flatMap((beat, b) =>
+    (beat.stage ?? []).flatMap((m) => {
+      if (!m.sfx) return [];
+      const line = m.line === undefined ? undefined : timeline.lines.find((l) => l.beat === b && l.line === m.line);
+      return [{ ...m.sfx, time: momentTime(m, line, timeline.beats[b]) }];
+    }),
+  );
 
 /**
  * Tính thời điểm của từng khoảnh khắc trong kịch bản diễn rồi gom thành các kênh.
@@ -67,9 +87,8 @@ export const buildTrack = (episode: Episode, timeline: Timeline): StageTrack => 
       timed.push({ time: tb.end, order: -1, restore: b });
     }
     for (const m of beat.stage ?? []) {
-      const at = m.at ?? 0;
       const line = m.line === undefined ? undefined : timeline.lines.find((l) => l.beat === b && l.line === m.line);
-      const time = line ? line.start + at * (line.end - line.start) : tb.start + at * (tb.end - tb.start);
+      const time = momentTime(m, line, tb);
       timed.push({ time, order: order++, m });
     }
   });
@@ -83,9 +102,13 @@ export const buildTrack = (episode: Episode, timeline: Timeline): StageTrack => 
     items: [{ time: -1, value: [] }],
     fx: [],
     board: [{ time: -1, value: null }],
+    call: [{ time: -1, value: false }],
   };
   const last = <T,>(c: Change<T>[]) => c[c.length - 1].value;
-  const saved = new Map<number, { cd: CharState; tc: CharState; camera: Camera; scene: SceneRef; items: Item[]; board: Board | null }>();
+  const saved = new Map<
+    number,
+    { cd: CharState; tc: CharState; camera: Camera; scene: SceneRef; items: Item[]; board: Board | null; call: boolean }
+  >();
 
   for (const { time, m, snapshot, restore } of timed) {
     if (snapshot !== undefined) {
@@ -96,6 +119,7 @@ export const buildTrack = (episode: Episode, timeline: Timeline): StageTrack => 
         scene: last(track.scene),
         items: last(track.items),
         board: last(track.board),
+        call: last(track.call),
       });
       continue;
     }
@@ -108,6 +132,7 @@ export const buildTrack = (episode: Episode, timeline: Timeline): StageTrack => 
       track.scene.push({ time, value: s.scene });
       track.items.push({ time, cut: true, value: s.items });
       track.board.push({ time, cut: true, value: s.board });
+      track.call.push({ time, cut: true, value: s.call });
       continue;
     }
     if (!m) continue;
@@ -117,6 +142,7 @@ export const buildTrack = (episode: Episode, timeline: Timeline): StageTrack => 
     if (m.scene) track.scene.push({ time, value: m.scene });
     if (m.items) track.items.push({ time, cut: m.cut, value: m.items });
     if (m.board !== undefined) track.board.push({ time, cut: m.cut, value: m.board });
+    if (m.call !== undefined) track.call.push({ time, cut: m.cut, value: m.call });
     for (const fx of m.fx === undefined ? [] : Array.isArray(m.fx) ? m.fx : [m.fx]) {
       track.fx.push({ time, value: fx });
     }

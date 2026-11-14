@@ -693,6 +693,359 @@ export const props: Record<PropTuan1, PropDef> = {
       </g>
     ),
   },
+
+  // ------------------------------------------------ Chó Vàng & Mèo Mướp (Tập 3: Chó treo mèo đậy)
+  "cho-vang-treo": {
+    mode: "upright",
+    draw: ({ text }) => (
+      <g>
+        {/* Dây thừng thả từ trần nhà qua ròng rọc gỗ */}
+        <line x1="0" y1="-1260" x2="0" y2="-610" stroke={INK} strokeWidth="18" strokeLinecap="round" />
+        <line x1="0" y1="-1260" x2="0" y2="-610" stroke="#C89B54" strokeWidth="10" strokeLinecap="round" />
+        <circle cx="0" cy="-770" r="28" fill="#8B5A2B" stroke={INK} strokeWidth="7" />
+        <circle cx="0" cy="-770" r="10" fill="#FFD93D" stroke={INK} strokeWidth="4" />
+        {/* Hai dây đai treo vào bụng con Vàng */}
+        <path d="M0 -616 L-44 -516 M0 -616 L40 -516" stroke={INK} strokeWidth="14" strokeLinecap="round" />
+        <path d="M0 -616 L-44 -516 M0 -616 L40 -516" stroke="#C89B54" strokeWidth="7" strokeLinecap="round" />
+        <circle cx="0" cy="-616" r="12" fill="#E8C547" stroke={INK} strokeWidth="5" />
+
+        {/* Con Vàng lơ lửng trên cao */}
+        <g transform="translate(0 -470)">
+          {/* Đuôi cong vểnh và vạch ngoáy đuôi */}
+          <path d="M-86 -26 Q-148 -78 -118 -124 Q-96 -110 -102 -74" fill="none" stroke={INK} strokeWidth="24" strokeLinecap="round" />
+          <path d="M-86 -26 Q-148 -78 -118 -124 Q-96 -110 -102 -74" fill="none" stroke="#F4A940" strokeWidth="14" strokeLinecap="round" />
+          <path d="M-142 -96 q-16 -18 -4 -36 M-158 -82 q-18 -20 -4 -40" fill="none" stroke={INK} strokeWidth="5" strokeLinecap="round" />
+
+          {/* Hai chân sau & hai chân trước buông thõng đạp giữa không trung */}
+          {[
+            [-68, 42, 16],
+            [-36, 52, -10],
+            [32, 52, 12],
+            [62, 42, -14],
+          ].map(([x, y, r], i) => (
+            <g key={i} transform={`translate(${x} ${y}) rotate(${r})`}>
+              <rect x="-15" y="-20" width="30" height="68" rx="15" fill="#F4A940" stroke={INK} strokeWidth="6" />
+              <ellipse cx="0" cy="46" rx="18" ry="12" fill="#FFF3D6" stroke={INK} strokeWidth="5" />
+              <circle cx="0" cy="48" r="5" fill="#FF8FA3" />
+            </g>
+          ))}
+
+          {/* Thân chó béo tròn */}
+          <ellipse cx="-6" cy="0" rx="96" ry="64" fill="#F4A940" stroke={INK} strokeWidth="7" />
+          <ellipse cx="-4" cy="18" rx="68" ry="38" fill="#FFF3D6" />
+
+          {/* Đai vải đỏ quấn bụng treo lên */}
+          <path d="M-52 -56 L42 -56 L50 54 L-60 54 Z" fill="#D64545" stroke={INK} strokeWidth="7" strokeLinejoin="round" />
+          <line x1="-22" y1="-54" x2="-28" y2="52" stroke="#FFD93D" strokeWidth="6" />
+          <line x1="14" y1="-54" x2="18" y2="52" stroke="#FFD93D" strokeWidth="6" />
+
+          {/* Vòng cổ xanh + chuông vàng */}
+          <path d="M52 -42 Q78 -12 58 28" fill="none" stroke="#2B6CB0" strokeWidth="14" strokeLinecap="round" />
+          <circle cx="72" cy="22" r="14" fill="#FFD93D" stroke={INK} strokeWidth="5" />
+          <circle cx="72" cy="25" r="3" fill={INK} />
+
+          {/* Đầu con Vàng ngơ ngác nhìn xuống */}
+          <g transform="translate(86 -42)">
+            {/* Tai sau cụp */}
+            <path d="M18 -56 Q62 -66 56 -8 Q48 16 26 2 Z" fill="#B86420" stroke={INK} strokeWidth="6" strokeLinejoin="round" />
+            {/* Khuôn mặt tròn */}
+            <ellipse cx="0" cy="0" rx="64" ry="58" fill="#F4A940" stroke={INK} strokeWidth="7" />
+            <ellipse cx="18" cy="14" rx="40" ry="32" fill="#FFF3D6" />
+            {/* Tai trước cụp */}
+            <path d="M-26 -48 Q-72 -44 -58 14 Q-42 30 -24 6 Z" fill="#B86420" stroke={INK} strokeWidth="7" strokeLinejoin="round" />
+            {/* Mắt tròn xoe ngơ ngác */}
+            <circle cx="-6" cy="-12" r="11" fill="#FFFFFF" stroke={INK} strokeWidth="5" />
+            <circle cx="-4" cy="-10" r="5" fill={INK} />
+            <circle cx="26" cy="-12" r="11" fill="#FFFFFF" stroke={INK} strokeWidth="5" />
+            <circle cx="28" cy="-10" r="5" fill={INK} />
+            <path d="M-18 -30 Q-6 -38 4 -30 M16 -30 Q26 -38 38 -30" fill="none" stroke={INK} strokeWidth="5" strokeLinecap="round" />
+            {/* Má hồng */}
+            <ellipse cx="-18" cy="8" rx="10" ry="6" fill="#FF8FA3" opacity="0.8" />
+            {/* Mũi đen + lưỡi hồng thè */}
+            <ellipse cx="38" cy="4" rx="13" ry="10" fill={INK} />
+            <ellipse cx="35" cy="1" rx="4" ry="2.5" fill="#FFFFFF" />
+            <path d="M14 22 Q26 52 40 24 Z" fill="#FF6B8B" stroke={INK} strokeWidth="5" strokeLinejoin="round" />
+            <path d="M6 18 Q22 28 34 16 Q44 26 52 16" fill="none" stroke={INK} strokeWidth="5" strokeLinecap="round" />
+            {/* Giọt mồ hôi ngơ ngác */}
+            <path d="M-42 -36 Q-50 -16 -38 -14 Q-26 -16 -34 -36 Z" fill="#7CC8EE" stroke={INK} strokeWidth="4" />
+          </g>
+
+          {text ? (
+            <g transform="translate(90 -170)">
+              <rect x="-88" y="-38" width="176" height="64" rx="22" fill="#FFFFFF" stroke={INK} strokeWidth="6" />
+              <path d="M-16 26 L-4 46 L14 26 Z" fill="#FFFFFF" stroke={INK} strokeWidth="6" strokeLinejoin="round" />
+              <Lines text={text} cy={-6} width={150} max={34} color={INK} font={TEXT_FONT} />
+            </g>
+          ) : null}
+        </g>
+      </g>
+    ),
+  },
+
+  "cho-vang": {
+    mode: "upright",
+    draw: ({ text }) => (
+      <g>
+        {/* Đuôi cong vẫy */}
+        <path d="M-66 -46 Q-126 -86 -102 -136" fill="none" stroke={INK} strokeWidth="22" strokeLinecap="round" />
+        <path d="M-66 -46 Q-126 -86 -102 -136" fill="none" stroke="#F4A940" strokeWidth="12" strokeLinecap="round" />
+        <path d="M-124 -106 q-14 -16 -4 -34 M-138 -92 q-16 -18 -4 -36" fill="none" stroke={INK} strokeWidth="4.5" strokeLinecap="round" />
+        {/* Thân ngồi */}
+        <ellipse cx="-14" cy="-64" rx="68" ry="58" fill="#F4A940" stroke={INK} strokeWidth="7" />
+        <ellipse cx="12" cy="-58" rx="44" ry="46" fill="#FFF3D6" />
+        {/* Chân sau & chân trước */}
+        <ellipse cx="-52" cy="-16" rx="28" ry="18" fill="#F4A940" stroke={INK} strokeWidth="6" />
+        <rect x="-8" y="-58" width="26" height="58" rx="12" fill="#F4A940" stroke={INK} strokeWidth="6" />
+        <rect x="22" y="-58" width="26" height="58" rx="12" fill="#F4A940" stroke={INK} strokeWidth="6" />
+        <ellipse cx="6" cy="-4" rx="16" ry="10" fill="#FFF3D6" stroke={INK} strokeWidth="5" />
+        <ellipse cx="36" cy="-4" rx="16" ry="10" fill="#FFF3D6" stroke={INK} strokeWidth="5" />
+        {/* Vòng cổ đỏ + chuông vàng */}
+        <path d="M-18 -112 Q22 -96 52 -112" fill="none" stroke="#D64545" strokeWidth="14" strokeLinecap="round" />
+        <circle cx="32" cy="-98" r="13" fill="#FFD93D" stroke={INK} strokeWidth="5" />
+        {/* Đầu con Vàng */}
+        <g transform="translate(22 -156)">
+          <ellipse cx="0" cy="0" rx="58" ry="52" fill="#F4A940" stroke={INK} strokeWidth="7" />
+          <ellipse cx="18" cy="12" rx="36" ry="28" fill="#FFF3D6" />
+          <path d="M-24 -42 Q-66 -36 -52 16 Q-36 30 -20 6 Z" fill="#B86420" stroke={INK} strokeWidth="7" strokeLinejoin="round" />
+          <circle cx="-4" cy="-10" r="9" fill={INK} />
+          <circle cx="-6" cy="-13" r="3" fill="#FFFFFF" />
+          <circle cx="26" cy="-10" r="9" fill={INK} />
+          <circle cx="24" cy="-13" r="3" fill="#FFFFFF" />
+          <ellipse cx="38" cy="4" rx="12" ry="9" fill={INK} />
+          <path d="M14 20 Q26 46 38 22 Z" fill="#FF6B8B" stroke={INK} strokeWidth="5" strokeLinejoin="round" />
+          <path d="M6 16 Q22 26 32 14 Q42 24 50 14" fill="none" stroke={INK} strokeWidth="5" strokeLinecap="round" />
+        </g>
+        {text ? (
+          <g transform="translate(26 -266)">
+            <rect x="-84" y="-36" width="168" height="60" rx="20" fill="#FFFFFF" stroke={INK} strokeWidth="6" />
+            <path d="M-14 24 L-2 42 L12 24 Z" fill="#FFFFFF" stroke={INK} strokeWidth="6" strokeLinejoin="round" />
+            <Lines text={text} cy={-6} width={144} max={32} color={INK} font={TEXT_FONT} />
+          </g>
+        ) : null}
+      </g>
+    ),
+  },
+
+  "cho-vang-an": {
+    mode: "upright",
+    draw: () => (
+      <g>
+        {/* Đuôi vẫy tít */}
+        <path d="M-92 -78 Q-154 -128 -124 -176" fill="none" stroke={INK} strokeWidth="22" strokeLinecap="round" />
+        <path d="M-92 -78 Q-154 -128 -124 -176" fill="none" stroke="#F4A940" strokeWidth="12" strokeLinecap="round" />
+        <path d="M-148 -144 q-16 -18 -4 -36 M-100 -164 q14 -18 32 -10" fill="none" stroke={INK} strokeWidth="5" strokeLinecap="round" />
+        {/* Thân cúi chổng mông ăn */}
+        <ellipse cx="-32" cy="-62" rx="76" ry="52" fill="#F4A940" stroke={INK} strokeWidth="7" transform="rotate(14 -32 -62)" />
+        <ellipse cx="-82" cy="-16" rx="26" ry="16" fill="#F4A940" stroke={INK} strokeWidth="6" />
+        <ellipse cx="18" cy="-12" rx="24" ry="14" fill="#FFF3D6" stroke={INK} strokeWidth="6" />
+        {/* Vòng cổ đỏ */}
+        <path d="M18 -96 Q38 -62 20 -26" fill="none" stroke="#D64545" strokeWidth="13" strokeLinecap="round" />
+        {/* Đầu cúi gặm đùi thịt */}
+        <g transform="translate(56 -56) rotate(18)">
+          <ellipse cx="0" cy="0" rx="54" ry="48" fill="#F4A940" stroke={INK} strokeWidth="7" />
+          <ellipse cx="18" cy="14" rx="36" ry="28" fill="#FFF3D6" />
+          <path d="M-20 -38 Q-58 -28 -44 20 Q-28 32 -14 8 Z" fill="#B86420" stroke={INK} strokeWidth="7" strokeLinejoin="round" />
+          {/* Mắt nhắm tít sung sướng */}
+          <path d="M-12 -10 q10 -12 20 0 M18 -10 q10 -12 20 0" fill="none" stroke={INK} strokeWidth="6" strokeLinecap="round" />
+          <ellipse cx="-6" cy="8" rx="10" ry="6" fill="#FF8FA3" opacity="0.85" />
+          <ellipse cx="36" cy="2" rx="11" ry="8" fill={INK} />
+        </g>
+        {/* Đùi thịt quay to dưới đất */}
+        <g transform="translate(118 -24) rotate(-14)">
+          <rect x="28" y="-14" width="44" height="16" rx="7" fill="#FFF8E7" stroke={INK} strokeWidth="5" />
+          <circle cx="72" cy="-14" r="10" fill="#FFF8E7" stroke={INK} strokeWidth="5" />
+          <circle cx="72" cy="2" r="10" fill="#FFF8E7" stroke={INK} strokeWidth="5" />
+          <ellipse cx="0" cy="-8" rx="46" ry="30" fill="#C86428" stroke={INK} strokeWidth="6" />
+          <ellipse cx="-8" cy="-16" rx="18" ry="9" fill="#E9A75A" />
+        </g>
+        {/* Tia ngon lành */}
+        <path d="M76 -124 L84 -146 M104 -116 L122 -134 M124 -94 L146 -102" stroke="#FFD93D" strokeWidth="6" strokeLinecap="round" />
+      </g>
+    ),
+  },
+
+  "meo-muop-day": {
+    mode: "upright",
+    draw: ({ text }) => (
+      <g>
+        {/* Đuôi mèo vằn thò ra bên trái lồng bàn */}
+        <path d="M-126 -18 Q-192 -42 -176 -108 Q-162 -144 -138 -122" fill="none" stroke={INK} strokeWidth="22" strokeLinecap="round" />
+        <path d="M-126 -18 Q-192 -42 -176 -108 Q-162 -144 -138 -122" fill="none" stroke="#E89238" strokeWidth="12" strokeLinecap="round" />
+        <path d="M-164 -52 l14 -6 M-174 -78 l14 -4 M-168 -104 l14 2" stroke="#6B3E16" strokeWidth="6" strokeLinecap="round" />
+
+        {/* Cái lồng bàn đan tre bị kênh nghiêng */}
+        <g transform="translate(-10 -8) rotate(-8)">
+          <path d="M-144 0 Q-140 -168 0 -174 Q140 -168 144 0 Z" fill="#E6C27A" stroke={INK} strokeWidth="8" strokeLinejoin="round" />
+          {/* Nan tre đan chéo */}
+          {[-90, -45, 0, 45, 90].map((x) => (
+            <path key={x} d={`M${x} 0 Q${x * 0.5} -162 0 -172`} fill="none" stroke="#B58938" strokeWidth="5" />
+          ))}
+          {[-42, -88, -130].map((y, i) => (
+            <line key={y} x1={-136 + i * 26} y1={y} x2={136 - i * 26} y2={y} stroke="#B58938" strokeWidth="5" />
+          ))}
+          {/* Núm cầm lồng bàn và vành đế */}
+          <path d="M-24 -172 Q0 -206 24 -172" fill="none" stroke={INK} strokeWidth="9" strokeLinecap="round" />
+          <rect x="-150" y="-16" width="300" height="18" rx="8" fill="#C0392B" stroke={INK} strokeWidth="6" />
+        </g>
+
+        {/* Đầu con Mướp lém lỉnh thò ra khỏi mép phải lồng bàn */}
+        <g transform="translate(124 -58)">
+          {/* Chân trước thò ra */}
+          <ellipse cx="-16" cy="48" rx="20" ry="12" fill="#FFF3D6" stroke={INK} strokeWidth="6" />
+          {/* Hai tai nhọn */}
+          <path d="M-42 -26 L-52 -78 L-8 -46 Z" fill="#E89238" stroke={INK} strokeWidth="7" strokeLinejoin="round" />
+          <path d="M-40 -34 L-46 -64 L-18 -44 Z" fill="#FF9EB5" />
+          <path d="M12 -46 L46 -78 L42 -22 Z" fill="#E89238" stroke={INK} strokeWidth="7" strokeLinejoin="round" />
+          <path d="M18 -44 L38 -64 L36 -28 Z" fill="#FF9EB5" />
+          {/* Mặt mèo tròn */}
+          <ellipse cx="0" cy="0" rx="52" ry="44" fill="#E89238" stroke={INK} strokeWidth="7" />
+          <ellipse cx="4" cy="14" rx="34" ry="24" fill="#FFF3D6" />
+          {/* Vằn chữ M trên trán & vằn má */}
+          <path d="M-16 -32 L-8 -18 L0 -30 L8 -18 L16 -32" fill="none" stroke="#6B3E16" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M-44 -4 L-30 -2 M-42 6 L-28 6 M44 -4 L30 -2 M42 6 L28 6" stroke="#6B3E16" strokeWidth="4.5" strokeLinecap="round" />
+          {/* Mắt xanh lá tinh ranh */}
+          <ellipse cx="-16" cy="-4" rx="11" ry="12" fill="#68D391" stroke={INK} strokeWidth="5" />
+          <ellipse cx="-14" cy="-4" rx="4" ry="9" fill={INK} />
+          <ellipse cx="18" cy="-4" rx="11" ry="12" fill="#68D391" stroke={INK} strokeWidth="5" />
+          <ellipse cx="20" cy="-4" rx="4" ry="9" fill={INK} />
+          {/* Mũi hồng + miệng chữ w + ria mép */}
+          <polygon points="-6,8 6,8 0,15" fill="#FF6B8B" stroke={INK} strokeWidth="3" />
+          <path d="M-14 20 Q-6 28 0 18 Q6 28 14 20" fill="none" stroke={INK} strokeWidth="4.5" strokeLinecap="round" />
+          <path d="M-32 10 L-68 4 M-32 18 L-68 20 M32 10 L68 4 M32 18 L68 20" stroke={INK} strokeWidth="4" strokeLinecap="round" />
+        </g>
+
+        {text ? (
+          <g transform="translate(130 -178)">
+            <rect x="-78" y="-34" width="156" height="56" rx="18" fill="#FFFFFF" stroke={INK} strokeWidth="6" />
+            <path d="M-12 22 L-2 38 L10 22 Z" fill="#FFFFFF" stroke={INK} strokeWidth="6" strokeLinejoin="round" />
+            <Lines text={text} cy={-6} width={136} max={30} color={INK} font={TEXT_FONT} />
+          </g>
+        ) : null}
+      </g>
+    ),
+  },
+
+  "meo-muop": {
+    mode: "upright",
+    draw: ({ text }) => (
+      <g>
+        {/* Đuôi dài vằn mướp cong hình dấu hỏi */}
+        <path d="M-46 -32 Q-112 -58 -98 -128 Q-86 -166 -58 -144" fill="none" stroke={INK} strokeWidth="20" strokeLinecap="round" />
+        <path d="M-46 -32 Q-112 -58 -98 -128 Q-86 -166 -58 -144" fill="none" stroke="#E89238" strokeWidth="11" strokeLinecap="round" />
+        <path d="M-86 -66 l12 -4 M-96 -94 l12 -2 M-90 -122 l12 2" stroke="#6B3E16" strokeWidth="5.5" strokeLinecap="round" />
+        {/* Thân mèo ngồi */}
+        <ellipse cx="-8" cy="-58" rx="54" ry="52" fill="#E89238" stroke={INK} strokeWidth="7" />
+        <path d="M-48 -78 L-24 -72 M-52 -58 L-26 -54 M-46 -38 L-22 -36" stroke="#6B3E16" strokeWidth="6" strokeLinecap="round" />
+        <ellipse cx="10" cy="-52" rx="34" ry="40" fill="#FFF3D6" />
+        {/* Chân */}
+        <ellipse cx="-38" cy="-12" rx="22" ry="14" fill="#E89238" stroke={INK} strokeWidth="6" />
+        <rect x="-4" y="-50" width="22" height="50" rx="10" fill="#E89238" stroke={INK} strokeWidth="6" />
+        <rect x="20" y="-50" width="22" height="50" rx="10" fill="#E89238" stroke={INK} strokeWidth="6" />
+        <ellipse cx="8" cy="-4" rx="14" ry="9" fill="#FFF3D6" stroke={INK} strokeWidth="5" />
+        <ellipse cx="32" cy="-4" rx="14" ry="9" fill="#FFF3D6" stroke={INK} strokeWidth="5" />
+        {/* Vòng cổ xanh + lục lạc */}
+        <path d="M-16 -102 Q16 -88 42 -102" fill="none" stroke="#2B6CB0" strokeWidth="12" strokeLinecap="round" />
+        <circle cx="24" cy="-90" r="11" fill="#FFD93D" stroke={INK} strokeWidth="4.5" />
+        {/* Đầu mèo */}
+        <g transform="translate(14 -146)">
+          <path d="M-42 -26 L-52 -78 L-8 -46 Z" fill="#E89238" stroke={INK} strokeWidth="7" strokeLinejoin="round" />
+          <path d="M-40 -34 L-46 -64 L-18 -44 Z" fill="#FF9EB5" />
+          <path d="M12 -46 L46 -78 L42 -22 Z" fill="#E89238" stroke={INK} strokeWidth="7" strokeLinejoin="round" />
+          <path d="M18 -44 L38 -64 L36 -28 Z" fill="#FF9EB5" />
+          <ellipse cx="0" cy="0" rx="52" ry="44" fill="#E89238" stroke={INK} strokeWidth="7" />
+          <ellipse cx="4" cy="14" rx="34" ry="24" fill="#FFF3D6" />
+          <path d="M-16 -32 L-8 -18 L0 -30 L8 -18 L16 -32" fill="none" stroke="#6B3E16" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+          <ellipse cx="-16" cy="-4" rx="11" ry="12" fill="#68D391" stroke={INK} strokeWidth="5" />
+          <ellipse cx="-14" cy="-4" rx="4" ry="9" fill={INK} />
+          <ellipse cx="18" cy="-4" rx="11" ry="12" fill="#68D391" stroke={INK} strokeWidth="5" />
+          <ellipse cx="20" cy="-4" rx="4" ry="9" fill={INK} />
+          <polygon points="-6,8 6,8 0,15" fill="#FF6B8B" stroke={INK} strokeWidth="3" />
+          <path d="M-14 20 Q-6 28 0 18 Q6 28 14 20" fill="none" stroke={INK} strokeWidth="4.5" strokeLinecap="round" />
+          <path d="M-32 10 L-68 4 M-32 18 L-68 20 M32 10 L68 4 M32 18 L68 20" stroke={INK} strokeWidth="4" strokeLinecap="round" />
+        </g>
+        {text ? (
+          <g transform="translate(20 -252)">
+            <rect x="-78" y="-34" width="156" height="56" rx="18" fill="#FFFFFF" stroke={INK} strokeWidth="6" />
+            <path d="M-12 22 L-2 38 L10 22 Z" fill="#FFFFFF" stroke={INK} strokeWidth="6" strokeLinejoin="round" />
+            <Lines text={text} cy={-6} width={136} max={30} color={INK} font={TEXT_FONT} />
+          </g>
+        ) : null}
+      </g>
+    ),
+  },
+
+  "meo-muop-an": {
+    mode: "upright",
+    draw: () => (
+      <g>
+        {/* Đuôi ngoe nguẩy khoái chí */}
+        <path d="M-56 -36 Q-122 -68 -104 -138 Q-90 -174 -62 -152" fill="none" stroke={INK} strokeWidth="20" strokeLinecap="round" />
+        <path d="M-56 -36 Q-122 -68 -104 -138 Q-90 -174 -62 -152" fill="none" stroke="#E89238" strokeWidth="11" strokeLinecap="round" />
+        {/* Thân mèo ngồi trên bàn */}
+        <ellipse cx="-14" cy="-58" rx="54" ry="50" fill="#E89238" stroke={INK} strokeWidth="7" />
+        <ellipse cx="4" cy="-52" rx="34" ry="38" fill="#FFF3D6" />
+        {/* Đầu mèo mắt nhắm tít khoái chí */}
+        <g transform="translate(8 -138) rotate(8)">
+          <path d="M-42 -26 L-52 -78 L-8 -46 Z" fill="#E89238" stroke={INK} strokeWidth="7" strokeLinejoin="round" />
+          <path d="M-40 -34 L-46 -64 L-18 -44 Z" fill="#FF9EB5" />
+          <path d="M12 -46 L46 -78 L42 -22 Z" fill="#E89238" stroke={INK} strokeWidth="7" strokeLinejoin="round" />
+          <path d="M18 -44 L38 -64 L36 -28 Z" fill="#FF9EB5" />
+          <ellipse cx="0" cy="0" rx="52" ry="44" fill="#E89238" stroke={INK} strokeWidth="7" />
+          <ellipse cx="6" cy="14" rx="34" ry="24" fill="#FFF3D6" />
+          <path d="M-16 -32 L-8 -18 L0 -30 L8 -18 L16 -32" fill="none" stroke="#6B3E16" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M-24 -4 q10 -12 20 0 M8 -4 q10 -12 20 0" fill="none" stroke={INK} strokeWidth="6" strokeLinecap="round" />
+          <ellipse cx="-22" cy="10" rx="9" ry="5" fill="#FF8FA3" opacity="0.85" />
+          <ellipse cx="26" cy="10" rx="9" ry="5" fill="#FF8FA3" opacity="0.85" />
+          <polygon points="-4,8 8,8 2,15" fill="#FF6B8B" stroke={INK} strokeWidth="3" />
+          <path d="M-6 18 Q6 36 18 18 Z" fill="#FF6B8B" stroke={INK} strokeWidth="4" />
+          <path d="M-30 12 L-64 6 M-30 20 L-64 22 M34 12 L68 6 M34 20 L68 22" stroke={INK} strokeWidth="4" strokeLinecap="round" />
+        </g>
+        {/* Đĩa cá kho và con cá bị gặm trước mặt mèo */}
+        <g transform="translate(56 -12)">
+          <ellipse cx="0" cy="-6" rx="74" ry="18" fill="#FFFFFF" stroke={INK} strokeWidth="6" />
+          <ellipse cx="0" cy="-8" rx="54" ry="11" fill="#C86428" opacity="0.55" />
+          {/* Thân cá kho */}
+          <path d="M-46 -18 Q-10 -44 34 -18 L58 -34 L54 -4 L34 -14 Q-10 4 -46 -18 Z" fill="#B8561E" stroke={INK} strokeWidth="5" strokeLinejoin="round" />
+          <circle cx="-26" cy="-20" r="4" fill="#FFFFFF" stroke={INK} strokeWidth="2.5" />
+          <path d="M-6 -26 L-2 -12 M10 -26 L14 -12" stroke="#FFE08A" strokeWidth="3.5" strokeLinecap="round" />
+        </g>
+        {/* Chân trước ôm cá */}
+        <ellipse cx="22" cy="-42" rx="18" ry="11" fill="#FFF3D6" stroke={INK} strokeWidth="5" transform="rotate(20 22 -42)" />
+      </g>
+    ),
+  },
+
+  "gio-thit-treo": {
+    mode: "upright",
+    draw: () => (
+      <g>
+        {/* Dây thừng treo từ trần nhà xuống */}
+        <line x1="0" y1="-1260" x2="0" y2="-660" stroke={INK} strokeWidth="14" strokeLinecap="round" />
+        <line x1="0" y1="-1260" x2="0" y2="-660" stroke="#C89B54" strokeWidth="7" strokeLinecap="round" />
+        <circle cx="0" cy="-800" r="22" fill="#8B5A2B" stroke={INK} strokeWidth="6" />
+        <path d="M0 -660 L-58 -560 M0 -660 L58 -560" stroke={INK} strokeWidth="10" strokeLinecap="round" />
+        {/* Giỏ tre đan đựng đùi thịt thơm phức */}
+        <g transform="translate(0 -540)">
+          {/* Khói thơm bốc lên */}
+          <path d="M-24 -78 q-10 -18 4 -34 q12 -16 0 -32 M18 -84 q-10 -18 4 -34 q12 -16 0 -32" fill="none" stroke="#FFFFFF" strokeWidth="6" strokeLinecap="round" opacity="0.85" />
+          {/* Đùi thịt quay trong giỏ */}
+          <g transform="translate(-6 -26) rotate(-18)">
+            <rect x="24" y="-12" width="42" height="16" rx="7" fill="#FFF8E7" stroke={INK} strokeWidth="5" />
+            <circle cx="66" cy="-12" r="9" fill="#FFF8E7" stroke={INK} strokeWidth="5" />
+            <circle cx="66" cy="4" r="9" fill="#FFF8E7" stroke={INK} strokeWidth="5" />
+            <ellipse cx="-6" cy="-6" rx="44" ry="28" fill="#C86428" stroke={INK} strokeWidth="6" />
+            <ellipse cx="-14" cy="-14" rx="16" ry="8" fill="#E9A75A" />
+          </g>
+          {/* Giỏ tre */}
+          <path d="M-76 -20 L76 -20 Q64 38 0 38 Q-64 38 -76 -20 Z" fill="#E6C27A" stroke={INK} strokeWidth="7" strokeLinejoin="round" />
+          <rect x="-82" y="-28" width="164" height="14" rx="6" fill="#C89B54" stroke={INK} strokeWidth="6" />
+          {[-44, -14, 16, 46].map((x) => (
+            <line key={x} x1={x} y1="-14" x2={x * 0.75} y2="32" stroke="#B58938" strokeWidth="4.5" />
+          ))}
+        </g>
+      </g>
+    ),
+  },
 };
 
 // ================================================================ phông

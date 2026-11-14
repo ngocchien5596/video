@@ -1,7 +1,8 @@
 /**
  * Bot Telegram duyệt kịch bản và tạo video, dùng chung cho mọi dự án (series) trong projects/.
  *   npm run bot
- * Mỗi dự án có lịch riêng: đúng giờ cấu hình, gửi kịch bản của ngày mai kèm 3 nút Duyệt / Sửa thoại / Bỏ qua.
+ * Mỗi dự án có lịch riêng: đúng giờ cấu hình, nhắn ngắn nhắc duyệt tập ngày mai kèm lệnh /tap (gõ lệnh mới hiện kịch bản
+ * và 3 nút Duyệt / Sửa thoại / Bỏ qua); đến giờ đăng thì nhắn ngắn nhắc đăng.
  * Duyệt xong bot tự lồng tiếng, xuất video, ảnh bìa và gửi lại vào Telegram.
  *
  * Lệnh nhận mã dự án (id hoặc tên ngắn) ngay sau tên lệnh, ví dụ `/tap vs 1`.
@@ -90,8 +91,8 @@ Gõ /lenh để xem nhanh danh sách lệnh.
 ${PROJECTS.map((p) => `${p.emoji} <code>${p.short}</code> ${esc(p.name)}${p.id === activeProject().id ? " ← đang chọn" : ""}${scheduled(p) ? ` · đăng ${postTimes(p)}, duyệt ${notifyTime(p)}` : " · chưa bật lịch"}`).join("\n")}
 
 Lịch mỗi ngày:
-📣 <b>Giờ đăng</b> (riêng YouTube Shorts và TikTok, xem /giodang): đến giờ nơi nào, bot nhắc đăng nơi đó, gửi phần gói đăng bài của nơi đó và nút gửi lại video. Hai ngày sau còn nhắc xem số liệu.
-🔔 <b>Giờ duyệt</b> (ví dụ 20:00): bot gửi kịch bản của ngày mai kèm 3 nút:
+📣 <b>Giờ đăng</b> (riêng YouTube Shorts và TikTok, xem /giodang): đến mốc giờ sớm nhất, bot nhắn một tin ngắn nhắc đăng (gói đăng bài: /dangbai, video: /lichsu). Hai ngày sau còn nhắc xem số liệu.
+🔔 <b>Giờ duyệt</b> (ví dụ 20:00): bot nhắn ngắn nhắc duyệt tập ngày mai kèm lệnh /tap. Gõ lệnh đó để xem kịch bản kèm 3 nút:
 ✅ <b>Duyệt</b>: lồng tiếng, xuất video, gửi về đây file mp4, ảnh bìa và gói đăng bài.
 ✏️ <b>Sửa thoại</b>: nhắn chỗ cần sửa. Bot sửa thoại kèm phần diễn và mô tả cảnh liên quan, cho xem trước rồi mới áp dụng.
 ⏭ <b>Bỏ qua</b>: nhắc lại sau vài giờ.
@@ -679,10 +680,20 @@ const handleUpdate = async (u) => {
 
 // ---------------------------------------------------------------- lịch thông báo
 
-/** Gửi kịch bản để duyệt, bỏ qua nếu tập chưa được viết (dự án mới). */
-const tryReview = async (project, day, header) => {
+/** Nhắn ngắn nhắc duyệt kèm lệnh /tap (không gửi cả kịch bản); báo nếu tập chưa được viết (dự án mới). */
+const remindReview = async (project, day, header) => {
   try {
-    await sendReview(project, day, header);
+    const { episode } = loadEpisode(project, day);
+    const pst = ps(project);
+    pst.notified[day] = true;
+    if (pst.days[day]?.remindAt) pst.days[day] = { ...pst.days[day], remindAt: null };
+    save();
+    await send(
+      `${header}
+${tag(project)} · tập ${day}: <b>${esc(project.headline(episode))}</b>
+` +
+        `Gõ <code>/tap ${project.short} ${day}</code> để xem kịch bản và duyệt.`,
+    );
   } catch (err) {
     log("review", project.id, day, err.message);
     ps(project).notified[day] = true;
@@ -692,28 +703,30 @@ const tryReview = async (project, day, header) => {
 };
 
 /**
- * Nhắc đăng bài tập hôm nay trên một nền tảng (slot = { platform, name, time }): gửi phần gói đăng bài
- * của nền tảng đó kèm nút gửi lại video bản mới nhất. Tập chưa có video thì báo và gửi nút Duyệt để làm gấp.
+ * Nhắc đăng tập hôm nay: một tin ngắn duy nhất trong ngày, gửi ở mốc giờ đăng sớm nhất, kèm lệnh lấy gói đăng bài / video.
+ * Tập chưa có video thì báo kèm lệnh /tap để duyệt gấp.
  */
-const sendPostReminder = async (project, day, slot) => {
+const sendPostReminder = async (project, day, time) => {
   const info = ps(project).days[day];
   const latest = listVersions(project, day).at(-1);
-  const when = `${slot.name} ${slot.time}`;
+  const p = project.short;
+  let title = "";
+  try {
+    title = `: <b>${esc(project.headline(loadEpisode(project, day).episode))}</b>`;
+  } catch {
+    // Tập chưa viết: nhắc không kèm tên.
+  }
+  const head = `${tag(project)} · <b>Đến giờ đăng tập ${day}</b>${title} (${time})`;
   if (info?.status === "done" && latest) {
-    const { episode, next } = loadEpisode(project, day);
-    await send(
-      `📣 ${tag(project)} · <b>Đến giờ đăng tập ${day} lên ${esc(slot.name)}</b> (${slot.time})\n` +
-        `Video đã gửi lúc duyệt (v${latest.version}). Chưa lưu về điện thoại thì bấm nút dưới để gửi lại.`,
-      [[{ text: `📤 Gửi lại video v${latest.version}`, callback_data: cb("resend", project, day, latest.version) }]],
-    );
-    await send(formatPublishKit(publishKit(project, episode, next), project.name, slot.platform));
+    await send(`📣 ${head}
+Gói đăng bài: <code>/dangbai ${p} ${day}</code> · video: <code>/lichsu ${p} ${day}</code>`);
     return;
   }
-  const why = info?.status === "rendering" || info?.status === "approved" ? "đang tạo video" : "chưa có video đã duyệt";
+  const making = info?.status === "rendering" || info?.status === "approved";
   await send(
-    `⚠️ ${tag(project)} · <b>Đến giờ đăng tập ${day}</b> (${esc(when)}) nhưng ${why}.\n` +
-      (why === "đang tạo video" ? "Bot sẽ gửi video ngay khi xong." : "Duyệt ngay để kịp đăng (mất khoảng 5–10 phút):"),
-    why === "đang tạo video" ? undefined : reviewButtons(project, day),
+    `⚠️ ${head} nhưng ${making ? "đang tạo video" : "chưa có video đã duyệt"}.
+` +
+      (making ? "Bot sẽ gửi video ngay khi xong." : `Gõ <code>/tap ${p} ${day}</code> để duyệt gấp (mất khoảng 5–10 phút).`),
   );
 };
 
@@ -740,15 +753,16 @@ async function tick() {
     const today = dayForDate(sd, now.date);
     const tomorrow = dayForDate(sd, addDays(now.date, 1));
     // Gửi bù: hôm nay đến lượt đăng mà tập đó chưa từng được gửi duyệt (ví dụ máy tắt tối qua).
-    if (today && !pst.notified[today]) await tryReview(project, today, `⚠️ <b>Hôm nay đăng tập ${today}</b> mà chưa duyệt:`);
-    // Giờ đăng: nhắc đăng tập hôm nay, mỗi nền tảng một lần đúng giờ của nền tảng đó.
+    if (today && !pst.notified[today]) await remindReview(project, today, `⚠️ <b>Hôm nay đăng tập ${today} mà chưa duyệt</b>`);
+    // Giờ đăng: nhắc đăng tập hôm nay một lần, ở mốc giờ đăng sớm nhất trong ngày (không tách từng nền tảng).
     if (today) {
-      for (const slot of slotsOn(project, now.date)) {
-        const key = `post-${today}-${slot.platform}`;
-        if (now.time < slot.time || pst.notified[key] || pst.notified[`post-${today}`]) continue;
+      const firstSlot = slotsOn(project, now.date)[0];
+      const key = `post-${today}`;
+      const sentBefore = Object.keys(pst.notified).some((k) => k.startsWith(`post-${today}-`));
+      if (firstSlot && now.time >= firstSlot.time && !pst.notified[key] && !sentBefore) {
         pst.notified[key] = true;
         save();
-        await sendPostReminder(project, today, slot).catch((e) => log("post reminder", project.id, today, e.message));
+        await sendPostReminder(project, today, firstSlot.time).catch((e) => log("post reminder", project.id, today, e.message));
       }
       // Hai ngày sau khi đăng: nhắc xem số liệu (một lần, sau mốc đăng đầu tiên trong ngày).
       const checkDay = today - 2;
@@ -763,11 +777,11 @@ async function tick() {
     }
     // Giờ duyệt: gửi kịch bản của ngày mai.
     if (due && tomorrow && !pst.notified[tomorrow]) {
-      await tryReview(project, tomorrow, `🔔 <b>Kịch bản ngày mai</b> (${addDays(now.date, 1)})`);
+      await remindReview(project, tomorrow, `🔔 <b>Đến giờ duyệt kịch bản ngày mai</b> (${addDays(now.date, 1)})`);
     }
     for (const [d, info] of Object.entries(pst.days)) {
       if (info.status === "skipped" && info.remindAt && info.remindAt <= Date.now()) {
-        await tryReview(project, Number(d), `🔔 Nhắc lại: tập ${d} chưa duyệt`);
+        await remindReview(project, Number(d), `🔔 <b>Nhắc lại: tập ${d} chưa duyệt</b>`);
       }
     }
   }

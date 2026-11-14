@@ -4,6 +4,7 @@ import type { Camera, Item } from "../lib/stage-types.ts";
 import type { Cue, Timeline } from "../lib/timing.ts";
 import type { Episode } from "../lib/types.ts";
 import { BoardPanel, type BoardRegistry } from "./board.tsx";
+import { CallWindow } from "./call.tsx";
 import { Puppet, PUPPET_H, PUPPET_W } from "./Character.tsx";
 import { FX_FRAMES, FxShape } from "./fx.tsx";
 import { MemoryTV } from "./memory.tsx";
@@ -112,11 +113,18 @@ export const Stage: React.FC<{
   const scene = typeof sceneNow === "string" ? { id: sceneNow } : sceneNow;
   const table = scene.id === "kitchen";
 
-  // Máy quay
+  // Cuộc gọi video: Cụ Đồ ở trong khung điện thoại, không đứng trên sân khấu; máy quay "CD" thì phóng to khung gọi.
+  const call = at(track.call, t);
+  const callP = progress(ctx, call.cur);
+  const callOpen = Number(call.prev.value) + (Number(call.cur.value) - Number(call.prev.value)) * callP;
+  const inCall = call.cur.value;
+  // Máy quay (khi đang gọi, "CD" giữ sân khấu toàn cảnh)
   const cam = at(track.camera, t);
   const pc = progress(ctx, cam.cur);
-  const a = cameraTarget(cam.prev.value, cd.x, tc.x);
-  const b = cameraTarget(cam.cur.value, cd.x, tc.x);
+  const camFor = (c: Camera): Camera => (inCall && c === "CD" ? "wide" : c);
+  const a = cameraTarget(camFor(cam.prev.value), cd.x, tc.x);
+  const b = cameraTarget(camFor(cam.cur.value), cd.x, tc.x);
+  const callBig = (cam.prev.value === "CD" ? 1 - pc : 0) + (cam.cur.value === "CD" ? pc : 0);
   const camS = a.s + (b.s - a.s) * pc;
   const camX = a.x + (b.x - a.x) * pc;
   const pivotY = 1000;
@@ -170,9 +178,8 @@ export const Stage: React.FC<{
         <g transform={camera}>
           <SceneBackground id={scene.id} text={"text" in scene ? scene.text : undefined} />
           {items(false)}
-          {placeChar(cd, "CD")}
+          {inCall || callOpen > 0.01 ? null : placeChar(cd, "CD")}
           {placeChar(tc, "TC")}
-          {items(true)}
           {table ? <KitchenTable /> : null}
           {table
             ? it.cur.value
@@ -183,12 +190,14 @@ export const Stage: React.FC<{
                   return <ItemShape key={item.id} item={item} x={x} pop={old ? 1 : pi} table />;
                 })
             : null}
+          {items(true)}
           {track.fx.map((c, i) => {
             // Hiệu ứng không tràn qua ranh giới cảnh hồi ức.
             if (timeline.beats.find((b) => b.memory && c.time >= b.start && c.time < b.end) !== memoryBeat) return null;
             const start = Math.round(c.time * fps);
             const local = frame - start;
             if (local < 0 || local >= FX_FRAMES[c.value.kind]) return null;
+            if (c.value.on === "CD" && callOpen > 0.01) return null;
             const who = c.value.on === "CD" ? cd : tc;
             const side = c.value.on === "CD" ? -1 : 1;
             const pop = spring({ frame: local, fps, config: { damping: 9, stiffness: 220 } });
@@ -207,6 +216,43 @@ export const Stage: React.FC<{
           })}
         </g>
         {boards ? <BoardPanel changes={track.board} registry={boards} frame={frame} fps={fps} /> : null}
+        <CallWindow
+          open={memoryBeat ? 0 : callOpen}
+          big={callBig}
+          puppet={{
+            expr: cd.state.expr,
+            arms: cd.arms,
+            hand: cd.state.hand,
+            head: cd.state.head,
+            face: cd.state.face,
+            back: cd.state.back,
+            talk: cd.talk,
+            blink: cd.blink,
+            legSwing: 0,
+            headTilt: cd.headTilt,
+          }}
+          fx={(box) =>
+            track.fx.map((c, i) => {
+              if (c.value.on !== "CD") return null;
+              const start = Math.round(c.time * fps);
+              const local = frame - start;
+              if (local < 0 || local >= FX_FRAMES[c.value.kind]) return null;
+              const pop = spring({ frame: local, fps, config: { damping: 9, stiffness: 220 } });
+              return (
+                <FxShape
+                  key={i}
+                  kind={c.value.kind}
+                  text={c.value.text}
+                  x={box.x + box.w * 0.3}
+                  y={box.y + box.h * 0.12}
+                  local={local}
+                  pop={interpolate(pop, [0, 1], [0.2, 1]) * (0.55 + 0.45 * callBig)}
+                  side={-1}
+                />
+              );
+            })
+          }
+        />
       </svg>
     </AbsoluteFill>
   );

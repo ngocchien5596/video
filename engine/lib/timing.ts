@@ -32,7 +32,7 @@ export type TimedBeat = Beat & { start: number; end: number };
 export type SpokenLine = { file: string; start: number; seconds: number };
 
 /** Thời điểm một câu thoại được nói, để kịch bản diễn bám theo. */
-export type LineTime = { beat: number; line: number; start: number; end: number };
+export type LineTime = { beat: number; line: number; start: number; end: number; /** Quãng lặng sau câu (giây). */ pause: number };
 
 export type Timeline = {
   beats: TimedBeat[];
@@ -110,14 +110,16 @@ export const episodeTimeline = (episode: Episode, voice?: VoiceTrack | null): Ti
       beat.lines.forEach((line, l) => {
         const v = voices[l]!;
         spoken.push({ file: v.file, start: cursor, seconds: v.seconds });
-        lines.push({ beat: b, line: l, start: cursor, end: cursor + v.seconds });
+        const pause = line.pauseAfter ?? 0;
+        lines.push({ beat: b, line: l, start: cursor, end: cursor + v.seconds, pause });
         cues.push(...lineCues(line, beat.kind, cursor, v.seconds));
-        cursor += v.seconds + (l < beat.lines.length - 1 ? VOICE_GAP : 0);
+        cursor += v.seconds + pause + (l < beat.lines.length - 1 ? VOICE_GAP : 0);
       });
       const min = beat.minSeconds ?? DEFAULT_MIN_BEAT_SECONDS;
       t = Math.max(start + min, cursor + VOICE_TAIL) + (beat.holdSeconds ?? 0) + endCard;
     } else {
-      t = start + beat.seconds + (beat.holdSeconds ?? 0);
+      const pauses = beat.lines.reduce((a, line) => a + (line.pauseAfter ?? 0), 0);
+      t = start + beat.seconds + pauses + (beat.holdSeconds ?? 0);
       // Chia thời gian cho cả nhịp theo số từ; chừa thẻ cuối ở nhịp cuối.
       const speakSeconds = Math.max(1, beat.seconds - endCard);
       const words = beat.lines.map((line) => Math.max(3, line.text.split(/\s+/).length));
@@ -126,8 +128,9 @@ export const episodeTimeline = (episode: Episode, voice?: VoiceTrack | null): Ti
       beat.lines.forEach((line, l) => {
         const seconds = (speakSeconds * words[l]) / total;
         cues.push(...lineCues(line, beat.kind, cursor, seconds));
-        lines.push({ beat: b, line: l, start: cursor, end: cursor + seconds });
-        cursor += seconds;
+        const pause = line.pauseAfter ?? 0;
+        lines.push({ beat: b, line: l, start: cursor, end: cursor + seconds, pause });
+        cursor += seconds + pause;
       });
     }
     beats.push({ ...beat, start, end: t });

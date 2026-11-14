@@ -9,7 +9,7 @@ export const TUAN_2 = [
     week,
     theme,
     idiom: "Thả con săn sắt bắt con cá rô",
-    meaning: "Chịu bỏ ra cái lợi nhỏ trước để thu về cái lợi lớn hơn.",
+    meaning: "Bỏ ra cái lợi nhỏ để thu về cái lợi lớn hơn; có khi dùng để chê sự tính toán vụ lợi.",
     question: "Bạn từng chịu thiệt một chút lúc đầu để sau này được nhiều hơn chưa?",
     hook: {
       shot: "Bờ ao, TC buộc nguyên thanh sắt to vào cần câu, quăng tõm xuống nước",
@@ -25,7 +25,7 @@ export const TUAN_2 = [
       ],
     },
     explain:
-      "Săn sắt là một loài cá bé tí ở ruộng, nhỏ hơn cá rô. Dùng con cá bé làm mồi để bắt con cá to hơn, tức là chịu bỏ cái lợi nhỏ để được cái lợi lớn. Còn bỏ to lấy nhỏ thì là thả con cá rô, vồ con săn sắt.",
+      "Săn sắt là loài cá đồng bé tí, nhỏ hơn cá rô. Thả con cá bé làm mồi bắt con cá to, tức là chịu bỏ cái lợi nhỏ để thu cái lợi lớn. Làm ăn gọi là biết tính xa, nhưng cũng dùng để chê kẻ khôn lỏi, cho ít đòi nhiều.",
     example: {
       shot: "HỒI ỨC (TV đen trắng): sông Bạch Đằng, Ngô Quyền cho cắm bãi cọc đầu bịt sắt; triều lên che kín cọc, thuyền nhẹ ra khiêu chiến rồi giả thua chạy; thuyền chiến Nam Hán đuổi theo; triều rút, thuyền giặc mắc cọc vỡ toác, Ngô Quyền mừng thắng lớn",
       memory: { label: "LỊCH SỬ: BẠCH ĐẰNG 938" },
@@ -152,7 +152,7 @@ export const TUAN_2 = [
       ],
     },
     explain:
-      "Con trâu đâu biết thưởng thức tiếng đàn. Ông bà ví việc mình nói điều hay ý đẹp với người không hiểu, hoặc người cứ bỏ ngoài tai, thì nói mấy cũng bằng không. Đôi khi chẳng phải lỗi con trâu, mà là mình chọn nhầm người nghe.",
+      "Con trâu đâu biết thưởng thức tiếng đàn. Ông bà ví việc đem điều hay ý đẹp nói với người không hiểu, hoặc người cứ bỏ ngoài tai, thì nói mấy cũng bằng không. Câu này vừa chê người nghe, vừa than mình phí công. Mà đôi khi là mình chọn nhầm người nghe thật.",
     example: {
       shot: "HỒI ỨC (TV đen trắng): đồng cỏ, Công Minh Nghi ôm đàn gảy khúc hay, nốt nhạc bay, con trâu vẫn cầm nắm cỏ nhai; ông đổi sang tiếng muỗi vo ve, tiếng nghé ọ, trâu vểnh tai vẫy tay mừng; rồi ông gảy khúc hay, trâu lại nhai cỏ, ông nhún vai",
       memory: { label: "TÍCH XƯA: ĐÀN GẢY TAI TRÂU" },
@@ -212,7 +212,7 @@ export const TUAN_2 = [
     week,
     theme,
     idiom: "Mèo mù vớ cá rán",
-    meaning: "Tình cờ gặp may bất ngờ, chứ không phải nhờ tài giỏi hay công sức của mình.",
+    meaning: "Tình cờ gặp may bất ngờ, được điều tốt vượt quá sức mình, chứ không nhờ tài giỏi hay công sức.",
     question: "Pha ăn may đỉnh nhất mà bạn từng gặp là gì?",
     hook: {
       shot: "TC đeo bờm tai mèo, buộc khăn bịt mắt, bò quanh bàn ăn khịt khịt mũi",
@@ -228,7 +228,7 @@ export const TUAN_2 = [
       ],
     },
     explain:
-      "Con mèo mù thì bắt chuột sao nổi, vậy mà tình cờ vớ được miếng cá rán người ta để quên. Câu này chỉ sự ăn may, trúng mánh bất ngờ chứ chẳng phải tài giỏi gì.",
+      "Mèo mù thì mồi sống còn chẳng bắt nổi, thế mà tình cờ vớ trúng miếng cá rán thơm phức, chẳng phải rình bắt gì. Câu này chỉ sự gặp may bất ngờ, được cái tốt vượt quá sức mình, chứ chẳng nhờ tài giỏi. May một lần thôi, đừng tưởng lần nào cũng thế.",
     example: {
       shot: "Phòng phỏng vấn, ứng viên trẻ lén liếc ghi chú, nhà tuyển dụng gật gù",
       lines: [
@@ -249,7 +249,7 @@ export const TUAN_2 = [
     week,
     theme,
     idiom: "Nuôi ong tay áo",
-    meaning: "Hết lòng giúp đỡ, che chở kẻ xấu để rồi chính họ quay lại làm hại mình.",
+    meaning: "Cả tin cưu mang, che chở kẻ xấu ngay bên mình, để rồi chính họ quay lại làm hại mình.",
     question: "Bạn từng chỉ hết nghề cho ai, rồi bị chính người đó giành mất việc chưa?",
     hook: {
       shot: "TC mặc áo khoác rộng, cầm ống hút đút nước đường vào trong ống tay áo",
@@ -265,7 +265,7 @@ export const TUAN_2 = [
       ],
     },
     explain:
-      "Câu đầy đủ là: nuôi ong tay áo, nuôi cáo trong nhà. Mình thương, mình che chở người ta ngay sát bên cạnh, rồi chính người ta quay lại làm hại mình.",
+      "Ong mà ủ trong tay áo, cho ăn no mật rồi cũng có ngày quay ra đốt chính mình. Câu đầy đủ là: nuôi ong tay áo, nuôi cáo trong nhà. Ý chê sự cả tin: cưu mang, che chở kẻ xấu ngay bên cạnh, để rồi chính họ phản lại, hại mình. Thương người cũng phải nhìn cho kỹ.",
     example: {
       shot: "HỒI ỨC (TV đen trắng): thành Cổ Loa, An Dương Vương cầm nỏ thần, gả Mị Châu cho Trọng Thủy, vẫy chàng rể vào ở trong thành; Trọng Thủy dỗ Mị Châu, lẻn tới giá nỏ tráo lẫy; quân Triệu Đà kéo tới, nỏ xịt, nhà vua thất thế, Trọng Thủy giơ lẫy nỏ cười",
       memory: { label: "TRUYỀN THUYẾT: NỎ THẦN" },
@@ -341,7 +341,7 @@ export const TUAN_2 = [
     week,
     theme,
     idiom: "Con gà tức nhau tiếng gáy",
-    meaning: "Ganh tị, hơn thua với nhau, không chịu kém ai dù chỉ là chuyện nhỏ nhặt.",
+    meaning: "Ganh tị, hiếu thắng, thấy người khác hơn mình là tức, hơn thua cả chuyện nhỏ nhặt.",
     question: "Bạn từng hơn thua với ai chuyện gì mà giờ nghĩ lại thấy buồn cười?",
     hook: {
       shot: "Đồng hồ chỉ 5 giờ sáng, TC cầm loa đứng trên ghế gáy vang nhà",
@@ -357,7 +357,7 @@ export const TUAN_2 = [
       ],
     },
     explain:
-      "Hai con gà trống nghe nhau gáy là tức, cứ cố gáy to hơn cho bằng được. Câu này nói chuyện người với người ganh tị, thấy ai hơn mình một chút là phải hơn thua, dù chẳng đáng gì.",
+      "Gà trống nghe con khác gáy là tức, phải gáy đáp lại cho to hơn. Câu này chê thói ganh tị, hiếu thắng: thấy người khác hơn mình một chút là khó chịu, sinh ra hơn thua vì những chuyện vặt chẳng đáng gì.",
     example: {
       shot: "HỒI ỨC (TV đen trắng): cung điện vua Hùng, Sơn Tinh dắt voi chín ngà, gà chín cựa, ngựa chín hồng mao tới trước, rước Mị Nương đi; Thủy Tinh đến sau tức tối; dưới núi Tản Viên, Thủy Tinh dâng sóng, Sơn Tinh bốc đồi chặn lại; Thủy Tinh thua vẫn dâng nước đánh tiếp",
       memory: { label: "TRUYỀN THUYẾT: SƠN TINH" },
@@ -503,7 +503,7 @@ export const TUAN_2 = [
     week,
     theme,
     idiom: "Vẽ rắn thêm chân",
-    meaning: "Việc đã xong, đã ổn rồi mà còn bày thêm cái thừa, làm hỏng cả việc.",
+    meaning: "Việc đã ổn mà còn bày thêm cái thừa, làm hỏng việc; cũng chỉ thói thêu dệt, bịa thêm chuyện.",
     question: "Bạn từng thêm thắt chi tiết thừa nào để rồi làm hỏng cả việc chưa?",
     hook: {
       shot: "Tay vẽ tua nhanh trên giấy A3, con rắn mọc ra hàng loạt chân kỳ quặc",
@@ -519,7 +519,7 @@ export const TUAN_2 = [
       ],
     },
     explain:
-      "Con rắn vẽ xong là đủ rồi, thêm chân vào nó chẳng còn là con rắn nữa. Ý nói việc đã ổn mà cứ bày thêm cái thừa thì hỏng bét.",
+      "Rắn vốn không có chân, vẽ thêm chân là thành con vật khác, hỏng cả bức vẽ. Ý chê người việc đã xong, đã ổn mà còn bày vẽ thêm cái thừa, chuốc rắc rối, hỏng việc. Câu này còn dùng để chê kẻ thêm mắm thêm muối, bịa chuyện không thành có.",
     example: {
       shot: "HỒI ỨC (TV đen trắng): sân nhà quan nước Sở, bình rượu thưởng đặt giữa sân, hai người khách thi vẽ rắn trên ô đất; người xong trước cầm bình rượu rồi vẽ thêm chân; người kia vẽ xong giật bình rượu, chỉ vào con rắn có chân",
       memory: { label: "TÍCH XƯA: VẼ RẮN THÊM CHÂN" },
@@ -641,7 +641,7 @@ export const TUAN_2 = [
     week,
     theme,
     idiom: "Mèo khen mèo dài đuôi",
-    meaning: "Tự khen mình, hoặc người cùng phe khen lẫn nhau, chẳng khách quan chút nào.",
+    meaning: "Tự khen mình, hoặc người cùng phe khen lẫn nhau một cách thiên vị, chẳng khách quan.",
     question: "Lời khen nào trên mạng khiến bạn nghi là mèo khen mèo nhất?",
     hook: {
       shot: "TC gắn cái đuôi mèo giả dài lê thê, xoay người trước gương, tự vỗ tay",
@@ -657,7 +657,7 @@ export const TUAN_2 = [
       ],
     },
     explain:
-      "Mèo thì đuôi dài là chuyện bình thường, có gì mà khen. Câu này chê người tự khen mình, hoặc người cùng phe cứ tâng bốc nhau, nghe chẳng khách quan tí nào.",
+      "Mèo nào chẳng có đuôi dài, có gì lạ đâu mà khen. Câu này chê người tự khen mình, hoặc người cùng phe cánh cứ tâng bốc nhau, khen thiên vị, chẳng khách quan tí nào. Hay dở thế nào, để người ngoài khen.",
     example: {
       shot: "HỒI ỨC (TV đen trắng): cổng tre nhà quê, anh áo mới đứng chống nạnh chờ người khen; anh tìm lợn cầm sợi dây đứt chạy tới hỏi; anh áo mới giơ vạt áo lên khoe, anh tìm lợn ngơ ngác",
       memory: { label: "TRUYỆN CƯỜI: LỢN CƯỚI ÁO MỚI" },

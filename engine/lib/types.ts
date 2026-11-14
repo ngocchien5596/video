@@ -15,6 +15,8 @@ export type BeatKind = string;
 export type Line = {
   who: Speaker;
   text: string;
+  /** Quãng lặng (giây) sau câu này, trước câu kế tiếp: chỗ cho tiếng động / hành động không lời (ví dụ chuông tin nhắn). */
+  pauseAfter?: number;
 };
 
 export type Beat = {

@@ -1,0 +1,54 @@
+{
+  "id": "cho-la",
+  "name": "Ông Ơi, Chỗ Này Lạ Lắm!",
+  "short": "cl",
+  "emoji": "🧭",
+  "composition": "ChoLa-{dd}",
+  "cover": "ChoLa-Bia-{dd}",
+  "source": "src/episodes/tuan-{week}.ts",
+  "schedule": {
+    "enabled": false,
+    "notifyTime": "08:30",
+    "startDate": null
+  },
+  "publish": {
+    "seriesName": "Ông Ơi, Chỗ Này Lạ Lắm!",
+    "postTimes": {
+      "youtube": {
+        "weekday": "19:30",
+        "weekend": "19:30"
+      },
+      "tiktok": {
+        "weekday": "19:30",
+        "weekend": "19:30"
+      }
+    },
+    "hashtags": [
+      "ongoichonaylalam",
+      "vietnamladiu",
+      "kienthucthuvi",
+      "dulichvietnam"
+    ],
+    "themeHashtags": {
+      "Đường sá và công trình": ["giaothong", "congtrinh"],
+      "Đất nước lạ mà quen": ["vietnam", "dialy"]
+    },
+    "maxHashtagsYoutube": 3,
+    "maxHashtagsTiktok": 3,
+    "aiNote": "Video có giọng đọc và hình ảnh được tạo với sự hỗ trợ của AI. Nội dung đã được người thật đối chiếu với các nguồn tham khảo ở trên."
+  },
+  "playlist": {
+    "title": "Ông Ơi, Chỗ Này Lạ Lắm! | Những điều lạ có thật ở Việt Nam",
+    "description": [
+      "Thằng Cháu đi khắp nơi, gặp chuyện lạ là gọi video hỏi Ông. Mỗi tập một nơi chốn, một quy định hay một chuyện có thật ở Việt Nam mà nhiều người chưa biết, kể ngắn gọn, có số liệu và nguồn.",
+      "",
+      "✅ Mỗi tập được đối chiếu với ít nhất 2 nguồn báo chí, cơ quan nhà nước hoặc tổ chức khoa học. Nguồn ghi trong mô tả từng video.",
+      "",
+      "Video có giọng đọc và hình ảnh được tạo với sự hỗ trợ của AI. Nội dung do người thật đối chiếu với nguồn trước khi đăng."
+    ],
+    "tiktokTitle": "Ông Ơi, Chỗ Này Lạ Lắm!",
+    "visibility": "Công khai",
+    "order": "Ngày xuất bản (cũ nhất trước)",
+    "madeForKids": "Không. Khai báo ở từng video."
+  }
+}

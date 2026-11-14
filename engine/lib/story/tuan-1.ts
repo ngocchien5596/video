@@ -58,7 +58,21 @@ export type PropTuan1 =
   /** Ngựa sắt phun lửa, đầu quay sang phải, có giáp phủ kín: đặt `front: true` đúng x con rối (quay mặt sang phải) để trông như đang cưỡi. */
   | "giong-iron-horse"
   /** Roi sắt (cầm tay, có cán). */
-  | "giong-iron-rod";
+  | "giong-iron-rod"
+  /** Con chó Vàng bị buộc đai vải treo lủng lẳng trên dây thừng thả từ trần nhà xuống (`text` = bóng thoại nhỏ). */
+  | "cho-vang-treo"
+  /** Con chó Vàng ngồi trên sàn, vẫy đuôi, đeo vòng cổ đỏ chuông vàng (`text` = bóng thoại nhỏ). */
+  | "cho-vang"
+  /** Con chó Vàng cúi gặm nhồm nhoàm đùi thịt quay dưới sàn (`front: true` khi ở bếp để đứng trước bàn). */
+  | "cho-vang-an"
+  /** Con mèo Mướp bị chụp lồng bàn tre đậy lên nhưng kênh mép thò đầu và đuôi vằn ra ngoài (`text` = bóng thoại nhỏ). */
+  | "meo-muop-day"
+  /** Con mèo Mướp ngồi tinh nghịch, lông vằn mướp, mắt xanh lá (`text` = bóng thoại nhỏ). */
+  | "meo-muop"
+  /** Con mèo Mướp ngồi trên bàn (`on: "table"`) ôm con cá kho ăn ngấu nghiến. */
+  | "meo-muop-an"
+  /** Giỏ tre đựng đùi thịt thơm phức treo cao trên dây thừng thả từ trần nhà xuống (minh hoạ treo đồ ăn phòng chó). */
+  | "gio-thit-treo";
 
 /** Phông (scene). */
 export type SceneTuan1 =

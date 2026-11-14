@@ -26,7 +26,7 @@ export const TUAN_4 = [
       ],
     },
     explain:
-      "Câu này không bảo bán người thật đâu. Ý là họ hàng ở xa, lúc có việc gấp chẳng về kịp. Còn hàng xóm ở ngay sát vách, tối lửa tắt đèn có nhau. Nên phải quý, phải giữ tình láng giềng.",
+      "Bán, mua ở đây là nói ví, chẳng ai bán người thật. Họ hàng ở xa, lúc có việc gấp chẳng về kịp. Hàng xóm ở sát vách, tối lửa tắt đèn có nhau, ốm đau có người đỡ. Nên phải quý, phải giữ tình láng giềng. Mà cũng không phải bảo bỏ anh em đâu nhé.",
     example: {
       shot: "Phòng trọ nửa đêm, cô gái sốt nằm đắp chăn, chị phòng bên bưng bát cháo sang",
       lines: [
@@ -49,7 +49,7 @@ export const TUAN_4 = [
     week,
     theme,
     idiom: "Tai vách mạch dừng",
-    meaning: "Chuyện tưởng kín vẫn có thể bị nghe thấy và lan ra, nên nói chuyện riêng phải giữ lời.",
+    meaning: "Chuyện tưởng kín vẫn có thể bị nghe thấy và lan ra, nên nói chuyện riêng phải cẩn thận.",
     question: "Bạn từng bị lộ chuyện chỉ vì nói ở chỗ tưởng là kín chưa?",
     hook: {
       shot: "TC chiếu đèn bàn vào bức tường như phòng thẩm vấn",
@@ -66,7 +66,7 @@ export const TUAN_4 = [
       ],
     },
     explain:
-      "Ngày xưa vách nhà trát bằng đất, bên trong là nan tre đan làm cốt, gọi là dừng. Vách mỏng, có khe, ngoài sân nghe được hết. Ý là chuyện tưởng kín vẫn lọt ra ngoài, nên nói chuyện riêng phải giữ lời. Dạng gốc là dừng, nhiều người quen nói là rừng.",
+      "Ngày xưa vách nhà trát đất, bên trong là nan tre làm cốt, gọi là dừng. Dừng có mạch, tức là có khe hở, vách như có tai. Chuyện tưởng kín vẫn có thể lọt ra ngoài, nên nói chuyện riêng phải cẩn thận. Có bản ghi là mạch rừng, ý vẫn thế.",
     example: {
       shot: "HỒI ỨC (TV đen trắng): cung điện Hy Lạp, vua Mi-đát bỏ mũ lộ đôi tai lừa, đội mũ giấu lại, thợ cạo cầm kéo trố mắt; bãi đất ven sông, thợ cạo đào hố nói thầm rồi lấp lại, lau sậy mọc lên, gió thổi ra chữ \"VUA CÓ TAI LỪA!\", vua chạy ra hốt hoảng",
       memory: { label: "THẦN THOẠI: VUA MI-ĐÁT" },
@@ -151,7 +151,7 @@ export const TUAN_4 = [
       ],
     },
     explain:
-      "Ăn ốc nói mò là nói không có căn cứ, chẳng biết gì cũng phán bừa. Có cách giải thích là mò ốc dưới nước đục, chẳng nhìn thấy gì, mò được đâu hay đấy. Nói năng kiểu đó dễ gây hiểu lầm, có khi làm khổ người khác.",
+      "Câu này chê người nói không có căn cứ, chẳng biết rõ cũng phán bừa. Có cách giải thích: ốc nằm dưới bùn, nước đục, chẳng thấy gì, mò được đâu hay đấy. Nói kiểu ấy, nhẹ thì thành chuyện phiếm, nặng thành tin đồn làm khổ người ta.",
     example: {
       shot: "HỒI ỨC (TV đen trắng): đầu làng, con voi to đứng giữa, hai ông thầy bói (ông béo mắt nhắm, ông gầy kính đen) chống gậy dò tới; ông béo sờ vòi, ông gầy sờ đuôi, ông béo sờ chân voi; hai ông cãi nhau rồi vung gậy đánh nhau \"BỐP!\"",
       memory: { label: "NGỤ NGÔN: THẦY BÓI XEM VOI" },
@@ -225,7 +225,7 @@ export const TUAN_4 = [
       ],
     },
     explain:
-      "Mật ngọt chết ruồi là lời ngon ngọt, món lợi bày sẵn trước mắt có khi lại là cái bẫy. Ruồi ham ngọt, sà vào là dính, không ra được nữa. Người cũng vậy, nghe lời đường mật mà không tỉnh táo thì dễ mắc lừa.",
+      "Ruồi ham ngọt, sà vào hũ mật là dính chân, chết luôn ở đó. Ý câu là lời ngon ngọt, món lợi bày sẵn có khi lại là cái bẫy. Lời nịnh quá mức, lời hứa lãi cao, quà miễn phí trên mạng, nghe càng sướng tai càng phải tỉnh táo.",
     example: {
       shot: "HỒI ỨC (TV đen trắng): rừng, quạ đen ngậm miếng pho mát đứng trên cành cây; cáo đi tới dưới gốc, khen lông đẹp giọng hay; quạ khoái chí há mỏ hát, pho mát rơi, cáo đớp gọn rồi cười đắc ý, quạ tròn mắt",
       memory: { label: "NGỤ NGÔN: QUẠ VÀ CÁO" },
@@ -279,7 +279,7 @@ export const TUAN_4 = [
     week,
     theme,
     idiom: "Trâu buộc ghét trâu ăn",
-    meaning: "Mình gặp cảnh không như ý thì sinh ra ghen tị với người đang được hưởng hơn mình.",
+    meaning: "Chê thói mình kém thế, lỡ vận thì sinh ra ganh tị, gièm pha người được hưởng hơn mình.",
     question: "Lúc nào bạn thấy mình dễ thành \"trâu buộc\" nhất?",
     hook: {
       shot: "TC ngồi ở bàn học, chân buộc hờ sợi dây thừng vào chân bàn, bấm điện thoại liên tục",
@@ -296,7 +296,7 @@ export const TUAN_4 = [
       ],
     },
     explain:
-      "Ngày xưa con trâu bị buộc ở cọc, nhìn con khác thong thả gặm cỏ thì bực bội. Ý câu là mình gặp cảnh không như ý thì đâm ra ghen tị với người đang được hưởng. Ông bà nói ra để mình tự soi lại, chứ không phải để làm theo.",
+      "Con trâu bị buộc ở cọc, đói mà nhìn con khác thong thả gặm cỏ thì sinh ghét. Câu này chê thói ghen ăn tức ở: mình kém thế, lỡ vận thì đâm ra ganh tị, gièm pha người được hưởng hơn mình, dù họ chẳng làm gì mình. Ông bà nói ra để mình tự soi lại.",
     example: {
       shot: "HỒI ỨC (TV đen trắng): điện vua, Cám ướm chiếc hài không vừa, giậm chân; Tấm đi vừa hài, được đội mũ phượng làm hoàng hậu; nhà tranh ban đêm, dì ghẻ và Cám chống nạnh tức tối, chụm đầu bày mưu, Cám mơ đội mũ phượng",
       memory: { label: "TRUYỆN CỔ TÍCH: TẤM CÁM" },
@@ -374,7 +374,7 @@ export const TUAN_4 = [
       ],
     },
     explain:
-      "Chữ tàu ở đây là chuồng ngựa, chỗ đặt máng cỏ, không phải tàu hỏa. Một con ngựa ốm, cả chuồng lo lắng, không buồn ăn. Ý câu là một người trong tập thể gặp chuyện thì mọi người cùng lo, cùng sẻ chia.",
+      "Chữ tàu ở đây là máng cỏ trong chuồng ngựa, cũng chỉ cả chuồng, không phải tàu hỏa. Một con ngựa ốm, cả chuồng bồn chồn, bỏ ăn. Ý câu là một người trong tập thể gặp chuyện thì mọi người cùng lo, cùng sẻ chia.",
     example: {
       shot: "HỒI ỨC (TV đen trắng): làng ngập trong mưa lũ; điểm nhận hàng, người ôm thùng mì, bọc quần áo, áo phao; xe tải cứu trợ chở hàng vào vùng ngập; người ở xa đứng trước ti vi xem tin lũ, bỏ bát cơm xuống",
       memory: { label: "CHUYỆN THẬT: MÙA LŨ" },
@@ -483,7 +483,7 @@ export const TUAN_4 = [
       ],
     },
     explain:
-      "Ma ở đây là cách nói ví von, chỉ người. Ma cũ là người đến trước, ma mới là người mới đến. Câu này chê người cậy mình có thâm niên, đem người mới ra sai vặt, làm khó.",
+      "Ma ở đây là nói ví, chỉ người. Ma cũ là người đến trước, ma mới là người mới vào. Câu này chê kẻ cậy thâm niên, đem người mới ra sai vặt, làm khó. Trường học, công sở đều có.",
     example: {
       shot: "HỒI ỨC (TV đen trắng): sân chuồng, vịt con lông xám chui ra từ vỏ trứng; vịt, gà mái, gà tây xúm lại mổ, xua đuổi; gà tây chống nạnh ra oai; bên hồ mùa xuân, vịt con hoá thiên nga trắng",
       memory: { label: "CỔ TÍCH: VỊT CON XẤU XÍ" },
@@ -598,7 +598,7 @@ export const TUAN_4 = [
       ],
     },
     explain:
-      "Đồ gỗ mà gỗ tốt thì dùng được mấy chục năm, còn nước sơn đẹp đến đâu cũng có ngày bong. Ý câu là phẩm chất bên trong quan trọng hơn vẻ đẹp bên ngoài. Câu này dùng cho cả đồ vật lẫn con người.",
+      "Gỗ là cốt, quyết định đồ bền hay không. Nước sơn chỉ là lớp áo ngoài, đẹp mấy cũng có ngày bong. Ý câu là chất lượng, phẩm chất bên trong quý hơn vẻ ngoài. Dùng cho cả đồ vật lẫn con người. Nhưng không phải bảo khỏi cần chăm chút bề ngoài đâu nhé.",
     example: {
       shot: "HỒI ỨC (TV đen trắng): đồi cỏ, Sọ Dừa tròn như quả dừa, con bò béo gặm cỏ; hai cô chị đi tới chỉ trỏ chê bai; cô út xách giỏ cơm, Sọ Dừa hoá chàng trai khôi ngô thổi sáo, rồi đội mũ trạng nguyên",
       memory: { label: "TRUYỆN CỔ TÍCH: SỌ DỪA" },
@@ -702,7 +702,7 @@ export const TUAN_4 = [
     week,
     theme: "Tổng kết",
     idiom: "Học ăn, học nói, học gói, học mở",
-    meaning: "Cách ăn, cách nói, cách cư xử đều phải học dần; gói, mở còn là biết giữ ý, biết lúc nói lúc giữ kín.",
+    meaning: "Ăn uống, nói năng, cư xử đều phải học; gói, mở là biết lúc giữ kín, lúc mở lời cho khéo.",
     question: "Trong 30 câu vừa qua, câu nào bạn từng hiểu sai lâu nhất?",
     hook: {
       shot: "TC ngồi giữa núi 30 hộp quà, vừa thắt nơ xong một hộp lại xé ra mở",
@@ -719,7 +719,7 @@ export const TUAN_4 = [
       ],
     },
     explain:
-      "Gói, mở ở đây không chỉ là gói bánh, mở quà. Gói là biết giữ ý, chuyện cần kín thì giữ kín. Mở là biết lúc nào nên nói, nói sao cho phải. Cả câu ý là ăn ở, cư xử đều phải học dần, kể cả việc tưởng nhỏ.",
+      "Gói, mở ở đây không chỉ là gói bánh, mở quà. Gói là biết gói ghém cho gọn, chuyện cần kín thì giữ kín. Mở là biết lúc nào nên mở lời, nói sao cho khéo. Cả câu khuyên ăn uống, nói năng, cư xử đều phải học, kể cả việc tưởng nhỏ.",
     example: {
       shot: "Montage nhanh các cảnh hay nhất của 29 tập trước, dừng ở CĐ và TC ngồi cạnh nhau",
       lines: [

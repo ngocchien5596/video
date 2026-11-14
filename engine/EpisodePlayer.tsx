@@ -15,6 +15,7 @@ import { END_CARD_SECONDS, episodeTimeline, LOOP_SECONDS, type Timeline } from "
 import type { BeatKind, Episode, VoiceTrack } from "./lib/types.ts";
 import type { BoardRegistry } from "./stage/board.tsx";
 import { Stage } from "./stage/Stage.tsx";
+import { momentSounds } from "./stage/track.ts";
 
 /** Khoảng khung hình của một nhịp (và của từng câu trong nhịp), truyền cho thẻ chữ để làm hiệu ứng vào / ra. */
 export type BeatFrames = {
@@ -167,6 +168,7 @@ export const EpisodePlayer: React.FC<EpisodePlayerProps> = ({ episode, voice, la
   const { fps, durationInFrames } = useVideoConfig();
   const timeline = useMemo(() => episodeTimeline(episode, voice), [episode, voice]);
   const { beats, spoken } = timeline;
+  const sounds = useMemo(() => momentSounds(episode, timeline), [episode, timeline]);
   const f = (seconds: number) => Math.round(seconds * fps);
 
   const endStart = durationInFrames - f(END_CARD_SECONDS);
@@ -192,6 +194,9 @@ export const EpisodePlayer: React.FC<EpisodePlayerProps> = ({ episode, voice, la
         const at = s.at === "hold" ? f(b.end - (b.holdSeconds ?? 0)) : f(b.start);
         return <Sfx key={`${s.beat}-${s.file}`} file={s.file} at={at} volume={s.volume} />;
       })}
+      {sounds.map((s, i) => (
+        <Sfx key={`m-${i}-${s.file}`} file={s.file} at={f(s.time)} volume={s.volume} />
+      ))}
       <Sfx file="whoosh.wav" at={endStart} volume={0.6} />
       <Sfx file="whoosh.wav" at={loopStart} volume={0.45} />
     </AbsoluteFill>

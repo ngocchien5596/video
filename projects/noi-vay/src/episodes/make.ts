@@ -42,6 +42,8 @@ export type EpisodeSpec = {
   hook: Part;
   /** 3–6s: câu Cụ Đồ hỏi, Thằng Cháu đáp bằng chính câu thành ngữ. */
   ask: string;
+  /** Câu Thằng Cháu đáp (phải có câu thành ngữ). Bỏ trống: "<câu thành ngữ> ạ!". */
+  answer?: string;
   /** 6–25s: diễn nghĩa đen, leo thang 2–3 bước. */
   misread: Part;
   /** 25–40s: lời Cụ Đồ giải thích nghĩa thật, nói sau câu cửa miệng. */
@@ -70,7 +72,7 @@ export const makeEpisode = (spec: EpisodeSpec): NoiVayEpisode => {
       // Nói xong câu thành ngữ thì lặng một nhịp: thẻ "BẠN HIỂU ĐÚNG CÂU NÀY CHƯA?" hiện lên, rồi câu bay lên thanh trên cùng.
       holdSeconds: IDIOM_REVEAL_SECONDS,
       shot: `Cụ Đồ hỏi, TC đáp; nói xong hiện thẻ "BẠN HIỂU ĐÚNG CÂU NÀY CHƯA?" + câu, âm "ding", rồi câu bay lên góc trên`,
-      lines: [cd(spec.ask), tc(`${spec.idiom} ạ!`)],
+      lines: [cd(spec.ask), tc(spec.answer ?? `${spec.idiom} ạ!`)],
       stage: spec.titleStage,
     },
     { ...spec.misread, kind: "misread", seconds: spec.misread.seconds ?? 19 },
