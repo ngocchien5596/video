@@ -9,7 +9,7 @@ export const TUAN_1 = [
     week,
     theme,
     idiom: "Ăn cháo đá bát",
-    meaning: "Vô ơn bội bạc: lúc khó nhờ người giúp, qua cơn hoạn nạn lại quay lưng, thậm chí hại người từng giúp mình.",
+    meaning: "Vô ơn, được người khác giúp đỡ xong lại quay lưng nói xấu hoặc đối xử tệ với họ.",
     question: "Bạn từng giúp ai hết lòng, xong lại bị chính người đó quay lưng chưa?",
     hook: {
       shot: "TC mặc áo cầu thủ, đặt cái bát nhựa xuống sân, lùi lại lấy đà như chuẩn bị sút phạt",
@@ -37,19 +37,19 @@ export const TUAN_1 = [
     misread: {
       shot: "TC húp xong cháo, đặt bát nhựa xuống sút tung lên trời, rồi xếp tiếp một hàng bát nhựa",
       lines: [
-        tc("Ông dạy sao cháu làm vậy! Ăn xong bát cháo là phải sút một cú thật đẹp!"),
+        tc("Thì ông dạy thế nào cháu làm đúng thế đấy! Ăn xong bát cháo là phải sút một cú thật đẹp!"),
         tc("Sáng nay cháu ăn hai bát, nên phải đá đủ hai quả mới đúng luật!"),
-        cd("Mày đá vỡ hết bát thì trưa ăn bằng gì?!"),
+        cd("Mày đá vỡ hết bát thì trưa nay cả nhà ăn cơm bằng gì?!"),
       ],
       stage: [
-        // "Ông dạy sao cháu làm vậy!": cầm bát húp
+        // "Thì ông dạy thế nào cháu làm đúng thế đấy!": cầm bát húp
         { line: 0, camera: "TC", tc: { x: 0.62, hand: "bowl-empty", arms: "hold2", expr: "smug", move: "idle" }, items: [] },
         // "Ăn xong bát cháo"
-        { line: 0, at: 0.37, tc: { expr: "happy" }, fx: { kind: "sparkle", on: "TC" } },
+        { line: 0, at: 0.5, tc: { expr: "happy" }, fx: { kind: "sparkle", on: "TC" } },
         // "là phải sút một cú thật đẹp!": đặt bát xuống, sút bay
-        { line: 0, at: 0.61, camera: "wide", tc: { hand: null, arms: "down" }, items: [{ id: "bat", prop: "bowl-empty", x: 0.52 }] },
-        { line: 0, at: 0.72, tc: { arms: "up2", move: "jump" }, items: [{ id: "bat", prop: "bowl-empty", x: 1.3 }], fx: { kind: "bop", on: "TC", text: "SÚT!" } },
-        { line: 0, at: 0.87, cd: { expr: "shock", arms: "up2" }, fx: { kind: "surprise", on: "CD" } },
+        { line: 0, at: 0.68, camera: "wide", tc: { hand: null, arms: "down" }, items: [{ id: "bat", prop: "bowl-empty", x: 0.52 }] },
+        { line: 0, at: 0.8, tc: { arms: "up2", move: "jump" }, items: [{ id: "bat", prop: "bowl-empty", x: 1.3 }], fx: { kind: "bop", on: "TC", text: "SÚT!" } },
+        { line: 0, at: 0.9, cd: { expr: "shock", arms: "up2" }, fx: { kind: "surprise", on: "CD" } },
         // "Sáng nay cháu ăn hai bát": xếp tiếp một hàng bát
         {
           line: 1,
@@ -65,8 +65,8 @@ export const TUAN_1 = [
         { line: 1, at: 0.5, camera: "TC", tc: { expr: "happy", move: "bounce" }, fx: { kind: "exclaim", on: "TC", text: "2!" } },
         // "Mày đá vỡ hết bát"
         { line: 2, camera: "CD", cd: { expr: "angry", arms: "point", move: "shake" }, tc: { move: "idle" }, fx: { kind: "anger", on: "CD" } },
-        // "ăn bằng gì?!"
-        { line: 2, at: 0.69, camera: "wide", cd: { move: "idle" }, tc: { expr: "shock", move: "tremble" }, fx: { kind: "sweat", on: "TC" } },
+        // "ăn cơm bằng gì?!"
+        { line: 2, at: 0.71, camera: "wide", cd: { move: "idle" }, tc: { expr: "shock", move: "tremble" }, fx: { kind: "sweat", on: "TC" } },
       ],
     },
     flipStage: [
@@ -74,25 +74,23 @@ export const TUAN_1 = [
       { line: 0, camera: "wide", cd: { x: 0.36, hand: "broom", arms: "up2", expr: "angry", move: "jump" }, tc: { move: "idle", arms: "down" } },
       { line: 0, at: 0.4, items: [{ id: "b1", prop: "bowl-empty", x: 0.42 }], fx: { kind: "exclaim", on: "CD", text: "BẮT!" } },
       { line: 0, at: 0.7, cd: { hand: "bowl-empty", arms: "hold", expr: "smug", move: "idle" }, items: [], fx: { kind: "sparkle", on: "CD" } },
-      // "Được cho bát cháo lúc đói, ăn no rồi lại"
+      // "Ngày xưa lúc đói được người ta thương, cho bát cháo ăn"
       { line: 1, camera: "CD", cd: { x: 0.3, expr: "neutral" }, tc: { expr: "confused", move: "idle" } },
-      // "đá văng cái bát"
-      { line: 1, at: 0.23, camera: "wide", tc: { expr: "smug", move: "bounce" } },
-      // "Câu này chê kẻ vô ơn bội bạc: lúc khó thì nhờ người giúp"
-      { line: 1, at: 0.32, cd: { hand: "fan", arms: "point", expr: "angry" }, tc: { expr: "shock", move: "idle" }, fx: { kind: "anger", on: "CD" } },
-      // "qua cơn hoạn nạn lại quay lưng"
-      { line: 1, at: 0.64, tc: { expr: "sad", arms: "down" }, fx: { kind: "sweat", on: "TC" } },
-      // "thậm chí hại người từng giúp mình."
-      { line: 1, at: 0.81, cd: { move: "shake" }, tc: { expr: "shock", move: "tremble" } },
+      // "Ăn no xong lại đá tung cái bát đi"
+      { line: 1, at: 0.33, camera: "wide", tc: { expr: "smug", move: "bounce" } },
+      // "nghĩa là kẻ vô ơn"
+      { line: 1, at: 0.56, cd: { hand: "fan", arms: "point", expr: "angry" }, tc: { expr: "shock", move: "idle" }, fx: { kind: "anger", on: "CD" } },
+      // "được bạn giúp xong lại quay ra đối xử tệ với bạn!"
+      { line: 1, at: 0.85, tc: { expr: "sad", arms: "down" }, fx: { kind: "sweat", on: "TC" } },
     ],
     explain:
-      "Được cho bát cháo lúc đói, ăn no rồi lại đá văng cái bát. Câu này chê kẻ vô ơn bội bạc: lúc khó thì nhờ người giúp, qua cơn hoạn nạn lại quay lưng, thậm chí hại người từng giúp mình.",
+      "Ngày xưa lúc đói được người ta thương, cho bát cháo ăn. Ăn no xong lại đá tung cái bát đi — nghĩa là kẻ vô ơn, được bạn giúp xong lại quay ra đối xử tệ với bạn!",
     flipShot: "Cụ Đồ dùng chổi đỡ cái bát nhựa như thủ môn bắt bóng",
     example: {
       shot: "HỒI ỨC (TV đen trắng): quán rượu, Lý Thông lân la kết nghĩa với Thạch Sanh vác củi; miếu cổ, Thạch Sanh chém chằn tinh, bắn đại bàng; Lý Thông cướp đầu chằn tinh, đội mũ quan; cửa hang, Lý Thông đẩy tảng đá lấp hang",
       memory: { label: "TRUYỆN CỔ TÍCH: THẠCH SANH" },
       lines: [
-        cd("Như Lý Thông trong truyện Thạch Sanh: vốn là kẻ bán rượu, thấy Thạch Sanh khỏe mạnh nên lân la kết nghĩa anh em để lợi dụng."),
+        cd("Như Lý Thông trong truyện Thạch Sanh ấy: vốn chỉ là kẻ bán rượu tầm thường, thấy Thạch Sanh khỏe mạnh nên lân la kết nghĩa anh em để lợi dụng."),
         cd("Sau khi Thạch Sanh diệt chằn tinh và đại bàng, lập công lớn, Lý Thông không những cướp công, mà còn nhẫn tâm lấp cửa hang, hòng giết hại người em đã hết lòng giúp mình!"),
       ],
       // Cụ Đồ đóng Thạch Sanh, Thằng Cháu đóng Lý Thông.
@@ -107,15 +105,15 @@ export const TUAN_1 = [
           tc: { role: "ly-thong", x: 0.66, hand: "wine-jar", back: null, head: null, face: null, arms: "hold", expr: "smug", move: "idle" },
           items: [],
         },
-        // "vốn là kẻ bán rượu": mời khách
-        { line: 0, at: 0.31, camera: "TC", tc: { hand: null, arms: "wave", expr: "happy", move: "bounce" } },
+        // "vốn chỉ là kẻ bán rượu tầm thường": mời khách
+        { line: 0, at: 0.27, camera: "TC", tc: { hand: null, arms: "wave", expr: "happy", move: "bounce" } },
         // "thấy Thạch Sanh khỏe mạnh": Thạch Sanh vác củi đi vào
-        { line: 0, at: 0.47, camera: "wide", cd: { x: 0.28, expr: "happy" }, tc: { arms: "down", expr: "neutral", move: "idle" } },
-        { line: 0, at: 0.6, cd: { arms: "raise" }, tc: { expr: "shock" }, fx: [{ kind: "sparkle", on: "CD" }, { kind: "exclaim", on: "TC" }] },
+        { line: 0, at: 0.5, camera: "wide", cd: { x: 0.28, expr: "happy" }, tc: { arms: "down", expr: "neutral", move: "idle" } },
+        { line: 0, at: 0.62, cd: { arms: "raise" }, tc: { expr: "shock" }, fx: [{ kind: "sparkle", on: "CD" }, { kind: "exclaim", on: "TC" }] },
         // "nên lân la kết nghĩa anh em": sán lại gần, tay bắt mặt mừng
-        { line: 0, at: 0.68, cd: { arms: "down" }, tc: { x: 0.52, arms: "wave", expr: "happy" }, fx: { kind: "hearts", on: "TC" } },
+        { line: 0, at: 0.72, cd: { arms: "down" }, tc: { x: 0.52, arms: "wave", expr: "happy" }, fx: { kind: "hearts", on: "TC" } },
         // "để lợi dụng": quay ra cười nham hiểm
-        { line: 0, at: 0.9, camera: "TC", tc: { arms: "hips", expr: "smug" }, fx: { kind: "exclaim", on: "TC", text: "HÌ HÌ" } },
+        { line: 0, at: 0.92, camera: "TC", tc: { arms: "hips", expr: "smug" }, fx: { kind: "exclaim", on: "TC", text: "HÌ HÌ" } },
 
         // "Sau khi Thạch Sanh diệt chằn tinh": miếu cổ trong rừng đêm
         {
