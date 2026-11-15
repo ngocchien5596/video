@@ -1,456 +1,490 @@
 import React from "react";
 import { useCurrentFrame } from "remotion";
-import { PARCHMENT } from "./ParchmentHud.tsx";
+import { TEXT_FONT } from "../components/brand.ts";
+
+export type Pose = "idle" | "think" | "point" | "pointR" | "eureka" | "aimL" | "scratch" | "present" | "touch" | "wave";
 
 export type StickmanProps = {
   x: number;
   y: number;
   scale?: number;
   role?: "ancient" | "ranger" | "worker" | "sailor" | "scholar";
-  pose?: "idle" | "think" | "point" | "eureka" | "aimL";
+  pose?: Pose;
+  /** Tư thế trước đó: chuyển dần từ `prevPose` sang `pose` theo `poseT` (0 → 1), không bật tức thì. */
+  prevPose?: Pose;
+  poseT?: number;
   badge?: string;
-  /** Tiến độ đi vào cảnh 0 → 1 (mặc định 1 = đã đứng yên tại chỗ). Đang đi thì nhún bước. */
+  /** Độ hiện của bong bóng chữ trên đầu (0 → 1, dùng lò xo để bật ra). */
+  badgeP?: number;
+  /** Tiến độ đi vào cảnh 0 → 1 (mặc định 1 = đã đứng yên tại chỗ). Đang đi thì bước chân theo quãng đường. */
   enter?: number;
   /** Đi vào từ cách vị trí đứng bao nhiêu px (âm = từ bên trái). Mặc định 320 (từ bên phải). */
   from?: number;
-  /** Đang nói / hào hứng: nhún người, vung tay theo nhịp. Mặc định true. */
+  /** Đang kể / hào hứng: miệng mấp máy, tay đung đưa nhẹ. Mặc định true. */
   lively?: boolean;
+  /** Phụ kiện đổi vai: nơ người dẫn chương trình, áo phao nhà thám hiểm biển. */
+  accessory?: "bowtie" | "lifevest";
 };
+
+/** Hệ số phóng to chung: Milo ở scale 1 cao ~390 px, đầu ~115 px (chuẩn: đầu ≥ 110 px trong cảnh toàn). */
+const BASE = 1.32;
 
 const OUTLINE = "#2B1A0E";
 const SKIN = "#EBB892";
 const SKIN_SHADOW = "#D69B72";
-const HAIR = "#4B2E1B";
-const HAIR_LIGHT = "#6B4329";
-const SHIRT = "#8CA4BC";
+const HAIR = "#5A3520";
+const HAIR_LIGHT = "#7D4E2C";
+const SHIRT = "#7FA3C8";
+const SHIRT_DARK = "#5F84AA";
 const VEST = "#6B7346";
 const VEST_DARK = "#525934";
 const PANTS = "#C2A682";
-const CUFF = "#D8C2A3";
+const PANTS_DARK = "#A88B66";
+const CUFF = "#DCC7A6";
 const BOOT = "#6E4326";
 const LEATHER = "#5E361B";
 const BRASS = "#E0AD46";
 
+type Hand = "fist" | "open" | "point";
+type Arm = { x: number; y: number; bend: 1 | -1; hand: Hand };
+type Face = {
+  browY: number;
+  browTilt: number;
+  eye: number;
+  mouthW: number;
+  curve: number;
+  open: number;
+  lookX: number;
+  lookY: number;
+  tilt: number;
+};
+type PoseSpec = { R: Arm; L: Arm; face: Face; ruler?: boolean };
+
+const RELAX_R: Arm = { x: 38, y: -98, bend: -1, hand: "fist" };
+const RELAX_L: Arm = { x: -38, y: -98, bend: 1, hand: "fist" };
+const HIP_R: Arm = { x: 50, y: -112, bend: -1, hand: "fist" };
+
+const FACE: Face = { browY: 0, browTilt: 0, eye: 1, mouthW: 12, curve: 7, open: 0.1, lookX: -0.3, lookY: 0, tilt: 0 };
+
+/** Tư thế = vị trí bàn tay (khớp vai – khuỷu – cổ tay tự tính) + nét mặt. Tay "L" là tay phía trái khung hình. */
+const POSES: Record<Pose, PoseSpec> = {
+  idle: { R: RELAX_R, L: RELAX_L, face: FACE },
+  point: {
+    R: HIP_R,
+    L: { x: -92, y: -192, bend: -1, hand: "point" },
+    face: { ...FACE, browY: -3, browTilt: 2, eye: 1.05, mouthW: 13, curve: 8, open: 0.4, lookX: -0.9, lookY: -0.3 },
+  },
+  pointR: {
+    R: { x: 92, y: -192, bend: 1, hand: "point" },
+    L: RELAX_L,
+    face: { ...FACE, browY: -3, browTilt: 2, eye: 1.05, mouthW: 13, curve: 8, open: 0.4, lookX: 0.9, lookY: -0.3 },
+  },
+  think: {
+    R: { x: 10, y: -184, bend: -1, hand: "fist" },
+    L: { x: -50, y: -112, bend: 1, hand: "fist" },
+    face: { ...FACE, browY: 2, browTilt: -4, eye: 0.85, mouthW: 8, curve: -1, open: 0, lookX: 0.6, lookY: -0.9, tilt: -6 },
+  },
+  eureka: {
+    R: { x: 56, y: -224, bend: 1, hand: "open" },
+    L: { x: -56, y: -224, bend: -1, hand: "open" },
+    face: { ...FACE, browY: -8, browTilt: 3, eye: 1.25, mouthW: 15, curve: 10, open: 1, lookX: 0, lookY: -0.2, tilt: 3 },
+  },
+  aimL: {
+    R: { x: 58, y: -204, bend: 1, hand: "fist" },
+    L: RELAX_L,
+    face: { ...FACE, eye: 0.9, browTilt: -2, mouthW: 9, curve: 3, open: 0, lookX: 1, lookY: -0.4 },
+    ruler: true,
+  },
+  scratch: {
+    R: { x: 40, y: -232, bend: 1, hand: "open" },
+    L: RELAX_L,
+    face: { ...FACE, browY: -2, browTilt: 5, eye: 1, mouthW: 9, curve: -2, open: 0.2, lookX: -0.8, lookY: -0.5, tilt: 7 },
+  },
+  present: {
+    R: RELAX_R,
+    L: { x: -94, y: -134, bend: 1, hand: "open" },
+    face: { ...FACE, browY: -2, eye: 1.05, curve: 8, open: 0.35, lookX: -1, lookY: 0 },
+  },
+  touch: {
+    R: RELAX_R,
+    L: { x: -96, y: -116, bend: 1, hand: "open" },
+    face: { ...FACE, browY: -4, browTilt: 1, eye: 1.12, curve: 9, open: 0.2, lookX: -1, lookY: 0.1 },
+  },
+  wave: {
+    R: { x: 72, y: -214, bend: 1, hand: "open" },
+    L: RELAX_L,
+    face: { ...FACE, browY: -4, eye: 1.1, mouthW: 14, curve: 10, open: 0.6, lookX: 0, lookY: 0 },
+  },
+};
+
+const smooth = (t: number) => {
+  const c = Math.min(1, Math.max(0, t));
+  return c * c * (3 - 2 * c);
+};
+const mix = (a: number, b: number, t: number) => a + (b - a) * t;
+
+type P = { x: number; y: number };
+
+/** Khớp giữa của chi hai đoạn (IK hai xương): gốc S, đích T, độ dài a, b, chiều gập `bend`. */
+const joint = (S: P, T: P, a: number, b: number, bend: number): { mid: P; end: P } => {
+  let dx = T.x - S.x;
+  let dy = T.y - S.y;
+  let d = Math.hypot(dx, dy) || 0.001;
+  const max = a + b - 0.5;
+  if (d > max) {
+    dx *= max / d;
+    dy *= max / d;
+    d = max;
+  }
+  const ux = dx / d;
+  const uy = dy / d;
+  const cosA = Math.min(1, Math.max(-1, (a * a + d * d - b * b) / (2 * a * d)));
+  const ang = Math.acos(cosA) * bend;
+  const vx = ux * Math.cos(ang) - uy * Math.sin(ang);
+  const vy = ux * Math.sin(ang) + uy * Math.cos(ang);
+  return { mid: { x: S.x + vx * a, y: S.y + vy * a }, end: { x: S.x + dx, y: S.y + dy } };
+};
+
+const UPPER = 36;
+const FORE = 34;
+
+/** Bàn tay vẽ theo hướng cẳng tay (`angle` độ): nắm tay, xoè tay, hay chỉ ngón trỏ. */
+const HandShape: React.FC<{ x: number; y: number; angle: number; shape: Hand; mirror: boolean }> = ({ x, y, angle, shape, mirror }) => (
+  <g transform={`translate(${x} ${y}) rotate(${angle}) scale(1 ${mirror ? -1 : 1})`}>
+    {shape === "open" ? (
+      <>
+        {[-9, -3, 3, 9].map((o, i) => (
+          <rect key={o} x={6} y={o - 3} width={i === 0 || i === 3 ? 13 : 16} height={6.5} rx={3.2} fill={SKIN} stroke={OUTLINE} strokeWidth={2.2} />
+        ))}
+        <ellipse cx={4} cy={0} rx={10} ry={12} fill={SKIN} stroke={OUTLINE} strokeWidth={2.6} />
+        <ellipse cx={4} cy={-12} rx={4} ry={6.5} transform="rotate(-35 4 -12)" fill={SKIN} stroke={OUTLINE} strokeWidth={2.2} />
+      </>
+    ) : (
+      <>
+        {shape === "point" ? <rect x={8} y={-7} width={22} height={7} rx={3.5} fill={SKIN} stroke={OUTLINE} strokeWidth={2.4} /> : null}
+        <circle cx={4} cy={0} r={11} fill={SKIN} stroke={OUTLINE} strokeWidth={2.6} />
+        <path d="M 8 -5 Q 13 -1 9 4" fill="none" stroke={SKIN_SHADOW} strokeWidth={2} strokeLinecap="round" />
+        <ellipse cx={2} cy={-10} rx={4.5} ry={6} transform="rotate(-50 2 -10)" fill={SKIN} stroke={OUTLINE} strokeWidth={2.2} />
+      </>
+    )}
+  </g>
+);
+
+/** Một cánh tay: bắp tay áo sơ mi, nếp xắn tay ở khuỷu, cẳng tay da và bàn tay. */
+const ArmShape: React.FC<{ S: P; E: P; W: P; hand: Hand; side: 1 | -1 }> = ({ S, E, W, hand, side }) => {
+  const ang = (Math.atan2(W.y - E.y, W.x - E.x) * 180) / Math.PI;
+  return (
+    <g>
+      <path d={`M ${S.x} ${S.y} L ${E.x} ${E.y}`} stroke={OUTLINE} strokeWidth={24} strokeLinecap="round" />
+      <path d={`M ${E.x} ${E.y} L ${W.x} ${W.y}`} stroke={OUTLINE} strokeWidth={19} strokeLinecap="round" />
+      <path d={`M ${E.x} ${E.y} L ${W.x} ${W.y}`} stroke={SKIN} strokeWidth={13.5} strokeLinecap="round" />
+      <path d={`M ${S.x} ${S.y} L ${E.x} ${E.y}`} stroke={SHIRT} strokeWidth={18.5} strokeLinecap="round" />
+      {/* Nếp xắn tay áo ở khuỷu */}
+      <circle cx={E.x} cy={E.y} r={10.5} fill={CUFF} stroke={OUTLINE} strokeWidth={2.6} />
+      <HandShape x={W.x} y={W.y} angle={ang} shape={hand} mirror={side < 0} />
+    </g>
+  );
+};
+
+/** Một chân: ống quần (đùi – gối – cẳng), gấu xắn, giày bốt có đế và dây. */
+const LegShape: React.FC<{ H: P; K: P; A: P; side: 1 | -1; toe: number }> = ({ H, K, A, side, toe }) => (
+  <g>
+    <path d={`M ${H.x} ${H.y} L ${K.x} ${K.y} L ${A.x} ${A.y - 6}`} fill="none" stroke={OUTLINE} strokeWidth={27} strokeLinecap="round" strokeLinejoin="round" />
+    <path d={`M ${H.x} ${H.y} L ${K.x} ${K.y} L ${A.x} ${A.y - 6}`} fill="none" stroke={PANTS} strokeWidth={21} strokeLinecap="round" strokeLinejoin="round" />
+    <path d={`M ${K.x - 5 * side} ${K.y - 3} q ${4 * side} 4 ${9 * side} 2`} fill="none" stroke={PANTS_DARK} strokeWidth={2} strokeLinecap="round" />
+    <g transform={`translate(${A.x} ${A.y}) rotate(${toe * side})`}>
+      {/* Gấu quần xắn */}
+      <rect x={-15} y={-14} width={30} height={11} rx={4} fill={CUFF} stroke={OUTLINE} strokeWidth={2.6} />
+      {/* Giày bốt da: mũi giày chĩa ra ngoài */}
+      <path
+        d={side > 0 ? "M -12 -4 L 10 -4 Q 26 -2 26 10 L -13 10 Z" : "M 12 -4 L -10 -4 Q -26 -2 -26 10 L 13 10 Z"}
+        fill={BOOT}
+        stroke={OUTLINE}
+        strokeWidth={2.8}
+        strokeLinejoin="round"
+      />
+      <rect x={side > 0 ? -14 : -27} y={8} width={41} height={6} rx={2.5} fill="#361F10" stroke={OUTLINE} strokeWidth={2} />
+      <line x1={side > 0 ? -4 : 4} y1={0} x2={side > 0 ? 6 : -6} y2={0} stroke={CUFF} strokeWidth={2} />
+      <line x1={side > 0 ? -4 : 4} y1={4} x2={side > 0 ? 6 : -6} y2={4} stroke={CUFF} strokeWidth={2} />
+    </g>
+  </g>
+);
+
 /**
- * Nhân vật MILO — The Young Inventor (dựng theo thiết kế `projects/kien-thuc/docs/kich-ban/nhan_vat.jpg`):
- * - Tóc nâu rối + Kính bảo hộ bằng đồng (Brass Goggles) đeo trên trán
- * - Áo sơ mi xanh xắn tay + Áo ghi-lê xanh rêu (Olive Vest) may túi chỉ nổi + cúc đồng
- * - Túi đeo chéo bằng da (Tool Satchel) đựng cờ-lê, tua-vít bên hông
- * - Quần kaki nâu sáng xắn gấu + Giày bốt da cổ lông
- * - Biểu cảm gương mặt: Curious / Thinking / Excited (Eureka) / Happy + Chớp mắt & Nhịp thở tự nhiên.
- * Gốc tọa độ (x, y) đặt tại điểm chạm mặt đất giữa hai bàn chân.
+ * Nhân vật MILO — The Young Inventor (dựng theo `projects/kien-thuc/docs/kich-ban/nhan_vat.jpg`):
+ * tóc nâu dựng nhọn, kính bảo hộ đồng trên trán, sơ mi xanh xắn tay, ghi-lê rêu, túi da đeo chéo, quần kaki, giày bốt.
+ * Khung xương: tay và chân hai đoạn (tính khớp khuỷu / gối tự động), tư thế và nét mặt chuyển dần (`prevPose` → `pose`),
+ * thở, chớp mắt mượt, đi bộ có bước chân bám theo quãng đường (không trượt).
+ * Gốc tọa độ (x, y) tại điểm chạm đất giữa hai bàn chân. Cần <MiloDefs /> trong <defs> của khung SVG.
  */
 export const Stickman: React.FC<StickmanProps> = ({
   x,
   y,
   scale = 1,
   pose = "idle",
+  prevPose,
+  poseT = 1,
   badge,
+  badgeP = 1,
   enter = 1,
   from = 320,
   lively = true,
+  accessory,
 }) => {
   const frame = useCurrentFrame();
-  const walking = enter < 0.999;
-  const breath = Math.sin(frame * 0.12) * 2.2 + (lively && !walking ? Math.abs(Math.sin(frame * 0.22)) * -4 : 0);
-  const headTilt =
-    pose === "think" ? -5 + Math.sin(frame * 0.08) * 3 : pose === "eureka" ? 3 + Math.sin(frame * 0.3) * 4 : Math.sin(frame * 0.07) * 3.5;
-  const blink = frame % 95 >= 91;
-  // Đi vào: trượt từ `from`, nhún theo bước chân, người hơi nghiêng về phía trước.
+  const t = prevPose && prevPose !== pose ? smooth(poseT) : 1;
+  const A = POSES[prevPose ?? pose];
+  const B = POSES[pose];
+  const fm = (k: keyof Face) => mix(A.face[k], B.face[k], t);
+
+  // ---- Đi bộ: pha bước theo quãng đường đã đi, nên chân không trượt; nhún thân mỗi bước.
+  const traveled = enter * Math.abs(from);
+  const walkAmp = Math.min(1, Math.max(0, (1 - enter) * 7));
+  const phase = (traveled / 58) * Math.PI;
+  const dir = from > 0 ? -1 : 1;
   const dx = (1 - enter) * from;
-  const step = walking ? -Math.abs(Math.sin(frame * 0.5)) * 16 : 0;
-  // Eureka: nhảy cẫng lên liên tục.
-  const hop = pose === "eureka" && lively && !walking ? -Math.abs(Math.sin(frame * 0.2)) * 26 : 0;
-  const lean = walking ? (from > 0 ? -6 : 6) : Math.sin(frame * 0.05) * 1.5;
-  // Tay trước vung theo nhịp nói.
-  const armSwing = lively ? Math.sin(frame * 0.18) * (pose === "point" ? 9 : pose === "aimL" ? 2 : 6) : 0;
+  const liftL = Math.max(0, Math.sin(phase)) * 20 * walkAmp;
+  const liftR = Math.max(0, -Math.sin(phase)) * 20 * walkAmp;
+  const bob = -Math.abs(Math.sin(phase)) * 4 * walkAmp;
+  const lean = dir * 4 * walkAmp;
+
+  // ---- Nhảy cẫng khi Eureka (chỉ khi đã đứng yên).
+  const eurekaW = (pose === "eureka" ? t : 0) + (prevPose === "eureka" && pose !== "eureka" ? 1 - t : 0);
+  const hopRaw = Math.abs(Math.sin(frame * 0.17));
+  const hop = lively ? -hopRaw * 24 * eurekaW * (1 - walkAmp) : 0;
+  const tuck = -hop * 0.35;
+
+  // ---- Thở & đung đưa.
+  const breath = Math.sin(frame * 0.11) * 1.8;
+  const sway = Math.sin(frame * 0.045) * 1.2;
+  const headTilt = fm("tilt") + Math.sin(frame * 0.07) * 2.5 + (lively ? Math.sin(frame * 0.19) * 1.2 : 0);
+
+  // ---- Chớp mắt mượt (đóng – mở trong ~6 khung), thỉnh thoảng chớp đôi.
+  const cyc = (frame + 37) % 113;
+  const blinkK = cyc < 6 ? Math.sin((cyc / 6) * Math.PI) : cyc >= 14 && cyc < 20 && frame % 339 < 113 ? Math.sin(((cyc - 14) / 6) * Math.PI) : 0;
+  const eyeOpen = Math.max(0.06, fm("eye") * (1 - blinkK * 0.95));
+
+  // ---- Miệng: mấp máy khi đang kể.
+  const talk = lively ? Math.max(0, Math.sin(frame * 0.55)) * (Math.sin(frame * 0.09) > -0.4 ? 0.35 : 0) : 0;
+  const mouthOpen = Math.min(1.1, fm("open") + talk * (1 - eurekaW));
+
+  // ---- Hai tay: nội suy vị trí bàn tay giữa hai tư thế, cộng đung đưa nhẹ; tay đánh ngược nhịp chân khi đi.
+  const idleWave = lively ? Math.sin(frame * 0.16) : 0;
+  const solveArm = (S: P, a: Arm, b: Arm, side: 1 | -1, swing: number) => {
+    const T = { x: mix(a.x, b.x, t) + Math.sin(phase) * 10 * walkAmp * side, y: mix(a.y, b.y, t) + swing };
+    // Hai lời giải khuỷu của hai tư thế, trộn theo t để không bật khi đổi chiều gập.
+    const ja = joint(S, T, UPPER, FORE, a.bend);
+    const jb = joint(S, T, UPPER, FORE, b.bend);
+    const E = { x: mix(ja.mid.x, jb.mid.x, t), y: mix(ja.mid.y, jb.mid.y, t) };
+    return { S, E, W: ja.end, hand: t < 0.5 ? a.hand : b.hand };
+  };
+  const waveR = pose === "wave" ? Math.sin(frame * 0.35) * 8 * t : 0;
+  const armR = solveArm({ x: 30, y: -162 }, A.R, { ...B.R, x: B.R.x + waveR }, 1, idleWave * 2.5);
+  const armL = solveArm({ x: -30, y: -162 }, A.L, B.L, -1, -idleWave * 2.5);
+  const rulerP = (A.ruler ? 1 - t : 0) + (B.ruler ? t : 0);
+
+  // ---- Hai chân.
+  const hipL: P = { x: -14, y: -96 };
+  const hipR: P = { x: 14, y: -96 };
+  const footX = Math.cos(phase) * 7 * walkAmp * dir;
+  const legL = joint(hipL, { x: -17 + footX, y: -12 - liftL - tuck }, 44, 44, 1);
+  const legR = joint(hipR, { x: 17 - footX, y: -12 - liftR - tuck }, 44, 44, -1);
+
+  const lookX = fm("lookX") * 3.6;
+  const lookY = fm("lookY") * 3;
+  const browY = fm("browY");
+  const browTilt = fm("browTilt");
+  const mouthW = fm("mouthW");
+  const curve = fm("curve");
+
+  const eye = (cx: number) => (
+    <g transform={`translate(${cx} -49) scale(1 ${eyeOpen}) translate(${-cx} 49)`}>
+      <ellipse cx={cx} cy={-49} rx={10.5} ry={12} fill="#FFFFFF" stroke={OUTLINE} strokeWidth={2.6} />
+      <circle cx={cx + 1 + lookX} cy={-49 + lookY} r={7.2} fill="#4A2A14" />
+      <circle cx={cx + 1 + lookX} cy={-49 + lookY} r={4} fill="#1E1008" />
+      <circle cx={cx - 1.5 + lookX} cy={-52 + lookY} r={2.6} fill="#FFFFFF" />
+    </g>
+  );
+
+  const mouthY = -25;
+  const mouth =
+    mouthOpen < 0.06 ? (
+      <path d={`M ${-mouthW} ${mouthY} Q 0 ${mouthY + curve} ${mouthW} ${mouthY - curve * 0.15}`} fill="none" stroke={OUTLINE} strokeWidth={3.4} strokeLinecap="round" />
+    ) : (
+      <g>
+        <path
+          d={`M ${-mouthW} ${mouthY} Q 0 ${mouthY + curve * 0.35} ${mouthW} ${mouthY} Q 0 ${mouthY + curve * 0.6 + mouthOpen * 15} ${-mouthW} ${mouthY} Z`}
+          fill="#9E2A2B"
+          stroke={OUTLINE}
+          strokeWidth={2.8}
+          strokeLinejoin="round"
+        />
+        <ellipse cx={0} cy={mouthY + curve * 0.35 + mouthOpen * 8} rx={mouthW * 0.45} ry={mouthOpen * 3.5} fill="#E06A6A" />
+      </g>
+    );
+
+  const badgeW = badge ? Math.max(120, badge.length * 19 + 44) : 0;
+  const shadowK = 1 + hop / 80;
 
   return (
-    <g transform={`translate(${x + dx}, ${y + step + hop}) scale(${scale}) rotate(${lean})`}>
-      <defs>
-        <radialGradient id="milo-face-grad" cx="45%" cy="38%" r="58%">
-          <stop offset="0%" stopColor="#F5CBA7" />
-          <stop offset="70%" stopColor={SKIN} />
-          <stop offset="100%" stopColor={SKIN_SHADOW} />
-        </radialGradient>
-        <linearGradient id="milo-vest-grad" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#7A8352" />
-          <stop offset="100%" stopColor={VEST} />
-        </linearGradient>
-        <linearGradient id="milo-brass-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#FFE082" />
-          <stop offset="55%" stopColor={BRASS} />
-          <stop offset="100%" stopColor="#9E7020" />
-        </linearGradient>
-      </defs>
+    <g transform={`translate(${x + dx} ${y}) scale(${scale * BASE})`}>
+      {/* Bóng đổ dưới chân: nhỏ lại khi nhảy lên */}
+      <ellipse cx={0} cy={4} rx={50 * shadowK} ry={10 * shadowK} fill="rgba(40,24,10,0.32)" />
 
-      {/* Bóng đổ мяг dưới mặt đất */}
-      <ellipse cx={0} cy={4 - step - hop} rx={46 + (step + hop) * 0.6} ry={10} fill="rgba(0,0,0,0.38)" />
+      <g transform={`translate(0 ${hop}) rotate(${lean + sway * 0.3})`}>
+        {/* ==================== HAI CHÂN & GIÀY BỐT ==================== */}
+        <LegShape H={hipL} K={legL.mid} A={legL.end} side={-1} toe={liftL * 0.5} />
+        <LegShape H={hipR} K={legR.mid} A={legR.end} side={1} toe={liftR * 0.5} />
 
-      {/* ==================== HAI CHÂN & GIÀY BỐT DA ==================== */}
-      <g>
-        {/* Ống quần trái & phải */}
-        <path
-          d="M -28 -96 L -8 -96 L -6 -30 L -32 -30 Z"
-          fill={PANTS}
-          stroke={OUTLINE}
-          strokeWidth={3.2}
-          strokeLinejoin="round"
-        />
-        <path
-          d="M 8 -96 L 28 -96 L 32 -30 L 6 -30 Z"
-          fill={PANTS}
-          stroke={OUTLINE}
-          strokeWidth={3.2}
-          strokeLinejoin="round"
-        />
-        {/* Gấu quần xắn (Rolled Cuffs) */}
-        <rect x={-34} y={-36} width={30} height={12} rx={4} fill={CUFF} stroke={OUTLINE} strokeWidth={2.8} />
-        <rect x={4} y={-36} width={30} height={12} rx={4} fill={CUFF} stroke={OUTLINE} strokeWidth={2.8} />
+        {/* ==================== THÂN (nhún theo bước, phồng nhẹ theo nhịp thở) ==================== */}
+        <g transform={`translate(0 ${bob + breath * 0.5})`}>
+          {/* Cạp quần + thắt lưng */}
+          <path d="M -30 -108 L 30 -108 L 31 -90 L -31 -90 Z" fill={PANTS} stroke={OUTLINE} strokeWidth={3} strokeLinejoin="round" />
+          <rect x={-31} y={-108} width={62} height={8} fill={LEATHER} stroke={OUTLINE} strokeWidth={2.2} />
+          <rect x={-6} y={-109} width={12} height={10} rx={2} fill={BRASS} stroke={OUTLINE} strokeWidth={2} />
 
-        {/* Cổ giày lông cừu (Shearling Trim) */}
-        <rect x={-33} y={-25} width={28} height={8} rx={4} fill="#D9C3A4" stroke={OUTLINE} strokeWidth={2.2} />
-        <rect x={5} y={-25} width={28} height={8} rx={4} fill="#D9C3A4" stroke={OUTLINE} strokeWidth={2.2} />
+          {/* Cánh tay trái khung hình (phía sau thân) */}
+          <ArmShape S={armL.S} E={armL.E} W={armL.W} hand={armL.hand} side={-1} />
 
-        {/* Giày bốt da nâu (Worn Boots) */}
-        <path
-          d="M -34 -18 L -6 -18 L -4 -2 L -42 -2 Q -44 -14 -34 -18 Z"
-          fill={BOOT}
-          stroke={OUTLINE}
-          strokeWidth={3}
-          strokeLinejoin="round"
-        />
-        <path
-          d="M 6 -18 L 34 -18 Q 44 -14 42 -2 L 4 -2 L 6 -18 Z"
-          fill={BOOT}
-          stroke={OUTLINE}
-          strokeWidth={3}
-          strokeLinejoin="round"
-        />
-        {/* Đế giày khắc rãnh */}
-        <rect x={-43} y={-4} width={40} height={6} rx={2.5} fill="#361F10" stroke={OUTLINE} strokeWidth={2} />
-        <rect x={3} y={-4} width={40} height={6} rx={2.5} fill="#361F10" stroke={OUTLINE} strokeWidth={2} />
-        {/* Dây giày */}
-        <line x1={-26} y1={-14} x2={-16} y2={-14} stroke={CUFF} strokeWidth={2} />
-        <line x1={-28} y1={-10} x2={-18} y2={-10} stroke={CUFF} strokeWidth={2} />
-        <line x1={16} y1={-14} x2={26} y2={-14} stroke={CUFF} strokeWidth={2} />
-        <line x1={18} y1={-10} x2={28} y2={-10} stroke={CUFF} strokeWidth={2} />
-      </g>
+          {/* Sơ mi xanh */}
+          <path d="M -32 -172 Q -36 -140 -33 -104 L 33 -104 Q 36 -140 32 -172 Z" fill={SHIRT} stroke={OUTLINE} strokeWidth={3.2} strokeLinejoin="round" />
+          {/* Ghi-lê rêu hai vạt */}
+          <path d="M -34 -170 L -9 -170 L -6 -100 L -35 -104 Z" fill={VEST} stroke={OUTLINE} strokeWidth={3.2} strokeLinejoin="round" />
+          <path d="M 34 -170 L 9 -170 L 6 -100 L 35 -104 Z" fill={VEST} stroke={OUTLINE} strokeWidth={3.2} strokeLinejoin="round" />
+          <rect x={-31} y={-140} width={18} height={20} rx={3} fill={VEST_DARK} stroke="#C8CE9E" strokeWidth={1.6} strokeDasharray="3 2" />
+          <rect x={13} y={-140} width={18} height={20} rx={3} fill={VEST_DARK} stroke="#C8CE9E" strokeWidth={1.6} strokeDasharray="3 2" />
+          {[-150, -132, -114].map((cy) => (
+            <circle key={cy} cx={-11} cy={cy} r={2.6} fill={BRASS} stroke={OUTLINE} strokeWidth={1.2} />
+          ))}
+          {/* Cổ áo sơ mi */}
+          <polygon points="-13,-174 0,-156 13,-174" fill={SKIN} stroke={OUTLINE} strokeWidth={2.4} />
+          <polygon points="-18,-176 -4,-156 -22,-162" fill={SHIRT_DARK} stroke={OUTLINE} strokeWidth={2.2} />
+          <polygon points="18,-176 4,-156 22,-162" fill={SHIRT_DARK} stroke={OUTLINE} strokeWidth={2.2} />
 
-      {/* ==================== THÂN MÌNH, ÁO GHI-LÊ & TÚI ĐỒ NGHỀ ==================== */}
-      <g transform={`translate(0, ${breath})`}>
-        {/* Cánh tay sau (Tay trái nhân vật) */}
-        {pose === "eureka" ? (
-          <g>
-            <path d="M -30 -158 Q -58 -182 -52 -214" fill="none" stroke={OUTLINE} strokeWidth={22} strokeLinecap="round" />
-            <path d="M -30 -158 Q -58 -182 -52 -214" fill="none" stroke={SHIRT} strokeWidth={16} strokeLinecap="round" />
-            <circle cx={-52} cy={-220} r={10} fill={SKIN} stroke={OUTLINE} strokeWidth={2.8} />
+          {accessory === "lifevest" ? (
+            <g>
+              <path d="M -36 -168 L -8 -170 L -6 -104 L -37 -106 Z" fill="#F07B2A" stroke={OUTLINE} strokeWidth={3} />
+              <path d="M 36 -168 L 8 -170 L 6 -104 L 37 -106 Z" fill="#F07B2A" stroke={OUTLINE} strokeWidth={3} />
+              <rect x={-34} y={-140} width={68} height={7} fill="#E8E8E8" stroke={OUTLINE} strokeWidth={1.6} />
+            </g>
+          ) : null}
+
+          {/* Dây da đeo chéo + túi đồ nghề bên hông */}
+          <path d="M 26 -170 L -34 -100" stroke={OUTLINE} strokeWidth={13} strokeLinecap="round" />
+          <path d="M 26 -170 L -34 -100" stroke={LEATHER} strokeWidth={8.5} strokeLinecap="round" />
+          <line x1={24} y1={-168} x2={-32} y2={-102} stroke="#C99666" strokeWidth={1.4} strokeDasharray="4 3" />
+          <g transform="translate(-42 -98)">
+            <rect x={-10} y={-22} width={5} height={14} rx={2} fill="#B0BEC5" stroke={OUTLINE} strokeWidth={1.8} />
+            <circle cx={-7.5} cy={-24} r={4.5} fill="#B0BEC5" stroke={OUTLINE} strokeWidth={1.8} />
+            <rect x={0} y={-20} width={5} height={12} rx={2} fill="#D4883A" stroke={OUTLINE} strokeWidth={1.8} />
+            <rect x={-16} y={-10} width={30} height={32} rx={7} fill={LEATHER} stroke={OUTLINE} strokeWidth={3} />
+            <path d="M -14 -8 L 12 -8 L 10 6 L -12 6 Z" fill="#734423" stroke="#C99666" strokeWidth={1.4} strokeDasharray="3 2" />
+            <circle cx={-1} cy={1} r={3} fill={BRASS} stroke={OUTLINE} strokeWidth={1.2} />
           </g>
-        ) : (
-          <g>
-            <path d="M -32 -156 Q -52 -132 -36 -104" fill="none" stroke={OUTLINE} strokeWidth={22} strokeLinecap="round" />
-            <path d="M -32 -156 Q -52 -132 -36 -104" fill="none" stroke={SHIRT} strokeWidth={16} strokeLinecap="round" />
-            <circle cx={-34} cy={-100} r={9.5} fill={SKIN} stroke={OUTLINE} strokeWidth={2.8} />
-          </g>
-        )}
 
-        {/* Áo sơ mi xanh bên trong */}
-        <path
-          d="M -32 -170 L 32 -170 L 34 -92 L -34 -92 Z"
-          fill={SHIRT}
-          stroke={OUTLINE}
-          strokeWidth={3.2}
-          strokeLinejoin="round"
-        />
-        {/* Cổ áo sơ mi chữ V */}
-        <polygon points="-14,-172 0,-152 14,-172" fill={SKIN} stroke={OUTLINE} strokeWidth={2.5} />
-        <polygon points="-18,-172 -6,-152 -22,-158" fill="#A3B9CE" stroke={OUTLINE} strokeWidth={2.2} />
-        <polygon points="18,-172 6,-152 22,-158" fill="#A3B9CE" stroke={OUTLINE} strokeWidth={2.2} />
+          {accessory === "bowtie" ? (
+            <g transform="translate(0 -168)">
+              <path d="M 0 0 L -16 -9 L -16 9 Z M 0 0 L 16 -9 L 16 9 Z" fill="#C62828" stroke={OUTLINE} strokeWidth={2.4} strokeLinejoin="round" />
+              <circle r={4.5} fill="#E53935" stroke={OUTLINE} strokeWidth={2} />
+            </g>
+          ) : null}
 
-        {/* Áo ghi-lê xanh rêu (Olive Utility Vest) */}
-        <path
-          d="M -34 -168 L -10 -168 L -8 -90 L -36 -92 Z"
-          fill="url(#milo-vest-grad)"
-          stroke={OUTLINE}
-          strokeWidth={3.2}
-          strokeLinejoin="round"
-        />
-        <path
-          d="M 10 -168 L 34 -168 L 36 -92 L 8 -90 Z"
-          fill="url(#milo-vest-grad)"
-          stroke={OUTLINE}
-          strokeWidth={3.2}
-          strokeLinejoin="round"
-        />
-        {/* Đường chỉ may nổi & 2 túi hộp trước ngực (Stitched Pockets) */}
-        <rect
-          x={-31}
-          y={-136}
-          width={19}
-          height={22}
-          rx={3}
-          fill={VEST_DARK}
-          stroke="#C8CE9E"
-          strokeWidth={1.6}
-          strokeDasharray="3 2"
-        />
-        <rect
-          x={12}
-          y={-136}
-          width={19}
-          height={22}
-          rx={3}
-          fill={VEST_DARK}
-          stroke="#C8CE9E"
-          strokeWidth={1.6}
-          strokeDasharray="3 2"
-        />
-        {/* Cúc đồng trên túi áo */}
-        <circle cx={-21.5} cy={-131} r={2.6} fill={BRASS} stroke={OUTLINE} strokeWidth={1.2} />
-        <circle cx={21.5} cy={-131} r={2.6} fill={BRASS} stroke={OUTLINE} strokeWidth={1.2} />
-
-        {/* Dây đeo chéo bằng da & Túi đồ nghề (Tool Satchel) */}
-        <path
-          d="M 24 -168 L -34 -96"
-          stroke={OUTLINE}
-          strokeWidth={13}
-          strokeLinecap="round"
-        />
-        <path
-          d="M 24 -168 L -34 -96"
-          stroke={LEATHER}
-          strokeWidth={8.5}
-          strokeLinecap="round"
-        />
-        <line
-          x1={22}
-          y1={-166}
-          x2={-32}
-          y2={-98}
-          stroke="#C99666"
-          strokeWidth={1.4}
-          strokeDasharray="4 3"
-        />
-
-        {/* Túi da đeo hông trái kèm dụng cụ cơ khí nhỏ (cờ-lê, tua-vít) */}
-        <g transform="translate(-40, -96)">
-          {/* Cờ-lê và tua-vít nhô lên khỏi miệng túi */}
-          <rect x={-10} y={-22} width={5} height={14} rx={2} fill="#B0BEC5" stroke={OUTLINE} strokeWidth={1.8} />
-          <circle cx={-7.5} cy={-24} r={4.5} fill="#B0BEC5" stroke={OUTLINE} strokeWidth={1.8} />
-          <rect x={0} y={-20} width={5} height={12} rx={2} fill="#D4883A" stroke={OUTLINE} strokeWidth={1.8} />
-          <rect x={-16} y={-10} width={30} height={32} rx={7} fill={LEATHER} stroke={OUTLINE} strokeWidth={3} />
-          <path
-            d="M -14 -8 L 12 -8 L 10 6 L -12 6 Z"
-            fill="#734423"
-            stroke="#C99666"
-            strokeWidth={1.4}
-            strokeDasharray="3 2"
-          />
-          <circle cx={-1} cy={1} r={3} fill={BRASS} stroke={OUTLINE} strokeWidth={1.2} />
-        </g>
-
-        {/* ==================== ĐẦU, TÓC RỐI & KÍNH BẢO HỘ ĐỒNG (MILO HEAD) ==================== */}
-        <g transform={`translate(0, -174) rotate(${headTilt})`}>
-          {/* Cổ */}
-          <rect x={-9} y={-6} width={18} height={14} rx={6} fill={SKIN_SHADOW} stroke={OUTLINE} strokeWidth={2.5} />
-
-          {/* Hai tai */}
-          <ellipse cx={-45} cy={-44} rx={10} ry={13} fill={SKIN} stroke={OUTLINE} strokeWidth={3} />
-          <ellipse cx={-44} cy={-44} rx={5} ry={7} fill={SKIN_SHADOW} />
-          <ellipse cx={45} cy={-44} rx={10} ry={13} fill={SKIN} stroke={OUTLINE} strokeWidth={3} />
-          <ellipse cx={44} cy={-44} rx={5} ry={7} fill={SKIN_SHADOW} />
-
-          {/* Khuôn mặt tròn bầu ấm áp */}
-          <rect
-            x={-42}
-            y={-92}
-            width={84}
-            height={84}
-            rx={38}
-            fill="url(#milo-face-grad)"
-            stroke={OUTLINE}
-            strokeWidth={3.4}
-          />
-
-          {/* Má hồng ấm */}
-          <ellipse cx={-25} cy={-36} rx={10} ry={6} fill="#E08266" opacity={0.55} />
-          <ellipse cx={25} cy={-36} rx={10} ry={6} fill="#E08266" opacity={0.55} />
-
-          {/* Đôi mắt to tròn nâu sẫm (Curious / Excited / Thinking / Happy) */}
-          {blink ? (
-            <>
-              <path d="M -26 -48 Q -16 -42 -6 -48" fill="none" stroke={OUTLINE} strokeWidth={3.5} strokeLinecap="round" />
-              <path d="M 6 -48 Q 16 -42 26 -48" fill="none" stroke={OUTLINE} strokeWidth={3.5} strokeLinecap="round" />
-            </>
-          ) : (
-            <>
-              {/* Mắt trái */}
-              <ellipse cx={-17} cy={-49} rx={10.5} ry={11.5} fill="#FFFFFF" stroke={OUTLINE} strokeWidth={2.6} />
-              <circle cx={-15.5} cy={-49} r={7.2} fill="#4A2A14" />
-              <circle cx={-15.5} cy={-49} r={4} fill="#1E1008" />
-              <circle cx={-18} cy={-52} r={2.6} fill="#FFFFFF" />
-              <circle cx={-13} cy={-46} r={1.3} fill="#FFFFFF" />
-
-              {/* Mắt phải */}
-              <ellipse cx={17} cy={-49} rx={10.5} ry={11.5} fill="#FFFFFF" stroke={OUTLINE} strokeWidth={2.6} />
-              <circle cx={18.5} cy={-49} r={7.2} fill="#4A2A14" />
-              <circle cx={18.5} cy={-49} r={4} fill="#1E1008" />
-              <circle cx={16} cy={-52} r={2.6} fill="#FFFFFF" />
-              <circle cx={21} cy={-46} r={1.3} fill="#FFFFFF" />
-            </>
-          )}
-
-          {/* Lông mày nâu dày biểu cảm */}
-          {pose === "think" ? (
-            <>
-              <path d="M -28 -64 Q -17 -69 -7 -63" fill="none" stroke={HAIR} strokeWidth={4.5} strokeLinecap="round" />
-              <path d="M 7 -61 Q 17 -64 28 -59" fill="none" stroke={HAIR} strokeWidth={4.5} strokeLinecap="round" />
-            </>
-          ) : pose === "eureka" ? (
-            <>
-              <path d="M -28 -66 Q -17 -73 -7 -66" fill="none" stroke={HAIR} strokeWidth={4.5} strokeLinecap="round" />
-              <path d="M 7 -66 Q 17 -73 28 -66" fill="none" stroke={HAIR} strokeWidth={4.5} strokeLinecap="round" />
-            </>
-          ) : (
-            <>
-              <path d="M -28 -63 Q -17 -68 -7 -63" fill="none" stroke={HAIR} strokeWidth={4.5} strokeLinecap="round" />
-              <path d="M 7 -63 Q 17 -68 28 -63" fill="none" stroke={HAIR} strokeWidth={4.5} strokeLinecap="round" />
-            </>
-          )}
-
-          {/* Chiếc mũi tròn nhỏ nhắn */}
-          <ellipse cx={0} cy={-40} rx={6.5} ry={5} fill="#DF9E76" stroke={OUTLINE} strokeWidth={2.2} />
-
-          {/* Miệng theo biểu cảm (Thinking / Excited / Happy) */}
-          {pose === "think" ? (
-            <path d="M -8 -24 Q 2 -27 10 -23" fill="none" stroke={OUTLINE} strokeWidth={3.2} strokeLinecap="round" />
-          ) : pose === "eureka" ? (
+          {/* ==================== CỔ & ĐẦU ==================== */}
+          <g transform={`translate(0 ${-172 + breath * 0.4}) rotate(${headTilt})`}>
+            <rect x={-10} y={-14} width={20} height={20} rx={6} fill={SKIN_SHADOW} stroke={OUTLINE} strokeWidth={2.5} />
+            {/* Tai */}
+            <ellipse cx={-45} cy={-46} rx={10} ry={13} fill={SKIN} stroke={OUTLINE} strokeWidth={3} />
+            <ellipse cx={-44} cy={-46} rx={5} ry={7} fill={SKIN_SHADOW} />
+            <ellipse cx={45} cy={-46} rx={10} ry={13} fill={SKIN} stroke={OUTLINE} strokeWidth={3} />
+            <ellipse cx={44} cy={-46} rx={5} ry={7} fill={SKIN_SHADOW} />
+            {/* Mặt */}
+            <rect x={-42} y={-94} width={84} height={86} rx={38} fill="url(#milo-face-grad)" stroke={OUTLINE} strokeWidth={3.4} />
+            <ellipse cx={-25} cy={-34} rx={9} ry={5.5} fill="#E08266" opacity={0.5 + 0.2 * eurekaW} />
+            <ellipse cx={25} cy={-34} rx={9} ry={5.5} fill="#E08266" opacity={0.5 + 0.2 * eurekaW} />
+            {eye(-17)}
+            {eye(17)}
+            {/* Lông mày: cao thấp và độ xếch nội suy theo cảm xúc */}
             <path
-              d="M -13 -27 Q 0 -13 13 -27 Z"
-              fill="#9E2A2B"
+              d={`M -28 ${-64 + browY + browTilt * 0.3} Q -18 ${-70 + browY} -7 ${-64 + browY - browTilt}`}
+              fill="none"
+              stroke={HAIR}
+              strokeWidth={4.8}
+              strokeLinecap="round"
+            />
+            <path
+              d={`M 7 ${-64 + browY - browTilt} Q 18 ${-70 + browY} 28 ${-64 + browY + browTilt * 0.3}`}
+              fill="none"
+              stroke={HAIR}
+              strokeWidth={4.8}
+              strokeLinecap="round"
+            />
+            <ellipse cx={0} cy={-38} rx={6.5} ry={5} fill="#DF9E76" stroke={OUTLINE} strokeWidth={2.2} />
+            {mouth}
+            {/* Tóc nâu dựng nhọn */}
+            <path
+              d="M -47 -62 C -56 -92, -36 -116, -18 -110 L -12 -128 L 0 -112 L 10 -130 L 18 -110 L 30 -122 L 32 -104 C 48 -104, 56 -84, 47 -62 Q 34 -80, 16 -76 Q 0 -84, -16 -76 Q -34 -80, -47 -62 Z"
+              fill={HAIR}
               stroke={OUTLINE}
-              strokeWidth={2.8}
+              strokeWidth={3.2}
               strokeLinejoin="round"
             />
-          ) : (
-            <path d="M -12 -26 Q 0 -17 13 -26" fill="none" stroke={OUTLINE} strokeWidth={3.2} strokeLinecap="round" />
-          )}
-
-          {/* Mái tóc nâu rối đặc trưng của Milo */}
-          <path
-            d="M -46 -62
-               C -54 -88, -32 -114, -14 -108
-               L -6 -120 L 4 -109
-               L 16 -121 L 24 -106
-               C 42 -110, 54 -86, 46 -62
-               Q 34 -78, 16 -74
-               Q 0 -82, -16 -74
-               Q -34 -78, -46 -62 Z"
-            fill={HAIR}
-            stroke={OUTLINE}
-            strokeWidth={3.2}
-            strokeLinejoin="round"
-          />
-          {/* Các lọn tóc sáng tạo khối */}
-          <path
-            d="M -28 -96 Q -14 -108 0 -96 M 6 -98 Q 20 -108 32 -92"
-            fill="none"
-            stroke={HAIR_LIGHT}
-            strokeWidth={3.5}
-            strokeLinecap="round"
-          />
-
-          {/* KÍNH BẢO HỘ ĐỒNG (BRASS GOGGLES) ĐEO TRÊN TRÁN */}
-          <g transform="translate(0, -84)">
-            {/* Dây da đeo kính */}
-            <path d="M -43 4 Q 0 -6 43 4" fill="none" stroke={LEATHER} strokeWidth={8} strokeLinecap="round" />
-            <path d="M -43 4 Q 0 -6 43 4" fill="none" stroke={OUTLINE} strokeWidth={2.2} />
-            {/* Khớp nối giữa 2 mắt kính */}
-            <rect x={-6} y={-5} width={12} height={7} rx={2} fill="url(#milo-brass-grad)" stroke={OUTLINE} strokeWidth={2.2} />
-            {/* Mắt kính đồng bên trái */}
-            <circle cx={-19} cy={0} r={14.5} fill="url(#milo-brass-grad)" stroke={OUTLINE} strokeWidth={2.8} />
-            <circle cx={-19} cy={0} r={9.5} fill="#253035" stroke={OUTLINE} strokeWidth={2} />
-            <path d="M -24 -4 Q -20 -8 -15 -5" fill="none" stroke="#FFF8E7" strokeWidth={2.2} strokeLinecap="round" opacity={0.8} />
-            {/* Mắt kính đồng bên phải */}
-            <circle cx={19} cy={0} r={14.5} fill="url(#milo-brass-grad)" stroke={OUTLINE} strokeWidth={2.8} />
-            <circle cx={19} cy={0} r={9.5} fill="#253035" stroke={OUTLINE} strokeWidth={2} />
-            <path d="M 14 -4 Q 18 -8 23 -5" fill="none" stroke="#FFF8E7" strokeWidth={2.2} strokeLinecap="round" opacity={0.8} />
+            <path d="M -28 -98 Q -14 -110 0 -98 M 6 -100 Q 20 -110 32 -94" fill="none" stroke={HAIR_LIGHT} strokeWidth={3.5} strokeLinecap="round" />
+            {/* Kính bảo hộ đồng thau trên trán */}
+            <g transform="translate(0 -86)">
+              <path d="M -44 4 Q 0 -6 44 4" fill="none" stroke={LEATHER} strokeWidth={8} strokeLinecap="round" />
+              <rect x={-6} y={-5} width={12} height={7} rx={2} fill="url(#milo-brass-grad)" stroke={OUTLINE} strokeWidth={2.2} />
+              <circle cx={-19} cy={0} r={14.5} fill="url(#milo-brass-grad)" stroke={OUTLINE} strokeWidth={2.8} />
+              <circle cx={-19} cy={0} r={9.5} fill="#253035" stroke={OUTLINE} strokeWidth={2} />
+              <path d="M -24 -4 Q -20 -8 -15 -5" fill="none" stroke="#FFF8E7" strokeWidth={2.2} strokeLinecap="round" opacity={0.85} />
+              <circle cx={19} cy={0} r={14.5} fill="url(#milo-brass-grad)" stroke={OUTLINE} strokeWidth={2.8} />
+              <circle cx={19} cy={0} r={9.5} fill="#253035" stroke={OUTLINE} strokeWidth={2} />
+              <path d="M 14 -4 Q 18 -8 23 -5" fill="none" stroke="#FFF8E7" strokeWidth={2.2} strokeLinecap="round" opacity={0.85} />
+            </g>
           </g>
 
-          {/* Bong bóng cảm xúc / huy hiệu phía trên đầu */}
-          {badge ? (
-            <g transform="translate(0, -142)">
-              <rect
-                x={-56}
-                y={-26}
-                width={112}
-                height={36}
-                rx={12}
-                fill={PARCHMENT.gold}
-                stroke={OUTLINE}
-                strokeWidth={3}
-              />
-              <text
-                x={0}
-                y={-1}
-                textAnchor="middle"
-                fill={OUTLINE}
-                fontSize={21}
-                fontWeight={900}
-                fontFamily="sans-serif"
-              >
+          {/* Cánh tay phải khung hình (phía trước thân) + thước chữ L khi ngắm */}
+          <ArmShape S={armR.S} E={armR.E} W={armR.W} hand={armR.hand} side={1} />
+          {rulerP > 0.02 ? (
+            <polyline
+              points={`${armR.W.x - 8},${armR.W.y - 6} ${armR.W.x + 34},${armR.W.y - 6} ${armR.W.x + 34},${armR.W.y - 46}`}
+              fill="none"
+              stroke="#B7791F"
+              strokeWidth={6}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              opacity={rulerP}
+            />
+          ) : null}
+
+          {/* Bong bóng chữ phía trên đầu (bật ra bằng lò xo, lơ lửng nhẹ) */}
+          {badge && badgeP > 0.01 ? (
+            <g transform={`translate(0 ${-322 + Math.sin(frame * 0.09) * 3}) scale(${badgeP})`} opacity={Math.min(1, badgeP * 1.5)}>
+              <path d="M -10 22 L 0 40 L 12 22 Z" fill="#FFF6DD" stroke={OUTLINE} strokeWidth={3} strokeLinejoin="round" />
+              <rect x={-badgeW / 2} y={-30} width={badgeW} height={54} rx={20} fill="#FFF6DD" stroke={OUTLINE} strokeWidth={3.5} />
+              <rect x={-6} y={18} width={22} height={8} fill="#FFF6DD" />
+              <text x={0} y={8} textAnchor="middle" fill="#3B2614" fontSize={32} fontWeight={900} fontFamily={TEXT_FONT}>
                 {badge}
               </text>
             </g>
           ) : null}
         </g>
-
-        {/* ==================== CÁNH TAY TRƯỚC (THEO TƯ THẾ DIỄN) ==================== */}
-        <g transform={`rotate(${armSwing} 30 -156)`}>
-        {pose === "point" ? (
-          <g>
-            <path d="M 30 -156 Q 52 -152 68 -176" fill="none" stroke={OUTLINE} strokeWidth={22} strokeLinecap="round" />
-            <path d="M 30 -156 Q 52 -152 68 -176" fill="none" stroke={SHIRT} strokeWidth={16} strokeLinecap="round" />
-            <circle cx={72} cy={-180} r={10} fill={SKIN} stroke={OUTLINE} strokeWidth={2.8} />
-          </g>
-        ) : pose === "think" ? (
-          /* Tư thế chống cằm suy nghĩ đúng như ảnh "Thinking" trong nhan_vat.jpg */
-          <g>
-            <path d="M 30 -156 Q 48 -136 14 -186" fill="none" stroke={OUTLINE} strokeWidth={22} strokeLinecap="round" />
-            <path d="M 30 -156 Q 48 -136 14 -186" fill="none" stroke={SHIRT} strokeWidth={16} strokeLinecap="round" />
-            <circle cx={10} cy={-190} r={10} fill={SKIN} stroke={OUTLINE} strokeWidth={2.8} />
-          </g>
-        ) : pose === "eureka" ? (
-          <g>
-            <path d="M 30 -158 Q 58 -182 52 -214" fill="none" stroke={OUTLINE} strokeWidth={22} strokeLinecap="round" />
-            <path d="M 30 -158 Q 58 -182 52 -214" fill="none" stroke={SHIRT} strokeWidth={16} strokeLinecap="round" />
-            <circle cx={52} cy={-220} r={10} fill={SKIN} stroke={OUTLINE} strokeWidth={2.8} />
-          </g>
-        ) : pose === "aimL" ? (
-          /* Tư thế giơ thước ngắm chữ L ngang tầm mắt */
-          <g>
-            <path d="M 30 -156 Q 52 -166 56 -196" fill="none" stroke={OUTLINE} strokeWidth={22} strokeLinecap="round" />
-            <path d="M 30 -156 Q 52 -166 56 -196" fill="none" stroke={SHIRT} strokeWidth={16} strokeLinecap="round" />
-            <circle cx={56} cy={-200} r={9.5} fill={SKIN} stroke={OUTLINE} strokeWidth={2.8} />
-            <polyline
-              points="48,-206 86,-206 86,-244"
-              fill="none"
-              stroke={PARCHMENT.gold}
-              strokeWidth={6}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </g>
-        ) : (
-          /* Tư thế mặc định: một tay giữ quai túi đeo chéo như ảnh chính của Milo */
-          <g>
-            <path d="M 32 -156 Q 46 -130 26 -102" fill="none" stroke={OUTLINE} strokeWidth={22} strokeLinecap="round" />
-            <path d="M 32 -156 Q 46 -130 26 -102" fill="none" stroke={SHIRT} strokeWidth={16} strokeLinecap="round" />
-            <circle cx={24} cy={-98} r={9.5} fill={SKIN} stroke={OUTLINE} strokeWidth={2.8} />
-          </g>
-        )}
-        </g>
       </g>
     </g>
   );
 };
+
+/** Gradient dùng chung cho Milo (đặt một lần trong <defs> của khung SVG cảnh). */
+export const MiloDefs: React.FC = () => (
+  <>
+    <radialGradient id="milo-face-grad" cx="45%" cy="38%" r="58%">
+      <stop offset="0%" stopColor="#F5CBA7" />
+      <stop offset="70%" stopColor={SKIN} />
+      <stop offset="100%" stopColor={SKIN_SHADOW} />
+    </radialGradient>
+    <linearGradient id="milo-brass-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FFE082" />
+      <stop offset="55%" stopColor={BRASS} />
+      <stop offset="100%" stopColor="#9E7020" />
+    </linearGradient>
+  </>
+);

@@ -1,8 +1,12 @@
 import React from "react";
 import type { FxKind } from "../lib/stage-types.ts";
-import { COLORS, TITLE_FONT } from "../components/brand.ts";
+import { TITLE_FONT } from "../components/brand.ts";
+import { LINE } from "./village.tsx";
 
-const INK = COLORS.ink;
+/** Viền nâu đậm, màu vàng nghệ / đỏ son / lam ngọc, đồng bộ phong cách tranh dân gian. */
+const INK = LINE;
+const RED = "#C8402E";
+const GOLD = "#F4C04A";
 
 /** Số khung hình mỗi hiệu ứng hiện trên màn hình. */
 export const FX_FRAMES: Record<FxKind, number> = {
@@ -63,22 +67,22 @@ export const FxShape: React.FC<{ kind: FxKind; text?: string; x: number; y: numb
     case "bop":
       return g(
         <>
-          <polygon points={star(130, 74, 12)} fill="#FFD93D" stroke={INK} strokeWidth="9" strokeLinejoin="round" />
+          <polygon points={star(130, 74, 12)} fill={GOLD} stroke={INK} strokeWidth="9" strokeLinejoin="round" />
           <g transform="rotate(-10)">
-            <BigText text={text ?? "BỐP!"} size={78} color={COLORS.red} />
+            <BigText text={text ?? "BỐP!"} size={78} color={RED} />
           </g>
         </>,
         0,
         10,
       );
     case "exclaim":
-      return g(<BigText text={text ?? "!"} size={170} color="#FFD93D" />, side * 120, -20 + wobble);
+      return g(<BigText text={text ?? "!"} size={170} color={GOLD} />, side * 120, -20 + wobble);
     case "surprise":
-      return g(<BigText text={text ?? "?!"} size={160} color="#FFD93D" />, side * 120, -20 + wobble);
+      return g(<BigText text={text ?? "?!"} size={160} color={GOLD} />, side * 120, -20 + wobble);
     case "question":
       return g(
         <g transform={`rotate(${wobble * 2})`}>
-          <BigText text={text ?? "?"} size={170} color="#7FE3FF" />
+          <BigText text={text ?? "?"} size={170} color="#8FD0D8" />
         </g>,
         side * 120,
         -30,
@@ -90,7 +94,7 @@ export const FxShape: React.FC<{ kind: FxKind; text?: string; x: number; y: numb
             <path
               key={i}
               d="M0 -26 Q22 6 0 16 Q-22 6 0 -26 Z"
-              fill="#7FE3FF"
+              fill="#8FD0D8"
               stroke={INK}
               strokeWidth="6"
               transform={`translate(${i * 40} ${i * 50 + local * 1.2})`}
@@ -108,7 +112,7 @@ export const FxShape: React.FC<{ kind: FxKind; text?: string; x: number; y: numb
             <path
               key={dx}
               d="M0 18 C-40 -10 -26 -44 0 -26 C26 -44 40 -10 0 18 Z"
-              fill="#FF5C8A"
+              fill="#E8604A"
               stroke={INK}
               strokeWidth="6"
               transform={`translate(${dx} ${-local * 2.2 - i * 30}) scale(${0.8 + 0.2 * Math.sin(local * 0.4 + i)})`}
@@ -130,7 +134,7 @@ export const FxShape: React.FC<{ kind: FxKind; text?: string; x: number; y: numb
             <polygon
               key={i}
               points={star(34, 10, 4)}
-              fill="#FFF3A0"
+              fill="#FFE7A0"
               stroke={INK}
               strokeWidth="5"
               transform={`translate(${dx} ${dy}) scale(${0.6 + 0.5 * Math.abs(Math.sin(local * 0.3 + i))})`}
@@ -143,7 +147,7 @@ export const FxShape: React.FC<{ kind: FxKind; text?: string; x: number; y: numb
       );
     case "anger":
       return g(
-        <g stroke={COLORS.red} strokeWidth="12" strokeLinecap="round" fill="none">
+        <g stroke={RED} strokeWidth="12" strokeLinecap="round" fill="none">
           <path d="M-30 -10 Q-10 -10 -10 -30" />
           <path d="M30 -10 Q10 -10 10 -30" />
           <path d="M-30 10 Q-10 10 -10 30" />

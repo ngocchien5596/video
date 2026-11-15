@@ -3,6 +3,7 @@ import { interpolate, spring } from "remotion";
 import { COLORS } from "../components/brand.ts";
 import type { Board } from "../lib/stage-types.ts";
 import { at, type Change } from "./track.ts";
+import { LINE } from "./village.tsx";
 
 /**
  * Bảng minh hoạ: khung trắng ở nửa trên màn hình (dưới thanh tiêu đề, trên đầu nhân vật),
@@ -67,15 +68,18 @@ const Frame: React.FC<{ scale: number; opacity: number; children?: React.ReactNo
   const cy = BOARD.y + BOARD.height / 2;
   return (
     <g opacity={opacity} transform={`translate(${cx} ${cy}) scale(${scale}) translate(${-cx} ${-cy})`}>
+      {/* Bóng mềm, khung gỗ, mặt giấy dó (đồng bộ phong cách tranh dân gian) */}
+      <rect x={BOARD.x - 6} y={BOARD.y + 4} width={BOARD.width + 20} height={BOARD.height + 20} rx="30" fill="#3A2416" opacity="0.22" />
+      <rect x={BOARD.x - 16} y={BOARD.y - 16} width={BOARD.width + 32} height={BOARD.height + 32} rx="34" fill="#8A5530" stroke={LINE} strokeWidth="8" />
       <rect
-        x={BOARD.x - 10}
-        y={BOARD.y - 10}
-        width={BOARD.width + 20}
-        height={BOARD.height + 20}
-        rx="30"
+        x={BOARD.x - 6}
+        y={BOARD.y - 6}
+        width={BOARD.width + 12}
+        height={BOARD.height + 12}
+        rx="26"
         fill={COLORS.paper}
-        stroke={COLORS.ink}
-        strokeWidth="10"
+        stroke="#C9A46A"
+        strokeWidth="4"
       />
       <svg x={BOARD.x} y={BOARD.y} width={BOARD.width} height={BOARD.height} viewBox={`0 0 ${BOARD.width} ${BOARD.height}`}>
         {children}

@@ -4,8 +4,9 @@ import { AbsoluteFill, Easing, Freeze, interpolate, Sequence, staticFile, useCur
 import { EndCard, SafeZones } from "../components/Overlays.tsx";
 import { END_CARD_SECONDS, episodeTimeline, LOOP_SECONDS, type Timeline } from "../lib/timing.ts";
 import type { Episode, VoiceTrack } from "../lib/types.ts";
-import { PARCHMENT, ParchmentHud } from "./ParchmentHud.tsx";
-import { ParchmentScene } from "./scenes.tsx";
+import { TEXT_FONT } from "../components/brand.ts";
+import { LAYOUT, PARCHMENT, ParchmentHud } from "./ParchmentHud.tsx";
+import { BEAT_DISSOLVE, ParchmentScene } from "./scenes.tsx";
 
 export type ParchmentEpisode = Episode & {
   title: string;
@@ -49,6 +50,19 @@ const Picture: React.FC<PictureProps> = ({ episode, timeline, next }) => {
   const lineFrame = Math.max(0, frame - f(activeLine?.start ?? beat.start));
   const beatFrame = Math.max(0, frame - f(beat.start));
 
+  // Đầu nhịp mới: vẫn vẽ nhịp vừa qua (đang chạy tiếp) để hoà cảnh, không bị nháy trống.
+  const prevBeat = beatIdx > 0 && beatFrame < BEAT_DISSOLVE ? beats[beatIdx - 1] : null;
+  const prevLines = prevBeat ? lines.filter((l) => l.beat === beatIdx - 1) : [];
+  const prevLast = prevLines[prevLines.length - 1];
+  const prev = prevBeat
+    ? {
+        beatKind: prevBeat.kind,
+        lineIndex: prevLast?.line ?? 0,
+        beatFrame: frame - f(prevBeat.start),
+        lineFrame: Math.max(0, frame - f(prevLast?.start ?? prevBeat.start)),
+      }
+    : null;
+
   const cue = cues.find((c) => t >= c.start && t < c.end);
   const endStart = durationInFrames - f(END_CARD_SECONDS);
 
@@ -67,26 +81,27 @@ const Picture: React.FC<PictureProps> = ({ episode, timeline, next }) => {
             beatFrame={beatFrame}
             lineFrame={lineFrame}
             fps={fps}
+            prev={prev}
           />
         </>
       )}
 
-      {/* Tầng 3 (y: 1290..1440): Phụ đề nổi bật trên nền giấy cổ (dưới khung mặt bằng đã hạ thấp) */}
+      {/* Phụ đề: dưới thẻ chữ, trên vùng chú thích của nền tảng; không đè lên sân khấu */}
       {episode.showSubtitles === false || frame >= endStart || !cue ? null : (
         <div
           style={{
             position: "absolute",
-            top: 1290,
-            left: 68,
-            width: 832,
-            minHeight: 148,
+            top: LAYOUT.subtitle.y,
+            left: LAYOUT.subtitle.x,
+            width: LAYOUT.subtitle.w,
+            minHeight: 140,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            padding: "16px 28px",
-            borderRadius: 20,
-            backgroundColor: "rgba(24, 16, 9, 0.88)",
-            border: `3px solid ${PARCHMENT.gold}`,
+            padding: "14px 30px",
+            borderRadius: 22,
+            backgroundColor: "rgba(20, 13, 7, 0.9)",
+            border: `3px solid rgba(245,197,66,0.55)`,
             boxShadow: "0 8px 24px rgba(0,0,0,0.55)",
             textAlign: "center",
             boxSizing: "border-box",
@@ -94,10 +109,10 @@ const Picture: React.FC<PictureProps> = ({ episode, timeline, next }) => {
         >
           <span
             style={{
-              fontFamily: "sans-serif",
+              fontFamily: TEXT_FONT,
               fontWeight: 900,
-              fontSize: 40,
-              lineHeight: 1.24,
+              fontSize: 44,
+              lineHeight: 1.22,
               color: PARCHMENT.cream,
               textShadow: "0 2px 6px rgba(0,0,0,0.8)",
             }}

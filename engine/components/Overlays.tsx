@@ -2,60 +2,99 @@ import React from "react";
 import { fitText, measureText } from "@remotion/layout-utils";
 import { Easing, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import type { Cue } from "../lib/timing.ts";
-import { COLORS, outline, SAFE, SPEAKERS, TEXT_FONT, TITLE_FONT } from "./brand.ts";
+import { COLORS, outline, SAFE, TEXT_FONT } from "./brand.ts";
+import { BAR_FONT, HEAD_FONT, paperCard, plaque, sealStamp, turmericCard, WARM, warmOutline } from "./warm.ts";
+
+/*
+ * Thẻ chữ / lớp phủ của ba series sân khấu, phong cách tranh dân gian ấm (giấy dó, gỗ nâu, vàng nghệ, đỏ son):
+ * xem engine/components/warm.ts. Vị trí và thời điểm giữ như cũ để không đè mặt nhân vật (docs/chuan-dung-canh.md).
+ */
 
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 
 /** Bề ngang dành cho tiêu đề trên thanh trên cùng (khung 1080 trừ hai lề an toàn). */
 const TITLE_WIDTH = 1080 - SAFE.left - SAFE.right;
-/** Dòng nhãn series trên thanh trên cùng: cỡ chữ và chiều cao dòng (để biết tiêu đề nằm ở đâu). */
-const LABEL_SIZE = 40;
-const LABEL_LINE = 1.2;
-const TITLE_LINE = 1.1;
-/** Tiêu đề trên thanh trên cùng luôn một dòng: dài quá thì thu nhỏ chữ. */
+/** Dòng nhãn series trên thanh trên cùng: chiều cao biển gỗ (để biết tiêu đề nằm ở đâu). */
+const LABEL_H = 48;
+/** Khoảng hở giữa biển nhãn và tiêu đề. */
+const LABEL_GAP = 6;
+const TITLE_LINE = 1.12;
+/** Cỡ chữ nhỏ nhất của tiêu đề (đọc được trên điện thoại); dài hơn thì xuống hai dòng. */
+const TITLE_MIN = 46;
+/** Bề ngang chữ tiêu đề: tới sát lề phải 50px (cột nút của nền tảng chỉ bắt đầu từ y ≈ 860), chừa lề cho dải nền tối. */
+const TITLE_TEXT_W = 1080 - SAFE.left - 50 - 28;
+/** Tiêu đề trên thanh trên cùng: một dòng, dài quá thì thu nhỏ chữ nhưng không dưới TITLE_MIN (khi đó xuống hai dòng). */
 const topTitleSize = (title: string) =>
-  Math.min(56, Math.floor(fitText({ text: title, withinWidth: TITLE_WIDTH, fontFamily: TITLE_FONT }).fontSize));
+  Math.max(TITLE_MIN, Math.min(64, Math.floor(fitText({ text: title, withinWidth: TITLE_TEXT_W, fontFamily: BAR_FONT, fontWeight: "800" }).fontSize)));
+/** Dải nền nâu tối mờ sau tiêu đề: nổi rõ trên mọi phông (trời kem, tường vôi, cảnh hồi ức xám). `k`: hệ số thu phóng. */
+const titleBand = (k: number): React.CSSProperties => ({
+  position: "absolute",
+  inset: `${-2 * k}px ${-14 * k}px ${-6 * k}px`,
+  backgroundColor: "rgba(42,26,16,0.8)",
+  border: `${3 * k}px solid ${WARM.ink}`,
+  borderRadius: 14 * k,
+  boxShadow: `0 ${4 * k}px ${10 * k}px rgba(42,26,16,0.35)`,
+});
 
-/** Nhãn series (ví dụ "TÊN SERIES · #1") và tiêu đề tập ghim ở đầu khung hình. */
+/** Chữ tiêu đề trên thanh trên cùng: vàng nghệ, viền nâu. */
+const titleText = (size: number): React.CSSProperties => ({
+  fontFamily: BAR_FONT,
+  fontWeight: 800,
+  fontSize: size,
+  lineHeight: TITLE_LINE,
+  maxWidth: TITLE_TEXT_W,
+  color: WARM.turmericLight,
+});
+
+/** Viền chữ tiêu đề: viền nâu mảnh + bóng nâu đổ xuống (viền dày làm chữ tròn bị bết). `k`: hệ số thu phóng. */
+const titleOutline = (k: number): React.CSSProperties => ({ ...warmOutline(6 * k), textShadow: `0 ${3 * k}px 0 ${WARM.ink}` });
+
+/** Nhãn series (ví dụ "TÊN SERIES · #1") trên biển gỗ nhỏ và tiêu đề tập ghim ở đầu khung hình. */
 export const TopBar: React.FC<{ label: string; title: string; showTitle: boolean }> = ({ label, title, showTitle }) => (
-  <div
-    style={{
-      position: "absolute",
-      top: SAFE.top,
-      left: SAFE.left,
-      right: SAFE.right,
-      fontFamily: TITLE_FONT,
-      color: COLORS.white,
-    }}
-  >
-    <div style={{ fontSize: LABEL_SIZE, lineHeight: LABEL_LINE, letterSpacing: 2, ...outline(8) }}>
+  <div style={{ position: "absolute", top: SAFE.top, left: SAFE.left, right: SAFE.right }}>
+    <div
+      style={{
+        ...plaque(WARM.wood, 4, 12),
+        display: "inline-block",
+        boxSizing: "border-box",
+        height: LABEL_H,
+        padding: "0 18px",
+        fontFamily: HEAD_FONT,
+        fontWeight: 800,
+        fontSize: 32,
+        lineHeight: `${LABEL_H - 6}px`,
+        letterSpacing: 1,
+        ...warmOutline(5),
+        whiteSpace: "nowrap",
+      }}
+    >
       {label}
     </div>
     {showTitle ? (
-      // Tiêu đề luôn nằm trên một dòng: dài quá thì thu nhỏ chữ (dòng thứ hai sẽ đè lên bảng minh hoạ / thẻ chữ).
-      <div
-        style={{
-          fontSize: topTitleSize(title),
-          color: COLORS.idiom,
-          lineHeight: TITLE_LINE,
-          whiteSpace: "nowrap",
-          ...outline(10),
-        }}
-      >
-        {title}
+      // Chữ vàng nghệ viền nâu trên dải nâu tối mờ; một dòng, chỉ tiêu đề rất dài mới xuống hai dòng.
+      <div style={{ marginTop: LABEL_GAP, position: "relative", display: "inline-block", ...titleText(topTitleSize(title)) }}>
+        <div style={titleBand(1)} />
+        <div style={{ position: "relative", ...titleOutline(1) }}>{title}</div>
       </div>
     ) : null}
   </div>
 );
 
-/** Phụ đề: tên người nói + câu thoại, nằm trong vùng an toàn. */
-export const Subtitle: React.FC<{ cue: Cue | undefined }> = ({ cue }) => {
+/** Màu nhãn tên người nói: Cụ Đồ biển gỗ nâu, Thằng Cháu vàng nghệ (đúng màu áo hai nhân vật). */
+const SPEAKER_TAG: Record<Cue["who"], { name: string; style: React.CSSProperties } | null> = {
+  CD: { name: "CỤ ĐỒ", style: { ...plaque(WARM.wood, 5, 12), ...warmOutline(4) } },
+  TC: { name: "THẰNG CHÁU", style: { ...turmericCard(5, 12), boxShadow: "inset 0 3px 0 rgba(255,240,190,0.75), 0 5px 0 rgba(58,36,22,0.55)" } },
+  NARRATOR: null,
+};
+
+/** Phụ đề: tên người nói + câu thoại, nằm trong vùng an toàn. `top`: mép trên (mặc định 1262). */
+export const Subtitle: React.FC<{ cue: Cue | undefined; top?: number }> = ({ cue, top = 1262 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   if (!cue || !cue.text) {
     return null;
   }
-  const speaker = SPEAKERS[cue.who];
+  const tag = SPEAKER_TAG[cue.who];
   const pop = spring({
     frame: frame - Math.round(cue.start * fps),
     fps,
@@ -67,7 +106,7 @@ export const Subtitle: React.FC<{ cue: Cue | undefined }> = ({ cue }) => {
     <div
       style={{
         position: "absolute",
-        top: 1262,
+        top,
         left: SAFE.left,
         right: SAFE.right,
         textAlign: "center",
@@ -75,20 +114,21 @@ export const Subtitle: React.FC<{ cue: Cue | undefined }> = ({ cue }) => {
         scale: `${interpolate(pop, [0, 1], [0.92, 1])}`,
       }}
     >
-      {speaker.name ? (
+      {tag ? (
         <div
           style={{
+            ...tag.style,
             display: "inline-block",
             marginBottom: 10,
-            padding: "4px 18px",
-            borderRadius: 10,
-            backgroundColor: speaker.color,
-            color: COLORS.ink,
+            padding: "2px 22px 0",
+            fontFamily: TEXT_FONT,
             fontWeight: 900,
-            fontSize: 30,
+            fontSize: 34,
+            lineHeight: "48px",
+            letterSpacing: 1.5,
           }}
         >
-          {speaker.name}
+          {tag.name}
         </div>
       ) : null}
       <div
@@ -96,8 +136,9 @@ export const Subtitle: React.FC<{ cue: Cue | undefined }> = ({ cue }) => {
           fontWeight: 900,
           fontSize: 66,
           lineHeight: 1.2,
-          color: COLORS.white,
-          ...outline(12),
+          color: WARM.cream,
+          ...warmOutline(11),
+          textShadow: `0 5px 0 ${WARM.ink}`,
         }}
       >
         {cue.text}
@@ -105,6 +146,25 @@ export const Subtitle: React.FC<{ cue: Cue | undefined }> = ({ cue }) => {
     </div>
   );
 };
+
+/** Dòng hỏi nhỏ trên dải đỏ son (ví dụ "CÂU HỎI TƯỞNG DỄ"). */
+const Kicker: React.FC<{ children: React.ReactNode; size?: number; rotate?: number }> = ({ children, size = 38, rotate = -2 }) => (
+  <div
+    style={{
+      ...plaque(WARM.son, 5, 14),
+      display: "inline-block",
+      padding: "2px 24px 0",
+      fontFamily: HEAD_FONT,
+      fontWeight: 800,
+      fontSize: size,
+      lineHeight: 1.3,
+      letterSpacing: 1,
+      rotate: `${rotate}deg`,
+    }}
+  >
+    {children}
+  </div>
+);
 
 /**
  * Câu hỏi móc ở nhịp hook: hiện đủ ngay từ khung hình đầu tiên (không hiệu ứng vào),
@@ -127,31 +187,16 @@ export const HookBanner: React.FC<{ kicker: string; title: string; endFrame: num
         rotate: `${-2 + wobble * 0.4}deg`,
       }}
     >
+      <Kicker>{kicker}</Kicker>
       <div
         style={{
-          display: "inline-block",
-          padding: "6px 22px",
-          borderRadius: 14,
-          backgroundColor: COLORS.red,
-          color: COLORS.white,
-          fontFamily: TEXT_FONT,
-          fontWeight: 900,
-          fontSize: 38,
-        }}
-      >
-        {kicker}
-      </div>
-      <div
-        style={{
-          marginTop: 12,
-          padding: "14px 24px",
-          backgroundColor: COLORS.idiom,
-          border: `8px solid ${COLORS.ink}`,
-          borderRadius: 24,
-          fontFamily: TITLE_FONT,
-          fontSize: 80,
-          lineHeight: 1.05,
-          color: COLORS.ink,
+          ...turmericCard(8, 26),
+          marginTop: 14,
+          padding: "16px 26px 12px",
+          fontFamily: HEAD_FONT,
+          fontWeight: 800,
+          fontSize: 72,
+          lineHeight: 1.12,
         }}
       >
         {title}
@@ -188,7 +233,7 @@ export const SafeZones: React.FC = () => {
   );
 };
 
-/** Thẻ tiêu đề: dòng nhỏ (ví dụ "#1") + tiêu đề trong khung vàng. */
+/** Thẻ tiêu đề: dòng nhỏ (ví dụ "#1") + tiêu đề trong khung vàng nghệ. */
 export const TitleCard: React.FC<{ kicker: string; title: string; startFrame: number; endFrame: number }> = ({
   kicker,
   title,
@@ -208,27 +253,15 @@ export const TitleCard: React.FC<{ kicker: string; title: string; startFrame: nu
         left: SAFE.left,
         right: SAFE.right,
         textAlign: "center",
-        fontFamily: TITLE_FONT,
+        fontFamily: HEAD_FONT,
+        fontWeight: 800,
         scale: `${pop}`,
         opacity: out,
         rotate: "-3deg",
       }}
     >
-      <div style={{ fontSize: 90, color: COLORS.white, ...outline(14) }}>{kicker}</div>
-      <div
-        style={{
-          marginTop: 14,
-          padding: "18px 26px",
-          backgroundColor: COLORS.idiom,
-          border: `8px solid ${COLORS.ink}`,
-          borderRadius: 24,
-          fontSize: 92,
-          lineHeight: 1.05,
-          color: COLORS.ink,
-        }}
-      >
-        {title}
-      </div>
+      <div style={{ fontSize: 88, lineHeight: 1.1, color: WARM.cream, ...warmOutline(14) }}>{kicker}</div>
+      <div style={{ ...turmericCard(8, 26), marginTop: 14, padding: "18px 26px 12px", fontSize: 84, lineHeight: 1.1 }}>{title}</div>
     </div>
   );
 };
@@ -239,8 +272,8 @@ const FLY_FRAMES = 14;
 const REVEAL_Y = 520;
 
 /**
- * Thẻ hiện câu sau nhịp đặt câu: dòng hỏi (ví dụ "BẠN HIỂU ĐÚNG CÂU NÀY CHƯA?") + câu trong khung vàng bật lên ở
- * `startFrame`, đứng yên cho kịp đọc, rồi trong FLY_FRAMES cuối dòng hỏi mờ đi, khung vàng tan, câu thu nhỏ và bay
+ * Thẻ hiện câu sau nhịp đặt câu: dòng hỏi (ví dụ "BẠN HIỂU ĐÚNG CÂU NÀY CHƯA?") + câu trong khung vàng nghệ bật lên ở
+ * `startFrame`, đứng yên cho kịp đọc, rồi trong FLY_FRAMES cuối dòng hỏi mờ đi, khung tan, câu thu nhỏ và bay
  * lên đúng chỗ tiêu đề trên thanh trên cùng. Từ `endFrame` TopBar hiện tiêu đề ở đúng chỗ đó, nên không thấy chỗ nối.
  */
 export const IdiomReveal: React.FC<{ kicker: string; title: string; startFrame: number; endFrame: number }> = ({
@@ -255,15 +288,15 @@ export const IdiomReveal: React.FC<{ kicker: string; title: string; startFrame: 
   if (frame < startFrame) return null;
   const flyStart = Math.max(startFrame + 6, endFrame - FLY_FRAMES);
   const p = interpolate(frame, [flyStart, endFrame], [0, 1], { ...clamp, easing: Easing.inOut(Easing.cubic) });
-  // Chữ, khung vàng và dòng hỏi đổi dần trong nửa đầu đường bay.
+  // Chữ, khung và dòng hỏi đổi dần trong nửa đầu đường bay.
   const boxFade = interpolate(p, [0, 0.5], [1, 0], clamp);
 
   // Chỗ đến: đúng tiêu đề của TopBar.
   const endSize = topTitleSize(title);
-  const endTop = SAFE.top + LABEL_SIZE * LABEL_LINE;
-  const endWidth = measureText({ text: title, fontFamily: TITLE_FONT, fontSize: endSize }).width;
-  // Chỗ đi: chữ to giữa màn hình (vừa bề ngang khung, tối đa 92px).
-  const startSize = Math.min(92, Math.floor(fitText({ text: title, withinWidth: TITLE_WIDTH - 60, fontFamily: TITLE_FONT }).fontSize));
+  const endTop = SAFE.top + LABEL_H + LABEL_GAP;
+  const endWidth = Math.min(TITLE_TEXT_W, measureText({ text: title, fontFamily: BAR_FONT, fontWeight: "800", fontSize: endSize }).width);
+  // Chỗ đi: chữ to giữa màn hình (vừa bề ngang khung, tối đa 86px).
+  const startSize = Math.min(96, Math.floor(fitText({ text: title, withinWidth: TITLE_WIDTH - 60, fontFamily: BAR_FONT, fontWeight: "800" }).fontSize));
   const s0 = startSize / endSize;
   const x0 = 540 - (endWidth * s0) / 2 - SAFE.left;
   const y0 = REVEAL_Y - (endSize * TITLE_LINE * s0) / 2 - endTop;
@@ -271,13 +304,14 @@ export const IdiomReveal: React.FC<{ kicker: string; title: string; startFrame: 
   const x = interpolate(p, [0, 1], [x0, 0]);
   const y = interpolate(p, [0, 1], [y0, 0]);
   const pad = 22 / scale;
+  const card = turmericCard(8 / scale, 24 / scale);
 
   return (
     <>
       <div
         style={{
           position: "absolute",
-          top: REVEAL_Y - (endSize * TITLE_LINE * s0) / 2 - 90,
+          top: REVEAL_Y - (endSize * TITLE_LINE * s0) / 2 - 96,
           left: SAFE.left,
           right: SAFE.right,
           textAlign: "center",
@@ -285,21 +319,7 @@ export const IdiomReveal: React.FC<{ kicker: string; title: string; startFrame: 
           scale: `${pop}`,
         }}
       >
-        <div
-          style={{
-            display: "inline-block",
-            padding: "6px 22px",
-            borderRadius: 14,
-            backgroundColor: COLORS.red,
-            color: COLORS.white,
-            fontFamily: TEXT_FONT,
-            fontWeight: 900,
-            fontSize: 40,
-            rotate: "-2deg",
-          }}
-        >
-          {kicker}
-        </div>
+        <Kicker size={38}>{kicker}</Kicker>
       </div>
       <div
         style={{
@@ -308,31 +328,48 @@ export const IdiomReveal: React.FC<{ kicker: string; title: string; startFrame: 
           left: SAFE.left,
           transformOrigin: "0 0",
           transform: `translate(${x}px, ${y}px) scale(${scale})`,
-          fontFamily: TITLE_FONT,
-          fontSize: endSize,
-          lineHeight: TITLE_LINE,
-          whiteSpace: "nowrap",
+          ...titleText(endSize),
         }}
       >
+        {/* Dải nền tối của TopBar hiện dần khi câu bay tới chỗ. */}
+        <div style={{ ...titleBand(1 / scale), opacity: 1 - boxFade }} />
         <div
           style={{
+            ...card,
             position: "absolute",
-            inset: `${-pad * 0.6}px ${-pad}px`,
-            backgroundColor: COLORS.idiom,
-            border: `${8 / scale}px solid ${COLORS.ink}`,
-            borderRadius: 24 / scale,
+            inset: `${-pad * 0.55}px ${-pad}px`,
+            boxShadow: `inset 0 ${4 / scale}px 0 rgba(255,240,190,0.75), 0 ${7 / scale}px 0 ${WARM.woodDark}`,
             opacity: boxFade,
           }}
         />
-        {/* Hai lớp chữ chồng khít: chữ đen trên khung vàng, mờ dần thành chữ vàng viền đen như TopBar. */}
-        <div style={{ position: "relative", color: COLORS.idiom, opacity: 1 - boxFade, ...outline(10 / scale) }}>{title}</div>
-        <div style={{ position: "absolute", inset: 0, color: COLORS.ink, opacity: boxFade }}>{title}</div>
+        {/* Hai lớp chữ chồng khít: chữ nâu trên khung vàng, mờ dần thành chữ vàng viền nâu như TopBar. */}
+        <div style={{ position: "relative", opacity: 1 - boxFade, ...titleOutline(1 / scale) }}>{title}</div>
+        <div style={{ position: "absolute", inset: 0, color: WARM.ink, opacity: boxFade }}>{title}</div>
       </div>
     </>
   );
 };
 
-/** Con dấu (ví dụ "KHÔNG PHẢI VẬY!") rồi thẻ nội dung có nhãn (ví dụ "NGHĨA THẬT"). */
+/** Nhãn nhỏ đầu thẻ giấy (ví dụ "NGHĨA THẬT", "NHIỀU NGƯỜI NGHĨ"). */
+const CardLabel: React.FC<{ color: string; children: React.ReactNode }> = ({ color, children }) => (
+  <div
+    style={{
+      ...plaque(color, 4, 10),
+      display: "inline-block",
+      padding: "0 16px",
+      fontFamily: HEAD_FONT,
+      fontWeight: 800,
+      fontSize: 30,
+      lineHeight: "40px",
+      letterSpacing: 1,
+      boxShadow: "inset 0 3px 0 rgba(255,255,255,0.25)",
+    }}
+  >
+    {children}
+  </div>
+);
+
+/** Con dấu (ví dụ "KHÔNG PHẢI VẬY!") rồi thẻ giấy có nhãn (ví dụ "NGHĨA THẬT"). */
 export const StampCard: React.FC<{ stamp: string; label: string; body: string; startFrame: number; endFrame: number }> = ({
   stamp,
   label,
@@ -350,16 +387,14 @@ export const StampCard: React.FC<{ stamp: string; label: string; body: string; s
     <div style={{ position: "absolute", top: 300, left: SAFE.left, right: SAFE.right, opacity: out }}>
       <div
         style={{
+          ...sealStamp(10, 16),
           margin: "0 auto",
           width: "fit-content",
-          padding: "8px 28px",
-          border: `10px solid ${COLORS.red}`,
-          borderRadius: 18,
-          fontFamily: TITLE_FONT,
-          fontSize: 100,
-          color: COLORS.red,
-          backgroundColor: "#FFFFFFEE",
-          rotate: "-8deg",
+          padding: "6px 28px 0",
+          fontWeight: 800,
+          fontSize: 84,
+          lineHeight: 1.1,
+          rotate: "-7deg",
           scale: `${interpolate(pop, [0, 1], [3, 1])}`,
           opacity: pop,
         }}
@@ -368,33 +403,50 @@ export const StampCard: React.FC<{ stamp: string; label: string; body: string; s
       </div>
       <div
         style={{
-          marginTop: 34,
-          padding: "22px 28px",
-          backgroundColor: COLORS.paper,
-          border: `6px solid ${COLORS.ink}`,
-          borderRadius: 24,
+          ...paperCard(6, 24),
+          marginTop: 20,
+          padding: "14px 26px 16px",
           fontFamily: TEXT_FONT,
-          color: COLORS.ink,
           translate: `0 ${interpolate(card, [0, 1], [60, 0])}px`,
           opacity: card,
         }}
       >
-        <div style={{ fontWeight: 900, fontSize: 34, color: COLORS.red }}>{label}</div>
-        <div style={{ marginTop: 6, fontWeight: 700, fontSize: 40, lineHeight: 1.28 }}>{body}</div>
+        <CardLabel color={WARM.son}>{label}</CardLabel>
+        <div style={{ marginTop: 6, fontWeight: 700, fontSize: 40, lineHeight: 1.25 }}>{body}</div>
       </div>
     </div>
   );
 };
 
-/** Câu hỏi kéo bình luận + dòng hẹn tập sau (ví dụ "Mai là câu: ..."), hiện ở giây cuối. */
-export const EndCard: React.FC<{ question: string; teaser: string | null; startFrame: number }> = ({
+/**
+ * Câu hỏi kéo bình luận + dòng hẹn tập sau (ví dụ "Mai là câu: ..."), hiện ở giây cuối.
+ * `warm`: phong cách giấy dó của ba series sân khấu; bỏ trống thì giữ kiểu cũ (series Kiến thức dùng).
+ */
+export const EndCard: React.FC<{ question: string; teaser: string | null; startFrame: number; warm?: boolean }> = ({
   question,
   teaser,
   startFrame,
+  warm = false,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const pop = spring({ frame: frame - startFrame, fps, config: { damping: 13 } });
+
+  const questionStyle: React.CSSProperties = warm
+    ? { ...paperCard(7, 28), padding: "26px 30px", fontWeight: 900, fontSize: 52, lineHeight: 1.25 }
+    : {
+        padding: "24px 26px",
+        backgroundColor: COLORS.white,
+        border: `6px solid ${COLORS.ink}`,
+        borderRadius: 28,
+        fontWeight: 900,
+        fontSize: 52,
+        lineHeight: 1.25,
+        color: COLORS.ink,
+      };
+  const teaserStyle: React.CSSProperties = warm
+    ? { ...paperCard(6, 22), padding: "14px 22px", fontSize: 40, lineHeight: 1.25, color: WARM.ink }
+    : { color: COLORS.idiom, ...outline(8) };
 
   return (
     <>
@@ -409,20 +461,7 @@ export const EndCard: React.FC<{ question: string; teaser: string | null; startF
           scale: `${pop}`,
         }}
       >
-        <div
-          style={{
-            padding: "24px 26px",
-            backgroundColor: COLORS.white,
-            border: `6px solid ${COLORS.ink}`,
-            borderRadius: 28,
-            fontWeight: 900,
-            fontSize: 52,
-            lineHeight: 1.25,
-            color: COLORS.ink,
-          }}
-        >
-          {question}
-        </div>
+        <div style={questionStyle}>{question}</div>
       </div>
       {teaser ? (
         // Ô thứ 2 tính từ dưới lên khi chia màn hình làm 4 (y 960–1440), đặt trên phần sàn trống.
@@ -437,9 +476,8 @@ export const EndCard: React.FC<{ question: string; teaser: string | null; startF
             fontFamily: TEXT_FONT,
             fontWeight: 900,
             fontSize: 40,
-            color: COLORS.idiom,
             scale: `${pop}`,
-            ...outline(8),
+            ...teaserStyle,
           }}
         >
           {teaser}
@@ -471,34 +509,29 @@ export const CorrectionCard: React.FC<{
     <div style={{ position: "absolute", top: 320, left: SAFE.left, right: SAFE.right, opacity: out }}>
       <div
         style={{
-          padding: "22px 28px",
-          backgroundColor: COLORS.paper,
-          border: `6px solid ${COLORS.ink}`,
-          borderRadius: 24,
+          ...paperCard(6, 24),
+          padding: "14px 26px 18px",
           fontFamily: TEXT_FONT,
-          color: COLORS.ink,
           translate: `0 ${interpolate(card, [0, 1], [60, 0])}px`,
           opacity: card,
         }}
       >
-        <div style={{ fontWeight: 900, fontSize: 34, color: "#3D7BD9" }}>{label}</div>
+        <CardLabel color={WARM.glaze}>{label}</CardLabel>
         <div style={{ marginTop: 6, fontWeight: 700, fontSize: 44, lineHeight: 1.25 }}>{body}</div>
       </div>
       {frame >= stampFrame ? (
         <div
           style={{
+            ...sealStamp(10, 16),
             position: "absolute",
             // Dưới mép thẻ, lệch phải: không che chữ hiểu lầm.
             top: "calc(100% - 26px)",
             right: 10,
-            padding: "6px 24px",
-            border: `10px solid ${COLORS.red}`,
-            borderRadius: 18,
-            fontFamily: TITLE_FONT,
-            fontSize: 88,
-            color: COLORS.red,
-            backgroundColor: "#FFFFFFEE",
-            rotate: "-10deg",
+            padding: "6px 26px 0",
+            fontWeight: 800,
+            fontSize: 74,
+            lineHeight: 1.1,
+            rotate: "-9deg",
             scale: `${interpolate(pop, [0, 1], [3, 1])}`,
             opacity: pop,
           }}
@@ -510,13 +543,13 @@ export const CorrectionCard: React.FC<{
   );
 };
 
-/** Thẻ ghi nhớ (ví dụ "TÓM LẠI"): nhãn màu + một câu chữ to, hiện ở nửa trên khung hình. */
+/** Thẻ ghi nhớ (ví dụ "TÓM LẠI"): biển nhãn màu + một câu chữ to trên giấy dó, hiện ở nửa trên khung hình. */
 export const NoteCard: React.FC<{ label: string; body: string; startFrame: number; endFrame: number; color?: string }> = ({
   label,
   body,
   startFrame,
   endFrame,
-  color = "#3FA34D",
+  color = WARM.leaf,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -537,31 +570,30 @@ export const NoteCard: React.FC<{ label: string; body: string; startFrame: numbe
     >
       <div
         style={{
+          ...plaque(color, 6, 16),
           display: "inline-block",
-          padding: "8px 26px",
-          borderRadius: 16,
-          backgroundColor: color,
-          color: COLORS.white,
-          fontFamily: TITLE_FONT,
-          fontSize: 64,
-          border: `6px solid ${COLORS.ink}`,
+          padding: "4px 30px 0",
+          fontFamily: HEAD_FONT,
+          fontWeight: 800,
+          fontSize: 58,
+          lineHeight: 1.25,
+          letterSpacing: 1,
           rotate: "-3deg",
+          position: "relative",
+          zIndex: 1,
         }}
       >
         {label}
       </div>
       <div
         style={{
-          marginTop: 18,
-          padding: "26px 30px",
-          backgroundColor: COLORS.white,
-          border: `8px solid ${COLORS.ink}`,
-          borderRadius: 28,
+          ...paperCard(7, 28),
+          marginTop: -10,
+          padding: "34px 32px 28px",
           fontFamily: TEXT_FONT,
           fontWeight: 900,
           fontSize: 52,
           lineHeight: 1.25,
-          color: COLORS.ink,
         }}
       >
         {body}

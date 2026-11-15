@@ -1,16 +1,19 @@
 import React from "react";
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
-import { COLORS, outline, TEXT_FONT, TITLE_FONT } from "../../../engine/components/brand.ts";
+import { TEXT_FONT } from "../../../engine/components/brand.ts";
+import { HEAD_FONT, paperCard, turmericCard } from "../../../engine/components/warm.ts";
 
 /**
  * Thẻ số liệu chữ to ở góc trên bên trái (chừa góc phải cho khung gọi video của Ông).
- * Mỗi con số trong lời kể hiện thành chữ to để người xem nhớ (khung kịch bản: docs/series-bible.md).
+ * Mỗi con số trong lời kể hiện thành chữ to trên thẻ vàng nghệ, lời giải thích trên giấy dó bên dưới
+ * (khung kịch bản: docs/series-bible.md).
  */
 export const FactCard: React.FC<{ big: string; label: string; startFrame: number; endFrame: number }> = ({ big, label, startFrame, endFrame }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   if (frame < startFrame || frame >= endFrame) return null;
   const pop = spring({ frame: frame - startFrame, fps, config: { damping: 11, stiffness: 200 } });
+  const note = spring({ frame: frame - startFrame - 6, fps, config: { damping: 14 } });
   const out = interpolate(frame, [endFrame - 6, endFrame], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
     <div
@@ -27,28 +30,31 @@ export const FactCard: React.FC<{ big: string; label: string; startFrame: number
     >
       <div
         style={{
+          ...turmericCard(7, 20),
+          position: "relative",
+          zIndex: 1,
           display: "inline-block",
-          padding: "6px 22px 2px",
-          backgroundColor: COLORS.idiom,
-          border: `7px solid ${COLORS.ink}`,
-          borderRadius: 18,
-          fontFamily: TITLE_FONT,
-          fontSize: big.length > 10 ? 76 : 96,
-          lineHeight: 1.1,
-          color: COLORS.ink,
+          padding: "8px 24px 0",
+          fontFamily: HEAD_FONT,
+          fontWeight: 800,
+          fontSize: big.length > 10 ? 72 : 88,
+          lineHeight: 1.15,
         }}
       >
         {big}
       </div>
       <div
         style={{
-          marginTop: 10,
+          ...paperCard(5, 20),
+          marginTop: -8,
+          marginLeft: 18,
+          padding: "20px 24px 16px",
           fontFamily: TEXT_FONT,
           fontWeight: 900,
-          fontSize: 40,
+          fontSize: 36,
           lineHeight: 1.25,
-          color: COLORS.white,
-          ...outline(9),
+          opacity: note,
+          translate: `0 ${interpolate(note, [0, 1], [-20, 0])}px`,
         }}
       >
         {label}

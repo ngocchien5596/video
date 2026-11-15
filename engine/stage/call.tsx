@@ -5,9 +5,10 @@
  */
 import React from "react";
 import { interpolate } from "remotion";
-import { COLORS, TEXT_FONT } from "../components/brand.ts";
+import { HEAD_FONT, WARM } from "../components/warm.ts";
 import { Puppet, PUPPET_H, PUPPET_W } from "./Character.tsx";
 import { FLOOR, SceneBackground } from "./scenes.tsx";
+import { LINE } from "./village.tsx";
 
 /** Khung nhỏ ở góc và khung lớn khi Ông kể (toạ độ trên khung 1080×1920). */
 const SMALL = { x: 712, y: 300, w: 318, h: 424 };
@@ -40,20 +41,25 @@ export const CallWindow: React.FC<{
   const bezel = 14 + 4 * big;
   return (
     <g opacity={Math.min(1, open * 1.5)} transform={`translate(${cx} ${cy}) scale(${s}) translate(${-cx} ${-cy})`}>
-      {/* Vỏ điện thoại */}
-      <rect x={box.x - bezel} y={box.y - bezel} width={box.w + 2 * bezel} height={box.h + 2 * bezel} rx={r + bezel} fill="#222222" stroke={COLORS.ink} strokeWidth="8" />
+      {/* Bóng mềm sau máy */}
+      <rect x={box.x - bezel + 10} y={box.y - bezel + 16} width={box.w + 2 * bezel} height={box.h + 2 * bezel} rx={r + bezel} fill={LINE} opacity="0.28" />
+      {/* Vỏ điện thoại: nâu trầm, viền nâu đậm, gờ sáng vàng nghệ */}
+      <rect x={box.x - bezel} y={box.y - bezel} width={box.w + 2 * bezel} height={box.h + 2 * bezel} rx={r + bezel} fill="#4A2F1E" stroke={LINE} strokeWidth="8" />
+      <rect x={box.x - bezel + 6} y={box.y - bezel + 6} width={box.w + 2 * bezel - 12} height={box.h + 2 * bezel - 12} rx={r + bezel - 6} fill="none" stroke={WARM.turmeric} strokeOpacity="0.55" strokeWidth="3" />
       <svg x={box.x} y={box.y} width={box.w} height={box.h} viewBox={`${VIEW.x} ${VIEW.y} ${VIEW.w} ${VIEW.h}`} preserveAspectRatio="xMidYMid slice">
         <SceneBackground id="home" />
         <g transform={`translate(${PUPPET_X} ${PUPPET_Y}) scale(${SCALE})`}>
           <Puppet who="CD" role={null} mirrored={false} {...puppet} />
         </g>
       </svg>
-      <rect x={box.x} y={box.y} width={box.w} height={box.h} rx={r} fill="none" stroke="#222222" strokeWidth="6" />
-      {/* Nhãn cuộc gọi */}
-      <g transform={`translate(${box.x + 16} ${box.y + 16})`}>
-        <rect width={150 + 60 * big} height={44 + 10 * big} rx="22" fill="rgba(0,0,0,0.55)" />
-        <circle cx={26} cy={(44 + 10 * big) / 2} r={9 + 2 * big} fill="#FF3B30" />
-        <text x={46} y={(44 + 10 * big) / 2 + 9 + 3 * big} fontFamily={TEXT_FONT} fontWeight={900} fontSize={26 + 10 * big} fill={COLORS.white}>
+      <rect x={box.x} y={box.y} width={box.w} height={box.h} rx={r} fill="none" stroke="#2A1A10" strokeWidth="6" />
+      {/* Loa thoại trên viền */}
+      <rect x={box.x + box.w / 2 - 30 - 10 * big} y={box.y - bezel / 2 - 3} width={60 + 20 * big} height="6" rx="3" fill="#2A1A10" />
+      {/* Nhãn cuộc gọi: thẻ giấy dó, chấm đỏ son */}
+      <g transform={`translate(${box.x + 14} ${box.y + 14})`}>
+        <rect width={140 + 56 * big} height={46 + 10 * big} rx={(46 + 10 * big) / 2} fill={WARM.paper} fillOpacity="0.95" stroke={LINE} strokeWidth="4" />
+        <circle cx={26} cy={(46 + 10 * big) / 2} r={9 + 2 * big} fill={WARM.son} stroke={LINE} strokeWidth="3" />
+        <text x={46} y={(46 + 10 * big) / 2 + 10 + 3 * big} fontFamily={HEAD_FONT} fontWeight={800} fontSize={28 + 10 * big} fill={LINE}>
           ÔNG
         </text>
       </g>

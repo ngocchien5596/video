@@ -73,6 +73,11 @@ export type PropId =
   | "pen"
   | "paper"
   | "plant"
+  // Đồ thư phòng / đồ quê (bản thiết kế CD_TC.png): nghiên mực + bút lông, chén trà men lam, nón lá, cuộn giấy
+  | "inkstone"
+  | "tea-cup"
+  | "non-la"
+  | "scroll"
   // Truyện cổ tích (dùng trong cảnh hồi ức)
   | "axe"
   | "bow"
@@ -96,7 +101,7 @@ export type PropId =
  * Đạo cụ có chữ (`{ id, text }`):
  * sign: dòng chữ dưới tấm truy nã · book: chữ trên bìa · paper: tờ giấy ghi chữ (điểm, nhãn "CỦA CHÁU"...)
  * fridge: chữ trên băng dán chéo · alarm-clock: chữ trên mặt đồng hồ · plant: chữ trên bảng cắm trong chậu
- * wine-jar: chữ trên nhãn chum (mặc định "RƯỢU")
+ * wine-jar: chữ trên nhãn chum (mặc định "RƯỢU") · scroll: chữ viết trên cuộn giấy (bỏ trống thì vẽ nét chữ nho)
  *
  * Đồ truyện cổ tích: axe (rìu, cầm tay) · bow (cung, cầm tay) · wine-jar (chum rượu) · firewood (bó củi, đeo lưng `back`)
  * · mandarin-hat (mũ quan, đội `head`) · demon-head (đầu chằn tinh, cầm bằng `hold2`)

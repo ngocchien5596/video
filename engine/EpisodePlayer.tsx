@@ -10,11 +10,12 @@ import { Audio, Video } from "@remotion/media";
 import { AbsoluteFill, Easing, Freeze, interpolate, Sequence, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { Animatic } from "./components/Animatic.tsx";
 import { COLORS } from "./components/brand.ts";
+import { WARM } from "./components/warm.ts";
 import { EndCard, HookBanner, SafeZones, Subtitle, TopBar } from "./components/Overlays.tsx";
 import { END_CARD_SECONDS, episodeTimeline, LOOP_SECONDS, type Timeline } from "./lib/timing.ts";
 import type { BeatKind, Episode, VoiceTrack } from "./lib/types.ts";
 import type { BoardRegistry } from "./stage/board.tsx";
-import { Stage } from "./stage/Stage.tsx";
+import { FLOOR_ON_SCREEN, Stage } from "./stage/Stage.tsx";
 import { momentSounds } from "./stage/track.ts";
 
 /** Khoảng khung hình của một nhịp (và của từng câu trong nhịp), truyền cho thẻ chữ để làm hiệu ứng vào / ra. */
@@ -111,10 +112,13 @@ const Picture: React.FC<PictureProps> = ({ episode, timeline, layout }) => {
       })}
 
       {frame >= endStart ? (
-        <EndCard question={layout.endCard.question} teaser={layout.endCard.teaser} startFrame={endStart} />
+        <EndCard question={layout.endCard.question} teaser={layout.endCard.teaser} startFrame={endStart} warm />
       ) : null}
 
-      {episode.showSubtitles === false || frame >= endStart ? null : <Subtitle cue={cue} />}
+      {episode.showSubtitles === false || frame >= endStart ? null : (
+        // Sân khấu: phụ đề nằm ngay dưới mặt sàn, không che chân nhân vật.
+        <Subtitle cue={cue} top={hasStage && !episode.footage ? FLOOR_ON_SCREEN + 8 : undefined} />
+      )}
     </AbsoluteFill>
   );
 };
@@ -153,8 +157,8 @@ const LoopBack: React.FC<PictureProps & { from: number }> = ({ from, ...props })
             width: r * 2,
             height: r * 2,
             borderRadius: "50%",
-            border: `12px solid ${COLORS.ink}`,
-            boxShadow: `0 0 0 8px ${COLORS.idiom}`,
+            border: `12px solid ${WARM.ink}`,
+            boxShadow: `0 0 0 8px ${WARM.turmeric}`,
             boxSizing: "border-box",
           }}
         />

@@ -52,11 +52,11 @@ export const MemoryTV: React.FC<{
   const grain = Math.floor(frame / 4) % 6;
 
   return (
-    <AbsoluteFill style={{ backgroundColor: "#050505" }}>
+    <AbsoluteFill style={{ backgroundColor: "#24160D" }}>
       <AbsoluteFill
         style={{
           transform: `translate(${jitterX}px, ${jitterY}px) scale(${sx}, ${sy})`,
-          filter: `grayscale(1) contrast(1.25) brightness(${flicker + glow * 1.5}) sepia(0.12)`,
+          filter: `grayscale(1) contrast(1.25) brightness(${flicker + glow * 1.5}) sepia(0.35)`,
           overflow: "hidden",
         }}
       >
@@ -120,7 +120,7 @@ export const MemoryTV: React.FC<{
         style={{
           margin: 18,
           borderRadius: 70,
-          boxShadow: "0 0 0 60px #050505, inset 0 0 60px 20px rgba(0,0,0,0.85)",
+          boxShadow: "0 0 0 60px #24160D, 0 0 0 66px #5E3A20, inset 0 0 60px 20px rgba(0,0,0,0.85)",
           pointerEvents: "none",
         }}
       />
