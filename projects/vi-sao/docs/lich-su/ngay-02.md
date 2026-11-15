@@ -27,3 +27,7 @@ Kịch bản ở commit `2a9091a`, dài 49.2 giây. File: `out/vi-sao/versions/n
 ## 2026-11-15 11:09 · Xuất video v2
 
 Kịch bản ở commit `6d509e4`, dài 53.6 giây. File: `out/vi-sao/versions/ngay-02/v2/`.
+
+## 2026-11-15 11:36 · Xuất video v3
+
+Kịch bản ở commit `6d4568a`, dài 53.1 giây. File: `out/vi-sao/versions/ngay-02/v3/`.
