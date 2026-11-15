@@ -4,6 +4,19 @@ import { countUp, DrawLine, DrawPath, ease, Fade, Pop, pop, wave } from "./anim.
 import { type Anim, Card, CardFrame, Chalkboard, Cross, fitText, GROUND, linePose, poseAt, T } from "./kit.tsx";
 import { INK, LAYOUT, PARCHMENT, STAGE_S, STAGE_TX, STAGE_TY } from "./ParchmentHud.tsx";
 import { MontyDefs, MontyScene } from "./monty.tsx";
+import * as E02 from "./ep02.tsx";
+import * as E03 from "./ep03.tsx";
+import * as E04 from "./ep04.tsx";
+import * as E05 from "./ep05.tsx";
+
+/** Tập có cảnh vẽ riêng (file epXX.tsx tự bật bằng READY). */
+const CUSTOM: Partial<Record<number, React.FC<Anim & { beatKind: string }>>> = {
+  1: MontyScene,
+  ...(E02.READY ? { 2: E02.Ep02Scene } : {}),
+  ...(E03.READY ? { 3: E03.Ep03Scene } : {}),
+  ...(E04.READY ? { 4: E04.Ep04Scene } : {}),
+  ...(E05.READY ? { 5: E05.Ep05Scene } : {}),
+};
 import { MiloDefs, type Pose, Stickman } from "./Stickman.tsx";
 import { TOPICS } from "./topics.ts";
 
@@ -645,7 +658,8 @@ const TopicScene: React.FC<Anim & { day: number; beatKind: string }> = ({ day, b
 
 const BeatView: React.FC<{ day: number; s: BeatState; fps: number; frame: number }> = ({ day, s, fps, frame }) => {
   const a: Anim = { li: s.lineIndex, lf: s.lineFrame, bf: s.beatFrame, fps, frame };
-  if (day === 1) return <MontyScene beatKind={s.beatKind} {...a} />;
+  const Custom = CUSTOM[day];
+  if (Custom) return <Custom beatKind={s.beatKind} {...a} />;
   const Beat = day === 6 ? THALES[s.beatKind] : undefined;
   return Beat ? <Beat {...a} /> : <TopicScene {...a} day={day} beatKind={s.beatKind} />;
 };
@@ -663,6 +677,10 @@ export const ParchmentScene: React.FC<ParchmentSceneProps> = ({ day, fps, prev, 
       <defs>
         <MiloDefs />
         <MontyDefs />
+        <E02.Ep02Defs />
+        <E03.Ep03Defs />
+        <E04.Ep04Defs />
+        <E05.Ep05Defs />
         <filter id="soft-glow" x="-30%" y="-30%" width="160%" height="160%">
           <feGaussianBlur stdDeviation="9" />
         </filter>
