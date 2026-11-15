@@ -27,7 +27,8 @@ const SETTLE = 60;
  * wide: thấy cả hai người · CD / TC: đẩy máy vào người nói, người kia (nếu đang trên sân khấu) vẫn ở trọn trong khung.
  */
 export const FLOOR_ON_SCREEN = 1300;
-const ZOOM = { wide: 1.12, close: 1.3, closeWithBoard: 1.18, min: 1.05 };
+// Có bảng minh hoạ (BOARD hạ xuống y 350, đáy ~716): thu nhỏ còn withBoard để đầu nhân vật nằm dưới mép bảng.
+const ZOOM = { wide: 1.12, close: 1.3, withBoard: 1.02, min: 1.0 };
 /** Nửa bề ngang thân con rối kể cả tay (toạ độ sân khấu) + lề. */
 const BODY_HALF = 136;
 const MARGIN = 22;
@@ -177,9 +178,9 @@ const cameraAt = (
   board: boolean,
 ): { k: number; focus: number } => {
   const onStage = people.filter((p) => p.x > -0.02 && p.x < 1.02);
-  const target = mode === "wide" ? ZOOM.wide : board ? ZOOM.closeWithBoard : ZOOM.close;
+  const target = board ? ZOOM.withBoard : mode === "wide" ? ZOOM.wide : ZOOM.close;
   const subject = mode === "wide" ? undefined : onStage.find((p) => p.who === mode);
-  if (!onStage.length || (mode !== "wide" && !subject)) return { k: ZOOM.wide, focus: W / 2 };
+  if (!onStage.length || (mode !== "wide" && !subject)) return { k: board ? ZOOM.withBoard : ZOOM.wide, focus: W / 2 };
   const L = Math.min(...onStage.map((p) => p.x * W)) - BODY_HALF - MARGIN;
   const R = Math.max(...onStage.map((p) => p.x * W)) + BODY_HALF + MARGIN;
   const k = Math.max(ZOOM.min, Math.min(target, W / (R - L)));

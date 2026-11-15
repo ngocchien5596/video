@@ -16,7 +16,7 @@ import unicodedata
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from vi_text import apply_pronounce, normalize_numbers, unknown_words  # noqa: E402
+from vi_text import apply_pronounce, leaked_ref, normalize_numbers, unknown_words  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 PUBLIC = ROOT / "public"
@@ -182,17 +182,29 @@ def main() -> None:
                 # Sinh, nghe lại bằng ASR, chưa khớp thì sinh lại với hạt giống khác; giữ bản khớp nhất.
                 # (Bắt lỗi mô hình đọc lặp chữ, hoặc đọc lẫn câu mẫu của giọng như "…ông giảng cho mà nghe".)
                 best = None
+                # Mô hình đoán trước độ dài; đoán dư thì nó lấp chỗ trống bằng câu mẫu của giọng.
+                # Gặp lẫn thì lần sau ép độ dài = độ dài vừa sinh × (số chữ cần đọc / số chữ nghe được).
+                fixed_duration = None
                 for attempt, seed in enumerate(SEEDS[:TRIES]):
                     torch.manual_seed(seed)
+                    opts = {"duration": fixed_duration} if fixed_duration else {"speed": SPEAKERS[line["who"]]["speed"] * SPEED_JITTER[attempt]}
                     audio = model.generate(
                         text=text,
                         language="vi",
                         voice_clone_prompt=prompts[line["who"]],
-                        speed=SPEAKERS[line["who"]]["speed"] * SPEED_JITTER[attempt],
+                        **opts,
                     )[0]
                     save_wav(wav, audio, model.sampling_rate)
                     heard = listen(str(wav))
                     score = match_score(text, heard)
+                    leak = leaked_ref(text, heard)
+                    if leak:
+                        # Đọc lẫn câu mẫu: hỏng hẳn, dù tỉ lệ khớp tổng vẫn cao (câu dài thừa vài chữ vẫn > 90%).
+                        print(f"        lần {attempt + 1}: ⛔ đọc lẫn câu mẫu giọng ({'; '.join(leak)}), sinh lại", flush=True)
+                        score = min(score, 0.5) - 0.01 * len(leak)
+                        n_heard, n_text = len(words(heard)), len(words(text))
+                        if n_heard > n_text:
+                            fixed_duration = round(len(audio) / model.sampling_rate * n_text / n_heard * (1.03 if attempt else 1.0), 2)
                     if best is None or score > best[0]:
                         best = (score, audio, heard)
                     if score >= GOOD_MATCH:
@@ -200,7 +212,10 @@ def main() -> None:
                     print(f"        lần {attempt + 1}: khớp {score:.0%}, nghe thành: {heard}", flush=True)
                 score, audio, heard = best
                 save_wav(wav, audio, model.sampling_rate)
-                if score < GOOD_MATCH:
+                leak = leaked_ref(text, heard)
+                if leak:
+                    print(f"        ⛔⛔ sau {TRIES} lần vẫn đọc lẫn câu mẫu giọng ({'; '.join(leak)}): PHẢI đổi chữ câu này rồi lồng lại", flush=True)
+                elif score < GOOD_MATCH:
                     print(f"        ⚠ sau {TRIES} lần vẫn chỉ khớp {score:.0%}, cần nghe lại: {heard}", flush=True)
                 entry = {
                     "beat": line["beat"],
@@ -211,6 +226,8 @@ def main() -> None:
                     "key": line["key"],
                     "asr": round(score, 3),
                 }
+                if leak:
+                    entry["leak"] = leak
                 if line.get("tts"):
                     entry["tts"] = line["tts"]
             entries.append(entry)

@@ -49,7 +49,14 @@ export const fitText = (s: string, maxW: number, maxSize: number, minSize: numbe
 };
 
 /** Thẻ chữ dưới sân khấu (toạ độ khung): tiêu đề ngắn + một dòng chính to; bật ra khi đổi nội dung. */
+/**
+ * Thẻ tóm tắt dưới sân khấu: TẮT (15/11/2026, chủ kênh: phụ đề lời dẫn đã đủ, thêm thẻ thì quá nhiều chữ).
+ * Giữ component để các cảnh không phải sửa; đổi SHOW_CARD = true nếu muốn bật lại.
+ */
+export const SHOW_CARD = false;
+
 export const Card: React.FC<{ title: string; formula: string; p: number; fp?: number; ok?: boolean }> = ({ title, formula, p, fp = 1, ok = true }) => {
+  if (!SHOW_CARD) return null;
   const { x, y, w, h } = LAYOUT.card;
   const tt = fitText(title, w - 70, 36, 28);
   const ff = fitText(formula, w - 90, 58, 44);
@@ -79,6 +86,7 @@ export const Card: React.FC<{ title: string; formula: string; p: number; fp?: nu
 
 /** Khung thẻ trống (toạ độ khung) để vẽ hình riêng bên trong. */
 export const CardFrame: React.FC<{ p: number; ok?: boolean; children: React.ReactNode }> = ({ p, ok = true, children }) => {
+  if (!SHOW_CARD) return null;
   const { x, y, w, h } = LAYOUT.card;
   return (
     <Screen>

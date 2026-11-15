@@ -55,5 +55,12 @@
     "visibility": "Công khai",
     "order": "Ngày xuất bản (cũ nhất trước)",
     "madeForKids": "Không. Khai báo ở từng video."
+  },
+  "review": {
+    "maxSeconds": 90,
+    "warnSeconds": 60,
+    "minSources": 2,
+    "frozenDays": [],
+    "note": "Bible: dưới 60 giây (nên sửa khi vượt); trên 90 giây là phải sửa."
   }
 }

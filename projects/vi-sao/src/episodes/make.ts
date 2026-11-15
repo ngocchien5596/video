@@ -54,7 +54,9 @@ export type EpisodeSpec = {
 };
 
 /** "Không khí hắt..." → "không khí hắt..." để ghép sau "Tóm lại, ". */
-const lowerFirst = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
+// Giữ hoa khi mở đầu bằng tên riêng ("Trái Đất", "Mặt Trời", "Sao Thổ", "Việt Nam"…); còn lại viết thường chữ đầu.
+const PROPER_START = /^(Trái Đất|Mặt Trời|Mặt Trăng|Sao \p{Lu}|Việt Nam|Hà Nội|Thái Bình Dương|Biển Đông|Bắc Cực|Nam Cực)/u;
+const lowerFirst = (s: string) => (PROPER_START.test(s) ? s : s.charAt(0).toLowerCase() + s.slice(1));
 
 /**
  * Dựng một tập theo 5 nhịp: hỏi → đoán thử → giải thích → tóm lại → hỏi tiếp.

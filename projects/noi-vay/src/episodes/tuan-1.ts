@@ -380,205 +380,212 @@ export const TUAN_1 = [
     day: 3,
     week,
     theme,
-    idiom: "Có thực mới vực được đạo",
-    meaning: "Phải đủ ăn đủ mặc mới giữ được đạo lý, lo được việc lớn; muốn người theo mình phải lo cái ăn cho họ.",
-    question: "Bạn có làm việc nổi khi đang đói không, hay phải ăn no mới 'khởi động' được?",
+    idiom: "Chó treo mèo đậy",
+    meaning: "Có của phải biết cất giữ cẩn thận, cảnh giác kẻ gian, và phòng mỗi thứ đúng cách của nó.",
+    question: "Món nào của bạn hay bị 'mượn mà không trả' nhất, cục sạc, cái ô hay hộp cơm trong tủ lạnh?",
     hook: {
-      shot: "Sân sau, TC đứng sát mép vực, ném từng cái bánh bao xuống, bên cạnh là đĩa bánh bao",
-      lines: [tc("Cái thứ bốn mươi chín này... Cố lên, sắp lấp đầy được cái vực rồi ông ơi!")],
+      shot: "Phòng khách, con Vàng bị buộc đai vải treo lủng lẳng từ trần nhà xuống, con Mướp bị chụp lồng bàn tre nhưng thò đầu ra ngoài; TC hai tay giữ dây kéo",
+      lines: [tc("Ông ơi ra giữ hộ cháu sợi dây với! Con Vàng dạo này béo ú, cháu kéo muốn đứt cả hơi mới lên được đấy!")],
       stage: [
-        // Cầm bánh bao, đứng cạnh đĩa bánh
+        // Con Vàng treo lủng lẳng giữa nhà, con Mướp bị úp lồng bàn góc phải
         {
           cut: true,
-          scene: "yard",
+          scene: "home",
           camera: "wide",
-          cd: { x: 0.2, expr: "confused" },
-          tc: { x: 0.6, hand: "bun", arms: "raise", expr: "smug", move: "idle" },
-          items: [{ id: "dia", prop: "bun-plate", x: 0.4 }],
-        },
-        // Ném bánh bao bay ra khỏi khung
-        {
-          line: 0,
-          at: 0.3,
-          tc: { hand: null, arms: "hit" },
+          cd: { x: 0.18, expr: "shock" },
+          tc: { x: 0.64, arms: "up2", expr: "smug", move: "bounce" },
           items: [
-            { id: "dia", prop: "bun-plate", x: 0.4 },
-            { id: "nem", prop: "bun", x: 0.72 },
+            { id: "vang", prop: { id: "cho-vang-treo", text: "GÂU?!" }, x: 0.44, scale: 0.92 },
+            { id: "muop", prop: { id: "meo-muop-day", text: "MEO!" }, x: 0.84, scale: 0.82 },
           ],
         },
-        {
-          line: 0,
-          at: 0.45,
-          items: [
-            { id: "dia", prop: "bun-plate", x: 0.4 },
-            { id: "nem", prop: "bun", x: 1.3 },
-          ],
-          fx: { kind: "exclaim", on: "TC", text: "49!" },
-        },
-        // "Cố lên, sắp lấp đầy được cái vực rồi ông ơi!"
-        { line: 0, at: 0.7, camera: "TC", tc: { arms: "up2", expr: "happy", move: "bounce" } },
+        // "cháu kéo muốn đứt cả hơi mới lên được đấy!"
+        { line: 0, at: 0.52, camera: "TC", tc: { arms: "raise", expr: "happy", move: "idle" }, fx: { kind: "sweat", on: "TC" } },
       ],
     },
     titleStage: [
-      { line: 0, camera: "CD", cd: { arms: "hips", expr: "angry" }, tc: { move: "idle" }, fx: { kind: "question", on: "CD" } },
-      { line: 1, camera: "wide", cd: { arms: "down", expr: "neutral" }, tc: { arms: "raise", expr: "smug", move: "bounce" } },
+      { line: 0, camera: "CD", cd: { expr: "angry", arms: "hips" }, tc: { move: "idle" }, fx: { kind: "anger", on: "CD" } },
+      { line: 1, camera: "wide", cd: { arms: "down", expr: "confused" }, tc: { arms: "raise", expr: "smug", move: "bounce" } },
     ],
-    ask: "Bánh bao nóng hổi không ăn, mày đem ra ném xuống vực làm cái trò gì thế hử?",
-    answer: "Thì ông dạy cháu đấy thôi, Có thực mới vực được đạo ạ!",
+    ask: "Ơ kìa cái thằng này! Ông bảo mày ở nhà trông mâm cơm, làm sao lại lôi chó mèo ra hành hạ thế kia?",
+    answer: "Đâu có, cháu hành hạ gì đâu! Cháu làm đúng lời ông dặn đấy chứ, ông bảo chó treo mèo đậy còn gì!",
     misread: {
-      shot: "TC xếp bánh bao thành cây cầu bắc qua vực, đến cái thứ năm mươi thì đói quá ngồi ăn luôn cả cầu",
+      shot: "TC khoe con Mướp đã bị úp lồng bàn thì sau lưng TC con Mướp lách ra chạy vào bếp; TC quay sang khoe con Vàng đang treo thì con Vàng giãy đứt dây rơi xuống đất rồi phóng theo vào bếp; hai ông cháu chạy vào bếp thấy chó đang gặm thịt dưới đất, mèo ngồi trên bàn chén sạch đĩa cá kho",
       lines: [
-        tc("Thì 'thực' là đồ ăn, 'vực' là cái vực sâu hoắm, còn 'đạo' là đường đi! Lấy đồ ăn lấp kín vực thì mới có đường mà đi chứ ông!"),
-        tc("Mỗi tội cứ lấp đến cái thứ năm mươi là bụng cháu lại sôi ùng ục, thế là ngồi chén sạch cả cầu, giờ lại phải lấp từ đầu!"),
-        cd("Ối giời ơi! Mày vừa xây cầu vừa chén thế này thì đến Tết sang năm cũng chẳng qua nổi cái vực đâu!"),
+        tc("Ông xem này, con Mướp đang nằm ngủ, cháu úp luôn cái lồng bàn lên cho kín. Thế là xong vụ 'mèo đậy'!"),
+        tc("Còn con Vàng thì cháu buộc nó vào cái võng, rồi kéo tít lên cao thế này... Ơ kìa, nó giãy đứt cả dây rồi! Vàng ơi, đứng lại!"),
+        cd("Ối giời ơi là giời! Hai đứa sổng ra chạy tót vào bếp rồi, con Vàng ngoạm mất miếng thịt, còn con Mướp thì chén sạch đĩa cá kho kia kìa!"),
       ],
       stage: [
-        // "Thì 'thực' là đồ ăn, 'vực' là cái vực thẳm, còn 'đạo' là con đường!"
-        { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "idle" }, items: [] },
-        { line: 0, at: 0.35, camera: "wide", cd: { expr: "confused" }, tc: { expr: "shock" }, fx: { kind: "sweat", on: "TC" } },
-        // "Có đồ ăn lấp kín vực"
-        { line: 0, at: 0.56, tc: { hand: "bun-plate", arms: "hold2", expr: "happy", move: "bounce" } },
-        // "thì mới có đường mà đi chứ ạ!": xếp bánh bao thành cầu
         {
           line: 0,
-          at: 0.8,
-          tc: { hand: null, arms: "up2", move: "jump" },
-          items: [
-            { id: "c1", prop: "bun", x: 0.8 },
-            { id: "c2", prop: "bun", x: 0.88 },
-            { id: "c3", prop: "bun", x: 0.96 },
-          ],
-          fx: { kind: "sparkle", on: "TC" },
-        },
-        // "Khổ nỗi cứ lấp đến cái thứ năm mươi là cháu lại đói bụng quá"
-        { line: 1, camera: "TC", tc: { arms: "down", expr: "sad", move: "tremble" }, fx: { kind: "sweat", on: "TC" } },
-        // "thế là ngồi chén sạch cả cầu"
-        { line: 1, at: 0.48, camera: "wide", tc: { hand: "bun", arms: "hold", expr: "happy", move: "bounce" }, items: [], fx: { kind: "hearts", on: "TC" } },
-        // "giờ lại phải lấp lại từ đầu!"
-        { line: 1, at: 0.78, tc: { hand: null, arms: "shrug", expr: "confused", move: "idle" }, fx: { kind: "question", on: "TC" } },
-        // "Ối giời ơi! Mày vừa xây cầu vừa ăn thế này"
-        { line: 2, camera: "CD", cd: { arms: "point", expr: "angry", move: "shake" }, fx: { kind: "anger", on: "CD" } },
-        // "thì đến Tết sang năm cũng chẳng qua nổi cái vực!"
-        { line: 2, at: 0.6, camera: "wide", cd: { move: "idle" }, tc: { expr: "shock" }, fx: { kind: "sweat", on: "TC" } },
-      ],
-    },
-    flipStage: [
-      { line: 0, camera: "wide", cd: { x: 0.42, hand: "fan", arms: "hit", expr: "angry", move: "idle" }, tc: { move: "idle", arms: "down" } },
-      { line: 0, at: 0.3, fx: { kind: "bop", on: "TC" }, tc: { expr: "shock", move: "tremble" } },
-      // "Chữ 'thực' đúng là cái ăn": giơ cái bánh bao
-      { line: 1, camera: "CD", cd: { x: 0.3, hand: "bun", arms: "raise", expr: "neutral", move: "idle" }, tc: { move: "idle", expr: "confused" }, items: [] },
-      // "nhưng 'vực' là nâng đỡ cho đứng vững"
-      { line: 1, at: 0.14, cd: { hand: null, arms: "up2" } },
-      // "còn 'đạo' là đạo lý làm người."
-      { line: 1, at: 0.28, camera: "wide", cd: { hand: "fan", arms: "point", expr: "neutral" } },
-      // "Có ăn có mặc thì người ta mới giữ được đạo lý"
-      { line: 1, at: 0.42, cd: { arms: "wave", expr: "happy" }, tc: { expr: "neutral" } },
-      // "mới đủ sức làm việc lớn."
-      { line: 1, at: 0.62, cd: { arms: "raise" }, fx: { kind: "sparkle", on: "CD" } },
-      // "Muốn ai theo mình, cũng phải lo cho họ cái no trước đã!": chìa bánh bao cho Thằng Cháu
-      { line: 1, at: 0.74, cd: { hand: "bun", arms: "point", expr: "smug" }, tc: { expr: "happy" }, fx: { kind: "hearts", on: "TC" } },
-      { line: 1, at: 0.94, tc: { expr: "happy", arms: "raise" }, fx: { kind: "exclaim", on: "TC", text: "À!" } },
-    ],
-    explain:
-      "'Thực' thì đúng là cái ăn, nhưng 'vực' là nâng đỡ cho đứng vững, còn 'đạo' là đạo lý làm người. Có ăn có mặc thì người ta mới giữ được đạo lý, mới đủ sức lo việc lớn. Muốn ai theo mình thì phải lo cho người ta no cái bụng trước đã, hiểu chưa?",
-    flipShot: "Cụ Đồ gõ quạt, cầm cái bánh bao giơ lên giải thích rồi đưa cho Thằng Cháu",
-    example: {
-      shot: "HỒI ỨC (TV đen trắng): làng Phù Đổng, bà con nghe tin giặc Ân, cậu bé Gióng giơ tay xin đi đánh giặc, ôm bát cơm ăn mãi không no; bà con bưng thúng gạo tới, nong cơm nong cà bày đầy sân; Gióng vươn vai thành tráng sĩ; bãi chiến chân núi, tráng sĩ cưỡi ngựa sắt phun lửa, vung roi sắt đánh giặc Ân chạy mất",
-      memory: { label: "TRUYỀN THUYẾT: THÁNH GIÓNG" },
-      lines: [
-        cd("Cứ như chuyện Thánh Gióng ấy. Nghe tin có giặc Ân, cậu bé lên ba đòi đi đánh giặc, mà ăn mãi chẳng no, cả làng phải góp gạo thổi cơm nuôi, bảy nong cơm, ba nong cà đấy!"),
-        cd("Có ăn no, có đủ sức, Gióng mới vươn vai thành tráng sĩ, cưỡi ngựa sắt đánh tan giặc Ân đấy thôi!"),
-      ],
-      // Thằng Cháu đóng Gióng; Cụ Đồ đóng bà con trong làng, rồi đóng giặc Ân.
-      stage: [
-        // "Như chuyện Thánh Gióng ngày xưa ấy": làng Phù Đổng
-        {
-          line: 0,
-          cut: true,
-          scene: "giong-village",
           camera: "wide",
-          cd: { role: "giong-villager", x: 0.24, hand: null, back: null, head: null, face: null, arms: "down", expr: "neutral", move: "idle" },
-          tc: { role: "giong-boy", x: 0.76, hand: null, back: null, head: null, face: null, arms: "down", expr: "neutral", move: "idle" },
-          items: [],
+          cd: { expr: "confused" },
+          tc: { x: 0.62, arms: "point", expr: "smug", move: "idle" },
+          items: [
+            { id: "vang", prop: "cho-vang-treo", x: 0.42, scale: 0.92 },
+            { id: "muop", prop: { id: "meo-muop-day", text: "MEO!" }, x: 0.84, scale: 0.82 },
+          ],
         },
-        // "nghe tin có giặc Ân"
-        { line: 0, at: 0.16, cd: { arms: "up2", expr: "shock", move: "tremble" }, fx: { kind: "exclaim", on: "CD", text: "GIẶC ÂN!" } },
-        // "cậu bé lên ba xin đi đánh giặc"
-        { line: 0, at: 0.3, camera: "TC", cd: { arms: "down", move: "idle" }, tc: { arms: "raise", expr: "angry", move: "jump" }, fx: { kind: "exclaim", on: "TC", text: "CON ĐI!" } },
-        // "nhưng ăn mãi không no": ôm bát cơm ăn
-        { line: 0, at: 0.5, camera: "wide", cd: { expr: "neutral" }, tc: { hand: "bowl", arms: "hold", expr: "happy", move: "bounce" } },
-        { line: 0, at: 0.6, tc: { expr: "sad", move: "idle" }, fx: { kind: "exclaim", on: "TC", text: "ĐÓI!" } },
-        // "cả làng phải góp gạo thổi cơm nuôi": bà con bưng thúng gạo tới
-        { line: 0, at: 0.7, cd: { x: 0.28, hand: "giong-rice-basket", arms: "hold2", expr: "happy" }, fx: { kind: "hearts", on: "CD" } },
-        // "bảy nong cơm, ba nong cà!"
         {
           line: 0,
-          at: 0.85,
-          cd: { hand: null, arms: "point" },
-          tc: { expr: "happy", move: "bounce" },
+          at: 0.6,
+          tc: { arms: "hips", expr: "happy", move: "bounce" },
           items: [
-            { id: "com", prop: "giong-nong-com", x: 0.46, scale: 0.85 },
-            { id: "ca", prop: "giong-nong-ca", x: 0.6, scale: 0.75, front: true },
+            { id: "vang", prop: "cho-vang-treo", x: 0.42, scale: 0.92 },
+            { id: "muop", prop: { id: "meo-muop", text: "MEO!" }, x: 0.86, scale: 0.85 },
           ],
           fx: { kind: "sparkle", on: "TC" },
         },
-
-        // "Nhờ ăn đủ no, đủ sức": xoa bụng
-        { line: 1, camera: "TC", tc: { hand: null, arms: "hips", expr: "happy", move: "idle" }, fx: { kind: "hearts", on: "TC" } },
-        // "Gióng mới vươn vai"
-        { line: 1, at: 0.28, camera: "wide", tc: { arms: "up2", expr: "angry", move: "jump" }, fx: { kind: "sparkle", on: "TC" } },
-        // "thành tráng sĩ"
-        { line: 1, at: 0.45, cut: true, tc: { role: "giong-hero", arms: "hips", expr: "smug", move: "idle" }, cd: { expr: "shock", arms: "up2" }, fx: { kind: "bop", on: "TC", text: "VÙNG!" } },
-        // "cưỡi ngựa sắt": bãi chiến chân núi
+        {
+          line: 0,
+          at: 0.82,
+          items: [
+            { id: "vang", prop: "cho-vang-treo", x: 0.42, scale: 0.92 },
+            { id: "muop", prop: "meo-muop", x: 1.3, scale: 0.85 },
+          ],
+        },
+        {
+          line: 1,
+          camera: "wide",
+          tc: { x: 0.62, arms: "raise", expr: "smug", move: "idle" },
+          items: [{ id: "vang", prop: { id: "cho-vang-treo", text: "GÂU!" }, x: 0.44, scale: 0.92 }],
+        },
         {
           line: 1,
           at: 0.6,
-          cut: true,
-          scene: "giong-battle",
-          camera: "wide",
-          tc: { x: 0.26, hand: "giong-iron-rod", arms: "raise", expr: "angry", move: "idle" },
-          cd: { role: "giong-enemy", x: 0.82, hand: null, arms: "hips", expr: "angry", move: "idle" },
-          items: [{ id: "ngua", prop: "giong-iron-horse", x: 0.26, scale: 0.85, front: true }],
+          cd: { expr: "shock", arms: "up2" },
+          tc: { expr: "shock", arms: "up2", move: "jump" },
+          items: [{ id: "vang", prop: { id: "cho-vang", text: "GÂU!" }, x: 0.44, scale: 0.9 }],
+          fx: { kind: "bop", on: "TC", text: "PHỰT!" },
         },
-        // "đánh tan giặc Ân đấy thôi!"
-        { line: 1, at: 0.78, tc: { x: 0.4, arms: "hit" }, items: [{ id: "ngua", prop: "giong-iron-horse", x: 0.4, scale: 0.85, front: true }], cd: { expr: "shock", move: "tremble" }, fx: { kind: "bop", on: "CD", text: "BỐP!" } },
-        { line: 1, at: 0.9, tc: { arms: "raise", expr: "happy" }, cd: { x: 1.4, arms: "up2", move: "idle" }, fx: { kind: "sparkle", on: "TC" } },
+        {
+          line: 1,
+          at: 0.84,
+          tc: { x: 0.74, arms: "point", expr: "shock", move: "shake" },
+          items: [{ id: "vang", prop: "cho-vang", x: 1.3, scale: 0.9 }],
+          fx: { kind: "sweat", on: "TC" },
+        },
+        {
+          line: 2,
+          cut: true,
+          scene: "kitchen",
+          camera: "wide",
+          cd: { x: 0.22, arms: "point", expr: "angry", move: "shake" },
+          tc: { x: 0.82, arms: "down", expr: "neutral", move: "idle" },
+          items: [
+            { id: "vang", prop: "cho-vang-an", x: 0.42, scale: 0.9, front: true },
+            { id: "muop", prop: "meo-muop-an", x: 0.62, on: "table", scale: 0.88 },
+          ],
+          fx: { kind: "anger", on: "CD" },
+        },
+        { line: 2, at: 0.55, cd: { move: "idle" }, tc: { arms: "up2", expr: "shock", move: "tremble" }, fx: { kind: "surprise", on: "TC" } },
+      ],
+    },
+    flipStage: [
+      { line: 0, camera: "wide", cd: { x: 0.42, hand: "fan", arms: "hit", expr: "angry", move: "idle" }, tc: { x: 0.72, move: "idle", arms: "down" } },
+      { line: 0, at: 0.3, fx: { kind: "bop", on: "TC" }, tc: { expr: "shock", move: "tremble" } },
+      {
+        line: 1,
+        camera: "CD",
+        cd: { x: 0.24, arms: "point", expr: "neutral", move: "idle" },
+        tc: { x: 0.78, move: "idle", expr: "confused" },
+        items: [],
+      },
+      {
+        line: 1,
+        at: 0.26,
+        camera: "wide",
+        cd: { hand: "fan", arms: "raise", expr: "smug" },
+        items: [
+          { id: "gio", prop: "gio-thit-treo", x: 0.46, scale: 0.9 },
+          { id: "vang", prop: { id: "cho-vang", text: "ẲNG..." }, x: 0.44, scale: 0.85, front: true },
+        ],
+      },
+      {
+        line: 1,
+        at: 0.48,
+        cd: { hand: "fan", arms: "point", expr: "neutral" },
+        items: [
+          { id: "gio", prop: "gio-thit-treo", x: 0.42, scale: 0.9 },
+          { id: "vang", prop: "cho-vang", x: 0.38, scale: 0.82, front: true },
+          { id: "noi", prop: "rice-cooker", x: 0.54, on: "table" },
+          { id: "muop", prop: { id: "meo-muop", text: "MEO?" }, x: 0.68, on: "table", scale: 0.78 },
+        ],
+        fx: { kind: "sparkle", on: "CD" },
+      },
+      { line: 1, at: 0.72, cd: { arms: "wave", expr: "happy" }, tc: { expr: "neutral" } },
+      { line: 1, at: 0.94, camera: "wide", tc: { expr: "happy", arms: "raise" }, fx: { kind: "exclaim", on: "TC", text: "À!" } },
+    ],
+    explain:
+      "Chó treo mèo đậy là người xưa dặn cách cất thức ăn, chứ ai bảo mày treo con chó lên trần nhà bao giờ! Chó thì không biết trèo, nên đồ ăn cứ treo lên cao là nó chịu. Còn mèo thì trèo giỏi lắm, có treo cao mấy cũng chẳng ăn thua, nên nồi cá phải đậy vung, úp lồng bàn cho kỹ. Nói gọn lại, có của thì phải biết giữ, mà mỗi thứ lại có một cách giữ riêng đấy!",
+    flipShot: "Cụ Đồ gõ quạt, chỉ vào giỏ thịt treo cao trên đầu con Vàng rồi chỉ vào nồi cá đậy kín trước mặt con Mướp",
+    example: {
+      shot: "Lớp học / văn phòng: điện thoại cài mật khẩu, tiền giấy tờ cất trong balo, cho mượn bút hay sạc thì ghi vào sổ đòi ngay",
+      lines: [
+        cd("Cứ lấy ngay chuyện đi học của mày mà xem. Tiền với giấy tờ thì cất vào ngăn có khóa kéo trong cặp. Còn cái bút, cục sạc cho bạn mượn thì nhớ đòi lại, chứ cho mượn rồi quên thì chẳng mấy hôm là hết sạch!"),
+      ],
+      stage: [
+        {
+          line: 0,
+          cut: true,
+          scene: { id: "classroom", text: "CÁCH\nGIỮ ĐỒ" },
+          camera: "wide",
+          cd: { x: 0.27, hand: null, arms: "point", expr: "neutral" },
+          tc: { x: 0.68, hand: null, arms: "down", expr: "smug", move: "idle" },
+          items: [],
+        },
+        { line: 0, at: 0.22, tc: { hand: null, back: "backpack", arms: "hips", expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
+        {
+          line: 0,
+          at: 0.58,
+          tc: { hand: { id: "paper", text: "SỔ ĐÒI ĐỒ\nCHO MƯỢN" }, arms: "raise", expr: "smug", move: "idle" },
+          fx: { kind: "exclaim", on: "TC" },
+        },
+        { line: 0, at: 0.84, camera: "CD", cd: { arms: "raise", expr: "happy" }, tc: { back: null }, fx: { kind: "sparkle", on: "CD" } },
       ],
     },
     punchline: {
-      shot: "TC kéo đĩa bánh bao về phía mình, rồi ôm gối đi ngủ trưa",
+      shot: "Trong bếp, giỏ thịt đã treo cao trước mặt con Vàng, nồi cá đậy kín trước mặt con Mướp; CĐ chỉ cái tủ lạnh bị dán bìa carton và quấn băng dính chữ X 'CẤM MỞ!', TC cười bảo để phòng người hay lục tủ ăn đêm",
       lines: [
-        tc("À, cháu hiểu rồi! Ăn thật no mới lo được việc lớn chứ gì. Thế ông cho cháu xin thêm mười cái bánh bao nữa nhé!"),
-        cd("Ừ, thế ăn xong mày định lo việc lớn gì đây?"),
-        tc("Dạ, việc lớn nhất buổi trưa ấy ạ... đi ngủ trưa!"),
+        tc("À, thế thì cháu hiểu rồi! Giỏ thịt cháu treo tít lên cao, còn nồi cá kho thì cháu đậy vung kín mít, con Mướp chịu chết luôn!"),
+        cd("Ừ, thế mới là biết nghe lời chứ! Ơ... thế cái tủ lạnh đằng kia, mày lấy bìa với băng dính dán chằng chịt vào làm gì hử?"),
+        tc("Dạ, trong ngăn mát có đĩa đùi gà rán phần của cháu. Con Vàng với con Mướp thì làm sao biết mở tủ lạnh... Cháu dán kỹ thế là để phòng có người đêm hôm hay dậy lục tủ ăn vụng đấy ông ạ!"),
       ],
       stage: [
-        // "À cháu hiểu rồi! Phải ăn thật no mới lo được việc lớn."
         {
           line: 0,
           cut: true,
           scene: "kitchen",
           camera: "wide",
-          cd: { x: 0.27, hand: "fan", arms: "down", expr: "neutral" },
-          tc: { x: 0.68, hand: "bun", arms: "hold", expr: "smug", move: "idle" },
-          items: [{ id: "dia", prop: "bun-plate", x: 0.45, on: "table" }],
+          cd: { x: 0.2, hand: "fan", arms: "down", expr: "neutral" },
+          tc: { x: 0.62, hand: null, back: null, arms: "raise", expr: "smug", move: "bounce" },
+          items: [
+            { id: "gio", prop: "gio-thit-treo", x: 0.38, scale: 0.85 },
+            { id: "vang", prop: "cho-vang", x: 0.36, scale: 0.78, front: true },
+            { id: "noi", prop: "rice-cooker", x: 0.48, on: "table" },
+            { id: "muop", prop: "meo-muop", x: 0.76, on: "table", scale: 0.75 },
+          ],
         },
-        // "Thế ông cho cháu ăn thêm mười cái bánh bao nữa nhé!": kéo đĩa về phía mình
-        { line: 0, at: 0.56, tc: { expr: "happy", move: "bounce" }, items: [{ id: "dia", prop: "bun-plate", x: 0.6, on: "table" }], fx: { kind: "hearts", on: "TC" } },
-        // "Ừ, thế ăn xong mày định lo việc lớn gì đây?"
-        { line: 1, camera: "CD", cd: { arms: "hips", expr: "confused" }, tc: { move: "idle" }, fx: { kind: "question", on: "CD" } },
-        // "Dạ, việc lớn nhất buổi trưa ấy ạ... đi ngủ trưa!"
+        { line: 0, at: 0.52, tc: { arms: "point", expr: "happy", move: "idle" }, fx: { kind: "sparkle", on: "TC" } },
+        { line: 1, camera: "CD", cd: { arms: "raise", expr: "happy" }, fx: { kind: "sparkle", on: "CD" } },
         {
-          line: 2,
-          cut: true,
-          scene: "home",
+          line: 1,
+          at: 0.32,
           camera: "wide",
-          tc: { hand: "pillow", arms: "hold2", expr: "happy", move: "idle" },
-          items: [],
-          fx: { kind: "question", on: "TC", text: "Zzz" },
+          cd: { arms: "point", expr: "confused" },
+          tc: { x: 0.56, expr: "smug" },
+          items: [
+            { id: "vang", prop: "cho-vang", x: 0.36, scale: 0.78, front: true },
+            { id: "noi", prop: "rice-cooker", x: 0.42, on: "table" },
+            { id: "tu", prop: { id: "fridge", text: "CẤM MỞ!" }, x: 0.86, scale: 1.1 },
+          ],
+          fx: { kind: "question", on: "CD" },
         },
-        { line: 2, at: 0.5, cd: { expr: "angry", arms: "up2", move: "tremble" }, fx: { kind: "anger", on: "CD" } },
-        { line: 2, at: 0.82, camera: "TC", fx: { kind: "question", on: "TC", text: "Zzz" } },
+        { line: 2, camera: "TC", tc: { arms: "hips", expr: "happy", move: "bounce" }, fx: { kind: "hearts", on: "TC" } },
+        { line: 2, at: 0.34, camera: "wide", tc: { arms: "shrug", expr: "smug", move: "idle" } },
+        { line: 2, at: 0.58, tc: { arms: "point", expr: "happy", move: "bounce" }, cd: { arms: "up2", expr: "shock" }, fx: { kind: "sweat", on: "CD" } },
+        { line: 2, at: 0.88, cd: { expr: "angry", move: "tremble" }, fx: { kind: "anger", on: "CD" } },
       ],
     },
   }),
@@ -611,12 +618,12 @@ export const TUAN_1 = [
       { line: 0, camera: "CD", cd: { arms: "hips", expr: "confused" }, tc: { move: "idle" }, fx: { kind: "question", on: "CD" } },
       { line: 1, camera: "wide", cd: { arms: "down", expr: "neutral" }, tc: { arms: "raise", expr: "smug", move: "bounce" } },
     ],
-    ask: "Đứng ngửa cổ dưới gốc sung cả buổi làm gì thế hử?",
+    ask: "Cái thằng này, đứng ngửa cổ dưới gốc sung cả buổi làm gì thế hử?",
     misread: {
       shot: "TC há miệng chờ mãi chỉ rơi một chiếc lá; TC giơ đơn đặt cơm ghi 'NÉM VÀO MỒM', cái bánh bao bay vào trúng mặt",
       lines: [
-        tc("Thì ông dạy há miệng chờ sung còn gì! Cháu há hai tiếng rồi, chẳng rơi quả nào, rơi đúng... một chiếc lá!"),
-        tc("Thế là cháu nâng cấp luôn, đặt cơm online, ghi chú dặn shipper ném thẳng vào mồm cho tiện!"),
+        tc("Thì ông dạy cháu là há miệng chờ sung còn gì! Cháu há miệng hai tiếng đồng hồ rồi mà chẳng có quả nào rơi cả, chỉ rơi đúng... một chiếc lá!"),
+        tc("Thế là cháu nâng cấp luôn, đặt bánh bao online rồi ghi chú dặn shipper ném thẳng cái bánh vào mồm cháu cho tiện!"),
         cd("Người ta giao hàng chứ có phải ném bóng rổ đâu mà ném trúng mồm mày!"),
       ],
       stage: [
@@ -680,13 +687,13 @@ export const TUAN_1 = [
       { line: 1, at: 0.93, tc: { expr: "happy", arms: "raise" }, fx: { kind: "exclaim", on: "TC", text: "À!" } },
     ],
     explain:
-      "Sung chín thì rụng thật, nhưng có rụng trúng mồm ai bao giờ! Câu này chê kẻ lười biếng, ỷ lại, chẳng chịu bỏ công, cứ ngồi chờ may mắn, hoặc chờ người khác làm sẵn cho mà hưởng!",
+      "Sung chín thì rụng thật, nhưng có rụng trúng mồm ai bao giờ! Câu này là để chê những kẻ lười biếng, ỷ lại, chẳng chịu bỏ công sức ra làm, cứ ngồi chờ may mắn hay chờ người khác làm sẵn cho mình hưởng. Nói gọn lại, muốn ăn sung thì phải tự đi mà hái!",
     example: {
       shot: "HỒI ỨC (TV đen trắng): đường làng, anh chàng lười nằm ngửa trên manh chiếu dưới gốc sung, há miệng; quả sung rơi chệch ra ngoài; người qua đường đội nón lá dùng chân đẩy quả sung vào miệng anh ta; anh lười ngậm sung, giơ nắm đấm chê 'LƯỜI THẾ!'",
       memory: { label: "TRUYỆN CƯỜI: HÁ MIỆNG CHỜ SUNG" },
       lines: [
-        cd("Như anh chàng lười trong truyện cười dân gian ấy. Nằm ngửa dưới gốc sung, há miệng chờ quả rụng vào, mà khổ nỗi quả nào cũng rơi chệch ra ngoài."),
-        cd("Có người đi qua, anh ta nhờ nhặt hộ bỏ vào mồm. Người kia lấy ngón chân kẹp quả sung nhét cho, thế mà anh ta còn chê người ta lười đấy!"),
+        cd("Cũng giống anh chàng lười trong truyện cười dân gian ấy. Anh ta nằm ngửa dưới gốc sung, há miệng chờ quả rụng vào, mà khổ nỗi quả nào cũng rơi chệch ra ngoài."),
+        cd("Thấy có người đi qua, anh ta liền nhờ người ta nhặt hộ rồi bỏ vào mồm cho. Người kia chẳng thèm cúi, lấy luôn ngón chân kẹp quả sung nhét vào, thế mà anh ta còn quay ra chê người ta lười đấy!"),
       ],
       // Anh chàng lười là đạo cụ nằm trên sàn; Cụ Đồ đóng người qua đường, Thằng Cháu đứng ngoài khung.
       stage: [
@@ -771,9 +778,9 @@ export const TUAN_1 = [
     punchline: {
       shot: "TC bê nguyên chậu cây sung về, rồi ngửa cổ há miệng chờ Cụ Đồ hái và đút",
       lines: [
-        tc("Cháu hiểu rồi! Không chờ sung rụng nữa, cháu tự đi lấy, bê cả cây về đây này!"),
-        cd("Ơ... thế giờ mày định làm gì?"),
-        tc("Giờ ông hái hộ cháu, rửa sạch rồi đút tận mồm nhé. Cháu há sẵn rồi đây!"),
+        tc("Cháu hiểu rồi! Cháu không thèm chờ sung rụng nữa, mà tự đi lấy luôn, bê cả cây về đây này!"),
+        cd("Cái thằng này! Bê cả cây về đây rồi thì mày định làm gì nữa hử?"),
+        tc("Giờ ông hái hộ cháu, rửa sạch rồi đút tận mồm cho cháu nhé. Cháu há sẵn mồm rồi đây!"),
       ],
       stage: [
         // "Cháu hiểu rồi! Không chờ sung rụng nữa, cháu tự đi lấy"
@@ -814,7 +821,7 @@ export const TUAN_1 = [
     question: "Việc gần nhất bạn 'ăn xổi' cho kịp hạn, rồi sau đó phải làm lại từ đầu là gì?",
     hook: {
       shot: "TC dựng lều vải nhỏ giữa phòng khách, cầm đồng hồ báo thức, ôm gối chạy qua chạy lại",
-      lines: [tc("Hết 5 phút rồi! Chuyển nhà sang gầm bàn ăn thôi!")],
+      lines: [tc("Hết giờ rồi! Chuyển nhà sang gầm bàn ăn thôi!")],
       stage: [
         // Lều vải giữa phòng khách, đồng hồ báo thức reo
         {
@@ -822,7 +829,7 @@ export const TUAN_1 = [
           scene: "home",
           camera: "wide",
           cd: { x: 0.2, expr: "confused" },
-          tc: { x: 0.56, hand: { id: "alarm-clock", text: "5'" }, arms: "hold", expr: "shock", move: "shake" },
+          tc: { x: 0.56, hand: { id: "alarm-clock", text: "9:00" }, arms: "hold", expr: "shock", move: "shake" },
           items: [{ id: "leu", prop: "tent", x: 0.84 }],
         },
         // "Chuyển nhà sang gầm bàn ăn thôi!": ôm gối chạy
@@ -833,12 +840,12 @@ export const TUAN_1 = [
       { line: 0, camera: "CD", cd: { arms: "hips", expr: "angry" }, tc: { move: "idle" }, fx: { kind: "question", on: "CD" } },
       { line: 1, camera: "wide", cd: { arms: "down", expr: "neutral" }, tc: { x: 0.64, hand: null, arms: "raise", expr: "smug", move: "bounce" } },
     ],
-    ask: "Nhà cửa đàng hoàng, mày cứ chui lủi thế là sao?",
+    ask: "Nhà cửa đàng hoàng, mày cứ chui lủi khắp nơi thế là sao hử?",
     misread: {
       shot: "TC chấm quả dưa chuột vào muối đếm 1-2-3 rồi ăn luôn, sau đó bê gối chạy theo tiếng đồng hồ",
       lines: [
-        tc("Dưa chuột cháu chấm muối đếm đúng 3 giây là chén luôn, thế mới gọi là ăn xổi!"),
-        tc("Còn 'ở thì' là cứ mỗi giờ cháu ở một góc! 8 giờ nằm sofa, 9 giờ chui gầm bàn, 10 giờ ra hiên đứng!"),
+        tc("Cháu chấm dưa chuột vào muối, đếm đúng 3 giây là chén luôn, thế mới gọi là ăn xổi chứ!"),
+        tc("Còn 'ở thì' là cứ mỗi giờ cháu lại ở một góc! Mới nằm sofa đấy, sang giờ sau đã chui gầm bàn, rồi lại ra hiên đứng!"),
         cd("Mày tập làm du mục ngay trong phòng khách đấy à?!"),
       ],
       stage: [
@@ -869,9 +876,9 @@ export const TUAN_1 = [
           ],
         },
         // "8 giờ ở sofa, 9 giờ chui gầm bàn"
-        { line: 1, at: 0.45, tc: { x: 0.74, hand: { id: "alarm-clock", text: "9:00" }, move: "bounce" } },
+        { line: 1, at: 0.55, tc: { x: 0.74, hand: { id: "alarm-clock", text: "9:00" }, move: "bounce" } },
         // "10 giờ ra hiên đứng!"
-        { line: 1, at: 0.8, tc: { x: 0.5, hand: { id: "alarm-clock", text: "10:00" } }, cd: { expr: "shock" }, fx: { kind: "question", on: "CD" } },
+        { line: 1, at: 0.82, tc: { x: 0.5, hand: { id: "alarm-clock", text: "10:00" } }, cd: { expr: "shock" }, fx: { kind: "question", on: "CD" } },
         // "Mày tập làm du mục ngay trong phòng khách"
         { line: 2, camera: "CD", cd: { arms: "point", expr: "angry" }, tc: { x: 0.62, move: "idle" }, fx: { kind: "anger", on: "CD" } },
         { line: 2, at: 0.6, camera: "wide", tc: { expr: "shock" }, fx: { kind: "sweat", on: "TC" } },
@@ -893,14 +900,14 @@ export const TUAN_1 = [
       { line: 1, at: 0.95, tc: { expr: "happy", arms: "raise" }, fx: { kind: "exclaim", on: "TC", text: "À!" } },
     ],
     explain:
-      "Ăn xổi là như cà muối xổi đấy, muối vội để ăn ngay. Ở thì là ở tạm một thời thôi. Câu này chê lối sống tạm bợ, làm gì cũng qua quýt cho xong, chỉ cốt lợi trước mắt, chẳng tính gì chuyện lâu dài!",
+      "Ăn xổi là ăn như cà muối xổi đấy, muối vội rồi ăn ngay. Còn ở thì là ở tạm một thời thôi. Nói gọn lại, câu này chê lối sống tạm bợ, làm gì cũng qua quýt cho xong, chỉ cốt lợi trước mắt chứ chẳng tính gì chuyện lâu dài!",
     flipShot: "Cụ Đồ ngồi phịch xuống ghế, tịch thu cái đồng hồ báo thức",
     example: {
       shot: "HỒI ỨC (TV đen trắng): đồng cỏ, heo anh dựng vội nhà rơm, nhà gỗ rồi nhảy cẫng đi chơi, heo út khuân gạch xây nhà gạch; sói đến thổi bay nhà rơm, đổ nhà gỗ, heo anh chạy mất; sói thổi nhà gạch đến hụt hơi, nhà vẫn đứng vững",
       memory: { label: "TRUYỆN CỔ TÍCH: BA CHÚ HEO CON" },
       lines: [
-        cd("Như truyện Ba chú heo con ấy. Hai anh lớn dựng vội nhà rơm, nhà gỗ cho xong để còn rong chơi, chỉ có chú út là chịu khó xây nhà gạch."),
-        cd("Sói đến, phù một hơi là bay nhà rơm, đổ nhà gỗ, hai anh chạy tóe khói sang nhà em. Riêng nhà gạch thì sói thổi đến hụt cả hơi, nó vẫn đứng vững!"),
+        cd("Cháu có nhớ truyện Ba chú heo con không? Hai anh lớn dựng vội nhà rơm, nhà gỗ cho xong để còn rong chơi, chỉ có chú út là chịu khó xây nhà gạch."),
+        cd("Sói đến, chỉ phù một hơi là nhà rơm bay mất, phù thêm hơi nữa là nhà gỗ đổ sập, hai anh chạy tóe khói sang nhà em út. Riêng nhà gạch thì sói thổi đến hụt cả hơi mà nhà vẫn đứng vững như thường!"),
       ],
       // Thằng Cháu đóng heo anh; Cụ Đồ đóng heo út, rồi đóng sói.
       stage: [
@@ -961,7 +968,7 @@ export const TUAN_1 = [
         // "là bay nhà rơm"
         {
           line: 1,
-          at: 0.19,
+          at: 0.15,
           tc: { expr: "shock", move: "tremble" },
           items: [
             { id: "rom", prop: "heo-straw-ruin", x: 0.4, scale: 1.15 },
@@ -969,21 +976,21 @@ export const TUAN_1 = [
           ],
         },
         // "đổ nhà gỗ"
-        { line: 1, at: 0.27, cd: { x: 0.3, arms: "up2", move: "shake" }, fx: { kind: "bop", on: "CD", text: "PHÙ!" } },
+        { line: 1, at: 0.25, cd: { x: 0.3, arms: "up2", move: "shake" }, fx: { kind: "bop", on: "CD", text: "PHÙ!" } },
         {
           line: 1,
-          at: 0.31,
+          at: 0.35,
           items: [
             { id: "rom", prop: "heo-straw-ruin", x: 0.4, scale: 1.15 },
             { id: "go", prop: "heo-wood-ruin", x: 0.76, scale: 1.15 },
           ],
         },
         // "hai anh chạy tóe khói sang nhà em"
-        { line: 1, at: 0.4, cd: { arms: "hips", expr: "smug", move: "idle" }, tc: { x: 1.35, move: "bounce" }, fx: { kind: "sweat", on: "TC" } },
+        { line: 1, at: 0.45, cd: { arms: "hips", expr: "smug", move: "idle" }, tc: { x: 1.35, move: "bounce" }, fx: { kind: "sweat", on: "TC" } },
         // "Riêng nhà gạch": cả nhà heo trốn trong nhà gạch
         {
           line: 1,
-          at: 0.61,
+          at: 0.63,
           cut: true,
           camera: "wide",
           cd: { x: 0.18, arms: "hips", expr: "angry", move: "idle" },
@@ -993,9 +1000,9 @@ export const TUAN_1 = [
         // "thì sói thổi"
         { line: 1, at: 0.75, cd: { arms: "up2", expr: "shock", move: "shake" }, fx: { kind: "bop", on: "CD", text: "PHÙÙÙ!" } },
         // "đến hụt hơi"
-        { line: 1, at: 0.83, cd: { arms: "down", expr: "sad", move: "tremble" }, fx: { kind: "sweat", on: "CD" } },
+        { line: 1, at: 0.8, cd: { arms: "down", expr: "sad", move: "tremble" }, fx: { kind: "sweat", on: "CD" } },
         // "vẫn đứng vững!"
-        { line: 1, at: 0.92, tc: { arms: "raise", expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
+        { line: 1, at: 0.9, tc: { arms: "raise", expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
       ],
     },
     punchline: {
@@ -1031,7 +1038,214 @@ export const TUAN_1 = [
   }),
 
   makeEpisode({
-    day: 6,
+    day: 7,
+    week,
+    theme,
+    idiom: "Có thực mới vực được đạo",
+    meaning: "Phải đủ ăn đủ mặc mới giữ được đạo lý, lo được việc lớn; muốn người theo mình phải lo cái ăn cho họ.",
+    question: "Bạn có làm việc nổi khi đang đói không, hay phải ăn no mới 'khởi động' được?",
+    hook: {
+      shot: "Sân sau, TC đứng sát mép vực, ném từng cái bánh bao xuống, bên cạnh là đĩa bánh bao",
+      lines: [tc("Cái thứ bốn mươi chín này... Sắp lấp đầy được cái vực rồi ông ơi!")],
+      stage: [
+        // Cầm bánh bao, đứng cạnh đĩa bánh
+        {
+          cut: true,
+          scene: "yard",
+          camera: "wide",
+          cd: { x: 0.2, expr: "confused" },
+          tc: { x: 0.6, hand: "bun", arms: "raise", expr: "smug", move: "idle" },
+          items: [{ id: "dia", prop: "bun-plate", x: 0.4 }],
+        },
+        // Ném bánh bao bay ra khỏi khung
+        {
+          line: 0,
+          at: 0.3,
+          tc: { hand: null, arms: "hit" },
+          items: [
+            { id: "dia", prop: "bun-plate", x: 0.4 },
+            { id: "nem", prop: "bun", x: 0.72 },
+          ],
+        },
+        {
+          line: 0,
+          at: 0.45,
+          items: [
+            { id: "dia", prop: "bun-plate", x: 0.4 },
+            { id: "nem", prop: "bun", x: 1.3 },
+          ],
+          fx: { kind: "exclaim", on: "TC", text: "49!" },
+        },
+        // "Cố lên, sắp lấp đầy được cái vực rồi ông ơi!"
+        { line: 0, at: 0.7, camera: "TC", tc: { arms: "up2", expr: "happy", move: "bounce" } },
+      ],
+    },
+    titleStage: [
+      { line: 0, camera: "CD", cd: { arms: "hips", expr: "angry" }, tc: { move: "idle" }, fx: { kind: "question", on: "CD" } },
+      { line: 1, camera: "wide", cd: { arms: "down", expr: "neutral" }, tc: { arms: "raise", expr: "smug", move: "bounce" } },
+    ],
+    ask: "Bánh bao nóng hổi không ăn, mày đem ném xuống vực làm trò gì thế hử?",
+    answer: "Thì chính ông dạy cháu đấy thôi, có thực mới vực được đạo mà ông!",
+    misread: {
+      shot: "TC xếp bánh bao thành cây cầu bắc qua vực, đến cái thứ năm mươi thì đói quá ngồi ăn luôn cả cầu",
+      lines: [
+        tc("Ông xem nhé, 'thực' là đồ ăn, 'vực' là cái vực sâu hoắm, còn 'đạo' là đường đi! Lấy đồ ăn lấp kín vực, bắc thành cầu thì mới có đường mà đi chứ ông!"),
+        tc("Mỗi tội cứ lấp đến cái thứ năm mươi là bụng cháu lại sôi ùng ục, thế là ngồi chén sạch cả cầu, giờ lại phải lấp từ đầu!"),
+        cd("Ối giời ơi! Vừa xây vừa chén thế thì đến Tết sang năm mày cũng chẳng qua nổi cái vực ấy đâu!"),
+      ],
+      stage: [
+        // "Thì 'thực' là đồ ăn, 'vực' là cái vực thẳm, còn 'đạo' là con đường!"
+        { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "idle" }, items: [] },
+        { line: 0, at: 0.35, camera: "wide", cd: { expr: "confused" }, tc: { expr: "shock" }, fx: { kind: "sweat", on: "TC" } },
+        // "Có đồ ăn lấp kín vực"
+        { line: 0, at: 0.56, tc: { hand: "bun-plate", arms: "hold2", expr: "happy", move: "bounce" } },
+        // "thì mới có đường mà đi chứ ạ!": xếp bánh bao thành cầu
+        {
+          line: 0,
+          at: 0.8,
+          tc: { hand: null, arms: "up2", move: "jump" },
+          items: [
+            { id: "c1", prop: "bun", x: 0.8 },
+            { id: "c2", prop: "bun", x: 0.88 },
+            { id: "c3", prop: "bun", x: 0.96 },
+          ],
+          fx: { kind: "sparkle", on: "TC" },
+        },
+        // "Khổ nỗi cứ lấp đến cái thứ năm mươi là cháu lại đói bụng quá"
+        { line: 1, camera: "TC", tc: { arms: "down", expr: "sad", move: "tremble" }, fx: { kind: "sweat", on: "TC" } },
+        // "thế là ngồi chén sạch cả cầu"
+        { line: 1, at: 0.48, camera: "wide", tc: { hand: "bun", arms: "hold", expr: "happy", move: "bounce" }, items: [], fx: { kind: "hearts", on: "TC" } },
+        // "giờ lại phải lấp lại từ đầu!"
+        { line: 1, at: 0.78, tc: { hand: null, arms: "shrug", expr: "confused", move: "idle" }, fx: { kind: "question", on: "TC" } },
+        // "Ối giời ơi! Mày vừa xây cầu vừa ăn thế này"
+        { line: 2, camera: "CD", cd: { arms: "point", expr: "angry", move: "shake" }, fx: { kind: "anger", on: "CD" } },
+        // "thì đến Tết sang năm cũng chẳng qua nổi cái vực!"
+        { line: 2, at: 0.6, camera: "wide", cd: { move: "idle" }, tc: { expr: "shock" }, fx: { kind: "sweat", on: "TC" } },
+      ],
+    },
+    flipStage: [
+      { line: 0, camera: "wide", cd: { x: 0.42, hand: "fan", arms: "hit", expr: "angry", move: "idle" }, tc: { move: "idle", arms: "down" } },
+      { line: 0, at: 0.3, fx: { kind: "bop", on: "TC" }, tc: { expr: "shock", move: "tremble" } },
+      // "Chữ 'thực' đúng là cái ăn": giơ cái bánh bao
+      { line: 1, camera: "CD", cd: { x: 0.3, hand: "bun", arms: "raise", expr: "neutral", move: "idle" }, tc: { move: "idle", expr: "confused" }, items: [] },
+      // "nhưng 'vực' là nâng đỡ cho đứng vững"
+      { line: 1, at: 0.12, cd: { hand: null, arms: "up2" } },
+      // "còn 'đạo' là đạo lý làm người."
+      { line: 1, at: 0.45, camera: "wide", cd: { hand: "fan", arms: "point", expr: "neutral" } },
+      // "Có ăn có mặc thì người ta mới giữ được đạo lý"
+      { line: 1, at: 0.62, cd: { arms: "wave", expr: "happy" }, tc: { expr: "neutral" } },
+      // "mới đủ sức làm việc lớn."
+      { line: 1, at: 0.8, cd: { arms: "raise" }, fx: { kind: "sparkle", on: "CD" } },
+      // "Muốn ai theo mình, cũng phải lo cho họ cái no trước đã!": chìa bánh bao cho Thằng Cháu
+      { line: 1, at: 0.88, cd: { hand: "bun", arms: "point", expr: "smug" }, tc: { expr: "happy" }, fx: { kind: "hearts", on: "TC" } },
+      { line: 1, at: 0.96, tc: { expr: "happy", arms: "raise" }, fx: { kind: "exclaim", on: "TC", text: "À!" } },
+    ],
+    explain:
+      "'Thực' thì đúng là cái ăn, nhưng 'vực' ở đây là đỡ cho người ta đứng vững, như mình vực người ốm dậy ấy, còn 'đạo' là đạo lý làm người. Nói gọn lại, bụng có no thì người ta mới giữ được đạo lý, mới đủ sức lo việc lớn!",
+    flipShot: "Cụ Đồ gõ quạt, cầm cái bánh bao giơ lên giải thích rồi đưa cho Thằng Cháu",
+    example: {
+      shot: "HỒI ỨC (TV đen trắng): làng Phù Đổng, bà con nghe tin giặc Ân, cậu bé Gióng giơ tay xin đi đánh giặc, ôm bát cơm ăn mãi không no; bà con bưng thúng gạo tới, nong cơm nong cà bày đầy sân; Gióng vươn vai thành tráng sĩ; bãi chiến chân núi, tráng sĩ cưỡi ngựa sắt phun lửa, vung roi sắt đánh giặc Ân chạy mất",
+      memory: { label: "TRUYỀN THUYẾT: THÁNH GIÓNG" },
+      lines: [
+        cd("Cứ như chuyện Thánh Gióng ấy. Nghe tin giặc Ân kéo đến, cậu bé lên ba bỗng đòi đi đánh giặc. Từ hôm ấy cậu lớn nhanh như thổi, ăn mãi chẳng no, cả làng phải góp gạo nuôi, nào bảy nong cơm, ba nong cà!"),
+        cd("Được ăn no, có đủ sức rồi, Gióng mới vươn vai thành tráng sĩ, cưỡi ngựa sắt đánh tan giặc Ân. Có thực mới vực được đạo là thế đấy!"),
+      ],
+      // Thằng Cháu đóng Gióng; Cụ Đồ đóng bà con trong làng, rồi đóng giặc Ân.
+      stage: [
+        // "Như chuyện Thánh Gióng ngày xưa ấy": làng Phù Đổng
+        {
+          line: 0,
+          cut: true,
+          scene: "giong-village",
+          camera: "wide",
+          cd: { role: "giong-villager", x: 0.24, hand: null, back: null, head: null, face: null, arms: "down", expr: "neutral", move: "idle" },
+          tc: { role: "giong-boy", x: 0.76, hand: null, back: null, head: null, face: null, arms: "down", expr: "neutral", move: "idle" },
+          items: [],
+        },
+        // "nghe tin có giặc Ân"
+        { line: 0, at: 0.16, cd: { arms: "up2", expr: "shock", move: "tremble" }, fx: { kind: "exclaim", on: "CD", text: "GIẶC ÂN!" } },
+        // "cậu bé lên ba xin đi đánh giặc"
+        { line: 0, at: 0.33, camera: "TC", cd: { arms: "down", move: "idle" }, tc: { arms: "raise", expr: "angry", move: "jump" }, fx: { kind: "exclaim", on: "TC", text: "CON ĐI!" } },
+        // "nhưng ăn mãi không no": ôm bát cơm ăn
+        { line: 0, at: 0.52, camera: "wide", cd: { expr: "neutral" }, tc: { hand: "bowl", arms: "hold", expr: "happy", move: "bounce" } },
+        { line: 0, at: 0.62, tc: { expr: "sad", move: "idle" }, fx: { kind: "exclaim", on: "TC", text: "ĐÓI!" } },
+        // "cả làng phải góp gạo thổi cơm nuôi": bà con bưng thúng gạo tới
+        { line: 0, at: 0.7, cd: { x: 0.28, hand: "giong-rice-basket", arms: "hold2", expr: "happy" }, fx: { kind: "hearts", on: "CD" } },
+        // "bảy nong cơm, ba nong cà!"
+        {
+          line: 0,
+          at: 0.85,
+          cd: { hand: null, arms: "point" },
+          tc: { expr: "happy", move: "bounce" },
+          items: [
+            { id: "com", prop: "giong-nong-com", x: 0.46, scale: 0.85 },
+            { id: "ca", prop: "giong-nong-ca", x: 0.6, scale: 0.75, front: true },
+          ],
+          fx: { kind: "sparkle", on: "TC" },
+        },
+
+        // "Nhờ ăn đủ no, đủ sức": xoa bụng
+        { line: 1, camera: "TC", tc: { hand: null, arms: "hips", expr: "happy", move: "idle" }, fx: { kind: "hearts", on: "TC" } },
+        // "Gióng mới vươn vai"
+        { line: 1, at: 0.24, camera: "wide", tc: { arms: "up2", expr: "angry", move: "jump" }, fx: { kind: "sparkle", on: "TC" } },
+        // "thành tráng sĩ"
+        { line: 1, at: 0.36, cut: true, tc: { role: "giong-hero", arms: "hips", expr: "smug", move: "idle" }, cd: { expr: "shock", arms: "up2" }, fx: { kind: "bop", on: "TC", text: "VÙNG!" } },
+        // "cưỡi ngựa sắt": bãi chiến chân núi
+        {
+          line: 1,
+          at: 0.47,
+          cut: true,
+          scene: "giong-battle",
+          camera: "wide",
+          tc: { x: 0.26, hand: "giong-iron-rod", arms: "raise", expr: "angry", move: "idle" },
+          cd: { role: "giong-enemy", x: 0.82, hand: null, arms: "hips", expr: "angry", move: "idle" },
+          items: [{ id: "ngua", prop: "giong-iron-horse", x: 0.26, scale: 0.85, front: true }],
+        },
+        // "đánh tan giặc Ân đấy thôi!"
+        { line: 1, at: 0.57, tc: { x: 0.4, arms: "hit" }, items: [{ id: "ngua", prop: "giong-iron-horse", x: 0.4, scale: 0.85, front: true }], cd: { expr: "shock", move: "tremble" }, fx: { kind: "bop", on: "CD", text: "BỐP!" } },
+        { line: 1, at: 0.75, tc: { arms: "raise", expr: "happy" }, cd: { x: 1.4, arms: "up2", move: "idle" }, fx: { kind: "sparkle", on: "TC" } },
+      ],
+    },
+    punchline: {
+      shot: "TC kéo đĩa bánh bao về phía mình, rồi ôm gối đi ngủ trưa",
+      lines: [
+        tc("À, cháu hiểu rồi! Ăn thật no mới lo được việc lớn chứ gì. Thế ông cho cháu thêm mười cái bánh nữa nhé!"),
+        cd("Thế ăn xong thì mày định lo việc lớn gì đây hử?"),
+        tc("Dạ, việc lớn nhất của buổi trưa ấy ạ... là đánh một giấc thật say!"),
+      ],
+      stage: [
+        // "À cháu hiểu rồi! Phải ăn thật no mới lo được việc lớn."
+        {
+          line: 0,
+          cut: true,
+          scene: "kitchen",
+          camera: "wide",
+          cd: { x: 0.27, hand: "fan", arms: "down", expr: "neutral" },
+          tc: { x: 0.68, hand: "bun", arms: "hold", expr: "smug", move: "idle" },
+          items: [{ id: "dia", prop: "bun-plate", x: 0.45, on: "table" }],
+        },
+        // "Thế ông cho cháu ăn thêm mười cái bánh bao nữa nhé!": kéo đĩa về phía mình
+        { line: 0, at: 0.56, tc: { expr: "happy", move: "bounce" }, items: [{ id: "dia", prop: "bun-plate", x: 0.6, on: "table" }], fx: { kind: "hearts", on: "TC" } },
+        // "Ừ, thế ăn xong mày định lo việc lớn gì đây?"
+        { line: 1, camera: "CD", cd: { arms: "hips", expr: "confused" }, tc: { move: "idle" }, fx: { kind: "question", on: "CD" } },
+        // "Dạ, việc lớn nhất buổi trưa ấy ạ... đi ngủ trưa!"
+        {
+          line: 2,
+          cut: true,
+          scene: "home",
+          camera: "wide",
+          tc: { hand: "pillow", arms: "hold2", expr: "happy", move: "idle" },
+          items: [],
+          fx: { kind: "question", on: "TC", text: "Zzz" },
+        },
+        { line: 2, at: 0.5, cd: { expr: "angry", arms: "up2", move: "tremble" }, fx: { kind: "anger", on: "CD" } },
+        { line: 2, at: 0.82, camera: "TC", fx: { kind: "question", on: "TC", text: "Zzz" } },
+      ],
+    },
+  }),
+
+  makeEpisode({
+    day: 8,
     week,
     theme,
     idiom: "Ăn cơm nhà vác tù và hàng tổng",
@@ -1063,7 +1277,7 @@ export const TUAN_1 = [
       shot: "TC ăn xong bát cơm, ra sân ôm chồng bát và tờ 'ĐƠN HÀNG CẢ PHỐ'; cắt về phòng khách, TC lại đẩy tủ lạnh",
       lines: [
         tc("Ăn cơm nhà xong là phải đi vác hàng tổng, tức là khuân hàng cho cả tổng kho, miễn phí nhé!"),
-        tc("Còn 'tù và' thì chắc là cái tủ và... cái gì đấy. Thôi, cháu cứ vác cái tủ đi trước!"),
+        tc("Còn 'tù và' thì chắc là cái tủ và... cái gì đấy. Thôi, cháu cứ vác cái tủ đi trước đã!"),
         cd("Mày vác tủ lạnh đi, tối nay ông ướp cá vào túi áo à?!"),
       ],
       stage: [
@@ -1129,11 +1343,11 @@ export const TUAN_1 = [
       { line: 1, at: 0.94, tc: { expr: "happy", arms: "raise" }, fx: { kind: "exclaim", on: "TC", text: "À!" } },
     ],
     explain:
-      "Tù và là cái kèn sừng trâu hoặc vỏ ốc đấy. Ngày xưa anh mõ phải thổi tù và báo việc làng khắp tổng, mà tổng là nhiều làng gộp lại, thế mà chẳng ai trả công. Câu này trách người lo việc chung, việc người còn hăng hơn việc nhà, tốn công mà chẳng được gì.",
+      "Tù và là cái kèn sừng trâu hoặc vỏ ốc đấy. Ngày xưa, người vác tù và phải đi khắp tổng, thổi lên để báo việc chung cho mọi người. Mà tổng thì rộng lắm, nhiều làng gộp lại cơ. Vậy mà chẳng được trả công gì, cơm vẫn phải ăn cơm nhà mình. Nói gọn lại, câu này trách những người lo việc chung, lo việc người khác còn hăng hơn lo việc nhà mình, tốn công mà chẳng được gì.",
     example: {
       shot: "Văn phòng: TC đặt trà sữa, nhắc sinh nhật, sửa máy in cho cả phòng",
       lines: [
-        cd("Như ở công ty ấy, mày tự nhận đặt trà sữa, nhắc sinh nhật, sửa máy in cho cả phòng. Lương chẳng thêm đồng nào, được cái ai cũng quý. Miễn là việc của mình vẫn xong đấy!"),
+        cd("Cũng như ở công ty ấy, mày tự nhận đặt trà sữa, nhắc sinh nhật, sửa máy in cho cả phòng. Lương thì chẳng thêm đồng nào, mà việc của mình lại còn dồn đống. Thế là vác tù và hàng tổng đấy!"),
       ],
       stage: [
         // "Như ở công ty, mày tự nhận đặt trà sữa"
@@ -1152,9 +1366,9 @@ export const TUAN_1 = [
         { line: 0, at: 0.38, tc: { hand: null, arms: "up2", move: "jump" }, fx: { kind: "sweat", on: "TC" } },
         // "Lương không thêm đồng nào"
         { line: 0, at: 0.55, camera: "TC", tc: { arms: "shrug", expr: "sad", move: "idle" }, fx: { kind: "question", on: "TC", text: "+0Đ" } },
-        // "nhưng ai cũng quý"
-        { line: 0, at: 0.72, camera: "wide", tc: { expr: "happy" }, cd: { expr: "happy" }, fx: { kind: "hearts", on: "TC" } },
-        // "Miễn là việc mình vẫn xong!"
+        // "mà việc của mình lại còn dồn đống"
+        { line: 0, at: 0.72, camera: "wide", tc: { expr: "shock" }, cd: { expr: "angry" }, fx: { kind: "sweat", on: "TC" } },
+        // "Thế là vác tù và hàng tổng đấy!"
         { line: 0, at: 0.86, camera: "CD", cd: { arms: "raise", expr: "neutral" }, fx: { kind: "exclaim", on: "CD" } },
       ],
     },
@@ -1163,7 +1377,7 @@ export const TUAN_1 = [
       lines: [
         tc("Cháu hiểu rồi! Từ mai cháu nhận việc chung cho cả xóm luôn!"),
         cd("Ngoan! Việc gì nào?"),
-        tc("Thổi kèn báo thức cả xóm lúc 5 giờ sáng ạ! Miễn phí, mà chẳng ai nhờ!"),
+        tc("Thổi kèn báo thức cả xóm lúc 5 giờ sáng ạ! Miễn phí hẳn hoi, mà cũng chẳng ai nhờ cháu cả!"),
       ],
       stage: [
         // "Cháu hiểu rồi! Từ mai cháu nhận việc chung"
@@ -1192,221 +1406,6 @@ export const TUAN_1 = [
         // "Miễn phí, không ai nhờ ạ!"
         { line: 2, at: 0.75, camera: "TC", tc: { expr: "smug", move: "bounce" } },
         { line: 2, at: 0.9, camera: "wide", cd: { expr: "angry", move: "tremble" }, fx: { kind: "anger", on: "CD" } },
-      ],
-    },
-  }),
-
-  makeEpisode({
-    day: 7,
-    week,
-    theme,
-    idiom: "Chó treo mèo đậy",
-    meaning: "Có của phải biết cất giữ cẩn thận, cảnh giác kẻ gian, và phòng mỗi thứ đúng cách của nó.",
-    question: "Đồ gì của bạn hay bị 'mượn mà không trả' nhất: sạc điện thoại, ô hay hộp cơm trong tủ lạnh?",
-    hook: {
-      shot: "Phòng khách, con Vàng bị buộc đai vải treo lủng lẳng từ trần nhà xuống, con Mướp bị chụp lồng bàn tre nhưng thò đầu ra ngoài; TC hai tay giữ dây kéo",
-      lines: [tc("Ông ơi ra giữ hộ cháu sợi dây với! Con Vàng dạo này béo ú, cháu kéo muốn đứt cả hơi mới lên được đấy!")],
-      stage: [
-        // Con Vàng treo lủng lẳng giữa nhà, con Mướp bị úp lồng bàn góc phải
-        {
-          cut: true,
-          scene: "home",
-          camera: "wide",
-          cd: { x: 0.18, expr: "shock" },
-          tc: { x: 0.64, arms: "up2", expr: "smug", move: "bounce" },
-          items: [
-            { id: "vang", prop: { id: "cho-vang-treo", text: "GÂU?!" }, x: 0.44, scale: 0.92 },
-            { id: "muop", prop: { id: "meo-muop-day", text: "MEO!" }, x: 0.84, scale: 0.82 },
-          ],
-        },
-        // "cháu kéo muốn đứt cả hơi mới lên được đấy!"
-        { line: 0, at: 0.52, camera: "TC", tc: { arms: "raise", expr: "happy", move: "idle" }, fx: { kind: "sweat", on: "TC" } },
-      ],
-    },
-    titleStage: [
-      { line: 0, camera: "CD", cd: { expr: "angry", arms: "hips" }, tc: { move: "idle" }, fx: { kind: "anger", on: "CD" } },
-      { line: 1, camera: "wide", cd: { arms: "down", expr: "confused" }, tc: { arms: "raise", expr: "smug", move: "bounce" } },
-    ],
-    ask: "Ơ kìa cái thằng này! Ông bảo mày ở nhà trông mâm cơm, làm sao lại lôi chó mèo ra hành hạ thế kia?",
-    answer: "Đâu có, cháu hành hạ gì đâu! Cháu làm đúng lời ông dặn đấy chứ, Chó treo mèo đậy ạ!",
-    misread: {
-      shot: "TC khoe con Mướp đã bị úp lồng bàn thì sau lưng TC con Mướp lách ra chạy vào bếp; TC quay sang khoe con Vàng đang treo thì con Vàng giãy đứt dây rơi xuống đất rồi phóng theo vào bếp; hai ông cháu chạy vào bếp thấy chó đang gặm thịt dưới đất, mèo ngồi trên bàn chén sạch đĩa cá kho",
-      lines: [
-        tc("Ông xem này, con Mướp đang nằm ngủ, cháu úp luôn cái lồng bàn lên cho kín. Thế là xong vụ 'mèo đậy'!"),
-        tc("Còn con Vàng thì cháu buộc võng kéo tít lên cao thế này... Ơ kìa, nó giãy đứt cả dây rồi! Vàng ơi đứng lại! Sao hai đứa phóng hết vào bếp thế kia?!"),
-        cd("Ối giời ơi là giời! Mày treo với đậy kiểu ấy thì hỏng bét rồi! Vừa sổng vào bếp là con Vàng ngoạm ngay miếng thịt dưới đất, còn con Mướp nhảy tót lên bàn chén sạch đĩa cá kho kia kìa!"),
-      ],
-      stage: [
-        {
-          line: 0,
-          camera: "wide",
-          cd: { expr: "confused" },
-          tc: { x: 0.62, arms: "point", expr: "smug", move: "idle" },
-          items: [
-            { id: "vang", prop: "cho-vang-treo", x: 0.42, scale: 0.92 },
-            { id: "muop", prop: { id: "meo-muop-day", text: "MEO!" }, x: 0.84, scale: 0.82 },
-          ],
-        },
-        {
-          line: 0,
-          at: 0.6,
-          tc: { arms: "hips", expr: "happy", move: "bounce" },
-          items: [
-            { id: "vang", prop: "cho-vang-treo", x: 0.42, scale: 0.92 },
-            { id: "muop", prop: { id: "meo-muop", text: "MEO!" }, x: 0.86, scale: 0.85 },
-          ],
-          fx: { kind: "sparkle", on: "TC" },
-        },
-        {
-          line: 0,
-          at: 0.82,
-          items: [
-            { id: "vang", prop: "cho-vang-treo", x: 0.42, scale: 0.92 },
-            { id: "muop", prop: "meo-muop", x: 1.3, scale: 0.85 },
-          ],
-        },
-        {
-          line: 1,
-          camera: "wide",
-          tc: { x: 0.62, arms: "raise", expr: "smug", move: "idle" },
-          items: [{ id: "vang", prop: { id: "cho-vang-treo", text: "GÂU!" }, x: 0.44, scale: 0.92 }],
-        },
-        {
-          line: 1,
-          at: 0.38,
-          cd: { expr: "shock", arms: "up2" },
-          tc: { expr: "shock", arms: "up2", move: "jump" },
-          items: [{ id: "vang", prop: { id: "cho-vang", text: "GÂU!" }, x: 0.44, scale: 0.9 }],
-          fx: { kind: "bop", on: "TC", text: "PHỰT!" },
-        },
-        {
-          line: 1,
-          at: 0.64,
-          tc: { x: 0.74, arms: "point", expr: "shock", move: "shake" },
-          items: [{ id: "vang", prop: "cho-vang", x: 1.3, scale: 0.9 }],
-          fx: { kind: "sweat", on: "TC" },
-        },
-        {
-          line: 2,
-          cut: true,
-          scene: "kitchen",
-          camera: "wide",
-          cd: { x: 0.22, arms: "point", expr: "angry", move: "shake" },
-          tc: { x: 0.82, arms: "down", expr: "neutral", move: "idle" },
-          items: [
-            { id: "vang", prop: "cho-vang-an", x: 0.42, scale: 0.9, front: true },
-            { id: "muop", prop: "meo-muop-an", x: 0.62, on: "table", scale: 0.88 },
-          ],
-          fx: { kind: "anger", on: "CD" },
-        },
-        { line: 2, at: 0.55, cd: { move: "idle" }, tc: { arms: "up2", expr: "shock", move: "tremble" }, fx: { kind: "surprise", on: "TC" } },
-      ],
-    },
-    flipStage: [
-      { line: 0, camera: "wide", cd: { x: 0.42, hand: "fan", arms: "hit", expr: "angry", move: "idle" }, tc: { x: 0.72, move: "idle", arms: "down" } },
-      { line: 0, at: 0.3, fx: { kind: "bop", on: "TC" }, tc: { expr: "shock", move: "tremble" } },
-      {
-        line: 1,
-        camera: "CD",
-        cd: { x: 0.24, arms: "point", expr: "neutral", move: "idle" },
-        tc: { x: 0.78, move: "idle", expr: "confused" },
-        items: [],
-      },
-      {
-        line: 1,
-        at: 0.26,
-        camera: "wide",
-        cd: { hand: "fan", arms: "raise", expr: "smug" },
-        items: [
-          { id: "gio", prop: "gio-thit-treo", x: 0.46, scale: 0.9 },
-          { id: "vang", prop: { id: "cho-vang", text: "ẲNG..." }, x: 0.44, scale: 0.85, front: true },
-        ],
-      },
-      {
-        line: 1,
-        at: 0.48,
-        cd: { hand: "fan", arms: "point", expr: "neutral" },
-        items: [
-          { id: "gio", prop: "gio-thit-treo", x: 0.42, scale: 0.9 },
-          { id: "vang", prop: "cho-vang", x: 0.38, scale: 0.82, front: true },
-          { id: "noi", prop: "rice-cooker", x: 0.54, on: "table" },
-          { id: "muop", prop: { id: "meo-muop", text: "MEO?" }, x: 0.68, on: "table", scale: 0.78 },
-        ],
-        fx: { kind: "sparkle", on: "CD" },
-      },
-      { line: 1, at: 0.72, cd: { arms: "wave", expr: "happy" }, tc: { expr: "neutral" } },
-      { line: 1, at: 0.94, camera: "wide", tc: { expr: "happy", arms: "raise" }, fx: { kind: "exclaim", on: "TC", text: "À!" } },
-    ],
-    explain:
-      "Treo với đậy là người xưa dặn cách cất đồ ăn thức uống trong nhà, chứ ai bảo mày treo con chó lên trần nhà bao giờ! Con chó nó không biết trèo, thì thức ăn phải treo lên cao. Còn con mèo leo trèo giỏi, thì nồi cá, bát canh phải đậy vung, úp lồng bàn cho thật kỹ. Rộng ra là có của ăn của để thì phải biết giữ gìn, mà mỗi thứ phải có một cách trông coi riêng thì mới không mất!",
-    flipShot: "Cụ Đồ gõ quạt, chỉ vào giỏ thịt treo cao trên đầu con Vàng rồi chỉ vào nồi cá đậy kín trước mặt con Mướp",
-    example: {
-      shot: "Lớp học / văn phòng: điện thoại cài mật khẩu, tiền giấy tờ cất trong balo, cho mượn bút hay sạc thì ghi vào sổ đòi ngay",
-      lines: [
-        cd("Như mày đi học, đi làm hằng ngày ấy. Điện thoại với máy tính thì cài mật khẩu cho cẩn thận. Tiền nong giấy tờ thì cất vào ngăn kéo trong cặp. Còn cái bút, cục sạc mà cho bạn mượn thì nhớ đòi ngay, chứ cứ vứt lung tung là hôm trước hôm sau chẳng còn cái nào!"),
-      ],
-      stage: [
-        {
-          line: 0,
-          cut: true,
-          scene: { id: "classroom", text: "CÁCH\nGIỮ ĐỒ" },
-          camera: "wide",
-          cd: { x: 0.27, hand: null, arms: "point", expr: "neutral" },
-          tc: { x: 0.68, hand: "phone", arms: "hold", expr: "smug", move: "idle" },
-          items: [],
-          fx: { kind: "exclaim", on: "TC", text: "****" },
-        },
-        { line: 0, at: 0.34, tc: { hand: null, back: "backpack", arms: "hips", expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
-        {
-          line: 0,
-          at: 0.58,
-          tc: { hand: { id: "paper", text: "SỔ ĐÒI ĐỒ\nCHO MƯỢN" }, arms: "raise", expr: "smug", move: "idle" },
-          fx: { kind: "exclaim", on: "TC" },
-        },
-        { line: 0, at: 0.84, camera: "CD", cd: { arms: "raise", expr: "happy" }, tc: { back: null }, fx: { kind: "sparkle", on: "CD" } },
-      ],
-    },
-    punchline: {
-      shot: "Trong bếp, giỏ thịt đã treo cao trước mặt con Vàng, nồi cá đậy kín trước mặt con Mướp; CĐ chỉ cái tủ lạnh bị dán bìa carton và quấn băng dính chữ X 'CẤM MỞ!', TC cười bảo để phòng người hay lục tủ ăn đêm",
-      lines: [
-        tc("À, thế thì cháu hiểu rồi! Giỏ thịt cháu treo tít lên cao, cho con Vàng đứng dưới nhìn thèm chơi. Còn nồi cá kho trên bàn thì cháu đậy vung kín mít, con Mướp chịu chết luôn!"),
-        cd("Ừ, thế mới là biết nghe lời chứ! Ơ... thế cái tủ lạnh đằng kia, mày lấy bìa với băng dính dán chằng chịt vào làm gì hử?"),
-        tc("Dạ, trong ngăn mát có đĩa đùi gà rán phần của cháu. Con Vàng với con Mướp thì làm sao biết mở tủ lạnh... Cháu dán kỹ thế là để phòng có người đêm hôm hay dậy lục tủ ăn vụng đấy ông ạ!"),
-      ],
-      stage: [
-        {
-          line: 0,
-          cut: true,
-          scene: "kitchen",
-          camera: "wide",
-          cd: { x: 0.2, hand: "fan", arms: "down", expr: "neutral" },
-          tc: { x: 0.62, hand: null, back: null, arms: "raise", expr: "smug", move: "bounce" },
-          items: [
-            { id: "gio", prop: "gio-thit-treo", x: 0.38, scale: 0.85 },
-            { id: "vang", prop: "cho-vang", x: 0.36, scale: 0.78, front: true },
-            { id: "noi", prop: "rice-cooker", x: 0.48, on: "table" },
-            { id: "muop", prop: "meo-muop", x: 0.76, on: "table", scale: 0.75 },
-          ],
-        },
-        { line: 0, at: 0.52, tc: { arms: "point", expr: "happy", move: "idle" }, fx: { kind: "sparkle", on: "TC" } },
-        { line: 1, camera: "CD", cd: { arms: "raise", expr: "happy" }, fx: { kind: "sparkle", on: "CD" } },
-        {
-          line: 1,
-          at: 0.32,
-          camera: "wide",
-          cd: { arms: "point", expr: "confused" },
-          tc: { x: 0.56, expr: "smug" },
-          items: [
-            { id: "vang", prop: "cho-vang", x: 0.36, scale: 0.78, front: true },
-            { id: "noi", prop: "rice-cooker", x: 0.42, on: "table" },
-            { id: "tu", prop: { id: "fridge", text: "CẤM MỞ!" }, x: 0.86, scale: 1.1 },
-          ],
-          fx: { kind: "question", on: "CD" },
-        },
-        { line: 2, camera: "TC", tc: { arms: "hips", expr: "happy", move: "bounce" }, fx: { kind: "hearts", on: "TC" } },
-        { line: 2, at: 0.34, camera: "wide", tc: { arms: "shrug", expr: "smug", move: "idle" } },
-        { line: 2, at: 0.58, tc: { arms: "point", expr: "happy", move: "bounce" }, cd: { arms: "up2", expr: "shock" }, fx: { kind: "sweat", on: "CD" } },
-        { line: 2, at: 0.88, cd: { expr: "angry", move: "tremble" }, fx: { kind: "anger", on: "CD" } },
       ],
     },
   }),

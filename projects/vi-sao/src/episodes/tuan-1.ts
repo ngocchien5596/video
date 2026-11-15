@@ -89,7 +89,7 @@ export const TUAN_1 = [
     theme,
     ask: "Vì sao hoàng hôn lại đỏ cam?",
     myth: "Buổi chiều, mặt trời đổi sang màu đỏ.",
-    answer: "Chiều tà, nắng đi quãng rất dài qua không khí, màu xanh bị hắt hết, chỉ còn đỏ cam tới mắt mình.",
+    answer: "Lúc chiều tà, nắng phải đi một quãng rất dài qua không khí, nên ánh xanh, ánh tím bị hắt đi gần hết, chỉ còn ánh đỏ, ánh cam tới được mắt mình.",
     sources: [
       { title: "Met Office: Why is the sky blue and sunsets red?", url: "https://www.metoffice.gov.uk/weather/learn-about/weather/optical-effects/why-is-the-sky-blue" },
       { title: "Royal Museums Greenwich: Why is the sky blue?", url: "https://www.rmg.co.uk/stories/topics/why-sky-blue" },
@@ -115,7 +115,7 @@ export const TUAN_1 = [
       shot: "Thằng Cháu đoán mặt trời mệt nên đổi màu, Cụ Đồ bảo mặt trời không đổi màu",
       lines: [
         tc("Hay là chiều rồi mặt trời mệt quá, nên mới đổi sang màu đỏ hả ông?"),
-        cd("Mặt trời có đổi màu đâu cháu! Đúng lúc mình ngắm hoàng hôn, có nơi đang giữa trưa, nắng vẫn trắng sáng đấy."),
+        cd("Mặt trời có đổi màu đâu cháu! Đúng lúc mình ngắm hoàng hôn thì ở nơi khác lại đang giữa trưa, nắng vẫn trắng sáng đấy."),
       ],
       stage: [
         // "mặt trời mệt quá"
@@ -129,10 +129,10 @@ export const TUAN_1 = [
     explain: {
       shot: "Bảng minh hoạ: mặt trời trên cao đi quãng ngắn qua khí quyển, mặt trời thấp đi quãng dài trong khí quyển, xanh bị hắt đi, đỏ cam tới mắt",
       lines: [
-        cd("Buổi trưa, mặt trời ở tít trên cao, nắng chỉ đi một quãng ngắn qua khí quyển, tức là lớp không khí trùm quanh Trái Đất."),
+        cd("Buổi trưa, mặt trời ở tít trên cao, nắng chỉ phải đi một quãng ngắn qua khí quyển, cái lớp không khí trùm quanh Trái Đất ấy mà."),
         cd("Đến chiều, mặt trời xuống thấp, nắng phải đi một quãng dài lắm trong khí quyển mới tới được mắt mình."),
-        cd("Đường xa thế, thì màu xanh bị các hạt khí hắt văng đi hết dọc đường rồi."),
-        cd("Còn sót lại mỗi màu đỏ, màu cam tới được mắt, thế là cả trời chiều đỏ cam."),
+        cd("Đường xa thế thì ánh xanh, ánh tím đi đâu hết? Bị các hạt khí hắt văng đi gần hết dọc đường rồi!"),
+        cd("Chỉ còn sót lại màu đỏ, màu cam là tới được mắt mình, thế là cả bầu trời chiều đỏ rực lên đấy."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "sunset", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "confused" } },
@@ -148,7 +148,7 @@ export const TUAN_1 = [
     ],
     outro: {
       shot: "Thằng Cháu chỉ đám mây, hỏi sang chuyện mây trắng mây đen",
-      lines: [tc("Thế còn mây, sao có đám trắng tinh, có đám lại đen sì hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Thế còn mây, sao có đám trắng tinh, có đám lại đen sì hả ông?"), cd("Câu ấy thì để mai ông kể tiếp nhé!")],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "confused" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
@@ -162,7 +162,7 @@ export const TUAN_1 = [
     theme,
     ask: "Vì sao mây trắng mà mây mưa lại đen?",
     myth: "Mây đen là mây bẩn, chứa nhiều khói bụi.",
-    answer: "Mây hắt ánh nắng nên trông trắng, còn đáy mây mưa nhận rất ít ánh sáng nên trông đen.",
+    answer: "Mây hắt đều mọi màu của ánh nắng nên trông trắng, còn mây mưa dày quá, ánh sáng lọt xuống tới đáy chẳng được bao nhiêu, thế là đáy mây trông đen sì.",
     sources: [
       { title: "Met Office: Why are clouds white?", url: "https://www.metoffice.gov.uk/weather/learn-about/weather/types-of-weather/clouds/why-are-clouds-white" },
       { title: "Met Office: Clouds", url: "https://www.metoffice.gov.uk/weather/learn-about/weather/types-of-weather/clouds" },
@@ -188,7 +188,7 @@ export const TUAN_1 = [
       shot: "Thằng Cháu đoán mây đen là mây bẩn, Cụ Đồ đưa bằng chứng: nhìn từ máy bay, đỉnh mây mưa vẫn trắng",
       lines: [
         tc("Cháu biết rồi! Mây đen là mây bẩn, dính đầy khói bụi đúng không ông?"),
-        cd("Bẩn đâu mà bẩn! Cứ ngồi máy bay lên trên mà nhìn xuống, đỉnh đám mây mưa ấy vẫn trắng tinh đấy."),
+        cd("Bẩn đâu mà bẩn! Cháu cứ thử ngồi máy bay lên cao hơn mây mà nhìn xuống, đỉnh đám mây mưa ấy vẫn trắng tinh đấy."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "bounce" } },
@@ -200,9 +200,9 @@ export const TUAN_1 = [
       shot: "Bảng minh hoạ: mây là giọt nước li ti, hắt đều mọi màu nên trắng; ánh sáng hắt lên trên nên đáy mây tối; mây mưa giọt to hơn",
       lines: [
         cd("Mây trông thế thôi, chứ là vô số giọt nước bé tí, lơ lửng trên trời đấy."),
-        cd("Giọt nước to hơn hạt khí nhiều, màu nào của ánh nắng nó cũng hắt đều, thế là mây trông trắng."),
-        cd("Thế ánh sáng đi đâu? Bị hắt ngược lên trên với sang hai bên, xuống tới đáy mây chẳng còn bao nhiêu."),
-        cd("Mây mưa thì giọt nước to hơn, hắt ánh sáng đi nhiều hơn, nên đáy mây càng tối sầm."),
+        cd("Mà giọt nước thì to hơn hạt khí nhiều lắm. Màu nào của ánh nắng nó cũng hắt ra đều như nhau, thế là trắng!"),
+        cd("Thế ánh nắng đi đâu ư? Mây càng dày thì ánh nắng càng bị hắt ngược lên trên, tỏa ra hai bên, lọt xuống tới đáy chẳng còn bao nhiêu."),
+        cd("Mây mưa thì vừa dày vừa cao. Cho nên đứng dưới nhìn lên mới thấy đáy mây tối sầm, còn đỉnh thì vẫn trắng tinh đấy."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "clouds", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "confused" } },
@@ -217,8 +217,8 @@ export const TUAN_1 = [
       { line: 0, board: null, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", move: "idle" } },
     ],
     outro: {
-      shot: "Thằng Cháu hỏi tiếp mưa từ đâu ra",
-      lines: [tc("Ơ, thế mưa thì ở đâu ra hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      shot: "Thằng Cháu hỏi tiếp vì sao gân xanh mà máu lại đỏ, Cụ Đồ hẹn lần sau",
+      lines: [tc("Ơ, thế sao gân trên tay cháu màu xanh, mà máu chảy ra lại đỏ hả ông?"), cd("Hỏi hay đấy, cái thằng này! Để tập sau ông giải thích cho nhé!")],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "raise", expr: "confused" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
@@ -226,13 +226,161 @@ export const TUAN_1 = [
     },
   }),
 
+      makeEpisode({
+    day: 16,
+    week,
+    theme,
+    ask: "Vì sao trời nóng mà vẫn có mưa đá?",
+    myth: "Mưa đá chỉ rơi vào mùa đông, lúc trời lạnh.",
+    answer: "Chính trời nóng đắp nên mây giông cao, gió trong mây cuốn giọt nước lên chỗ lạnh đông thành đá, hạt đá nặng quá thì rơi xuống.",
+    sources: [
+      { title: "Met Office: Hail", url: "https://www.metoffice.gov.uk/weather/learn-about/weather/types-of-weather/hail" },
+      { title: "NOAA National Severe Storms Laboratory: Severe Weather 101, Hail Basics", url: "https://www.nssl.noaa.gov/education/svrwx101/hail/" },
+    ],
+    question: "Bạn đã bao giờ gặp mưa đá giữa trời nóng chưa? Gặp mưa đá, nhớ vào nhà ngay nhé!",
+    hook: {
+      shot: "Ngoài sân nắng nóng, trời bỗng tối sầm, Thằng Cháu xoè tay hứng như có hạt đá rơi, mặt ngạc nhiên",
+      lines: [tc("Ông ơi ông! Trời nóng thế này mà sao vẫn có mưa đá ạ?")],
+      stage: [
+        {
+          cut: true,
+          scene: "yard",
+          camera: "wide",
+          cd: { x: 0.26, expr: "neutral" },
+          tc: { x: 0.66, arms: "hold2", expr: "shock", move: "idle" },
+          items: [],
+          fx: { kind: "question", on: "TC" },
+        },
+      ],
+    },
+    guess: {
+      shot: "Thằng Cháu đoán mưa đá chỉ có vào mùa đông, Cụ Đồ bảo ở nước Anh những trận mưa đá gây hại nhiều nhất lại hay rơi vào mùa hè",
+      lines: [
+        tc("Ơ, cháu cứ tưởng mưa đá chỉ rơi vào mùa đông thôi chứ!"),
+        cd("Đông đâu mà đông! Ở bên Anh ấy, mấy trận mưa đá gây hại nhiều nhất lại hay rơi vào mùa hè cơ."),
+      ],
+      stage: [
+        { line: 0, camera: "TC", tc: { arms: "shrug", expr: "smug", move: "bounce" } },
+        { line: 1, camera: "CD", cd: { arms: "raise", expr: "neutral" }, tc: { arms: "down", move: "idle" } },
+        { line: 1, at: 0.6, camera: "wide", tc: { expr: "shock" }, fx: { kind: "surprise", on: "TC" } },
+      ],
+    },
+    explain: {
+      shot: "Bảng minh hoạ: đất nóng làm mọc mây giông rất cao, đỉnh mây lạnh; gió thổi ngược lên đưa giọt nước lên cao, đông thành đá; hạt đá va giọt nước, to dần; nặng quá thì rơi xuống",
+      lines: [
+        cd("Sao lại thế ư? Mùa hè đất nóng lên, hơi nóng bốc lên cuồn cuộn, đắp thành những đám mây giông cao ngất, mà trên đỉnh thì lạnh buốt."),
+        cd("Trong mây có luồng gió thốc lên mạnh lắm, cuốn những giọt nước lên tận chỗ cao lạnh giá, thế là chúng đông lại thành đá."),
+        cd("Hạt đá cứ lơ lửng trong gió, va phải giọt nước nào là giọt ấy đông lại, bám luôn vào nó. Thế là hạt đá to dần, to dần."),
+        cd("Đến khi hạt đá nặng quá, gió đỡ không nổi nữa, nó mới rơi bộp xuống thành mưa đá, ngay giữa trời nóng!"),
+      ],
+      stage: [
+        { line: 0, camera: "wide", board: { id: "w1-hail", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { arms: "down", expr: "confused" } },
+        { line: 1, board: { id: "w1-hail", step: 1 }, cd: { arms: "wave" }, tc: { expr: "neutral" } },
+        { line: 1, at: 0.7, tc: { expr: "shock" }, fx: { kind: "exclaim", on: "TC" } },
+        { line: 2, board: { id: "w1-hail", step: 2 }, cd: { arms: "point", expr: "neutral" }, tc: { expr: "happy" } },
+        { line: 3, board: { id: "w1-hail", step: 3 }, cd: { arms: "raise", expr: "happy" } },
+        { line: 3, at: 0.6, tc: { arms: "raise", expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
+      ],
+    },
+    recapStage: [
+      { line: 0, board: null, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", move: "idle" } },
+    ],
+    outro: {
+      shot: "Thằng Cháu hỏi tiếp vì sao chim hồng hạc lại màu hồng, Cụ Đồ hẹn lần sau",
+      lines: [tc("Ông ơi, thế con chim hồng hạc, sao nó lại hồng rực thế ạ?"), cd("Chuyện chim hồng hạc thì để lần sau ông kể nhé!")],
+      stage: [
+        { line: 0, camera: "TC", tc: { arms: "raise", expr: "confused" }, fx: { kind: "question", on: "TC" } },
+        { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
+      ],
+    },
+  }),
+
+  ];
+
+/**
+ * Kịch bản KHÔNG DÙNG (chủ kênh bỏ ngày 15/11/2026 khi xếp lại thứ tự đăng). Giữ số ngày cũ để tra cứu.
+ * Không nằm trong index.ts nên không xuất, không hiện trong bot; giữ lại để dùng lại sau.
+ */
+export const KHONG_DUNG_1 = [
   makeEpisode({
-    day: 4,
+    day: 26,
+    week,
+    theme,
+    ask: "Vì sao thấy chớp trước rồi mới nghe sấm?",
+    myth: "Chớp có trước, sấm đến sau.",
+    answer: "Sấm và chớp sinh ra cùng lúc, nhưng ánh sáng đi nhanh hơn âm thanh rất nhiều, nên mình thấy chớp trước rồi mới nghe sấm.",
+    sources: [
+      { title: "Met Office: Thunder and lightning", url: "https://www.metoffice.gov.uk/weather/learn-about/weather/types-of-weather/thunder-and-lightning" },
+      { title: "National Weather Service: Lightning science, thunder", url: "https://www.weather.gov/safety/lightning-science-thunder" },
+    ],
+    question: "Bạn có hay đếm từ lúc thấy chớp đến lúc nghe sấm không? Nghe sấm là vào nhà ngay nhé!",
+    hook: {
+      shot: "Ngoài sân, trời giông, Thằng Cháu bịt tai, mặt giật mình",
+      lines: [tc("Ối! Ông ơi, sao lúc mưa giông, cháu toàn thấy chớp trước rồi mới nghe sấm thế ạ?")],
+      stage: [
+        {
+          cut: true,
+          scene: "yard",
+          camera: "wide",
+          cd: { x: 0.26, expr: "neutral" },
+          tc: { x: 0.66, arms: "up2", expr: "shock", move: "tremble" },
+          items: [],
+          fx: { kind: "question", on: "TC" },
+        },
+      ],
+    },
+    guess: {
+      shot: "Thằng Cháu đoán chớp đến trước rồi sấm mới chạy theo, Cụ Đồ bảo hai thứ sinh ra cùng một lúc",
+      lines: [
+        tc("Chắc là chớp chạy trước, rồi sấm mới lạch bạch chạy theo sau hả ông?"),
+        cd("Chạy theo đâu mà chạy! Sét đánh ngay sát nhà thì chớp vừa lóe đã nghe ầm luôn, sấm với chớp sinh ra cùng một lúc đấy cháu ạ."),
+      ],
+      stage: [
+        { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "idle" } },
+        { line: 1, camera: "CD", cd: { arms: "raise", expr: "happy" }, tc: { arms: "down" } },
+        { line: 1, at: 0.6, camera: "wide", tc: { expr: "shock" }, fx: { kind: "surprise", on: "TC" } },
+      ],
+    },
+    explain: {
+      shot: "Bảng minh hoạ: tia chớp làm không khí nóng nở bung, co lại thành tiếng nổ; ánh sáng tới mắt rất nhanh, tiếng sấm tới tai chậm hơn",
+      lines: [
+        cd("Tia chớp nóng khủng khiếp, nóng hơn cả bề mặt Mặt Trời, làm không khí quanh nó nở bung ra trong nháy mắt."),
+        cd("Không khí nở bung nhanh quá, nên nổ ra một tiếng ầm ầm, ấy chính là sấm đấy."),
+        cd("Thế nhưng hai thứ ấy đi nhanh chậm khác nhau lắm, ánh chớp thì lao tới mắt mình gần như ngay tắp lự."),
+        cd("Còn tiếng sấm đi chậm hơn nhiều, mãi sau mới tới tai mình. Cứ đếm từ lúc thấy chớp đến lúc nghe sấm, mỗi ba giây là sét ở xa chừng một cây số."),
+      ],
+      stage: [
+        { line: 0, camera: "wide", board: { id: "thunder", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { arms: "down", expr: "confused", move: "idle" } },
+        { line: 1, board: { id: "thunder", step: 1 }, cd: { arms: "wave" } },
+        { line: 1, at: 0.45, tc: { expr: "shock", move: "jump" }, fx: { kind: "bop", on: "TC", text: "ẦM!" } },
+        { line: 2, board: { id: "thunder", step: 2 }, cd: { arms: "point", expr: "neutral" }, tc: { expr: "happy", move: "idle" }, fx: { kind: "exclaim", on: "TC" } },
+        { line: 3, board: { id: "thunder", step: 3 }, cd: { arms: "raise", expr: "happy" } },
+        { line: 3, at: 0.6, tc: { arms: "raise", expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
+      ],
+    },
+    recapStage: [
+      { line: 0, board: null, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", move: "idle" } },
+    ],
+    outro: {
+      shot: "Cụ Đồ dặn nghe sấm là vào nhà ngay, Thằng Cháu vâng lời rồi hỏi tiếp vì sao mình nổi da gà",
+      lines: [
+        cd("Mà nhớ đấy, cứ nghe tiếng sấm là phải vào nhà ngay!"),
+        tc("Vâng ạ! Ơ mà sao trời lạnh, tay cháu lại nổi da gà hả ông? Lần sau ông giải thích cho cháu nhé!"),
+      ],
+      stage: [
+        { line: 0, camera: "CD", cd: { arms: "point", expr: "neutral" }, tc: { arms: "down", move: "idle" }, fx: { kind: "exclaim", on: "CD" } },
+        { line: 1, camera: "wide", tc: { arms: "raise", expr: "confused", move: "bounce" }, fx: { kind: "question", on: "TC" } },
+      ],
+    },
+  }),
+
+  makeEpisode({
+    day: 32,
     week,
     theme,
     ask: "Mưa từ đâu ra?",
     myth: "Mây chỉ là hơi nước.",
-    answer: "Nước bốc hơi bay lên, gặp lạnh thành giọt li ti làm mây, giọt to dần, nặng quá thì rơi xuống thành mưa.",
+    answer: "Nước bốc hơi bay lên, gặp lạnh thì hoá thành những giọt nước li ti làm nên mây, những giọt ấy to dần, đến khi nặng quá thì rơi xuống thành mưa.",
     sources: [
       { title: "Met Office: Rain", url: "https://www.metoffice.gov.uk/weather/learn-about/weather/types-of-weather/rain" },
       { title: "Met Office: Clouds", url: "https://www.metoffice.gov.uk/weather/learn-about/weather/types-of-weather/clouds" },
@@ -258,7 +406,7 @@ export const TUAN_1 = [
       shot: "Thằng Cháu đoán mây là hơi nước, Cụ Đồ bảo hơi nước thì vô hình, không nhìn thấy được",
       lines: [
         tc("Dễ ợt! Mây là hơi nước, hơi nước nặng quá thì rơi xuống thành mưa chứ gì ông?"),
-        cd("Nhiều người cũng tưởng mây là hơi nước đấy, nhưng chưa đúng! Hơi nước thì vô hình, có ai nhìn thấy được đâu."),
+        cd("Dễ đâu mà dễ! Hơi nước thì vô hình, có ai nhìn thấy được đâu, thế mà mây thì trắng xoá cả trời đấy thôi."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "bounce" } },
@@ -269,10 +417,10 @@ export const TUAN_1 = [
     explain: {
       shot: "Bảng minh hoạ: nắng làm nước biển bốc hơi, lên cao lạnh thành giọt li ti làm mây, giọt to dần, rơi thành mưa, chảy về biển",
       lines: [
-        cd("Nắng sưởi ấm sông, biển, thế là nước bốc thành hơi, bay lên."),
-        cd("Lên cao trời lạnh, hơi nước lại hoá thành giọt nước li ti, bám vào hạt bụi, thành mây đấy."),
-        cd("Trong mây, giọt này nhập vào giọt kia, cứ to dần, to dần."),
-        cd("Nặng quá, không lơ lửng nổi nữa thì rơi xuống thành mưa, rồi lại chảy về sông, về biển."),
+        cd("Thế mưa ở đâu ra ư? Chuyện bắt đầu từ nắng đấy, nắng sưởi ấm sông, biển, thế là nước bốc thành hơi, bay lên."),
+        cd("Bay lên cao thì gặp trời lạnh, hơi nước lại hoá thành những giọt nước li ti bám quanh hạt bụi, thế là thành mây đấy."),
+        cd("Trong mây, giọt này nhập vào giọt kia, cứ to dần, to dần. Rồi sao nữa?"),
+        cd("Đến khi nặng quá, giọt nước không lơ lửng nổi nữa thì rơi xuống thành mưa, rồi lại chảy về sông, về biển."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "rain", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { arms: "down", expr: "confused" } },
@@ -286,8 +434,8 @@ export const TUAN_1 = [
       { line: 0, board: null, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", move: "idle" } },
     ],
     outro: {
-      shot: "Thằng Cháu hỏi tiếp vì sao trời nóng mà vẫn có mưa đá",
-      lines: [tc("Ơ, thế mùa hè nóng nực thế, sao vẫn có mưa đá hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      shot: "Thằng Cháu hỏi tiếp vì sao cất đồ ăn vào tủ lạnh thì lâu hỏng hơn",
+      lines: [tc("Ơ, thế sao cất đồ ăn vào tủ lạnh lại để được lâu hơn hả ông?"), cd("Câu này hay đấy, để lần sau ông kể tiếp cho nhé!")],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "raise", expr: "confused" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
@@ -296,158 +444,17 @@ export const TUAN_1 = [
   }),
 
   makeEpisode({
-    day: 5,
-    week,
-    theme,
-    ask: "Vì sao trời nóng mà vẫn có mưa đá?",
-    myth: "Mưa đá chỉ rơi vào mùa đông, lúc trời lạnh.",
-    answer: "Trong mây giông, gió đưa giọt nước lên cao lạnh giá, đông thành đá, to dần, nặng quá thì rơi xuống, kể cả mùa hè.",
-    sources: [
-      { title: "Met Office: Hail", url: "https://www.metoffice.gov.uk/weather/learn-about/weather/types-of-weather/hail" },
-      { title: "NOAA National Severe Storms Laboratory: Severe Weather 101, Hail Basics", url: "https://www.nssl.noaa.gov/education/svrwx101/hail/" },
-    ],
-    question: "Bạn đã bao giờ gặp mưa đá giữa trời nóng chưa? Gặp mưa đá, nhớ vào nhà ngay nhé!",
-    hook: {
-      shot: "Ngoài sân nắng nóng, trời bỗng tối sầm, Thằng Cháu xoè tay hứng như có hạt đá rơi, mặt ngạc nhiên",
-      lines: [tc("Ông ơi ông! Trời nóng thế này mà sao vẫn có mưa đá ạ?")],
-      stage: [
-        {
-          cut: true,
-          scene: "yard",
-          camera: "wide",
-          cd: { x: 0.26, expr: "neutral" },
-          tc: { x: 0.66, arms: "hold2", expr: "shock", move: "idle" },
-          items: [],
-          fx: { kind: "question", on: "TC" },
-        },
-      ],
-    },
-    guess: {
-      shot: "Thằng Cháu đoán mưa đá chỉ có vào mùa đông, Cụ Đồ bảo ở nước Anh những trận mưa đá gây hại nhiều nhất lại hay rơi vào mùa hè",
-      lines: [
-        tc("Ơ, cháu cứ tưởng mưa đá chỉ rơi vào mùa đông thôi chứ!"),
-        cd("Tưởng thế thôi! Ở bên Anh ấy, mấy trận mưa đá gây hại nhiều nhất lại hay rơi vào mùa hè cơ."),
-      ],
-      stage: [
-        { line: 0, camera: "TC", tc: { arms: "shrug", expr: "smug", move: "bounce" } },
-        { line: 1, camera: "CD", cd: { arms: "raise", expr: "neutral" }, tc: { arms: "down", move: "idle" } },
-        { line: 1, at: 0.6, camera: "wide", tc: { expr: "shock" }, fx: { kind: "surprise", on: "TC" } },
-      ],
-    },
-    explain: {
-      shot: "Bảng minh hoạ: đất nóng làm mọc mây giông rất cao, đỉnh mây lạnh; gió thổi ngược lên đưa giọt nước lên cao, đông thành đá; hạt đá va giọt nước, to dần; nặng quá thì rơi xuống",
-      lines: [
-        cd("Mùa hè đất nóng, làm mọc lên những đám mây giông cao ngất, mà trên đỉnh thì lạnh buốt."),
-        cd("Gió thổi ngược lên mạnh lắm, đưa giọt nước lên tận chỗ cao lạnh giá, đông lại thành đá."),
-        cd("Hạt đá cứ lơ lửng trong gió, va phải giọt nước nào là nước đông bám thêm vào, to dần lên."),
-        cd("Nặng quá, gió đỡ không nổi nữa, thế là rơi bộp xuống thành mưa đá!"),
-      ],
-      stage: [
-        { line: 0, camera: "wide", board: { id: "w1-hail", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { arms: "down", expr: "confused" } },
-        { line: 1, board: { id: "w1-hail", step: 1 }, cd: { arms: "wave" }, tc: { expr: "neutral" } },
-        { line: 1, at: 0.7, tc: { expr: "shock" }, fx: { kind: "exclaim", on: "TC" } },
-        { line: 2, board: { id: "w1-hail", step: 2 }, cd: { arms: "point", expr: "neutral" }, tc: { expr: "happy" } },
-        { line: 3, board: { id: "w1-hail", step: 3 }, cd: { arms: "raise", expr: "happy" } },
-        { line: 3, at: 0.6, tc: { arms: "raise", expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
-      ],
-    },
-    recapStage: [
-      { line: 0, board: null, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", move: "idle" } },
-    ],
-    outro: {
-      shot: "Thằng Cháu hỏi tiếp về sấm chớp lúc mưa giông",
-      lines: [tc("Thế lúc mưa giông, sao cháu thấy chớp trước rồi mới nghe sấm hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
-      stage: [
-        { line: 0, camera: "TC", tc: { arms: "raise", expr: "confused" }, fx: { kind: "question", on: "TC" } },
-        { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
-      ],
-    },
-  }),
-
-  makeEpisode({
-    day: 6,
-    week,
-    theme,
-    ask: "Vì sao thấy chớp trước rồi mới nghe sấm?",
-    myth: "Chớp có trước, sấm đến sau.",
-    answer: "Sấm và chớp sinh ra cùng lúc, nhưng ánh sáng đi nhanh hơn âm thanh rất nhiều, nên mình thấy chớp trước.",
-    sources: [
-      { title: "Met Office: Thunder and lightning", url: "https://www.metoffice.gov.uk/weather/learn-about/weather/types-of-weather/thunder-and-lightning" },
-      { title: "National Weather Service: Lightning science, thunder", url: "https://www.weather.gov/safety/lightning-science-thunder" },
-    ],
-    question: "Bạn có hay đếm từ lúc thấy chớp đến lúc nghe sấm không? Nghe sấm là vào nhà ngay nhé!",
-    hook: {
-      shot: "Ngoài sân, trời giông, Thằng Cháu bịt tai, mặt giật mình",
-      lines: [tc("Ối! Ông ơi, sao lúc mưa giông, cháu toàn thấy chớp trước rồi mới nghe sấm thế ạ?")],
-      stage: [
-        {
-          cut: true,
-          scene: "yard",
-          camera: "wide",
-          cd: { x: 0.26, expr: "neutral" },
-          tc: { x: 0.66, arms: "up2", expr: "shock", move: "tremble" },
-          items: [],
-          fx: { kind: "question", on: "TC" },
-        },
-      ],
-    },
-    guess: {
-      shot: "Thằng Cháu đoán chớp đến trước rồi sấm mới chạy theo, Cụ Đồ bảo hai thứ sinh ra cùng một lúc",
-      lines: [
-        tc("Chắc là chớp chạy trước, rồi sấm mới lạch bạch chạy theo sau hả ông?"),
-        cd("Chạy theo đâu mà chạy! Sấm với chớp sinh ra cùng một lúc đấy cháu ạ."),
-      ],
-      stage: [
-        { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "idle" } },
-        { line: 1, camera: "CD", cd: { arms: "raise", expr: "happy" }, tc: { arms: "down" } },
-        { line: 1, at: 0.6, camera: "wide", tc: { expr: "shock" }, fx: { kind: "surprise", on: "TC" } },
-      ],
-    },
-    explain: {
-      shot: "Bảng minh hoạ: tia chớp làm không khí nóng nở bung, co lại thành tiếng nổ; ánh sáng tới mắt rất nhanh, tiếng sấm tới tai chậm hơn",
-      lines: [
-        cd("Tia chớp nóng khủng khiếp, làm không khí quanh nó nở bung ra trong nháy mắt."),
-        cd("Nở bung rồi lại co vào đột ngột, nổ một tiếng ầm ầm, ấy chính là sấm đấy."),
-        cd("Ánh chớp thì lao tới mắt mình gần như ngay tắp lự."),
-        cd("Còn tiếng sấm đi chậm hơn nhiều, nên mãi sau mới tới tai mình."),
-      ],
-      stage: [
-        { line: 0, camera: "wide", board: { id: "thunder", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { arms: "down", expr: "confused", move: "idle" } },
-        { line: 1, board: { id: "thunder", step: 1 }, cd: { arms: "wave" } },
-        { line: 1, at: 0.45, tc: { expr: "shock", move: "jump" }, fx: { kind: "bop", on: "TC", text: "ẦM!" } },
-        { line: 2, board: { id: "thunder", step: 2 }, cd: { arms: "point", expr: "neutral" }, tc: { expr: "happy", move: "idle" }, fx: { kind: "exclaim", on: "TC" } },
-        { line: 3, board: { id: "thunder", step: 3 }, cd: { arms: "raise", expr: "happy" } },
-        { line: 3, at: 0.6, tc: { arms: "raise", expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
-      ],
-    },
-    recapStage: [
-      { line: 0, board: null, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", move: "idle" } },
-    ],
-    outro: {
-      shot: "Cụ Đồ dặn nghe sấm là vào nhà ngay, Thằng Cháu vâng lời rồi hỏi tiếp về ban đêm",
-      lines: [
-        cd("Mà nhớ đấy, cứ nghe tiếng sấm là phải vào nhà ngay!"),
-        tc("Vâng ạ! Ơ mà ban đêm, mặt trời trốn đi đâu mất hả ông?"),
-      ],
-      stage: [
-        { line: 0, camera: "CD", cd: { arms: "point", expr: "neutral" }, tc: { arms: "down", move: "idle" }, fx: { kind: "exclaim", on: "CD" } },
-        { line: 1, camera: "wide", tc: { arms: "raise", expr: "confused", move: "bounce" }, fx: { kind: "question", on: "TC" } },
-      ],
-    },
-  }),
-
-  makeEpisode({
-    day: 7,
+    day: 49,
     week,
     theme,
     ask: "Vì sao ban đêm trời tối?",
     myth: "Ban đêm mặt trời đi ngủ.",
-    answer: "Trái Đất luôn tự quay, chỗ mình quay sang phía không có mặt trời chiếu thì thành ban đêm.",
+    answer: "Trái Đất luôn tự quay, nên chỗ nào quay sang phía không được mặt trời chiếu tới thì ở đó thành ban đêm.",
     sources: [
       { title: "NASA Space Place: What Causes the Seasons?", url: "https://spaceplace.nasa.gov/seasons/en/" },
       { title: "NASA Science: Earth Facts", url: "https://science.nasa.gov/earth/facts/" },
     ],
-    question: "Tuần sau là chuyện con vật. Bạn muốn ông giải đáp câu nào?",
+    question: "Nếu được hỏi Cụ Đồ một câu “vì sao”, bạn sẽ hỏi gì?",
     hook: {
       shot: "Ngoài sân ban đêm, trăng sao, Thằng Cháu nhìn quanh tìm mặt trời",
       lines: [tc("Ông ơi, sao ban đêm trời lại tối thế ạ?")],
@@ -467,7 +474,7 @@ export const TUAN_1 = [
       shot: "Thằng Cháu đoán mặt trời đi ngủ, Cụ Đồ bảo lúc cháu ngủ thì bên kia Trái Đất đang là ban ngày",
       lines: [
         tc("Chắc ban đêm mặt trời cũng đi ngủ, giống cháu chứ gì ông?"),
-        cd("Mặt trời lúc nào cũng sáng, ngủ nghê gì! Lúc cháu đi ngủ, bên kia Trái Đất các bạn đang giữa ban ngày đấy."),
+        cd("Mặt trời lúc nào cũng sáng, ngủ nghê gì! Lúc cháu đi ngủ thì ở bên kia Trái Đất, các bạn ấy đang ở giữa ban ngày đấy."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "hold2", expr: "happy", move: "idle" }, fx: { kind: "question", on: "TC", text: "Zzz" } },
@@ -478,10 +485,10 @@ export const TUAN_1 = [
     explain: {
       shot: "Bảng minh hoạ: Trái Đất tự quay, mỗi ngày một vòng; chỗ mình quay về phía mặt trời là ngày, quay sang bên kia là đêm",
       lines: [
-        cd("Trái Đất mình lúc nào cũng tự quay, như cái con quay ấy."),
+        cd("Sở dĩ thế là vì Trái Đất mình lúc nào cũng tự quay, như cái con quay ấy."),
         cd("Cứ mỗi ngày là nó quay đủ một vòng."),
-        cd("Chỗ mình quay về phía mặt trời, nắng chiếu tới, thế là ban ngày."),
-        cd("Quay dần sang phía bên kia, nắng không chiếu tới nữa, thế là thành ban đêm."),
+        cd("Chỗ mình mà quay về phía mặt trời thì được nắng chiếu tới, thế là thành ban ngày."),
+        cd("Đến khi chỗ mình quay dần sang phía bên kia thì nắng không chiếu tới được nữa, thế là thành ban đêm."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "night", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { arms: "down", expr: "confused" } },
@@ -495,10 +502,10 @@ export const TUAN_1 = [
       { line: 0, board: null, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", move: "idle" } },
     ],
     outro: {
-      shot: "Thằng Cháu hiểu ra lúc mình ngủ thì mặt trời chiếu cho bạn bên kia, Cụ Đồ hẹn tuần sau hỏi tiếp",
+      shot: "Thằng Cháu hiểu ra lúc mình ngủ thì mặt trời chiếu cho bạn bên kia, Cụ Đồ khen",
       lines: [
-        tc("À! Thế lúc cháu ngủ là mặt trời đang chiếu nắng cho các bạn bên kia à!"),
-        cd("Giỏi! Tuần sau cháu lại hỏi ông tiếp nhé!"),
+        tc("À! Thế lúc cháu ngủ là mặt trời đang chiếu nắng cho các bạn ở bên kia Trái Đất à!"),
+        cd("Đúng rồi đấy! Cứ chịu khó hỏi vì sao như thế, rồi cái gì cũng ra lẽ cả."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "up2", expr: "happy", move: "bounce" }, fx: { kind: "hearts", on: "TC" } },

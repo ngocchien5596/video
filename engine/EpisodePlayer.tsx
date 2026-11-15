@@ -12,7 +12,7 @@ import { Animatic } from "./components/Animatic.tsx";
 import { COLORS } from "./components/brand.ts";
 import { WARM } from "./components/warm.ts";
 import { EndCard, HookBanner, SafeZones, Subtitle, TopBar } from "./components/Overlays.tsx";
-import { END_CARD_SECONDS, episodeTimeline, LOOP_SECONDS, type Timeline } from "./lib/timing.ts";
+import { endCardTiming, episodeTimeline, LOOP_SECONDS, type Timeline } from "./lib/timing.ts";
 import type { BeatKind, Episode, VoiceTrack } from "./lib/types.ts";
 import type { BoardRegistry } from "./stage/board.tsx";
 import { FLOOR_ON_SCREEN, Stage } from "./stage/Stage.tsx";
@@ -76,7 +76,7 @@ const Picture: React.FC<PictureProps> = ({ episode, timeline, layout }) => {
 
   const hook = find(layout.hook?.beat);
   const titleBeat = find(layout.topBar.showTitleAfter);
-  const endStart = durationInFrames - f(END_CARD_SECONDS);
+  const endStart = durationInFrames - f(endCardTiming(episode.question).total);
 
   return (
     <AbsoluteFill style={{ backgroundColor: COLORS.ink }}>
@@ -112,7 +112,13 @@ const Picture: React.FC<PictureProps> = ({ episode, timeline, layout }) => {
       })}
 
       {frame >= endStart ? (
-        <EndCard question={layout.endCard.question} teaser={layout.endCard.teaser} startFrame={endStart} warm />
+        <EndCard
+          question={layout.endCard.question}
+          teaser={layout.endCard.teaser}
+          startFrame={endStart}
+          teaserFrame={endStart + f(endCardTiming(episode.question).question)}
+          warm
+        />
       ) : null}
 
       {episode.showSubtitles === false || frame >= endStart ? null : (
@@ -175,7 +181,7 @@ export const EpisodePlayer: React.FC<EpisodePlayerProps> = ({ episode, voice, la
   const sounds = useMemo(() => momentSounds(episode, timeline), [episode, timeline]);
   const f = (seconds: number) => Math.round(seconds * fps);
 
-  const endStart = durationInFrames - f(END_CARD_SECONDS);
+  const endStart = durationInFrames - f(endCardTiming(episode.question).total);
   const loopStart = durationInFrames - f(LOOP_SECONDS);
   const picture = { episode, timeline, layout };
 

@@ -10,7 +10,7 @@ Sinh tự động từ `projects/noi-vay/project.json` → `playlist` bằng `np
 Nói Vậy Mà Không Phải Vậy | Hiểu đúng thành ngữ, tục ngữ tiếng Việt
 ```
 
-**Mô tả** (420/5000 ký tự)
+**Mô tả** (414/5000 ký tự)
 
 ```text
 Mỗi ngày một câu thành ngữ, tục ngữ tiếng Việt. Thằng Cháu hiểu theo nghĩa đen cho vui, rồi Cụ Đồ giải thích nghĩa thật kèm một ví dụ đời thường.
@@ -18,7 +18,7 @@ Mỗi ngày một câu thành ngữ, tục ngữ tiếng Việt. Thằng Cháu h
 🧓 Cụ Đồ: khăn đóng áo the mà nói chuyện như dân mạng.
 👦 Thằng Cháu: câu nào cũng hiểu theo nghĩa đen.
 
-📅 Video mới mỗi ngày lúc 11:45.
+📅 Mỗi ngày một video mới.
 💬 Bạn muốn hiểu đúng câu nào? Để lại bình luận, Cụ Đồ chọn làm tập sau.
 
 Video có giọng đọc và hình ảnh được tạo với sự hỗ trợ của AI.

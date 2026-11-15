@@ -58,5 +58,15 @@
     "visibility": "Công khai",
     "order": "Ngày xuất bản (cũ nhất trước), để người xem bắt đầu từ #1",
     "madeForKids": "Không (khán giả 16–35 tuổi). Khai báo ở từng video, playlist không có mục này."
+  },
+  "review": {
+    "maxSeconds": 100,
+    "warnSeconds": 80,
+    "minSources": 0,
+    "frozenDays": [
+      1,
+      2
+    ],
+    "note": "Bible: dưới 60 giây (nên sửa khi vượt); trên 90 giây là phải sửa."
   }
 }

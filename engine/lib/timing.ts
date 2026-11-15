@@ -7,8 +7,17 @@ export const HEIGHT = 1920;
 /** Số từ tối đa trên một khung phụ đề. */
 const MAX_WORDS = 7;
 
-/** Thời lượng (giây) cuối video dành riêng cho thẻ câu hỏi và "Mai là câu: ...", tính cả đoạn nối về đầu. */
-export const END_CARD_SECONDS = 2.4;
+/**
+ * Thẻ cuối video (mọi dự án): câu hỏi hiện MỘT MÌNH trước END_QUESTION_SECONDS (chủ kênh chốt 2,5 giây, 15/11/2026),
+ * rồi mới hiện dòng "Tiếp theo: …" thêm END_TEASER_SECONDS (tính cả đoạn nối về đầu LOOP_SECONDS).
+ */
+export const END_QUESTION_SECONDS = 2.5;
+export const END_TEASER_SECONDS = 2.2;
+// eslint-disable-next-line @typescript-eslint/no-unused-vars -- giữ tham số để sau này có thể tính theo độ dài câu hỏi
+export const endCardTiming = (_question?: string | null) => ({
+  question: END_QUESTION_SECONDS,
+  total: END_QUESTION_SECONDS + END_TEASER_SECONDS,
+});
 /** Đoạn cuối cùng: vòng tròn mở ra khung hình đầu tiên, để video lặp lại liền mạch. */
 export const LOOP_SECONDS = 0.4;
 
@@ -103,7 +112,7 @@ export const episodeTimeline = (episode: Episode, voice?: VoiceTrack | null): Ti
     const start = t;
     const voices = beat.lines.map((line, l) => voiceFor(voice, b, l, line.text));
     // Nhịp cuối chừa thời gian cho thẻ cuối (câu hỏi + câu ngày mai).
-    const endCard = b === episode.beats.length - 1 ? END_CARD_SECONDS : 0;
+    const endCard = b === episode.beats.length - 1 ? endCardTiming(episode.question).total : 0;
 
     if (beat.lines.length > 0 && voices.every(Boolean)) {
       let cursor = start + VOICE_LEAD;

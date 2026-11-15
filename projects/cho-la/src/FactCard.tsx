@@ -19,7 +19,7 @@ export const FactCard: React.FC<{ big: string; label: string; startFrame: number
     <div
       style={{
         position: "absolute",
-        top: 330,
+        top: 390,
         left: 50,
         width: 620,
         opacity: out,

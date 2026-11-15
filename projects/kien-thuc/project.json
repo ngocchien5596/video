@@ -40,17 +40,27 @@
     "aiNote": "Video có giọng đọc và đồ họa trực quan được tạo với sự hỗ trợ của AI. Nội dung toán học và lịch sử khoa học đã được đối chiếu với sách giáo khoa và tài liệu tham khảo."
   },
   "playlist": {
-    "title": "Thiên Đường Kiến Thức | Toán Học & Vật Lý Bước Ra Đời Thực",
+    "title": "Thiên Đường Kiến Thức | Chuyện thật sau bài học Toán và Khoa học",
     "description": [
-      "Mỗi tập giải mã một bài toán vĩ đại trong lịch sử nhân loại bằng công cụ thô sơ, kết nối trực tiếp với định lý trong Sách giáo khoa Toán – Lý phổ thông và phóng tầm mắt ra quy mô Vũ trụ.",
+      "Bạn có biết hơn hai nghìn năm trước, người ta đã đo được chu vi Trái Đất chỉ bằng một cái giếng và một chiếc cọc? Hay vì sao chừng một nghìn tiến sĩ từng viết thư bảo một câu trả lời đúng là sai?",
       "",
-      "✅ Trực quan hóa hình học trên nền giấy cổ (Parchment) giúp học sinh, phụ huynh và người yêu khoa học nhìn thấy vẻ đẹp thực sự của công thức.",
+      "Mỗi tập, Milo kể lại một câu đố có thật trong lịch sử khoa học, rủ bạn đoán thử, rồi giải từng bước để bạn tự kiểm lại được. Sau đó câu chuyện dẫn về đúng bài học trong sách giáo khoa Toán, Khoa học tự nhiên, Vật lí theo chương trình mới.",
       "",
-      "Video có giọng đọc và hình ảnh được tạo với sự hỗ trợ của AI."
+      "✅ Số liệu, năm tháng và nhân vật được đối chiếu với ít nhất 2 nguồn tin cậy, ghi trong mô tả từng video.",
+      "🎯 Dành cho bạn từ 13 tuổi, phụ huynh và bất kỳ ai thích khoa học.",
+      "",
+      "Video có giọng đọc và hình ảnh được tạo với sự hỗ trợ của AI. Nội dung toán học và lịch sử khoa học được đối chiếu với sách giáo khoa và tài liệu tham khảo."
     ],
     "tiktokTitle": "Thiên Đường Kiến Thức",
     "visibility": "Công khai",
-    "order": "Ngày xuất bản (cũ nhất trước)",
-    "madeForKids": "Không. Khai báo ở từng video."
+    "order": "Ngày xuất bản (cũ nhất trước), để người xem bắt đầu từ #1",
+    "madeForKids": "Không (series cho người từ 13 tuổi và người lớn). Khai báo ở từng video, playlist không có mục này."
+  },
+  "review": {
+    "maxSeconds": 175,
+    "warnSeconds": 165,
+    "minSources": 2,
+    "frozenDays": [],
+    "note": "Bible: 120–175 giây kể cả thẻ cuối (Shorts tối đa 180)."
   }
 }

@@ -71,5 +71,14 @@
     "visibility": "Công khai",
     "order": "Ngày xuất bản (cũ nhất trước), để người xem bắt đầu từ #1",
     "madeForKids": "Không (series cho người từ 13 tuổi và người lớn). Khai báo ở từng video, playlist không có mục này."
+  },
+  "review": {
+    "maxSeconds": 80,
+    "warnSeconds": 60,
+    "minSources": 2,
+    "frozenDays": [
+      1
+    ],
+    "note": "Bible: dưới 45 giây (nên sửa khi vượt); trên 75 giây là phải sửa."
   }
 }

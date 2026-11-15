@@ -25,7 +25,8 @@
     "bot": "node tools/bot/bot.mjs",
     "bot:install": "powershell -ExecutionPolicy Bypass -File tools/bot/install-task.ps1",
     "bot:uninstall": "powershell -ExecutionPolicy Bypass -File tools/bot/install-task.ps1 -Uninstall",
-    "voice:names": "node tools/voice/scan-names.mjs"
+    "voice:names": "node tools/voice/scan-names.mjs",
+    "review": "node tools/review/review.mjs"
   },
   "dependencies": {
     "@remotion/cli": "4.0.541",

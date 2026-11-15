@@ -45,7 +45,7 @@ Mở tin **📣 Đăng bài** của tập hôm nay mà bot gửi tối qua (mấ
 
 ### 20:00, duyệt kịch bản ngày mai (10–15 phút mỗi series)
 
-Bot gửi kịch bản ngày mai kèm 3 nút. Đọc theo checklist của series:
+Bot gửi kịch bản ngày mai kèm 3 nút, vài phút sau gửi thêm kết quả **🔎 duyệt cuối tự động** (lời dẫn + cảnh) kèm ảnh tổng cảnh. Còn lỗi "phải sửa" thì bấm Sửa thoại xử lý trước. Rồi đọc theo checklist của series:
 
 **Nói Vậy Mà Không Phải Vậy**
 - [ ] Nghĩa thật (`nghia`) đúng với từ điển thành ngữ.
@@ -109,6 +109,22 @@ Dùng khi muốn làm cả tuần một lúc trên máy tính thay vì duyệt t
    - Không viết tắt.
    - Câu dài thì thêm dấu phẩy để giọng ngắt nghỉ.
 4. Chạy `npm run lint` để bắt lỗi gõ sai cấu trúc.
+
+### Bước 1b. Duyệt cuối tự động
+
+Kịch bản mới hoặc vừa sửa xong (kể cả sửa qua bot) phải qua bước duyệt cuối, đối chiếu với chuẩn đã đề ra: [giong-loi-thoai.md](giong-loi-thoai.md), [chuan-dung-canh.md](chuan-dung-canh.md) và series bible.
+
+```bash
+npm run review -- -p kt 1          # kiểm máy + ảnh cảnh (mặc định, không AI)
+npm run review -- -p vs tuan-2 --ai   # thêm Claude chấm, chỉ khi chủ kênh yêu cầu (vài phút, tốn phí)
+```
+
+- **Kiểm máy**: câu đọc quá 38 chữ, mở câu kiểu dàn ý ("Đề như sau:", "Mẹo là"…), câu người dẫn mở bằng "Ông", cụm "cho mà nghe", ngoặc đơn, chữ nước ngoài chưa có cách đọc, thời lượng (theo giọng thật nếu đã lồng, không thì ước 3,6 chữ/giây), thiếu câu hỏi cuối, thiếu nguồn.
+- **Ảnh cảnh**: mỗi câu một ảnh tĩnh (khoảng 2,3 giây sau đầu câu), ghép thành `anh-tong.jpg` đánh số hồi.câu.
+- **Claude chấm** (chỉ khi thêm `--ai`; mặc định tắt theo yêu cầu chủ kênh 15/11/2026) lời (tự nhiên, dễ hiểu, cuốn hút), sự thật và cảnh (khớp câu, đè chữ, cắt người, chữ đủ to, bố cục) theo Mục kiểm của hai trang chuẩn.
+- Kết quả: `out/review/<dự án>/ngay-XX/bao-cao.md` (+ `bao-cao.json`, `anh/`, `anh-tong.jpg`). Lỗi **"phải sửa"** phải xử lý trước khi duyệt; "nên sửa" tuỳ chọn. Tập đã đăng (`project.json` → `review.frozenDays`) chỉ ghi nhận, không sửa.
+- Giới hạn từng series đặt ở `project.json` → `review`: `maxSeconds` (vượt là phải sửa), `warnSeconds` (vượt là nên sửa, theo series bible), `minSources`, `frozenDays`.
+- Qua bot thì không cần chạy tay: bot tự chạy khi `/tap` và sau mỗi lần áp dụng bản sửa, gửi kết quả kèm ảnh tổng vào nhóm.
 
 ### Bước 2. Lồng tiếng
 
@@ -204,7 +220,8 @@ Qua bot có thể sửa, thêm, xoá câu, đổi cảnh, viết phần diễn. 
 | `npm run cover -- <ngày>` | Xuất ảnh bìa |
 | `npm run srt -- <ngày>` | Xuất phụ đề .srt (`--no-names` để bỏ tên người nói) |
 | `npm run sheets -- -p <dự án>` | Sinh lại kịch bản in trong `projects/<dự án>/docs/kich-ban/` |
-| `npm run playlist` | In tiêu đề, mô tả, cài đặt để tạo playlist YouTube / TikTok của mọi dự án, ghi vào `projects/<dự án>/docs/playlist.md` (`-p vs` cho một dự án) |
+| `npm run review -- -p <dự án> <ngày>` | Duyệt cuối tự động (lời + cảnh), báo cáo ở `out/review/<dự án>/ngay-XX/`. Mặc định không AI; `--ai` thêm Claude chấm, `--no-render` bỏ chụp ảnh |
+| `npm run playlist` | In tiêu đề, mô tả, cài đặt để tạo playlist YouTube / TikTok của mọi dự án, ghi vào `projects/<dự án>/docs/playlist.md` và file `out/<dự án>/playlist/thong-tin-playlist-youtube.txt` (`-p vs` cho một dự án) |
 | `npm run bot` | Chạy bot Telegram ở cửa sổ hiện tại (để thử) |
 | `/duan vs` (Telegram) | Chọn dự án làm việc; lệnh không ghi mã dự án sẽ dùng dự án này |
 | `/lichsu nv 5` (Telegram) | Xem các phiên bản video đã xuất của tập 5, gửi lại bản cũ. Lịch sử sửa kịch bản ở `projects/<dự án>/docs/lich-su/ngay-05.md` |
@@ -220,7 +237,7 @@ Cách ghi `<ngày>`: `5`, `1 3 5`, `1-7`, `tuan-2`, `all`.
 
 ### Tạo playlist cho một series (làm một lần, trước khi đăng tập 1)
 
-1. Gõ `/playlist vs` trong Telegram (hoặc `npm run playlist -- -p vs` trên máy, mở `projects/vi-sao/docs/playlist.md`).
+1. Gõ `/playlist vs` trong Telegram (hoặc `npm run playlist -- -p vs` trên máy). **Mỗi lần tạo playlist đều phải có file thông tin YouTube** `out/<dự án>/playlist/thong-tin-playlist-youtube.txt` (lệnh tự ghi, bot gửi kèm; bản Markdown ở `projects/<dự án>/docs/playlist.md`).
 2. YouTube Studio → Nội dung → Danh sách phát → Danh sách phát mới: dán tiêu đề, mô tả; chọn chế độ hiển thị và thứ tự như trong tin nhắn. Ảnh bìa: chọn ảnh ngang 1280×720 nếu Studio cho tải ảnh, không thì đặt tập #1 làm ảnh danh sách phát.
 3. TikTok → Hồ sơ → Danh sách phát → Tạo: dán tên danh sách phát, thêm các video của series.
 4. **Dự án mới bắt buộc có mục `playlist` trong `project.json`** (title, description, tiktokTitle, visibility, order, madeForKids) và ảnh bìa playlist trong `out/<dự án>/playlist/`. Thiếu thì `npm run playlist` báo lỗi.

@@ -41,7 +41,8 @@ export const LAYOUT = {
   stage: { x: 40, y: 312, w: 900, h: 786 },
   ground: 1040,
   card: { x: 40, y: 1114, w: 900, h: 240 },
-  subtitle: { x: 40, y: 1370, w: 900 },
+  // Thẻ tóm tắt đã tắt (kit.tsx SHOW_CARD): phụ đề đặt ngay dưới sân khấu.
+  subtitle: { x: 40, y: 1124, w: 900 },
 };
 
 /** Bản vẽ cảnh dùng toạ độ gốc (mặt đất y = 780, rộng x 60..910); phóng lên khung: X = TX + S·x, Y = TY + S·y. */

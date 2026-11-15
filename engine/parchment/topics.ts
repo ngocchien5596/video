@@ -1,6 +1,6 @@
 /**
  * Dữ liệu thẻ chữ cho cảnh chung (TopicScene) của "Thiên Đường Kiến Thức", theo tập và theo hồi.
- * Tập 1 (Monty Hall) và tập 6 (Thales) có cảnh vẽ riêng trong scenes.tsx nên không cần ở đây.
+ * Tập 1 (Monty Hall), tập 2 (sét và ô tô) và tập 3 (Thales) có cảnh vẽ riêng nên không cần ở đây.
  */
 export type TopicInfo = {
   stageTitle: string;
@@ -12,7 +12,7 @@ export type TopicInfo = {
 };
 
 export const TOPICS: Record<number, Record<string, TopicInfo>> = {
-  7: {
+  4: {
     hook: {
       stageTitle: "TRÁI ĐẤT HÌNH CẦU · NHƯNG TO CỠ NÀO?",
       badge: "BAO XA?",
@@ -62,7 +62,7 @@ export const TOPICS: Record<number, Record<string, TopicInfo>> = {
       note: "Một cái giếng, một chiếc cọc, một góc lệch",
     },
   },
-  8: {
+  5: {
     hook: {
       stageTitle: "SỢI DÂY 12 NÚT · GIẢ THUYẾT HAY SỰ THẬT?",
       badge: "12 NÚT?",
@@ -112,7 +112,7 @@ export const TOPICS: Record<number, Record<string, TopicInfo>> = {
       note: "Từ sợi dây 12 nút tới quỹ đạo",
     },
   },
-  9: {
+  6: {
     hook: {
       stageTitle: "ĐẢO SAMOS · HẦM DẪN NƯỚC XUYÊN NÚI ĐÁ VÔI",
       badge: "> 1 KM",
@@ -162,7 +162,7 @@ export const TOPICS: Record<number, Record<string, TopicInfo>> = {
       note: "✔ Như hai đội thợ Samos: một tam giác ngoài núi",
     },
   },
-  10: {
+  7: {
     hook: {
       stageTitle: "VƯƠNG MIỆN DÂNG THẦN CỦA VUA HIERO II",
       badge: "PHA BẠC?",
@@ -212,7 +212,7 @@ export const TOPICS: Record<number, Record<string, TopicInfo>> = {
       note: "1 chiếc cân · 1 chậu nước · 0 vết xước",
     },
   },
-  11: {
+  8: {
     hook: {
       stageTitle: "THÁCH ĐỐ 1696: MÁNG NÀO ĐƯA BI VỀ B NHANH NHẤT?",
       badge: "1696",
@@ -263,156 +263,6 @@ export const TOPICS: Record<number, Record<string, TopicInfo>> = {
     },
   },
   2: {
-    hook: {
-      stageTitle: "BÚA VÀ LÔNG CHIM: CÁI NÀO CHẠM ĐẤT TRƯỚC?",
-      badge: "CƯỢC ĐI!",
-      role: "ranger",
-      cardTitle: "📍 MẶT TRĂNG · APOLLO 15 · 2/8/1971",
-      formula: "Búa? · Lông chim? · Cùng lúc?",
-      note: "David Scott thả cả hai trước ống kính",
-    },
-    barrier: {
-      stageTitle: "✖ VẬT NẶNG RƠI NHANH HƠN?",
-      badge: "✖ NẶNG?",
-      role: "ancient",
-      cardTitle: "ARISTOTLE · HƠN 2.300 NĂM TRƯỚC",
-      formula: "Nặng gấp đôi → rơi nhanh gấp đôi?",
-      note: "Ngoài đời: đá rơi nhanh hơn lá thật",
-    },
-    eureka: {
-      stageTitle: "THÁP PISA: TƯƠNG TRUYỀN · MÁNG NGHIÊNG: CÓ THẬT",
-      badge: "EUREKA!",
-      role: "scholar",
-      cardTitle: "💡 GALILEO · MÁNG NGHIÊNG · ~1604",
-      formula: "1 nhịp→1 · 2 nhịp→4 · 3 nhịp→9",
-      note: "1971: búa và lông chạm đất cùng lúc",
-    },
-    theorem: {
-      stageTitle: "📖 VẬT LÍ 10 · SỰ RƠI TỰ DO",
-      badge: "s=½gt²",
-      role: "scholar",
-      cardTitle: "CHỈ CÒN TRỌNG LỰC: MỌI VẬT CÙNG g",
-      formula: "s = ½ g t²",
-      note: "Mặt Trăng g ≈ 1,62 m/s²: 1,6 m mất ~1,4 s",
-    },
-    realworld: {
-      stageTitle: "📚 TỜ GIẤY TRÊN CUỐN SÁCH · THÁP RƠI NASA",
-      badge: "THỬ NGAY",
-      role: "worker",
-      cardTitle: "SÁCH RẼ KHÔNG KHÍ CHO TỜ GIẤY",
-      formula: "132 m chân không → 5,18 s",
-      note: "Tháp rơi ở trung tâm NASA Glenn",
-    },
-    cosmic: {
-      stageTitle: "🛰️ TRẠM VŨ TRỤ ISS ĐANG RƠI TỰ DO",
-      badge: "≈ 90% g",
-      role: "scholar",
-      cardTitle: "RƠI MÃI MÀ KHÔNG CHẠM ĐẤT",
-      formula: "Rơi xuống + lao ngang 28.000 km/h",
-      note: "Một chiếc búa · một chiếc lông · cùng lúc",
-    },
-  },
-  3: {
-    hook: {
-      stageTitle: "🍚 CƠM NGUỘI QUA ĐÊM: ĂN ĐƯỢC KHÔNG?",
-      badge: "ĐẶT CƯỢC",
-      role: "worker",
-      cardTitle: "TIN ĐƯỢC · TIN ĐỒN · HAY TÙY?",
-      formula: "Quyết định ở mấy tiếng sau tắt bếp",
-      note: "Ghi lựa chọn vào bình luận trước",
-    },
-    barrier: {
-      stageTitle: "✖ NẤU CHÍN LÀ SẠCH? · ✖ HÂM LẠI LÀ HỎNG?",
-      badge: "✖ SAI CẢ",
-      role: "worker",
-      cardTitle: "BÀO TỬ BACILLUS CEREUS SỐNG SÓT",
-      formula: "Lỗi ở cách cất, không ở lúc hâm",
-      note: "Theo NHS và Cơ quan Tiêu chuẩn Thực phẩm Anh",
-    },
-    eureka: {
-      stageTitle: "🛡️ BÀO TỬ MẶC ÁO GIÁP · 1 → 16 TRIỆU",
-      badge: "121 °C",
-      role: "scholar",
-      cardTitle: "NỒI CƠM 100 °C · DIỆT BÀO TỬ 121 °C",
-      formula: "8 giờ ÷ 20 phút = 24 lần chia",
-      note: "Lý thuyết: 2²⁴ ≈ 16,8 triệu · độc tố bền nhiệt",
-    },
-    theorem: {
-      stageTitle: "📖 SINH HỌC 10 · BÀI 21 · VI SINH VẬT",
-      badge: "N₀·2ⁿ",
-      role: "scholar",
-      cardTitle: "NỘI BÀO TỬ & THỜI GIAN THẾ HỆ",
-      formula: "N = N₀ · 2ⁿ",
-      note: "Ví dụ trong sách: E. coli chia đôi sau 20 phút",
-    },
-    realworld: {
-      stageTitle: "🧊 NGUỘI NHANH · TỦ LẠNH · 24 GIỜ",
-      badge: "4 BƯỚC",
-      role: "worker",
-      cardTitle: "XỚI RA · CHIA NHỎ · CẤT NGAY",
-      formula: "Nguội 1 giờ · ăn trong 24 giờ",
-      note: "Theo Food Standards Scotland và NHS",
-    },
-    cosmic: {
-      stageTitle: "🏙️ BẾP NHÀ HÀNG: TRÊN 60 °C HOẶC ≤ 4 °C",
-      badge: "TÙY!",
-      role: "ranger",
-      cardTitle: "PHÁN QUYẾT: TÙY!",
-      formula: "Giữ nóng > 60 °C · giữ lạnh ≤ 4 °C",
-      note: "Ăn được nếu nguội nhanh, cất lạnh, ăn trong 24h",
-    },
-  },
-  4: {
-    hook: {
-      stageTitle: "CHARTLEY 1586 · THƯ MẬT GIẤU TRONG THÙNG BIA",
-      badge: "1586",
-      role: "ancient",
-      cardTitle: "📍 THƯ MẬT CỦA NỮ HOÀNG MARY",
-      formula: "Ký hiệu lạ + phép đếm = ?",
-      note: "Phelippes vẽ giá treo cổ sau khi giải mã",
-    },
-    barrier: {
-      stageTitle: "✖ THỬ TỪNG CÁCH THAY CHỮ CHO TỚI KHI RA NGHĨA",
-      badge: "✖ 12 TỈ",
-      role: "ancient",
-      cardTitle: "✖ 26 CHỮ CÁI · ~4×10²⁶ CÁCH XẾP",
-      formula: "26! ≈ 4 × 10²⁶ cách",
-      note: "1 tỉ cách/giây → hơn 12 tỉ năm",
-    },
-    eureka: {
-      stageTitle: "💡 AL-KINDI · BAGHDAD ~850: ĐỪNG THỬ, HÃY ĐẾM",
-      badge: "E≈13%",
-      role: "scholar",
-      cardTitle: "💡 KÝ HIỆU HAY GẶP NHẤT ≈ CHỮ E",
-      formula: "E ≈ 12,7% · J+Q+X+Z < 1%",
-      note: "Đếm là chìa khoá đầu tiên, rồi đoán từ",
-    },
-    theorem: {
-      stageTitle: "📖 TOÁN 9 · BẢNG TẦN SỐ VÀ BIỂU ĐỒ TẦN SỐ",
-      badge: "TẦN SỐ",
-      role: "scholar",
-      cardTitle: "1.000 CHỮ CÁI TIẾNG ANH · CỘT E ≈ 127",
-      formula: "Tần số = số lần xuất hiện",
-      note: "Cột cao của bản mã khớp cột cao của ngôn ngữ",
-    },
-    realworld: {
-      stageTitle: "🔤 HỘP CỜ SCRABBLE · CHỮ HAY GẶP THÌ RẺ",
-      badge: "E = 1 Đ",
-      role: "worker",
-      cardTitle: "100 QUÂN CHỮ · E CÓ TỚI 12 QUÂN",
-      formula: "Hay gặp → nhiều quân, ít điểm",
-      note: "Q, Z: mỗi chữ một quân, điểm cao ngất",
-    },
-    cosmic: {
-      stageTitle: "🖥 2023 · 57 LÁ THƯ MẬT TRONG KHO SỐ NƯỚC PHÁP",
-      badge: "57 THƯ",
-      role: "scholar",
-      cardTitle: "MÃ ĐỒNG ÂM: 1 CHỮ, NHIỀU KÝ HIỆU",
-      formula: "> 150.000 ký hiệu → ~50.000 từ",
-      note: "Bắt đầu từ chiếc giá treo cổ trên lá thư 1586",
-    },
-  },
-  5: {
     hook: {
       stageTitle: "SÉT ĐÁNH TRÚNG Ô TÔ · NGƯỜI TRONG XE VẪN ỔN?",
       badge: "ĐẶT CƯỢC",

@@ -179,7 +179,7 @@ export const HookBanner: React.FC<{ kicker: string; title: string; endFrame: num
     <div
       style={{
         position: "absolute",
-        top: 290,
+        top: 350,
         left: SAFE.left,
         right: SAFE.right,
         textAlign: "center",
@@ -249,7 +249,7 @@ export const TitleCard: React.FC<{ kicker: string; title: string; startFrame: nu
     <div
       style={{
         position: "absolute",
-        top: 300,
+        top: 360,
         left: SAFE.left,
         right: SAFE.right,
         textAlign: "center",
@@ -384,7 +384,7 @@ export const StampCard: React.FC<{ stamp: string; label: string; body: string; s
   const out = interpolate(frame, [endFrame - 8, endFrame], [1, 0], clamp);
 
   return (
-    <div style={{ position: "absolute", top: 300, left: SAFE.left, right: SAFE.right, opacity: out }}>
+    <div style={{ position: "absolute", top: 360, left: SAFE.left, right: SAFE.right, opacity: out }}>
       <div
         style={{
           ...sealStamp(10, 16),
@@ -422,15 +422,18 @@ export const StampCard: React.FC<{ stamp: string; label: string; body: string; s
  * Câu hỏi kéo bình luận + dòng hẹn tập sau (ví dụ "Mai là câu: ..."), hiện ở giây cuối.
  * `warm`: phong cách giấy dó của ba series sân khấu; bỏ trống thì giữ kiểu cũ (series Kiến thức dùng).
  */
-export const EndCard: React.FC<{ question: string; teaser: string | null; startFrame: number; warm?: boolean }> = ({
+export const EndCard: React.FC<{ question: string; teaser: string | null; startFrame: number; teaserFrame?: number; warm?: boolean }> = ({
   question,
   teaser,
   startFrame,
+  teaserFrame,
   warm = false,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const pop = spring({ frame: frame - startFrame, fps, config: { damping: 13 } });
+  // Câu hỏi hiện một mình trước cho người xem đọc, dòng "Tiếp theo" hiện sau (teaserFrame, xem endCardTiming).
+  const teaserPop = spring({ frame: frame - (teaserFrame ?? startFrame), fps, config: { damping: 14 } });
 
   const questionStyle: React.CSSProperties = warm
     ? { ...paperCard(7, 28), padding: "26px 30px", fontWeight: 900, fontSize: 52, lineHeight: 1.25 }
@@ -476,7 +479,8 @@ export const EndCard: React.FC<{ question: string; teaser: string | null; startF
             fontFamily: TEXT_FONT,
             fontWeight: 900,
             fontSize: 40,
-            scale: `${pop}`,
+            scale: `${teaserPop}`,
+            opacity: Math.min(1, teaserPop * 1.5),
             ...teaserStyle,
           }}
         >
@@ -506,7 +510,7 @@ export const CorrectionCard: React.FC<{
   const out = interpolate(frame, [endFrame - 8, endFrame], [1, 0], clamp);
 
   return (
-    <div style={{ position: "absolute", top: 320, left: SAFE.left, right: SAFE.right, opacity: out }}>
+    <div style={{ position: "absolute", top: 380, left: SAFE.left, right: SAFE.right, opacity: out }}>
       <div
         style={{
           ...paperCard(6, 24),
@@ -560,7 +564,7 @@ export const NoteCard: React.FC<{ label: string; body: string; startFrame: numbe
     <div
       style={{
         position: "absolute",
-        top: 320,
+        top: 380,
         left: SAFE.left,
         right: SAFE.right,
         textAlign: "center",

@@ -8,6 +8,13 @@ Series bible của từng dự án nói giọng riêng của nhân vật; trang 
 - Câu như đang kể cho một người ngồi đối diện: chủ ngữ rõ, động từ mạnh, từ nối tự nhiên ("Thế nhưng", "Vậy mà", "Hóa ra", "Nghe thì vô lý, nhưng…", "Thử tưởng tượng…", "Và đây mới là chỗ thú vị", "Nói gọn lại").
 - Không mở câu kiểu dàn ý / điện báo: "Đề như sau:", "Mẹo là…", "Chìa khóa là…", "Giờ phóng ra…", "Ý chê…:".
 - Không câu định nghĩa kiểu từ điển. Trước: "Mây là vô số giọt nước li ti, lơ lửng trên trời." Sau: "Mây trông thế thôi, chứ là vô số giọt nước bé tí, lơ lửng trên trời đấy."
+- **Không lược hư từ cho gọn** (lỗi "cụt lủn" hay gặp nhất, chủ kênh nhắc 15/11/2026). Người Việt nói giữ đủ "bị", "được", "lại", "trở", "thì", "mới", "cả", "ư", "nhé"… và nói hết cụm từ, không cắt nửa. Trước → sau (tập 1 Kiến thức):
+  - "Wald lại nói ngược." → "Wald thì nói ngược lại."
+  - "bọc giáp ở chỗ không có lỗ." → "bọc giáp ở chỗ không có lỗ thủng."
+  - "Vì sao?" (đứng một mình sau câu kể) → "Vì sao ư?"
+  - "Những chiếc trúng đạn vào động cơ đã không bay về được." → "Những chiếc bị trúng đạn vào động cơ đã mãi mãi không bay trở về được."
+  - "Ba trường hợp, đổi thắng hai." → "Trong ba trường hợp, đổi cửa thắng tới hai."
+  Dấu hiệu: câu đọc lên như tiêu đề báo, ghi chú, hay phụ đề bị cắt cho vừa dòng. Câu dài thêm vài chữ mà tự nhiên thì luôn chọn câu dài hơn.
 - Hạn chế dấu hai chấm, chấm phẩy, gạch ngang giữa câu; không ngoặc đơn. Dùng dấu phẩy, chấm, "?", "!", "…" để giọng AI ngắt nghỉ có cảm xúc.
 
 ## 2. Nhịp và mạch
@@ -30,15 +37,19 @@ Series bible của từng dự án nói giọng riêng của nhân vật; trang 
 
 ## 5. Giới hạn kỹ thuật của giọng AI
 - Câu đọc không bắt đầu bằng "Ông" với giọng NARRATOR, và tránh cụm "ông giảng / kể cho mà nghe" (giống câu mẫu của giọng Cụ Đồ, mô hình dễ đọc lẫn).
+- Giọng NARRATOR đang mượn giọng mẫu Cụ Đồ (voices/cu-do.wav, câu mẫu kết bằng "…ông giảng cho mà nghe"), nên mô hình đôi khi chèn câu mẫu vào đầu câu. Máy lồng giọng (make_voice.py) tự chặn: tiếng nghe lại có cụm 3 chữ của câu mẫu mà câu cần đọc không có thì coi là hỏng, sinh lại với độ dài ép vừa câu; vẫn lẫn thì báo ⛔ và bước duyệt báo "phải sửa". Quét tiếng cũ: `npm run voice:check -- -p <dự án> all` (danh sách ở out/voice-leaks.json).
 - Tên riêng, từ mượn nước ngoài: phiên âm bằng âm tiết tiếng Việt cách nhau dấu cách, KHÔNG gạch nối; phụ âm ghép tách ra như người Việt nói ("Xì cốt", "Pờ lu tác"). Cách đọc dùng chung nằm trong bảng `PRONOUNCE` (tools/voice/vi_text.py), máy tự áp khi lồng giọng; viết kịch bản xong chạy `npm run voice:names`, chữ nào chưa có cách đọc thì thêm vào bảng. Chữ cái đọc tên Việt ("chữ en lờ"); ký hiệu, phân số đọc thành lời.
 - Mỗi câu ≤ 35–38 chữ. Từ tượng thanh lạ ("Phì phì!") phải nghe thử sau khi lồng giọng.
 - Sửa lời một nhịp có `stage` trỏ `line`: giữ số câu, thứ tự, người nói (hoặc sửa đúng chỉ số); câu mới vẫn mang đúng ý mà cảnh diễn theo.
 
 ## Mục kiểm trước khi duyệt kịch bản
 1. Đọc to cả tập một lượt: chỗ nào vấp, cứng, giống văn viết thì sửa.
-2. Có câu nào mở kiểu dàn ý, có chuỗi câu cùng khuôn, có câu nhồi ba con số trở lên không?
-3. Các nhịp có câu chuyển nối nhau không?
-4. Phần giải thích người xem có tự kiểm lại được không? Có câu "nói gọn lại" không?
-5. Hai nhân vật có nghe ra hai người khác nhau không?
-6. Sự thật, số liệu, nguồn có còn nguyên sau khi sửa câu chữ không?
-7. Tập đã đăng: KHÔNG sửa.
+2. Soát TỪNG câu: có câu nào bị lược hư từ ("bị", "lại", "trở", "thì", "mới", "ư"…) hay cắt cụt cụm từ, nghe như tiêu đề / ghi chú không? Có thì thêm cho đủ như người thật nói (mục 1).
+3. Có câu nào mở kiểu dàn ý, có chuỗi câu cùng khuôn, có câu nhồi ba con số trở lên không?
+4. Các nhịp có câu chuyển nối nhau không?
+5. Phần giải thích người xem có tự kiểm lại được không? Có câu "nói gọn lại" không?
+6. Hai nhân vật có nghe ra hai người khác nhau không?
+7. Sự thật, số liệu, nguồn có còn nguyên sau khi sửa câu chữ không?
+8. Tập đã đăng: KHÔNG sửa.
+
+Kịch bản mới / sửa xong phải chạy `npm run review` (kiểm máy + ảnh cảnh, không dùng AI chấm; bot tự chạy khi /tap); lỗi 'phải sửa' phải xử lý trước khi duyệt. Mục kiểm trên trang này do người viết tự soát.

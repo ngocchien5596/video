@@ -17,7 +17,7 @@ export const beats = {
 };
 
 export const headline = (episode) => episode.title;
-export const teaserLabel = "Bài toán tiếp theo";
+export const teaserLabel = "Tiếp theo";
 
 export const fields = (episode) => [
   { code: "hud", label: "Tiêu đề HUD", text: episode.hudTitle, key: "hudTitle" },
@@ -55,7 +55,7 @@ export const ai = {
     `giải quyết những bài toán vĩ đại bằng công cụ thô sơ, kết nối với định lý trong Sách giáo khoa Toán – Lý và mở rộng ra quy mô Vũ trụ. ` +
     `Dùng 1 giọng kể duy nhất (NARRATOR), trầm ấm, cuốn hút.`,
   rules: [
-    `Không đổi day, week, theme. Giữ đủ các trường title, hudTitle, textbook, era, question, sources, hook, barrier, eureka, theorem, realworld, cosmic.`,
+    `Không đổi day, week, theme. Giữ đủ các trường title, hudTitle, textbook, era, question, sources, hook, barrier, eureka, theorem, cosmic (realworld có thể bỏ nếu tập không cần).`,
     `Mỗi câu thoại có text (hiển thị phụ đề ngắn gọn, dùng ký hiệu toán học chuẩn) và tts (viết thuần chữ tiếng Việt để AI đọc mượt không vấp số hay ký hiệu).`,
     `Thời lượng mục tiêu từ 110 đến 170 giây (dưới 180 giây để đăng được YouTube Shorts 3 phút, trên 60 giây cho TikTok).`,
   ],

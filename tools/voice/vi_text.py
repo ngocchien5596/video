@@ -123,14 +123,16 @@ LETTERS = {
 # Thêm từ mới: chạy `npm run voice:names` để xem chữ nào chưa có cách đọc (lệnh `npm run voice` cũng cảnh báo).
 PRONOUNCE = {
     # Tên riêng (Kiến thức tập 1, đã nghe thử 15/11/2026)
-    "Pa-rết": "Pa rây",
-    "Parade": "Pa rây",
+    "Pa-rết": "Pa rết",
+    "Parade": "Pa rết",
     "Ma-ri-lin vốt Xa-văng": "Me ri lin Vốt Xa van",
     "Marilyn vos Savant": "Me ri lin Vốt Xa van",
     "Steven Pinker": "Xì ti vơn Pinh cơ",
     "Paul Erdős": "Pôn Ẹc đốt",
     "Air France": "E Phờ răng",
     "Metron": "Mê trôn",
+    "Abraham Wald": "Áp ra ham Uôn",
+    "Wald": "Uôn",
     # Phụ âm ghép tiếng Việt không có (xt, xc, pl, cl, phr, đr): tách thành âm tiết như người Việt vẫn nói ("Xì cốt").
     "Xti-vơn": "Xì ti vơn",
     "Steven": "Xì ti vơn",
@@ -265,3 +267,34 @@ if __name__ == "__main__":
     ]
     for s in samples:
         print(f"{s}\n  → {normalize_numbers(s)}")
+
+
+# --- Chặn lỗi mô hình đọc lẫn câu mẫu của giọng (vd. "…ông giảng cho mà nghe") ---
+_REF_GRAMS: set[tuple[str, ...]] | None = None
+_LEAK_N = 3
+
+
+def _wordlist(text: str) -> list[str]:
+    import unicodedata as _u
+    return re.findall(r"\w+", _u.normalize("NFC", text.lower()))
+
+
+def _ref_grams() -> set[tuple[str, ...]]:
+    global _REF_GRAMS
+    if _REF_GRAMS is None:
+        from pathlib import Path as _P
+        voices = _P(__file__).resolve().parents[2] / "voices"
+        grams: set[tuple[str, ...]] = set()
+        for txt in list(voices.glob("*.txt")) + list(voices.glob("mau/*.txt")):
+            w = _wordlist(txt.read_text(encoding="utf-8"))
+            grams.update(tuple(w[i : i + _LEAK_N]) for i in range(len(w) - _LEAK_N + 1))
+        _REF_GRAMS = grams
+    return _REF_GRAMS
+
+
+def leaked_ref(expected: str, heard: str) -> list[str]:
+    """Cụm 3 chữ của câu mẫu giọng (voices/*.txt) có trong tiếng nghe được mà câu cần đọc không có."""
+    e, h = _wordlist(expected), _wordlist(heard)
+    exp = {tuple(e[i : i + _LEAK_N]) for i in range(len(e) - _LEAK_N + 1)}
+    refs = _ref_grams()
+    return sorted({" ".join(g) for g in (tuple(h[i : i + _LEAK_N]) for i in range(len(h) - _LEAK_N + 1)) if g in refs and g not in exp})

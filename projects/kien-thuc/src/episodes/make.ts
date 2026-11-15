@@ -36,8 +36,8 @@ export type EpisodeSpec = {
   eureka: Part;
   /** Hồi 4: Liên hệ SGK & Khái quát hóa Định lý (~30s). */
   theorem: Part;
-  /** Hồi 5: Biến thể thực chiến đời sống (~22s). */
-  realworld: Part;
+  /** Hồi 5: Biến thể thực chiến đời sống (~22s). Bỏ trống thì tập không có hồi này. */
+  realworld?: Part;
   /** Hồi 6: Cao trào Vũ trụ & Triết lý kết (~23s). */
   cosmic: Part;
 };
@@ -51,7 +51,7 @@ export const makeEpisode = (spec: EpisodeSpec): KienThucEpisode => {
     { ...spec.barrier, kind: "barrier", seconds: spec.barrier.seconds ?? 25 },
     { ...spec.eureka, kind: "eureka", seconds: spec.eureka.seconds ?? 32 },
     { ...spec.theorem, kind: "theorem", seconds: spec.theorem.seconds ?? 30 },
-    { ...spec.realworld, kind: "realworld", seconds: spec.realworld.seconds ?? 22 },
+    ...(spec.realworld ? [{ ...spec.realworld, kind: "realworld" as const, seconds: spec.realworld.seconds ?? 22 }] : []),
     { ...spec.cosmic, kind: "cosmic", seconds: spec.cosmic.seconds ?? 23 },
   ];
 

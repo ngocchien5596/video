@@ -9,15 +9,16 @@
  * Không ghi mã thì dùng dự án đang chọn (`/duan`).
  */
 import { spawn } from "node:child_process";
-import { statSync } from "node:fs";
+import { mkdirSync, statSync, writeFileSync } from "node:fs";
 import path from "node:path";
-import { loadProjects, matchProject } from "../projects.mjs";
+import { loadProjects, matchProject, pad2 } from "../projects.mjs";
+import { freshReport, readReport, reportMd } from "../review/store.mjs";
 import { askClaude } from "./ai-edit.mjs";
 import { addDays, dayForDate, EMPTY_PROJECT_STATE, loadConfig, loadEnv, loadState, nowIn, ROOT, saveState } from "./config.mjs";
 import { applyDraft, diffEpisodes, readBlock, validateDraft } from "./draft.mjs";
 import { archiveVersion, commitFiles, historyFile, listVersions, logRender, logScriptChange, push } from "./history.mjs";
 import { produce, STEPS, updateTracker } from "./pipeline.mjs";
-import { formatPlaylistKit, playlistKit } from "../playlist.mjs";
+import { formatPlaylistKit, playlistKit, writePlaylistFiles } from "../playlist.mjs";
 import { isTime, PLATFORMS, postSlots, slotsText, tableText } from "../schedule.mjs";
 import { formatPublishKit, METRICS_CHECKLIST, postDate, savePublishKit } from "./publish.mjs";
 import { applyChanges, formatScript, loadEpisode, parseDirectEdits } from "./script.mjs";
@@ -96,6 +97,7 @@ Lịch mỗi ngày:
 ✅ <b>Duyệt</b>: lồng tiếng, xuất video, gửi về đây file mp4, ảnh bìa và gói đăng bài.
 ✏️ <b>Sửa thoại</b>: nhắn chỗ cần sửa. Bot sửa thoại kèm phần diễn và mô tả cảnh liên quan, cho xem trước rồi mới áp dụng.
 ⏭ <b>Bỏ qua</b>: nhắc lại sau vài giờ.
+🔎 Mỗi lần /tap hoặc áp dụng bản sửa, bot tự <b>duyệt cuối</b> (lời dẫn + cảnh, theo chuẩn đã đề ra) và gửi kết quả kèm ảnh tổng cảnh. Còn lỗi "phải sửa" thì nên sửa trước khi Duyệt.
 
 <b>Cách sửa thoại</b> (sau khi bấm ✏️):
 • Sửa chính xác: <code>6.2: nội dung mới</code> (mỗi dòng một chỗ; mã nằm đầu mỗi câu trong kịch bản, <code>3.c</code> là mô tả cảnh).
@@ -138,6 +140,8 @@ const sendReview = async (project, day, header) => {
   days[day] = { ...prev, status: "pending", messageId: last.message_id, remindAt: null };
   ps(project).notified[day] = true;
   save();
+  // Duyệt cuối tự động (lời + cảnh) chạy nền, gửi kết quả khi xong.
+  queueReview(project, day).catch((e) => log("review queue", e));
 };
 
 // ---------------------------------------------------------------- tạo video (một việc một lúc)
@@ -155,6 +159,8 @@ const runQueue = async () => {
   if (busy) return;
   busy = true;
   while (queue.length) {
+    // Duyệt tự động đang chụp ảnh / chạy AI thì chờ xong (máy yếu, không chạy hai việc nặng cùng lúc).
+    while (reviewing) await reviewing.promise;
     const { pid, day } = queue.shift();
     const project = projectById(pid);
     const days = ps(project).days;
@@ -228,6 +234,7 @@ const runQueue = async () => {
     save();
   }
   busy = false;
+  void runReviews();
 };
 
 const approve = async (project, day) => {
@@ -244,10 +251,155 @@ const approve = async (project, day) => {
   days[day] = { ...days[day], status: "approved", approvedAt: new Date().toISOString() };
   if (state.editing?.project === project.id && state.editing?.day === day) state.editing = null;
   save();
+  // Nhắc (không chặn) nếu bản duyệt tự động của đúng kịch bản này còn lỗi "phải sửa".
+  const note = reviewNote(project, episode, day);
+  const wait = busy
+    ? ` Đang làm tập khác, tập ${day} sẽ chạy ngay sau.`
+    : reviewing
+      ? ` Đang chạy duyệt tự động, xong là tạo video tập ${day}.`
+      : "";
+  if (wait || note) await send(`👍 Đã duyệt tập ${day}.${wait}${note ? `\n\n${note}` : ""}`);
   queue.push({ pid: project.id, day });
-  if (busy) await send(`👍 Đã duyệt tập ${day}. Đang làm tập khác, tập ${day} sẽ chạy ngay sau.`);
   void runQueue();
 };
+
+// ---------------------------------------------------------------- duyệt cuối tự động (tools/review/review.mjs)
+// Chạy nền, một tập một lúc, nhường hàng đợi xuất video: đang xuất video thì chờ; xuất video cũng chờ lượt duyệt đang chạy.
+// Kết quả lưu ở out/review/<dự án>/ngay-XX/ theo khoá nội dung (kịch bản + phần hình + giọng): không đổi thì không chạy lại.
+
+const reviewQueue = [];
+/** Lượt duyệt đang chạy: { pid, day, promise }. */
+let reviewing = null;
+/** Khoá báo cáo đã gửi vào nhóm (tránh gửi trùng khi cùng nội dung được xếp hàng hai lần). */
+const reviewSent = new Map();
+const REVIEW_TIMEOUT_MS = 25 * 60 * 1000;
+const cut = (s, n) => (s.length > n ? `${s.slice(0, n - 1)}…` : s);
+
+const runReviewProcess = (project, day) =>
+  new Promise((resolve) => {
+    const dir = path.join(ROOT, "out", "review", project.id, `ngay-${pad2(day)}`);
+    mkdirSync(dir, { recursive: true });
+    const child = spawn(process.execPath, [path.join(ROOT, "tools", "review", "review.mjs"), "-p", project.id, String(day), "--cache"], {
+      cwd: ROOT,
+      stdio: ["ignore", "pipe", "pipe"],
+    });
+    let out = "";
+    let settled = false;
+    child.stdout.on("data", (d) => (out += d));
+    child.stderr.on("data", (d) => (out += d));
+    const timer = setTimeout(() => child.kill(), REVIEW_TIMEOUT_MS);
+    const done = (code) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      try {
+        writeFileSync(path.join(dir, "review.log"), out, "utf8");
+      } catch {
+        // Không ghi được log thì thôi.
+      }
+      resolve({ code, out });
+    };
+    child.on("error", (e) => {
+      out += `\n${e.message}`;
+      done(-1);
+    });
+    child.on("close", done);
+  });
+
+/** Tin ngắn kết quả duyệt: đạt / số lỗi + 3–5 lỗi đầu. */
+const reviewText = (project, day, report) => {
+  const c = report.counts;
+  const head = report.frozen
+    ? `🔒 ${tag(project)} · Duyệt tự động tập ${day} (đã đăng, chỉ ghi nhận): ${c.noted} điểm`
+    : report.pass
+      ? `🔎 ${tag(project)} · Duyệt tự động tập ${day}: <b>ĐẠT</b>${c.should ? ` (${c.should} lỗi nên sửa)` : ""}`
+      : `⚠️ ${tag(project)} · Duyệt tự động tập ${day}: <b>${c.must} lỗi phải sửa, ${c.should} lỗi nên sửa</b>`;
+  const top = report.issues.slice(0, report.pass ? 3 : 5).map((i) => {
+    const mark = i.level === "phải sửa" ? "❗" : i.level === "nên sửa" ? "▫️" : "·";
+    return `${mark} <b>${esc(i.where)}</b> (${esc(i.kind)}): ${esc(cut(i.issue, 150))}${i.fix ? `\n   → ${esc(cut(i.fix, 130))}` : ""}`;
+  });
+  const more = report.issues.length > top.length ? `\n… còn ${report.issues.length - top.length} lỗi trong báo cáo.` : "";
+  const ai = report.ai?.ran
+    ? report.ai.summary
+      ? `\n💬 ${esc(cut(report.ai.summary, 300))}`
+      : ""
+    : `\n(AI chưa chấm${report.ai?.error ? `: ${esc(cut(report.ai.error, 120))}` : ""}; chỉ có kiểm máy.)`;
+  const file = path.relative(ROOT, reportMd(project, day)).replace(/\\/g, "/");
+  return `${head}${top.length ? `\n${top.join("\n")}` : ""}${more}${ai}\nBáo cáo: <code>${esc(file)}</code>`;
+};
+
+const sendReviewResult = async (project, day, report) => {
+  reviewSent.set(`${project.id}:${day}`, report.key);
+  await send(reviewText(project, day, report));
+  if (!report.sheet) return;
+  const sheet = path.join(ROOT, report.sheet);
+  const caption = `Ảnh cảnh ${esc(project.name)} · tập ${day} (mỗi ô một câu, số hồi.câu)`;
+  await tg
+    .sendPhoto(chatId(), sheet, caption)
+    .catch(() => tg.sendDocument(chatId(), sheet, caption))
+    .catch((e) => log("review sheet", e.message));
+};
+
+/** Ghi chú cho tin xác nhận Duyệt: bản duyệt tự động gần nhất của ĐÚNG kịch bản hiện tại còn lỗi "phải sửa". */
+const reviewNote = (project, episode, day) => {
+  let report = null;
+  try {
+    report = freshReport(project, episode);
+  } catch (e) {
+    log("review note", e.message);
+  }
+  if (report && !report.frozen && report.counts.must > 0) {
+    const must = report.issues.filter((i) => i.level === "phải sửa").slice(0, 3);
+    return (
+      `⚠️ Lưu ý: bản duyệt tự động của đúng kịch bản này còn <b>${report.counts.must} lỗi phải sửa</b> (vẫn tạo video theo yêu cầu):\n` +
+      must.map((i) => `❗ <b>${esc(i.where)}</b>: ${esc(cut(i.issue, 120))}`).join("\n")
+    );
+  }
+  if (!report && reviewing?.pid === project.id && reviewing?.day === day) return "🔎 Duyệt tự động của tập này đang chạy, kết quả gửi sau.";
+  return null;
+};
+
+/** Xếp tập vào hàng duyệt. Đã có báo cáo đầy đủ của đúng nội dung hiện tại thì gửi luôn, không chạy lại. */
+const queueReview = async (project, day) => {
+  let episode;
+  try {
+    episode = loadEpisode(project, day).episode;
+  } catch {
+    return;
+  }
+  const fresh = freshReport(project, episode);
+  if (fresh?.ai?.ran && fresh.sheet) return sendReviewResult(project, day, fresh);
+  if (reviewQueue.some((j) => j.pid === project.id && j.day === day)) return;
+  reviewQueue.push({ pid: project.id, day });
+  void runReviews();
+};
+
+async function runReviews() {
+  if (reviewing || busy || !reviewQueue.length) return;
+  const job = reviewQueue.shift();
+  const project = projectById(job.pid);
+  let finish = () => {};
+  reviewing = { ...job, promise: new Promise((r) => (finish = r)) };
+  try {
+    log("review", job.pid, job.day);
+    const res = await runReviewProcess(project, job.day);
+    const report = readReport(project, job.day);
+    if (![0, 1].includes(res.code) || !report) {
+      const tail = res.out.trim().split("\n").slice(-8).join("\n").slice(-1500);
+      await send(`❌ ${tag(project)} · Duyệt tự động tập ${job.day} lỗi:\n<pre>${esc(tail)}</pre>`);
+    } else if (reviewSent.get(`${job.pid}:${job.day}`) !== report.key) {
+      await sendReviewResult(project, job.day, report);
+    }
+  } catch (e) {
+    log("review error", e);
+  } finally {
+    reviewing = null;
+    finish();
+  }
+  // Có tập chờ xuất video thì nhường; không thì duyệt tập tiếp theo.
+  if (queue.length) void runQueue();
+  else void runReviews();
+}
 
 // ---------------------------------------------------------------- sửa kịch bản
 
@@ -528,6 +680,7 @@ const handleCommand = async (text) => {
       return send(
         `${blocks.join("\n\n")}\n\n` +
           `⏳ Đang chạy: ${busy ? "có" : "không"}${queue.length ? `, chờ: ${queue.map((q) => `${q.pid} ${q.day}`).join(", ")}` : ""}\n` +
+          `🔎 Duyệt tự động: ${reviewing ? `${reviewing.pid} tập ${reviewing.day}` : "không chạy"}${reviewQueue.length ? `, chờ: ${reviewQueue.map((q) => `${q.pid} ${q.day}`).join(", ")}` : ""}\n` +
           `✏️ Đang sửa: ${state.editing ? `${state.editing.project} tập ${state.editing.day}` : "không"}`,
       );
     }
@@ -564,6 +717,8 @@ const handleCommand = async (text) => {
         return send(`⚠️ ${esc(e.message)}`);
       }
       await send(formatPlaylistKit(kit, project.name));
+      const { txt } = writePlaylistFiles(kit, project);
+      await tg.sendDocument(chatId(), `${ROOT}/${txt}`, `File thông tin tạo playlist YouTube · ${esc(project.name)}`);
       for (const file of kit.covers) await tg.sendDocument(chatId(), `${ROOT}/${file}`, `Ảnh bìa playlist ${esc(project.name)}`);
       return;
     }

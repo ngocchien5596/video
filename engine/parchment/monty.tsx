@@ -4,7 +4,7 @@
  * Toạ độ gốc của sân khấu: rộng x 60..910, cao y 125..780 (mặt đất y = 780).
  */
 import React from "react";
-import { interpolate } from "remotion";
+import { Easing, interpolate } from "remotion";
 import { DrawLine, DrawPath, ease, Fade, Pop, pop, wave } from "./anim.tsx";
 import { type Anim, Card, Chalkboard, Check, Cross, GROUND, linePose, poseAt, T } from "./kit.tsx";
 import { INK } from "./ParchmentHud.tsx";
@@ -357,8 +357,8 @@ const Hook: React.FC<Anim> = ({ li, lf, fps, frame }) => {
         <Door key={i} i={i} frame={frame} behind={BEHIND[i]} peek={peek} glow={i === 0 ? glow1 : 0} open={i === 2 ? open3 : 0} bleat={i === 2 ? bleat : 0} />
       ))}
       {open3 > 0.6 ? (
-        <Pop p={bleat} cx={470} cy={430}>
-          <text x={470} y={452} textAnchor="middle" fill={INK.line} fontSize={40} {...T}>
+        <Pop p={bleat} cx={DOOR_X[2] + DOOR_W / 2 + 10} cy={DOOR_Y + 76}>
+          <text x={DOOR_X[2] + DOOR_W / 2 + 10} y={DOOR_Y + 88} textAnchor="middle" fill={CHALK_Y} fontSize={30} {...T}>
             BE-E-E!
           </text>
         </Pop>
@@ -521,7 +521,7 @@ const Barrier: React.FC<Anim> = ({ li, lf, bf, fps, frame }) => {
               ))}
               <Fade p={ease(lf, 10, 14)}>
                 <text x={690} y={210} textAnchor="middle" fill={INK.line} fontSize={58} {...T}>
-                  ✉ {Math.round(ease(lf, 10, 80) * 10000).toLocaleString("vi-VN")}
+                  ✉ ~{(Math.round(ease(lf, 10, 45) * 100) * 100).toLocaleString("vi-VN")}
                 </text>
               </Fade>
             </>
@@ -657,7 +657,7 @@ const Eureka: React.FC<Anim> = ({ li, lf, bf, fps, frame }) => {
                 </text>
                 {opened > 0.5 && active < 999 ? (
                   <text x={420} y={y + 30} fill={CHALK_R} fontSize={30} {...T} opacity={1 - ease(active, 70, 10)}>
-                    BẮT BUỘC MỞ {row.opens + 1}
+                    {row.car === 0 ? "MỞ TUỲ Ý" : `BẮT BUỘC MỞ ${row.opens + 1}`}
                   </text>
                 ) : null}
                 {MINI_X.map((mx, d) => (
@@ -826,12 +826,13 @@ const Theorem: React.FC<Anim> = ({ li, lf, bf, fps, frame }) => {
 
 // ---------------------------------------------------------------- hồi 5: thử tại nhà với ba cái cốc
 
-const CUP_X = [190, 375, 560];
+const CUP_X = [270, 430, 590];
 const TABLE_Y = 610;
 
-const Cup: React.FC<{ x: number; lift: number; glow?: number; frame: number }> = ({ x, lift, glow = 0, frame }) => (
-  <g transform={`translate(${x} ${TABLE_Y - lift})`}>
-    {glow > 0.01 ? <ellipse cx={0} cy={lift + 4} rx={78} ry={18} fill="#FFC93C" opacity={glow * (0.6 + 0.4 * Math.sin(frame * 0.2))} filter="url(#soft-glow)" /> : null}
+/** Cốc nhựa úp ngược; gốc: giữa miệng cốc trên mặt bàn `y`, nhấc lên `lift` px, phóng `s`. */
+const Cup: React.FC<{ x: number; lift: number; glow?: number; frame: number; y?: number; s?: number }> = ({ x, lift, glow = 0, frame, y = TABLE_Y, s = 1 }) => (
+  <g transform={`translate(${x} ${y - lift}) scale(${s})`}>
+    {glow > 0.01 ? <ellipse cx={0} cy={lift / s + 4} rx={78} ry={18} fill="#FFC93C" opacity={glow * (0.6 + 0.4 * Math.sin(frame * 0.2))} filter="url(#soft-glow)" /> : null}
     <path d="M -55 0 L -36 -128 L 36 -128 L 55 0 Z" fill="#D9443A" stroke={INK.line} strokeWidth={4} strokeLinejoin="round" />
     <rect x={-58} y={-14} width={116} height={14} rx={4} fill="#B8352C" stroke={INK.line} strokeWidth={3} />
     <path d="M -28 -116 L -40 -22" stroke="rgba(255,255,255,0.5)" strokeWidth={8} strokeLinecap="round" />
@@ -846,20 +847,138 @@ const Coin: React.FC<{ x: number; y: number; p: number }> = ({ x, y, p }) => (
   </Pop>
 );
 
+/** Người bạn ngồi đối diện sau bàn (áo cam); `reach` 0..1 đưa tay chạm cốc 1. */
+const Friend: React.FC<{ x: number; frame: number; p: number; reach: number }> = ({ x, frame, p, reach }) => {
+  const bob = wave(frame, 0.09, 2);
+  const hx = interpolate(reach, [0, 1], [x + 40, CUP_X[0] - 46]);
+  const hy = interpolate(reach, [0, 1], [TABLE_Y - 30, TABLE_Y - 62]);
+  return (
+    <Pop p={p} cx={x} cy={TABLE_Y - 60}>
+      <g transform={`translate(0 ${bob})`}>
+        <path d={`M ${x - 46} ${TABLE_Y + 4} Q ${x - 48} ${TABLE_Y - 92} ${x} ${TABLE_Y - 96} Q ${x + 48} ${TABLE_Y - 92} ${x + 46} ${TABLE_Y + 4} Z`} fill="#E07A3A" stroke={INK.line} strokeWidth={4} />
+        <rect x={x - 9} y={TABLE_Y - 116} width={18} height={24} fill="#EBB892" stroke={INK.line} strokeWidth={3} />
+        <circle cx={x} cy={TABLE_Y - 146} r={36} fill="#EBB892" stroke={INK.line} strokeWidth={4} />
+        <path d={`M ${x - 37} ${TABLE_Y - 150} Q ${x - 34} ${TABLE_Y - 196} ${x + 4} ${TABLE_Y - 186} Q ${x + 38} ${TABLE_Y - 186} ${x + 37} ${TABLE_Y - 150} Q ${x + 14} ${TABLE_Y - 170} ${x - 37} ${TABLE_Y - 150} Z`} fill="#2B1A0E" />
+        <circle cx={x - 12} cy={TABLE_Y - 144} r={4.5} fill={INK.line} />
+        <circle cx={x + 14} cy={TABLE_Y - 144} r={4.5} fill={INK.line} />
+        <path d={`M ${x - 10} ${TABLE_Y - 128} Q ${x + 2} ${TABLE_Y - 118} ${x + 14} ${TABLE_Y - 128}`} fill="none" stroke={INK.line} strokeWidth={3.5} strokeLinecap="round" />
+        <line x1={x + 30} y1={TABLE_Y - 70} x2={hx} y2={hy} stroke={INK.line} strokeWidth={22} strokeLinecap="round" />
+        <line x1={x + 30} y1={TABLE_Y - 70} x2={hx} y2={hy} stroke="#E07A3A" strokeWidth={16} strokeLinecap="round" />
+        <circle cx={hx} cy={hy} r={13} fill="#EBB892" stroke={INK.line} strokeWidth={3} />
+      </g>
+    </Pop>
+  );
+};
+
+/** Mũi tên đổi cốc vẽ dần bên dưới hàng cốc (võng xuống). */
+const SwapArrow: React.FC<{ x1: number; x2: number; y: number; p: number; color: string }> = ({ x1, x2, y, p, color }) => {
+  if (p <= 0.01) return null;
+  const sag = 26;
+  const ang = Math.atan2(-sag, (x2 - x1) / 2);
+  return (
+    <g>
+      <DrawPath p={p} length={Math.abs(x2 - x1) + 4 * sag} d={`M ${x1} ${y} Q ${(x1 + x2) / 2} ${y + 2 * sag} ${x2} ${y}`} fill="none" stroke={color} strokeWidth={6} strokeLinecap="round" />
+      {p > 0.95 ? (
+        <path
+          d={`M ${x2} ${y} L ${x2 - 18 * Math.cos(ang - 0.5)} ${y - 18 * Math.sin(ang - 0.5)} M ${x2} ${y} L ${x2 - 18 * Math.cos(ang + 0.5)} ${y - 18 * Math.sin(ang + 0.5)}`}
+          stroke={color}
+          strokeWidth={6}
+          strokeLinecap="round"
+        />
+      ) : null}
+    </g>
+  );
+};
+
+/**
+ * Một khung "ván mẫu": bạn mình chọn cốc 1 (sáng vàng), tay người dẫn (tay áo xanh của Milo, thò từ bên phải) lật một cốc trống,
+ * rồi đổi sang cốc còn lại. `coinAt`: cốc có xu; `opens`: cốc người dẫn lật; `to`: cốc đổi sang. `t`: khung kể từ lúc khung bật ra.
+ */
+const RoundPanel: React.FC<{
+  y: number;
+  t: number;
+  frame: number;
+  fps: number;
+  title: string;
+  share: string;
+  color: string;
+  coinAt: number;
+  opens: number;
+  to: number;
+  forced: boolean;
+}> = ({ y, t, frame, fps, title, share, color, coinAt, opens, to, forced }) => {
+  const x = 66;
+  const w = 650;
+  const h = 310;
+  const base = y + 246;
+  const cx = [x + 95, x + 225, x + 355];
+  const s = 0.72;
+  const pick = ease(t, 6, 10);
+  const arm = ease(t, 8, 16) * (1 - ease(t, 40, 12));
+  const lift = (i: number) => (i === opens ? ease(t, 24, 12) * 40 : i === to ? ease(t, 48, 10) * 40 : i === 0 && coinAt === 0 ? ease(t, 52, 10) * 40 : 0);
+  const grip = { x: cx[opens], y: base - 100 - lift(opens) };
+  const start = { x: x + w + 12, y: y + 118 };
+  const hand = { x: interpolate(arm, [0, 1], [start.x, grip.x]), y: interpolate(arm, [0, 1], [start.y, grip.y]) };
+  const win = to === coinAt;
+  const verdict = pop(t, fps, 56);
+  return (
+    <Pop p={pop(t, fps, 0)} cx={x + w / 2} cy={y + h / 2}>
+      <rect x={x} y={y} width={w} height={h} rx={18} fill="#FFF6DD" stroke={color} strokeWidth={6} />
+      <text x={x + 22} y={y + 48} fill={color} fontSize={34} {...T}>
+        {title}
+      </text>
+      <rect x={x + 20} y={y + 62} width={196} height={42} rx={21} fill={color} />
+      <text x={x + 118} y={y + 93} textAnchor="middle" fill="#FFFFFF" fontSize={28} {...T}>
+        {share}
+      </text>
+      {/* Mặt bàn */}
+      <rect x={x + 24} y={base} width={420} height={12} rx={4} fill={INK.wood} stroke={INK.line} strokeWidth={3} />
+      <Coin x={cx[coinAt]} y={base - 6} p={1} />
+      {cx.map((px, i) => (
+        <Cup key={i} x={px} y={base} s={s} frame={frame} lift={lift(i)} glow={i === 0 ? pick : i === to && win ? ease(t, 36, 10) : 0} />
+      ))}
+      <SwapArrow x1={cx[0]} x2={cx[to]} y={base + 22} p={ease(t, 38, 12)} color={win ? INK.green : INK.red} />
+      {forced ? <Stamp x={x + 340} y={y + 86} text="BẮT BUỘC" p={ease(t, 24, 8)} size={28} rot={-6} /> : null}
+      {/* Tay người dẫn thò vào lật cốc trống */}
+      {arm > 0.01 ? (
+        <g>
+          <line x1={start.x} y1={start.y} x2={hand.x} y2={hand.y} stroke={INK.line} strokeWidth={24} strokeLinecap="round" />
+          <line x1={start.x} y1={start.y} x2={hand.x} y2={hand.y} stroke="#7FA3C8" strokeWidth={18} strokeLinecap="round" />
+          <circle cx={hand.x} cy={hand.y} r={14} fill="#EBB892" stroke={INK.line} strokeWidth={3} />
+        </g>
+      ) : null}
+      <Fade p={ease(t, 40, 10)} dy={8}>
+        <text x={x + 552} y={y + 160} textAnchor="middle" fill={INK.line} fontSize={32} {...T}>
+          ĐỔI
+        </text>
+      </Fade>
+      {win ? <Check x={x + 552} y={y + 206} r={46} p={verdict} /> : <Cross x={x + 552} y={y + 204} r={30} p={verdict} />}
+      <Pop p={verdict} cx={x + 552} cy={y + 270}>
+        <text x={x + 552} y={y + 284} textAnchor="middle" fill={win ? INK.green : INK.red} fontSize={38} {...T}>
+          {win ? "THẮNG" : "THUA"}
+        </text>
+      </Pop>
+    </Pop>
+  );
+};
+
 const Realworld: React.FC<Anim> = ({ li, lf, bf, fps, frame }) => {
-  const lift2 = li === 0 ? ease(lf, 10, 16) * (1 - ease(lf, 58, 16)) * 120 : 0;
-  const coinP = li === 0 ? pop(lf, fps, 30) : 0;
-  const hand = li === 1 ? ease(lf, 8, 20) : li > 1 ? 1 : 0;
-  const lift3 = li === 1 ? ease(lf, 52, 16) * 120 : 0;
-  const slate = li === 2 ? pop(lf, fps, 0) : 0;
-  const n = li === 2 ? Math.min(30, Math.floor(Math.max(0, lf - 10) / 4)) : 0;
+  const lift2 = li === 0 ? ease(lf, 8, 14) * (1 - ease(lf, 40, 14)) * 120 : 0;
+  const coinP = li === 0 ? pop(lf, fps, 18) : 1;
+  const friendP = li === 0 ? pop(lf, fps, 52) : 1;
+  const reach = li === 1 ? ease(lf, 6, 16) : 0;
+  const room = li <= 1 ? 1 : li === 2 ? 1 - ease(lf, 0, 12) : 0;
+  const panelsOut = li === 3 ? ease(lf, 100, 14) : 0;
+  const slate = li === 3 ? pop(lf, fps, 108) : 0;
+  const n = li === 3 ? Math.min(30, Math.floor(Math.max(0, lf - 116) / 2.4)) : 0;
   const wins = Array.from({ length: n }, (_, g) => g % 3 !== 2).filter(Boolean).length;
   const cards: [string, string][] = [
     ["THỬ NGAY TẠI NHÀ", "3 cái cốc · 1 đồng xu"],
-    ["BẠN LÀM NGƯỜI DẪN", "Bạn chọn sai → mình buộc chừa cốc có xu"],
-    ["30 VÁN · VÁN NÀO CŨNG ĐỔI", "Thắng ≈ 2/3 số ván"],
+    ["BẠN LÀM NGƯỜI DẪN", "Bạn mình chọn một cốc, luôn đổi"],
+    ["CHỌN TRÚNG CỐC TRỐNG · 2/3", "Buộc lật cốc trống còn lại → đổi thắng"],
+    ["CHỌN TRÚNG CỐC CÓ XU · 1/3", "Đổi thua · thắng ≈ 2/3 số ván"],
   ];
-  const [title, formula] = cards[Math.min(li, 2)];
+  const [title, formula] = cards[Math.min(li, 3)];
   const tally = (count: number, x: number, y: number, color: string) => (
     <g>
       {Array.from({ length: count }, (_, i) => {
@@ -874,55 +993,57 @@ const Realworld: React.FC<Anim> = ({ li, lf, bf, fps, frame }) => {
       })}
     </g>
   );
+  const pose =
+    li === 1
+      ? poseAt(lf, 46, "present", "touch")
+      : li === 2
+        ? { pose: "point" as Pose, prevPose: "touch" as Pose, poseT: ease(lf, 0, 12) }
+        : li === 3
+          ? poseAt(lf, 150, "point", "wave")
+          : { pose: "present" as Pose };
   return (
     <g>
-      {/* Phòng ăn: tường kẻ sọc, khung cửa sổ */}
+      {/* Phòng ăn: tường kẻ sọc */}
       <rect x={60} y={92} width={850} height={688} fill="rgba(200,150,90,0.10)" />
       {Array.from({ length: 12 }, (_, i) => (
         <line key={i} x1={80 + i * 72} y1={92} x2={80 + i * 72} y2={560} stroke="rgba(150,100,50,0.12)" strokeWidth={8} />
       ))}
-      {li < 2 ? (
-        <g>
+      {room > 0.01 ? (
+        <g opacity={room}>
           <rect x={150} y={170} width={260} height={210} rx={8} fill="#CFE6EE" stroke={INK.line} strokeWidth={5} />
           <line x1={280} y1={170} x2={280} y2={380} stroke={INK.line} strokeWidth={4} />
           <line x1={150} y1={275} x2={410} y2={275} stroke={INK.line} strokeWidth={4} />
+          <Friend x={140} frame={frame} p={friendP} reach={reach} />
+          {/* Bàn ăn */}
+          <rect x={70} y={TABLE_Y} width={600} height={26} rx={6} fill={INK.wood} stroke={INK.line} strokeWidth={4} />
+          <rect x={100} y={TABLE_Y + 26} width={22} height={GROUND - TABLE_Y - 26} fill={INK.woodDark} stroke={INK.line} strokeWidth={3} />
+          <rect x={618} y={TABLE_Y + 26} width={22} height={GROUND - TABLE_Y - 26} fill={INK.woodDark} stroke={INK.line} strokeWidth={3} />
+          <Coin x={CUP_X[1]} y={TABLE_Y - 8} p={coinP} />
+          {CUP_X.map((cx, i) => (
+            <Cup key={i} x={cx} frame={frame} lift={i === 1 ? lift2 : 0} glow={i === 0 && li === 1 ? ease(lf, 18, 10) : 0} />
+          ))}
+          {/* Câu 2: bạn mình chọn cốc 1, mũi tên "LUÔN ĐỔI" */}
+          {li === 1 ? (
+            <>
+              <ArcArrow x1={CUP_X[0]} y1={TABLE_Y - 146} x2={CUP_X[2]} y2={TABLE_Y - 146} arc={70} p={ease(lf, 28, 18)} color={INK.green} w={7} />
+              <Stamp x={590} y={300} text="LUÔN ĐỔI" p={ease(lf, 40, 8)} size={44} rot={-5} color={INK.green} />
+            </>
+          ) : null}
         </g>
       ) : null}
-      {/* Bàn ăn */}
-      <rect x={70} y={TABLE_Y} width={600} height={26} rx={6} fill={INK.wood} stroke={INK.line} strokeWidth={4} />
-      <rect x={100} y={TABLE_Y + 26} width={22} height={GROUND - TABLE_Y - 26} fill={INK.woodDark} stroke={INK.line} strokeWidth={3} />
-      <rect x={618} y={TABLE_Y + 26} width={22} height={GROUND - TABLE_Y - 26} fill={INK.woodDark} stroke={INK.line} strokeWidth={3} />
-      <Coin x={CUP_X[1]} y={TABLE_Y - 8} p={li === 0 ? coinP : 1} />
-      {CUP_X.map((cx, i) => (
-        <Cup key={i} x={cx} frame={frame} lift={i === 1 ? lift2 : i === 2 ? lift3 : 0} glow={i === 0 && li === 1 ? ease(lf, 20, 10) : 0} />
-      ))}
-      {/* Tay người bạn chọn cốc 1 */}
-      {hand > 0.01 && li === 1 ? (
-        <g transform={`translate(${interpolate(hand, [0, 1], [-200, 0])} 0)`}>
-          <rect x={40} y={420} width={100} height={40} rx={18} fill="#E07A3A" stroke={INK.line} strokeWidth={4} />
-          <circle cx={150} cy={440} r={18} fill="#EBB892" stroke={INK.line} strokeWidth={3} />
-          <rect x={160} y={432} width={34} height={12} rx={6} fill="#EBB892" stroke={INK.line} strokeWidth={3} transform="rotate(30 160 432)" />
+      {/* Câu 3–4: hai ván mẫu */}
+      {li >= 2 && panelsOut < 1 ? (
+        <g opacity={1 - panelsOut}>
+          <RoundPanel y={140} t={li === 2 ? lf : 999} frame={frame} fps={fps} title="CHỌN TRÚNG CỐC TRỐNG" share="2/3 SỐ VÁN" color={INK.green} coinAt={2} opens={1} to={2} forced />
+          {li === 3 ? <RoundPanel y={462} t={lf} frame={frame} fps={fps} title="CHỌN TRÚNG CỐC CÓ XU" share="1/3 SỐ VÁN" color={INK.red} coinAt={0} opens={2} to={1} forced={false} /> : null}
         </g>
       ) : null}
-      {/* Bong bóng ý nghĩ: người dẫn nhìn thấy xu */}
-      {li === 1 ? (
-        <Pop p={pop(lf, fps, 80)} cx={640} cy={290}>
-          <circle cx={735} cy={330} r={9} fill="#FFFDF5" stroke={INK.line} strokeWidth={3} />
-          <circle cx={710} cy={300} r={14} fill="#FFFDF5" stroke={INK.line} strokeWidth={3} />
-          <ellipse cx={590} cy={225} rx={130} ry={82} fill="#FFFDF5" stroke={INK.line} strokeWidth={4} />
-          <path d="M 548 268 L 560 196 L 600 196 L 612 268 Z" fill="rgba(217,68,58,0.35)" stroke={INK.line} strokeWidth={3} strokeDasharray="6 5" />
-          <ellipse cx={580} cy={262} rx={18} ry={7} fill="#E0AD46" stroke={INK.line} strokeWidth={2.5} />
-          <text x={660} y={244} textAnchor="middle" fill={INK.red} fontSize={46} {...T}>
-            !
-          </text>
-        </Pop>
-      ) : null}
-      {/* Bảng đếm vạch phấn */}
+      {/* Bảng đếm vạch phấn: 30 ván, đổi thắng chừng 20 */}
       {slate > 0.01 ? (
-        <Pop p={slate} cx={360} cy={330}>
+        <Pop p={slate} cx={372} cy={300}>
           <rect x={92} y={150} width={560} height={300} rx={14} fill={INK.wood} stroke={INK.line} strokeWidth={5} />
           <rect x={106} y={164} width={532} height={272} rx={8} fill="#2F4A3A" />
-          <text x={620} y={206} textAnchor="end" fill={CHALK_Y} fontSize={34} {...T}>
+          <text x={620} y={210} textAnchor="end" fill={CHALK_Y} fontSize={38} {...T}>
             {n}/30 VÁN
           </text>
           <text x={124} y={290} fill={CHALK_G} fontSize={36} {...T}>
@@ -935,182 +1056,695 @@ const Realworld: React.FC<Anim> = ({ li, lf, bf, fps, frame }) => {
           {tally(n - wins, 290, 394, CHALK_R)}
         </Pop>
       ) : null}
-      {li === 2 ? <DownArrow x={710} y={250} p={pop(lf, fps, 130)} frame={frame} /> : null}
-      <Stickman
-        x={MILO_X}
-        y={GROUND}
-        accessory={li >= 1 ? "bowtie" : undefined}
-        {...(li === 1 ? poseAt(lf, 46, "present", "touch") : li === 2 ? { pose: "wave" as Pose, prevPose: "touch" as Pose, poseT: ease(lf, 0, 14) } : { pose: "present" as Pose })}
-      />
+      {li === 3 ? (
+        <>
+          <Pop p={pop(lf, fps, 148)} cx={372} cy={530}>
+            <text x={372} y={546} textAnchor="middle" fill={INK.red} fontSize={46} {...T}>
+              KẾT QUẢ CỦA BẠN?
+            </text>
+          </Pop>
+          <DownArrow x={372} y={624} p={pop(lf, fps, 156)} frame={frame} />
+        </>
+      ) : null}
+      <Stickman x={MILO_X} y={GROUND} accessory={li >= 1 ? "bowtie" : undefined} {...pose} />
       <Card title={title} formula={formula} p={pop(bf, fps, 8)} fp={pop(lf, fps, 4)} />
     </g>
   );
 };
 
-// ---------------------------------------------------------------- hồi 6: tìm xác Air France 447
+// ---------------------------------------------------------------- hồi 6: máy bay ném bom và Abraham Wald (thiên kiến kẻ sống sót)
 
-const DOT = { x: 500, y: 430 };
+/** Số ngẫu nhiên cố định (0..1) theo hạt giống, để vết đạn luôn nằm đúng chỗ ở mọi khung hình. */
+const seeded = (seed: number) => {
+  let i = seed;
+  return () => {
+    i += 1;
+    const v = Math.sin(i * 127.1 + seed * 311.7) * 43758.5453;
+    return v - Math.floor(v);
+  };
+};
 
-/** Ô lưới bản đồ xác suất quanh vị trí cuối: mức đậm theo xác suất, nhóm vùng đã dò. */
-const CELLS = (() => {
-  const out: { x: number; y: number; p: number; zone: number }[] = [];
-  for (let i = -5; i < 5; i++) {
-    for (let j = -5; j < 5; j++) {
-      const x = DOT.x + i * 40;
-      const y = DOT.y + j * 40;
-      const cx = x + 20 - DOT.x;
-      const cy = y + 20 - DOT.y;
-      const d = Math.hypot(cx, cy);
-      if (d > 190) continue;
-      const p = Math.exp(-(d * d) / (2 * 95 * 95));
-      // Vùng chưa dò (sẽ đậm lên): phía bắc – đông bắc, cách tâm vừa phải.
-      const zone = cy < -40 && cx > -20 && d > 50 ? 9 : d < 75 ? 0 : cx < 0 && cy < 0 ? 1 : cx >= 0 ? 2 : 3;
-      out.push({ x, y, p, zone });
-    }
+const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
+
+const PLANE = "#A7B096";
+const PLANE_DARK = "#7B8568";
+const GLASS = "#BFE3F2";
+const STEEL = "#8E9BA8";
+const SMOKE = "#4A4038";
+
+/** Mép trước / mép sau cánh (nhìn từ trên xuống, mũi hướng lên) tại khoảng cách |x| tính từ thân. */
+const wingLE = (ax: number) => -62 + ((ax - 26) * 30) / 294;
+const wingTE = (ax: number) => 22 - ((ax - 26) * 14) / 294;
+const ENG_X = [-200, -100, 100, 200];
+
+/** Vết đạn trên máy bay nhìn từ trên: thân, cánh, đuôi; tránh xa bốn động cơ. `o` = thứ tự hiện. */
+const HOLES = (() => {
+  const r = seeded(7);
+  const out: { x: number; y: number; o: number }[] = [];
+  for (let k = 0; k < 30; k++) out.push({ x: (r() * 2 - 1) * 17, y: -150 + r() * 320, o: r() });
+  let n = 0;
+  while (n < 46) {
+    const side = r() < 0.5 ? -1 : 1;
+    const ax = 42 + r() * 266;
+    const ty = r();
+    const o = r();
+    if (Math.abs(ax - 100) < 36 || Math.abs(ax - 200) < 36) continue;
+    const le = wingLE(ax);
+    const te = wingTE(ax);
+    out.push({ x: side * ax, y: le + 7 + ty * (te - le - 14), o });
+    n++;
+  }
+  for (let k = 0; k < 10; k++) {
+    const side = r() < 0.5 ? -1 : 1;
+    const ax = 16 + r() * 80;
+    const top = 152 + ((ax - 8) * 20) / 102;
+    out.push({ x: side * ax, y: top + 4 + r() * (184 - top), o: r() });
+  }
+  return out.sort((a, b) => a.o - b.o);
+})();
+
+/** Vài vết đạn cho máy bay thu nhỏ (đọc được khi bé). */
+const FEW_HOLES = [HOLES[0], HOLES[3], HOLES[5], HOLES[8], HOLES[12], HOLES[17], HOLES[22], HOLES[27]];
+
+/**
+ * Máy bay ném bom bốn động cơ nhìn từ trên xuống, mũi hướng lên (gốc: giữa thân, dài ~430, sải cánh ~650).
+ * `holes` 0..1 = tỉ lệ vết đạn đã hiện (theo thứ tự), `dim` làm mờ vết đạn, `rings` vòng nét đứt quanh động cơ,
+ * `armor` 0..1 tấm giáp bọc quanh từng động cơ, `engineHit` chấm đỏ mờ ở động cơ, `lw` độ dày nét (đơn vị gốc).
+ */
+const Bomber: React.FC<{
+  frame: number;
+  holes?: number;
+  few?: boolean;
+  dim?: number;
+  dotR?: number;
+  rings?: number;
+  armor?: number[];
+  engineHit?: number;
+  lw?: number;
+}> = ({ frame, holes = 0, few = false, dim = 0, dotR = 6, rings = 0, armor, engineHit = 0, lw = 4 }) => {
+  const list = few ? FEW_HOLES : HOLES;
+  const shown = holes * list.length;
+  const wing = (d: number) =>
+    `M ${26 * d} -62 L ${306 * d} -34 Q ${326 * d} -31 ${326 * d} -18 L ${324 * d} 0 Q ${322 * d} 9 ${306 * d} 9 L ${26 * d} 22 Z`;
+  const stab = (d: number) => `M ${8 * d} 150 L ${104 * d} 168 Q ${118 * d} 172 ${116 * d} 184 Q ${114 * d} 192 ${100 * d} 192 L ${8 * d} 194 Z`;
+  const spin = frame * 0.9;
+  return (
+    <g>
+      {/* Cánh và đuôi ngang */}
+      {[-1, 1].map((d) => (
+        <g key={d}>
+          <path d={wing(d)} fill={PLANE} stroke={INK.line} strokeWidth={lw} strokeLinejoin="round" />
+          <path d={`M ${30 * d} 8 L ${300 * d} -4`} stroke={PLANE_DARK} strokeWidth={lw * 0.5} />
+          <path d={`M ${226 * d} 3 L ${300 * d} 0`} stroke={PLANE_DARK} strokeWidth={lw * 0.9} strokeLinecap="round" />
+          <path d={stab(d)} fill={PLANE} stroke={INK.line} strokeWidth={lw} strokeLinejoin="round" />
+        </g>
+      ))}
+      {/* Bốn động cơ: vỏ động cơ nhô ra trước mép cánh, cánh quạt quay */}
+      {ENG_X.map((ex, k) => {
+        const le = wingLE(Math.abs(ex));
+        const te = wingTE(Math.abs(ex));
+        const a = armor ? armor[k] : 0;
+        const L = 34 * Math.abs(Math.cos(spin + k * 0.8));
+        return (
+          <g key={ex}>
+            {rings > 0.01 ? (
+              <ellipse cx={ex} cy={le - 8} rx={46} ry={62} fill="rgba(255,246,221,0.55)" stroke={INK.green} strokeWidth={lw} strokeDasharray={`${lw * 3} ${lw * 2}`} opacity={rings * (1 - a)} />
+            ) : null}
+            {a > 0.01 ? (
+              <g transform={`translate(${ex} ${le - 10}) scale(${0.6 + 0.4 * a}) translate(${-ex} ${-(le - 10)})`} opacity={clamp01(a * 1.5)}>
+                <rect x={ex - 30} y={le - 58} width={60} height={te - le + 80} rx={22} fill={STEEL} stroke={INK.line} strokeWidth={lw} />
+                {[-46, -16, 14].map((dy) => (
+                  <g key={dy}>
+                    <circle cx={ex - 21} cy={le + dy} r={lw * 0.8} fill={INK.line} />
+                    <circle cx={ex + 21} cy={le + dy} r={lw * 0.8} fill={INK.line} />
+                  </g>
+                ))}
+              </g>
+            ) : null}
+            <rect x={ex - 15} y={le - 44} width={30} height={te - le + 58} rx={13} fill={PLANE} stroke={INK.line} strokeWidth={lw} />
+            <rect x={ex - 15} y={le - 44} width={30} height={16} rx={8} fill={PLANE_DARK} stroke={INK.line} strokeWidth={lw * 0.7} />
+            <ellipse cx={ex} cy={le - 48} rx={38} ry={4} fill="rgba(59,38,20,0.18)" />
+            <line x1={ex - L} y1={le - 48} x2={ex + L} y2={le - 48} stroke={INK.line} strokeWidth={lw * 1.1} strokeLinecap="round" />
+            <circle cx={ex} cy={le - 48} r={lw * 1.3} fill={INK.line} />
+            {engineHit > 0.01 ? <circle cx={ex} cy={le - 14} r={dotR * 1.6} fill={INK.red} opacity={engineHit} /> : null}
+          </g>
+        );
+      })}
+      {/* Thân */}
+      <path
+        d="M 0 -215 C 18 -213 26 -190 26 -160 L 26 118 C 26 160 14 190 9 206 L -9 206 C -14 190 -26 160 -26 118 L -26 -160 C -26 -190 -18 -213 0 -215 Z"
+        fill={PLANE}
+        stroke={INK.line}
+        strokeWidth={lw}
+        strokeLinejoin="round"
+      />
+      <path d="M 0 -213 C 12 -211 18 -198 18 -184 L -18 -184 C -18 -198 -12 -211 0 -213 Z" fill={GLASS} stroke={INK.line} strokeWidth={lw * 0.6} />
+      <path d="M -16 -168 L 16 -168 L 13 -146 L -13 -146 Z" fill={GLASS} stroke={INK.line} strokeWidth={lw * 0.6} />
+      <circle cx={0} cy={-112} r={11} fill={GLASS} stroke={INK.line} strokeWidth={lw * 0.6} />
+      <circle cx={0} cy={70} r={10} fill={GLASS} stroke={INK.line} strokeWidth={lw * 0.6} />
+      {[-128, -40, 30, 110].map((y) => (
+        <line key={y} x1={-25} y1={y} x2={25} y2={y} stroke={PLANE_DARK} strokeWidth={lw * 0.5} />
+      ))}
+      {/* Đuôi đứng (nhìn từ trên là một gờ mảnh) */}
+      <path d="M -4 132 L 4 132 L 5 210 L -5 210 Z" fill={PLANE_DARK} stroke={INK.line} strokeWidth={lw * 0.7} />
+      {/* Vết đạn */}
+      {shown > 0.01 ? (
+        <g opacity={1 - dim * 0.6}>
+          {list.map((h, k) => {
+            const p = clamp01((shown - k) / 3);
+            if (p <= 0.01) return null;
+            const s = p < 1 ? 1 + Math.sin(p * Math.PI) * 0.5 : 1;
+            return (
+              <g key={k}>
+                <circle cx={h.x} cy={h.y} r={dotR * 1.25 * s} fill="#6E1810" opacity={p} />
+                <circle cx={h.x} cy={h.y} r={dotR * s} fill={INK.red} opacity={p} />
+                <circle cx={h.x - dotR * 0.3} cy={h.y - dotR * 0.3} r={dotR * 0.3} fill="#FF9A8A" opacity={p} />
+              </g>
+            );
+          })}
+        </g>
+      ) : null}
+    </g>
+  );
+};
+
+/** Vết đạn của máy bay nhìn ngang (thân và cánh, không ở động cơ). */
+const SIDE_HOLES = (() => {
+  const r = seeded(3);
+  const out: { x: number; y: number }[] = [];
+  while (out.length < 18) {
+    const x = -116 + r() * 250;
+    const y = -16 + r() * 26;
+    if (x > -96 && x < -4 && y > -6) continue;
+    out.push({ x, y });
   }
   return out;
 })();
 
-const Cosmic: React.FC<Anim> = ({ li, lf, bf, fps, frame }) => {
-  const map = li <= 1 ? 1 : li === 2 ? 1 - ease(lf, 0, 16) : 0;
-  const sea = li === 2 ? ease(lf, 0, 16) : 0;
-  const studio = li === 3 ? ease(lf, 0, 16) : 0;
-  const plane = li === 0 ? ease(lf, 0, 40) : 1;
-  const searched = (z: number) => (li === 0 ? ease(lf, 40 + z * 22, 10) : 1);
-  const shift = li === 1 ? ease(lf, 20, 60) : li > 1 ? 1 : 0;
-  const robot = li === 2 ? ease(lf, 22, 70) : 0;
-  const light = li === 2 ? ease(lf, 80, 14) : 0;
-  const walk = li === 3 ? ease(lf, 14, 50) : 0;
-  const cards: [string, string][] = [
-    ["AIR FRANCE 447 · 1/6/2009", "4 đợt tìm, gần 2 năm: trắng tay"],
-    ["NHÓM METRON", "Dò hụt → vùng đó hạ xác suất"],
-    ["THÁNG 4/2011", "Sâu hơn 4.000 m · sau 1 tuần dò"],
-    ["LẦN SAU GẶP HAI CỬA ĐÓNG", "Nhớ cửa người dẫn cố tình chừa lại"],
-  ];
-  const [title, formula] = cards[Math.min(li, 3)];
-  const pose =
-    li === 3
-      ? walk < 1
-        ? { pose: "idle" as Pose, prevPose: "point" as Pose, poseT: ease(lf, 0, 12) }
-        : { pose: "touch" as Pose, prevPose: "idle" as Pose, poseT: ease(lf, 64, 14) }
-      : li === 2
-        ? poseAt(lf, 96, "point", "eureka")
-        : { pose: "point" as Pose };
+/**
+ * Máy bay ném bom nhìn ngang, mũi hướng sang trái (gốc: giữa thân; bánh xe chạm đất ở y = 64 khi `gear`).
+ * `holes` 0..1 vết đạn trên thân / cánh, `engineHit` chấm đỏ ở động cơ, `ghost` = chỉ còn bóng mờ nét đứt.
+ */
+const SideBomber: React.FC<{ frame: number; holes?: number; engineHit?: number; gear?: boolean; ghost?: boolean; lw?: number }> = ({
+  frame,
+  holes = 0,
+  engineHit = 0,
+  gear = false,
+  ghost = false,
+  lw = 4,
+}) => {
+  const body = ghost ? "rgba(59,38,20,0.12)" : PLANE;
+  const dark = ghost ? "rgba(59,38,20,0.12)" : PLANE_DARK;
+  const glass = ghost ? "none" : GLASS;
+  const st = { stroke: INK.line, strokeWidth: lw, strokeLinejoin: "round" as const, strokeDasharray: ghost ? `${lw * 3} ${lw * 2}` : undefined };
+  const L = 26 * Math.abs(Math.cos(frame * 0.9));
+  const shown = holes * SIDE_HOLES.length;
   return (
     <g>
-      {map > 0.01 ? (
-        <g opacity={map}>
-          <rect x={70} y={132} width={700} height={620} rx={18} fill="#CFE2DC" stroke={INK.line} strokeWidth={5} />
-          {Array.from({ length: 9 }, (_, i) => (
-            <path key={i} d={`M ${110 + (i % 3) * 210} ${180 + i * 62} q 15 -10 30 0 t 30 0`} fill="none" stroke="rgba(29,106,140,0.35)" strokeWidth={3} />
+      {gear && !ghost ? (
+        <g>
+          <line x1={-50} y1={12} x2={-50} y2={48} stroke={INK.line} strokeWidth={lw * 1.4} />
+          <circle cx={-50} cy={50} r={14} fill="#2B2B2B" stroke={INK.line} strokeWidth={lw * 0.8} />
+          <circle cx={-50} cy={50} r={5} fill="#CFCFCF" />
+          <line x1={146} y1={8} x2={146} y2={22} stroke={INK.line} strokeWidth={lw} />
+          <circle cx={146} cy={24} r={7} fill="#2B2B2B" stroke={INK.line} strokeWidth={lw * 0.6} />
+        </g>
+      ) : null}
+      {/* Đuôi đứng, động cơ phía xa */}
+      <path d="M 94 -17 L 126 -80 Q 132 -86 146 -86 L 156 -86 Q 162 -84 161 -74 L 160 -12 Z" fill={body} {...st} />
+      <path d="M 112 -40 L 132 -78" stroke={dark} strokeWidth={lw * 0.5} />
+      <rect x={-74} y={-16} width={60} height={14} rx={7} fill={dark} {...st} />
+      {/* Thân */}
+      <path d="M -150 -2 C -150 -18 -138 -25 -118 -26 L 100 -18 L 160 -14 L 161 -2 L 104 8 L -118 17 C -140 16 -150 10 -150 -2 Z" fill={body} {...st} />
+      <path d="M -150 -2 C -150 -14 -144 -20 -132 -22 L -128 -2 Z" fill={glass} {...st} strokeWidth={lw * 0.6} />
+      <path d="M -112 -26 L -98 -36 L -76 -36 L -70 -24 Z" fill={glass} {...st} strokeWidth={lw * 0.6} />
+      <path d="M -50 -24 A 10 10 0 0 1 -30 -24 Z" fill={glass} {...st} strokeWidth={lw * 0.6} />
+      {[20, 46].map((x) => (
+        <rect key={x} x={x} y={-12} width={12} height={9} rx={2} fill={glass} {...st} strokeWidth={lw * 0.5} />
+      ))}
+      <ellipse cx={136} cy={-6} rx={30} ry={5} fill={dark} {...st} strokeWidth={lw * 0.7} />
+      {/* Cánh (mặt cắt) và động cơ phía gần */}
+      <path d="M -82 -4 Q -76 -10 -20 -8 L 34 -5 Q 38 -2 32 1 L -78 2 Q -84 0 -82 -4 Z" fill={dark} {...st} />
+      <rect x={-86} y={-2} width={74} height={16} rx={8} fill={body} {...st} />
+      <rect x={-86} y={-2} width={16} height={16} rx={6} fill={dark} {...st} strokeWidth={lw * 0.6} />
+      {ghost ? null : (
+        <g>
+          <ellipse cx={-90} cy={6} rx={3} ry={30} fill="rgba(59,38,20,0.15)" />
+          <line x1={-90} y1={6 - L} x2={-90} y2={6 + L} stroke={INK.line} strokeWidth={lw} strokeLinecap="round" />
+        </g>
+      )}
+      {engineHit > 0.01 ? <circle cx={-52} cy={6} r={7} fill={INK.red} stroke="#6E1810" strokeWidth={2} opacity={engineHit} /> : null}
+      {shown > 0.01
+        ? SIDE_HOLES.map((h, k) => {
+            const p = clamp01((shown - k) / 2);
+            return p > 0.01 ? <circle key={k} cx={h.x} cy={h.y} r={4.5 * p} fill={INK.red} stroke="#6E1810" strokeWidth={1.5} /> : null;
+          })
+        : null}
+    </g>
+  );
+};
+
+/** Nhãn chữ to trên nền giấy (một hoặc hai dòng), bật ra. */
+const Label: React.FC<{ x: number; y: number; w: number; lines: string[]; p: number; size?: number; color?: string }> = ({ x, y, w, lines, p, size = 38, color = INK.red }) => {
+  const h = lines.length * size * 1.18 + 26;
+  return (
+    <Pop p={p} cx={x} cy={y}>
+      <rect x={x - w / 2 + 5} y={y - h / 2 + 7} width={w} height={h} rx={16} fill="rgba(59,38,20,0.25)" />
+      <rect x={x - w / 2} y={y - h / 2} width={w} height={h} rx={16} fill="#FFF6DD" stroke={color} strokeWidth={5} />
+      {lines.map((l, i) => (
+        <text key={l} x={x} y={y - h / 2 + 13 + size * 1.18 * (i + 1) - size * 0.28} textAnchor="middle" fill={color} fontSize={size} {...T}>
+          {l}
+        </text>
+      ))}
+    </Pop>
+  );
+};
+
+/** Mũi tên thẳng vẽ dần, đầu mũi tên đặc. */
+const Arrow: React.FC<{ x1: number; y1: number; x2: number; y2: number; p: number; color?: string; w?: number }> = ({ x1, y1, x2, y2, p, color = INK.red, w = 9 }) => {
+  if (p <= 0.01) return null;
+  const a = Math.atan2(y2 - y1, x2 - x1);
+  const ex = x1 + (x2 - x1) * p;
+  const ey = y1 + (y2 - y1) * p;
+  const hl = w * 2.6;
+  return (
+    <g>
+      <line x1={x1} y1={y1} x2={ex - Math.cos(a) * hl * 0.6} y2={ey - Math.sin(a) * hl * 0.6} stroke={color} strokeWidth={w} strokeLinecap="round" />
+      <path
+        d={`M ${ex} ${ey} L ${ex - hl * Math.cos(a - 0.5)} ${ey - hl * Math.sin(a - 0.5)} L ${ex - hl * Math.cos(a + 0.5)} ${ey - hl * Math.sin(a + 0.5)} Z`}
+        fill={color}
+        stroke={INK.line}
+        strokeWidth={2.5}
+        strokeLinejoin="round"
+      />
+    </g>
+  );
+};
+
+/** Chân dung khắc gỗ nhà thống kê Abraham Wald (khung bầu dục, nét gạch kiểu tranh khắc). */
+const WaldPortrait: React.FC<{ x: number; y: number; p: number; frame: number }> = ({ x, y, p, frame }) => {
+  const C = "#3B2614";
+  const blink = frame % 97 < 4 ? 0.2 : 1;
+  return (
+    <Pop p={p} cx={x} cy={y}>
+      <g transform={`translate(${x} ${y})`}>
+        <ellipse cx={6} cy={10} rx={86} ry={100} fill="rgba(59,38,20,0.25)" />
+        <ellipse cx={0} cy={0} rx={86} ry={100} fill="#6E4423" stroke={INK.line} strokeWidth={5} />
+        <ellipse cx={0} cy={0} rx={72} ry={86} fill="#EBD8AE" stroke={INK.line} strokeWidth={3} />
+        <clipPath id="wald-clip">
+          <ellipse cx={0} cy={0} rx={72} ry={86} />
+        </clipPath>
+        <g clipPath="url(#wald-clip)">
+          <rect x={-72} y={-86} width={144} height={172} fill="url(#hatch)" opacity={0.35} />
+          {/* Vai áo vest, cổ áo, cà vạt */}
+          <path d="M -80 90 Q -72 38 -30 28 L 30 28 Q 72 38 80 90 Z" fill="#4A3424" stroke={C} strokeWidth={3} />
+          <path d="M -22 28 L 0 58 L 22 28 Z" fill="#F7EEDB" stroke={C} strokeWidth={2.5} />
+          <path d="M -5 34 L 5 34 L 8 70 L 0 80 L -8 70 Z" fill="#8C2F22" stroke={C} strokeWidth={2} />
+          {[-56, -46, 46, 56].map((lx) => (
+            <line key={lx} x1={lx} y1={52} x2={lx + (lx < 0 ? 10 : -10)} y2={86} stroke="#2B1A0E" strokeWidth={2} />
           ))}
-          <path d="M 70 150 L 210 150 Q 250 230 300 268 Q 320 310 278 360 Q 236 430 206 520 Q 176 620 130 700 L 70 752 Z" fill="#E7CF9A" stroke={INK.line} strokeWidth={4} />
-          <path d="M 770 150 L 690 150 Q 650 210 664 262 Q 676 312 740 338 L 770 346 Z" fill="#E7CF9A" stroke={INK.line} strokeWidth={4} />
-          <text x={130} y={300} textAnchor="middle" fill={INK.line} fontSize={30} {...T} transform="rotate(-70 130 300)">
-            BRAZIL
-          </text>
-          <text x={724} y={232} textAnchor="middle" fill={INK.line} fontSize={28} {...T} transform="rotate(70 724 232)">
-            CHÂU PHI
-          </text>
-          {CELLS.map((c) => {
-            const s = c.zone < 9 ? searched(c.zone) : 0;
-            const heat = c.zone === 9 ? c.p * (0.6 + shift * 1.4) + shift * 0.25 : c.p * (1 - 0.8 * shift * (s > 0.5 ? 1 : 0));
-            const pulse = c.zone === 9 && shift > 0.5 ? 0.85 + 0.15 * Math.sin(frame * 0.2) : 1;
+          {/* Cổ và đầu */}
+          <rect x={-13} y={10} width={26} height={24} fill="#DDBB8C" stroke={C} strokeWidth={2.5} />
+          <ellipse cx={0} cy={-18} rx={36} ry={44} fill="#E7C89C" stroke={C} strokeWidth={3} />
+          <ellipse cx={-36} cy={-14} rx={6} ry={11} fill="#DDBB8C" stroke={C} strokeWidth={2.5} />
+          <ellipse cx={36} cy={-14} rx={6} ry={11} fill="#DDBB8C" stroke={C} strokeWidth={2.5} />
+          {/* Tóc chải ngược, trán cao */}
+          <path d="M -36 -26 Q -40 -62 -6 -66 Q 30 -68 38 -34 Q 30 -52 6 -54 Q -22 -54 -36 -26 Z" fill="#2E2014" stroke={C} strokeWidth={2.5} />
+          {[-18, -6, 8, 20].map((hx) => (
+            <path key={hx} d={`M ${hx - 6} -58 Q ${hx} -64 ${hx + 8} -58`} fill="none" stroke="#6B5038" strokeWidth={1.6} />
+          ))}
+          {/* Nét mặt: lông mày, mắt, mũi, miệng, gạch bóng má */}
+          <path d="M -24 -26 Q -15 -31 -6 -27 M 6 -27 Q 15 -31 24 -26" fill="none" stroke={C} strokeWidth={3.5} strokeLinecap="round" />
+          <ellipse cx={-14} cy={-16} rx={4} ry={4 * blink} fill={C} />
+          <ellipse cx={14} cy={-16} rx={4} ry={4 * blink} fill={C} />
+          <path d="M 2 -12 Q 7 2 -1 6" fill="none" stroke={C} strokeWidth={2.5} strokeLinecap="round" />
+          <path d="M -11 14 Q 0 19 11 14" fill="none" stroke={C} strokeWidth={3} strokeLinecap="round" />
+          {[0, 1, 2].map((i) => (
+            <line key={i} x1={24 + i * 3} y1={-4 + i * 5} x2={30 + i * 2} y2={0 + i * 5} stroke="#B08A5E" strokeWidth={1.6} />
+          ))}
+        </g>
+        <ellipse cx={0} cy={0} rx={72} ry={86} fill="none" stroke={INK.line} strokeWidth={3} />
+      </g>
+    </Pop>
+  );
+};
+
+/** Đám mây giấy. */
+const Puff: React.FC<{ x: number; y: number; s: number }> = ({ x, y, s }) => (
+  <g transform={`translate(${x} ${y}) scale(${s})`} opacity={0.9}>
+    <path d="M -60 10 Q -64 -14 -38 -14 Q -30 -36 -4 -30 Q 14 -46 36 -28 Q 64 -30 62 -4 Q 74 12 52 16 L -50 16 Q -66 16 -60 10 Z" fill="#FFFDF5" stroke="rgba(59,38,20,0.35)" strokeWidth={3} />
+  </g>
+);
+
+/** Đội hình câu 4: máy bay nhìn ngang bay sang trái; `hit` = khung trúng đạn ở động cơ (null = bay về được). */
+const FLEET = [
+  { x: 300, y: 250, hit: null },
+  { x: 610, y: 210, hit: 10 },
+  { x: 430, y: 410, hit: null },
+  { x: 740, y: 360, hit: 18 },
+  { x: 600, y: 560, hit: 26 },
+] as const;
+const FLEET_S = 0.55;
+
+/** Vị trí và góc của máy bay số `k` tại khung `t` của câu 4. */
+const fleetAt = (k: number, t: number) => {
+  const f = FLEET[k];
+  const base = { x: f.x - t * 0.6, y: f.y + wave(t, 0.08, 4, k) };
+  if (f.hit === null || t < f.hit) return { ...base, rot: 0, s: FLEET_S };
+  const u = clamp01((t - f.hit - 4) / 48);
+  return {
+    x: base.x - 90 * u,
+    y: base.y + 620 * u * u,
+    rot: -14 * clamp01((t - f.hit) / 8) - 44 * u,
+    s: FLEET_S * (1 - 0.25 * u),
+  };
+};
+
+/** Điểm động cơ (toạ độ cảnh) của máy bay đang ở `pos`. */
+const enginePt = (pos: { x: number; y: number; rot: number; s: number }) => {
+  const a = (pos.rot * Math.PI) / 180;
+  const lx = -52 * pos.s;
+  const ly = 6 * pos.s;
+  return { x: pos.x + lx * Math.cos(a) - ly * Math.sin(a), y: pos.y + lx * Math.sin(a) + ly * Math.cos(a) };
+};
+
+/** Tia lửa khi trúng đạn. */
+const Burst: React.FC<{ x: number; y: number; p: number }> = ({ x, y, p }) => {
+  if (p <= 0.01 || p >= 0.99) return null;
+  const r = 10 + p * 34;
+  const pts = Array.from({ length: 16 }, (_, i) => {
+    const rr = i % 2 === 0 ? r : r * 0.45;
+    const a = (i / 16) * Math.PI * 2;
+    return `${x + Math.cos(a) * rr} ${y + Math.sin(a) * rr}`;
+  }).join(" L ");
+  return <path d={`M ${pts} Z`} fill="#FFC93C" stroke={INK.red} strokeWidth={3} opacity={1 - p} />;
+};
+
+/** Máy bay trong phễu câu 5: lệch ngang ở miệng phễu, có về được không, chỗ đậu ở hàng dưới. */
+const SIEVE = [
+  { off: -70, ok: true, slot: 0 },
+  { off: 60, ok: false, slot: -1 },
+  { off: -20, ok: true, slot: 1 },
+  { off: 80, ok: true, slot: 2 },
+  { off: -86, ok: false, slot: -1 },
+  { off: 26, ok: true, slot: 3 },
+];
+const FUNNEL = { x: 692, rim: 334, neck: 500, spout: 540, row: 690 };
+const MINI_S = 0.21;
+
+/** Ti vi gỗ cổ chiếu trường quay thu nhỏ (câu 5, nửa trái). */
+const RetroTV: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <g>
+    <line x1={240} y1={298} x2={196} y2={236} stroke={INK.line} strokeWidth={5} strokeLinecap="round" />
+    <line x1={300} y1={298} x2={350} y2={240} stroke={INK.line} strokeWidth={5} strokeLinecap="round" />
+    <circle cx={196} cy={236} r={7} fill={INK.line} />
+    <circle cx={350} cy={240} r={7} fill={INK.line} />
+    <path d="M 120 704 L 104 774 M 430 704 L 446 774" stroke={INK.woodDark} strokeWidth={14} strokeLinecap="round" />
+    <rect x={84} y={296} width={384} height={412} rx={26} fill={INK.wood} stroke={INK.line} strokeWidth={5} />
+    <rect x={100} y={312} width={352} height={292} rx={18} fill="#1E1410" stroke={INK.line} strokeWidth={4} />
+    <clipPath id="tv-clip">
+      <rect x={106} y={318} width={340} height={280} rx={14} />
+    </clipPath>
+    <g clipPath="url(#tv-clip)">{children}</g>
+    <rect x={106} y={318} width={340} height={280} rx={14} fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth={6} />
+    {[150, 210].map((cx) => (
+      <g key={cx}>
+        <circle cx={cx} cy={656} r={20} fill={INK.woodDark} stroke={INK.line} strokeWidth={4} />
+        <line x1={cx} y1={656} x2={cx + 10} y2={642} stroke="#F4E4C1" strokeWidth={4} strokeLinecap="round" />
+      </g>
+    ))}
+    {[0, 1, 2, 3, 4].map((i) => (
+      <line key={i} x1={272 + i * 30} y1={636} x2={272 + i * 30} y2={680} stroke={INK.woodDark} strokeWidth={8} strokeLinecap="round" />
+    ))}
+  </g>
+);
+
+const Cosmic: React.FC<Anim> = ({ li, lf, fps, frame }) => {
+  // Lớp cảnh của từng câu (hoà cảnh ~14 khung giữa hai câu).
+  const air = li === 0 ? 1 : li === 1 ? 1 - ease(lf, 0, 14) : 0;
+  const top = li === 1 ? ease(lf, 0, 14) : li === 2 ? 1 : li === 3 ? 1 - ease(lf, 0, 14) : 0;
+  const sky = li === 3 ? ease(lf, 0, 14) : li === 4 ? 1 - ease(lf, 0, 14) : 0;
+  const split = li === 4 ? ease(lf, 0, 14) : li === 5 ? 1 - ease(lf, 0, 16) : 0;
+  const studio = li === 5 ? ease(lf, 0, 16) : 0;
+
+  // Câu 2–3: máy bay nhìn từ trên.
+  const PX = 470;
+  const PY = 455;
+  const ps = li === 1 ? 1 + 0.12 * ease(lf, 0, 22) : 1.12;
+  const holes = li === 1 ? interpolate(lf, [8, 54], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : li >= 2 ? 1 : 0;
+  const rings = li === 1 ? ease(lf, 46, 10) : li >= 2 ? 1 : 0;
+  const armor = ENG_X.map((_, k) => (li === 2 ? pop(lf, fps, 34 + k * 4) : li > 2 ? 1 : 0));
+  const engScreen = ENG_X.map((ex) => ({ x: PX + ex * 1.12, y: PY + (wingLE(Math.abs(ex)) - 52) * 1.12 }));
+  const askP = li === 1 ? pop(lf, fps, 56) : li === 2 ? 1 : 0;
+  const askOut = li === 2 ? ease(lf, 14, 14) : 0;
+  const strike = li === 2 ? ease(lf, 4, 10) : 0;
+
+  // Câu 1: sân bay dã chiến, máy bay hạ cánh lần lượt.
+  const landing = [0, 1].map((k) => {
+    const u = ((lf + 20 + k * 36) % 72) / 72;
+    return { u, x: interpolate(u, [0, 1], [930, 400]), y: interpolate(u, [0, 0.8, 1], [190, 520, 528]), s: interpolate(u, [0, 1], [0.42, 0.3]) };
+  });
+  const walk1 = li === 0 ? ease(lf, 0, 34) : 1;
+
+  // Câu 6: Milo đi tới cửa người dẫn chừa lại.
+  const walk = li === 5 ? ease(lf, 8, 44) : 0;
+  const pose =
+    li === 5
+      ? walk < 1
+        ? { pose: "idle" as Pose, prevPose: "point" as Pose, poseT: ease(lf, 0, 12) }
+        : { pose: "touch" as Pose, prevPose: "idle" as Pose, poseT: ease(lf, 52, 12) }
+      : li === 0
+        ? poseAt(lf, 36, "idle", "point")
+        : { pose: "point" as Pose };
+
+  return (
+    <g>
+      {/* ---------- Câu 1: sân bay dã chiến thời Thế chiến II */}
+      {air > 0.01 ? (
+        <g opacity={air}>
+          <rect x={60} y={125} width={850} height={415} fill="rgba(255,236,190,0.45)" />
+          <path d="M 60 540 L 60 506 Q 160 486 250 500 Q 360 476 470 498 Q 600 480 720 500 Q 830 486 910 502 L 910 540 Z" fill="rgba(110,68,35,0.28)" />
+          <rect x={60} y={540} width={850} height={240} fill="rgba(154,100,53,0.18)" />
+          <path d="M 520 540 L 600 540 L 900 780 L 600 780 Z" fill="rgba(59,38,20,0.18)" />
+          {[0, 1, 2, 3].map((i) => {
+            const a = i / 4;
+            const b = a + 0.12;
+            return <line key={i} x1={560 + (750 - 560) * a * a} y1={540 + 240 * a * a} x2={560 + (750 - 560) * b * b} y2={540 + 240 * b * b} stroke="#FFF6DD" strokeWidth={4 + 6 * a} strokeLinecap="round" />;
+          })}
+          {/* Nhà chứa máy bay mái vòm và tháp canh */}
+          <path d="M 86 560 L 86 520 Q 86 420 196 420 Q 306 420 306 520 L 306 560 Z" fill="#B99A6E" stroke={INK.line} strokeWidth={4} />
+          {[120, 150, 180, 210, 240, 270].map((x) => (
+            <path key={x} d={`M ${x} 560 L ${x} ${520 - Math.sqrt(Math.max(0, 110 * 110 - (x - 196) * (x - 196))) * 0.86 + 6}`} stroke="rgba(59,38,20,0.35)" strokeWidth={2.5} />
+          ))}
+          <rect x={150} y={490} width={92} height={70} fill="#3B2F22" stroke={INK.line} strokeWidth={3} />
+          <rect x={420} y={420} width={50} height={120} fill="#C9AE84" stroke={INK.line} strokeWidth={4} />
+          <rect x={406} y={392} width={78} height={34} rx={4} fill={GLASS} stroke={INK.line} strokeWidth={4} />
+          <path d="M 400 392 L 490 392 L 476 378 L 414 378 Z" fill={INK.woodDark} stroke={INK.line} strokeWidth={3} />
+          {/* Máy bay trở về hạ cánh */}
+          {landing.map((l, k) => (
+            <g key={k} opacity={clamp01(l.u * 8) * clamp01((1 - l.u) * 6)}>
+              <g transform={`translate(${l.x} ${l.y}) rotate(${interpolate(l.u, [0, 0.8, 1], [-7, -4, 0])}) scale(${l.s})`}>
+                <SideBomber frame={frame} gear={l.u > 0.5} lw={7} />
+              </g>
+            </g>
+          ))}
+          {/* Chiếc máy bay vừa về, đậu trên sân: Milo đếm vết đạn */}
+          <g transform="translate(330 686) scale(1.2)">
+            <SideBomber frame={frame} gear holes={li === 0 ? interpolate(lf, [40, 70], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 1} />
+          </g>
+          <Stamp x={268} y={196} text="THẾ CHIẾN II" p={li === 0 ? ease(lf, 6, 10) : 1} size={46} rot={-6} />
+        </g>
+      ) : null}
+
+      {/* ---------- Câu 2–3: máy bay nhìn từ trên xuống */}
+      {top > 0.01 ? (
+        <g opacity={top}>
+          <rect x={60} y={125} width={850} height={655} fill="rgba(255,246,221,0.35)" />
+          {Array.from({ length: 8 }, (_, i) => (
+            <line key={`v${i}`} x1={120 + i * 105} y1={140} x2={120 + i * 105} y2={770} stroke="rgba(29,106,140,0.12)" strokeWidth={2} />
+          ))}
+          {Array.from({ length: 6 }, (_, i) => (
+            <line key={`h${i}`} x1={70} y1={170 + i * 110} x2={900} y2={170 + i * 110} stroke="rgba(29,106,140,0.12)" strokeWidth={2} />
+          ))}
+          <ellipse cx={PX + 14} cy={PY + 22} rx={330 * ps} ry={210 * ps} fill="rgba(59,38,20,0.08)" />
+          <g transform={`translate(${PX} ${PY}) scale(${ps})`}>
+            <Bomber frame={frame} holes={holes} dim={li === 2 ? ease(lf, 10, 16) : 0} rings={rings} armor={armor} lw={4} />
+          </g>
+          {/* Câu 2: ai cũng nghĩ bọc giáp chỗ nhiều lỗ */}
+          {askP > 0.01 && askOut < 0.99 ? (
+            <g opacity={1 - askOut}>
+              <Arrow x1={606} y1={708} x2={500} y2={596} p={li === 1 ? ease(lf, 58, 8) : 1} color={INK.blue} w={8} />
+              <Label x={712} y={740} w={360} lines={["BỌC GIÁP Ở ĐÂY?"]} p={askP} size={34} color={INK.blue} />
+              <DrawLine p={strike} x1={548} y1={742} x2={876} y2={736} stroke={INK.red} strokeWidth={8} strokeLinecap="round" />
+            </g>
+          ) : null}
+          {/* Câu 3: Wald nói ngược, mũi tên đổi chiều sang động cơ */}
+          {li >= 2 ? (
+            <g>
+              <WaldPortrait x={218} y={598} p={li === 2 ? pop(lf, fps, 0) : 1} frame={frame} />
+              <Fade p={li === 2 ? ease(lf, 8, 10) : 1} dy={8}>
+                <rect x={70} y={694} width={296} height={52} rx={10} fill={INK.woodDark} stroke={INK.line} strokeWidth={4} />
+                <text x={218} y={729} textAnchor="middle" fill="#FFF6DD" fontSize={28} {...T}>
+                  ABRAHAM WALD
+                </text>
+              </Fade>
+              {engScreen.map((e, k) => (
+                <Arrow key={k} x1={e.x} y1={e.y - 74} x2={e.x} y2={e.y - 6} p={li === 2 ? ease(lf, 18 + k * 4, 10) : 1} w={9} />
+              ))}
+              <Label x={650} y={200} w={440} lines={["BỌC GIÁP CHỖ", "KHÔNG CÓ LỖ THỦNG"]} p={li === 2 ? pop(lf, fps, 26) : 1} size={36} />
+            </g>
+          ) : null}
+        </g>
+      ) : null}
+
+      {/* ---------- Câu 4: những chiếc trúng đạn ở động cơ không trở về */}
+      {sky > 0.01 ? (
+        <g opacity={sky}>
+          <rect x={60} y={125} width={850} height={655} fill="url(#monty-sky)" />
+          {[
+            [160, 330, 1],
+            [520, 160, 0.8],
+            [820, 470, 1.1],
+            [300, 640, 0.9],
+          ].map(([cx, cy, s], i) => (
+            <Puff key={i} x={((cx + frame * 0.9 + 60) % 980) - 40} y={cy} s={s} />
+          ))}
+          {FLEET.map((f, k) => {
+            const t = li === 3 ? lf : 99;
+            const pos = fleetAt(k, t);
+            const hit = f.hit;
+            const flying = hit === null || t < hit;
             return (
-              <g key={`${c.x}-${c.y}`}>
-                <rect x={c.x + 1} y={c.y + 1} width={38} height={38} fill={`rgba(214,60,30,${Math.min(0.9, 0.12 + 0.6 * heat) * pulse})`} />
-                {s > 0.01 ? <rect x={c.x + 1} y={c.y + 1} width={38} height={38} fill="url(#hatch)" opacity={s} /> : null}
+              <g key={k}>
+                {/* Bóng ma chiếc đã rơi: chấm đỏ ở động cơ mà không ai đếm */}
+                {hit !== null ? (
+                  <g opacity={li === 3 ? ease(lf, hit + 22, 14) : 1}>
+                    <g transform={`translate(${f.x - hit * 0.6} ${f.y}) scale(${FLEET_S})`}>
+                      <SideBomber frame={frame} ghost lw={6} engineHit={0.45 + 0.2 * Math.sin(frame * 0.15 + k)} />
+                    </g>
+                  </g>
+                ) : null}
+                {/* Khói từ động cơ */}
+                {!flying && hit !== null
+                  ? Array.from({ length: 12 }, (_, i) => {
+                      const tau = t - i * 3;
+                      if (tau < hit) return null;
+                      const e = enginePt(fleetAt(k, tau));
+                      return <circle key={i} cx={e.x + i * 6} cy={e.y - i * 2} r={7 + i * 2.2} fill={SMOKE} opacity={0.5 * (1 - i / 12)} />;
+                    })
+                  : null}
+                <g transform={`translate(${pos.x} ${pos.y}) rotate(${pos.rot}) scale(${pos.s})`}>
+                  <SideBomber frame={frame} holes={hit === null ? 1 : 0} engineHit={hit !== null && t >= hit ? 1 : 0} lw={6} />
+                </g>
+                {hit !== null ? <Burst {...enginePt(fleetAt(k, hit))} p={clamp01((t - hit) / 10)} /> : null}
               </g>
             );
           })}
-          <circle cx={DOT.x} cy={DOT.y} r={190} fill="none" stroke={INK.line} strokeWidth={3} strokeDasharray="10 7" />
-          <circle cx={DOT.x} cy={DOT.y} r={11 + wave(frame, 0.25, 3)} fill={INK.red} stroke="#FFFFFF" strokeWidth={3} />
-          {/* Chiếc máy bay lao xuống vị trí cuối */}
-          {plane < 1 ? (
-            <g transform={`translate(${interpolate(plane, [0, 1], [160, DOT.x])} ${interpolate(plane, [0, 1], [180, DOT.y])}) rotate(32) scale(${1 - plane * 0.6})`} opacity={1 - plane * 0.5}>
-              <path d="M -40 0 L 40 0 M -6 0 L -24 -30 M -6 0 L -24 30 M 32 0 L 26 -12" stroke={INK.line} strokeWidth={9} strokeLinecap="round" />
+          <Stamp x={485} y={700} text="KHÔNG AI ĐẾM ĐƯỢC" p={li === 3 ? ease(lf, 50, 8) : 1} size={44} rot={-5} />
+        </g>
+      ) : null}
+
+      {/* ---------- Câu 5: người dẫn chọn cửa để mở = chiến tranh chọn máy bay được đếm */}
+      {split > 0.01 ? (
+        <g opacity={split}>
+          <RetroTV>
+            <g transform="translate(106 318) scale(0.4) translate(-60 -92)">
+              <rect x={60} y={92} width={850} height={700} fill="#F4E4C1" />
+              <Studio frame={frame} />
+              {[0, 1, 2].map((i) => (
+                <Door key={i} i={i} frame={frame} behind={BEHIND[i]} open={i === 2 ? (li === 4 ? ease(lf, 14, 16) : 1) : 0} />
+              ))}
+              <g transform={`translate(${2 * HOST_X} 0) scale(-1 1)`}>
+                <Host x={HOST_X} frame={frame} invite={li === 4 ? ease(lf, 6, 12) : 1} />
+              </g>
             </g>
-          ) : null}
-          <Fade p={ease(li === 0 ? lf : 99, 34, 12)}>
-            <rect x={380} y={640} width={240} height={52} rx={10} fill="#FFF6DD" stroke={INK.red} strokeWidth={3} />
-            <text x={500} y={678} textAnchor="middle" fill={INK.red} fontSize={32} {...T}>
-              ĐÃ DÒ · HỤT
-            </text>
-          </Fade>
-          {li === 1 ? (
-            <Pop p={pop(lf, fps, 70)} cx={520} cy={190}>
-              <text x={520} y={204} textAnchor="middle" fill={INK.red} fontSize={40} {...T}>
-                ↑ XÁC SUẤT
-              </text>
-            </Pop>
-          ) : null}
-        </g>
-      ) : null}
-      {/* Mặt cắt đại dương: robot lặn soi thấy xác máy bay */}
-      {sea > 0.01 ? (
-        <g opacity={sea}>
-          <rect x={70} y={132} width={640} height={240} fill="#F6E7C6" />
-          <rect x={70} y={272} width={640} height={480} fill="url(#ocean-grad)" />
-          <path d={`M 70 272 ${Array.from({ length: 8 }, (_, i) => `Q ${70 + i * 80 + 40} ${262 + wave(frame, 0.1, 6, i)} ${70 + (i + 1) * 80} 272`).join(" ")}`} fill="none" stroke="#FFFFFF" strokeWidth={4} />
-          <path d="M 70 752 L 70 712 Q 200 690 300 712 Q 420 734 540 700 Q 640 680 710 706 L 710 752 Z" fill="#3B2F22" />
-          <rect x={70} y={132} width={640} height={620} rx={18} fill="none" stroke={INK.line} strokeWidth={5} />
-          {/* Tàu */}
-          <g transform={`translate(380 ${272 + wave(frame, 0.1, 4)})`}>
-            <path d="M -80 -6 L 80 -6 L 60 22 L -64 22 Z" fill="#7A3E22" stroke={INK.line} strokeWidth={4} />
-            <rect x={-30} y={-40} width={56} height={34} fill="#F4F1EA" stroke={INK.line} strokeWidth={3} />
-            <line x1={50} y1={-6} x2={50} y2={-60} stroke={INK.line} strokeWidth={5} />
-            <line x1={50} y1={-60} x2={80} y2={-40} stroke={INK.line} strokeWidth={4} />
-          </g>
-          {/* Dây cáp + robot lặn */}
-          <line x1={430} y1={290} x2={430} y2={300 + robot * 330} stroke={INK.line} strokeWidth={3} />
-          {light > 0.01 ? <path d={`M 418 ${646} L 330 735 L 560 735 L 442 646 Z`} fill="rgba(255,240,170,0.5)" opacity={light} /> : null}
-          <g transform={`translate(430 ${310 + robot * 330})`}>
-            <rect x={-30} y={-22} width={60} height={40} rx={8} fill="#F2C14E" stroke={INK.line} strokeWidth={4} />
-            <circle cx={0} cy={22} r={9} fill="#FFFBE0" stroke={INK.line} strokeWidth={3} />
-            <rect x={-44} y={-10} width={14} height={20} fill="#9AA3A8" stroke={INK.line} strokeWidth={3} />
-            <rect x={30} y={-10} width={14} height={20} fill="#9AA3A8" stroke={INK.line} strokeWidth={3} />
-          </g>
-          {/* Xác máy bay dưới đáy */}
-          <g opacity={0.35 + light * 0.65}>
-            <path d="M 380 728 L 470 716 L 486 740 L 380 744 Z" fill="#C9CED2" stroke={INK.line} strokeWidth={3} />
-            <path d="M 500 742 L 520 680 L 548 684 L 540 742 Z" fill="#B7BEC4" stroke={INK.line} strokeWidth={3} />
-          </g>
-          {/* Thước độ sâu */}
-          <line x1={110} y1={280} x2={110} y2={728} stroke="#FFFFFF" strokeWidth={4} />
-          {[0, 1, 2, 3, 4].map((i) => (
-            <line key={i} x1={100} y1={280 + i * 112} x2={120} y2={280 + i * 112} stroke="#FFFFFF" strokeWidth={4} />
-          ))}
-          <text x={130} y={700} fill="#FFFFFF" fontSize={34} {...T}>
-            4.000 M
-          </text>
-          {[0, 1].map((i) => {
-            const fx = 640 - ((frame * (1.2 + i * 0.5) + i * 200) % 520);
-            return <path key={i} d={`M ${fx} ${420 + i * 90} q 18 -12 36 0 q -18 12 -36 0 l -12 -8 l 0 16 z`} fill="#F2A65A" stroke={INK.line} strokeWidth={2} />;
+          </RetroTV>
+          {/* Phễu lọc máy bay trở về */}
+          <path
+            d={`M ${FUNNEL.x - 136} ${FUNNEL.rim} L ${FUNNEL.x - 22} ${FUNNEL.neck} L ${FUNNEL.x - 16} ${FUNNEL.spout} L ${FUNNEL.x + 16} ${FUNNEL.spout} L ${FUNNEL.x + 22} ${FUNNEL.neck} L ${FUNNEL.x + 136} ${FUNNEL.rim} Z`}
+            fill="#D9B27A"
+            stroke={INK.line}
+            strokeWidth={5}
+            strokeLinejoin="round"
+          />
+          <path d={`M ${FUNNEL.x - 100} ${FUNNEL.rim + 30} L ${FUNNEL.x - 14} ${FUNNEL.neck}`} stroke="rgba(255,246,221,0.6)" strokeWidth={8} strokeLinecap="round" />
+          <ellipse cx={FUNNEL.x} cy={FUNNEL.rim} rx={136} ry={22} fill="#8A6A3E" stroke={INK.line} strokeWidth={5} />
+          <line x1={FUNNEL.x - 160} y1={FUNNEL.row + 110} x2={FUNNEL.x + 160} y2={FUNNEL.row + 110} stroke={INK.line} strokeWidth={4} strokeLinecap="round" />
+          {SIEVE.map((m, i) => {
+            const u = li === 4 ? clamp01((lf - (16 + i * 6)) / 26) : 1;
+            if (li === 4 && lf < 16 + i * 6) return null;
+            let x: number;
+            let y: number;
+            let rot = 180;
+            let o = clamp01(u * 6);
+            let s = MINI_S;
+            if (m.ok) {
+              const slotX = FUNNEL.x + (m.slot % 2 === 0 ? -82 : 82);
+              const slotY = FUNNEL.row - 62 + Math.floor(m.slot / 2) * 118;
+              if (u < 0.6) {
+                const v = u / 0.6;
+                x = FUNNEL.x + m.off * (1 - v);
+                y = interpolate(v, [0, 1], [280, FUNNEL.neck]);
+                s = MINI_S * (1 - 0.25 * v);
+              } else {
+                const v = Easing.inOut(Easing.cubic)((u - 0.6) / 0.4);
+                x = interpolate(v, [0, 1], [FUNNEL.x, slotX]);
+                y = interpolate(v, [0, 1], [FUNNEL.neck, slotY]);
+                s = MINI_S * (0.75 + 0.25 * v);
+                rot = 180 + 180 * v;
+              }
+            } else {
+              const v = clamp01(u / 0.45);
+              const w = clamp01((u - 0.45) / 0.55);
+              x = FUNNEL.x + m.off * (1 - 0.3 * v) + Math.sign(m.off) * 150 * w;
+              y = interpolate(v, [0, 1], [280, FUNNEL.rim + 6]) + 220 * w * w;
+              rot = 180 + Math.sign(m.off) * 220 * w;
+              s = MINI_S * (1 - 0.5 * w);
+              o = o * (1 - w);
+            }
+            return (
+              <g key={i} opacity={o}>
+                {!m.ok && u > 0.45
+                  ? [0, 1, 2].map((j) => <circle key={j} cx={x - Math.sign(m.off) * j * 16} cy={y - j * 18} r={8 + j * 4} fill={SMOKE} opacity={0.45 - j * 0.12} />)
+                  : null}
+                <g transform={`translate(${x} ${y}) rotate(${rot}) scale(${s})`}>
+                  <Bomber frame={frame} holes={m.ok ? 1 : 0} few dotR={20} engineHit={m.ok ? 0 : 1} lw={22} />
+                </g>
+              </g>
+            );
           })}
-          <Stamp x={390} y={196} text="4/2011 · 1 TUẦN" p={ease(lf, 96, 8)} size={40} rot={-4} color={INK.green} />
+          <Pop p={li === 4 ? pop(lf, fps, 30) : 1} cx={485} cy={460}>
+            <circle cx={485} cy={460} r={34} fill="#FFF6DD" stroke={INK.gold} strokeWidth={5} />
+            <text x={485} y={480} textAnchor="middle" fill={INK.gold} fontSize={56} {...T}>
+              =
+            </text>
+          </Pop>
+          <Stamp x={485} y={196} text="ĐÃ QUA CHỌN LỌC" p={li === 4 ? ease(lf, 56, 8) : 1} size={46} rot={-4} />
         </g>
       ) : null}
-      {/* Về lại trường quay: cửa người dẫn chừa lại sáng vàng */}
+
+      {/* ---------- Câu 6: về lại trường quay, cửa người dẫn chừa lại sáng vàng */}
       {studio > 0.01 ? (
         <g opacity={studio}>
           <Studio frame={frame} />
           {[0, 1, 2].map((i) => (
-            <Door key={i} i={i} frame={frame} behind={BEHIND[i]} open={i === 2 ? 1 : 0} glow={i === 1 ? ease(lf, 10, 20) : 0} />
+            <Door key={i} i={i} frame={frame} behind={BEHIND[i]} open={i === 2 ? 1 : 0} glow={i === 1 ? ease(lf, 4, 20) : 0} />
           ))}
         </g>
       ) : null}
-      <Stickman
-        x={li === 3 ? 528 : 830}
-        y={GROUND}
-        scale={li === 3 ? 1 : 0.95}
-        accessory={li === 2 ? "lifevest" : undefined}
-        enter={li === 3 ? walk : 1}
-        from={li === 3 ? 302 : 320}
-        badge="Ở ĐÂY!"
-        badgeP={li === 2 ? pop(lf, fps, 100) : 0}
-        {...pose}
-      />
-      <Card title={title} formula={formula} p={pop(bf, fps, 8)} fp={pop(lf, fps, 4)} />
+
+      {li === 0 || li === 5 || air > 0.01 ? (
+        <g opacity={li === 5 ? studio : air}>
+          <Stickman
+            x={li === 5 ? 528 : 780}
+            y={GROUND}
+            scale={li === 5 ? 1 : 0.9}
+            enter={li === 5 ? walk : walk1}
+            from={li === 5 ? 302 : 260}
+            {...pose}
+          />
+        </g>
+      ) : null}
     </g>
   );
 };
@@ -1122,11 +1756,10 @@ export const MontyScene: React.FC<Anim & { beatKind: string }> = ({ beatKind, ..
   return <Beat {...a} />;
 };
 
-/** Gradient cho cảnh đại dương (đặt trong <defs> của khung SVG cảnh). */
+/** Gradient bầu trời cho cảnh máy bay bị bắn rơi (đặt trong <defs> của khung SVG cảnh). */
 export const MontyDefs: React.FC = () => (
-  <linearGradient id="ocean-grad" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0%" stopColor="#4F9BB3" />
-    <stop offset="100%" stopColor="#0C2536" />
+  <linearGradient id="monty-sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stopColor="#CFE0E0" />
+    <stop offset="100%" stopColor="#F4E4C1" />
   </linearGradient>
 );
-

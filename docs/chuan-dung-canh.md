@@ -35,3 +35,5 @@ Yêu cầu của chủ kênh (15/11/2026): **nhân vật di chuyển mượt mà
 4. Xem chuyển động ở tốc độ thật: có chỗ nào giật, nhảy, trượt, khựng không?
 5. Hình có minh hoạ đúng câu đang nói không?
 6. Nhân vật có đủ bộ phận, đủ lớn để thấy nét mặt không?
+
+Kịch bản mới / sửa xong phải chạy `npm run review` (kiểm máy + ảnh cảnh, không dùng AI chấm; bot tự chạy khi /tap); lỗi 'phải sửa' phải xử lý trước khi duyệt. Mục kiểm trên trang này do người viết tự soát.

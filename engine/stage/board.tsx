@@ -11,7 +11,8 @@ import { LINE } from "./village.tsx";
  */
 
 /** Toạ độ bảng trên khung 1080×1920 và kích thước vùng vẽ bên trong. */
-export const BOARD = { x: 60, y: 290, width: 960, height: 350 };
+// y hạ 60 px (15/11/2026) để bảng không dính sát dải tiêu đề (đáy ≈ 292).
+export const BOARD = { x: 60, y: 350, width: 960, height: 350 };
 
 /** Props một sơ đồ nhận được. Vẽ trong hệ toạ độ BOARD.width × BOARD.height. */
 export type BoardProps = {

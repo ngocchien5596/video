@@ -2,10 +2,12 @@
  * Thông tin để tạo playlist (YouTube + TikTok) cho từng dự án, lấy từ project.json → playlist.
  *   npm run playlist            mọi dự án
  *   npm run playlist -- -p vs   một dự án
- * In ra màn hình và ghi projects/<dự án>/docs/playlist.md.
+ * In ra màn hình, ghi projects/<dự án>/docs/playlist.md và file chữ để tạo playlist trên YouTube
+ * out/<dự án>/playlist/thong-tin-playlist-youtube.txt (cạnh ảnh bìa; bot gửi kèm khi /playlist).
+ * Chủ kênh 15/11/2026: mỗi lần tạo playlist đều phải có file này.
  * Dự án mới bắt buộc có mục "playlist" trong project.json (thiếu thì lệnh báo lỗi).
  */
-import { existsSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { loadProject, loadProjects, ROOT, takeProjectArg } from "./projects.mjs";
@@ -43,6 +45,40 @@ export const playlistKit = (project) => {
   if (kit.description.length > YT_DESC_MAX) warn.push(`Mô tả YouTube dài ${kit.description.length} ký tự (tối đa ${YT_DESC_MAX}).`);
   if (!kit.covers.length) warn.push("Chưa xuất ảnh bìa playlist (out/<dự án>/playlist/).");
   return { ...kit, warn };
+};
+
+/** File chữ để tạo playlist trên YouTube, xếp theo thứ tự các ô trong YouTube Studio. */
+export const youtubeFile = (project) => `out/${project.id}/playlist/thong-tin-playlist-youtube.txt`;
+
+export const playlistYoutubeText = (kit, project) => `THÔNG TIN TẠO PLAYLIST YOUTUBE: ${project.name}
+YouTube Studio → Nội dung → Danh sách phát → Danh sách phát mới. Dán từng mục dưới đây.
+
+=== TIÊU ĐỀ (${kit.title.length}/${YT_TITLE_MAX} ký tự) ===
+${kit.title}
+
+=== MÔ TẢ (${kit.description.length}/${YT_DESC_MAX} ký tự) ===
+${kit.description}
+
+=== CÀI ĐẶT ===
+Chế độ hiển thị: ${kit.visibility}
+Thứ tự video: ${kit.order}
+Dành cho trẻ em: ${kit.madeForKids}
+Ảnh bìa: ${kit.covers.find((c) => c.includes("1280x720")) ?? "chưa xuất (cần ảnh ngang 1280×720)"}${kit.covers.length ? "\n(Studio không cho tải ảnh thì đặt tập #1 làm ảnh danh sách phát.)" : ""}
+
+=== TIKTOK (tên danh sách phát) ===
+${kit.tiktokTitle}
+${kit.warn.length ? `\n=== CẦN XỬ LÝ ===\n${kit.warn.map((w) => `- ${w}`).join("\n")}\n` : ""}
+Sinh tự động từ projects/${project.id}/project.json → playlist (npm run playlist). Muốn sửa thì sửa project.json rồi chạy lại.
+`;
+
+/** Ghi cả docs/playlist.md và file chữ YouTube; trả về đường dẫn hai file. */
+export const writePlaylistFiles = (kit, project) => {
+  const md = `${project.rel}/docs/playlist.md`;
+  const txt = youtubeFile(project);
+  writeFileSync(path.join(ROOT, md), playlistMarkdown(kit, project));
+  mkdirSync(path.dirname(path.join(ROOT, txt)), { recursive: true });
+  writeFileSync(path.join(ROOT, txt), "\uFEFF" + playlistYoutubeText(kit, project).replace(/\n/g, "\r\n"));
+  return { md, txt };
 };
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -107,11 +143,10 @@ const main = async () => {
   for (const project of projects) {
     try {
       const kit = playlistKit(project);
-      const file = `${project.rel}/docs/playlist.md`;
-      writeFileSync(path.join(ROOT, file), playlistMarkdown(kit, project));
+      const { md, txt } = writePlaylistFiles(kit, project);
       console.log(`\n=== ${project.name} ===\nYouTube tiêu đề:\n${kit.title}\n\nYouTube mô tả:\n${kit.description}\n\nTikTok:\n${kit.tiktokTitle}`);
       for (const w of kit.warn) console.log(`⚠️  ${w}`);
-      console.log(`✔ ${file}`);
+      console.log(`✔ ${md}\n✔ ${txt}`);
     } catch (e) {
       failed = true;
       console.error(`✘ ${e.message}`);

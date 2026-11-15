@@ -33,7 +33,7 @@ const layoutFor = (episode: ChoLaEpisode, next: string | null): EpisodeLayout =>
   topBar: { label: `${SERIES_NAME} · #${episode.day}`, title: episode.title, showTitleAfter: "hook" },
   hook: { beat: "hook", kicker: `📍 ${episode.place.toUpperCase()}`, title: episode.title },
   cards: factCards(episode),
-  endCard: { question: episode.question, teaser: next ? `Chỗ lạ tiếp theo: ${next}` : null },
+  endCard: { question: episode.question, teaser: next ? `Tiếp theo: ${next}` : null },
   // Chuông tin nhắn khi Cháu gọi Ông.
   sfx: [{ beat: "call", file: "tin-nhan.wav", volume: 0.8 }],
 });

@@ -18,8 +18,8 @@ export const beats = {
 /** Tiêu đề ngắn của một tập (câu thành ngữ). */
 export const headline = (episode) => episode.idiom;
 
-/** Nhãn của dòng hẹn tập sau, ví dụ "Mai là câu: …". */
-export const teaserLabel = "Mai là câu";
+/** Nhãn của dòng hẹn tập sau ở cuối video: "Tiếp theo: …". */
+export const teaserLabel = "Tiếp theo";
 
 /** Các trường sửa được ngoài thoại: mã, nhãn, giá trị, tên trường trong makeEpisode. */
 export const fields = (episode) => [
@@ -27,7 +27,7 @@ export const fields = (episode) => [
   { code: "hoi", label: "Câu hỏi cuối video", text: episode.question, key: "question" },
 ];
 
-/** Trường đổi thì phải cập nhật tracker / cảnh báo tập trước (dòng "Mai là câu"). */
+/** Trường đổi thì phải cập nhật tracker / cảnh báo tập trước (dòng "Tiếp theo"). */
 export const titleKey = "idiom";
 
 /** Câu tự sinh từ khuôn (không sửa trực tiếp được): thoại 2.2, cảnh 2.c, câu cửa miệng 4.1. */

@@ -17,7 +17,7 @@ export const beats = {
 };
 
 export const headline = (episode) => episode.ask;
-export const teaserLabel = "Câu hỏi tiếp";
+export const teaserLabel = "Tiếp theo";
 
 export const fields = (episode) => [
   { code: "sai", label: "Hiểu lầm phổ biến", text: episode.myth, key: "myth" },

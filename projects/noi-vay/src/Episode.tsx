@@ -34,7 +34,7 @@ const layoutFor = (episode: NoiVayEpisode, next: string | null): EpisodeLayout =
       render: (f) => <StampCard stamp="KHÔNG PHẢI VẬY!" label="NGHĨA THẬT" body={episode.meaning} {...f} />,
     },
   ],
-  endCard: { question: episode.question, teaser: next ? `Mai là câu: “${next}”` : null },
+  endCard: { question: episode.question, teaser: next ? `Tiếp theo: “${next}”` : null },
   sfx: [
     { beat: "title", file: "ding.wav", volume: 0.7, at: "hold" },
     { beat: "flip", file: "record-scratch.wav", volume: 0.8 },

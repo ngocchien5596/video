@@ -266,6 +266,21 @@ const Bubble: React.FC<{
   );
 };
 
+/** Biển tên gỗ treo trên đầu nhân vật (thay thông tin trước nằm trên thẻ tóm tắt, nay đã tắt). */
+const NamePlate: React.FC<{ x: number; y: number; text: string; p: number; size?: number }> = ({ x, y, text, p, size = 36 }) => {
+  const w = text.length * size * 0.66 + 44;
+  const h = size * 1.6;
+  return (
+    <Pop p={p} cx={x} cy={y}>
+      <rect x={x - w / 2 + 4} y={y - h / 2 + 6} width={w} height={h} rx={12} fill="rgba(0,0,0,0.25)" />
+      <rect x={x - w / 2} y={y - h / 2} width={w} height={h} rx={12} fill={INK.wood} stroke={INK.line} strokeWidth={4} />
+      <text x={x} y={y + size * 0.36} textAnchor="middle" fill={CREAM} fontSize={size} {...T}>
+        {text}
+      </text>
+    </Pop>
+  );
+};
+
 /** Mũi tên thẳng có đầu nhọn. */
 const Arrow: React.FC<{
   x1: number;
@@ -582,6 +597,7 @@ const Hook: React.FC<Anim> = ({ li, lf, fps, frame }) => {
           </g>
         ) : null}
         {li === 1 ? <Stamp x={330} y={200} text="2/8/1971 · APOLLO 15" p={ease(lf, 34, 8)} size={36} rot={-6} /> : null}
+        {li === 1 ? <NamePlate x={730} y={318} text="DAVID SCOTT" p={pop(lf, fps, 44)} /> : null}
         {/* Đóng băng hình + tấm bảng ba ô */}
         {li === 2 ? (
           <>
@@ -810,6 +826,7 @@ const Barrier: React.FC<Anim> = ({ li, lf, bf, fps, frame }) => {
               </g>
             ) : null}
             <Hero x={790} frame={frame} gear="toga" enter={li === 1 ? ease(lf, 6, 30) : 1} from={200} {...linePose(li - 1, lf, ["present", "point"])} />
+            <NamePlate x={760} y={330} text="ARISTOTLE" p={li === 1 ? pop(lf, fps, 34) : 1} />
           </g>
         ) : null}
         {/* Sân Trái Đất; sang câu 2 thì lật như trang giấy sang trái */}
@@ -1012,7 +1029,7 @@ const Eureka: React.FC<Anim> = ({ li, lf, bf, fps, frame }) => {
                       <text x={0} y={-6} textAnchor="middle" fill={CREAM} fontSize={36} {...T}>
                         VIVIANI
                       </text>
-                      <text x={0} y={34} textAnchor="middle" fill="#F2BE4A" fontSize={30} {...T}>
+                      <text x={0} y={36} textAnchor="middle" fill="#F2BE4A" fontSize={34} {...T}>
                         kể lại
                       </text>
                     </g>
@@ -1038,6 +1055,7 @@ const Eureka: React.FC<Anim> = ({ li, lf, bf, fps, frame }) => {
               </g>
             ) : null}
             <Hero x={800} frame={frame} gear="galileo" {...pose} />
+            <NamePlate x={790} y={322} text="GALILEO" p={li === 0 ? pop(lf, fps, 6) : 1} />
           </>
         ) : (
           <>
@@ -1145,7 +1163,7 @@ const Stopwatch: React.FC<{ x: number; y: number; sec: number }> = ({ x, y, sec 
     <line x1={x} y1={y} x2={x + Math.sin(sec * Math.PI) * 76} y2={y - Math.cos(sec * Math.PI) * 76} stroke={INK.red} strokeWidth={6} strokeLinecap="round" />
     <circle cx={x} cy={y} r={8} fill={INK.line} />
     <text x={x} y={y + 56} textAnchor="middle" fill={INK.line} fontSize={40} {...T}>
-      {countUp(sec / 1.4, 1.4, 1)} s
+      {sec >= 1.19 ? "> 1 s" : `${countUp(sec / 1.2, 1.2, 1)} s`}
     </text>
   </g>
 );
@@ -1163,14 +1181,14 @@ const Theorem: React.FC<Anim> = ({ li, lf, bf, fps, frame }) => {
   const leftFeather = li === 0 ? 1 : li === 1 ? 1 - ease(lf, 0, 14) : 0;
   const fy = 180 + ((frame * 1.1) % 400);
   const fx = 190 + Math.sin(frame * 0.08) * 26;
-  // Câu 3: cú rơi 1,6 m trên Mặt Trăng mất ~1,4 giây (42 khung = thời gian thật).
+  // Câu 3: cú thả ngang tầm vai trên Mặt Trăng mất hơn một giây (~1,2 giây đo trên phim = 36 khung).
   const cyc = Math.max(0, lf - 24) % 120;
-  const mt = li === 2 && lf >= 24 ? Math.min(1, cyc / 42) : 0;
+  const mt = li === 2 && lf >= 24 ? Math.min(1, cyc / 36) : 0;
   const book = li === 3 ? ease(lf, 12, 22) : 0;
   const cards: [string, string][] = [
     ["THỦ PHẠM: SỨC CẢN KHÔNG KHÍ", "Hết không khí → chỉ còn trọng lực"],
     ["RƠI TỰ DO · CÙNG GIA TỐC g", "s = ½gt²"],
-    ["MẶT TRĂNG HÚT YẾU HƠN", "Rơi 1,6 m mất chừng 1,4 giây"],
+    ["MẶT TRĂNG HÚT YẾU HƠN", "Thả ngang tầm vai: hơn 1 giây"],
     ["VẬT LÍ 10 · SỰ RƠI TỰ DO", "Bài học mở đầu bằng cú thả này"],
   ];
   const [title, formula] = cards[Math.min(li, 3)];
@@ -1194,8 +1212,8 @@ const Theorem: React.FC<Anim> = ({ li, lf, bf, fps, frame }) => {
                 {[-34, 0, 34].map((d, i) => (
                   <Arrow key={d} x1={fx + d} y1={fy + 172 - (i % 2) * 14} x2={fx + d} y2={fy + 118 - (i % 2) * 14} color={INK.blue} w={5} head={14} />
                 ))}
-                <rect x={86} y={112} width={210} height={52} rx={12} fill={CREAM} stroke={INK.blue} strokeWidth={3} />
-                <text x={191} y={150} textAnchor="middle" fill={INK.blue} fontSize={32} {...T}>
+                <rect x={80} y={108} width={226} height={56} rx={12} fill={CREAM} stroke={INK.blue} strokeWidth={3} />
+                <text x={193} y={149} textAnchor="middle" fill={INK.blue} fontSize={34} {...T}>
                   SỨC CẢN ↑
                 </text>
               </g>
@@ -1248,14 +1266,19 @@ const Theorem: React.FC<Anim> = ({ li, lf, bf, fps, frame }) => {
                   <g transform={`translate(0 ${wave(frame, 0.08, 4)})`}>
                     <rect x={76} y={300} width={262} height={150} rx={14} fill={INK.wood} stroke={INK.line} strokeWidth={5} />
                     <rect x={88} y={312} width={238} height={126} rx={8} fill="#2F4A3A" />
-                    <text x={207} y={396} textAnchor="middle" fill="#FFE27A" fontSize={56} {...T}>
+                    <text x={207} y={lf >= 110 ? 372 : 396} textAnchor="middle" fill="#FFE27A" fontSize={lf >= 110 ? 50 : 56} {...T}>
                       s = ½gt²
                     </text>
+                    <Fade p={ease(lf, 110, 10)}>
+                      <text x={207} y={424} textAnchor="middle" fill="#FFFFFF" fontSize={36} {...T}>
+                        t ×2 → s ×4
+                      </text>
+                    </Fade>
                   </g>
                 </Pop>
                 <Pop p={pop(lf, fps, 54)} cx={207} cy={540}>
                   <rect x={86} y={500} width={242} height={124} rx={14} fill={CREAM} stroke={INK.green} strokeWidth={4} />
-                  <text x={207} y={548} textAnchor="middle" fill={INK.line} fontSize={32} {...T}>
+                  <text x={207} y={548} textAnchor="middle" fill={INK.line} fontSize={34} {...T}>
                     nặng hay nhẹ
                   </text>
                   <text x={207} y={600} textAnchor="middle" fill={INK.green} fontSize={44} {...T}>
@@ -1294,6 +1317,12 @@ const Theorem: React.FC<Anim> = ({ li, lf, bf, fps, frame }) => {
                 </text>
               </Pop>
             ))}
+            <Pop p={pop(lf, fps, 30)} cx={652} cy={140}>
+              <rect x={584} y={106} width={136} height={68} rx={34} fill={INK.gold} stroke={INK.line} strokeWidth={4} />
+              <text x={652} y={153} textAnchor="middle" fill="#FFFFFF" fontSize={36} {...T}>
+                ≈ 1/6
+              </text>
+            </Pop>
             <g opacity={ease(lf, 14, 14)}>
               <path d="M 370 712 Q 520 700 690 714 L 690 780 L 370 780 Z" fill="#A9A9AF" stroke={INK.line} strokeWidth={3} />
               <rect x={398} y={460} width={30} height={320} fill="#F2BE4A" stroke={INK.line} strokeWidth={3} />
@@ -1301,14 +1330,14 @@ const Theorem: React.FC<Anim> = ({ li, lf, bf, fps, frame }) => {
                 <line key={i} x1={398} y1={460 + i * 40} x2={i % 2 ? 412 : 420} y2={460 + i * 40} stroke={INK.line} strokeWidth={3} />
               ))}
               <text x={413} y={444} textAnchor="middle" fill={INK.line} fontSize={36} {...T}>
-                1,6 m
+                TẦM VAI
               </text>
               <Hammer x={515} y={460 + 186 * mt * mt} s={1.3} />
               <Feather x={615} y={460 + 186 * mt * mt} s={1.3} />
-              <Dust x={565} y={778} p={ease(cyc, 42, 22)} />
+              <Dust x={565} y={778} p={ease(cyc, 36, 22)} />
             </g>
             <Pop p={pop(lf, fps, 18)} cx={210} cy={570}>
-              <Stopwatch x={210} y={580} sec={1.4 * mt} />
+              <Stopwatch x={210} y={580} sec={1.2 * mt} />
             </Pop>
           </>
         ) : null}
@@ -1485,28 +1514,28 @@ const Realworld: React.FC<Anim> = ({ li, lf, bf, fps, frame }) => {
         {tower > 0.01 ? (
           <g opacity={tower}>
             <DropTower lf={lf} frame={frame} />
-            <Pop p={pop(lf, fps, 6)} cx={545} cy={260}>
-              <rect x={440} y={226} width={210} height={70} rx={14} fill={INK.blue} stroke={INK.line} strokeWidth={4} />
-              <text x={545} y={274} textAnchor="middle" fill="#FFFFFF" fontSize={34} {...T}>
+            <Pop p={pop(lf, fps, 6)} cx={558} cy={260}>
+              <rect x={428} y={226} width={260} height={70} rx={14} fill={INK.blue} stroke={INK.line} strokeWidth={4} />
+              <text x={558} y={274} textAnchor="middle" fill="#FFFFFF" fontSize={34} {...T}>
                 NASA GLENN
               </text>
             </Pop>
-            <Pop p={pop(lf, fps, 22)} cx={560} cy={420}>
-              <line x1={440} y1={420} x2={404} y2={420} stroke={CREAM} strokeWidth={4} />
-              <rect x={440} y={360} width={210} height={116} rx={14} fill={CREAM} stroke={INK.line} strokeWidth={4} />
-              <text x={545} y={408} textAnchor="middle" fill={INK.line} fontSize={32} {...T}>
+            <Pop p={pop(lf, fps, 22)} cx={558} cy={420}>
+              <line x1={428} y1={420} x2={404} y2={420} stroke={CREAM} strokeWidth={4} />
+              <rect x={428} y={360} width={260} height={116} rx={14} fill={CREAM} stroke={INK.line} strokeWidth={4} />
+              <text x={558} y={408} textAnchor="middle" fill={INK.line} fontSize={34} {...T}>
                 GẦN NHƯ
               </text>
-              <text x={545} y={452} textAnchor="middle" fill={INK.line} fontSize={32} {...T}>
+              <text x={558} y={454} textAnchor="middle" fill={INK.line} fontSize={34} {...T}>
                 CHÂN KHÔNG
               </text>
             </Pop>
-            <Pop p={pop(lf, fps, 10)} cx={545} cy={590}>
-              <rect x={440} y={526} width={210} height={128} rx={14} fill="#16261C" stroke={INK.line} strokeWidth={4} />
-              <text x={545} y={598} textAnchor="middle" fill="#7CFF8A" fontSize={62} {...T}>
+            <Pop p={pop(lf, fps, 10)} cx={558} cy={590}>
+              <rect x={428} y={526} width={260} height={128} rx={14} fill="#16261C" stroke={INK.line} strokeWidth={4} />
+              <text x={558} y={598} textAnchor="middle" fill="#7CFF8A" fontSize={62} {...T}>
                 {countUp(lin(lf, 12, 54), 5.18, 2)}
               </text>
-              <text x={545} y={638} textAnchor="middle" fill="#7CFF8A" fontSize={30} {...T}>
+              <text x={558} y={640} textAnchor="middle" fill="#7CFF8A" fontSize={34} {...T}>
                 GIÂY
               </text>
             </Pop>
@@ -1630,7 +1659,7 @@ const Cosmic: React.FC<Anim> = ({ li, lf, bf, fps, frame }) => {
             </g>
             <circle cx={290} cy={450} r={136} fill="none" stroke={INK.line} strokeWidth={4} />
             <Pop p={pop(lf, fps, 12)} cx={290} cy={640}>
-              <rect x={140} y={608} width={300} height={66} rx={14} fill={CREAM} stroke={INK.line} strokeWidth={4} />
+              <rect x={110} y={606} width={360} height={70} rx={14} fill={CREAM} stroke={INK.line} strokeWidth={4} />
               <text x={290} y={654} textAnchor="middle" fill={INK.line} fontSize={34} {...T}>
                 TRỌNG LỰC ≈ 90%
               </text>
@@ -1668,10 +1697,10 @@ const Cosmic: React.FC<Anim> = ({ li, lf, bf, fps, frame }) => {
               </text>
             </Pop>
             {/* Búa và lông chim lơ lửng song song cạnh Milo */}
-            <Pop p={pop(lf, fps, 50)} cx={620} cy={430}>
+            <Pop p={pop(lf, fps, 50)} cx={650} cy={300}>
               <g transform={`translate(0 ${wave(frame, 0.05, 10)})`}>
-                <Hammer x={590} y={340} s={OBJ} r={wave(frame, 0.03, 14) + 20} />
-                <Feather x={665} y={330} s={OBJ} r={wave(frame, 0.03, 14, 1) + 24} />
+                <Hammer x={640} y={236} s={OBJ} r={wave(frame, 0.03, 14) + 20} />
+                <Feather x={720} y={226} s={OBJ} r={wave(frame, 0.03, 14, 1) + 24} />
               </g>
             </Pop>
           </>

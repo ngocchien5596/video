@@ -40,7 +40,7 @@ const layoutFor = (episode: ViSaoEpisode, next: string | null): EpisodeLayout =>
       render: (f) => <NoteCard label="TÓM LẠI" body={episode.answer} startFrame={f.startFrame} endFrame={f.endFrame} />,
     },
   ],
-  endCard: { question: episode.question, teaser: next ? `Câu hỏi tiếp: ${next}` : null },
+  endCard: { question: episode.question, teaser: next ? `Tiếp theo: ${next}` : null },
   sfx: [
     { beat: "guess", file: "record-scratch.wav", volume: 0.35 },
     { beat: "recap", file: "ding.wav", volume: 0.7 },

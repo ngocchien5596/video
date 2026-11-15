@@ -33,6 +33,7 @@ Mọi lệnh nhận dự án bằng `-p <id hoặc mã ngắn>`; bỏ trống th
 | `npm run voice -- -p vs 1` | Lồng tiếng tập 1 bằng OmniVoice (xem mục Lồng tiếng) |
 | `npm run voice:check -- -p vs 1` | Nghe lại tiếng bằng máy, báo câu đọc sai hoặc nuốt chữ |
 | `npm run sheets -- -p vs` | Sinh lại kịch bản in trong `projects/<dự án>/docs/kich-ban/` |
+| `npm run review -- -p kt 1` | **Duyệt cuối tự động** (lời dẫn + cảnh) theo `docs/giong-loi-thoai.md`, `docs/chuan-dung-canh.md` và series bible: kiểm máy, chụp ảnh từng câu, Claude chấm; báo cáo và ảnh tổng ở `out/review/<dự án>/ngay-XX/`. Thêm `--no-ai` (chỉ kiểm máy + ảnh), `--no-render` (không chụp ảnh). Mã thoát 1 nếu còn lỗi "phải sửa" |
 | `npm run bot` | Chạy bot Telegram cho mọi dự án (xem mục Bot Telegram) |
 | `npm run lint` | Kiểm tra code (ESLint + TypeScript) |
 
@@ -95,6 +96,7 @@ Mỗi tin ghi rõ dự án nào.
 - **Duyệt:** bot kiểm tra ràng buộc của dự án (ví dụ "Ông Ơi, Vì Sao?" bắt buộc có ít nhất 2 nguồn kiểm chứng), lồng tiếng, kiểm tra tiếng, xuất video và ảnh bìa, gửi lại file mp4, ảnh bìa và gói đăng bài, rồi cập nhật `tracker.csv` của dự án.
 - **Sửa thoại:** nhắn `6.2: nội dung mới` để sửa đúng một câu, hoặc nhắn tự nhiên. Claude Code trên máy đọc yêu cầu (theo quy tắc riêng của từng series) và đề xuất bản sửa kèm phần diễn; bot kiểm tra rồi cho xem trước, chỉ sửa file khi bạn bấm **Áp dụng**.
 - **Bỏ qua:** bot nhắc lại sau 2 giờ.
+- **Duyệt cuối tự động:** mỗi lần gõ `/tap` hoặc áp dụng bản sửa, bot chạy nền `npm run review` cho tập đó (một tập một lúc, nhường hàng đợi xuất video) rồi gửi "🔎 ĐẠT" hoặc "⚠️ k lỗi phải sửa, m lỗi nên sửa" kèm vài lỗi đầu và ảnh tổng cảnh. Kịch bản không đổi thì dùng lại kết quả cũ. Bấm Duyệt khi bản duyệt của đúng kịch bản đó còn lỗi "phải sửa" thì bot nhắc (không chặn).
 
 **Lệnh** (mã dự án ghi ngay sau lệnh, bỏ trống thì dùng dự án đang chọn):
 

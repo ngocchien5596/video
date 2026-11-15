@@ -3,6 +3,7 @@
  * Dữ liệu là nguồn duy nhất; đừng sửa tay file trong docs/kich-ban.
  *   npm run sheets                 -> projects/noi-vay/docs/kich-ban/tuan-1.md ...
  *   npm run sheets -- -p vi-sao
+ * Ghi thêm docs/kich-ban/thu-tu-dang.md: mục lục theo thứ tự đăng (số ngày).
  */
 import { mkdirSync, writeFileSync } from "node:fs";
 import { timedBeats } from "../engine/lib/timing.ts";
@@ -25,6 +26,7 @@ for (const week of weeks) {
     "",
     `> File sinh tự động bằng \`npm run sheets -- -p ${project.id}\` từ \`${project.rel}/src/episodes/\`. Sửa ở đó, đừng sửa ở đây.`,
     "> CĐ = Cụ Đồ, TC = Thằng Cháu.",
+    "> Các file tuần gom tập theo chủ đề; thứ tự đăng theo số ngày, xem [thu-tu-dang.md](thu-tu-dang.md).",
     "",
   ];
   for (const ep of eps) {
@@ -43,3 +45,20 @@ for (const week of weeks) {
   writeFileSync(file, parts.join("\n"), "utf8");
   console.log(`✔ ${file}`);
 }
+
+// Mục lục theo thứ tự đăng (số ngày): file tuần gom theo chủ đề nên số ngày xen kẽ giữa các file.
+const order = [...EPISODES].sort((a, b) => a.day - b.day);
+const index = [
+  `# Thứ tự đăng: ${project.name}`,
+  "",
+  `> File sinh tự động bằng \`npm run sheets -- -p ${project.id}\`. Video tập N giới thiệu tập N+1 theo đúng thứ tự này.`,
+  "> Các file tuan-*.md gom tập theo chủ đề, không theo thứ tự đăng.",
+  "",
+  "| Ngày | Tập | Chủ đề | Nằm trong file |",
+  "| --- | --- | --- | --- |",
+  ...order.map((ep) => `| ${ep.day} | ${cell(project.headline(ep))} | ${cell(ep.theme ?? "")} | [tuan-${ep.week}.md](tuan-${ep.week}.md) |`),
+  "",
+];
+const indexFile = `${project.paths.sheets}/thu-tu-dang.md`;
+writeFileSync(indexFile, index.join("\n"), "utf8");
+console.log(`✔ ${indexFile}`);

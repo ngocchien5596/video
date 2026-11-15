@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { Audio, Video } from "@remotion/media";
 import { AbsoluteFill, Easing, Freeze, interpolate, Sequence, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { EndCard, SafeZones } from "../components/Overlays.tsx";
-import { END_CARD_SECONDS, episodeTimeline, LOOP_SECONDS, type Timeline } from "../lib/timing.ts";
+import { endCardTiming, episodeTimeline, LOOP_SECONDS, type Timeline } from "../lib/timing.ts";
 import type { Episode, VoiceTrack } from "../lib/types.ts";
 import { TEXT_FONT } from "../components/brand.ts";
 import { LAYOUT, PARCHMENT, ParchmentHud } from "./ParchmentHud.tsx";
@@ -64,7 +64,7 @@ const Picture: React.FC<PictureProps> = ({ episode, timeline, next }) => {
     : null;
 
   const cue = cues.find((c) => t >= c.start && t < c.end);
-  const endStart = durationInFrames - f(END_CARD_SECONDS);
+  const endStart = durationInFrames - f(endCardTiming(episode.question).total);
 
   return (
     <AbsoluteFill style={{ backgroundColor: PARCHMENT.bgOuter }}>
@@ -125,8 +125,9 @@ const Picture: React.FC<PictureProps> = ({ episode, timeline, next }) => {
       {frame >= endStart ? (
         <EndCard
           question={episode.question}
-          teaser={next ? `Bài toán tiếp theo: ${next}` : null}
+          teaser={next ? `Tiếp theo: ${next === next.toLocaleUpperCase("vi") ? next.charAt(0) + next.slice(1).toLocaleLowerCase("vi") : next}` : null}
           startFrame={endStart}
+          teaserFrame={endStart + f(endCardTiming(episode.question).question)}
         />
       ) : null}
     </AbsoluteFill>
@@ -177,7 +178,7 @@ export const ParchmentPlayer: React.FC<ParchmentPlayerProps> = ({ episode, next,
   const { beats, spoken } = timeline;
   const f = (seconds: number) => Math.round(seconds * fps);
 
-  const endStart = durationInFrames - f(END_CARD_SECONDS);
+  const endStart = durationInFrames - f(endCardTiming(episode.question).total);
   const loopStart = durationInFrames - f(LOOP_SECONDS);
   const picture = { episode, timeline, next };
 

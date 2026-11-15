@@ -5,6 +5,7 @@ import { episodeFrames, FPS, HEIGHT, pad2, WIDTH } from "../../../engine/lib/tim
 import { voicedMetadata } from "../../../engine/remotion.ts";
 import { PROJECT_ID } from "./brand.ts";
 import { Cover } from "./Cover.tsx";
+import { PlaylistCover } from "./PlaylistCover.tsx";
 import { EpisodeVideo, type EpisodeProps } from "./Episode.tsx";
 import { EPISODES, nextTeaser } from "./episodes/index.ts";
 
@@ -34,5 +35,9 @@ export const KienThucCompositions: React.FC = () => (
         })}
       </Folder>
     ))}
+    <Folder name="KienThuc-Playlist">
+      <Still id="KienThuc-Playlist-Ngang" component={PlaylistCover} width={1280} height={720} />
+      <Still id="KienThuc-Playlist-Vuong" component={PlaylistCover} width={1080} height={1080} />
+    </Folder>
   </Folder>
 );

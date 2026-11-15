@@ -18,7 +18,7 @@ export const beats = {
 };
 
 export const headline = (episode) => episode.title;
-export const teaserLabel = "Chỗ lạ tiếp theo";
+export const teaserLabel = "Tiếp theo";
 
 export const fields = (episode) => [
   { code: "noi", label: "Nơi chốn", text: episode.place, key: "place" },
