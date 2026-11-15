@@ -30,7 +30,7 @@ Series bible của từng dự án nói giọng riêng của nhân vật; trang 
 
 ## 5. Giới hạn kỹ thuật của giọng AI
 - Câu đọc không bắt đầu bằng "Ông" với giọng NARRATOR, và tránh cụm "ông giảng / kể cho mà nghe" (giống câu mẫu của giọng Cụ Đồ, mô hình dễ đọc lẫn).
-- Tên riêng nước ngoài có câu đọc phiên âm (`tts`); chữ cái đọc tên Việt ("chữ en lờ"); ký hiệu, phân số đọc thành lời.
+- Tên riêng, từ mượn nước ngoài: phiên âm bằng âm tiết tiếng Việt cách nhau dấu cách, KHÔNG gạch nối; phụ âm ghép tách ra như người Việt nói ("Xì cốt", "Pờ lu tác"). Cách đọc dùng chung nằm trong bảng `PRONOUNCE` (tools/voice/vi_text.py), máy tự áp khi lồng giọng; viết kịch bản xong chạy `npm run voice:names`, chữ nào chưa có cách đọc thì thêm vào bảng. Chữ cái đọc tên Việt ("chữ en lờ"); ký hiệu, phân số đọc thành lời.
 - Mỗi câu ≤ 35–38 chữ. Từ tượng thanh lạ ("Phì phì!") phải nghe thử sau khi lồng giọng.
 - Sửa lời một nhịp có `stage` trỏ `line`: giữ số câu, thứ tự, người nói (hoặc sửa đúng chỉ số); câu mới vẫn mang đúng ý mà cảnh diễn theo.
 

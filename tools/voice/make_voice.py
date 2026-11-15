@@ -9,13 +9,14 @@ import argparse
 import difflib
 import hashlib
 import json
+import os
 import re
 import sys
 import unicodedata
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from vi_text import normalize_numbers  # noqa: E402
+from vi_text import apply_pronounce, normalize_numbers, unknown_words  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 PUBLIC = ROOT / "public"
@@ -50,6 +51,8 @@ def tts_text(text: str) -> str:
     t = re.sub(r"\s*[()]\s*", ", ", t)
     t = re.sub(r"(,\s*)+([,.!?;:])", r"\2", t)
     t = re.sub(r",\s*$", ".", t)
+    # Tên riêng, từ mượn nước ngoài → cách đọc tiếng Việt (bảng PRONOUNCE trong vi_text.py), bỏ gạch nối giữa chữ.
+    t = apply_pronounce(t)
     # Mô hình đọc không hiểu chữ số ("15", "1950", "5:00"), phải đổi sang chữ tiếng Việt.
     t = normalize_numbers(t)
     return re.sub(r"\s+", " ", t).strip()
@@ -60,6 +63,8 @@ def tts_text(text: str) -> str:
 GOOD_MATCH = 0.9
 SEEDS = [0, 1, 2, 3]
 SPEED_JITTER = [1.0, 0.96, 1.04, 0.93]
+# VOICE_TRIES=1: chỉ sinh một lần, không đọc lại (dùng khi thử nhanh cách đọc tên riêng, ASR không nhận ra tên nước ngoài).
+TRIES = max(1, min(len(SEEDS), int(os.environ.get("VOICE_TRIES", len(SEEDS)))))
 
 # ASR viết tắt đơn vị: đổi lại thành chữ trước khi so.
 ASR_ABBR = {"m": ["mét"], "km": ["ki", "lô", "mét"], "cm": ["xen", "ti", "mét"], "kg": ["ki", "lô", "gam"], "g": ["gam"]}
@@ -170,11 +175,14 @@ def main() -> None:
                 done += 1
                 text = tts_text(spoken_raw(line))
                 print(f'  [{done}/{todo}] Ngày {job["day"]} {line["name"]}: {text}', flush=True)
+                odd = unknown_words(text)
+                if odd:
+                    print(f"        ⚠ chữ chưa có cách đọc tiếng Việt: {', '.join(odd)} (thêm vào PRONOUNCE trong tools/voice/vi_text.py hoặc phiên âm trong tts)", flush=True)
                 wav = day_dir / line["name"]
                 # Sinh, nghe lại bằng ASR, chưa khớp thì sinh lại với hạt giống khác; giữ bản khớp nhất.
                 # (Bắt lỗi mô hình đọc lặp chữ, hoặc đọc lẫn câu mẫu của giọng như "…ông giảng cho mà nghe".)
                 best = None
-                for attempt, seed in enumerate(SEEDS):
+                for attempt, seed in enumerate(SEEDS[:TRIES]):
                     torch.manual_seed(seed)
                     audio = model.generate(
                         text=text,
@@ -193,7 +201,7 @@ def main() -> None:
                 score, audio, heard = best
                 save_wav(wav, audio, model.sampling_rate)
                 if score < GOOD_MATCH:
-                    print(f"        ⚠ sau {len(SEEDS)} lần vẫn chỉ khớp {score:.0%}, cần nghe lại: {heard}", flush=True)
+                    print(f"        ⚠ sau {TRIES} lần vẫn chỉ khớp {score:.0%}, cần nghe lại: {heard}", flush=True)
                 entry = {
                     "beat": line["beat"],
                     "line": line["line"],

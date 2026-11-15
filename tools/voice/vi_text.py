@@ -116,6 +116,82 @@ LETTERS = {
     "J": "gi", "K": "ca", "L": "en lờ", "M": "em mờ", "N": "en nờ", "O": "o", "P": "pê", "Q": "quy", "R": "e rờ",
     "S": "ét xì", "T": "tê", "U": "u", "V": "vê", "W": "vê kép", "X": "ích xì", "Y": "i dài", "Z": "dét",
 }
+# Cách đọc chữ nước ngoài (tên riêng, từ mượn) cho giọng AI tiếng Việt. Mô hình đọc chữ Latin lơ lớ, nửa Anh nửa Việt
+# ("Pa-rết" nghe thành "pr rep"), nên mọi chữ không phải âm tiết tiếng Việt phải có ở đây hoặc được phiên âm trong `tts`.
+# Viết phiên âm bằng các âm tiết tiếng Việt cách nhau dấu cách, KHÔNG dùng gạch nối (gạch nối giữa chữ được đổi thành dấu cách).
+# Khoá phân biệt hoa thường với tên riêng; từ mượn viết thường thì khớp cả chữ hoa đầu câu.
+# Thêm từ mới: chạy `npm run voice:names` để xem chữ nào chưa có cách đọc (lệnh `npm run voice` cũng cảnh báo).
+PRONOUNCE = {
+    # Tên riêng (Kiến thức tập 1, đã nghe thử 15/11/2026)
+    "Pa-rết": "Pa rây",
+    "Parade": "Pa rây",
+    "Ma-ri-lin vốt Xa-văng": "Me ri lin Vốt Xa van",
+    "Marilyn vos Savant": "Me ri lin Vốt Xa van",
+    "Steven Pinker": "Xì ti vơn Pinh cơ",
+    "Paul Erdős": "Pôn Ẹc đốt",
+    "Air France": "E Phờ răng",
+    "Metron": "Mê trôn",
+    # Phụ âm ghép tiếng Việt không có (xt, xc, pl, cl, phr, đr): tách thành âm tiết như người Việt vẫn nói ("Xì cốt").
+    "Xti-vơn": "Xì ti vơn",
+    "Steven": "Xì ti vơn",
+    "Xti vơn": "Xì ti vơn",
+    "Plu-tác": "Pờ lu tác",
+    "Xcra-bồ": "Xì cờ ra bồ",
+    "Xcốt-len": "Xì cốt len",
+    "Xcốt": "Xì cốt",
+    "xi-clô-ít": "xi cờ lô ít",
+    "An-phrét": "An phờ rét",
+    "xta-đi-ông": "xờ ta đi ông",
+    "Ê-ra-tốt-xten": "Ê ra tốt xờ ten",
+    "A-ri-xtốt": "A ri xờ tốt",
+    "A-lếch-xan-đri-a": "A lếch xan đờ ri a",
+    # Từ mượn hay gặp trong lời thoại
+    "online": "on lai",
+    "shipper": "síp pơ",
+    "ship": "síp",
+    "shop": "sốp",
+    "sale": "seo",
+    "like": "lai",
+    "liveshow": "lai sâu",
+    "sofa": "sô pha",
+    "karaoke": "ca ra ô kê",
+    "photo": "phô tô",
+    "size": "sai",
+    "pass": "pát",
+    "excel": "ếch xeo",
+    "carton": "các tông",
+    "nilon": "ni lông",
+    "alo": "a lô",
+    "x-quang": "ích quang",
+    "hamburger": "hăm bơ gơ",
+    "inox": "i nốc",
+    "enzim": "en dim",
+    "cacbonic": "các bô níc",
+    "ôxy": "ô xi",
+    "CV": "xê vê",
+    "ISS": "ai ét ét",
+    "NASA": "Na sa",
+}
+
+_VOWELS = "aàáảãạăằắẳẵặâầấẩẫậeèéẻẽẹêềếểễệiìíỉĩịoòóỏõọôồốổỗộơờớởỡợuùúủũụưừứửữựyỳýỷỹỵ"
+_SYLLABLE = re.compile(rf"^(ngh|ng|nh|ch|gh|gi|kh|ph|qu|th|tr|[bcdđghklmnpqrstvx])?[{_VOWELS}]{{1,3}}(ch|ng|nh|[cmnpt])?$", re.IGNORECASE)
+
+
+def apply_pronounce(text: str) -> str:
+    """Thay chữ nước ngoài bằng cách đọc tiếng Việt, rồi bỏ gạch nối giữa các chữ."""
+    t = text
+    for src, dst in sorted(PRONOUNCE.items(), key=lambda kv: -len(kv[0])):
+        flags = 0 if any(c.isupper() for c in src) else re.IGNORECASE
+        t = re.sub(rf"(?<![\w-]){re.escape(src)}(?![\w-])", dst, t, flags=flags)
+    # "Ga-li-lê" → "Ga li lê", "ki-lô-mét" → "ki lô mét" (gạch nối làm giọng đọc ngắt lạ); giữ "3-5" cho phần đọc số.
+    return re.sub(r"(?<=[^\W\d_])-(?=[^\W\d_])", " ", t)
+
+
+def unknown_words(text: str) -> list[str]:
+    """Chữ không phải âm tiết tiếng Việt còn sót lại (sau khi đã áp PRONOUNCE): cần thêm cách đọc."""
+    return [w for w in re.findall(r"[^\W\d_]+", text) if not _SYLLABLE.match(w)]
+
+
 _NUM = r"\d+(?:[.,]\d+)*"
 _UNIT_RE = "|".join(re.escape(u) for u in sorted(UNITS, key=len, reverse=True))
 

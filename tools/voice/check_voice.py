@@ -13,7 +13,7 @@ import unicodedata
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from vi_text import normalize_numbers  # noqa: E402
+from vi_text import apply_pronounce, normalize_numbers  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 PUBLIC = ROOT / "public"
@@ -50,7 +50,7 @@ def main() -> None:
         for item in json.loads(manifest.read_text(encoding="utf-8"))["lines"]:
             heard = asr.transcribe(str(PUBLIC / item["file"]), "vi")
             ref_str = item.get("tts") or item["text"]
-            score = difflib.SequenceMatcher(None, words(normalize_numbers(ref_str)), words(heard)).ratio()
+            score = difflib.SequenceMatcher(None, words(normalize_numbers(apply_pronounce(ref_str))), words(heard)).ratio()
             mark = "OK " if score >= THRESHOLD else "XEM"
             bad += score < THRESHOLD
             print(f"  {mark} {score:4.0%}  {Path(item['file']).name}")
