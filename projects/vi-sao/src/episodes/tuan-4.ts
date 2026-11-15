@@ -49,8 +49,8 @@ export const TUAN_4 = [
     guess: {
       shot: "Thằng Cháu đoán máu trong gân màu xanh, Cụ Đồ bảo máu người lúc nào cũng đỏ, chỉ con sam mới có máu xanh",
       lines: [
-        tc("Có phải máu trong gân màu xanh, ra ngoài gặp không khí mới hoá đỏ không ông?"),
-        cd("Chưa đúng đâu cháu! Máu người lúc nào cũng đỏ, trong gân chỉ đỏ sẫm hơn thôi. Máu xanh thật là của con sam ngoài biển cơ."),
+        tc("Cháu biết rồi! Máu trong gân màu xanh, ra ngoài gặp không khí mới hoá đỏ, đúng không ông?"),
+        cd("Chưa đúng đâu cháu! Máu người lúc nào chả đỏ, trong gân chỉ đỏ sẫm hơn tí thôi. Máu xanh thật thì phải tìm con sam ngoài biển cơ."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "bounce" } },
@@ -61,10 +61,10 @@ export const TUAN_4 = [
     explain: {
       shot: "Bảng minh hoạ: lát cắt da tay, chùm nắng nhiều màu chiếu vào; ánh đỏ chui sâu tản đi, ánh xanh vào nông dội ra mắt; gân trông xanh mà máu vẫn đỏ sẫm",
       lines: [
-        cd("Ánh sáng chiếu vào tay mình có đủ các màu, như cầu vồng trộn lại."),
-        cd("Ánh sáng đỏ chui sâu vào da, rồi bị da và lớp mỡ hắt tản đi."),
-        cd("Ánh sáng xanh chỉ vào nông, rồi phần lớn dội ngược ra, đi tới mắt mình."),
-        cd("Thêm nữa, gân nằm giữa làn da sáng màu hơn, nên mắt càng thấy gân xanh sẫm."),
+        cd("Nghe đây, ánh sáng rọi vào tay mình có đủ các màu, như cầu vồng trộn lại ấy."),
+        cd("Ánh đỏ chui tọt sâu vào trong da, rồi bị da với lớp mỡ hắt tản đi mất."),
+        cd("Còn ánh xanh chỉ vào nông thôi, phần lớn lại dội ngược ra, về tới mắt mình đấy."),
+        cd("Đã thế, gân lại nằm giữa làn da sáng màu hơn, nên mắt mình càng thấy nó xanh sẫm."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w4-veins", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "confused" } },
@@ -78,7 +78,7 @@ export const TUAN_4 = [
     recapStage,
     outro: {
       shot: "Thằng Cháu hỏi tiếp về ngón tay nhăn khi ngâm nước, Cụ Đồ hẹn mai kể",
-      lines: [tc("Thế sao ngâm nước lâu, ngón tay cháu lại nhăn nheo hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Ơ, thế sao ngâm nước lâu, ngón tay cháu lại nhăn nheo hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
       stage: nextStage,
     },
   }),
@@ -110,8 +110,8 @@ export const TUAN_4 = [
     guess: {
       shot: "Thằng Cháu đoán da uống no nước, Cụ Đồ bảo nếu hút nước thì ngón tay phải phồng tròn",
       lines: [
-        tc("Có phải da ngón tay uống no nước, nên mới nhăn lại không ông?"),
-        cd("Chưa đúng đâu cháu! Nếu da hút no nước, ngón tay phải phồng căng tròn lên chứ, đằng này lại nhăn lại."),
+        tc("Chắc da ngón tay uống no nước quá, nên mới nhăn lại, phải không ông?"),
+        cd("Chưa đúng đâu cháu! Hút no nước thì ngón tay phải phồng căng lên chứ, đằng này nó lại nhăn nheo, thế là thế nào?"),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "bounce" } },
@@ -122,10 +122,10 @@ export const TUAN_4 = [
     explain: {
       shot: "Bảng minh hoạ: ngón tay nằm ngang, giọt nước bật ra khỏi da; tín hiệu thần kinh chạy tới đầu ngón, mạch máu co lại; đầu ngón nhăn như nho thành nho khô; ngón nhăn cầm viên bi ướt",
       lines: [
-        cd("Da mình như một lớp áo mưa, giữ cho nước bên ngoài khó lọt vào trong."),
-        cd("Ngâm nước một lúc, dây thần kinh ở tay ra lệnh cho mạch máu ở đầu ngón co nhỏ lại."),
-        cd("Mạch máu co lại thì đầu ngón bớt đầy, giống quả nho phơi thành nho khô, da nhăn lại."),
-        cd("Các nhà khoa học cho rằng, ngón tay nhăn giúp mình cầm đồ ướt chắc tay hơn."),
+        cd("Da mình như cái áo mưa ấy, nước bên ngoài khó mà lọt vào trong."),
+        cd("Ngâm nước một lúc là dây thần kinh ở tay ra lệnh, bắt mạch máu đầu ngón co nhỏ lại."),
+        cd("Mạch máu co thì đầu ngón bớt đầy, da nhăn lại, như quả nho phơi thành nho khô đấy."),
+        cd("Mà các nhà khoa học cho rằng, ngón tay nhăn thế lại giúp mình cầm đồ ướt chắc tay hơn cơ."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w4-fingers", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "confused" } },
@@ -139,7 +139,7 @@ export const TUAN_4 = [
     recapStage,
     outro: {
       shot: "Thằng Cháu hỏi tiếp vì sao chạy nhảy xong lại đổ mồ hôi, Cụ Đồ hẹn mai kể",
-      lines: [tc("Thế sao chạy nhảy xong, cháu lại đổ mồ hôi hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Thế còn chạy nhảy xong, sao cháu lại đổ mồ hôi đầm đìa hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
       stage: nextStage,
     },
   }),
@@ -166,8 +166,8 @@ export const TUAN_4 = [
     guess: {
       shot: "Thằng Cháu nhăn mũi đoán mồ hôi tự nó hôi, Cụ Đồ bảo mồ hôi gần như toàn là nước, chẳng có mùi gì",
       lines: [
-        tc("Mồ hôi hôi lắm, có phải tự nó có mùi hôi không ông?"),
-        cd("Chưa đúng đâu! Mồ hôi gần như toàn là nước, tự nó chẳng có mùi gì cả."),
+        tc("Eo, mồ hôi hôi lắm! Có phải tự nó đã có mùi hôi không ông?"),
+        cd("Chưa đúng đâu! Mồ hôi gần như toàn là nước thôi, tự nó chẳng có mùi gì đâu."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "shrug", expr: "smug", move: "idle" } },
@@ -178,10 +178,10 @@ export const TUAN_4 = [
     explain: {
       shot: "Bảng minh hoạ: bé chạy dưới nắng, nhiệt kế vọt lên, não sáng nháy; lát cắt da với tuyến mồ hôi đẩy giọt mồ hôi ra mặt da; giọt mồ hôi bay hơi, da mát lại; vi khuẩn hoạt hình bên giọt mồ hôi bốc mùi, bọt xà phòng rửa sạch",
       lines: [
-        cd("Khi cháu chạy nhảy hay ra nắng, não nhận ra người mình đang nóng hơn bình thường."),
-        cd("Não liền báo cho các tuyến mồ hôi trong da, đẩy mồ hôi ra ngoài mặt da."),
-        cd("Mồ hôi bay hơi khỏi da, làm da và người mình mát đi, không bị nóng quá."),
-        cd("Còn mùi hôi là do vi khuẩn sống sẵn trên da biến đổi mồ hôi, nên tắm rửa sạch sẽ là hết mùi."),
+        cd("Cháu chạy nhảy hay ra nắng một lúc, là não biết ngay người mình đang nóng hơn bình thường."),
+        cd("Thế là não báo cho các tuyến mồ hôi trong da, đẩy mồ hôi ra ngoài mặt da."),
+        cd("Mồ hôi bay hơi khỏi da, thế là người mình mát dần, khỏi bị nóng quá."),
+        cd("Còn mùi hôi á? Là do vi khuẩn sống sẵn trên da biến đổi mồ hôi đấy, tắm rửa sạch sẽ là hết mùi."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w4-sweat", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "confused", arms: "down", move: "idle" } },
@@ -194,7 +194,7 @@ export const TUAN_4 = [
     recapStage,
     outro: {
       shot: "Thằng Cháu hỏi tiếp về hắt xì hơi, Cụ Đồ hẹn mai kể",
-      lines: [tc("Thế còn hắt xì hơi thì sao hả ông, vì sao mình lại hắt xì?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Thế còn hắt xì hơi thì sao ông? Tự dưng mình lại hắt xì là sao?"), cd("Câu đó, mai ông kể tiếp nhé!")],
       stage: nextStage,
     },
   }),
@@ -222,8 +222,8 @@ export const TUAN_4 = [
     guess: {
       shot: "Thằng Cháu nhắc câu bà hay nói, Cụ Đồ cười: ngửi phải bụi là hắt xì, chẳng cần ai nhắc",
       lines: [
-        tc("Bà bảo hắt xì là có người đang nhắc tên cháu, có đúng không ông?"),
-        cd("Đó chỉ là câu nói vui thôi cháu! Ngửi phải bụi hay phấn hoa là mũi hắt xì ngay, chẳng cần ai nhắc cả."),
+        tc("Bà bảo hắt xì là có ai đang nhắc tên cháu đấy, đúng không ông?"),
+        cd("Bà nói vui đấy thôi cháu ạ! Hít phải tí bụi hay phấn hoa là mũi hắt xì ngay, có cần ai nhắc đâu."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "bounce" } },
@@ -234,10 +234,10 @@ export const TUAN_4 = [
     explain: {
       shot: "Bảng minh hoạ: đầu nhìn nghiêng, hạt phấn hoa bay vào mũi; tia thần kinh chạy lên não; phổi bóp, hơi đẩy lên; HẮT XÌ, bụi bay ra, nhắc che miệng",
       lines: [
-        cd("Khi bụi hay phấn hoa lọt vào mũi, các tế bào thần kinh trong mũi phát hiện có thứ lạ."),
-        cd("Chúng gửi tín hiệu báo lên não, và não tự động ra lệnh, cháu không cần nghĩ."),
-        cd("Các cơ ở bụng và cổ họng cùng siết thật mạnh, đẩy hơi từ phổi ra."),
-        cd("Hắt xì! Hơi phụt ra qua mũi và miệng, cuốn bụi ra ngoài, nên nhớ che miệng lại nhé."),
+        cd("Bụi hay phấn hoa vừa lọt vào mũi, là tế bào thần kinh trong mũi nhận ra ngay có thứ lạ."),
+        cd("Chúng báo lên não, não tự ra lệnh luôn, cháu có cần nghĩ gì đâu."),
+        cd("Thế là cơ bụng với cổ họng cùng siết thật mạnh, đẩy hơi từ phổi ra."),
+        cd("Hắt xì! Hơi phụt ra cả đằng mũi lẫn đằng miệng, cuốn bụi ra ngoài. Nhớ che miệng đấy nhé!"),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w4-sneeze", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "confused", arms: "down" } },
@@ -251,7 +251,7 @@ export const TUAN_4 = [
     recapStage,
     outro: {
       shot: "Thằng Cháu hỏi tiếp về buốt đầu khi ăn kem, Cụ Đồ hẹn mai kể",
-      lines: [tc("Thế sao ăn kem nhanh, cháu lại bị buốt đầu hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Thế sao cháu ăn kem vội, đầu lại buốt tận óc hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
       stage: nextStage,
     },
   }),
@@ -276,8 +276,8 @@ export const TUAN_4 = [
     guess: {
       shot: "Thằng Cháu sợ não bị đông cứng, Cụ Đồ trấn an: cơn buốt chỉ một lúc là hết, không làm hại gì",
       lines: [
-        tc("Có phải kem lạnh quá, làm não cháu bị đông cứng lại không ông?"),
-        cd("Không phải đâu cháu! Não không hề bị đông cứng, cơn buốt chỉ một lúc là hết, chẳng làm hại gì cả."),
+        tc("Chết rồi, hay kem lạnh quá, làm não cháu đông cứng lại rồi hả ông?"),
+        cd("Làm gì có chuyện ấy cháu! Não chẳng đông cứng tí nào đâu, cơn buốt một lúc là hết, chẳng hại gì cả."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "up2", expr: "shock", move: "tremble" } },
@@ -288,10 +288,10 @@ export const TUAN_4 = [
     explain: {
       shot: "Bảng minh hoạ: đầu nhìn nghiêng há miệng, cây kem chạm vòm miệng; mạch máu ở vòm miệng to nhỏ liên hồi; tia thần kinh lên não; ngôi sao BUỐT ĐẦU, một lúc là hết",
       lines: [
-        cd("Miếng kem lạnh buốt chạm vào vòm miệng, ở ngay phía trên lưỡi."),
-        cd("Mạch máu ở vòm miệng liền thay đổi kích thước, nhanh như chớp."),
-        cd("Dây thần kinh nhận ra sự thay đổi đột ngột ấy, vội báo về não."),
-        cd("Não hiểu đó là cơn đau, nên cháu thấy buốt ở đầu, nhưng chỉ một lúc là hết."),
+        cd("Miếng kem lạnh buốt chạm ngay vào vòm miệng, chỗ phía trên lưỡi ấy."),
+        cd("Thế là mạch máu ở vòm miệng đổi kích thước, nhanh như chớp."),
+        cd("Dây thần kinh thấy thay đổi đột ngột quá, vội vàng báo về não."),
+        cd("Não hiểu đấy là cơn đau, thế là cháu buốt cả đầu, được cái chỉ một lúc là hết."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w4-freeze", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "confused", arms: "down" } },
@@ -304,7 +304,7 @@ export const TUAN_4 = [
     recapStage,
     outro: {
       shot: "Thằng Cháu ôm hai cánh tay nổi da gà, hỏi tiếp, Cụ Đồ hẹn mai kể",
-      lines: [tc("Thế sao trời lạnh, tay cháu lại nổi da gà hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Ơ, thế sao trời lạnh, tay cháu lại nổi da gà hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "hold2", expr: "confused" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
@@ -334,8 +334,8 @@ export const TUAN_4 = [
     guess: {
       shot: "Thằng Cháu đoán chỉ lạnh mới nổi da gà, Cụ Đồ bảo nghe bản nhạc hay hay lúc bất ngờ cũng nổi da gà",
       lines: [
-        tc("Có phải chỉ khi bị lạnh, mình mới nổi da gà không ông?"),
-        cd("Chưa đúng đâu! Có người nghe bản nhạc thật hay, hay lúc bất ngờ, phấn khích, cũng nổi da gà đấy."),
+        tc("Cái này dễ! Chỉ khi bị lạnh mình mới nổi da gà, đúng không ông?"),
+        cd("Chưa đúng đâu! Có người nghe một bản nhạc hay, hay lúc bất ngờ, lúc phấn khích, cũng nổi da gà như thường."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "hold2", expr: "smug", move: "idle" } },
@@ -346,10 +346,10 @@ export const TUAN_4 = [
     explain: {
       shot: "Bảng minh hoạ: lát cắt da với ba sợi lông, mỗi sợi mọc từ nang lông gắn cơ tí hon; bông tuyết, tia thần kinh, cơ co kéo lông dựng; da nổi thành nốt nhỏ; lông dựng giữ lớp không khí sát da",
       lines: [
-        cd("Mỗi sợi lông trên tay mọc ra từ một cái túi nhỏ trong da, gắn với một cơ tí hon."),
-        cd("Khi bị lạnh, dây thần kinh báo cho cơ tí hon ấy co lại, kéo sợi lông dựng lên."),
-        cd("Chỗ mỗi sợi lông dựng nổi lên một nốt nhỏ, trông như da gà."),
-        cd("Những sợi lông dựng nghiêng giữ lại một lớp không khí sát da, giúp người mình ấm lên một chút."),
+        cd("Cháu xem, mỗi sợi lông trên tay mọc ra từ một cái túi nhỏ trong da, có gắn một cơ tí hon."),
+        cd("Gặp lạnh, dây thần kinh bảo cơ tí hon ấy co lại, kéo sợi lông dựng đứng lên."),
+        cd("Sợi lông dựng chỗ nào, da nổi nốt nhỏ chỗ ấy, trông y như da gà."),
+        cd("Lông dựng lên thì giữ được một lớp không khí sát da, người mình ấm thêm được tí chút."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w4-goose", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "confused", arms: "down", move: "idle" } },
@@ -363,7 +363,7 @@ export const TUAN_4 = [
     recapStage,
     outro: {
       shot: "Thằng Cháu thử tự cù mình mà không thấy nhột, hỏi tiếp, Cụ Đồ hẹn mai kể",
-      lines: [tc("Thế sao cháu tự cù mình lại chẳng thấy nhột gì hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Thế sao cháu tự cù mình, lại chẳng thấy nhột tí nào hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
       stage: nextStage,
     },
   }),
@@ -388,8 +388,8 @@ export const TUAN_4 = [
     guess: {
       shot: "Thằng Cháu đoán mình không có máu buồn, Cụ Đồ cù thử, Thằng Cháu cười nắc nẻ",
       lines: [
-        tc("Có phải tại cháu không có máu buồn, nên tự cù chẳng thấy nhột không ông?"),
-        cd("Chưa đúng đâu! Thế mà lúc ông cù, cháu cười nắc nẻ đấy thôi."),
+        tc("Chắc tại cháu không có máu buồn, nên tự cù mới chẳng nhột, phải không ông?"),
+        cd("Chưa đúng đâu! Để ông cù thử xem nào... Đấy, cười nắc nẻ thế kia còn gì!"),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "shrug", expr: "smug", move: "idle" } },
@@ -400,10 +400,10 @@ export const TUAN_4 = [
     explain: {
       shot: "Bảng minh hoạ: lông vũ cù bất ngờ, bé cười; não nhìn nghiêng, tiểu não đoán trước cú cù của tay mình; hai thẻ ĐOÁN = THẬT, khớp; thanh NHỘT tụt xuống, chỉ như gãi",
       lines: [
-        cd("Muốn bị nhột, cú cù phải bất ngờ, mình không đoán trước được."),
-        cd("Khi tay cháu sắp cù, một phần của não tên là tiểu não đã đoán trước cảm giác sắp tới."),
-        cd("Tiểu não so cảm giác thật trên da với điều nó đã đoán, thấy khớp nhau."),
-        cd("Khớp rồi thì não tắt bớt cảm giác nhột đi, nên cháu tự cù chỉ thấy như bị gãi thôi."),
+        cd("Nghe đây, muốn nhột thì cú cù phải bất ngờ, mình không đoán trước được cơ."),
+        cd("Tay cháu vừa định cù, thì một phần của não tên là tiểu não đã đoán sẵn cảm giác sắp tới rồi."),
+        cd("Rồi tiểu não so cảm giác thật trên da với cái nó đã đoán, thấy khớp y như nhau."),
+        cd("Khớp rồi thì não tắt bớt cảm giác nhột đi, nên cháu tự cù chỉ như tự gãi thôi."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w4-tickle", step: 0 }, cd: { x: 0.26, arms: "point", expr: "happy" }, tc: { arms: "down", move: "idle", expr: "happy" } },
@@ -417,7 +417,7 @@ export const TUAN_4 = [
     recapStage,
     outro: {
       shot: "Thằng Cháu hỏi sang chủ đề cây cối: vì sao cây bắt ruồi lại ăn côn trùng, Cụ Đồ hẹn tuần sau",
-      lines: [tc("Ông ơi, thế sao cây bắt ruồi lại ăn côn trùng ạ?"), cd("Câu đó hay lắm! Tuần sau, ông kể cháu nghe nhé!")],
+      lines: [tc("Ông ơi ông! Thế sao cây bắt ruồi lại ăn cả côn trùng ạ?"), cd("Hỏi hay đấy! Tuần sau ông kể tiếp nhé!")],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "raise", expr: "confused" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "up2", expr: "happy", move: "bounce" }, fx: { kind: "hearts", on: "TC" } },

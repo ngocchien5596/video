@@ -42,14 +42,14 @@ export const TUAN_7 = [
     question: "Nhà bạn có mẹo gì để thái hành đỡ cay mắt? Các nhà khoa học gợi ý cho hành vào tủ lạnh một lúc trước khi thái đấy!",
     hook: {
       shot: "Trong bếp, Thằng Cháu đứng xa xem mẹ thái hành, dụi mắt rưng rưng",
-      lines: [tc("Ông ơi, vì sao thái hành lại cay mắt thế ạ?")],
+      lines: [tc("Ông ơi, sao thái hành mà cay mắt thế ạ?")],
       stage: hookStage({ tc: { arms: "up2", expr: "sad" }, fx: { kind: "sweat", on: "TC" } }),
     },
     guess: {
       shot: "Thằng Cháu đoán mùi hăng làm cay mắt, Cụ Đồ bảo củ hành để nguyên chẳng làm ai chảy nước mắt",
       lines: [
-        tc("Có phải mùi củ hành hăng quá, nên mới làm cay mắt không ông?"),
-        cd("Chưa đúng đâu cháu! Củ hành để nguyên trên bàn thì chẳng làm ai chảy nước mắt cả, phải cắt ra mới cay."),
+        tc("Chắc tại mùi hành hăng quá nên mới cay mắt, phải không ông?"),
+        cd("Chưa đúng đâu cháu! Củ hành để nguyên trên bàn thì có ai chảy nước mắt đâu, phải cắt ra mới cay chứ."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "bounce" } },
@@ -60,10 +60,10 @@ export const TUAN_7 = [
     explain: {
       shot: "Bảng minh hoạ: củ hành và kính lúp thấy tế bào; dao (thẻ NGƯỜI LỚN CẦM DAO) làm vỡ tế bào; làn chất có lưu huỳnh bay lên mắt; mắt chảy nước mắt",
       lines: [
-        cd("Củ hành cũng được làm từ vô số tế bào nhỏ xíu, xếp sát bên nhau."),
-        cd("Khi thái hành, dao làm vỡ tế bào, các chất bên trong trộn vào nhau."),
-        cd("Chúng biến thành một chất mới có lưu huỳnh, bay lên không khí, tới tận mắt mình."),
-        cd("Dây thần kinh ở mắt thấy cay, liền báo cho tuyến nước mắt, thế là nước mắt chảy ra."),
+        cd("Cháu biết không, củ hành gồm vô số tế bào nhỏ xíu, xếp sát bên nhau."),
+        cd("Dao thái xuống làm vỡ tế bào, các chất bên trong trộn hết vào nhau."),
+        cd("Thế là sinh ra một chất mới có lưu huỳnh, bay lên không khí, tới tận mắt mình."),
+        cd("Dây thần kinh ở mắt thấy cay, báo ngay cho tuyến nước mắt, thế là nước mắt cứ thế chảy ra."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w7-onion", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "confused", arms: "down" } },
@@ -77,7 +77,7 @@ export const TUAN_7 = [
     recapStage,
     outro: {
       shot: "Thằng Cháu hỏi tiếp về táo cắt để lâu bị thâm, Cụ Đồ hẹn mai kể",
-      lines: [tc("Thế sao táo cắt ra để lâu lại bị thâm hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Ơ, thế sao táo cắt ra để lâu lại bị thâm hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
       stage: nextStage,
     },
   }),
@@ -96,17 +96,17 @@ export const TUAN_7 = [
         url: "https://www.nutritionletter.tufts.edu/ask-experts/q-why-do-sliced-fruits-turn-brown-when-sitting-for-a-period-of-time-at-room-temperature-is-it-safe-to-eat-brown-fruit/",
       },
     ],
-    question: "Nhà bạn có mẹo gì giữ táo cắt sẵn không bị thâm? Kể ông nghe với!",
+    question: "Nhà bạn có mẹo gì giữ táo cắt sẵn không bị thâm?",
     hook: {
       shot: "Trong bếp, Thằng Cháu nhìn đĩa táo cắt để từ sáng, mặt táo đã ngả nâu",
-      lines: [tc("Ông ơi, vì sao táo cắt ra để lâu lại bị thâm ạ?")],
+      lines: [tc("Ông ơi, táo cắt ra để lâu sao lại thâm sì thế ạ?")],
       stage: hookStage(),
     },
     guess: {
       shot: "Thằng Cháu sợ táo thâm là hỏng, Cụ Đồ bảo táo thâm vẫn ăn được, chỉ mặt cắt mới thâm",
       lines: [
-        tc("Có phải táo bị thâm là hỏng rồi, không ăn được nữa không ông?"),
-        cd("Chưa đúng đâu cháu! Táo thâm vẫn ăn được, mà chỉ có mặt cắt phơi ra không khí mới thâm thôi."),
+        tc("Thâm thế này là hỏng rồi, không ăn được nữa hả ông?"),
+        cd("Chưa đúng đâu cháu! Táo thâm vẫn ăn được, mà cháu xem, chỉ có mặt cắt phơi ra không khí mới thâm thôi."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "shrug", expr: "sad", move: "idle" } },
@@ -117,10 +117,10 @@ export const TUAN_7 = [
     explain: {
       shot: "Bảng minh hoạ: nửa quả táo, dao cắt (thẻ NGƯỜI LỚN CẦM DAO); chấm xanh enzim tràn ra; bong bóng ôxy bay tới; mặt cắt ngả nâu, giống sắt gỉ, vẫn ăn được",
       lines: [
-        cd("Khi cắt táo, dao làm vỡ các tế bào ở mặt cắt."),
-        cd("Một chất tên là enzim, vốn nằm yên trong tế bào, liền tràn ra."),
-        cd("Enzim gặp ôxy trong không khí, cùng nhau biến đổi các chất có sẵn trong táo."),
-        cd("Các chất mới sinh ra có màu nâu, nên mặt cắt thâm dần, giống như sắt để lâu bị gỉ."),
+        cd("Lúc cắt táo, dao làm vỡ các tế bào ở mặt cắt."),
+        cd("Một chất tên là enzim, vốn nằm yên trong tế bào, thế là tràn ra ngoài."),
+        cd("Enzim gặp ôxy trong không khí, hai đứa hợp sức biến đổi các chất có sẵn trong táo."),
+        cd("Chất mới sinh ra có màu nâu, nên mặt cắt thâm dần, giống sắt để lâu bị gỉ ấy."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w7-apple", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "confused", arms: "down" } },
@@ -134,7 +134,7 @@ export const TUAN_7 = [
     recapStage,
     outro: {
       shot: "Thằng Cháu nhìn mẹ cất đĩa táo vào tủ lạnh, hỏi tiếp, Cụ Đồ hẹn mai kể",
-      lines: [tc("Thế sao cất đồ ăn vào tủ lạnh lại lâu hỏng hơn hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Thế sao cất đồ ăn vào tủ lạnh lại để được lâu hơn hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
       stage: nextStage,
     },
   }),
@@ -154,14 +154,14 @@ export const TUAN_7 = [
     question: "Tủ lạnh nhà bạn có món gì hay bị để quên lâu nhất? Nhớ ăn đồ trong tủ sớm nhé!",
     hook: {
       shot: "Trong bếp, cạnh tủ lạnh, Thằng Cháu tò mò nhìn hộp đồ ăn mẹ vừa cất vào",
-      lines: [tc("Ông ơi, vì sao cất đồ ăn vào tủ lạnh lại lâu hỏng ạ?")],
+      lines: [tc("Ông ơi, sao cất đồ ăn vào tủ lạnh lại lâu hỏng thế ạ?")],
       stage: hookStage({ tc: { arms: "point" }, items: [{ id: "tu", prop: "fridge", x: 0.47 }] }),
     },
     guess: {
       shot: "Thằng Cháu đoán tủ lạnh làm chết hết vi khuẩn, Cụ Đồ bảo đồ ăn cất trong tủ lâu quá vẫn hỏng, vẫn có mùi lạ",
       lines: [
-        tc("Có phải tủ lạnh làm chết hết vi khuẩn, nên đồ ăn không hỏng không ông?"),
-        cd("Chưa đúng đâu cháu! Đồ ăn cất tủ lạnh lâu quá vẫn hỏng, vẫn có mùi lạ đấy."),
+        tc("Cháu biết! Tủ lạnh làm vi khuẩn chết hết, nên đồ ăn không hỏng, đúng không ông?"),
+        cd("Chưa đúng đâu cháu! Đồ ăn cất tủ lạnh lâu quá vẫn hỏng, vẫn bốc mùi lạ như thường đấy."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "bounce" } },
@@ -172,10 +172,10 @@ export const TUAN_7 = [
     explain: {
       shot: "Bảng minh hoạ: miếng thịt với kính lúp, vài con vi khuẩn bám trên mặt; bên chỗ ấm vi khuẩn sinh sôi đầy, thịt đổi màu, bốc mùi; bên tủ lạnh vi khuẩn ngủ gật, lớn rất chậm; vi khuẩn vẫn còn, thẻ ĂN SỚM NHÉ",
       lines: [
-        cd("Đồ ăn tươi như thịt, cá, thường có sẵn vi khuẩn bám trên mặt."),
-        cd("Ở chỗ ấm, vi khuẩn sinh sôi rất nhanh, làm đồ ăn nhớt, đổi màu, có mùi lạ, thế là hỏng."),
-        cd("Trong tủ lạnh, hầu hết vi khuẩn lớn rất chậm, nên đồ ăn giữ được lâu hơn."),
-        cd("Nhưng lạnh không làm chết hết vi khuẩn, để lâu vẫn hỏng, nên đồ trong tủ nhớ ăn sớm nhé."),
+        cd("Đồ tươi như thịt, cá, thường có sẵn vi khuẩn bám ở ngoài mặt."),
+        cd("Để chỗ ấm, vi khuẩn sinh sôi nhanh lắm, đồ ăn nhớt ra, đổi màu, có mùi lạ, thế là hỏng."),
+        cd("Vào tủ lạnh, hầu hết vi khuẩn lớn chậm rì, nên đồ ăn giữ được lâu hơn."),
+        cd("Nhưng lạnh không giết hết vi khuẩn đâu, để lâu vẫn hỏng, nên đồ trong tủ nhớ ăn sớm nhé."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w7-fridge", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "confused", arms: "down" } },
@@ -188,7 +188,7 @@ export const TUAN_7 = [
     recapStage,
     outro: {
       shot: "Thằng Cháu hỏi tiếp về bột bánh mì phồng lên, Cụ Đồ hẹn mai kể",
-      lines: [tc("Thế sao bột bánh mì lại phồng to lên được hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Ơ, thế sao bột bánh mì lại phồng to lên được hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
       stage: nextStage,
     },
   }),
@@ -210,14 +210,14 @@ export const TUAN_7 = [
     question: "Bạn đã bao giờ tự nhào bột làm bánh chưa?",
     hook: {
       shot: "Trong bếp, cạnh âu bột đã phồng to, Thằng Cháu tròn mắt ngạc nhiên",
-      lines: [tc("Ông ơi, vì sao bột bánh mì lại phồng lên được ạ?")],
+      lines: [tc("Ông ơi ông, âu bột này sao lại phồng to thế ạ?")],
       stage: hookStage({ items: [{ id: "bot", prop: "bowl", x: 0.47, on: "table" }] }),
     },
     guess: {
       shot: "Thằng Cháu đoán nhào bột là nhồi không khí vào, Cụ Đồ bảo men pha nước đường chưa cần nhào đã sủi bọt",
       lines: [
-        tc("Có phải lúc nhào bột, mình nhồi không khí vào nên bột phồng không ông?"),
-        cd("Chưa đúng đâu cháu! Pha men với nước ấm và đường, chưa cần nhào gì, nó đã sủi bọt lăn tăn rồi."),
+        tc("Chắc lúc nhào, mình nhồi không khí vào nên bột mới phồng, phải không ông?"),
+        cd("Chưa đúng đâu cháu! Cứ pha men với nước ấm và đường, chưa nhào gì, nó đã sủi bọt lăn tăn rồi đấy."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "hold2", expr: "smug", move: "bounce" } },
@@ -228,10 +228,10 @@ export const TUAN_7 = [
     explain: {
       shot: "Bảng minh hoạ: kính lúp thấy men nở tí hon; men ăn hạt đường, thải bong bóng khí; cục bột với lưới sợi đạm; lưới giữ bong bóng, bột phồng to",
       lines: [
-        cd("Men nở là những cây nấm tí hon, mỗi cây chỉ là một tế bào, nhỏ đến mức mắt không nhìn thấy."),
-        cd("Men ăn đường trong bột, rồi ợ ra khí cacbonic."),
-        cd("Nhào bột làm các sợi đạm trong bột kết thành một tấm lưới chắc, như mạng nhện."),
-        cd("Tấm lưới ấy giữ khí lại thành vô số bong bóng nhỏ, làm bột phồng lên như quả bóng."),
+        cd("Men nở ấy à, là những cây nấm tí hon, mỗi cây chỉ một tế bào, nhỏ đến mức mắt không nhìn thấy."),
+        cd("Men ăn đường trong bột, xong rồi ợ ra khí cacbonic."),
+        cd("Lúc nhào, các sợi đạm trong bột kết lại thành một tấm lưới chắc, như mạng nhện ấy."),
+        cd("Lưới ấy giữ khí lại thành vô số bong bóng nhỏ, bột cứ thế phồng lên như quả bóng."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w7-bread", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "confused", arms: "down" } },
@@ -244,7 +244,7 @@ export const TUAN_7 = [
     recapStage,
     outro: {
       shot: "Thằng Cháu cầm thìa inox và thìa gỗ, hỏi tiếp, Cụ Đồ hẹn mai kể",
-      lines: [tc("Thế sao thìa inox sờ vào lại lạnh hơn thìa gỗ hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Ơ, thế sao thìa inox sờ vào lại lạnh hơn thìa gỗ nhỉ ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
       stage: nextStage,
     },
   }),
@@ -264,14 +264,14 @@ export const TUAN_7 = [
     question: "Bạn thử sờ thìa inox và thìa gỗ để cạnh nhau chưa? Nhớ chỉ thử với thìa nguội nhé!",
     hook: {
       shot: "Trong bếp, Thằng Cháu cầm thử chiếc thìa inox rồi chiếc thìa gỗ để trên bàn, rụt tay lại",
-      lines: [tc("Ông ơi, vì sao thìa inox sờ vào lại lạnh hơn thìa gỗ thế ạ?")],
+      lines: [tc("Ông ơi, cùng để trên bàn mà sao thìa inox sờ vào lạnh hơn thìa gỗ thế ạ?")],
       stage: hookStage({ tc: { arms: "hold" }, items: [{ id: "bat", prop: "bowl", x: 0.47, on: "table" }] }),
     },
     guess: {
       shot: "Thằng Cháu đoán thìa inox lạnh hơn thật, Cụ Đồ bảo để cùng một chỗ thì hai cái thìa nóng lạnh như nhau",
       lines: [
-        tc("Có phải thìa inox lạnh hơn thìa gỗ thật không ông?"),
-        cd("Chưa đúng đâu! Để cùng một chỗ, hai cái thìa nóng lạnh như nhau, chỉ là tay mình thấy khác thôi."),
+        tc("Thế là thìa inox lạnh hơn thìa gỗ thật, phải không ông?"),
+        cd("Chưa đúng đâu! Để cùng một chỗ thì hai cái thìa nóng lạnh như nhau, chỉ là tay mình thấy khác thôi."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "hold", expr: "smug", move: "bounce" } },
@@ -282,10 +282,10 @@ export const TUAN_7 = [
     explain: {
       shot: "Bảng minh hoạ: thìa inox và thìa gỗ, mỗi thìa có một ngón tay chạm vào; hơi ấm từ tay chảy sang thìa; gỗ dẫn chậm, ít mũi tên; inox dẫn nhanh, nhiều mũi tên; ngón tay trên thìa inox thấy lạnh, thẻ ĐỒ NÓNG: NHỜ NGƯỜI LỚN",
       lines: [
-        cd("Tay cháu ấm hơn không khí trong phòng, nên hơi ấm từ tay chảy sang cái thìa."),
-        cd("Gỗ dẫn hơi ấm chậm, nên thìa gỗ chỉ lấy đi hơi ấm của tay cháu từ từ thôi."),
-        cd("Inox là kim loại, dẫn hơi ấm tốt hơn gỗ nhiều, kéo hơi ấm khỏi ngón tay thật nhanh."),
-        cd("Tay nguội nhanh nên thấy lạnh, còn khi thìa nóng, inox lại thấy nóng hơn, nên đồ nóng phải cẩn thận nhé."),
+        cd("Tay cháu ấm hơn không khí trong phòng, nên hơi ấm cứ thế chảy từ tay sang thìa."),
+        cd("Gỗ dẫn hơi ấm chậm, nên thìa gỗ chỉ rút hơi ấm của tay cháu từ từ thôi."),
+        cd("Còn inox là kim loại, dẫn hơi ấm tốt hơn gỗ nhiều, kéo hơi ấm khỏi ngón tay nhanh ơi là nhanh."),
+        cd("Tay nguội nhanh nên thấy lạnh. Mà khi thìa nóng thì inox lại thấy nóng hơn đấy, nên cẩn thận với đồ nóng nhé."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w7-spoon", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "confused", arms: "down" } },
@@ -299,7 +299,7 @@ export const TUAN_7 = [
     recapStage,
     outro: {
       shot: "Thằng Cháu hỏi tiếp về bong bóng khi nước sôi, Cụ Đồ hẹn mai kể",
-      lines: [tc("Thế lúc nước sôi, bong bóng ở đâu ra hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Ơ, thế lúc nước sôi, bong bóng ở đâu ra hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
       stage: nextStage,
     },
   }),
@@ -323,14 +323,14 @@ export const TUAN_7 = [
     question: "Bạn có để ý bong bóng nổi lên lúc nước gần sôi không? Nhớ đứng xa nồi nước sôi nhé!",
     hook: {
       shot: "Trong bếp, nồi nước sôi trên bàn bếp, Thằng Cháu đứng xa nhìn bong bóng sùng sục",
-      lines: [tc("Ông ơi, nước sôi thì bong bóng ở đâu ra ạ?")],
+      lines: [tc("Ông ơi, nước sôi sùng sục thế kia, bong bóng ở đâu ra ạ?")],
       stage: hookStage({ items: [{ id: "noi", prop: "pan", x: 0.47, on: "table" }] }),
     },
     guess: {
       shot: "Thằng Cháu đoán bong bóng là không khí, Cụ Đồ bảo chỉ bọt li ti lúc mới ấm là không khí",
       lines: [
-        tc("Có phải bong bóng trong nồi là không khí không ông?"),
-        cd("Chỉ đúng một chút thôi! Bọt li ti lúc nước mới ấm là không khí, nhưng đun lại nồi nước ấy, nó vẫn sôi sùng sục bong bóng to."),
+        tc("Chắc bong bóng trong nồi là không khí, phải không ông?"),
+        cd("Đúng có một tí thôi! Bọt li ti lúc nước mới ấm là không khí đấy, nhưng đun lại nồi nước ấy, nó vẫn sôi sùng sục bong bóng to."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "bounce" } },
@@ -341,10 +341,10 @@ export const TUAN_7 = [
     explain: {
       shot: "Bảng minh hoạ: nồi nước trên lửa (thẻ NGƯỜI LỚN ĐUN BẾP), đáy nồi đỏ lên; túi hơi nước nhỏ ở đáy; bong bóng hơi nước nổi lên; hơi nước bay ra, nhắc đứng xa nồi",
       lines: [
-        cd("Khi đun nước, phần nước sát đáy nồi được hơ nóng trước."),
-        cd("Nóng đủ rồi, nước ở đáy biến thành hơi nước, tức là nước ở dạng khí."),
-        cd("Hơi nước gom lại thành bong bóng, rồi nổi dần lên trên."),
-        cd("Lên tới mặt nước, bong bóng vỡ, hơi nước thoát ra rất nóng, nên phải đứng xa nồi nhé."),
+        cd("Đun nước thì phần nước sát đáy nồi được hơ nóng trước tiên."),
+        cd("Nóng đủ rồi, nước ở đáy biến thành hơi nước, tức là nước đã thành khí."),
+        cd("Hơi nước gom lại thành bong bóng, rồi cứ thế nổi dần lên trên."),
+        cd("Lên tới mặt nước, bong bóng vỡ, hơi nước thoát ra nóng lắm, nên đứng xa nồi ra nhé."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w7-boil", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "confused", arms: "down" } },
@@ -358,7 +358,7 @@ export const TUAN_7 = [
     recapStage,
     outro: {
       shot: "Thằng Cháu hỏi tiếp về nước ngọt có ga sủi bọt, Cụ Đồ hẹn mai kể",
-      lines: [tc("Thế sao mở chai nước ngọt có ga, bọt lại sủi lên hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Ơ, thế sao mở chai nước ngọt có ga, bọt lại sủi xèo xèo hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
       stage: nextStage,
     },
   }),
@@ -378,14 +378,14 @@ export const TUAN_7 = [
     question: "Tuần sau là chuyện con vật. Bạn muốn ông giải đáp câu nào?",
     hook: {
       shot: "Trong bếp, Thằng Cháu nhìn cốc nước ngọt có ga sủi bọt lăn tăn",
-      lines: [tc("Ông ơi, vì sao mở nắp chai nước ngọt có ga, bọt lại sủi lên ạ?")],
+      lines: [tc("Ông ơi, sao vừa mở nắp chai nước ngọt có ga là bọt sủi lên thế ạ?")],
       stage: hookStage(),
     },
     guess: {
       shot: "Thằng Cháu đoán không khí lọt vào chai, Cụ Đồ bảo bọt sủi từ trong lòng nước, trong bọt là khí cacbonic",
       lines: [
-        tc("Có phải mở nắp ra, không khí lọt vào chai nên mới có bọt không ông?"),
-        cd("Chưa đúng đâu cháu! Bọt sủi lên từ trong lòng nước, trong bọt là khí cacbonic, chính là khí mình thở ra."),
+        tc("Thì mở nắp ra, không khí lọt vào chai nên mới có bọt chứ gì ông?"),
+        cd("Chưa đúng đâu cháu! Bọt sủi lên từ trong lòng nước cơ, trong bọt là khí cacbonic, đúng cái khí mình thở ra đấy."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "bounce" } },
@@ -396,10 +396,10 @@ export const TUAN_7 = [
     explain: {
       shot: "Bảng minh hoạ: bình khí nhà máy bơm khí cacbonic vào chai; nắp đậy kín, đồng hồ áp suất vọt lên; nắp mở, kim tụt xuống; bong bóng nổi lên, chữ XÈO XÈO",
       lines: [
-        cd("Ở nhà máy, người ta bơm khí cacbonic vào nước, khí tan lẫn vào trong nước."),
-        cd("Đóng nắp thật kín, rất nhiều khí bị ép chặt, nên áp suất trong chai rất cao."),
-        cd("Mở nắp ra, áp suất giảm xuống, nước không giữ nổi nhiều khí như trước nữa."),
-        cd("Khí thoát ra thành vô số bong bóng, nổi lên rồi vỡ, kêu xèo xèo."),
+        cd("Ở nhà máy, người ta bơm khí cacbonic vào nước, cho khí tan lẫn vào trong."),
+        cd("Đóng nắp thật kín, bao nhiêu khí bị ép chặt trong đó, nên áp suất trong chai cao lắm."),
+        cd("Mở nắp ra, áp suất tụt xuống, nước không giữ nổi nhiều khí như trước nữa."),
+        cd("Khí thoát ra thành vô số bong bóng, nổi lên rồi vỡ, kêu xèo xèo đấy."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w7-soda", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "confused", arms: "down" } },
@@ -414,8 +414,8 @@ export const TUAN_7 = [
     outro: {
       shot: "Thằng Cháu hiểu ra vì sao lắc chai rồi mở thì nước bắn tung toé, hứa không lắc nữa; Cụ Đồ hẹn tuần sau hỏi tiếp",
       lines: [
-        tc("Thảo nào lắc chai rồi mở là nước bắn tung toé, cháu không lắc nữa đâu!"),
-        cd("Ngoan lắm! Tuần sau, cháu lại hỏi ông tiếp nhé!"),
+        tc("Thảo nào lắc chai rồi mở là nước bắn tung toé! Cháu chừa, không lắc nữa đâu!"),
+        cd("Thế mới ngoan! Tuần sau, cháu lại hỏi ông tiếp nhé!"),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "up2", expr: "happy", move: "bounce" }, fx: { kind: "exclaim", on: "TC" } },

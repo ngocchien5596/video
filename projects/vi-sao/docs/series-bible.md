@@ -4,6 +4,9 @@ Series video ngắn kiến thức thường thức cho **người từ 13 tuổi
 
 Bối cảnh thị trường và lý do chọn cách làm: `reports/Ngách video hỏi đáp cho trẻ.md` (ở gốc repo).
 
+> **Giọng lời dẫn / lời thoại:** mọi kịch bản phải theo chuẩn chung [docs/giong-loi-thoai.md](../../../docs/giong-loi-thoai.md) (uyển chuyển, tự nhiên, dễ hiểu, cuốn hút; không cụt lủn, không "giọng AI"), và qua mục kiểm ở cuối trang đó trước khi duyệt.
+> **Dựng cảnh / nhân vật:** mọi cảnh, đạo cụ, phần diễn theo chuẩn chung [docs/chuan-dung-canh.md](../../../docs/chuan-dung-canh.md) (nhân vật chuyển động mượt, rõ từng bộ phận, cảnh đẹp, bố cục tốt trong vùng an toàn), qua mục kiểm cuối trang đó trước khi duyệt hình.
+
 ## Đối tượng
 
 - **Người xem: từ 13 tuổi trở lên**: học sinh THCS, THPT và người lớn (bố mẹ, người hay tò mò). Định vị: "câu hỏi vì sao tưởng dễ mà người lớn cũng hay trả lời sai". Đổi từ hướng "trẻ 5–9 xem cùng bố mẹ" ngày 10/11/2026.

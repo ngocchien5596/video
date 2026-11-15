@@ -35,7 +35,7 @@ export const TUAN_1: ChoLaEpisode[] = [
     ],
     hook: {
       shot: "Ngã tư Đà Lạt không có đèn, xe máy đi qua lại, TC đứng giữa vỉa hè ngơ ngác chỉ lên chỗ trống",
-      lines: [tc("Ông ơi, thành phố gì mà gần trăm năm không có nổi một cái đèn đỏ?")],
+      lines: [tc("Ông ơi ông! Thành phố gì mà gần trăm năm chẳng có nổi một cái đèn đỏ?")],
       stage: [
         {
           cut: true,
@@ -64,7 +64,7 @@ export const TUAN_1: ChoLaEpisode[] = [
     },
     call: {
       shot: "Chuông gọi, TC giơ điện thoại, khung gọi video của Ông bật lên ở góc",
-      lines: [cd("Đà Lạt đấy cháu. Mà không phải vì thiếu tiền đâu nhé.")],
+      lines: [cd("À, Đà Lạt đấy. Mà không phải vì thiếu tiền đâu nhé cháu.")],
       stage: [
         { camera: "wide", call: true, tc: { hand: "phone", arms: "raise", expr: "happy", move: "idle" }, cd: { expr: "smug", arms: "down" } },
         {
@@ -80,7 +80,7 @@ export const TUAN_1: ChoLaEpisode[] = [
     },
     guess: {
       shot: "TC đoán do sương mù, Ông gạt đi; cảnh chuyển sang con dốc sau lưng TC",
-      lines: [tc("Cháu biết! Sương mù dày quá, lắp đèn cũng chẳng ai nhìn thấy!"), cd("Sai bét. Cháu quay lại nhìn con dốc sau lưng kia.")],
+      lines: [tc("Cháu biết rồi! Sương mù dày thế, lắp đèn vào cũng có ai nhìn thấy đâu!"), cd("Sai bét! Quay ra sau lưng mà nhìn con dốc kia kìa.")],
       stage: [
         { line: 0, tc: { arms: "point", expr: "smug", move: "bounce" }, fx: { kind: "exclaim", on: "TC" } },
         { line: 1, tc: { move: "idle", expr: "shock" }, cd: { expr: "angry", arms: "point" }, fx: { kind: "sweat", on: "TC" } },
@@ -91,8 +91,8 @@ export const TUAN_1: ChoLaEpisode[] = [
     reason: {
       shot: "Ông kể (khung gọi phóng to); cảnh dốc có xe máy leo, đèn đỏ tưởng tượng bắt dừng giữa dốc; TC làm động tác bóp phanh mỏi tay",
       lines: [
-        cd("Đà Lạt toàn đường dốc. Đang leo mà gặp đèn đỏ, xe phải dừng giữa dốc thì rất nguy hiểm."),
-        tc("Thảo nào! Bắt dừng xe giữa con dốc thế này thì giữ phanh mỏi cả tay."),
+        cd("Đà Lạt đi đâu cũng gặp dốc. Đang leo mà vướng đèn đỏ, bắt xe dừng giữa dốc thì nguy hiểm lắm."),
+        tc("Thảo nào! Dừng xe giữa con dốc thế này thì giữ phanh mỏi nhừ cả tay."),
       ],
       stage: [
         // Ông kể: khung gọi phóng to
@@ -116,11 +116,11 @@ export const TUAN_1: ChoLaEpisode[] = [
     twist: {
       shot: "Ông bảo lý do lạ nhất là con người; ngã tư xe đi chậm; công an đề xuất 4 lần không được; khách đông, kẹt xe; cuối 2021 đèn chạy thử, những ngày đầu lúng túng, có xe vượt đèn đỏ; ý kiến người dân: bất tiện nhưng cần thiết",
       lines: [
-        cd("Nhưng lý do lạ nhất lại nằm ở con người."),
-        cd("Người Đà Lạt quen đi chậm, không lấn làn, không có gì phải vội. Mười hai năm, công an ít nhất bốn lần đề xuất lắp đèn, đều không được chấp thuận."),
-        cd("Có điều, mỗi năm Đà Lạt đón hơn 7 triệu lượt khách, xe cộ ngày càng đông, cứ cuối tuần, lễ Tết là kẹt."),
-        cd("Cuối năm 2021, đèn xanh đèn đỏ bắt đầu chạy thử. Những ngày đầu nhiều người lúng túng, dừng quá vạch, có xe còn vượt đèn đỏ, cảnh sát giao thông phải đứng hướng dẫn."),
-        cd("Một chị ở Đà Lạt nói với báo: chờ đèn đỏ khá là bất tiện, nhưng về lâu dài thì rất cần thiết."),
+        cd("Chưa hết đâu. Lý do lạ nhất lại nằm ở con người cơ."),
+        cd("Người Đà Lạt quen đi chậm, không lấn làn, có gì đâu mà vội. Mười hai năm trời, công an đề xuất lắp đèn ít nhất bốn lần, lần nào cũng không được chấp thuận."),
+        cd("Khổ nỗi, mỗi năm Đà Lạt đón hơn 7 triệu lượt khách, xe cộ cứ đông dần lên, hễ cuối tuần, lễ Tết là kẹt cứng."),
+        cd("Cuối năm 2021, đèn xanh đèn đỏ bắt đầu chạy thử. Mấy hôm đầu nhiều người lúng túng, dừng quá vạch, có xe còn vượt cả đèn đỏ, cảnh sát giao thông phải đứng hướng dẫn."),
+        cd("Một chị ở Đà Lạt nói với báo, chờ đèn đỏ tuy bất tiện, nhưng về lâu dài thì rất cần thiết."),
       ],
       stage: [
         { line: 0, camera: "CD", cd: { expr: "smug", arms: "raise" }, fx: { kind: "sparkle", on: "CD" } },
@@ -200,7 +200,7 @@ export const TUAN_1: ChoLaEpisode[] = [
     },
     chot: {
       shot: "TC đứng chờ đèn đỏ ở ngã tư, đèn chuyển xanh; Ông chốt bằng thành ngữ",
-      lines: [tc("Thế là thành phố trăm năm không vội, giờ cũng phải học đứng chờ."), cd("Ừ. Chậm mà chắc, cháu ạ.")],
+      lines: [tc("Hoá ra thành phố trăm năm chẳng vội gì, giờ cũng phải tập đứng chờ!"), cd("Ừ, thế mới là chậm mà chắc, cháu ạ.")],
       stage: [
         { line: 0, tc: { arms: "hips", expr: "smug", move: "idle" } },
         {

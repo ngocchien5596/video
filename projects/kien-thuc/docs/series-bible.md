@@ -1,5 +1,8 @@
 # Series Bible: Thiên Đường Kiến Thức (`projects/kien-thuc`)
 
+> **Giọng lời dẫn / lời thoại:** mọi kịch bản phải theo chuẩn chung [docs/giong-loi-thoai.md](../../../docs/giong-loi-thoai.md) (uyển chuyển, tự nhiên, dễ hiểu, cuốn hút; không cụt lủn, không "giọng AI"), và qua mục kiểm ở cuối trang đó trước khi duyệt.
+> **Dựng cảnh / nhân vật:** mọi cảnh, đạo cụ, phần diễn theo chuẩn chung [docs/chuan-dung-canh.md](../../../docs/chuan-dung-canh.md) (nhân vật chuyển động mượt, rõ từng bộ phận, cảnh đẹp, bố cục tốt trong vùng an toàn), qua mục kiểm cuối trang đó trước khi duyệt hình.
+
 ## 1. Ý tưởng cốt lõi
 Giải mã các bài toán vĩ đại trong lịch sử nhân loại bằng công cụ thô sơ, kết nối trực tiếp với định lý trong **Sách giáo khoa Toán – Lý phổ thông** và mở rộng ra quy mô **Vũ trụ**.
 

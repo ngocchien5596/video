@@ -423,14 +423,14 @@ export const TUAN_1 = [
       { line: 0, camera: "CD", cd: { arms: "hips", expr: "angry" }, tc: { move: "idle" }, fx: { kind: "question", on: "CD" } },
       { line: 1, camera: "wide", cd: { arms: "down", expr: "neutral" }, tc: { arms: "raise", expr: "smug", move: "bounce" } },
     ],
-    ask: "Bánh bao nóng hổi không ăn, mày mang ra ném xuống vực làm trò gì đấy cháu?",
-    answer: "Cháu làm theo lời ông dạy: Có thực mới vực được đạo ạ!",
+    ask: "Bánh bao nóng hổi không ăn, mày đem ra ném xuống vực làm cái trò gì thế hử?",
+    answer: "Thì ông dạy cháu đấy thôi, Có thực mới vực được đạo ạ!",
     misread: {
       shot: "TC xếp bánh bao thành cây cầu bắc qua vực, đến cái thứ năm mươi thì đói quá ngồi ăn luôn cả cầu",
       lines: [
-        tc("Thì 'thực' là đồ ăn, 'vực' là cái vực thẳm, còn 'đạo' là con đường! Có đồ ăn lấp kín vực thì mới có đường mà đi chứ ạ!"),
-        tc("Khổ nỗi cứ lấp đến cái thứ năm mươi là cháu lại đói bụng quá, thế là ngồi chén sạch cả cầu, giờ lại phải lấp lại từ đầu!"),
-        cd("Ối giời ơi! Mày vừa xây cầu vừa ăn thế này thì đến Tết sang năm cũng chẳng qua nổi cái vực!"),
+        tc("Thì 'thực' là đồ ăn, 'vực' là cái vực sâu hoắm, còn 'đạo' là đường đi! Lấy đồ ăn lấp kín vực thì mới có đường mà đi chứ ông!"),
+        tc("Mỗi tội cứ lấp đến cái thứ năm mươi là bụng cháu lại sôi ùng ục, thế là ngồi chén sạch cả cầu, giờ lại phải lấp từ đầu!"),
+        cd("Ối giời ơi! Mày vừa xây cầu vừa chén thế này thì đến Tết sang năm cũng chẳng qua nổi cái vực đâu!"),
       ],
       stage: [
         // "Thì 'thực' là đồ ăn, 'vực' là cái vực thẳm, còn 'đạo' là con đường!"
@@ -480,14 +480,14 @@ export const TUAN_1 = [
       { line: 1, at: 0.94, tc: { expr: "happy", arms: "raise" }, fx: { kind: "exclaim", on: "TC", text: "À!" } },
     ],
     explain:
-      "Chữ 'thực' đúng là cái ăn, nhưng 'vực' là nâng đỡ cho đứng vững, còn 'đạo' là đạo lý làm người. Có ăn có mặc thì người ta mới giữ được đạo lý, mới đủ sức làm việc lớn. Muốn ai theo mình, cũng phải lo cho họ cái no trước đã!",
+      "'Thực' thì đúng là cái ăn, nhưng 'vực' là nâng đỡ cho đứng vững, còn 'đạo' là đạo lý làm người. Có ăn có mặc thì người ta mới giữ được đạo lý, mới đủ sức lo việc lớn. Muốn ai theo mình thì phải lo cho người ta no cái bụng trước đã, hiểu chưa?",
     flipShot: "Cụ Đồ gõ quạt, cầm cái bánh bao giơ lên giải thích rồi đưa cho Thằng Cháu",
     example: {
       shot: "HỒI ỨC (TV đen trắng): làng Phù Đổng, bà con nghe tin giặc Ân, cậu bé Gióng giơ tay xin đi đánh giặc, ôm bát cơm ăn mãi không no; bà con bưng thúng gạo tới, nong cơm nong cà bày đầy sân; Gióng vươn vai thành tráng sĩ; bãi chiến chân núi, tráng sĩ cưỡi ngựa sắt phun lửa, vung roi sắt đánh giặc Ân chạy mất",
       memory: { label: "TRUYỀN THUYẾT: THÁNH GIÓNG" },
       lines: [
-        cd("Như chuyện Thánh Gióng ngày xưa ấy: nghe tin có giặc Ân, cậu bé lên ba xin đi đánh giặc, nhưng ăn mãi không no, cả làng phải góp gạo thổi cơm nuôi: bảy nong cơm, ba nong cà!"),
-        cd("Nhờ ăn đủ no, đủ sức, Gióng mới vươn vai thành tráng sĩ, cưỡi ngựa sắt đánh tan giặc Ân đấy thôi!"),
+        cd("Cứ như chuyện Thánh Gióng ấy. Nghe tin có giặc Ân, cậu bé lên ba đòi đi đánh giặc, mà ăn mãi chẳng no, cả làng phải góp gạo thổi cơm nuôi, bảy nong cơm, ba nong cà đấy!"),
+        cd("Có ăn no, có đủ sức, Gióng mới vươn vai thành tráng sĩ, cưỡi ngựa sắt đánh tan giặc Ân đấy thôi!"),
       ],
       // Thằng Cháu đóng Gióng; Cụ Đồ đóng bà con trong làng, rồi đóng giặc Ân.
       stage: [
@@ -548,9 +548,9 @@ export const TUAN_1 = [
     punchline: {
       shot: "TC kéo đĩa bánh bao về phía mình, rồi ôm gối đi ngủ trưa",
       lines: [
-        tc("À cháu hiểu rồi! Phải ăn thật no mới lo được việc lớn. Thế ông cho cháu ăn thêm mười cái bánh bao nữa nhé!"),
-        cd("Ừ, ăn xong thì định lo việc lớn gì nào?"),
-        tc("Dạ, việc lớn nhất buổi trưa: đi ngủ trưa ạ!"),
+        tc("À, cháu hiểu rồi! Ăn thật no mới lo được việc lớn chứ gì. Thế ông cho cháu xin thêm mười cái bánh bao nữa nhé!"),
+        cd("Ừ, thế ăn xong mày định lo việc lớn gì đây?"),
+        tc("Dạ, việc lớn nhất buổi trưa ấy ạ... đi ngủ trưa!"),
       ],
       stage: [
         // "À cháu hiểu rồi! Phải ăn thật no mới lo được việc lớn."
@@ -565,9 +565,9 @@ export const TUAN_1 = [
         },
         // "Thế ông cho cháu ăn thêm mười cái bánh bao nữa nhé!": kéo đĩa về phía mình
         { line: 0, at: 0.56, tc: { expr: "happy", move: "bounce" }, items: [{ id: "dia", prop: "bun-plate", x: 0.6, on: "table" }], fx: { kind: "hearts", on: "TC" } },
-        // "Ừ, ăn xong thì định lo việc lớn gì nào?"
+        // "Ừ, thế ăn xong mày định lo việc lớn gì đây?"
         { line: 1, camera: "CD", cd: { arms: "hips", expr: "confused" }, tc: { move: "idle" }, fx: { kind: "question", on: "CD" } },
-        // "Dạ, việc lớn nhất buổi trưa: đi ngủ trưa ạ!"
+        // "Dạ, việc lớn nhất buổi trưa ấy ạ... đi ngủ trưa!"
         {
           line: 2,
           cut: true,
@@ -611,12 +611,12 @@ export const TUAN_1 = [
       { line: 0, camera: "CD", cd: { arms: "hips", expr: "confused" }, tc: { move: "idle" }, fx: { kind: "question", on: "CD" } },
       { line: 1, camera: "wide", cd: { arms: "down", expr: "neutral" }, tc: { arms: "raise", expr: "smug", move: "bounce" } },
     ],
-    ask: "Đứng ngửa cổ dưới gốc sung cả buổi làm gì?",
+    ask: "Đứng ngửa cổ dưới gốc sung cả buổi làm gì thế hử?",
     misread: {
       shot: "TC há miệng chờ mãi chỉ rơi một chiếc lá; TC giơ đơn đặt cơm ghi 'NÉM VÀO MỒM', cái bánh bao bay vào trúng mặt",
       lines: [
-        tc("Ông dạy há miệng chờ sung mà! Cháu há hai tiếng rồi, chưa rơi quả nào, chỉ rơi... một chiếc lá!"),
-        tc("Nên cháu nâng cấp: đặt cơm online, dặn shipper ném thẳng vào miệng cháu cho tiện!"),
+        tc("Thì ông dạy há miệng chờ sung còn gì! Cháu há hai tiếng rồi, chẳng rơi quả nào, rơi đúng... một chiếc lá!"),
+        tc("Thế là cháu nâng cấp luôn, đặt cơm online, ghi chú dặn shipper ném thẳng vào mồm cho tiện!"),
         cd("Người ta giao hàng chứ có phải ném bóng rổ đâu mà ném trúng mồm mày!"),
       ],
       stage: [
@@ -680,13 +680,13 @@ export const TUAN_1 = [
       { line: 1, at: 0.93, tc: { expr: "happy", arms: "raise" }, fx: { kind: "exclaim", on: "TC", text: "À!" } },
     ],
     explain:
-      "Sung chín thì rụng, nhưng đâu có rụng trúng miệng ai. Câu này chê người lười biếng, ỷ lại, không chịu bỏ công mà chỉ ngồi chờ may mắn, hoặc chờ người khác làm sẵn cho mình hưởng!",
+      "Sung chín thì rụng thật, nhưng có rụng trúng mồm ai bao giờ! Câu này chê kẻ lười biếng, ỷ lại, chẳng chịu bỏ công, cứ ngồi chờ may mắn, hoặc chờ người khác làm sẵn cho mà hưởng!",
     example: {
       shot: "HỒI ỨC (TV đen trắng): đường làng, anh chàng lười nằm ngửa trên manh chiếu dưới gốc sung, há miệng; quả sung rơi chệch ra ngoài; người qua đường đội nón lá dùng chân đẩy quả sung vào miệng anh ta; anh lười ngậm sung, giơ nắm đấm chê 'LƯỜI THẾ!'",
       memory: { label: "TRUYỆN CƯỜI: HÁ MIỆNG CHỜ SUNG" },
       lines: [
-        cd("Như anh chàng lười trong truyện cười dân gian ấy: nằm ngửa dưới gốc sung, há miệng chờ quả rụng vào, mà quả nào cũng rơi chệch ra ngoài."),
-        cd("Có người đi qua, anh nhờ nhặt hộ bỏ vào miệng. Người kia lấy ngón chân kẹp quả sung nhét vào, thế mà anh còn chê người ta lười!"),
+        cd("Như anh chàng lười trong truyện cười dân gian ấy. Nằm ngửa dưới gốc sung, há miệng chờ quả rụng vào, mà khổ nỗi quả nào cũng rơi chệch ra ngoài."),
+        cd("Có người đi qua, anh ta nhờ nhặt hộ bỏ vào mồm. Người kia lấy ngón chân kẹp quả sung nhét cho, thế mà anh ta còn chê người ta lười đấy!"),
       ],
       // Anh chàng lười là đạo cụ nằm trên sàn; Cụ Đồ đóng người qua đường, Thằng Cháu đứng ngoài khung.
       stage: [
@@ -771,9 +771,9 @@ export const TUAN_1 = [
     punchline: {
       shot: "TC bê nguyên chậu cây sung về, rồi ngửa cổ há miệng chờ Cụ Đồ hái và đút",
       lines: [
-        tc("Cháu hiểu rồi! Không chờ sung rụng nữa, cháu tự đi lấy, bê cả cây về đây ạ!"),
-        cd("Ơ... thế giờ làm gì?"),
-        tc("Giờ ông hái hộ cháu, rửa sạch, đút tận miệng nhé. Cháu há sẵn rồi!"),
+        tc("Cháu hiểu rồi! Không chờ sung rụng nữa, cháu tự đi lấy, bê cả cây về đây này!"),
+        cd("Ơ... thế giờ mày định làm gì?"),
+        tc("Giờ ông hái hộ cháu, rửa sạch rồi đút tận mồm nhé. Cháu há sẵn rồi đây!"),
       ],
       stage: [
         // "Cháu hiểu rồi! Không chờ sung rụng nữa, cháu tự đi lấy"
@@ -794,7 +794,7 @@ export const TUAN_1 = [
           items: [{ id: "sung", prop: "plant", x: 0.5, scale: 1.2 }],
         },
         { line: 0, at: 0.75, cd: { expr: "shock", arms: "up2" }, fx: { kind: "surprise", on: "CD" } },
-        // "Ơ... thế giờ làm gì?"
+        // "Ơ... thế giờ mày định làm gì?"
         { line: 1, camera: "CD", cd: { arms: "hips", expr: "confused" }, tc: { arms: "down", move: "idle" }, fx: { kind: "question", on: "CD" } },
         // "Giờ ông hái hộ cháu, rửa sạch, đút tận miệng nhé."
         { line: 2, camera: "wide", tc: { arms: "point", expr: "happy" } },
@@ -833,12 +833,12 @@ export const TUAN_1 = [
       { line: 0, camera: "CD", cd: { arms: "hips", expr: "angry" }, tc: { move: "idle" }, fx: { kind: "question", on: "CD" } },
       { line: 1, camera: "wide", cd: { arms: "down", expr: "neutral" }, tc: { x: 0.64, hand: null, arms: "raise", expr: "smug", move: "bounce" } },
     ],
-    ask: "Nhà cửa đàng hoàng sao cứ chui lủi thế?",
+    ask: "Nhà cửa đàng hoàng, mày cứ chui lủi thế là sao?",
     misread: {
       shot: "TC chấm quả dưa chuột vào muối đếm 1-2-3 rồi ăn luôn, sau đó bê gối chạy theo tiếng đồng hồ",
       lines: [
-        tc("Dưa chuột cháu chấm muối 3 giây là ăn luôn, gọi là ăn dưa muối xổi!"),
-        tc("Còn 'ở thì' là mỗi giờ cháu ở một góc: 8 giờ ở sofa, 9 giờ chui gầm bàn, 10 giờ ra hiên đứng!"),
+        tc("Dưa chuột cháu chấm muối đếm đúng 3 giây là chén luôn, thế mới gọi là ăn xổi!"),
+        tc("Còn 'ở thì' là cứ mỗi giờ cháu ở một góc! 8 giờ nằm sofa, 9 giờ chui gầm bàn, 10 giờ ra hiên đứng!"),
         cd("Mày tập làm du mục ngay trong phòng khách đấy à?!"),
       ],
       stage: [
@@ -893,14 +893,14 @@ export const TUAN_1 = [
       { line: 1, at: 0.95, tc: { expr: "happy", arms: "raise" }, fx: { kind: "exclaim", on: "TC", text: "À!" } },
     ],
     explain:
-      "Ăn xổi là như cà muối xổi, muối vội để ăn ngay. Ở thì là ở tạm một thời. Câu này chê lối sống tạm bợ: làm gì cũng qua quýt cho xong, chỉ cốt lợi trước mắt, chẳng tính chuyện lâu dài!",
+      "Ăn xổi là như cà muối xổi đấy, muối vội để ăn ngay. Ở thì là ở tạm một thời thôi. Câu này chê lối sống tạm bợ, làm gì cũng qua quýt cho xong, chỉ cốt lợi trước mắt, chẳng tính gì chuyện lâu dài!",
     flipShot: "Cụ Đồ ngồi phịch xuống ghế, tịch thu cái đồng hồ báo thức",
     example: {
       shot: "HỒI ỨC (TV đen trắng): đồng cỏ, heo anh dựng vội nhà rơm, nhà gỗ rồi nhảy cẫng đi chơi, heo út khuân gạch xây nhà gạch; sói đến thổi bay nhà rơm, đổ nhà gỗ, heo anh chạy mất; sói thổi nhà gạch đến hụt hơi, nhà vẫn đứng vững",
       memory: { label: "TRUYỆN CỔ TÍCH: BA CHÚ HEO CON" },
       lines: [
-        cd("Như truyện Ba chú heo con ấy: hai anh lớn dựng vội nhà rơm, nhà gỗ cho xong để còn rong chơi, chỉ chú út chịu khó xây nhà gạch."),
-        cd("Sói đến, phù một hơi là bay nhà rơm, đổ nhà gỗ, hai anh chạy tóe khói sang nhà em. Riêng nhà gạch thì sói thổi đến hụt hơi vẫn đứng vững!"),
+        cd("Như truyện Ba chú heo con ấy. Hai anh lớn dựng vội nhà rơm, nhà gỗ cho xong để còn rong chơi, chỉ có chú út là chịu khó xây nhà gạch."),
+        cd("Sói đến, phù một hơi là bay nhà rơm, đổ nhà gỗ, hai anh chạy tóe khói sang nhà em. Riêng nhà gạch thì sói thổi đến hụt cả hơi, nó vẫn đứng vững!"),
       ],
       // Thằng Cháu đóng heo anh; Cụ Đồ đóng heo út, rồi đóng sói.
       stage: [
@@ -1001,9 +1001,9 @@ export const TUAN_1 = [
     punchline: {
       shot: "TC giơ quyển 'KẾ HOẠCH 30 NĂM', rồi chìa tờ giấy vay 5 triệu cho Cụ Đồ ký",
       lines: [
-        tc("Từ nay cháu tính chuyện lâu dài, không ăn xổi nữa!"),
+        tc("Ông ơi, từ nay cháu tính chuyện lâu dài, không ăn xổi nữa đâu!"),
         cd("Giỏi lắm!"),
-        tc("Nên cháu vay ông 5 triệu, hẹn 30 năm nữa trả. Thế mới gọi là kế hoạch dài hạn!"),
+        tc("Thế thì ông cho cháu vay 5 triệu nhé, 30 năm nữa cháu trả. Kế hoạch dài hạn hẳn hoi đấy ạ!"),
       ],
       stage: [
         // "Từ nay cháu tính chuyện lâu dài"
@@ -1058,12 +1058,12 @@ export const TUAN_1 = [
       { line: 0, camera: "CD", cd: { arms: "point", expr: "angry" }, tc: { move: "idle" }, fx: { kind: "anger", on: "CD" } },
       { line: 1, camera: "wide", cd: { arms: "down", expr: "confused" }, tc: { arms: "raise", expr: "smug", move: "bounce" } },
     ],
-    ask: "Cơm vừa ăn xong, mày khiêng tủ lạnh đi đâu?",
+    ask: "Cơm vừa ăn xong, mày khiêng tủ lạnh đi đâu đấy?",
     misread: {
       shot: "TC ăn xong bát cơm, ra sân ôm chồng bát và tờ 'ĐƠN HÀNG CẢ PHỐ'; cắt về phòng khách, TC lại đẩy tủ lạnh",
       lines: [
-        tc("Ăn cơm nhà xong thì đi vác hàng tổng, tức là khuân hàng cho cả tổng kho, miễn phí!"),
-        tc("Còn tù và chắc là cái tủ và... cái gì đó. Nên cháu vác luôn cái tủ!"),
+        tc("Ăn cơm nhà xong là phải đi vác hàng tổng, tức là khuân hàng cho cả tổng kho, miễn phí nhé!"),
+        tc("Còn 'tù và' thì chắc là cái tủ và... cái gì đấy. Thôi, cháu cứ vác cái tủ đi trước!"),
         cd("Mày vác tủ lạnh đi, tối nay ông ướp cá vào túi áo à?!"),
       ],
       stage: [
@@ -1129,11 +1129,11 @@ export const TUAN_1 = [
       { line: 1, at: 0.94, tc: { expr: "happy", arms: "raise" }, fx: { kind: "exclaim", on: "TC", text: "À!" } },
     ],
     explain:
-      "Tù và là cái kèn sừng trâu hoặc vỏ ốc. Ngày xưa anh mõ phải thổi tù và báo việc làng khắp tổng, tức là nhiều làng gộp lại, mà chẳng ai trả công. Câu này trách người lo việc chung, việc người hăng hơn việc nhà, tốn công mà chẳng được gì.",
+      "Tù và là cái kèn sừng trâu hoặc vỏ ốc đấy. Ngày xưa anh mõ phải thổi tù và báo việc làng khắp tổng, mà tổng là nhiều làng gộp lại, thế mà chẳng ai trả công. Câu này trách người lo việc chung, việc người còn hăng hơn việc nhà, tốn công mà chẳng được gì.",
     example: {
       shot: "Văn phòng: TC đặt trà sữa, nhắc sinh nhật, sửa máy in cho cả phòng",
       lines: [
-        cd("Như ở công ty, mày tự nhận đặt trà sữa, nhắc sinh nhật, sửa máy in cho cả phòng. Lương không thêm đồng nào, nhưng ai cũng quý. Miễn là việc mình vẫn xong!"),
+        cd("Như ở công ty ấy, mày tự nhận đặt trà sữa, nhắc sinh nhật, sửa máy in cho cả phòng. Lương chẳng thêm đồng nào, được cái ai cũng quý. Miễn là việc của mình vẫn xong đấy!"),
       ],
       stage: [
         // "Như ở công ty, mày tự nhận đặt trà sữa"
@@ -1161,9 +1161,9 @@ export const TUAN_1 = [
     punchline: {
       shot: "Trời còn tối, TC giơ đồng hồ 5:00 thổi kèn báo thức cả xóm, Cụ Đồ giật mình bật dậy",
       lines: [
-        tc("Cháu hiểu rồi! Từ mai cháu nhận việc chung cho cả xóm!"),
-        cd("Ngoan! Việc gì?"),
-        tc("Thổi kèn báo thức cả xóm lúc 5 giờ sáng. Miễn phí, không ai nhờ ạ!"),
+        tc("Cháu hiểu rồi! Từ mai cháu nhận việc chung cho cả xóm luôn!"),
+        cd("Ngoan! Việc gì nào?"),
+        tc("Thổi kèn báo thức cả xóm lúc 5 giờ sáng ạ! Miễn phí, mà chẳng ai nhờ!"),
       ],
       stage: [
         // "Cháu hiểu rồi! Từ mai cháu nhận việc chung"
@@ -1176,7 +1176,7 @@ export const TUAN_1 = [
           tc: { x: 0.66, hand: null, arms: "raise", expr: "smug", move: "bounce" },
           items: [],
         },
-        // "Ngoan! Việc gì?"
+        // "Ngoan! Việc gì nào?"
         { line: 1, camera: "CD", cd: { arms: "raise", expr: "happy" }, tc: { move: "idle" }, fx: { kind: "sparkle", on: "CD" } },
         // "Thổi kèn báo thức cả xóm lúc 5 giờ sáng"
         {
@@ -1205,7 +1205,7 @@ export const TUAN_1 = [
     question: "Đồ gì của bạn hay bị 'mượn mà không trả' nhất: sạc điện thoại, ô hay hộp cơm trong tủ lạnh?",
     hook: {
       shot: "Phòng khách, con Vàng bị buộc đai vải treo lủng lẳng từ trần nhà xuống, con Mướp bị chụp lồng bàn tre nhưng thò đầu ra ngoài; TC hai tay giữ dây kéo",
-      lines: [tc("Ông ơi ra giữ hộ cháu sợi dây với, con Vàng dạo này béo quá, cháu kéo muốn đứt cả hơi mới lên được đấy!")],
+      lines: [tc("Ông ơi ra giữ hộ cháu sợi dây với! Con Vàng dạo này béo ú, cháu kéo muốn đứt cả hơi mới lên được đấy!")],
       stage: [
         // Con Vàng treo lủng lẳng giữa nhà, con Mướp bị úp lồng bàn góc phải
         {
@@ -1228,13 +1228,13 @@ export const TUAN_1 = [
       { line: 1, camera: "wide", cd: { arms: "down", expr: "confused" }, tc: { arms: "raise", expr: "smug", move: "bounce" } },
     ],
     ask: "Ơ kìa cái thằng này! Ông bảo mày ở nhà trông mâm cơm, làm sao lại lôi chó mèo ra hành hạ thế kia?",
-    answer: "Đâu, cháu có hành hạ gì đâu! Cháu đang làm đúng theo lời ông dặn là Chó treo mèo đậy đấy chứ ạ!",
+    answer: "Đâu có, cháu hành hạ gì đâu! Cháu làm đúng lời ông dặn đấy chứ, Chó treo mèo đậy ạ!",
     misread: {
       shot: "TC khoe con Mướp đã bị úp lồng bàn thì sau lưng TC con Mướp lách ra chạy vào bếp; TC quay sang khoe con Vàng đang treo thì con Vàng giãy đứt dây rơi xuống đất rồi phóng theo vào bếp; hai ông cháu chạy vào bếp thấy chó đang gặm thịt dưới đất, mèo ngồi trên bàn chén sạch đĩa cá kho",
       lines: [
-        tc("Thì đấy nhé, con Mướp đang nằm ngủ, cháu lấy luôn cái lồng bàn úp vào người nó cho kín, thế là xong phần 'mèo đậy'!"),
-        tc("Còn con Vàng thì cháu buộc võng kéo tít lên cao thế này... Ơ kìa, nó giãy đứt cả dây rồi! Vàng ơi đứng lại, sao cả hai đứa lại phóng hết vào bếp thế kia?!"),
-        cd("Ối giời ơi là giời! Mày treo với đậy kiểu đấy thì hỏng rồi! Vừa sổng vào bếp một cái là con Vàng đã ngoạm ngay miếng thịt để dưới đất, còn con Mướp thì nhảy tót lên bàn chén sạch đĩa cá kho rồi kia kìa!"),
+        tc("Ông xem này, con Mướp đang nằm ngủ, cháu úp luôn cái lồng bàn lên cho kín. Thế là xong vụ 'mèo đậy'!"),
+        tc("Còn con Vàng thì cháu buộc võng kéo tít lên cao thế này... Ơ kìa, nó giãy đứt cả dây rồi! Vàng ơi đứng lại! Sao hai đứa phóng hết vào bếp thế kia?!"),
+        cd("Ối giời ơi là giời! Mày treo với đậy kiểu ấy thì hỏng bét rồi! Vừa sổng vào bếp là con Vàng ngoạm ngay miếng thịt dưới đất, còn con Mướp nhảy tót lên bàn chén sạch đĩa cá kho kia kìa!"),
       ],
       stage: [
         {
@@ -1338,12 +1338,12 @@ export const TUAN_1 = [
       { line: 1, at: 0.94, camera: "wide", tc: { expr: "happy", arms: "raise" }, fx: { kind: "exclaim", on: "TC", text: "À!" } },
     ],
     explain:
-      "Người xưa bảo treo với đậy là nói chuyện cất giữ đồ ăn thức uống trong nhà, chứ ai bảo mày đi treo con chó lên trần nhà bao giờ! Con chó nó không biết trèo, thì thức ăn phải treo lên cao; còn con mèo nó leo trèo giỏi, thì nồi cá, bát canh phải đậy vung, úp lồng bàn cho thật kỹ. Nói rộng ra là có của ăn của để thì phải biết giữ gìn, mà mỗi thứ lại phải có một cách trông coi khác nhau thì mới không bị mất!",
+      "Treo với đậy là người xưa dặn cách cất đồ ăn thức uống trong nhà, chứ ai bảo mày treo con chó lên trần nhà bao giờ! Con chó nó không biết trèo, thì thức ăn phải treo lên cao. Còn con mèo leo trèo giỏi, thì nồi cá, bát canh phải đậy vung, úp lồng bàn cho thật kỹ. Rộng ra là có của ăn của để thì phải biết giữ gìn, mà mỗi thứ phải có một cách trông coi riêng thì mới không mất!",
     flipShot: "Cụ Đồ gõ quạt, chỉ vào giỏ thịt treo cao trên đầu con Vàng rồi chỉ vào nồi cá đậy kín trước mặt con Mướp",
     example: {
       shot: "Lớp học / văn phòng: điện thoại cài mật khẩu, tiền giấy tờ cất trong balo, cho mượn bút hay sạc thì ghi vào sổ đòi ngay",
       lines: [
-        cd("Giống như chuyện mày đi học, đi làm hàng ngày ấy: điện thoại với máy tính thì phải cài mật khẩu cho cẩn thận, tiền nong giấy tờ thì phải cất vào ngăn kéo trong cặp, còn mấy thứ như cái bút hay cục sạc mà cho bạn mượn là phải nhớ đòi ngay, chứ cứ vứt lung tung là hôm trước hôm sau chẳng còn cái nào!"),
+        cd("Như mày đi học, đi làm hằng ngày ấy. Điện thoại với máy tính thì cài mật khẩu cho cẩn thận. Tiền nong giấy tờ thì cất vào ngăn kéo trong cặp. Còn cái bút, cục sạc mà cho bạn mượn thì nhớ đòi ngay, chứ cứ vứt lung tung là hôm trước hôm sau chẳng còn cái nào!"),
       ],
       stage: [
         {
@@ -1369,9 +1369,9 @@ export const TUAN_1 = [
     punchline: {
       shot: "Trong bếp, giỏ thịt đã treo cao trước mặt con Vàng, nồi cá đậy kín trước mặt con Mướp; CĐ chỉ cái tủ lạnh bị dán bìa carton và quấn băng dính chữ X 'CẤM MỞ!', TC cười bảo để phòng người hay lục tủ ăn đêm",
       lines: [
-        tc("À, thế thì cháu hiểu rồi! Bây giờ giỏ thịt cháu treo tít lên cao cho con Vàng đứng dưới nhìn thèm chơi, còn nồi cá kho trên bàn cháu cũng đậy vung kín mít để con Mướp chịu chết luôn!"),
-        cd("Ừ, thế mới là biết nghe lời chứ! Ơ... mà sao cái tủ lạnh đằng kia mày lại lấy bìa với băng dính dán chằng chịt vào làm gì thế hả?"),
-        tc("Dạ, trong ngăn mát có đĩa đùi gà rán phần của cháu. Con Vàng với con Mướp thì làm gì biết mở cửa tủ lạnh... chỗ đấy là cháu phải dán kỹ để đề phòng có người đêm hôm hay dậy lục tủ ăn vụng ông ạ!"),
+        tc("À, thế thì cháu hiểu rồi! Giỏ thịt cháu treo tít lên cao, cho con Vàng đứng dưới nhìn thèm chơi. Còn nồi cá kho trên bàn thì cháu đậy vung kín mít, con Mướp chịu chết luôn!"),
+        cd("Ừ, thế mới là biết nghe lời chứ! Ơ... thế cái tủ lạnh đằng kia, mày lấy bìa với băng dính dán chằng chịt vào làm gì hử?"),
+        tc("Dạ, trong ngăn mát có đĩa đùi gà rán phần của cháu. Con Vàng với con Mướp thì làm sao biết mở tủ lạnh... Cháu dán kỹ thế là để phòng có người đêm hôm hay dậy lục tủ ăn vụng đấy ông ạ!"),
       ],
       stage: [
         {

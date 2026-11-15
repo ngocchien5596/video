@@ -22,7 +22,7 @@ export const TUAN_6 = [
     question: "Lần đầu tắm biển, bạn có lỡ uống phải ngụm nước mặn chát không?",
     hook: {
       shot: "Trên bãi biển, Thằng Cháu nhăn mặt lè lưỡi vì nước mặn, hỏi ông",
-      lines: [tc("Ông ơi, nước sông ngọt chảy ra biển, sao nước biển lại mặn thế ạ?")],
+      lines: [tc("Phì phì! Ông ơi, nước sông ngọt chảy ra biển, sao biển lại mặn chát thế ạ?")],
       stage: [
         {
           cut: true,
@@ -38,8 +38,8 @@ export const TUAN_6 = [
     guess: {
       shot: "Thằng Cháu đoán muối có sẵn trong biển, nước sông không có muối; Cụ Đồ bảo nước sông cũng có chút muối",
       lines: [
-        tc("Có phải nước sông chẳng có tí muối nào, còn muối thì có sẵn trong biển từ đầu không ông?"),
-        cd("Chưa đúng đâu! Nước sông cũng có một chút muối đấy, chỉ là ít quá nên mình không thấy mặn."),
+        tc("Hay là nước sông chẳng có tí muối nào, còn muối thì có sẵn trong biển từ đầu hả ông?"),
+        cd("Chưa đúng đâu! Nước sông cũng có tí muối đấy, có điều ít quá nên mình uống chẳng thấy mặn thôi."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "bounce" } },
@@ -50,10 +50,10 @@ export const TUAN_6 = [
     explain: {
       shot: "Bảng minh hoạ: mưa rơi xuống đá hoà tan muối; sông mang muối ra biển; nắng làm nước biển bốc hơi, muối ở lại; rất lâu, biển mặn",
       lines: [
-        cd("Nước mưa rơi xuống đất đá, hoà tan từng chút muối có trong đá."),
-        cd("Sông suối mang chút muối ấy, chảy mãi ra biển."),
-        cd("Nắng làm nước biển bốc hơi bay lên thành mây, nhưng muối thì ở lại trong biển."),
-        cd("Cứ thế rất rất lâu, muối dồn lại mỗi lúc một nhiều, nên nước biển mặn."),
+        cd("Cháu xem, mưa rơi xuống đất đá, hoà tan từng tí muối có trong đá."),
+        cd("Sông suối gom chỗ muối ấy, cứ thế chảy mãi ra biển."),
+        cd("Nắng hun nước biển bốc hơi lên thành mây, còn muối thì ở lại, có bay theo được đâu!"),
+        cd("Cứ thế rất rất lâu, muối dồn mỗi lúc một nhiều, biển mới mặn thế đấy."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w6-salty", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { arms: "down", expr: "confused", move: "idle" } },
@@ -69,7 +69,7 @@ export const TUAN_6 = [
     ],
     outro: {
       shot: "Thằng Cháu chỉ ra biển, hỏi sao biển màu xanh",
-      lines: [tc("Thế sao nước biển lại xanh ngắt thế hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Ơ, thế sao nước biển lại xanh ngắt thế hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "confused" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
@@ -92,7 +92,7 @@ export const TUAN_6 = [
     question: "Biển chỗ bạn hay đi màu xanh lam, xanh lục hay nâu đục?",
     hook: {
       shot: "Trên bãi biển, Thằng Cháu giơ tay chỉ ra mặt biển xanh",
-      lines: [tc("Ông ơi, vì sao nước biển lại màu xanh ạ?")],
+      lines: [tc("Ông ơi ông, sao nước biển lại xanh thế ạ?")],
       stage: [
         {
           cut: true,
@@ -108,8 +108,8 @@ export const TUAN_6 = [
     guess: {
       shot: "Thằng Cháu đoán biển soi bóng trời, Cụ Đồ bảo không chỉ thế, chính nước có màu xanh",
       lines: [
-        tc("Có phải biển soi bóng bầu trời, nên mới xanh giống trời không ông?"),
-        cd("Không chỉ thế đâu! Chính nước biển có màu xanh đấy, chỉ là cốc nước ít quá, nên trông trong veo."),
+        tc("Cháu biết! Biển soi bóng bầu trời nên mới xanh giống trời, đúng không ông?"),
+        cd("Không chỉ thế đâu! Chính nước biển có màu xanh đấy, có điều múc ra một cốc thì ít quá, nên trông trong veo."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "raise", expr: "smug", move: "bounce" } },
@@ -120,10 +120,10 @@ export const TUAN_6 = [
     explain: {
       shot: "Bảng minh hoạ: nắng đủ màu chiếu vào biển; nước hút đỏ, cam, vàng; màu xanh đi sâu và bị hắt ngược ra; mắt thấy biển xanh",
       lines: [
-        cd("Ánh nắng có đủ các màu cầu vồng, chiếu xuống mặt biển."),
-        cd("Đi vào nước, màu đỏ, màu cam, màu vàng bị nước hút mất trước."),
-        cd("Màu xanh khó bị hút nhất, nên đi được sâu hơn, rồi bị hắt ngược ra ngoài."),
-        cd("Ánh xanh ấy tới mắt mình, biển càng sâu, mình càng thấy rõ màu xanh của nước."),
+        cd("Ánh nắng thì có đủ các màu cầu vồng, chiếu xuống mặt biển."),
+        cd("Vào đến nước, màu đỏ, màu cam, màu vàng bị nước hút mất trước tiên."),
+        cd("Màu xanh dai nhất, khó bị hút nhất, nên lặn được sâu hơn, rồi bị hắt ngược ra ngoài."),
+        cd("Ánh xanh ấy về tới mắt mình. Biển càng sâu, mình càng thấy nước xanh rõ."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w6-sea-blue", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { arms: "down", expr: "confused", move: "idle" } },
@@ -139,7 +139,7 @@ export const TUAN_6 = [
     ],
     outro: {
       shot: "Trời lất phất mưa, Thằng Cháu xoè tay hứng giọt mưa, hỏi giọt mưa có hình gì",
-      lines: [tc("Thế giọt mưa thật ra có hình gì hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Thế còn giọt mưa, thật ra nó hình gì hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "up2", expr: "confused" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
@@ -181,8 +181,8 @@ export const TUAN_6 = [
     guess: {
       shot: "Thằng Cháu đoán giọt mưa đầu nhọn như cháu vẫn vẽ, Cụ Đồ bảo hình đầu nhọn chỉ có trong tranh, giọt mưa mới thành thì tròn xoe",
       lines: [
-        tc("Giọt mưa có đầu nhọn, đáy tròn, giống cháu vẫn vẽ, phải không ông?"),
-        cd("Chưa đúng đâu! Hình đầu nhọn chỉ có trong tranh vẽ thôi, giọt mưa thật lúc mới thành thì tròn xoe."),
+        tc("Thì đầu nhọn, đáy tròn, như cháu vẫn vẽ ấy, phải không ông?"),
+        cd("Chưa đúng đâu! Đầu nhọn là chỉ có trong tranh thôi, chứ giọt mưa thật lúc mới thành thì tròn xoe."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "bounce" } },
@@ -193,10 +193,10 @@ export const TUAN_6 = [
     explain: {
       shot: "Bảng minh hoạ: giọt nước nhỏ tròn xoe nhờ lớp da của nước; giọt rơi, va nhau, to dần; không khí đẩy dẹt đáy như bánh hamburger; giọt to phồng như cái dù rồi vỡ thành giọt nhỏ tròn",
       lines: [
-        cd("Giọt nước nhỏ xíu trên trời thì tròn xoe, vì mặt nước có một lớp như lớp da, níu giọt nước lại."),
-        cd("Khi rơi xuống, giọt mưa va vào các giọt khác, to dần lên và rơi nhanh hơn."),
-        cd("Không khí đẩy ngược lên đáy giọt mưa, làm đáy dẹt ra, trông như chiếc bánh hamburger."),
-        cd("Giọt to quá thì phồng ra như cái dù, rồi vỡ thành những giọt nhỏ tròn hơn."),
+        cd("Trên trời, giọt nước bé xíu thì tròn xoe, vì mặt nước có một lớp như lớp da, níu nó lại."),
+        cd("Rơi xuống, nó va vào các giọt khác, to dần lên, rơi mỗi lúc một nhanh."),
+        cd("Không khí đẩy ngược lên đáy, làm đáy dẹt ra, trông cứ như cái bánh hamburger ấy!"),
+        cd("Giọt nào to quá thì phồng ra như cái dù, rồi vỡ toác thành những giọt nhỏ tròn hơn."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w6-raindrop", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { arms: "down", expr: "confused", move: "idle" } },
@@ -212,7 +212,7 @@ export const TUAN_6 = [
     ],
     outro: {
       shot: "Thằng Cháu nghĩ tới con nhện nước lướt trên ao, hỏi ông",
-      lines: [tc("Thế sao con nhện nước lại đi được trên mặt nước hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Ơ, thế sao con nhện nước lại đi được trên mặt nước hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "confused" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
@@ -235,7 +235,7 @@ export const TUAN_6 = [
     question: "Ở Việt Nam có loài nhện nước khổng lồ, dài tới hai mươi xăng-ti-mét! Bạn đã thấy nhện nước lướt trên ao chưa?",
     hook: {
       shot: "Ngoài sân, cạnh cái ao nhỏ, Thằng Cháu cúi xuống nhìn con nhện nước lướt trên mặt nước",
-      lines: [tc("Ông ơi, vì sao con nhện nước lại đi được trên mặt nước thế ạ?")],
+      lines: [tc("Ông ơi, con nhện nước kia sao đi được trên mặt nước thế ạ?")],
       stage: [
         {
           cut: true,
@@ -251,8 +251,8 @@ export const TUAN_6 = [
     guess: {
       shot: "Thằng Cháu đoán nhện nước là con nhện biết bơi, Cụ Đồ bảo nó có sáu chân, là côn trùng chứ không phải nhện",
       lines: [
-        tc("Có phải nhện nước là một con nhện biết đi trên nước không ông?"),
-        cd("Chưa đúng đâu! Nó có sáu chân, là côn trùng, chứ chẳng phải nhện."),
+        tc("Chắc nó là một con nhện biết đi trên nước, phải không ông?"),
+        cd("Chưa đúng đâu! Cháu đếm xem, nó có sáu chân, là côn trùng đấy, chứ có phải nhện đâu."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "up2", expr: "smug", move: "bounce" } },
@@ -263,10 +263,10 @@ export const TUAN_6 = [
     explain: {
       shot: "Bảng minh hoạ: các hạt nước níu nhau ở mặt nước; nhện nước nhẹ, sáu chân dài dang rộng chia sức nặng; lông chân đẩy nước như giày trượt; đầu chân làm mặt nước lõm, chân giữa chèo như mái chèo",
       lines: [
-        cd("Ở mặt nước, các hạt nước bé tí níu chặt lấy nhau, gọi là sức căng mặt nước."),
-        cd("Nhện nước rất nhẹ, chân dài dang rộng chia đều sức nặng, nên không kéo đứt được mối níu ấy."),
-        cd("Chân nó lại có lông tí hon đẩy nước ra, như đi đôi giày trượt trên mặt nước."),
-        cd("Đầu chân chỉ làm mặt nước lõm xuống chút xíu, rồi nó chèo đôi chân giữa như mái chèo."),
+        cd("Ở mặt nước, các hạt nước bé tí níu chặt lấy nhau, người ta gọi là sức căng mặt nước."),
+        cd("Nhện nước thì nhẹ tênh, chân dài dang rộng chia đều sức nặng, nên chẳng kéo đứt được mối níu ấy."),
+        cd("Chân nó lại có lông tí hon đẩy nước ra, cứ như đi giày trượt trên mặt nước."),
+        cd("Đầu chân chỉ làm mặt nước lõm xuống tí xíu, còn đôi chân giữa thì nó chèo như mái chèo."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w6-strider", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { arms: "down", expr: "confused", move: "idle" } },
@@ -282,7 +282,7 @@ export const TUAN_6 = [
     ],
     outro: {
       shot: "Thằng Cháu chỉ con tàu ngoài khơi, hỏi sao tàu sắt không chìm",
-      lines: [tc("Ông ơi, tàu bằng sắt nặng thế, sao không chìm ạ?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Ông ơi, thế tàu bằng sắt nặng thế, sao không chìm ạ?"), cd("Câu đó, mai ông kể tiếp nhé!")],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "confused" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
@@ -311,7 +311,7 @@ export const TUAN_6 = [
     question: "Trong nhà bạn, đồ gì to mà vẫn nổi trên nước?",
     hook: {
       shot: "Trên bãi biển, Thằng Cháu chỉ con tàu to ngoài khơi",
-      lines: [tc("Ông ơi, tàu bằng sắt nặng thế, sao lại không chìm ạ?")],
+      lines: [tc("Ông ơi, tàu bằng sắt nặng thế kia, sao lại không chìm ạ?")],
       stage: [
         {
           cut: true,
@@ -328,7 +328,7 @@ export const TUAN_6 = [
       shot: "Thằng Cháu bảo vật nặng thì phải chìm, Cụ Đồ đưa bằng chứng cục sắt nhỏ chìm mà tàu sắt to lại nổi",
       lines: [
         tc("Cháu tưởng vật nặng thì phải chìm, vật nhẹ mới nổi chứ ông?"),
-        cd("Chưa đúng đâu! Một cục sắt đặc bé xíu thì chìm nghỉm, mà con tàu sắt nặng hơn gấp bao nhiêu lần lại nổi đấy."),
+        cd("Chưa đúng đâu! Cục sắt đặc bé tí thì chìm nghỉm, thế mà con tàu sắt nặng gấp bao nhiêu lần lại nổi đấy thôi."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "hips", expr: "smug", move: "bounce" } },
@@ -339,10 +339,10 @@ export const TUAN_6 = [
     explain: {
       shot: "Bảng minh hoạ: tàu đè xuống đẩy nước dạt ra; nước đẩy ngược tàu lên; tàu rỗng nhiều không khí, nhẹ hơn khối nước cùng cỡ; tàu nổi, cục sắt đặc chìm",
       lines: [
-        cd("Tàu đè xuống nước, đẩy nước dạt sang hai bên."),
-        cd("Nước bị đẩy thì đẩy ngược lại, nâng đáy tàu lên."),
-        cd("Tàu rỗng ruột, bên trong có rất nhiều không khí, nên nhẹ hơn khối nước to bằng chừng ấy."),
-        cd("Nước đẩy lên mạnh hơn sức nặng của tàu, nên tàu nổi, còn cục sắt đặc thì chìm."),
+        cd("Tàu đè xuống, nước bị đẩy dạt sang hai bên."),
+        cd("Nước bị đẩy thì nó đẩy lại, nâng đáy tàu lên đấy."),
+        cd("Mà tàu thì rỗng ruột, bên trong nhiều không khí lắm, nên nhẹ hơn khối nước to bằng chừng ấy."),
+        cd("Nước đẩy lên mạnh hơn sức nặng của tàu, thế là tàu nổi, còn cục sắt đặc thì chìm."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w6-ship", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { arms: "down", expr: "confused", move: "idle" } },
@@ -358,7 +358,7 @@ export const TUAN_6 = [
     ],
     outro: {
       shot: "Thằng Cháu hỏi tiếp vì sao cục đá cũng nổi trên nước",
-      lines: [tc("Thế cục đá trong cốc nước, sao cũng nổi lềnh bềnh hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Ơ, thế cục đá trong cốc nước, sao cũng nổi lềnh bềnh hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "hold", expr: "confused" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
@@ -384,7 +384,7 @@ export const TUAN_6 = [
     question: "Bạn thích uống nước có đá không? Lần tới thử ngắm xem cục đá nổi thế nào nhé!",
     hook: {
       shot: "Trong bếp, Thằng Cháu ngồi cạnh bàn nhìn cốc nước có cục đá nổi",
-      lines: [tc("Ông ơi, vì sao cục đá lại nổi trên nước thế ạ?")],
+      lines: [tc("Ông ơi, cục đá trong cốc sao lại nổi thế ạ?")],
       stage: [
         {
           cut: true,
@@ -401,7 +401,7 @@ export const TUAN_6 = [
       shot: "Thằng Cháu đoán đông cứng thì phải chìm, Cụ Đồ bảo nước đông lại còn nở ra, nhìn viên đá gồ lên trong khay",
       lines: [
         tc("Cháu tưởng nước đông cứng lại thì phải nặng hơn, chìm xuống chứ ông?"),
-        cd("Hầu hết các thứ khác đúng là thế, nhưng nước thì ngược lại! Cháu xem, nước trong khay đông xong, viên đá còn gồ lên đấy."),
+        cd("Hầu hết các thứ khác đúng là thế, nhưng nước thì ngược đời! Cháu xem, khay nước đông xong, viên đá còn gồ hẳn lên kia kìa."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "shrug", expr: "smug", move: "bounce" } },
@@ -412,10 +412,10 @@ export const TUAN_6 = [
     explain: {
       shot: "Bảng minh hoạ: hạt nước lỏng chen chúc lộn xộn; khi đông xếp hàng ngay ngắn, đứng xa nhau; cùng chừng ấy nước mà đá chiếm nhiều chỗ hơn; đá nhẹ hơn nên nổi",
       lines: [
-        cd("Trong nước, các hạt nước li ti chen chúc nhau, chạy lung tung."),
-        cd("Khi đông thành đá, chúng xếp hàng ngay ngắn, đứng xa nhau hơn."),
-        cd("Vẫn chừng ấy nước, mà đá lại chiếm nhiều chỗ hơn, nên nhẹ hơn nước cùng một cỡ."),
-        cd("Nhẹ hơn thì nổi, nên cục đá lúc nào cũng nổi trên mặt cốc."),
+        cd("Trong nước, các hạt nước li ti chen chúc nhau, chạy lung tung cả lên."),
+        cd("Đông thành đá thì chúng lại xếp hàng ngay ngắn, đứng xa nhau hơn."),
+        cd("Vẫn chừng ấy nước thôi, mà thành đá lại chiếm nhiều chỗ hơn, nên nhẹ hơn nước cùng một cỡ."),
+        cd("Mà nhẹ hơn thì nổi chứ sao! Cục đá cứ thế nổi trên mặt cốc."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w6-ice", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { arms: "down", expr: "confused", move: "idle" } },
@@ -460,7 +460,7 @@ export const TUAN_6 = [
     question: "Hồi nhỏ, bạn từng nghĩ cốc nước đá “đổ mồ hôi” vì sao?",
     hook: {
       shot: "Trong bếp, Thằng Cháu sờ thành cốc nước đá ướt, giơ tay ướt lên hỏi ông",
-      lines: [tc("Ông ơi, vì sao cốc nước đá lại đổ mồ hôi thế ạ?")],
+      lines: [tc("Ông ơi, cốc nước đá này sao lại đổ mồ hôi thế ạ?")],
       stage: [
         {
           cut: true,
@@ -476,8 +476,8 @@ export const TUAN_6 = [
     guess: {
       shot: "Thằng Cháu đoán nước thấm qua thành cốc, Cụ Đồ bảo thuỷ tinh rắn chắc, và chỉ cốc lạnh mới ướt",
       lines: [
-        tc("Có phải nước trong cốc thấm qua thành cốc, chảy ra ngoài không ông?"),
-        cd("Chưa đúng đâu! Thành cốc thuỷ tinh rắn chắc, nước không thấm qua được. Mà sao chỉ cốc lạnh mới ướt nhỉ?"),
+        tc("Hay là nước trong cốc thấm qua thành cốc, rỉ ra ngoài hả ông?"),
+        cd("Chưa đúng đâu! Thuỷ tinh chắc thế, nước thấm qua sao được. Mà cháu để ý xem, sao chỉ cốc lạnh mới ướt nhỉ?"),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "bounce" } },
@@ -488,10 +488,10 @@ export const TUAN_6 = [
     explain: {
       shot: "Bảng minh hoạ: không khí có hơi nước vô hình; không khí chạm cốc lạnh bị lạnh đi; hơi nước tụm lại thành giọt bám ngoài cốc; trời càng ẩm càng nhiều giọt",
       lines: [
-        cd("Không khí quanh mình luôn có hơi nước, nhỏ li ti, mắt không nhìn thấy."),
-        cd("Không khí chạm vào thành cốc lạnh, thì bị lạnh đi."),
-        cd("Hơi nước lạnh đi thì chậm lại, tụm vào nhau, thành những giọt nước bám ngoài cốc."),
-        cd("Trời càng ẩm, không khí càng nhiều hơi nước, cốc càng đổ mồ hôi nhiều."),
+        cd("Không khí quanh mình lúc nào cũng có hơi nước, nhỏ li ti, mắt không nhìn thấy."),
+        cd("Không khí chạm vào thành cốc lạnh, thế là bị lạnh đi."),
+        cd("Hơi nước lạnh đi thì chậm lại, tụm vào nhau, thành giọt nước bám ngoài cốc đấy."),
+        cd("Hôm nào trời càng ẩm, không khí càng nhiều hơi nước, cốc càng đổ mồ hôi nhiều."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w6-glass", step: 0 }, cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "confused", move: "idle" } },
@@ -508,8 +508,8 @@ export const TUAN_6 = [
     outro: {
       shot: "Thằng Cháu nhìn quanh căn bếp, hỏi trong bếp còn chuyện lạ gì; Cụ Đồ hẹn tuần sau",
       lines: [
-        tc("Thế trong bếp nhà mình, còn những chuyện lạ gì nữa hả ông?"),
-        cd("Được! Tuần sau, ông cháu mình cùng khám phá căn bếp nhé!"),
+        tc("Thế trong bếp nhà mình còn chuyện gì lạ nữa không ông?"),
+        cd("Nhiều lắm! Tuần sau, ông dẫn cháu đi một vòng căn bếp nhé!"),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "up2", expr: "confused", move: "bounce" }, fx: { kind: "question", on: "TC" } },

@@ -2,6 +2,9 @@
 
 Mỗi ngày một video 45–60 giây. Thằng Cháu hiểu sai câu thành ngữ theo nghĩa đen cho thật buồn cười, rồi Cụ Đồ lật lại nghĩa thật và cho một ví dụ đời thường.
 
+> **Giọng lời dẫn / lời thoại:** mọi kịch bản phải theo chuẩn chung [docs/giong-loi-thoai.md](../../../docs/giong-loi-thoai.md) (uyển chuyển, tự nhiên, dễ hiểu, cuốn hút; không cụt lủn, không "giọng AI"), và qua mục kiểm ở cuối trang đó trước khi duyệt.
+> **Dựng cảnh / nhân vật:** mọi cảnh, đạo cụ, phần diễn theo chuẩn chung [docs/chuan-dung-canh.md](../../../docs/chuan-dung-canh.md) (nhân vật chuyển động mượt, rõ từng bộ phận, cảnh đẹp, bố cục tốt trong vùng an toàn), qua mục kiểm cuối trang đó trước khi duyệt hình.
+
 ## Định dạng
 
 | Hạng mục | Lựa chọn |

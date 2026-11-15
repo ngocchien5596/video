@@ -22,7 +22,7 @@ export const TUAN_3 = [
     question: "Chỗ bạn ở có mùa đông rét, hay chỉ có mùa mưa, mùa khô?",
     hook: {
       shot: "Đứng trên Mặt Trăng nhìn về Trái Đất, Thằng Cháu ôm người run run như đang rét, hỏi ông",
-      lines: [tc("Ông ơi, vì sao có mùa hè nóng nực, lại có mùa đông rét thế ạ?")],
+      lines: [tc("Rét quá ông ơi! Vì sao có mùa hè nóng nực, lại có mùa đông rét thế ạ?")],
       stage: [
         {
           cut: true,
@@ -38,8 +38,8 @@ export const TUAN_3 = [
     guess: {
       shot: "Thằng Cháu đoán mùa hè vì Trái Đất tới gần Mặt Trời, Cụ Đồ đưa bằng chứng tháng một",
       lines: [
-        tc("Có phải mùa hè thì Trái Đất chạy lại gần Mặt Trời, nên mới nóng không ông?"),
-        cd("Chưa đúng đâu! Tháng một, Trái Đất ở gần Mặt Trời nhất, mà miền Bắc mình đang giữa mùa đông đấy."),
+        tc("Cháu biết! Mùa hè là Trái Đất chạy lại gần Mặt Trời, nên mới nóng, đúng không ông?"),
+        cd("Chưa đúng đâu! Tháng một là lúc Trái Đất gần Mặt Trời nhất, thế mà miền Bắc mình đang giữa mùa đông, rét cắt da đấy."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "bounce" } },
@@ -50,10 +50,10 @@ export const TUAN_3 = [
     explain: {
       shot: "Bảng minh hoạ: Trái Đất trục nghiêng đi vòng quanh Mặt Trời; nửa phía bắc nghiêng về Mặt Trời được nắng chiếu thẳng; nửa năm sau nắng xiên",
       lines: [
-        cd("Trái Đất đi vòng quanh Mặt Trời, mà trục của nó lại nghiêng, như con quay bị lệch."),
-        cd("Đi suốt cả năm, cái trục ấy vẫn luôn nghiêng về cùng một hướng."),
-        cd("Khi nửa phía bắc, nơi có nước mình, nghiêng về phía Mặt Trời, nắng chiếu thẳng hơn, đó là mùa hè."),
-        cd("Nửa năm sau, nửa phía bắc chếch ra xa, nắng chiếu xiên hơn, thành mùa đông."),
+        cd("Trái Đất đi vòng quanh Mặt Trời, mà cái trục của nó lại nghiêng, như con quay bị lệch ấy."),
+        cd("Lạ cái là đi suốt cả năm, trục ấy vẫn chỉ nghiêng về đúng một hướng."),
+        cd("Lúc nửa phía bắc, chỗ nước mình, chúc về phía Mặt Trời, nắng rọi thẳng hơn, thế là mùa hè."),
+        cd("Nửa năm sau, nửa ấy lại chếch ra xa, nắng chỉ chiếu xiên xiên, thành ra mùa đông."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w3-seasons", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { arms: "down", expr: "confused", move: "idle" } },
@@ -69,7 +69,7 @@ export const TUAN_3 = [
     ],
     outro: {
       shot: "Thằng Cháu chỉ lên các vì sao, hỏi sao chúng lấp lánh",
-      lines: [tc("Thế ngôi sao trên trời, sao cứ lấp lánh lấp lánh thế hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Ông ơi, thế mấy ngôi sao kia, sao cứ nhấp nha nhấp nháy thế ạ?"), cd("Mai ông kể tiếp, cháu nhớ hỏi nhé!")],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "raise", expr: "confused" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
@@ -94,7 +94,7 @@ export const TUAN_3 = [
     question: "Bạn còn nhớ bài “Một ông sao sáng, hai ông sáng sao” không?",
     hook: {
       shot: "Ngoài sân ban đêm, Thằng Cháu ngửa cổ ngắm sao lấp lánh",
-      lines: [tc("Ông ơi, vì sao ngôi sao cứ lấp lánh lấp lánh thế ạ?")],
+      lines: [tc("Ông ơi, vì sao ngôi sao cứ lấp la lấp lánh thế ạ?")],
       stage: [
         {
           cut: true,
@@ -110,8 +110,8 @@ export const TUAN_3 = [
     guess: {
       shot: "Thằng Cháu đoán sao tự bật tắt như đèn nháy, Cụ Đồ bảo sao sát chân trời lấp lánh nhiều hơn sao trên đỉnh đầu",
       lines: [
-        tc("Có phải ngôi sao tự nháy, lúc bật lúc tắt, như đèn nháy không ông?"),
-        cd("Chưa đúng đâu! Phần lớn ngôi sao chiếu sáng đều đều, mà sao ở sát chân trời lại lấp lánh nhiều hơn sao trên đỉnh đầu đấy."),
+        tc("Hay ngôi sao cũng như đèn nháy cây thông, lúc bật lúc tắt hả ông?"),
+        cd("Không phải! Phần lớn sao vẫn sáng đều đều thôi. Cháu để ý mà xem, sao sát chân trời lấp lánh nhiều hơn sao trên đỉnh đầu đấy."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "up2", expr: "happy", move: "bounce" } },
@@ -122,10 +122,10 @@ export const TUAN_3 = [
     explain: {
       shot: "Bảng minh hoạ: ánh sao đi rất xa tới lớp không khí, các túi khí chuyển động bẻ lệch tia sáng, mắt thấy sao lúc sáng lúc mờ",
       lines: [
-        cd("Ánh sao đi rất rất xa, rồi mới chui vào lớp không khí quanh Trái Đất."),
-        cd("Lớp không khí ấy luôn chuyển động, có những túi khí nóng, túi khí lạnh trôi qua lại."),
-        cd("Mỗi túi khí lại bẻ cong ánh sao một chút, lúc lệch sang bên này, lúc lệch sang bên kia."),
-        cd("Thế là ánh sao tới mắt mình lúc nhiều lúc ít, trông như đang lấp lánh."),
+        cd("Ánh sao đi xa lắc xa lơ, rồi mới chui vào lớp không khí quanh Trái Đất mình."),
+        cd("Mà lớp không khí ấy có đứng yên đâu, túi khí nóng, túi khí lạnh cứ trôi qua trôi lại."),
+        cd("Mỗi túi khí lại bẻ cong ánh sao một tẹo, lúc lệch bên này, lúc lệch bên kia."),
+        cd("Thế là ánh sao vào tới mắt mình lúc nhiều lúc ít, trông cứ lấp la lấp lánh!"),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w3-twinkle", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { arms: "down", expr: "confused", move: "idle" } },
@@ -141,7 +141,7 @@ export const TUAN_3 = [
     ],
     outro: {
       shot: "Thằng Cháu chỉ theo một vệt sáng vụt qua trời, hỏi về sao băng",
-      lines: [tc("Thế sao lại có sao băng vụt qua bầu trời hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Ơ kìa! Thế sao lại có sao băng vụt qua trời hả ông?"), cd("Cái này để mai ông kể nhé!")],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "shrug", expr: "confused" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
@@ -168,7 +168,7 @@ export const TUAN_3 = [
     question: "Bạn đã từng thấy sao băng chưa? Lúc ấy bạn ước gì?",
     hook: {
       shot: "Ngoài sân ban đêm, Thằng Cháu chỉ theo một vệt sáng vụt qua bầu trời",
-      lines: [tc("Ông ơi, vì sao có sao băng vụt qua bầu trời thế ạ?")],
+      lines: [tc("Ông ơi ông! Vì sao có sao băng vụt qua bầu trời thế ạ?")],
       stage: [
         {
           cut: true,
@@ -184,8 +184,8 @@ export const TUAN_3 = [
     guess: {
       shot: "Thằng Cháu đoán sao băng là ngôi sao rơi, Cụ Đồ bảo đó chỉ là mẩu đá bé bằng hạt cát, hòn sỏi",
       lines: [
-        tc("Có phải sao băng là một ngôi sao trên trời bị rơi xuống không ông?"),
-        cd("Không phải đâu! Sao băng chỉ là những mẩu đá vũ trụ, thường bé như hạt cát hay hòn sỏi thôi."),
+        tc("Có phải ngôi sao nào bị rơi khỏi trời không ông? Tội nó quá!"),
+        cd("Tội gì mà tội! Sao băng chỉ là mẩu đá vũ trụ, thường bé bằng hạt cát, hòn sỏi thôi cháu ạ."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "bounce" } },
@@ -196,10 +196,10 @@ export const TUAN_3 = [
     explain: {
       shot: "Bảng minh hoạ: mẩu đá bé xíu ngoài vũ trụ; lao rất nhanh vào lớp không khí; không khí nóng rực phát sáng thành vệt; mẩu đá cháy hết trên trời",
       lines: [
-        cd("Ngoài vũ trụ có những mẩu đá nhỏ, có mẩu chỉ bé như hạt bụi."),
-        cd("Có lúc, một mẩu đá lao thật nhanh vào lớp không khí bao quanh Trái Đất."),
-        cd("Không khí cản lại làm mẩu đá nóng rực, vệt sáng mình thấy là không khí nóng phát sáng quanh nó."),
-        cd("Phần lớn những mẩu đá ấy cháy hết trên trời, trước khi kịp rơi xuống mặt đất."),
+        cd("Ngoài vũ trụ có những mẩu đá nhỏ xíu, có mẩu chỉ bé như hạt bụi thôi."),
+        cd("Thỉnh thoảng có một mẩu lao vèo vào lớp không khí bao quanh Trái Đất, nhanh khủng khiếp."),
+        cd("Không khí cản lại, mẩu đá nóng rực lên, mà cái vệt sáng mình thấy là không khí nóng phát sáng quanh nó đấy."),
+        cd("Phần lớn cháy sạch ngay trên trời, chưa kịp rơi xuống tới mặt đất đâu."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w3-meteor", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { arms: "down", expr: "confused", move: "idle" } },
@@ -215,7 +215,7 @@ export const TUAN_3 = [
     ],
     outro: {
       shot: "Thằng Cháu chỉ lên Mặt Trăng, hỏi về những vết đen loang lổ",
-      lines: [tc("Thế trên Mặt Trăng, sao lại có những vết đen loang lổ hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Ông ơi, thế Mặt Trăng kia, sao lại lốm đốm vết đen hả ông?"), cd("Để mai ông kể tiếp nhé!")],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "confused" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
@@ -254,8 +254,8 @@ export const TUAN_3 = [
     guess: {
       shot: "Thằng Cháu đoán vết đen là chú Cuội ngồi gốc cây đa, Cụ Đồ bảo đó là chuyện cổ tích: phi hành gia lên tận nơi chỉ thấy đá",
       lines: [
-        tc("Có phải vết đen ấy là chú Cuội ngồi gốc cây đa không ông?"),
-        cd("Đó là chuyện cổ tích thôi cháu ạ! Các nhà du hành đã lên tận Mặt Trăng, mang cả đá về, mà chẳng thấy cây cối gì."),
+        tc("Cháu biết rồi! Đấy là chú Cuội ngồi gốc cây đa, đúng không ông?"),
+        cd("Cổ tích đấy cháu ơi! Các nhà du hành lên tận Mặt Trăng rồi, mang cả đá về, có thấy cây cối gì đâu."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "bounce" } },
@@ -266,10 +266,10 @@ export const TUAN_3 = [
     explain: {
       shot: "Bảng minh hoạ: Mặt Trăng đầy hố tròn do đá vũ trụ rơi vào; có hố khổng lồ; dung nham tràn vào lấp đầy rồi nguội; nhìn từ xa thành vết sẫm",
       lines: [
-        cd("Mặt Trăng là một quả cầu đá, mặt đầy những cái hố tròn, do đá từ vũ trụ rơi vào."),
-        cd("Từ rất rất lâu rồi, có những cái hố khổng lồ, to hơn hẳn các hố khác."),
-        cd("Đá nóng chảy, gọi là dung nham, đã tràn vào lấp đầy những hố ấy, rồi nguội lại."),
-        cd("Chỗ đá nguội ấy sẫm màu hơn đá xung quanh, nên nhìn từ xa, mình thấy những vết đen."),
+        cd("Mặt Trăng là một quả cầu đá, mặt rỗ chi chít những hố tròn, do đá vũ trụ rơi vào đấy."),
+        cd("Từ xa xưa lắm rồi, có mấy cái hố khổng lồ, to hơn hẳn các hố khác."),
+        cd("Rồi đá nóng chảy, tức là dung nham ấy, tràn vào lấp đầy mấy cái hố, xong nguội dần."),
+        cd("Đá ấy nguội lại thì sẫm màu hơn xung quanh, nên đứng tít dưới này nhìn lên, mình thấy thành vết đen."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w3-moon-spots", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { arms: "down", expr: "confused", move: "idle" } },
@@ -284,7 +284,7 @@ export const TUAN_3 = [
     ],
     outro: {
       shot: "Thằng Cháu hỏi tiếp vì sao Mặt Trăng lúc tròn lúc khuyết",
-      lines: [tc("Mà sao Mặt Trăng lúc thì tròn, lúc lại khuyết hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Ơ, mà sao Mặt Trăng hôm thì tròn vành vạnh, hôm lại khuyết hả ông?"), cd("Chuyện ấy mai ông kể nhé!")],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "raise", expr: "confused" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
@@ -310,7 +310,7 @@ export const TUAN_3 = [
     question: "Tối nay trăng chỗ bạn tròn hay khuyết?",
     hook: {
       shot: "Ngoài sân ban đêm, Thằng Cháu giơ tay vẽ hình trăng khuyết trong không trung",
-      lines: [tc("Ông ơi, vì sao Mặt Trăng lúc thì tròn, lúc lại khuyết ạ?")],
+      lines: [tc("Ông ơi, vì sao Mặt Trăng hôm thì tròn, hôm lại khuyết thế ạ?")],
       stage: [
         {
           cut: true,
@@ -326,8 +326,8 @@ export const TUAN_3 = [
     guess: {
       shot: "Thằng Cháu đoán bóng Trái Đất che Mặt Trăng, Cụ Đồ bảo đó là nguyệt thực, chuyện khác hẳn",
       lines: [
-        tc("Có phải bóng Trái Đất che bớt Mặt Trăng, nên trăng mới khuyết không ông?"),
-        cd("Chưa đúng đâu! Bóng Trái Đất che Mặt Trăng là chuyện khác, gọi là nguyệt thực. Mặt Trăng chẳng đổi hình, chỉ là mình nhìn khác đi."),
+        tc("Cháu đoán là bóng Trái Đất che mất một miếng, nên trăng mới khuyết, phải không ông?"),
+        cd("Chưa đúng đâu! Bóng Trái Đất che trăng là nguyệt thực, chuyện khác hẳn. Trăng có méo đi đâu, chỉ là mình nhìn khác đi thôi."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "bounce" } },
@@ -338,10 +338,10 @@ export const TUAN_3 = [
     explain: {
       shot: "Bảng minh hoạ: Mặt Trời chiếu sáng một nửa Mặt Trăng; Mặt Trăng đi vòng quanh Trái Đất; từ Trái Đất thấy phần sáng nhiều hay ít; trăng tròn, trăng khuyết",
       lines: [
-        cd("Mặt Trăng không tự sáng, Mặt Trời chiếu sáng một nửa Mặt Trăng, nửa kia tối."),
-        cd("Mặt Trăng lại đi vòng quanh Trái Đất, mỗi vòng mất khoảng một tháng."),
-        cd("Tuỳ Mặt Trăng đang ở chỗ nào, mình nhìn thấy phần sáng ấy nhiều hay ít."),
-        cd("Thấy trọn phần sáng là trăng tròn, thấy một mẩu là trăng khuyết lưỡi liềm."),
+        cd("Mặt Trăng có tự sáng đâu. Mặt Trời chỉ rọi sáng được một nửa, nửa kia tối om."),
+        cd("Mà Mặt Trăng lại cứ đi vòng quanh Trái Đất mình, mỗi vòng mất chừng một tháng."),
+        cd("Thế nên trăng đi tới chỗ nào, mình nhìn lên lại thấy phần sáng ấy nhiều ít khác nhau."),
+        cd("Thấy trọn phần sáng là trăng tròn vành vạnh, thấy một mẩu là trăng lưỡi liềm."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w3-moon-phases", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { arms: "down", expr: "confused", move: "idle" } },
@@ -357,7 +357,7 @@ export const TUAN_3 = [
     ],
     outro: {
       shot: "Thằng Cháu hỏi tiếp về phi hành gia bay lơ lửng",
-      lines: [tc("Thế phi hành gia bay lên vũ trụ, sao lại lơ lửng hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Thế các chú phi hành gia lên vũ trụ, sao cứ bay lơ lửng hả ông?"), cd("Mai ông kể, cháu nhớ hỏi nhé!")],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "up2", expr: "confused" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
@@ -385,7 +385,7 @@ export const TUAN_3 = [
     question: "Nếu được bay lơ lửng như phi hành gia, bạn muốn làm gì đầu tiên?",
     hook: {
       shot: "Ngoài vũ trụ, Thằng Cháu giơ hai tay như đang bay, hỏi ông",
-      lines: [tc("Ông ơi, vì sao phi hành gia lại bay lơ lửng trong tàu vũ trụ ạ?")],
+      lines: [tc("Ông ơi, vì sao phi hành gia cứ bay lơ lửng trong tàu vũ trụ thế ạ?")],
       stage: [
         {
           cut: true,
@@ -401,8 +401,8 @@ export const TUAN_3 = [
     guess: {
       shot: "Thằng Cháu đoán ngoài vũ trụ không có sức hút, Cụ Đồ bảo chính sức hút giữ Mặt Trăng quay quanh Trái Đất",
       lines: [
-        tc("Có phải ra ngoài vũ trụ là hết sức hút của Trái Đất, nên mới bay không ông?"),
-        cd("Chưa đúng đâu! Chính sức hút của Trái Đất đang giữ Mặt Trăng đi vòng quanh mình đấy."),
+        tc("Dễ ợt! Ra ngoài vũ trụ là hết sức hút Trái Đất, nên mới bay, đúng không ông?"),
+        cd("Dễ đâu mà dễ! Chính sức hút Trái Đất đang giữ Mặt Trăng đi vòng quanh mình đấy thôi."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "up2", expr: "smug", move: "idle" } },
@@ -413,10 +413,10 @@ export const TUAN_3 = [
     explain: {
       shot: "Bảng minh hoạ: Trái Đất kéo trạm vũ trụ; trạm bay ngang rất nhanh nên rơi vòng quanh Trái Đất; người và đồ vật cùng rơi; cùng rơi nên trông lơ lửng",
       lines: [
-        cd("Ở chỗ trạm vũ trụ bay, sức hút của Trái Đất vẫn còn rất mạnh."),
-        cd("Trạm bay ngang rất nhanh, nên vừa rơi về phía Trái Đất, vừa trượt vòng qua, chẳng bao giờ chạm đất."),
-        cd("Phi hành gia và mọi đồ vật trong trạm cũng đang rơi cùng một lúc."),
-        cd("Giống trò chơi rơi tự do, cùng rơi với nhau thì quả bóng trông như lơ lửng trước mặt."),
+        cd("Trên cao chỗ trạm vũ trụ bay, sức hút Trái Đất vẫn còn mạnh lắm chứ."),
+        cd("Có điều trạm bay ngang nhanh khiếp, nên vừa rơi về phía Trái Đất, vừa trượt vòng qua, chẳng bao giờ chạm đất."),
+        cd("Người với đồ đạc trong trạm cũng đang rơi theo, cùng một lúc."),
+        cd("Như chơi trò rơi tự do ấy, người với quả bóng cùng rơi, thì bóng cứ như lơ lửng trước mặt."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w3-float", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { arms: "down", expr: "confused", move: "idle" } },
@@ -432,7 +432,7 @@ export const TUAN_3 = [
     ],
     outro: {
       shot: "Thằng Cháu vẽ một vòng tròn to trong không trung, hỏi về vành đai Sao Thổ",
-      lines: [tc("Ông ơi, thế vành đai quanh Sao Thổ làm bằng gì ạ?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Ông ơi, thế cái vòng to quanh Sao Thổ làm bằng gì ạ?"), cd("Cái ấy để mai ông kể nhé!")],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "confused" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
@@ -456,7 +456,7 @@ export const TUAN_3 = [
     question: "Nếu được bay tới gần vành đai Sao Thổ, bạn muốn ngắm mẩu băng nhỏ như hạt cát hay to bằng ngôi nhà?",
     hook: {
       shot: "Ngoài vũ trụ, Thằng Cháu khoanh tay vẽ một vòng tròn to trong không trung, hỏi ông",
-      lines: [tc("Ông ơi, vành đai to quanh Sao Thổ làm bằng gì thế ạ?")],
+      lines: [tc("Ông ơi, cái vành đai to đùng quanh Sao Thổ làm bằng gì thế ạ?")],
       stage: [
         {
           cut: true,
@@ -472,8 +472,8 @@ export const TUAN_3 = [
     guess: {
       shot: "Thằng Cháu đoán vành đai là chiếc vòng cứng liền khối, Cụ Đồ bảo các nhà thiên văn nhìn xuyên qua được vành đai",
       lines: [
-        tc("Có phải nó là một chiếc vòng cứng, liền một khối, không ông?"),
-        cd("Chưa đúng đâu! Vành đai ấy chẳng phải một khối cứng, các nhà thiên văn còn nhìn xuyên qua được nó đấy."),
+        tc("Chắc nó là cái vòng cứng, đúc liền một khối, như vòng đeo tay hả ông?"),
+        cd("Chưa đúng đâu! Nó chẳng phải một khối cứng, các nhà thiên văn còn nhìn xuyên qua được cơ mà."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "hold2", expr: "smug", move: "bounce" } },
@@ -484,10 +484,10 @@ export const TUAN_3 = [
     explain: {
       shot: "Bảng minh hoạ: Sao Thổ có bảy vành chính và các khoảng trống; phóng to thấy hàng tỉ mẩu băng và đá; mẩu bé như hạt cát, mẩu to bằng ngôi nhà; tất cả bay vòng quanh Sao Thổ",
       lines: [
-        cd("Sao Thổ có bảy vành đai chính, giữa các vành còn có những khoảng trống."),
-        cd("Mỗi vành đai không liền một khối, mà gồm hàng tỉ mẩu băng và đá."),
-        cd("Có mẩu chỉ nhỏ như hạt cát, có mẩu lại to bằng cả một ngôi nhà."),
-        cd("Các mẩu ấy cùng bay vòng quanh Sao Thổ, mỗi vành đai bay nhanh chậm khác nhau."),
+        cd("Sao Thổ có những bảy vành đai chính, giữa các vành lại còn hở ra những khoảng trống."),
+        cd("Phóng to lên mà xem, mỗi vành là hàng tỉ mẩu băng với đá, chứ chẳng liền một khối."),
+        cd("Có mẩu bé tí như hạt cát, có mẩu lại to bằng cả một ngôi nhà!"),
+        cd("Cả đàn mẩu ấy cùng bay vòng quanh Sao Thổ, vành thì nhanh, vành thì chậm."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w3-saturn", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { arms: "down", expr: "confused", move: "idle" } },
@@ -504,8 +504,8 @@ export const TUAN_3 = [
     outro: {
       shot: "Thằng Cháu ôm bụng, hỏi sang chuyện cơ thể; Cụ Đồ hẹn tuần sau",
       lines: [
-        tc("Vũ trụ lạ thật! Thế còn cơ thể cháu, có bí mật gì không hả ông?"),
-        cd("Nhiều lắm! Tuần sau, ông cháu mình cùng khám phá cơ thể nhé!"),
+        tc("Vũ trụ hay ghê! Thế còn người cháu đây, có bí mật gì không hả ông?"),
+        cd("Nhiều lắm chứ! Tuần sau, ông cháu mình soi dần từng chuyện trong cơ thể nhé!"),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "hold2", expr: "confused", move: "bounce" }, fx: { kind: "question", on: "TC" } },

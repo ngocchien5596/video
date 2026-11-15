@@ -1,122 +1,152 @@
+/**
+ * Tuần 1 "Thiên Đường Kiến Thức": 5 chủ đề điểm cao nhất trong bảng chấm
+ * (research_notes/Thiên đường kiến thức/kho-chu-de-va-xu-huong.md, mục 7), đăng trước.
+ * Tập 3 và 5 theo định dạng "Tin được hay Tin đồn?" (hồi cuối kết bằng phán quyết).
+ */
 import { makeEpisode, nar } from "./make.ts";
 
 const week = 1;
-const theme = "Hình học cổ đại & Vũ trụ";
+const theme = "Nghịch lý & Tin đồn khoa học";
 
 export const TUAN_1 = [
   makeEpisode({
     day: 1,
     week,
     theme,
-    title: "Đo chiều cao Đại Kim Tự Tháp chỉ bằng một chiếc cọc",
-    hudTitle: "ĐO KIM TỰ THÁP BẰNG MỘT CHIẾC CỌC",
-    textbook: "Toán 8 · Định lý Thales",
-    era: "Giza, Ai Cập · 600 TCN",
-    question: "Hồi đi học, bạn có từng thắc mắc học Định lý Thales để làm gì ngoài đời thực không?",
+    title: "Ngàn tiến sĩ nói cô ấy sai: đổi cửa hay giữ?",
+    hudTitle: "NGÀN TIẾN SĨ NÓI CÔ ẤY SAI",
+    textbook: "Toán 12 · Xác suất có điều kiện",
+    era: "Hoa Kỳ · năm 1990",
+    question: "Đố bạn: có 4 cửa, người dẫn biết chỗ có dê và mở 2 cửa có dê. Nếu đổi sang cửa còn đóng kia, bạn thắng với xác suất bao nhiêu?",
     sources: [
-      { title: "SGK Toán lớp 8 — Định lý Thales trong tam giác", url: "https://hanhtrangso.nxbgd.vn/" },
-      { title: "Britannica — Thales of Miletus", url: "https://www.britannica.com/biography/Thales-of-Miletus" },
-      { title: "MacTutor (ĐH St Andrews) — Thales of Miletus", url: "https://mathshistory.st-andrews.ac.uk/Biographies/Thales/" },
+      { title: "SGK Toán 12 Kết nối tri thức — Bài 18. Xác suất có điều kiện (loigiaihay)", url: "https://loigiaihay.com/bai-18-xac-suat-co-dieu-kien-toan-12-ket-noi-tri-thuc-e35964.html" },
+      { title: "Mục lục SGK Toán 12 Kết nối tri thức — Chương VI. Xác suất có điều kiện (loigiaihay)", url: "https://loigiaihay.com/sgk-toan-12-ket-noi-tri-thuc-c1783.html" },
+      { title: "Steven Pinker, Behavioral Scientist — Why You Should Always Switch: The Monty Hall Problem (trích sách Rationality)", url: "https://behavioralscientist.org/steven-pinker-rationality-why-you-should-always-switch-the-monty-hall-problem-finally-explained/" },
+      { title: "Tom Rocks Maths (ĐH Oxford) — The Origins of the Monty Hall Problem", url: "https://tomrocksmaths.com/2021/02/27/monty-hall-origins" },
+      { title: "Scientific American (Allison Parshall, 2024) — See Why Everyone Gets the Monty Hall Puzzle Wrong", url: "https://www.scientificamerican.com/article/why-almost-everyone-gets-the-monty-hall-probability-puzzle-wrong/" },
+      { title: "Jeffrey S. Rosenthal — Monty Hall, Monty Fall, Monty Crawl, Math Horizons, 9/2008 (người dẫn mở bừa thì 1/2)", url: "https://www.probability.ca/jeff/writing/montyfall.pdf" },
+      { title: "Stone, Keller, Kratzke, Strumpfer — Search for the Wreckage of Air France Flight AF 447, Statistical Science 29(1), 2014", url: "https://arxiv.org/abs/1405.4720" },
+      { title: "MIT Technology Review — How Statisticians Found Air France Flight 447 Two Years After It Crashed Into the Atlantic", url: "https://www.technologyreview.com/2014/05/27/13283/how-statisticians-found-air-france-flight-447-two-years-after-it-crashed-into-atlantic/" },
     ],
     hook: {
-      shot: "Sa mạc Giza năm 600 TCN, Đại kim tự tháp Cheops xoay 2.5D, Milo (vai Thales) đứng dưới chân tháp cầm 1 chiếc cọc gỗ",
+      shot: "Sân khấu giấy da dựng thành trường quay truyền hình kiểu Mỹ thập niên 1990: ba cánh cửa gỗ lớn đánh số 1, 2, 3. Câu 1–2: Milo (vai người chơi) đứng giữa, sau lưng là trang tạp chí PARADE 1990 bay vào, có cột 'Ask Marilyn' gạch chân dòng 'NÊN ĐỔI CỬA'; hàng nghìn phong bì thư đổ ào xuống như mưa, con số '~1.000 TIẾN SĨ' đóng dấu đỏ. Câu 3: sau ba cánh cửa thoáng hiện bóng một chiếc xe và hai con dê, Milo chỉ vào cửa 1 (khung sáng vàng). Câu 4: người dẫn chương trình (bóng đen đeo nơ, tay cầm thẻ ghi 'TÔI BIẾT CHỖ CÓ DÊ') mở cửa 3, một con dê ló đầu ra kêu, rồi chìa tay mời đổi. Câu 5: bảng gỗ bật lên giữa màn hình: 'ĐỔI? / GIỮ?' kèm mũi tên chỉ xuống ô bình luận.",
       lines: [
         nar(
-          "Cách đây 2.600 năm tại Ai Cập, Đại kim tự tháp Cheops đã đứng sừng sững như một ngọn núi nhân tạo suốt hai thiên niên kỷ.",
-          "Cách đây hai nghìn sáu trăm năm tại Ai Cập, Đại kim tự tháp Kê-ốp đã đứng sừng sững như một ngọn núi nhân tạo suốt hai thiên niên kỷ.",
+          "Năm 1990, một câu trả lời trên tạp chí Parade khiến chừng một nghìn tiến sĩ cầm bút viết thư phản đối.",
+          "Năm một nghìn chín trăm chín mươi, một câu trả lời trên tạp chí Pa-rết khiến chừng một nghìn tiến sĩ cầm bút viết thư phản đối.",
         ),
         nar(
-          "Nó cao đến mức đứng dưới chân, chẳng ai đo nổi bằng thước dây. Vậy nó cao bao nhiêu mét?",
-          "Nó cao đến mức đứng dưới chân, chẳng ai đo nổi bằng thước dây. Vậy nó cao bao nhiêu mét?",
+          "Người viết là Marilyn vos Savant. Cô khẳng định trong trò chơi ba cánh cửa, đổi cửa thì thắng gấp đôi.",
+          "Người viết là Ma-ri-lin vốt Xa-văng. Cô khẳng định trong trò chơi ba cánh cửa, đổi cửa thì thắng gấp đôi.",
         ),
         nar(
-          "Vậy mà nhà thông thái Hy Lạp Thales chỉ cần đúng một chiếc cọc gỗ đã giải gọn bài toán này. Ông đã làm thế nào?",
-          "Vậy mà nhà thông thái Hy Lạp Tha-lét chỉ cần đúng một chiếc cọc gỗ đã giải gọn bài toán này. Ông đã làm thế nào?",
+          "Luật chơi thế này. Sau ba cánh cửa là một chiếc xe và hai con dê. Bạn chọn một cửa.",
+          "Luật chơi thế này. Sau ba cánh cửa là một chiếc xe và hai con dê. Bạn chọn một cửa.",
+        ),
+        nar(
+          "Người dẫn biết xe ở đâu, luôn mở một cửa còn lại có dê, rồi mời bạn đổi.",
+          "Người dẫn biết xe ở đâu, luôn mở một cửa còn lại có dê, rồi mời bạn đổi.",
+        ),
+        nar(
+          "Nếu là bạn, bạn đổi hay giữ? Ghi vào bình luận trước khi xem tiếp nhé!",
+          "Nếu là bạn, bạn đổi hay giữ? Ghi vào bình luận trước khi xem tiếp nhé!",
         ),
       ],
     },
     barrier: {
-      shot: "Milo trèo lên đỉnh thả dây dọc sườn nghiêng (186m ✖), rồi chuyển sang cắt lớp X-quang 2,3 triệu khối đá đè tâm đáy O (✖)",
+      shot: "Núi thư chất cao sau lưng Milo; vài lá thư bung ra, hiện dòng viết tay 'CÒN 2 CỬA → 50/50!' và chữ ký 'Ph.D.'. Câu 2: hai cửa còn đóng (1 và 2) hiện nhãn '50%' và '50%' rung rinh, rồi một dấu ✖ đỏ lớn đóng lên hai nhãn đó. Câu 3: chân dung khắc gỗ của nhà toán học Paul Erdős khoanh tay lắc đầu, nhãn 'KHÔNG TIN'; chuyển sang một chiếc máy tính đời cũ màn hình xanh hiện bộ đếm số ván chạy vùn vụt.",
       lines: [
         nar(
-          "Bạn có thể nghĩ ngay tới cách đầu tiên: Cứ trèo lên đỉnh rồi thả một sợi dây thừng xuống đất mà đo!",
-          "Bạn có thể nghĩ ngay tới cách đầu tiên: cứ trèo lên đỉnh, rồi thả một sợi dây thừng xuống đất mà đo!",
+          "Thư cứ thế đổ về. Theo nhà tâm lý học Steven Pinker kể lại, cả thảy chừng 10.000 lá, phần lớn bảo cô sai.",
+          "Thư cứ thế đổ về. Theo nhà tâm lý học Xti-vơn Pinh-cơ kể lại, cả thảy chừng mười nghìn lá, phần lớn bảo cô sai.",
         ),
         nar(
-          "Nhưng cách này sai hoàn toàn! Vì mặt tháp bị vát nghiêng, sợi dây chỉ đo được độ dài sườn dốc chứ không phải chiều cao thẳng đứng H.",
-          "Nhưng cách này sai hoàn toàn! Vì mặt tháp bị vát nghiêng, sợi dây chỉ đo được độ dài sườn dốc, chứ không phải chiều cao thẳng đứng hát.",
+          "Lý lẽ nghe rất xuôi. Chỉ còn hai cửa đóng, xe ở một trong hai, vậy mỗi cửa năm mươi phần trăm, đúng không?",
+          "Lý lẽ nghe rất xuôi. Chỉ còn hai cửa đóng, xe ở một trong hai, vậy mỗi cửa năm mươi phần trăm, đúng không?",
         ),
         nar(
-          "Còn cách thứ hai là đo thẳng từ đỉnh xuống tâm đáy? Cũng bất khả thi, vì tâm đáy nằm sâu dưới 2,3 triệu tảng đá đặc quánh!",
-          "Còn cách thứ hai là đo thẳng từ đỉnh xuống tâm đáy? Cũng bất khả thi, vì tâm đáy nằm sâu dưới hai phẩy ba triệu tảng đá đặc quánh!",
+          "Ngay cả nhà toán học lừng danh Paul Erdős cũng phản đối. Phải xem trò chơi mô phỏng lặp đi lặp lại, ông mới chịu tin.",
+          "Ngay cả nhà toán học lừng danh Pôn Ẹc-đốt cũng phản đối. Phải xem trò chơi mô phỏng lặp đi lặp lại, ông mới chịu tin.",
         ),
       ],
     },
     eureka: {
-      shot: "Tia nắng Mặt Trời song song chiếu góc 45°, bóng cọc bằng chiều cao cọc; hạ mặt bằng đáy 230m ở Tầng 2B cộng 115m + 31,6m = 146,6m",
+      shot: "Bảng phấn chia ba hàng ngang, mỗi hàng là một bộ ba cánh cửa nhỏ 1-2-3; ở cả ba hàng, Milo (vai người chơi) dán ngôi sao vàng lên cửa 1. Câu 1: ba hàng lần lượt hiện bóng chiếc xe ở cửa 1, cửa 2, cửa 3 (nhãn 'XE Ở CỬA 1 / 2 / 3'). Câu 2: hàng 'XE Ở CỬA 2', người dẫn mở cửa 3, con dê ló ra, nhãn 'BẮT BUỘC'; mũi tên từ cửa 1 nhảy sang cửa 2, dấu ✔ xanh 'ĐỔI → THẮNG'. Câu 3: hàng 'XE Ở CỬA 3', người dẫn mở cửa 2, mũi tên nhảy sang cửa 3, dấu ✔ xanh. Câu 4: hàng 'XE Ở CỬA 1', người dẫn mở một cửa dê bất kỳ, đổi thì dấu ✖ đỏ 'ĐỔI → THUA'; cột tổng kết bên phải đếm '✔ ✔ ✖', bật số 'ĐỔI THẮNG 2/3 · GIỮ 1/3'. Câu 5: thoáng cảnh bức tường 100 cửa nhỏ, 98 cửa bật mở ra dê, chừa lại đúng một cửa phát sáng, Milo nhìn cửa của mình rồi nhìn cửa phát sáng, gãi đầu.",
       lines: [
         nar(
-          "Khi mọi cách đo trực tiếp đều bế tắc, Thales không nhìn vào khối đá nữa, mà nhìn vào bóng nắng của nó trên cát!",
-          "Khi mọi cách đo trực tiếp đều bế tắc, Tha-lét không nhìn vào khối đá nữa, mà nhìn vào bóng nắng của nó trên cát!",
+          "Vậy ai đúng? Cách chắc nhất là xét hết mọi khả năng. Giả sử bạn luôn chọn cửa 1, còn xe có thể nằm sau cửa 1, cửa 2 hoặc cửa 3.",
+          "Vậy ai đúng? Cách chắc nhất là xét hết mọi khả năng. Giả sử bạn luôn chọn cửa một, còn xe có thể nằm sau cửa một, cửa hai hoặc cửa ba.",
         ),
         nar(
-          "Rồi ông cắm một chiếc cọc thẳng đứng xuống cát và nhận ra: Vì Mặt Trời ở rất xa, mọi tia nắng chiếu xuống đều song song với nhau.",
-          "Rồi ông cắm một chiếc cọc thẳng đứng xuống cát và nhận ra: vì Mặt Trời ở rất xa, mọi tia nắng chiếu xuống đều song song với nhau.",
+          "Xe ở cửa 2? Người dẫn không được mở trúng xe, nên buộc phải mở cửa 3. Bạn đổi sang cửa 2, thắng!",
+          "Xe ở cửa hai? Người dẫn không được mở trúng xe, nên buộc phải mở cửa ba. Bạn đổi sang cửa hai, thắng!",
         ),
         nar(
-          "Thales kiên nhẫn chờ đến khoảnh khắc mặt trời nghiêng đúng góc 45° — lúc cái bóng của chiếc cọc dài bằng chính chiều cao chiếc cọc!",
-          "Tha-lét kiên nhẫn chờ đến khoảnh khắc mặt trời nghiêng đúng góc bốn mươi lăm độ, lúc cái bóng của chiếc cọc dài bằng chính chiều cao chiếc cọc!",
+          "Xe ở cửa 3? Người dẫn buộc phải mở cửa 2. Bạn đổi sang cửa 3, lại thắng!",
+          "Xe ở cửa ba? Người dẫn buộc phải mở cửa hai. Bạn đổi sang cửa ba, lại thắng!",
         ),
         nar(
-          "Ngay lúc đó, chiều cao kim tự tháp bằng nửa cạnh đáy, 115 mét, cộng với phần bóng nhô ra, 31,6 mét, tức là 146,6 mét!",
-          "Ngay lúc đó, chiều cao kim tự tháp bằng nửa cạnh đáy, một trăm mười lăm mét, cộng với phần bóng nhô ra, ba mươi mốt mét sáu, tức là một trăm bốn mươi sáu mét sáu!",
+          "Chỉ khi xe nằm ngay cửa 1, đổi mới thua. Ba trường hợp, đổi thắng hai. Vậy đổi thắng 2/3, giữ chỉ thắng 1/3.",
+          "Chỉ khi xe nằm ngay cửa một, đổi mới thua. Ba trường hợp, đổi thắng hai. Vậy đổi thắng hai phần ba, giữ chỉ thắng một phần ba.",
+        ),
+        nar(
+          "Vẫn thấy lạ? Thử với 100 cửa. Bạn chọn một, người dẫn mở 98 cửa có dê, chừa lại đúng một cửa. Bạn còn muốn giữ cửa của mình không?",
+          "Vẫn thấy lạ? Thử với một trăm cửa. Bạn chọn một, người dẫn mở chín mươi tám cửa có dê, chừa lại đúng một cửa. Bạn còn muốn giữ cửa của mình không?",
         ),
       ],
     },
     theorem: {
-      shot: "Cắm cọc ở mút bóng tháp: hai tam giác đồng dạng (tháp + bóng tháp, cọc + bóng cọc); trang Toán 8 mở ra, cọc DE song song BC, công thức tỉ lệ ở Tầng 2B",
+      shot: "Câu 1: bảng gỗ lớn chỉ một dòng chữ to 'ĐỔI = THẮNG KHI LẦN ĐẦU CHỌN SAI'; bên dưới ba cánh cửa, hai cửa dê tô đỏ nhãn 'CHỌN SAI: 2/3', một cửa xe nhãn 'CHỌN ĐÚNG: 1/3'. Câu 2: người dẫn (bóng đen đeo nơ) giơ thẻ 'TÔI BIẾT · KHÔNG MỞ TRÚNG XE'; rồi cảnh phụ: người dẫn trượt vỏ chuối, ngã đẩy bừa một cánh cửa, ra dê, nhãn 'MỞ BỪA → 1/2 · 1/2' (in nhỏ 'Rosenthal, 2008'). Câu 3: Milo (vai học giả, cầm phấn) viết công thức P(A|B) = P(A∩B) : P(B), chữ B được khoanh và chú thích 'B = người dẫn mở cửa 3'; mép cuốn vở Toán 12 hiện dòng 'Xác suất có điều kiện'.",
       lines: [
         nar(
-          "Nhưng chờ đúng lúc nắng nghiêng 45° đâu phải lúc nào cũng có. Theo nhà sử học Plutarch kể lại, Thales còn một cách khác: cắm cọc ở mút bóng tháp, rồi so hai cái bóng.",
-          "Nhưng chờ đúng lúc nắng nghiêng bốn mươi lăm độ đâu phải lúc nào cũng có. Theo nhà sử học Plu-tác kể lại, Tha-lét còn một cách khác: cắm cọc ở mút bóng tháp, rồi so hai cái bóng.",
+          "Nói gọn lại, đổi cửa sẽ thắng mỗi khi lần chọn đầu tiên của bạn sai. Mà ba cửa có tới hai con dê, nên bạn chọn sai tới 2/3 số lần.",
+          "Nói gọn lại, đổi cửa sẽ thắng mỗi khi lần chọn đầu tiên của bạn sai. Mà ba cửa có tới hai con dê, nên bạn chọn sai tới hai phần ba số lần.",
         ),
         nar(
-          "Tháp và cọc cùng đứng thẳng, tia nắng song song, nên tạo ra hai tam giác đồng dạng: chiều cao tháp chia chiều cao cọc, đúng bằng bóng tháp chia bóng cọc.",
-          "Tháp và cọc cùng đứng thẳng, tia nắng song song, nên tạo ra hai tam giác đồng dạng: chiều cao tháp chia chiều cao cọc, đúng bằng bóng tháp chia bóng cọc.",
+          "Mấu chốt là người dẫn biết xe ở đâu và không bao giờ mở trúng xe. Nếu anh ta mở bừa mà tình cờ ra dê, lúc ấy mới thật sự là năm mươi năm mươi.",
+          "Mấu chốt là người dẫn biết xe ở đâu và không bao giờ mở trúng xe. Nếu anh ta mở bừa mà tình cờ ra dê, lúc ấy mới thật sự là năm mươi năm mươi.",
         ),
         nar(
-          "Tỉ lệ ấy chính là Định lý Thales mà bạn học trong Toán lớp 8. Giờ nào có nắng cũng đo được, chẳng cần chờ đợi!",
-          "Tỉ lệ ấy chính là Định lý Tha-lét mà bạn học trong Toán lớp tám. Giờ nào có nắng cũng đo được, chẳng cần chờ đợi!",
+          "Biết thêm một thông tin thì phải tính lại xác suất. Đó chính là xác suất có điều kiện mà bạn học trong Toán lớp 12.",
+          "Biết thêm một thông tin thì phải tính lại xác suất. Đó chính là xác suất có điều kiện mà bạn học trong Toán lớp mười hai.",
         ),
       ],
     },
     realworld: {
-      shot: "Rừng rậm không có bóng nắng, Milo đội mũ kiểm lâm giơ thước ngắm chữ L tạo góc 45° lên ngọn cây lim cổ thụ",
+      shot: "Câu 1: chuyển sang bàn ăn gia đình, ba chiếc cốc úp ngược, Milo giấu một đồng xu dưới một cốc. Câu 2: Milo đổi vai làm người dẫn (đeo nơ), bạn ngồi đối diện chọn một cốc; Milo nhìn thấy đồng xu nên lật đúng một cốc trống, bong bóng ý nghĩ 'CHỌN SAI THÌ TÔI KHÔNG CÒN LỰA CHỌN'. Câu 3: bảng đếm vạch phấn 'ĐỔI ✔' tăng dần lên khoảng hai phần ba số ván, nhãn '30 VÁN'; mũi tên chỉ xuống ô bình luận 'KẾT QUẢ CỦA BẠN?'.",
       lines: [
         nar(
-          "Thế nhưng, nếu bước vào một khu rừng rậm âm u không hề có bóng nắng, định lý này liệu có bó tay?",
-          "Thế nhưng, nếu bước vào một khu rừng rậm âm u không hề có bóng nắng, định lý này liệu có bó tay?",
+          "Không tin thì thử ngay tại nhà. Úp ba cái cốc xuống bàn, giấu một đồng xu dưới một cốc, rủ một người bạn làm người chơi.",
+          "Không tin thì thử ngay tại nhà. Úp ba cái cốc xuống bàn, giấu một đồng xu dưới một cốc, rủ một người bạn làm người chơi.",
         ),
         nar(
-          "Không hề! Những người kiểm lâm chỉ cần ghép hai thanh gỗ bằng nhau thành chiếc thước chữ L để tự tạo tia ngắm 45° từ mắt lên ngọn cây: Đứng cách gốc bao nhiêu mét, cộng thêm chiều cao ngang mắt là ra ngay chiều cao cây!",
-          "Không hề! Những người kiểm lâm chỉ cần ghép hai thanh gỗ bằng nhau thành chiếc thước chữ en lờ để tự tạo tia ngắm bốn mươi lăm độ từ mắt lên ngọn cây: đứng cách gốc bao nhiêu mét, cộng thêm chiều cao ngang mắt là ra ngay chiều cao cây!",
+          "Còn bạn làm người dẫn. Bạn sẽ thấy ngay, hễ bạn mình chọn trúng cốc trống, bạn chẳng còn lựa chọn nào, buộc phải chừa lại đúng cốc có xu.",
+          "Còn bạn làm người dẫn. Bạn sẽ thấy ngay, hễ bạn mình chọn trúng cốc trống, bạn chẳng còn lựa chọn nào, buộc phải chừa lại đúng cốc có xu.",
+        ),
+        nar(
+          "Chơi ba mươi ván, ván nào bạn mình cũng đổi, rồi đếm xem thắng bao nhiêu ván. Kể kết quả vào bình luận nhé!",
+          "Chơi ba mươi ván, ván nào bạn mình cũng đổi, rồi đếm xem thắng bao nhiêu ván. Kể kết quả vào bình luận nhé!",
         ),
       ],
     },
     cosmic: {
-      shot: "Phóng ra vũ trụ: Trái Đất – Mặt Trăng – Mặt Trời thẳng hàng trong Nhật thực toàn phần với tỉ lệ đồng dạng khoảng 1/400; kết: Thales đoán trước nhật thực, quay về chiếc cọc gỗ và cái bóng",
+      shot: "Câu 1: camera bay vút ra xa, bản đồ giấy da Đại Tây Dương giữa Brazil và châu Phi, dấu chấm đỏ 'VỊ TRÍ CUỐI · 1/6/2009', vòng tròn bán kính 40 hải lý chia ô lưới phủ màu đậm nhạt như bản đồ nhiệt; bốn mảng ô lần lượt được tô sọc 'ĐÃ DÒ · HỤT'. Câu 2: các mảng đã dò nhạt màu đi, trong khi một vùng khác đậm dần lên (giống cửa người dẫn chừa lại phát sáng). Câu 3: Milo (vai nhà thám hiểm biển, đội mũ phao) thả robot lặn xuống đúng ô đậm nhất; đèn pha soi thấy mảnh thân máy bay dưới đáy, nhãn 'HƠN 4.000 M · 4/2011 · 1 TUẦN'. Câu 4: camera kéo ngược về trường quay, ba cánh cửa hiện lại, cánh cửa người dẫn chừa lại sáng lên vàng ánh, Milo đặt tay lên tay nắm cửa.",
       lines: [
         nar(
-          "Và kỳ diệu hơn cả, nếu kéo dài những đường thẳng của Thales vượt ra khỏi bầu khí quyển, bạn sẽ chạm tới bí mật của hiện tượng Nhật thực toàn phần!",
-          "Và kỳ diệu hơn cả, nếu kéo dài những đường thẳng của Tha-lét vượt ra khỏi bầu khí quyển, bạn sẽ chạm tới bí mật của hiện tượng Nhật thực toàn phần!",
+          "Và đây mới là chỗ thú vị. Năm 2009, chuyến bay Air France 447 chở 228 người rơi xuống Đại Tây Dương. Bốn đợt tìm kiếm gần hai năm đều trắng tay.",
+          "Và đây mới là chỗ thú vị. Năm hai nghìn không trăm linh chín, chuyến bay E Phờ-răng bốn bốn bảy chở hai trăm hai mươi tám người rơi xuống Đại Tây Dương. Bốn đợt tìm kiếm gần hai năm đều trắng tay.",
         ),
         nar(
-          "Mặt Trời to gấp khoảng 400 lần Mặt Trăng, nhưng cũng ở xa Trái Đất hơn khoảng 400 lần — hai tam giác đồng dạng khổng lồ, nên Mặt Trăng che vừa khít Mặt Trời!",
-          "Mặt Trời to gấp khoảng bốn trăm lần Mặt Trăng, nhưng cũng ở xa Trái Đất hơn khoảng bốn trăm lần, hai tam giác đồng dạng khổng lồ, nên Mặt Trăng che vừa khít Mặt Trời!",
+          "Nhóm chuyên gia Metron coi mỗi lần tìm hụt là thông tin mới, hệt như người dẫn mở một cửa có dê. Vùng đã dò hạ xác suất, vùng chưa dò tăng lên.",
+          "Nhóm chuyên gia Mê-trôn coi mỗi lần tìm hụt là thông tin mới, hệt như người dẫn mở một cửa có dê. Vùng đã dò hạ xác suất, vùng chưa dò tăng lên.",
         ),
         nar(
-          "Mà theo sử gia Herodotus, chính Thales còn đoán trước được một lần nhật thực. Hóa ra muốn đo một kỳ quan, chẳng cần thang cao hay thước dài: chỉ cần một chiếc cọc gỗ, một cái bóng, và một cái đầu biết nhìn ra tỉ lệ.",
-          "Mà theo sử gia Hê-rô-đốt, chính Tha-lét còn đoán trước được một lần nhật thực. Hóa ra muốn đo một kỳ quan, chẳng cần thang cao hay thước dài: chỉ cần một chiếc cọc gỗ, một cái bóng, và một cái đầu biết nhìn ra tỉ lệ.",
+          "Tháng 4 năm 2011, chỉ sau một tuần dò theo bản đồ mới, xác máy bay hiện ra ở độ sâu hơn 4.000 mét.",
+          "Tháng tư năm hai nghìn không trăm mười một, chỉ sau một tuần dò theo bản đồ mới, xác máy bay hiện ra ở độ sâu hơn bốn nghìn mét.",
+        ),
+        nar(
+          "Lần sau gặp hai cửa đóng, hãy nhớ cánh cửa người dẫn cố tình chừa lại.",
+          "Lần sau gặp hai cửa đóng, hãy nhớ cánh cửa người dẫn cố tình chừa lại.",
         ),
       ],
     },
@@ -126,131 +156,136 @@ export const TUAN_1 = [
     day: 2,
     week,
     theme,
-    title: "Đo chu vi Trái Đất 2.200 năm trước bằng một cái giếng và một chiếc cọc",
-    hudTitle: "ĐO TRÁI ĐẤT BẰNG MỘT CHIẾC CỌC",
-    textbook: "Toán 7 · Hai đường thẳng song song",
-    era: "Alexandria, Ai Cập · khoảng 240 TCN",
-    question: "Nếu Trái Đất to gấp đôi, bóng cọc ở Alexandria sẽ lệch nhiều hơn hay ít hơn 7,2°?",
+    title: "Thả búa và lông chim trên Mặt Trăng: cái nào chạm đất trước?",
+    hudTitle: "BÚA HAY LÔNG CHIM CHẠM ĐẤT TRƯỚC?",
+    textbook: "Vật lí 10 · Sự rơi tự do",
+    era: "Mặt Trăng, vùng Hadley · 2/8/1971",
+    question: "Nếu hút sạch không khí trong phòng bạn rồi thả cùng lúc một quả bóng bàn và một quả tạ, cái nào chạm sàn trước?",
     sources: [
-      { title: "MacTutor (ĐH St Andrews) — Eratosthenes of Cyrene", url: "https://mathshistory.st-andrews.ac.uk/Biographies/Eratosthenes/" },
-      { title: "Strabo, Geography 17.1.48 — giếng ở Syene (LacusCurtius, ĐH Chicago)", url: "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Strabo/17A3*.html" },
-      { title: "Ohio State University, Astronomy 161 — Eratosthenes measures the Earth", url: "https://www.astronomy.ohio-state.edu/~thompson/161/measearth.html" },
-      { title: "Toán 7 Kết nối tri thức, Bài 10 — Tính chất hai đường thẳng song song (HĐ2 tr. 52)", url: "https://www.vietjack.com/toan-7-kn/hd2-trang-52-toan-7-tap-1.jsp" },
-      { title: "NOAA — What is the difference between a nautical mile and a knot?", url: "https://oceanservice.noaa.gov/facts/nauticalmile_knot.html" },
-      { title: "NASA — Sun Fact Sheet", url: "https://nssdc.gsfc.nasa.gov/planetary/factsheet/sunfact.html" },
-      { title: "HISTORY — Magellan's expedition circumnavigates globe (1522)", url: "https://www.history.com/this-day-in-history/september-6/magellans-expedition-circumnavigates-globe" },
+      { title: "SGK Vật lí 10 Kết nối tri thức — Bài 10. Sự rơi tự do, phần khởi động trang 44 (VietJack)", url: "https://vietjack.com/vat-li-10-kn/khoi-dong-trang-44-vat-li-10.jsp" },
+      { title: "NASA NSSDC — The Apollo 15 Hammer-Feather Drop", url: "https://nssdc.gsfc.nasa.gov/planetary/lunar/apollo_15_feather_drop.html" },
+      { title: "NASA Science — The Apollo 15 Hammer-Feather Drop", url: "https://science.nasa.gov/resource/the-apollo-15-hammer-feather-drop/" },
+      { title: "Apollo Lunar Surface Journal — Apollo 15 EVA-3 Closeout, 167:22", url: "https://www.apollojournals.org/alsj/a15/a15.clsout3.html" },
+      { title: "NASA — Apollo 15 mission", url: "https://www.nasa.gov/mission/apollo-15/" },
+      { title: "NASA NSSDC — Moon Fact Sheet", url: "https://nssdc.gsfc.nasa.gov/planetary/factsheet/moonfact.html" },
+      { title: "Stanford Encyclopedia of Philosophy — Galileo Galilei", url: "https://plato.stanford.edu/entries/galileo/" },
+      { title: "MacTutor (ĐH St Andrews) — Galileo Galilei", url: "https://mathshistory.st-andrews.ac.uk/Biographies/Galileo/" },
+      { title: "Linda Hall Library — Scientist of the Day: Vincenzo Viviani", url: "https://www.lindahall.org/about/news/scientist-of-the-day/vincenzo-viviani/" },
+      { title: "Museo Galileo — Inclined plane", url: "https://catalogue.museogalileo.it/object/InclinedPlane.html" },
+      { title: "NASA Glenn — Reduced Gravity Drop Towers", url: "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/reduced-gravity-drop-towers-and-test-rigs" },
+      { title: "NASA — What Is Microgravity?", url: "https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-microgravity-grades-5-8/" },
     ],
     hook: {
-      shot: "Alexandria khoảng 240 TCN, Milo (vai Eratosthenes) đứng cạnh quả địa cầu có dấu hỏi, bên cạnh một cái giếng đá và một chiếc cọc đo bóng",
+      shot: "Mở thẳng vào cận cảnh hai bàn tay găng trắng của phi hành gia: tay phải cầm chiếc búa địa chất bằng nhôm, tay trái cầm một chiếc lông chim ưng dài; nền là bụi xám Mặt Trăng, bầu trời đen, mô-đun đổ bộ Falcon và xe tự hành phía xa. Câu 2: lùi ra, Milo trong bộ đồ du hành, kính đồng thau gài trên mũ (vai David Scott), đứng ở vùng Hadley; thẻ ngày '2/8/1971 · APOLLO 15' đóng dấu xuống góc giấy da. Câu 3: hình đóng băng ngay khoảnh khắc buông tay, Milo quay ra giơ tấm bảng ba ô 'BÚA? · LÔNG CHIM? · CÙNG LÚC?', mũi tên nhấp nháy chỉ xuống khung bình luận.",
       lines: [
         nar(
-          "Hơn 2.200 năm trước, người Hy Lạp đã biết Trái Đất hình cầu. Nhưng quả cầu ấy to cỡ nào?",
-          "Hơn hai nghìn hai trăm năm trước, người Hy Lạp đã biết Trái Đất hình cầu. Nhưng quả cầu ấy to cỡ nào?",
+          "Thả cùng lúc một chiếc búa và một chiếc lông chim, cái nào chạm đất trước? Ai cũng đáp ngay, chiếc búa!",
+          "Thả cùng lúc một chiếc búa và một chiếc lông chim, cái nào chạm đất trước? Ai cũng đáp ngay, chiếc búa!",
         ),
         nar(
-          "Nhà bác học Eratosthenes đã đo được nó mà không cần rời khỏi Ai Cập.",
-          "Nhà bác học Ê-ra-tốt-xten đã đo được nó mà không cần rời khỏi Ai Cập.",
+          "Thế nhưng ngày 2/8/1971, phi hành gia David Scott của Apollo 15 đã làm đúng phép thử ấy trên Mặt Trăng, ngay trước ống kính máy quay.",
+          "Thế nhưng ngày hai tháng tám năm một nghìn chín trăm bảy mươi mốt, phi hành gia Đây-vít Xcốt của A-pô-lô mười lăm đã làm đúng phép thử ấy trên Mặt Trăng, ngay trước ống kính máy quay.",
         ),
         nar(
-          "Thứ ông dùng chỉ là một cái giếng, một chiếc cọc và một quãng đường. Bằng cách nào?",
-          "Thứ ông dùng chỉ là một cái giếng, một chiếc cọc và một quãng đường. Bằng cách nào?",
+          "Bạn cược gì nào? Búa, lông chim, hay cả hai chạm đất cùng lúc? Ghi vào bình luận trước khi xem tiếp nhé!",
+          "Bạn cược gì nào? Búa, lông chim, hay cả hai chạm đất cùng lúc? Ghi vào bình luận trước khi xem tiếp nhé!",
         ),
       ],
     },
     barrier: {
-      shot: "Milo cầm cuộn dây định đi vòng quanh quả địa cầu, bị đại dương mênh mông chắn lối (✖); mốc thời gian 240 TCN → 1522 chạy qua",
+      shot: "Chuyển về sân Trái Đất: Milo (áo sơ mi xanh, ghi-lê rêu) thả cùng lúc một hòn đá và một chiếc lá; hòn đá rơi thẳng 'cộp', chiếc lá chao lượn mãi; tờ giấy thả sau cũng lượn lờ. Câu 2: lật trang giấy da sang Athens cổ, Milo (vai Aristotle, áo choàng trắng) viết lên cuộn giấy dòng chữ 'NẶNG GẤP ĐÔI → RƠI NHANH GẤP ĐÔI', bên cạnh hai quả cầu 1 kg và 2 kg với mũi tên tốc độ dài gấp đôi. Câu 3: dòng chữ được đóng khung vàng, xếp chồng lên nhiều cuốn sách cổ có nhãn thế kỷ, như được dạy lại qua bao đời.",
       lines: [
         nar(
-          "Muốn biết chu vi một quả cầu, cách dễ nghĩ nhất là đi trọn một vòng quanh nó rồi đo.",
-          "Muốn biết chu vi một quả cầu, cách dễ nghĩ nhất là đi trọn một vòng quanh nó rồi đo.",
+          "Trực giác ấy chẳng hề ngớ ngẩn. Ngoài đời, hòn đá luôn rơi nhanh hơn chiếc lá, còn tờ giấy thì chao lượn mãi mới chạm đất.",
+          "Trực giác ấy chẳng hề ngớ ngẩn. Ngoài đời, hòn đá luôn rơi nhanh hơn chiếc lá, còn tờ giấy thì chao lượn mãi mới chạm đất.",
         ),
         nar(
-          "Nhưng với Trái Đất thì không thể: đại dương và những vùng đất chưa ai biết chắn mọi lối.",
-          "Nhưng với Trái Đất thì không thể: đại dương và những vùng đất chưa ai biết chắn mọi lối.",
+          "Hơn 2.300 năm trước, nhà triết học Hy Lạp Aristotle cũng nghĩ vậy. Theo ông, vật rơi nhanh tỉ lệ với sức nặng của nó.",
+          "Hơn hai nghìn ba trăm năm trước, nhà triết học Hy Lạp A-ri-xtốt cũng nghĩ vậy. Theo ông, vật rơi nhanh tỉ lệ với sức nặng của nó.",
         ),
         nar(
-          "Gần 1.800 năm sau, năm 1522, đoàn thuyền của Magellan mới lần đầu đi hết một vòng.",
-          "Gần một nghìn tám trăm năm sau, năm một nghìn năm trăm hai mươi hai, đoàn thuyền của Ma-gien-lăng mới lần đầu đi hết một vòng.",
+          "Nặng gấp đôi thì rơi nhanh gấp đôi. Nghe hợp lý đến mức suốt nhiều thế kỷ, ý ấy được dạy như một chân lý.",
+          "Nặng gấp đôi thì rơi nhanh gấp đôi. Nghe hợp lý đến mức suốt nhiều thế kỷ, ý ấy được dạy như một chân lý.",
         ),
       ],
     },
     eureka: {
-      shot: "Trưa Hạ chí: ở Syene nắng rọi thẳng đáy giếng, cọc không bóng; ở Alexandria cọc đổ bóng, tia nắng lệch khỏi cọc 7,2° = 1/50 vòng tròn; các tia nắng vẽ song song",
+      shot: "Câu 1: tháp nghiêng Pisa vẽ mờ như tranh cũ, Milo (vai Galileo) đứng trên đỉnh cầm hai quả cầu, con dấu đỏ 'TƯƠNG TRUYỀN' đóng chéo lên cảnh; một cuốn sách nhỏ ghi 'VIVIANI kể lại' bay qua. Câu 2: gạch bỏ cảnh tháp, chuyển vào xưởng, máng gỗ nghiêng dài, Milo thả viên bi đồng lăn xuống, nhịp quả lắc tích tắc. Câu 3: vạch quãng đường hiện theo nhịp: '1 nhịp → 1', '2 nhịp → 4', '3 nhịp → 9'. Câu 4: cắt về Mặt Trăng, quay chậm cú thả, búa và lông chim song song rơi xuống, chạm bụi cùng một khung hình; bụi tung lên, Milo-Scott dang tay, bong bóng thoại 'GALILEO ĐÃ ĐÚNG!'.",
       lines: [
         nar(
-          "Eratosthenes không đi hết cả vòng, mà chỉ đo một khúc nhỏ của nó.",
-          "Ê-ra-tốt-xten không đi hết cả vòng, mà chỉ đo một khúc nhỏ của nó.",
+          "Người lật lại ý ấy là Galileo. Tương truyền, ông thả hai quả cầu từ tháp nghiêng Pisa, nhưng chuyện này do học trò Viviani kể lại, và nhiều sử gia nghi ngờ.",
+          "Người lật lại ý ấy là Ga-li-lê. Tương truyền, ông thả hai quả cầu từ tháp nghiêng Pi-da, nhưng chuyện này do học trò Vi-vi-a-ni kể lại, và nhiều sử gia nghi ngờ.",
         ),
         nar(
-          "Sách cổ chép rằng ở Syene, phía nam Ai Cập, trưa Hạ chí nắng rọi thẳng đáy giếng, cọc không có bóng.",
-          "Sách cổ chép rằng ở Xi-ê-nê, phía nam Ai Cập, trưa Hạ chí nắng rọi thẳng đáy giếng, cọc không có bóng.",
+          "Điều có ghi chép là một thí nghiệm khéo hơn. Khoảng năm 1604, Galileo cho bi lăn xuống máng nghiêng, làm chậm cú rơi để kịp đo.",
+          "Điều có ghi chép là một thí nghiệm khéo hơn. Khoảng năm một nghìn sáu trăm linh tư, Ga-li-lê cho bi lăn xuống máng nghiêng, làm chậm cú rơi để kịp đo.",
         ),
         nar(
-          "Cũng trưa ngày ấy ở Alexandria, cọc vẫn đổ bóng: tia nắng lệch khỏi cọc 1/50 vòng tròn, tức 7,2°.",
-          "Cũng trưa ngày ấy ở A-lếch-xan-đri-a, cọc vẫn đổ bóng: tia nắng lệch khỏi cọc một phần năm mươi vòng tròn, tức bảy phẩy hai độ.",
+          "Cú rơi nhanh dần đều. Sau hai nhịp, bi đi xa gấp bốn, sau ba nhịp, gấp chín. Galileo kết luận, không có không khí cản, mọi vật rơi nhanh như nhau.",
+          "Cú rơi nhanh dần đều. Sau hai nhịp, bi đi xa gấp bốn, sau ba nhịp, gấp chín. Ga-li-lê kết luận, không có không khí cản, mọi vật rơi nhanh như nhau.",
         ),
         nar(
-          "Mặt Trời rất xa nên tia nắng tới hai nơi song song. Bóng khác nhau chỉ vì mặt đất cong.",
-          "Mặt Trời rất xa nên tia nắng tới hai nơi song song. Bóng khác nhau chỉ vì mặt đất cong.",
+          "Và trên Mặt Trăng, nơi gần như không có không khí, búa và lông chim chạm đất cùng lúc! Scott reo lên, điều đó chứng tỏ ngài Galileo đã đúng.",
+          "Và trên Mặt Trăng, nơi gần như không có không khí, búa và lông chim chạm đất cùng lúc! Xcốt reo lên, điều đó chứng tỏ ngài Ga-li-lê đã đúng.",
         ),
       ],
     },
     theorem: {
-      shot: "Mặt cắt Trái Đất: kéo dài hai cọc gặp nhau ở tâm; tia nắng ở Alexandria song song đường cọc Syene, cọc Alexandria là cát tuyến, tô hai góc so le trong 7,2°; trang Toán 7 mở ra, 5.000 × 50 = 250.000 stadion",
+      shot: "Câu 1: trở lại sân Trái Đất, quanh chiếc lông chim đang rơi hiện các mũi tên nhỏ của không khí đẩy ngược lên; Milo (vai học giả, kính đồng thau kéo xuống mắt) dùng chiếc bơm tay hút hết khí trong một ống thủy tinh dài, các mũi tên biến mất, chỉ còn một mũi tên trọng lực P hướng xuống trên cả búa lẫn lông. Câu 2: công thức s = ½gt² mọc ra từ hai vệt rơi song song. Câu 3: bảng so sánh hai cột 'TRÁI ĐẤT g ≈ 9,8 m/s²' và 'MẶT TRĂNG g ≈ 1,62 m/s²', thước đo cao 1,6 m, đồng hồ đếm đến 1,4 giây. Câu 4: cuốn Vật lí 10 mở ra ở Bài 10, trang mở đầu có hình búa và lông chim.",
       lines: [
         nar(
-          "Kéo dài hai chiếc cọc, chúng gặp nhau ở tâm Trái Đất. Cọc ở Alexandria cắt hai đường song song: tia nắng và đường cọc ở Syene.",
-          "Kéo dài hai chiếc cọc, chúng gặp nhau ở tâm Trái Đất. Cọc ở A-lếch-xan-đri-a cắt hai đường song song: tia nắng, và đường cọc ở Xi-ê-nê.",
+          "Vậy cái gì làm lông chim rơi chậm? Thủ phạm là sức cản không khí. Bỏ không khí đi, vật chỉ còn chịu trọng lực, và đó là rơi tự do.",
+          "Vậy cái gì làm lông chim rơi chậm? Thủ phạm là sức cản không khí. Bỏ không khí đi, vật chỉ còn chịu trọng lực, và đó là rơi tự do.",
         ),
         nar(
-          "Hai góc so le trong bằng nhau, nên góc ở tâm cũng là 7,2°. Đó chính là tính chất hai đường thẳng song song trong Toán lớp 7.",
-          "Hai góc so le trong bằng nhau, nên góc ở tâm cũng là bảy phẩy hai độ. Đó chính là tính chất hai đường thẳng song song trong Toán lớp bảy.",
+          "Ở cùng một nơi, mọi vật rơi tự do đều nhanh dần với cùng gia tốc g, dù nặng hay nhẹ. Quãng rơi là s = ½gt².",
+          "Ở cùng một nơi, mọi vật rơi tự do đều nhanh dần với cùng gia tốc giê, dù nặng hay nhẹ. Quãng rơi là ét bằng một phần hai giê tê bình phương.",
         ),
         nar(
-          "Góc ở tâm bằng 1/50 vòng tròn, nên chu vi gấp 50 lần quãng 5.000 stadion từ Syene tới Alexandria: 250.000 stadion.",
-          "Góc ở tâm bằng một phần năm mươi vòng tròn, nên chu vi gấp năm mươi lần quãng năm nghìn xta-đi-ông từ Xi-ê-nê tới A-lếch-xan-đri-a: hai trăm năm mươi nghìn xta-đi-ông.",
+          "Mặt Trăng hút yếu hơn nhiều, g chỉ khoảng 1,62 m/s². Vì thế từ độ cao 1,6 mét, búa và lông chim cùng rơi mất chừng 1,4 giây.",
+          "Mặt Trăng hút yếu hơn nhiều, giê chỉ khoảng một phẩy sáu hai mét trên giây bình phương. Vì thế từ độ cao một phẩy sáu mét, búa và lông chim cùng rơi mất chừng một phẩy bốn giây.",
         ),
         nar(
-          "Tùy một stadion dài 157 hay 185 mét, con số ấy cỡ 39.000 đến 46.000 km, so với chừng 40.000 km đo ngày nay.",
-          "Tùy một xta-đi-ông dài một trăm năm mươi bảy hay một trăm tám mươi lăm mét, con số ấy cỡ ba mươi chín nghìn đến bốn mươi sáu nghìn ki lô mét, so với chừng bốn mươi nghìn ki lô mét đo ngày nay.",
+          "Đó chính là bài Sự rơi tự do trong Vật lí lớp 10, và bài học ấy mở đầu bằng chính cú thả này.",
+          "Đó chính là bài Sự rơi tự do trong Vật lí lớp mười, và bài học ấy mở đầu bằng chính cú thả này.",
         ),
       ],
     },
     realworld: {
-      shot: "Milo trên tàu buồm ban đêm giơ thước đo góc ngắm sao Bắc Cực; tàu chạy về phía bắc, sao nhô cao thêm 1°, thước hải đồ ghi 111 km ≈ 60 hải lý",
+      shot: "Câu 1: bàn học ở nhà, Milo thả riêng một cuốn sách và một tờ giấy phẳng, sách 'bộp' xuống trước, giấy lượn lờ (✖). Câu 2: Milo đặt tờ giấy nằm phẳng trên mặt cuốn sách, thả, quay chậm: luồng gió vẽ bằng nét chì bị cuốn sách rẽ sang hai bên, sách và giấy chạm bàn cùng lúc (✔). Câu 3: chuyển cảnh mặt cắt dọc một giếng sâu dưới lòng đất của trung tâm NASA Glenn, ống thép dài, nhãn '132 m · gần như chân không', khối thí nghiệm rơi từ đỉnh, đồng hồ góc màn hình chạy đến '5,18 giây'.",
       lines: [
         nar(
-          "Người đi biển dùng phép tính ấy theo chiều ngược lại, với ánh sao Bắc Cực cũng song song như tia nắng.",
-          "Người đi biển dùng phép tính ấy theo chiều ngược lại, với ánh sao Bắc Cực cũng song song như tia nắng.",
+          "Muốn tự kiểm chứng? Bạn thử được ngay ở nhà. Thả riêng một cuốn sách và một tờ giấy, cuốn sách sẽ xuống trước.",
+          "Muốn tự kiểm chứng? Bạn thử được ngay ở nhà. Thả riêng một cuốn sách và một tờ giấy, cuốn sách sẽ xuống trước.",
         ),
         nar(
-          "Tàu chạy thẳng về phía bắc, sao Bắc Cực nhô cao thêm 1° nghĩa là tàu đã đi thêm 1/360 vòng Trái Đất, khoảng 111 km.",
-          "Tàu chạy thẳng về phía bắc, sao Bắc Cực nhô cao thêm một độ, nghĩa là tàu đã đi thêm một phần ba trăm sáu mươi vòng Trái Đất, khoảng một trăm mười một ki lô mét.",
+          "Giờ đặt tờ giấy nằm phẳng trên cuốn sách rồi thả. Cuốn sách rẽ không khí cho tờ giấy, và cả hai chạm đất cùng lúc!",
+          "Giờ đặt tờ giấy nằm phẳng trên cuốn sách rồi thả. Cuốn sách rẽ không khí cho tờ giấy, và cả hai chạm đất cùng lúc!",
         ),
         nar(
-          "Vì thế một hải lý, 1.852 mét, vốn được định bằng một phút góc vĩ độ.",
-          "Vì thế một hải lý, một nghìn tám trăm năm mươi hai mét, vốn được định bằng một phút góc vĩ độ.",
+          "Ở quy mô lớn, tháp rơi của NASA Glenn cho thiết bị rơi 132 mét trong ống thép hút gần hết khí, được 5,18 giây gần như không trọng lượng.",
+          "Ở quy mô lớn, tháp rơi của Na-sa Gờ-len cho thiết bị rơi một trăm ba mươi hai mét trong ống thép hút gần hết khí, được năm phẩy một tám giây gần như không trọng lượng.",
         ),
       ],
     },
     cosmic: {
-      shot: "Phóng ra vũ trụ: từ Trái Đất kẻ hai tia tới hai mép Mặt Trời cách 150 triệu km, góc 0,53°; vòng tròn bán kính 150 triệu km dài 940 triệu km; kết: quay về cái giếng không bóng và chiếc cọc có bóng",
+      shot: "Câu 1: phóng ra vũ trụ, Trái Đất xanh tròn trên nền đen, trạm vũ trụ quốc tế ISS bay ngang. Câu 2: nhãn 'trọng lực ≈ 90%'; Milo phi hành gia lơ lửng trong trạm, dấu hỏi lớn bên cạnh. Câu 3: nhãn '≈ 28.000 km/h', vẽ đường cong: một mũi tên rơi thẳng xuống cộng một mũi tên lao ngang tạo thành quỹ đạo tròn ôm lấy Trái Đất; phóng vào trong trạm, chiếc búa và chiếc lông chim lơ lửng song song cạnh Milo. Câu 4: thu nhỏ dần về bụi xám Mặt Trăng, khung hình cuối là búa và lông chim nằm cạnh nhau trên mặt bụi, chữ viết tay 'CÙNG MỘT LÚC'.",
       lines: [
         nar(
-          "Cũng tỉ lệ góc và cung ấy, ngày nay ta đo được cả Mặt Trời.",
-          "Cũng tỉ lệ góc và cung ấy, ngày nay ta đo được cả Mặt Trời.",
+          "Và ngay lúc này, có một thứ khổng lồ cũng đang rơi tự do. Đó là trạm vũ trụ quốc tế ISS!",
+          "Và ngay lúc này, có một thứ khổng lồ cũng đang rơi tự do. Đó là trạm vũ trụ quốc tế ai ét ét!",
         ),
         nar(
-          "Mặt Trời cách ta khoảng 150 triệu km và chiếm chừng 0,53° trên bầu trời, khoảng 1/675 vòng tròn.",
-          "Mặt Trời cách ta khoảng một trăm năm mươi triệu ki lô mét và chiếm chừng không phẩy năm mươi ba độ trên bầu trời, khoảng một phần sáu trăm bảy mươi lăm vòng tròn.",
+          "Theo NASA, ở độ cao của trạm, trọng lực vẫn còn khoảng 90% so với mặt đất. Vậy sao các phi hành gia lại lơ lửng?",
+          "Theo Na-sa, ở độ cao của trạm, trọng lực vẫn còn khoảng chín mươi phần trăm so với mặt đất. Vậy sao các phi hành gia lại lơ lửng?",
         ),
         nar(
-          "Vòng tròn bán kính ấy dài khoảng 940 triệu km. Chia cho 675, Mặt Trời rộng gần 1,4 triệu km, khớp với số đo hiện đại.",
-          "Vòng tròn bán kính ấy dài khoảng chín trăm bốn mươi triệu ki lô mét. Chia cho sáu trăm bảy mươi lăm, Mặt Trời rộng gần một phẩy bốn triệu ki lô mét, khớp với số đo hiện đại.",
+          "Bởi trạm lao ngang khoảng 28.000 km/h, cứ rơi mà mãi hụt mặt đất cong. Người và đồ vật bên trong rơi cùng nhau, nên trông như lơ lửng.",
+          "Bởi trạm lao ngang khoảng hai mươi tám nghìn ki-lô-mét mỗi giờ, cứ rơi mà mãi hụt mặt đất cong. Người và đồ vật bên trong rơi cùng nhau, nên trông như lơ lửng.",
         ),
         nar(
-          "Tất cả bắt đầu từ một cái giếng không có bóng, một chiếc cọc có bóng, và một người biết đổi góc lệch thành quãng đường.",
-          "Tất cả bắt đầu từ một cái giếng không có bóng, một chiếc cọc có bóng, và một người biết đổi góc lệch thành quãng đường.",
+          "Chính quy luật ấy giữ trạm trên quỹ đạo, và đưa chiếc búa cùng chiếc lông chim chạm bụi Mặt Trăng trong cùng một khoảnh khắc.",
+          "Chính quy luật ấy giữ trạm trên quỹ đạo, và đưa chiếc búa cùng chiếc lông chim chạm bụi Mặt Trăng trong cùng một khoảnh khắc.",
         ),
       ],
     },
@@ -260,119 +295,129 @@ export const TUAN_1 = [
     day: 3,
     week,
     theme,
-    title: "Sợi dây 12 nút, tấm bảng đất sét 3.600 năm & Định lý Pythagoras",
-    hudTitle: "GÓC VUÔNG TỪ SỢI DÂY 12 NÚT",
-    textbook: "Toán 8 · Định lý Pythagoras",
-    era: "Sippar, Lưỡng Hà · 1900–1600 TCN",
-    question: "Nếu hai cạnh góc tường dài 6 mét và 8 mét, đường chéo phải dài bao nhiêu mét thì góc ấy vuông?",
+    title: "Cơm nguội để qua đêm ăn có sao không?",
+    hudTitle: "CƠM NGUỘI QUA ĐÊM: TIN HAY ĐỒN?",
+    textbook: "Sinh học 10 · Sinh trưởng ở vi sinh vật",
+    era: "Căn bếp mỗi nhà · Tin được hay Tin đồn?",
+    question: "Món cơm rang nhà bạn thường dùng cơm nguội để từ lúc nào?",
     sources: [
-      { title: "UNSW Sydney — Australian mathematician reveals world's oldest example of applied geometry (tấm bảng Si.427)", url: "https://www.unsw.edu.au/news/2021/08/australian-mathematician-reveals-world-s-oldest-example-of-appli" },
-      { title: "ScienceDaily — Mathematician reveals world's oldest example of applied geometry (Mansfield, Foundations of Science 2021)", url: "https://www.sciencedaily.com/releases/2021/08/210804123503.htm" },
-      { title: "MacTutor (ĐH St Andrews) — Pythagoras of Samos", url: "https://mathshistory.st-andrews.ac.uk/Biographies/Pythagoras/" },
-      { title: "SGK Toán 8 Kết nối tri thức — Bài 35: Định lí Pythagore và ứng dụng (lý thuyết)", url: "https://vietjack.com/toan-8-kn/ly-thuyet-bai-35-dinh-li-pythagore-va-ung-dung.jsp" },
-      { title: "JLC — Snapping Layout Lines for Walls (phương pháp 3-4-5)", url: "https://www.jlconline.com/Training-the-Trades/snapping-layout-lines-for-walls_o?o=1" },
-      { title: "NASA — International Space Station (độ cao khoảng 250 dặm)", url: "https://www.nasa.gov/International%20Space%20Station/" },
-      { title: "NASA NSSDC — Earth Fact Sheet (bán kính trung bình 6.371 km)", url: "https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html" },
+      { title: "Food Standards Scotland — Rice: cooling and storing cooked rice", url: "https://www.foodstandards.gov.scot/consumers/food-safety/at-home/rice" },
+      { title: "NHS — Starchy foods and carbohydrates: storing rice", url: "https://www.nhs.uk/live-well/eat-well/food-types/starchy-foods-and-carbohydrates/" },
+      { title: "Food Standards Agency / GOV.UK — Home food fact checker: rice", url: "https://www.gov.uk/government/publications/home-food-fact-checker/home-food-fact-checker" },
+      { title: "Centre for Food Safety Hồng Kông — Food Safety Focus số 193 (8/2022): Heat-stable Toxins from Bacillus cereus and Staphylococcus aureus", url: "https://cfs.gov.hk/english/multimedia/multimedia_pub/multimedia_pub_fsf_193_01.html" },
+      { title: "Sinh học 10 Kết nối tri thức — Bài 21. Trao đổi chất, sinh trưởng và sinh sản ở vi sinh vật", url: "https://loigiaihay.com/ly-thuyet-trao-doi-chat-sinh-truong-va-sinh-san-o-vi-sinh-vat-sinh-10-ket-noi-tri-thuc-a116338.html" },
     ],
     hook: {
-      shot: "Milo cầm sợi dây 12 nút trước nền kim tự tháp, dấu hỏi lớn hiện trên sợi dây; cảnh lật sang một cánh đồng Lưỡng Hà và tấm bảng đất sét nhỏ vừa lòng bàn tay",
+      shot: "Căn bếp Việt buổi sáng trên sân khấu giấy da: bát cơm nguội úp đĩa trên bàn, nồi cơm điện bên cạnh, đồng hồ treo tường chỉ 7 giờ. Câu 1: Milo (vai người nội trợ, đeo tạp dề trên áo ghi-lê) đứng giữa hai bong bóng lời bật lần lượt: trái 'ĂN BAO NĂM CÓ SAO ĐÂU', phải 'ĐỂ QUA ĐÊM LÀ THÀNH ĐỘC'. Câu 2: kim đồng hồ quay ngược về lúc tắt bếp tối qua, dòng chữ viết tay 'mấy tiếng đầu…'. Câu 3: Milo giơ tấm bảng ba ô 'TIN ĐƯỢC / TIN ĐỒN / TÙY?', mũi tên chỉ xuống ô bình luận. Chuyển cảnh: bát cơm phóng to dần.",
       lines: [
         nar(
-          "Có lẽ bạn từng nghe: người Ai Cập cổ dùng một sợi dây thắt 12 nút để kẻ góc vuông cho kim tự tháp.",
-          "Có lẽ bạn từng nghe: người Ai Cập cổ dùng một sợi dây thắt mười hai nút để kẻ góc vuông cho kim tự tháp.",
+          "Một bát cơm nguội qua đêm đủ chia cả nhà làm hai phe. Người bảo ăn bao năm có sao đâu, người bảo để qua đêm là thành độc.",
+          "Một bát cơm nguội qua đêm đủ chia cả nhà làm hai phe. Người bảo ăn bao năm có sao đâu, người bảo để qua đêm là thành độc.",
         ),
         nar(
-          "Thực ra đó chỉ là giả thuyết từ thế kỷ 19, chưa có văn bản Ai Cập nào ghi lại cách ấy.",
-          "Thực ra đó chỉ là giả thuyết từ thế kỷ mười chín, chưa có văn bản Ai Cập nào ghi lại cách ấy.",
+          "Vậy ai đúng? Hóa ra điều quyết định không nằm ở lúc hâm cơm, mà ở mấy tiếng đầu tiên sau khi tắt bếp.",
+          "Vậy ai đúng? Hóa ra điều quyết định không nằm ở lúc hâm cơm, mà ở mấy tiếng đầu tiên sau khi tắt bếp.",
         ),
         nar(
-          "Nhưng bài toán thì có thật: trên cánh đồng rộng, làm sao kẻ góc vuông thật chuẩn? Dấu vết lời giải nằm trên một tấm bảng đất sét hơn 3.600 năm tuổi.",
-          "Nhưng bài toán thì có thật: trên cánh đồng rộng, làm sao kẻ góc vuông thật chuẩn? Dấu vết lời giải nằm trên một tấm bảng đất sét hơn ba nghìn sáu trăm năm tuổi.",
+          "Bạn chọn Tin được, Tin đồn hay Tùy? Ghi vào bình luận trước khi xem tiếp nhé!",
+          "Bạn chọn Tin được, Tin đồn hay Tùy? Ghi vào bình luận trước khi xem tiếp nhé!",
         ),
       ],
     },
     barrier: {
-      shot: "Thành Sippar cổ: Milo vai người đo đất đứng giữa thửa ruộng có hàng chà là ở ranh giới; Milo nheo mắt ngắm góc rồi ướm góc viên gạch, đường ranh kéo dài 100 m lệch dần 1°, hở ra 1,75 m và một dải tam giác đỏ ~87 m² (✖)",
+      shot: "Sân khấu chia đôi. Câu 1–2, bên trái: nồi cơm sôi sùng sục, nhãn 'ĐÃ NẤU CHÍN = SẠCH?' rồi đóng dấu ✖ đỏ khi một hạt gạo phóng to lộ ra chấm nhỏ có vỏ dày, nhãn 'BÀO TỬ BACILLUS CEREUS'. Câu 3, bên phải: chảo hâm cơm bốc khói, nhãn 'HÂM LẠI LÀ HỎNG?' rồi gạch chéo, thay bằng mũi tên chỉ ngược về tủ bếp có chữ 'CẤT THẾ NÀO MỚI LÀ CHUYỆN'. Milo (vai thanh tra an toàn thực phẩm, cầm sổ ghi chép) gãi đầu nhìn hai bên.",
       lines: [
         nar(
-          "Tấm bảng đào được ở thành Sippar, nay thuộc Iraq, là bản vẽ của người đo đất khi chia lại một thửa ruộng.",
-          "Tấm bảng đào được ở thành Xíp-pa, nay thuộc I-rắc, là bản vẽ của người đo đất khi chia lại một thửa ruộng.",
+          "Phe yên tâm có lý do hẳn hoi. Nấu chín và hâm nóng thường giết được vi khuẩn, nên nồi cơm đã sôi kỹ tưởng như sạch hẳn.",
+          "Phe yên tâm có lý do hẳn hoi. Nấu chín và hâm nóng thường giết được vi khuẩn, nên nồi cơm đã sôi kỹ tưởng như sạch hẳn.",
         ),
         nar(
-          "Đất thời ấy là chuyện lớn: một tấm bảng khác ghi vụ hai người quyền thế tranh chấp hàng chà là trên đường ranh.",
-          "Đất thời ấy là chuyện lớn: một tấm bảng khác ghi vụ hai người quyền thế tranh chấp hàng chà là trên đường ranh.",
+          "Vậy mà theo hệ thống y tế NHS của Anh, gạo sống có thể mang bào tử vi khuẩn Bacillus cereus. Và bào tử ấy sống sót qua nồi cơm.",
+          "Vậy mà theo hệ thống y tế en hát ét của Anh, gạo sống có thể mang bào tử vi khuẩn Ba-xi-lút xê-rê-út. Và bào tử ấy sống sót qua nồi cơm.",
         ),
         nar(
-          "Cách dễ nghĩ nhất là ngắm bằng mắt, hay ướm theo góc viên gạch. Nhưng lệch 1 độ thôi, cuối cạnh 100 mét đã hở gần 1,75 mét, lấn mất gần 90 mét vuông đất!",
-          "Cách dễ nghĩ nhất là ngắm bằng mắt, hay ướm theo góc viên gạch. Nhưng lệch một độ thôi, cuối cạnh một trăm mét đã hở gần một mét bảy lăm, lấn mất gần chín mươi mét vuông đất!",
+          "Còn phe lo sợ chỉ đúng một nửa. Cơ quan Tiêu chuẩn Thực phẩm Anh nói rắc rối không nằm ở việc hâm lại, mà ở cách cất cơm trước khi hâm.",
+          "Còn phe lo sợ chỉ đúng một nửa. Cơ quan Tiêu chuẩn Thực phẩm Anh nói rắc rối không nằm ở việc hâm lại, mà ở cách cất cơm trước khi hâm.",
         ),
       ],
     },
     eureka: {
-      shot: "Milo bỏ việc ngắm góc, cầm dây đo độ dài; trên tấm bảng hiện hình chữ nhật cạnh 3 và 4 với đường chéo 5; rồi Milo căng sợi dây 12 nút thành tam giác 3 – 4 – 5 khoảng nút, góc vuông sáng lên; phóng to thành 30 – 40 – 50 m",
+      shot: "Câu 1: mô hình nhỏ, bào tử vẽ như hạt nhỏ mặc áo giáp đồng thau. Hai nhiệt kế đứng cạnh nhau: nhiệt kế nồi cơm dừng ở 100 °C, nhiệt kế nồi hấp công nghiệp lên 121 °C kèm đồng hồ cát 3 phút; bào tử chỉ vỡ áo ở nhiệt kế thứ hai. Câu 2: cơm nằm trên bàn bếp ban đêm, bào tử cởi áo, nảy mầm. Câu 3–4: chia đôi liên tục theo nhịp đồng hồ 20 phút; bộ đếm chạy 1 → 2 → 4 → … → 16.777.216, nhãn 'LÝ THUYẾT · ĐIỀU KIỆN LÝ TƯỞNG · 8 GIỜ = 24 LẦN CHIA'. Milo (vai nhà nghiên cứu, kính bảo hộ hạ xuống mắt) há hốc. Câu 5: những chấm nhỏ màu cam (độc tố) lơ lửng quanh hạt cơm; ngọn lửa chảo bùng lên nhưng chấm cam vẫn còn, nhãn 'HÂM NÓNG KHÔNG XÓA ĐƯỢC'.",
       lines: [
         nar(
-          "Bí quyết của người đo đất Babylon: đừng đo góc, hãy đo độ dài, thứ đo chính xác dễ hơn nhiều.",
-          "Bí quyết của người đo đất Ba-bi-lon: đừng đo góc, hãy đo độ dài, thứ đo chính xác dễ hơn nhiều.",
+          "Vì sao bào tử lì đến thế? Vì nó như mặc áo giáp. Theo Trung tâm An toàn Thực phẩm Hồng Kông, muốn diệt nó phải đun tới 121 độ C suốt 3 phút.",
+          "Vì sao bào tử lì đến thế? Vì nó như mặc áo giáp. Theo Trung tâm An toàn Thực phẩm Hồng Kông, muốn diệt nó phải đun tới một trăm hai mươi mốt độ xê suốt ba phút.",
         ),
         nar(
-          "Theo nhà toán học Daniel Mansfield, người giải mã tấm bảng, họ dùng những bộ ba số đặc biệt. Đơn giản nhất là 3, 4, 5: hình chữ nhật cạnh 3 và 4 thì đường chéo đúng bằng 5.",
-          "Theo nhà toán học Đa-ni-en Men-phin, người giải mã tấm bảng, họ dùng những bộ ba số đặc biệt. Đơn giản nhất là ba, bốn, năm: hình chữ nhật cạnh ba và bốn thì đường chéo đúng bằng năm.",
+          "Nồi cơm nhà mình chỉ sôi quanh 100 độ, nên bào tử vẫn nằm im. Để cơm ở nhiệt độ phòng, chúng nảy mầm và sinh sôi.",
+          "Nồi cơm nhà mình chỉ sôi quanh một trăm độ, nên bào tử vẫn nằm im. Để cơm ở nhiệt độ phòng, chúng nảy mầm và sinh sôi.",
         ),
         nar(
-          "Bạn tự thử được với sợi dây 12 nút cách đều: căng thành tam giác 3, 4, 5 khoảng, góc giữa cạnh 3 và cạnh 4 tự khắc vuông.",
-          "Bạn tự thử được với sợi dây mười hai nút cách đều: căng thành tam giác ba, bốn, năm khoảng, góc giữa cạnh ba và cạnh bốn tự khắc vuông.",
+          "Nhanh cỡ nào? Trên lý thuyết, cứ 20 phút vi khuẩn lại chia đôi.",
+          "Nhanh cỡ nào? Trên lý thuyết, cứ hai mươi phút vi khuẩn lại chia đôi.",
         ),
         nar(
-          "Phóng to thành 30, 40, 50 mét, dây lệch 5 phân thì góc chỉ sai khoảng 0,12 độ, nhỏ hơn ngắm bằng mắt tám lần.",
-          "Phóng to thành ba mươi, bốn mươi, năm mươi mét, dây lệch năm phân thì góc chỉ sai khoảng không phẩy mười hai độ, nhỏ hơn ngắm bằng mắt tám lần.",
+          "Một đêm 8 tiếng là 24 lần chia. Từ một con, sáng ra đã thành hơn 16 triệu.",
+          "Một đêm tám tiếng là hai mươi tư lần chia. Từ một con, sáng ra đã thành hơn mười sáu triệu.",
+        ),
+        nar(
+          "Vi khuẩn càng đông, độc tố tiết ra càng nhiều. Và theo NHS, hâm nóng lại không xóa được thứ độc tố này.",
+          "Vi khuẩn càng đông, độc tố tiết ra càng nhiều. Và theo en hát ét, hâm nóng lại không xóa được thứ độc tố này.",
         ),
       ],
     },
     theorem: {
-      shot: "Ba hình vuông dựng trên ba cạnh tam giác 3 – 4 – 5: 9 ô + 16 ô xếp vừa khít 25 ô; trang Toán 8 mở ra với Định lý Pythagoras thuận và đảo ở Tầng 2B",
+      shot: "Bảng giấy da của học giả: Milo (vai thầy giáo Sinh học) vẽ tế bào vi khuẩn với nội bào tử vỏ dày bên trong, nhãn 'NỘI BÀO TỬ'; góc trên hiện thẻ 'SINH HỌC 10 · BÀI 21'. Câu 2: bên cạnh, một vi khuẩn E. coli tách đôi, đồng hồ ghi '20 PHÚT = THỜI GIAN THẾ HỆ'. Câu 3: công thức N = N₀ · 2ⁿ mọc ra từ dãy tế bào nhân đôi, n = 24 gắn với kết quả hơn 16 triệu ở hồi trước.",
       lines: [
         nar(
-          "Vì sao ba số ấy luôn cho góc vuông? Vì 3 bình phương cộng 4 bình phương là 9 cộng 16, bằng 25, đúng 5 bình phương.",
-          "Vì sao ba số ấy luôn cho góc vuông? Vì ba bình phương cộng bốn bình phương là chín cộng mười sáu, bằng hai mươi lăm, đúng năm bình phương.",
+          "Bộ áo giáp và phép chia đôi ấy, bạn đã gặp trong Sinh học lớp 10, ở Bài 21, Trao đổi chất, sinh trưởng và sinh sản ở vi sinh vật.",
+          "Bộ áo giáp và phép chia đôi ấy, bạn đã gặp trong Sinh học lớp mười, ở Bài hai mươi mốt, Trao đổi chất, sinh trưởng và sinh sản ở vi sinh vật.",
         ),
         nar(
-          "Đó chính là Định lý Pythagoras đảo mà bạn học trong Toán lớp 8: tam giác có bình phương một cạnh bằng tổng bình phương hai cạnh kia thì là tam giác vuông.",
-          "Đó chính là Định lý Pi-ta-go đảo mà bạn học trong Toán lớp tám: tam giác có bình phương một cạnh bằng tổng bình phương hai cạnh kia thì là tam giác vuông.",
+          "Sách gọi lớp áo giáp là nội bào tử, giúp vi khuẩn sống qua lúc bất lợi, và lấy ví dụ E. coli cứ 20 phút phân chia một lần.",
+          "Sách gọi lớp áo giáp là nội bào tử, giúp vi khuẩn sống qua lúc bất lợi, và lấy ví dụ e cô-li cứ hai mươi phút phân chia một lần.",
         ),
         nar(
-          "Chiều thuận thì nói: tam giác vuông luôn có a² + b² = c². Định lý mang tên Pythagoras, người sinh sau tấm bảng hơn một nghìn năm.",
-          "Chiều thuận thì nói: tam giác vuông luôn có a bình phương cộng bê bình phương bằng xê bình phương. Định lý mang tên Pi-ta-go, người sinh sau tấm bảng hơn một nghìn năm.",
+          "Khoảng 20 phút ấy gọi là thời gian thế hệ. Sau n lần chia, số tế bào bằng số ban đầu nhân hai mũ n. Hai mũ 24 chính là hơn 16 triệu lúc nãy.",
+          "Khoảng hai mươi phút ấy gọi là thời gian thế hệ. Sau en lần chia, số tế bào bằng số ban đầu nhân hai mũ en. Hai mũ hai mươi tư chính là hơn mười sáu triệu lúc nãy.",
         ),
       ],
     },
     realworld: {
-      shot: "Công trường hiện đại: Milo đội mũ bảo hộ, căng thước dây 3 m và 4 m dọc hai đường tường, kéo thước chéo đúng 5 m; bên cạnh hiện các bội 6 – 8 – 10 và 9 – 12 – 15 m cho tường dài",
+      shot: "Bếp nhà, Milo (vai người nội trợ) làm từng bước, mỗi bước bật một thẻ số. Câu 1–2: 1) xới cơm khỏi nồi cơm điện ra ba hộp nông, đồng hồ cát '1 GIỜ'; 2) đặt hộp vào tủ lạnh, cửa tủ đóng lại. Câu 3: 3) lịch bàn lật một trang, nhãn '≤ 24 GIỜ'; 4) chảo cơm rang bốc hơi đều, nhãn 'NÓNG BỐC HƠI · CHỈ 1 LẦN'. Góc dưới: nguồn 'Food Standards Scotland · NHS'.",
       lines: [
         nar(
-          "Mẹo ấy vẫn sống trên công trường hôm nay. Muốn góc tường vuông, thợ xây đo một cạnh 3 mét, cạnh kia 4 mét.",
-          "Mẹo ấy vẫn sống trên công trường hôm nay. Muốn góc tường vuông, thợ xây đo một cạnh ba mét, cạnh kia bốn mét.",
+          "Biết thủ phạm rồi, cách phòng lại khá đơn giản. Cơ quan Tiêu chuẩn Thực phẩm Scotland khuyên làm nguội cơm thật nhanh, lý tưởng là trong vòng 1 giờ.",
+          "Biết thủ phạm rồi, cách phòng lại khá đơn giản. Cơ quan Tiêu chuẩn Thực phẩm Xcốt-len khuyên làm nguội cơm thật nhanh, lý tưởng là trong vòng một giờ.",
         ),
         nar(
-          "Đường chéo nối hai vạch đúng 5 mét là góc đã vuông. Tường dài thì nhân lên thành 6, 8, 10 hay 9, 12, 15 mét.",
-          "Đường chéo nối hai vạch đúng năm mét là góc đã vuông. Tường dài thì nhân lên thành sáu, tám, mười hay chín, mười hai, mười lăm mét.",
+          "Đừng để cơm nằm mãi trong nồi. Xới ra, chia thành phần nhỏ cho mau nguội, rồi cất ngay vào tủ lạnh.",
+          "Đừng để cơm nằm mãi trong nồi. Xới ra, chia thành phần nhỏ cho mau nguội, rồi cất ngay vào tủ lạnh.",
+        ),
+        nar(
+          "Ăn trong vòng 24 giờ, hâm đến khi nóng bốc hơi đều từ trong ra ngoài, và chỉ hâm một lần thôi nhé.",
+          "Ăn trong vòng hai mươi tư giờ, hâm đến khi nóng bốc hơi đều từ trong ra ngoài, và chỉ hâm một lần thôi nhé.",
         ),
       ],
     },
     cosmic: {
-      shot: "Phóng ra vũ trụ: trạm vũ trụ quốc tế cao ~400 km, tia nhìn sượt mép Trái Đất, ô vuông nhỏ đánh dấu góc vuông giữa tia nhìn và bán kính 6.371 km; cạnh huyền 6.771 km; kết: cảnh thu về tấm bảng đất sét và sợi dây 12 nút căng thành tam giác 3 – 4 – 5",
+      shot: "Câu 1: phóng ra quy mô thành phố, bếp nhà hàng lớn với những khay cơm rang nấu sẵn cho giờ trưa. Câu 2: một thước nhiệt độ khổng lồ dựng đứng: vùng trên 60 °C tô đỏ ấm 'GIỮ NÓNG', vùng 4 °C trở xuống tô xanh 'GIỮ LẠNH', khoảng giữa tô xám có chữ 'ĐỪNG LỬNG LƠ'. Câu 3: thu về căn bếp mở đầu, bát cơm nguội trên bàn, Milo giơ con dấu đồng hạ xuống giấy da: 'TÙY!'. Dòng nhỏ dưới con dấu: 'Nguội nhanh · tủ lạnh · 24 giờ · hâm 1 lần'. Câu 4: kim đồng hồ treo tường lùi về lúc tắt bếp, giữ hình. Hiện nguồn ở góc.",
       lines: [
         nar(
-          "Chiều thuận giúp tính khoảng cách. Từ trạm vũ trụ quốc tế, cao khoảng 400 km, đường chân trời cách bao xa?",
-          "Chiều thuận giúp tính khoảng cách. Từ trạm vũ trụ quốc tế, cao khoảng bốn trăm ki-lô-mét, đường chân trời cách bao xa?",
+          "Ở nhà hàng, chuyện còn lớn hơn. Năm 2022, Trung tâm An toàn Thực phẩm Hồng Kông kể về cơm rang của một nhà hàng ở đây chứa quá nhiều Bacillus cereus.",
+          "Ở nhà hàng, chuyện còn lớn hơn. Năm hai nghìn không trăm hai mươi hai, Trung tâm An toàn Thực phẩm Hồng Kông kể về cơm rang của một nhà hàng ở đây chứa quá nhiều Ba-xi-lút xê-rê-út.",
         ),
         nar(
-          "Tia nhìn sượt mép Trái Đất vuông góc với bán kính 6.371 km, cạnh huyền là 6.371 cộng 400: một tam giác vuông khổng lồ.",
-          "Tia nhìn sượt mép Trái Đất vuông góc với bán kính sáu nghìn ba trăm bảy mốt ki-lô-mét, cạnh huyền là sáu nghìn ba trăm bảy mốt cộng bốn trăm: một tam giác vuông khổng lồ.",
+          "Nên họ dặn, cơm nấu sẵn phải giữ nóng trên 60 độ, hoặc cất tủ lạnh từ 4 độ trở xuống. Đừng để nó lửng lơ ở giữa.",
+          "Nên họ dặn, cơm nấu sẵn phải giữ nóng trên sáu mươi độ, hoặc cất tủ lạnh từ bốn độ trở xuống. Đừng để nó lửng lơ ở giữa.",
         ),
         nar(
-          "Lấy 6.771 bình phương trừ 6.371 bình phương rồi khai căn: chân trời xa khoảng 2.300 km. Tất cả bắt đầu từ tấm bảng đất sét, và một sợi dây 12 nút căng thành 3, 4, 5.",
-          "Lấy sáu nghìn bảy trăm bảy mốt bình phương trừ sáu nghìn ba trăm bảy mốt bình phương rồi khai căn: chân trời xa khoảng hai nghìn ba trăm ki-lô-mét. Tất cả bắt đầu từ tấm bảng đất sét, và một sợi dây mười hai nút căng thành ba, bốn, năm.",
+          "Phán quyết, Tùy! Cơm nguội vẫn ăn được, nếu nó vào tủ lạnh nhanh và lên chảo trong 24 giờ.",
+          "Phán quyết, Tùy! Cơm nguội vẫn ăn được, nếu nó vào tủ lạnh nhanh và lên chảo trong hai mươi tư giờ.",
+        ),
+        nar(
+          "Bởi số phận của nó đã được định đoạt từ mấy tiếng đầu tiên, ngay sau khi bạn tắt bếp.",
+          "Bởi số phận của nó đã được định đoạt từ mấy tiếng đầu tiên, ngay sau khi bạn tắt bếp.",
         ),
       ],
     },
@@ -382,129 +427,142 @@ export const TUAN_1 = [
     day: 4,
     week,
     theme,
-    title: "Đào hầm xuyên núi từ hai đầu — Làm sao hai đội gặp nhau giữa lòng đá?",
-    hudTitle: "ĐÀO HẦM XUYÊN NÚI TỪ HAI ĐẦU",
-    textbook: "Toán 10 · Định lý côsin & Định lý sin",
-    era: "Đảo Samos, Hy Lạp · thế kỷ 6 TCN",
-    question: "Đứng ở cửa hầm A, muốn biết hướng đào, bạn cần đo những gì ngoài trời?",
+    title: "Đếm chữ cái để kết án một nữ hoàng",
+    hudTitle: "ĐẾM CHỮ CÁI ĐỂ KẾT ÁN NỮ HOÀNG",
+    textbook: "Toán 9 · Bảng tần số và biểu đồ tần số",
+    era: "Chartley, nước Anh · năm 1586",
+    question: "Nếu là Mary, bạn sẽ giấu chữ E thế nào để người giải mã đếm mãi không ra?",
     sources: [
-      { title: "Tom M. Apostol — The Tunnel of Samos, Engineering & Science (Caltech), 2004", url: "https://calteches.library.caltech.edu/689/2/Samos.pdf" },
-      { title: "Toán 10 Kết nối tri thức — Bài 6. Hệ thức lượng trong tam giác (có Bài 3.11 đường hầm xuyên núi)", url: "https://loigiaihay.com/bai-6-he-thuc-luong-trong-tam-giac-toan-10-ket-noi-tri-thuc-e24966.html" },
-      { title: "Les Bâtisseurs du Tunnel sous la Manche — Jonctions et percée (1/12/1990)", url: "https://batisseurs-tunnel.com/?p=3845" },
-      { title: "MacTutor (ĐH St Andrews) — Nicolas Louis de Lacaille", url: "https://mathshistory.st-andrews.ac.uk/Biographies/Lacaille/" },
-      { title: "MacTutor (ĐH St Andrews) — Joseph-Jérôme Lefrançais de Lalande", url: "https://mathshistory.st-andrews.ac.uk/Biographies/Lalande/" },
+      { title: "British Library — The Gallows Letter", url: "https://www.bl.uk/stories/blogs/posts/the-gallows-letter" },
+      { title: "Simon Singh — Arab code breakers (al-Kindi, phân tích tần số, Phelippes)", url: "https://simonsingh.net/media/articles/maths-and-science/arab-code-breakers" },
+      { title: "Simon Singh, The Black Chamber — Mary Queen of Scots (bản mã nomenclator)", url: "https://simonsingh.com/The_Black_Chamber/maryqueenofscots.html" },
+      { title: "MacTutor (ĐH St Andrews) — Al-Kindi", url: "https://mathshistory.st-andrews.ac.uk/Biographies/Al-Kindi/" },
+      { title: "SGK Toán 9 Kết nối tri thức — Bài 22. Bảng tần số và biểu đồ tần số", url: "https://loigiaihay.com/bai-22-bang-tan-so-va-bieu-do-tan-so-toan-9-ket-noi-tri-thuc-e34975.html" },
+      { title: "NASPA — SCRABBLE History (Alfred Butts đếm chữ trên New York Times)", url: "https://scrabbleplayers.org/w/SCRABBLE_History" },
+      { title: "Play Scrabble — How many letter tiles are there in Scrabble", url: "https://playscrabble.com/news-blog/how-many-letter-tiles-are-there-in-scrabble-and-how-to-best-use-scrabble-tiles-in-a-game" },
+      { title: "Scientific American — Scientists decipher 57 letters from Mary, Queen of Scots", url: "https://www.scientificamerican.com/article/scientists-decipher-50-letters-from-mary-queen-of-scotts-before-her-beheading1/" },
+      { title: "The Register — Codebreakers crack Mary, Queen of Scots letters (2023)", url: "https://www.theregister.com/2023/02/09/codebreakers_mary_queen_of_scots/" },
+      { title: "NASA Science — WMAP: tuổi vũ trụ 13,77 tỉ năm", url: "https://science.nasa.gov/mission/wmap/wmap-overview/" },
     ],
     hook: {
-      shot: "Đảo Samos thế kỷ 6 TCN, mặt cắt núi đá vôi, hai đội thợ cầm cuốc, búa, đục ở hai cửa hầm A và B; Milo (vai Eupalinos) đứng giữa, nhìn hai mũi hầm tiến vào lòng núi tối",
+      shot: "Câu 1: mở thẳng vào cận cảnh, bàn tay cầm bút lông ngỗng vẽ một chiếc giá treo cổ nhỏ lên mặt ngoài một lá thư đầy ký hiệu lạ, góc thẻ hiện 1586. Câu 2: lùi máy, dinh thự Chartley nơi Mary bị giam lỏng, Mary ngồi viết, lá thư được nhét vào nút một thùng bia và lăn ra cổng. Câu 3–4: Milo (vai Phelippes) đứng bên bàn giải mã, giơ bảng hai mặt CÓ / KHÔNG, chữ viết tay hiện: ĐẾM CÓ ĐỦ KHÔNG?",
       lines: [
         nar(
-          "Hơn 2.500 năm trước, trên đảo Samos của Hy Lạp, kỹ sư Eupalinos phải đục một đường hầm dẫn nước dài hơn 1 km xuyên lòng núi đá vôi.",
-          "Hơn hai nghìn năm trăm năm trước, trên đảo Xa-mốt của Hy Lạp, kỹ sư Ơ-pa-li-nốt phải đục một đường hầm dẫn nước dài hơn một ki-lô-mét xuyên lòng núi đá vôi.",
+          "Năm 1586, một người giải mã phục vụ nữ hoàng Anh cầm bút, vẽ một chiếc giá treo cổ nhỏ lên mặt ngoài một lá thư mật.",
+          "Năm một nghìn năm trăm tám mươi sáu, một người giải mã phục vụ nữ hoàng Anh cầm bút, vẽ một chiếc giá treo cổ nhỏ lên mặt ngoài một lá thư mật.",
         ),
         nar(
-          "Hai đội thợ đục cùng lúc từ hai phía núi, chỉ bằng cuốc, búa và đục.",
-          "Hai đội thợ đục cùng lúc từ hai phía núi, chỉ bằng cuốc, búa và đục.",
+          "Đó là thư của Nữ hoàng Mary xứ Scotland, viết toàn ký hiệu lạ, giấu trong một thùng bia.",
+          "Đó là thư của Nữ hoàng Mê-ri xứ Xcốt-len, viết toàn ký hiệu lạ, giấu trong một thùng bia.",
         ),
         nar(
-          "Giữa lòng đá tối om, không đội nào thấy đội kia. Làm sao họ biết phải đào hướng nào để gặp nhau?",
-          "Giữa lòng đá tối om, không đội nào thấy đội kia. Làm sao họ biết phải đào hướng nào để gặp nhau?",
+          "Vậy mà chìa khóa đầu tiên để mở nó lại là việc ai cũng làm được. Đếm.",
+          "Vậy mà chìa khóa đầu tiên để mở nó lại là việc ai cũng làm được. Đếm.",
+        ),
+        nar(
+          "Chỉ đếm chữ cái thôi, liệu có đủ phá một mật thư hoàng gia? Chọn Có hay Không ở bình luận trước khi xem tiếp nhé!",
+          "Chỉ đếm chữ cái thôi, liệu có đủ phá một mật thư hoàng gia? Chọn Có hay Không ở bình luận trước khi xem tiếp nhé!",
         ),
       ],
     },
     barrier: {
-      shot: "Hai mũi hầm rộng 2 m; mũi phía Bắc lệch 1° so với đường đúng, sau khoảng 500 m hai đầu hầm cách nhau khoảng 9 m và trượt qua nhau (✖); rồi chiếc la bàn bị gạch chéo (✖)",
+      shot: "Câu 1–2: Milo trải bảng chữ cái A đến Z, cạnh đó là hàng ký hiệu của bản mã; hai hàng tráo qua tráo lại chóng mặt, bộ đếm trên góc nhảy tới 26! ≈ 4 × 10²⁶ (✖). Câu 3: một cỗ máy tưởng tượng thử 1 tỉ cách mỗi giây, đồng hồ cát chảy mãi, nhãn hơn 12 tỉ năm đặt cạnh thanh tuổi vũ trụ 13,8 tỉ năm (✖). Câu 4: trang mã của Mary có cả ký hiệu thay cho nguyên từ, Mary mỉm cười tự tin.",
       lines: [
         nar(
-          "Cách dễ nghĩ nhất là mỗi đội cứ nhắm chừng về phía bên kia núi mà đào.",
-          "Cách dễ nghĩ nhất là mỗi đội cứ nhắm chừng về phía bên kia núi mà đào.",
+          "Nếu được giao lá thư ấy, phản xạ đầu tiên của nhiều người là thử từng cách thay chữ, cho tới khi ra nghĩa.",
+          "Nếu được giao lá thư ấy, phản xạ đầu tiên của nhiều người là thử từng cách thay chữ, cho tới khi ra nghĩa.",
         ),
         nar(
-          "Nhưng hầm chỉ rộng chừng 2 mét. Một đội lệch 1 độ thôi, sau khoảng 500 mét đã trượt xa chừng 9 mét, thành hai cái hang cụt.",
-          "Nhưng hầm chỉ rộng chừng hai mét. Một đội lệch một độ thôi, sau khoảng năm trăm mét đã trượt xa chừng chín mét, thành hai cái hang cụt.",
+          "Nghe thì hợp lý. Nhưng chỉ một bảng thay 26 chữ cái đơn giản đã có khoảng 400 triệu tỉ tỉ cách xếp.",
+          "Nghe thì hợp lý. Nhưng chỉ một bảng thay hai mươi sáu chữ cái đơn giản đã có khoảng bốn trăm triệu tỉ tỉ cách xếp.",
         ),
         nar(
-          "La bàn thì người Hy Lạp thời ấy chưa có. Mà có la bàn, bạn vẫn phải biết cửa bên kia ở hướng nào.",
-          "La bàn thì người Hy Lạp thời ấy chưa có. Mà có la bàn, bạn vẫn phải biết cửa bên kia ở hướng nào.",
+          "Thử một tỉ cách mỗi giây, bạn vẫn cần hơn 12 tỉ năm. Gần bằng tuổi vũ trụ.",
+          "Thử một tỉ cách mỗi giây, bạn vẫn cần hơn mười hai tỉ năm. Gần bằng tuổi vũ trụ.",
+        ),
+        nar(
+          "Mà bản mã của Mary còn có ký hiệu riêng cho cả những từ hay dùng. Bà tin chắc không ai đọc nổi.",
+          "Mà bản mã của Mê-ri còn có ký hiệu riêng cho cả những từ hay dùng. Bà tin chắc không ai đọc nổi.",
         ),
       ],
     },
     eureka: {
-      shot: "Nhìn từ trên cao: Milo (vai Heron) đi vòng chân núi từ cửa A sang cửa B theo những đoạn Đông–Tây, Bắc–Nam vuông góc; cộng lại thành hai cạnh góc vuông, cạnh huyền AB xuyên núi chính là đường hầm; hai tam giác nhỏ cùng hình dạng cắm cọc ở hai cửa",
+      shot: "Câu 1: chuyển về Baghdad khoảng năm 850, Milo (vai al-Kindi) trong thư viện Nhà Thông thái, gạch từng que đếm dưới mỗi chữ cái của một trang sách, chữ viết tay hiện ĐỪNG THỬ, HÃY ĐẾM. Câu 2: các que đếm dựng thành cột, thẻ số hiện E ≈ 13%, J + Q + X + Z < 1%. Câu 3: bật lại năm 1586, Milo (vai Phelippes) xếp các ký hiệu của thư Mary thành hàng, ký hiệu nhiều que nhất phát sáng và được dán nhãn E. Câu 4: từng từ quen lộ dần trên lá thư như mảnh ghép, Milo reo lên.",
       lines: [
         nar(
-          "Không ai biết chắc Eupalinos đã làm thế nào, vì không còn ghi chép nào về cách làm.",
-          "Không ai biết chắc Ơ-pa-li-nốt đã làm thế nào, vì không còn ghi chép nào về cách làm.",
+          "Thế nhưng có một lối khác, nằm sẵn trong sách của học giả al-Kindi ở Baghdad từ khoảng năm 850. Đừng thử, hãy đếm.",
+          "Thế nhưng có một lối khác, nằm sẵn trong sách của học giả an Kin-đi ở Bát-đa từ khoảng năm tám trăm năm mươi. Đừng thử, hãy đếm.",
         ),
         nar(
-          "Khoảng 500 năm sau, kỹ sư Heron ở Alexandria viết ra một lời giải: không nhìn xuyên núi được thì đi vòng quanh núi.",
-          "Khoảng năm trăm năm sau, kỹ sư Hê-rông ở A-lếch-xan-đri-a viết ra một lời giải: không nhìn xuyên núi được thì đi vòng quanh núi.",
+          "Ngôn ngữ nào cũng có vài chữ cái được dùng nhiều hơn hẳn. Trong tiếng Anh, chữ E chiếm khoảng 13% số chữ, còn J, Q, X, Z cộng lại chưa tới 1%.",
+          "Ngôn ngữ nào cũng có vài chữ cái được dùng nhiều hơn hẳn. Trong tiếng Anh, chữ e chiếm khoảng mười ba phần trăm số chữ, còn các chữ gi, kiu, ích, dét cộng lại chưa tới một phần trăm.",
         ),
         nar(
-          "Đi từ cửa A sang cửa B, cộng các quãng đi theo hướng Đông Tây và Bắc Nam, ta có hai cạnh góc vuông của một tam giác có cạnh huyền chính là đường hầm.",
-          "Đi từ cửa a sang cửa bê, cộng các quãng đi theo hướng Đông Tây và Bắc Nam, ta có hai cạnh góc vuông của một tam giác có cạnh huyền chính là đường hầm.",
+          "Thomas Phelippes làm đúng như thế. Đếm các ký hiệu trong thư của Mary, gán ký hiệu hay gặp nhất cho chữ hay gặp nhất, rồi đoán dần từng từ quen theo ngữ cảnh.",
+          "Tô-mát Phê-líp làm đúng như thế. Đếm các ký hiệu trong thư của Mê-ri, gán ký hiệu hay gặp nhất cho chữ hay gặp nhất, rồi đoán dần từng từ quen theo ngữ cảnh.",
         ),
         nar(
-          "Dựng ở mỗi cửa một tam giác nhỏ cùng hình dạng, mỗi đội có một hàng cọc chỉ đúng hướng đào.",
-          "Dựng ở mỗi cửa một tam giác nhỏ cùng hình dạng, mỗi đội có một hàng cọc chỉ đúng hướng đào.",
+          "Đếm thôi thì chưa đủ, nhưng đó là chìa khóa đầu tiên. Và bản mã tưởng bất khả xâm phạm bắt đầu vỡ ra từng mảnh.",
+          "Đếm thôi thì chưa đủ, nhưng đó là chìa khóa đầu tiên. Và bản mã tưởng bất khả xâm phạm bắt đầu vỡ ra từng mảnh.",
         ),
       ],
     },
     theorem: {
-      shot: "Tam giác vuông của Heron biến thành tam giác ABC bất kỳ: mốc C trên sườn núi nhìn thấy cả hai cửa A, B; đo CA, CB và góc C; trang Toán 10 mở ra với định lý côsin tính AB và định lý sin tính góc A",
+      shot: "Câu 1: những que đếm của Milo tự gom thành một bảng hai dòng, hàng trên là chữ cái, hàng dưới là số lần xuất hiện; trang Toán 9 mở ra. Câu 2: dòng định nghĩa sáng lên: Tần số = số lần xuất hiện; các con số mọc lên thành biểu đồ tần số dạng cột, cột E cao nhất ghi 127 trên tổng 1.000 chữ. Câu 3: hai biểu đồ đặt cạnh nhau, của bản mã và của tiếng Anh, mũi tên nối cột cao với cột cao.",
       lines: [
         nar(
-          "Nhưng đi vòng toàn góc vuông vừa mệt vừa dễ sai. Thật ra tam giác chẳng cần vuông: chỉ cần một mốc C nhìn thấy cả hai cửa A và B.",
-          "Nhưng đi vòng toàn góc vuông vừa mệt vừa dễ sai. Thật ra tam giác chẳng cần vuông: chỉ cần một mốc xê nhìn thấy cả hai cửa a và bê.",
+          "Việc al-Kindi dạy chính là lập bảng tần số, đúng bài Bảng tần số và biểu đồ tần số trong Toán lớp 9.",
+          "Việc an Kin-đi dạy chính là lập bảng tần số, đúng bài Bảng tần số và biểu đồ tần số trong Toán lớp chín.",
         ),
         nar(
-          "Đo hai cạnh CA, CB và góc C xen giữa. AB bình phương bằng CA bình phương cộng CB bình phương, trừ hai lần CA nhân CB nhân côsin C.",
-          "Đo hai cạnh xê a, xê bê và góc xê xen giữa. A bê bình phương bằng xê a bình phương cộng xê bê bình phương, trừ hai lần xê a nhân xê bê nhân cô-sin xê.",
+          "Tần số của một giá trị là số lần nó xuất hiện. Lấy một nghìn chữ cái tiếng Anh, cột E sẽ cao khoảng 127, cao nhất cả bảng.",
+          "Tần số của một giá trị là số lần nó xuất hiện. Lấy một nghìn chữ cái tiếng Anh, cột e sẽ cao khoảng một trăm hai mươi bảy, cao nhất cả bảng.",
         ),
         nar(
-          "Có AB rồi, tỉ số giữa mỗi cạnh và sin góc đối diện cho ra góc A, tức là hướng mũi đào so với đường ngắm AC.",
-          "Có a bê rồi, tỉ số giữa mỗi cạnh và sin góc đối diện cho ra góc a, tức là hướng mũi đào so với đường ngắm a xê.",
-        ),
-        nar(
-          "Đó chính là Định lý côsin và Định lý sin mà bạn học trong Toán lớp 10, nơi có hẳn một bài tập về đường hầm xuyên núi.",
-          "Đó chính là Định lý cô-sin và Định lý sin mà bạn học trong Toán lớp mười, nơi có hẳn một bài tập về đường hầm xuyên núi.",
+          "Giờ đặt biểu đồ của bản mã cạnh biểu đồ của ngôn ngữ. Cột cao sẽ khớp với cột cao, và mật thư bắt đầu lộ mặt.",
+          "Giờ đặt biểu đồ của bản mã cạnh biểu đồ của ngôn ngữ. Cột cao sẽ khớp với cột cao, và mật thư bắt đầu lộ mặt.",
         ),
       ],
     },
     realworld: {
-      shot: "Mặt cắt eo biển Manche: hai máy khoan từ bờ Anh và bờ Pháp tiến vào dưới đáy biển; trên mặt đất, lưới tam giác đo đạc nối mốc hai bờ, vệ tinh phía trên; hai mũi hầm dịch vụ gặp nhau năm 1990",
+      shot: "Câu 1: bàn phòng khách hôm nay, Milo (vai người chơi) mở hộp cờ Scrabble; lồng khung tờ trang nhất New York Times cũ, những vòng bút chì khoanh quanh chữ cái. Câu 2: Milo đổ 100 quân chữ ra bàn rồi xếp thành biểu đồ cột theo chữ cái, cột E 12 quân cao vọt, mỗi quân E ghi 1 điểm; Q và Z đứng lẻ loi mỗi chữ một quân. Câu 3: Milo đặt một quân E lên bàn cờ, nháy mắt.",
       lines: [
         nar(
-          "Đường hầm dưới eo biển Manche nối Anh và Pháp cũng được đào từ hai phía, với gần 38 km nằm dưới đáy biển.",
-          "Đường hầm dưới eo biển Măng-sơ nối Anh và Pháp cũng được đào từ hai phía, với gần ba mươi tám ki-lô-mét nằm dưới đáy biển.",
+          "Phép đếm ấy vẫn sống trong hộp cờ Scrabble. Người sáng chế Alfred Butts đã tính tần số chữ cái từ trang nhất báo New York Times.",
+          "Phép đếm ấy vẫn sống trong hộp cờ Xcra-bồ. Người sáng chế An-phrét Bát đã tính tần số chữ cái từ trang nhất báo Niu Oóc Tai-mơ.",
         ),
         nar(
-          "Trước khi đào, người ta nối mốc đo hai bờ vào cùng một lưới tam giác, có vệ tinh hỗ trợ, rồi tính hướng cho từng máy.",
-          "Trước khi đào, người ta nối mốc đo hai bờ vào cùng một lưới tam giác, có vệ tinh hỗ trợ, rồi tính hướng cho từng máy.",
+          "Thế nên trong 100 quân chữ, E có tới 12 quân và chỉ được 1 điểm. Còn Q và Z, mỗi chữ chỉ một quân, điểm cao ngất.",
+          "Thế nên trong một trăm quân chữ, chữ e có tới mười hai quân và chỉ được một điểm. Còn chữ kiu và chữ dét, mỗi chữ chỉ một quân, điểm cao ngất.",
         ),
         nar(
-          "Năm 1990, hai mũi hầm dịch vụ gặp nhau dưới đáy biển, lệch nhau chỉ vài chục xen-ti-mét.",
-          "Năm một nghìn chín trăm chín mươi, hai mũi hầm dịch vụ gặp nhau dưới đáy biển, lệch nhau chỉ vài chục xen-ti-mét.",
+          "Lần tới xếp chữ, hãy nhớ rằng bạn đang chơi trên một bảng tần số.",
+          "Lần tới xếp chữ, hãy nhớ rằng bạn đang chơi trên một bảng tần số.",
         ),
       ],
     },
     cosmic: {
-      shot: "Phóng ra vũ trụ: Berlin và Mũi Hảo Vọng là hai đầu cạnh đáy gần 10.000 km, hai tia ngắm cùng chụm vào Mặt Trăng thành một tam giác khổng lồ; kết: quay về hai đội thợ Samos gặp nhau trong lòng núi",
+      shot: "Câu 1: phóng to, màn hình kho lưu trữ số của Thư viện Quốc gia Pháp, hàng chục lá thư mật bay ra xếp thành bức tường, nhãn 57 LÁ THƯ · 1578–1584. Câu 2: Milo chỉ vào một chữ E tách thành nhiều ký hiệu khác nhau, biểu đồ tần số các cột cao bị san phẳng dần. Câu 3: máy tính chạy dòng ký hiệu, bộ đếm hơn 150.000 ký hiệu, rồi chữ Pháp hiện ra, nhãn khoảng 50.000 từ. Câu 4–5: thu về lá thư năm 1586 và chiếc giá treo cổ nhỏ bằng mực trên mặt ngoài.",
       lines: [
         nar(
-          "Còn nếu điểm cần tới là Mặt Trăng, nơi không sợi thước dây nào kéo tới được thì sao?",
-          "Còn nếu điểm cần tới là Mặt Trăng, nơi không sợi thước dây nào kéo tới được thì sao?",
+          "Câu chuyện chưa dừng ở đó. Năm 2023, ba nhà giải mã nghiệp dư tìm thấy 57 lá thư mật khác của Mary, trong kho số của Thư viện Quốc gia Pháp.",
+          "Câu chuyện chưa dừng ở đó. Năm hai nghìn không trăm hai mươi ba, ba nhà giải mã nghiệp dư tìm thấy năm mươi bảy lá thư mật khác của Mê-ri, trong kho số của Thư viện Quốc gia Pháp.",
         ),
         nar(
-          "Từ năm 1751, Lacaille ở Mũi Hảo Vọng và Lalande ở Berlin cùng ngắm Mặt Trăng, hai nơi cách nhau gần 10.000 km.",
-          "Từ năm một nghìn bảy trăm năm mươi mốt, La-cai ở Mũi Hảo Vọng và La-lăng ở Béc-lin cùng ngắm Mặt Trăng, hai nơi cách nhau gần mười nghìn ki-lô-mét.",
+          "Những lá thư này, viết từ 1578 đến 1584, dùng mã đồng âm. Một chữ hay gặp được viết bằng nhiều ký hiệu, để san phẳng các cột tần số.",
+          "Những lá thư này, viết từ một nghìn năm trăm bảy mươi tám đến một nghìn năm trăm tám mươi tư, dùng mã đồng âm. Một chữ hay gặp được viết bằng nhiều ký hiệu, để san phẳng các cột tần số.",
         ),
         nar(
-          "Biết cạnh đáy và hai góc ngắm ở hai đầu, định lý sin cho ra khoảng cách tới Mặt Trăng, đúng như cách tìm hướng hầm.",
-          "Biết cạnh đáy và hai góc ngắm ở hai đầu, định lý sin cho ra khoảng cách tới Mặt Trăng, đúng như cách tìm hướng hầm.",
+          "Nhóm phải nhờ phần mềm giải mã xử lý hơn 150.000 ký hiệu, mới đọc lại được khoảng 50.000 từ.",
+          "Nhóm phải nhờ phần mềm giải mã xử lý hơn một trăm năm mươi nghìn ký hiệu, mới đọc lại được khoảng năm mươi nghìn từ.",
         ),
         nar(
-          "Hai đội thợ Samos gặp nhau giữa lòng núi tối om không nhờ đôi mắt nhìn xuyên đá, mà nhờ một tam giác vẽ được bên ngoài núi.",
-          "Hai đội thợ Xa-mốt gặp nhau giữa lòng núi tối om không nhờ đôi mắt nhìn xuyên đá, mà nhờ một tam giác vẽ được bên ngoài núi.",
+          "Còn với Mary, mọi chuyện đã khép lại từ lâu. Bà bị kết tội và bị xử tử năm 1587.",
+          "Còn với Mê-ri, mọi chuyện đã khép lại từ lâu. Bà bị kết tội và bị xử tử năm một nghìn năm trăm tám mươi bảy.",
+        ),
+        nar(
+          "Và tất cả bắt đầu từ chiếc giá treo cổ nhỏ trên lá thư năm 1586, vẽ ra sau một phép đếm.",
+          "Và tất cả bắt đầu từ chiếc giá treo cổ nhỏ trên lá thư năm một nghìn năm trăm tám mươi sáu, vẽ ra sau một phép đếm.",
         ),
       ],
     },
@@ -514,252 +572,138 @@ export const TUAN_1 = [
     day: 5,
     week,
     theme,
-    title: "Chiếc vương miện vàng & Lực đẩy Archimedes",
-    hudTitle: "VƯƠNG MIỆN VÀNG CÓ PHA BẠC KHÔNG?",
-    textbook: "KHTN 8 · Lực đẩy Archimedes",
-    era: "Syracuse, đảo Sicily · khoảng 250 TCN",
-    question: "Cùng nặng 1 kg, khi nhúng vào nước, thỏi vàng ròng hay vương miện pha bạc bị nước đẩy lên mạnh hơn?",
+    title: "Ngồi trong ô tô an toàn khi có sét là nhờ lốp cao su?",
+    hudTitle: "Ô TÔ AN TOÀN KHI SÉT NHỜ LỐP?",
+    textbook: "KHTN 8 · Dòng điện, nguồn điện",
+    era: "Viện Hoàng gia London 1836 · Tin được hay Tin đồn?",
+    question: "Đi xe máy giữa đồng gặp giông, ở quê bạn người ta hay trú ở đâu?",
     sources: [
-      { title: "SGK KHTN 8 Kết nối tri thức — Bài 17. Lực đẩy Archimedes", url: "https://loigiaihay.com/giai-khoa-hoc-tu-nhien-8-bai-17-luc-day-archimedes-trang-73-74-75-ket-noi-tri-thuc-a135334.html" },
-      { title: "Vitruvius, De Architectura, Quyển IX — chuyện vương miện (C. Rorres, ĐH New York)", url: "https://www.math.nyu.edu/~crorres/Archimedes/Crown/Vitruvius.html" },
-      { title: "Galileo, La Bilancetta (1586) — phương pháp cân trong nước (C. Rorres, ĐH New York)", url: "https://www.math.nyu.edu/~crorres/Archimedes/Crown/bilancetta.html" },
-      { title: "The Golden Crown — tính chênh mực nước và chênh cân (C. Rorres, ĐH New York)", url: "https://www.math.nyu.edu/~crorres/Archimedes/Crown/CrownIntro.html" },
-      { title: "MacTutor (ĐH St Andrews) — Archimedes of Syracuse", url: "https://mathshistory.st-andrews.ac.uk/Biographies/Archimedes/" },
-      { title: "SAGE Encyclopedia of Obesity — Hydrodensitometry", url: "https://sk.sagepub.com/ency/edvol/embed/obesity/chpt/hydrodensitometry" },
-      { title: "NASA Science — Saturn Facts", url: "https://science.nasa.gov/saturn/facts/" },
-      { title: "NASA NSSDC — Saturn Fact Sheet", url: "https://nssdc.gsfc.nasa.gov/planetary/factsheet/saturnfact.html" },
+      { title: "NWS (Upton, NY) — Lightning Safety Awareness Week: rubber tires myth, convertibles, motorcycles, trees, 30 minutes", url: "https://www.weather.gov/okx/LightningSafetyAwarenessWeek" },
+      { title: "NWS — Lightning and Cars: dòng sét đi qua vỏ kim loại, qua lõi thép của lốp xuống đất", url: "https://www.weather.gov/safety/lightning-cars" },
+      { title: "NWS — Lightning Science Overview: không khí là chất cách điện; sét đánh xa tới 10 dặm", url: "https://www.weather.gov/safety/lightning-science-overview" },
+      { title: "NWS — Lightning Myths: trú dưới cây là nguy hiểm", url: "https://www.weather.gov/safety/lightning-myths" },
+      { title: "NWS (Jackson, MS) — Lightning safety: get off and away from motorcycles", url: "https://www.weather.gov/jan/swpw_lightning" },
+      { title: "Royal Institution — Our history: 1836, Faraday invented the Faraday cage in the Ri Theatre", url: "https://www.rigb.org/about-us/our-history" },
+      { title: "Michael Faraday, Experimental Researches in Electricity, Vol. 1, mục 1173–1174 (Project Gutenberg)", url: "https://www.gutenberg.org/ebooks/14986" },
+      { title: "Scientific American — What happens when lightning strikes an airplane? (Edward J. Rupke, Lightning Technologies)", url: "https://www.scientificamerican.com/article/what-happens-when-lightni/" },
+      { title: "Phòng chống thiên tai Việt Nam — Làm thế nào để phòng tránh sét khi ở ngoài trời và khi ở trong nhà?", url: "https://phongchongthientai.mard.gov.vn/Pages/lam-the-nao-de-phong-tranh-set-khi-o-ngoai-troi-va-khi-o-trong-nha.aspx" },
+      { title: "SGK KHTN 8 Kết nối tri thức — Bài 21. Dòng điện, nguồn điện: vật dẫn điện, vật cách điện (VietJack)", url: "https://vietjack.com/khoa-hoc-tu-nhien-8-kn/bai-21-dong-dien-nguon-dien.jsp" },
     ],
     hook: {
-      shot: "Cung điện Syracuse thế kỷ 3 TCN, vua Hiero II cầm chiếc vương miện lá vàng, người thợ kim hoàn khúm núm; Milo (vai Archimedes) được gọi tới, dấu hỏi lớn trên vương miện",
+      shot: "Đêm giông trên sân khấu giấy da: con đường quê chạy giữa cánh đồng, một chiếc ô tô mui kín đang đỗ, mưa xiên. Milo (vai tài xế, kính bảo hộ kéo xuống mắt) ngồi sau vô lăng. Câu 1: tia sét vẽ tay đánh trúng nóc xe, chớp trắng toàn khung, rồi hiện lại Milo vẫn ngồi nguyên, chớp mắt ngơ ngác; dấu hỏi lớn trên nóc xe. Câu 2: camera lia xuống bốn bánh xe, bốn chiếc lốp được tô đậm, chú thích viết tay 'CAO SU = CÁCH ĐIỆN?'. Câu 3: Milo giơ tấm bảng ba ô 'TIN ĐƯỢC / TIN ĐỒN / TÙY?', mũi tên chỉ xuống ô bình luận. Chuyển cảnh: zoom vào một chiếc lốp.",
       lines: [
         nar(
-          "Theo Vitruvius kể lại, hơn 2.200 năm trước, vua Hiero II của thành Syracuse đặt thợ làm một vương miện vàng ròng để dâng thần.",
-          "Theo Vi-tơ-ru-vi-út kể lại, hơn hai nghìn hai trăm năm trước, vua Hi-ê-rông thứ hai của thành Xi-ra-cút đặt thợ làm một vương miện vàng ròng để dâng thần.",
+          "Một tia sét đánh trúng nóc chiếc ô tô mui kín. Vậy mà người ngồi bên trong thường vẫn bình an. Vì sao nhỉ?",
+          "Một tia sét đánh trúng nóc chiếc ô tô mui kín. Vậy mà người ngồi bên trong thường vẫn bình an. Vì sao nhỉ?",
         ),
         nar(
-          "Vương miện giao đủ cân nặng, nhưng có lời tố rằng người thợ đã bớt vàng và tráo vào đúng chừng ấy bạc.",
-          "Vương miện giao đủ cân nặng, nhưng có lời tố rằng người thợ đã bớt vàng, và tráo vào đúng chừng ấy bạc.",
+          "Câu trả lời quen thuộc là, nhờ bốn chiếc lốp cao su cách điện, nên dòng điện không xuống được đất.",
+          "Câu trả lời quen thuộc là, nhờ bốn chiếc lốp cao su cách điện, nên dòng điện không xuống được đất.",
         ),
         nar(
-          "Nhà vua giao Archimedes vạch trần, mà đồ dâng thần thì không được nấu chảy hay cưa ra. Làm sao biết bên trong có bạc?",
-          "Nhà vua giao Ác-si-mét vạch trần, mà đồ dâng thần thì không được nấu chảy hay cưa ra. Làm sao biết bên trong có bạc?",
+          "Còn bạn thì sao? Tin được, Tin đồn hay Tùy? Ghi vào bình luận trước khi xem tiếp nhé!",
+          "Còn bạn thì sao? Tin được, Tin đồn hay Tùy? Ghi vào bình luận trước khi xem tiếp nhé!",
         ),
       ],
     },
     barrier: {
-      shot: "Cân khô hai bên bằng nhau tăm tắp (✖); hai khối cùng nặng, khối bạc to gần gấp đôi khối vàng; cây thước bất lực trước những chiếc lá vàng uốn lượn (✖)",
+      shot: "Câu 1: bên trái sân khấu hiện đôi găng tay cao su của thợ điện, dấu tích xanh 'CÁCH ĐIỆN ✔'. Câu 2: Milo (vai người kiểm tra lời đồn, cầm sổ ghi chép) lật một tờ giấy da có tiêu đề 'LỜI ĐỒN VỀ SÉT · CƠ QUAN KHÍ TƯỢNG QUỐC GIA MỸ', dòng 'Lốp cao su bảo vệ bạn khỏi sét' bị đóng dấu đỏ 'LỜI ĐỒN'. Câu 3: khung dựng đứng: đám mây giông ở trên, mặt đất ở dưới, tia sét ngoằn ngoèo nối hai bên, cột thước bên cạnh ghi 'HÀNG KM KHÔNG KHÍ = CHẤT CÁCH ĐIỆN'; ở chân tia sét, một lớp lốp mỏng xíu đặt cạnh để so, nhãn 'LỐP'. Câu 4: cắt lớp chiếc lốp cho thấy các sợi lõi thép bên trong, dòng điện vàng luồn qua sợi thép xuống đất, lốp xì khói, dấu ✖ đỏ lên chữ 'CAO SU CHẶN SÉT'.",
       lines: [
         nar(
-          "Cách dễ nghĩ nhất là đem cân. Nhưng vô ích: bớt bao nhiêu gam vàng thì bù bấy nhiêu gam bạc, cân nặng vẫn y như cũ.",
-          "Cách dễ nghĩ nhất là đem cân. Nhưng vô ích: bớt bao nhiêu gam vàng thì bù bấy nhiêu gam bạc, cân nặng vẫn y như cũ.",
+          "Nghe thì rất xuôi tai. Cao su đúng là chất cách điện, thợ điện vẫn đeo găng cao su đấy thôi.",
+          "Nghe thì rất xuôi tai. Cao su đúng là chất cách điện, thợ điện vẫn đeo găng cao su đấy thôi.",
         ),
         nar(
-          "Chỗ khác nằm ở độ to: cùng một khối, bạc chỉ nặng chừng nửa vàng, nên cùng cân nặng, vương miện pha bạc phải to hơn.",
-          "Chỗ khác nằm ở độ to: cùng một khối, bạc chỉ nặng chừng nửa vàng, nên cùng cân nặng, vương miện pha bạc phải to hơn.",
+          "Thế nhưng Cơ quan Khí tượng Quốc gia Mỹ lại xếp lời giải thích này vào hàng lời đồn.",
+          "Thế nhưng Cơ quan Khí tượng Quốc gia Mỹ lại xếp lời giải thích này vào hàng lời đồn.",
         ),
         nar(
-          "Vậy thì đo thể tích? Với hàng chục chiếc lá vàng chạm khắc uốn lượn, chẳng cây thước nào đo nổi.",
-          "Vậy thì đo thể tích? Với hàng chục chiếc lá vàng chạm khắc uốn lượn, chẳng cây thước nào đo nổi.",
+          "Thử nghĩ mà xem. Không khí cũng cách điện, vậy mà tia sét vẫn xé toạc cả quãng không khí dài hàng cây số. Thêm một lớp cao su dưới bánh xe thì thấm vào đâu?",
+          "Thử nghĩ mà xem. Không khí cũng cách điện, vậy mà tia sét vẫn xé toạc cả quãng không khí dài hàng cây số. Thêm một lớp cao su dưới bánh xe thì thấm vào đâu?",
+        ),
+        nar(
+          "Cơ quan này còn cho biết, sét hay phá hỏng luôn cả lốp, khi nó luồn qua lớp lõi thép bên trong để xuống đất.",
+          "Cơ quan này còn cho biết, sét hay phá hỏng luôn cả lốp, khi nó luồn qua lớp lõi thép bên trong để xuống đất.",
         ),
       ],
     },
     eureka: {
-      shot: "Bồn tắm nước tràn, Milo reo EUREKA; bình nước rộng 20 cm chỉ dâng chênh 0,4 mm (kính lúp); rồi cân đòn treo vương miện và thỏi vàng cùng 1 kg, nhúng vào chậu nước, cán cân nghiêng về phía thỏi vàng, nhãn 13 g",
+      shot: "Chuyển về giảng đường Viện Hoàng gia London năm 1836, hàng ghế gỗ hình móng ngựa. Câu 1: mở đầu bằng chiếc ô tô dưới mưa mờ dần, lớp vỏ xe sáng viền lên một nhịp, dấu hỏi 'THỨ GÌ CHE CHỞ?', rồi tan sang giảng đường. Câu 2: Milo (vai Faraday, áo đuôi tôm, kính bảo hộ trên trán) đứng cạnh một khung gỗ lập phương cao gấp đôi người, thước đo cạnh ghi '≈ 3,7 m'. Câu 3: bàn tay vẽ tua nhanh đan lưới dây đồng quanh khung, phủ giấy, rồi dán các dải lá thiếc lấp lánh khắp các mặt; nhãn 'VỎ KIM LOẠI'. Câu 4: Milo bước vào trong lồng; bên ngoài một máy phát tĩnh điện quay, tia lửa và chùm điện xanh tím phóng tóe khắp mặt ngoài lồng; chữ viết tay 'theo chính Faraday kể lại'. Câu 5: cận cảnh bên trong: Milo cầm điện nghiệm hai lá vàng khép im và một ngọn nến cháy đứng thẳng, gương mặt Eureka; mặt cắt lồng cho thấy các dấu cộng chỉ nằm ở lớp vỏ ngoài, bên trong trống trơn, nhãn lớn 'BÊN TRONG: 0'.",
       lines: [
         nar(
-          "Tương truyền, khi bước vào bồn tắm, Archimedes thấy người chìm xuống bao nhiêu thì nước tràn ra bấy nhiêu, liền reo lên: Eureka, tìm ra rồi!",
-          "Tương truyền, khi bước vào bồn tắm, Ác-si-mét thấy người chìm xuống bao nhiêu thì nước tràn ra bấy nhiêu, liền reo lên: Ơ-rê-ca, tìm ra rồi!",
+          "Vậy thứ gì mới thật sự che chở người trong xe? Hóa ra là chính lớp vỏ bao quanh họ.",
+          "Vậy thứ gì mới thật sự che chở người trong xe? Hóa ra là chính lớp vỏ bao quanh họ.",
         ),
         nar(
-          "Nhưng đong nước tràn thì khó: giả sử vương miện nặng 1 kg bị tráo 300 g bạc, nước trong bình rộng 20 cm chỉ dâng cao hơn chừng 0,4 mm.",
-          "Nhưng đong nước tràn thì khó: giả sử vương miện nặng một ki-lô-gam bị tráo ba trăm gam bạc, nước trong bình rộng hai mươi xen-ti-mét chỉ dâng cao hơn chừng không phẩy bốn mi-li-mét.",
+          "Năm 1836, tại Viện Hoàng gia ở London, Michael Faraday dựng một chiếc lồng lập phương, mỗi cạnh khoảng 3,7 mét.",
+          "Năm một nghìn tám trăm ba mươi sáu, tại Viện Hoàng gia ở Luân Đôn, Mai-cơn Pha-ra-đây dựng một chiếc lồng lập phương, mỗi cạnh khoảng ba phẩy bảy mét.",
         ),
         nar(
-          "Năm 1586, Galileo cho rằng Archimedes đã dùng một chiếc cân: treo vương miện và một thỏi vàng nặng y hệt lên hai đầu cân, rồi nhúng cả hai vào nước.",
-          "Năm một nghìn năm trăm tám mươi sáu, Ga-li-lê cho rằng Ác-si-mét đã dùng một chiếc cân: treo vương miện và một thỏi vàng nặng y hệt lên hai đầu cân, rồi nhúng cả hai vào nước.",
+          "Khung gỗ được đan lưới dây đồng, phủ giấy và lá thiếc, thành một lớp vỏ kim loại kín.",
+          "Khung gỗ được đan lưới dây đồng, phủ giấy và lá thiếc, thành một lớp vỏ kim loại kín.",
         ),
         nar(
-          "Cân lập tức nghiêng về phía thỏi vàng, chênh khoảng 13 gam, nhìn là thấy. Vương miện to hơn nên bị nước đẩy lên mạnh hơn: nó có pha bạc!",
-          "Cân lập tức nghiêng về phía thỏi vàng, chênh khoảng mười ba gam, nhìn là thấy. Vương miện to hơn nên bị nước đẩy lên mạnh hơn: nó có pha bạc!",
+          "Theo chính Faraday kể lại, ông vào sống ngay trong lồng, trong khi mặt ngoài bị nạp điện cực mạnh. Tia lửa phóng tóe ra khắp nơi.",
+          "Theo chính Pha-ra-đây kể lại, ông vào sống ngay trong lồng, trong khi mặt ngoài bị nạp điện cực mạnh. Tia lửa phóng tóe ra khắp nơi.",
+        ),
+        nar(
+          "Vậy mà bên trong, điện nghiệm lá vàng và ngọn nến không hề có dấu hiệu gì. Điện chỉ nằm lại ở lớp vỏ bên ngoài!",
+          "Vậy mà bên trong, điện nghiệm lá vàng và ngọn nến không hề có dấu hiệu gì. Điện chỉ nằm lại ở lớp vỏ bên ngoài!",
         ),
       ],
     },
     theorem: {
-      shot: "Cận cảnh chậu nước: mũi tên lực đẩy hướng lên dưới vương miện dài hơn dưới thỏi vàng; khối nước 13 cm³ tách ra đặt lên đĩa cân 13 g; trang KHTN 8 mở ra, công thức FA = d · V",
+      shot: "Quay lại chiếc ô tô dưới mưa, nay vẽ dạng mặt cắt. Câu 1: hai cột chữ viết tay hiện ra hai bên xe: 'VẬT DẪN ĐIỆN: thanh nhôm, sắt, đồng' và 'VẬT CÁCH ĐIỆN: cao su, nhựa, gỗ khô', tiêu đề nhỏ 'KHTN 8 · Bài 21'. Câu 2: lớp vỏ thép của xe phát sáng thành khung lồng giống lồng Faraday vừa rồi; tia sét đánh vào nóc, dòng điện vàng chạy men theo mái, xuống thành xe, vòng qua khoang ngồi rồi qua bánh xuống đất; Milo ngồi trong xe, hai tay đặt trên đùi, không chạm thành cửa; công thức hiện 'Sét → vỏ kim loại → đất'. Câu 3: đặt cạnh nhau một chiếc ô tô mui trần đã kéo mui vải và một chiếc xe vỏ sợi thủy tinh, cả hai đóng dấu ✖ đỏ 'KHÔNG BẢO VỆ'.",
       lines: [
         nar(
-          "Bí mật nằm ở lực đẩy của nước: vật chìm trong nước bị đẩy lên một lực bằng đúng trọng lượng phần nước mà nó chiếm chỗ.",
-          "Bí mật nằm ở lực đẩy của nước: vật chìm trong nước bị đẩy lên một lực bằng đúng trọng lượng phần nước mà nó chiếm chỗ.",
+          "Bạn còn nhớ bài vật dẫn điện, vật cách điện trong Khoa học tự nhiên lớp 8 chứ? Kim loại thì dẫn điện, còn cao su thì cách điện.",
+          "Bạn còn nhớ bài vật dẫn điện, vật cách điện trong Khoa học tự nhiên lớp tám chứ? Kim loại thì dẫn điện, còn cao su thì cách điện.",
         ),
         nar(
-          "Vương miện chiếm chỗ nhiều hơn thỏi vàng khoảng 13 cm³ nước, nên được nâng thêm đúng sức nặng của 13 gam nước.",
-          "Vương miện chiếm chỗ nhiều hơn thỏi vàng khoảng mười ba xen-ti-mét khối nước, nên được nâng thêm đúng sức nặng của mười ba gam nước.",
+          "Vỏ kim loại của ô tô kín cũng chính là một chiếc lồng Faraday. Dòng điện của tia sét chạy men theo mái và thành xe, vòng qua khoang ngồi rồi xuống đất.",
+          "Vỏ kim loại của ô tô kín cũng chính là một chiếc lồng Pha-ra-đây. Dòng điện của tia sét chạy men theo mái và thành xe, vòng qua khoang ngồi rồi xuống đất.",
         ),
         nar(
-          "Lực ấy chính là Lực đẩy Archimedes, FA = d · V, mà bạn học trong Khoa học tự nhiên lớp 8: vật chiếm chỗ càng nhiều, càng bị đẩy mạnh.",
-          "Lực ấy chính là Lực đẩy Ác-si-mét, ép a bằng đê nhân vê, mà bạn học trong Khoa học tự nhiên lớp tám: vật chiếm chỗ càng nhiều, càng bị đẩy mạnh.",
+          "Cũng vì thế, ô tô mui trần, kể cả khi đã kéo mui, hay xe vỏ sợi thủy tinh đều không che chở được bạn.",
+          "Cũng vì thế, ô tô mui trần, kể cả khi đã kéo mui, hay xe vỏ sợi thủy tinh đều không che chở được bạn.",
         ),
       ],
     },
     realworld: {
-      shot: "Phòng thí nghiệm thể thao: Milo (vai kỹ thuật viên) cân một vận động viên trên cạn, rồi cân khi người đó ngồi ghế treo chìm hẳn trong bể nước; hai khối cùng nặng, khối mỡ to hơn khối cơ",
+      shot: "Cánh đồng lúa Việt Nam chiều giông, mây đen kéo tới. Câu 1: Milo (vai người đi đường, mặc áo mưa, đội mũ bảo hiểm) chạy xe máy trên bờ ruộng; viền chấm chấm vẽ quanh người Milo rồi biến mất, chữ 'KHÔNG CÓ VỎ = KHÔNG CÓ LỒNG'. Câu 2: tiếng sấm vẽ thành chữ 'ÙNG ÙNG'; từ đám mây kéo ra một vòng tròn bán kính ghi '≈ 16 km', Milo nằm trong vòng; nhãn 'NGHE SẤM = ĐANG TRONG TẦM SÉT'. Câu 3: Milo dừng xe, bước ra xa chiếc xe máy; một cây đa đứng một mình giữa đồng và cột điện bên đường bị đóng dấu ✖ đỏ; mũi tên xanh chỉ về phía một ngôi nhà gạch kiên cố và một chiếc ô tô mui kín, dấu ✔. Câu 4: Milo đứng trong hiên nhà nhìn ra, đồng hồ cát lật ngược, chữ '30 PHÚT SAU TIẾNG SẤM CUỐI'.",
       lines: [
         nar(
-          "Ngày nay, mẹo cân trong nước vẫn được dùng để đo tỉ lệ mỡ cơ thể, gọi là cân thủy tĩnh.",
-          "Ngày nay, mẹo cân trong nước vẫn được dùng để đo tỉ lệ mỡ cơ thể, gọi là cân thủy tĩnh.",
+          "Thế còn xe máy thì sao? Xe máy chẳng có lớp vỏ nào bọc quanh người, nên chẳng có lồng Faraday nào cả.",
+          "Thế còn xe máy thì sao? Xe máy chẳng có lớp vỏ nào bọc quanh người, nên chẳng có lồng Pha-ra-đây nào cả.",
         ),
         nar(
-          "Người ta cân bạn trên cạn, rồi cân lại khi bạn ngồi chìm hẳn trong bể nước. Hai lần cân chênh nhau bao nhiêu, nước đã bị chiếm chỗ bấy nhiêu.",
-          "Người ta cân bạn trên cạn, rồi cân lại khi bạn ngồi chìm hẳn trong bể nước. Hai lần cân chênh nhau bao nhiêu, nước đã bị chiếm chỗ bấy nhiêu.",
+          "Đang đi giữa đồng mà nghe tiếng sấm, tức là bạn đã ở trong tầm sét rồi đấy. Sét có thể đánh xa khoảng 16 km tính từ cơn giông.",
+          "Đang đi giữa đồng mà nghe tiếng sấm, tức là bạn đã ở trong tầm sét rồi đấy. Sét có thể đánh xa khoảng mười sáu ki-lô-mét tính từ cơn giông.",
         ),
         nar(
-          "Mỡ nhẹ hơn cơ và xương, nên cùng cân nặng, người nhiều mỡ to hơn, bị nước đẩy mạnh hơn, và cân dưới nước nhẹ hơn.",
-          "Mỡ nhẹ hơn cơ và xương, nên cùng cân nặng, người nhiều mỡ to hơn, bị nước đẩy mạnh hơn, và cân dưới nước nhẹ hơn.",
+          "Cơ quan khí tượng Mỹ khuyên rời xe, vào ngay nhà kiên cố hoặc ô tô mui kín. Phòng chống thiên tai Việt Nam cũng dặn đừng trú dưới gốc cây, và tránh xa cột điện.",
+          "Cơ quan khí tượng Mỹ khuyên rời xe, vào ngay nhà kiên cố hoặc ô tô mui kín. Phòng chống thiên tai Việt Nam cũng dặn đừng trú dưới gốc cây, và tránh xa cột điện.",
+        ),
+        nar(
+          "Rồi chờ ít nhất 30 phút sau tiếng sấm cuối cùng hãy đi tiếp nhé.",
+          "Rồi chờ ít nhất ba mươi phút sau tiếng sấm cuối cùng hãy đi tiếp nhé.",
         ),
       ],
     },
     cosmic: {
-      shot: "Phóng ra vũ trụ: Sao Thổ đặt cạnh 95 quả Trái Đất trên đĩa cân; rồi Sao Thổ nổi lềnh bềnh trong một bồn tắm khổng lồ; kết: thu về chậu nước, chiếc cân và vương miện nguyên vẹn",
+      shot: "Phóng lên bầu trời: một chiếc máy bay chở khách bay xuyên qua tầng mây giông, Milo (vai kỹ sư hàng không, kính bảo hộ kéo xuống) ngồi cạnh cửa sổ. Câu 1: tia sét đánh vào mũi máy bay, bảng số hiện '> 1 LẦN / NĂM / MỖI MÁY BAY'. Câu 2: dòng điện vàng chạy dọc lớp vỏ nhôm từ mũi tới đuôi rồi thoát vào không trung; cận cảnh bánh xe máy bay đang thu gọn trong thân, chữ viết tay 'chẳng bánh nào chạm đất!'. Câu 3: thu về chiếc ô tô mui kín trên đường quê; con dấu đỏ lớn 'TIN ĐỒN!' đóng xuống bốn chiếc lốp, rồi lớp vỏ xe sáng lên thành khung lồng Faraday ôm lấy Milo đang ngồi bên trong; danh sách nguồn chạy ở chân màn hình.",
       lines: [
         nar(
-          "Còn nếu đặt cả một hành tinh vào phép so ấy? Sao Thổ nặng gấp khoảng 95 lần Trái Đất.",
-          "Còn nếu đặt cả một hành tinh vào phép so ấy? Sao Thổ nặng gấp khoảng chín mươi lăm lần Trái Đất.",
+          "Bằng chứng rõ nhất lại ở trên trời. Theo kỹ sư chống sét Edward Rupke, trung bình mỗi máy bay chở khách ở Mỹ bị sét đánh hơn một lần mỗi năm.",
+          "Bằng chứng rõ nhất lại ở trên trời. Theo kỹ sư chống sét Ét-uốt Rúp-kơ, trung bình mỗi máy bay chở khách ở Mỹ bị sét đánh hơn một lần mỗi năm.",
         ),
         nar(
-          "Nhưng nó to đến mức, theo NASA, khối lượng riêng trung bình chỉ khoảng 0,69 g/cm³, nhỏ hơn cả nước. Vật có khối lượng riêng nhỏ hơn nước thì nổi.",
-          "Nhưng nó to đến mức, theo Na-sa, khối lượng riêng trung bình chỉ khoảng không phẩy sáu chín gam trên mỗi xen-ti-mét khối, nhỏ hơn cả nước. Vật có khối lượng riêng nhỏ hơn nước thì nổi.",
+          "Dòng điện chạy dọc lớp vỏ nhôm, từ mũi hay đầu cánh tới đuôi, rồi thoát đi. Trong khi đó, máy bay chẳng có chiếc bánh nào chạm đất cả!",
+          "Dòng điện chạy dọc lớp vỏ nhôm, từ mũi hay đầu cánh tới đuôi, rồi thoát đi. Trong khi đó, máy bay chẳng có chiếc bánh nào chạm đất cả!",
         ),
         nar(
-          "Nên NASA nói vui: nếu có một bồn tắm đủ lớn, Sao Thổ sẽ nổi. Còn để bắt quả tang người thợ năm xưa, chỉ cần một chiếc cân, một chậu nước, và chiếc vương miện không một vết xước.",
-          "Nên Na-sa nói vui: nếu có một bồn tắm đủ lớn, Sao Thổ sẽ nổi. Còn để bắt quả tang người thợ năm xưa, chỉ cần một chiếc cân, một chậu nước, và chiếc vương miện không một vết xước.",
-        ),
-      ],
-    },
-  }),
-
-  makeEpisode({
-    day: 6,
-    week,
-    theme,
-    title: "Đường cong nhanh nhất: vì sao máng thẳng không về đích trước?",
-    hudTitle: "ĐƯỜNG THẲNG CÓ PHẢI NHANH NHẤT?",
-    textbook: "Vật lí 10 · Định luật bảo toàn cơ năng",
-    era: "Châu Âu · Lời thách đố năm 1696",
-    question: "Vì sao máng cong dốc đứng lúc đầu lại thắng máng thẳng ngắn hơn?",
-    sources: [
-      { title: "MacTutor (ĐH St Andrews) — The brachistochrone problem", url: "https://mathshistory.st-andrews.ac.uk/HistTopics/Brachistochrone/" },
-      { title: "MacTutor (ĐH St Andrews) — Christiaan Huygens", url: "https://mathshistory.st-andrews.ac.uk/Biographies/Huygens/" },
-      { title: "Linda Hall Library — Scientist of the Day: Christiaan Huygens", url: "https://www.lindahall.org/about/news/scientist-of-the-day/christian-huygens/" },
-      { title: "Klotz, The Gravity Tunnel in a Non-Uniform Earth, Am. J. Phys. 83, 231 (2015)", url: "https://arxiv.org/abs/1308.1342" },
-      { title: "Vật lí 10 Kết nối tri thức — Bài 26: Cơ năng và định luật bảo toàn cơ năng", url: "https://www.vietjack.com/vat-li-10-kn/ly-thuyet-bai-26-co-nang-va-dinh-luat-bao-toan-co-nang.jsp" },
-    ],
-    hook: {
-      shot: "Milo vai Johann Bernoulli cầm tờ tạp chí năm 1696, trước mặt là điểm A trên cao và điểm B thấp hơn lệch sang bên, ba máng trượt trống chờ viên bi",
-      lines: [
-        nar(
-          "Thả một viên bi trượt từ điểm A trên cao xuống điểm B thấp hơn. Uốn máng theo hình gì thì bi về đích nhanh nhất?",
-          "Thả một viên bi trượt từ điểm A trên cao xuống điểm Bê thấp hơn. Uốn máng theo hình gì thì bi về đích nhanh nhất?",
-        ),
-        nar(
-          "Năm 1696, Johann Bernoulli đăng câu hỏi này để thách đố các nhà toán học châu Âu.",
-          "Năm một nghìn sáu trăm chín mươi sáu, Giô-han Béc-nu-li đăng câu hỏi này để thách đố các nhà toán học châu Âu.",
-        ),
-        nar(
-          "Và người thắng cuộc không phải đường thẳng ngắn nhất.",
-          "Và người thắng cuộc không phải đường thẳng ngắn nhất.",
-        ),
-      ],
-    },
-    barrier: {
-      shot: "Máng thẳng A–B dốc đều thoai thoải, bi bò chậm (✖); máng gãy rơi thẳng đứng rồi chạy ngang, bi nhanh nhưng đường quá dài (✖); Galileo 1638 vẽ cung tròn, gắn dấu hỏi",
-      lines: [
-        nar(
-          "Máng thẳng ngắn nhất, nhưng dốc thoai thoải suốt đường nên bi tăng tốc rất chậm.",
-          "Máng thẳng ngắn nhất, nhưng dốc thoai thoải suốt đường nên bi tăng tốc rất chậm.",
-        ),
-        nar(
-          "Cho bi rơi thẳng đứng rồi mới chạy ngang thì nhanh thật, nhưng quãng đường lại dài ra quá nhiều.",
-          "Cho bi rơi thẳng đứng rồi mới chạy ngang thì nhanh thật, nhưng quãng đường lại dài ra quá nhiều.",
-        ),
-        nar(
-          "Ngay cả Galileo năm 1638 cũng đoán nhầm rằng cung tròn là nhanh nhất.",
-          "Ngay cả Ga-li-lê năm một nghìn sáu trăm ba mươi tám cũng đoán nhầm rằng cung tròn là nhanh nhất.",
-        ),
-      ],
-    },
-    eureka: {
-      shot: "Tia sáng bẻ hướng qua các lớp; chồng lên là các lớp mỏng nằm ngang, viên bi bẻ hướng qua từng lớp và vẽ ra đường cycloid; bánh xe lăn với một điểm đỏ trên vành vạch đúng đường ấy; bi trên máng cycloid về B trước; góc khung: Newton bên ngọn nến, đồng hồ chỉ 4 giờ sáng",
-      lines: [
-        nar(
-          "Bernoulli coi viên bi như tia sáng: qua những lớp có tốc độ khác nhau, ánh sáng tự bẻ hướng để tới đích sớm nhất.",
-          "Béc-nu-li coi viên bi như tia sáng: qua những lớp có tốc độ khác nhau, ánh sáng tự bẻ hướng để tới đích sớm nhất.",
-        ),
-        nar(
-          "Viên bi cũng càng xuống sâu càng nhanh. Cho bi bẻ hướng như ánh sáng qua vô số lớp mỏng, Bernoulli thu được đường cycloid.",
-          "Viên bi cũng càng xuống sâu càng nhanh. Cho bi bẻ hướng như ánh sáng qua vô số lớp mỏng, Béc-nu-li thu được đường xi-clô-ít.",
-        ),
-        nar(
-          "Đó là đường một điểm trên vành bánh xe vạch ra khi bánh lăn: dốc đứng lúc đầu để lấy tốc độ, rồi thoải dần về B.",
-          "Đó là đường một điểm trên vành bánh xe vạch ra khi bánh lăn: dốc đứng lúc đầu để lấy tốc độ, rồi thoải dần về Bê.",
-        ),
-        nar(
-          "Theo lời kể lại, Newton nhận đề khi vừa đi làm về, thức tới bốn giờ sáng thì giải xong.",
-          "Theo lời kể lại, Niu-tơn nhận đề khi vừa đi làm về, thức tới bốn giờ sáng thì giải xong.",
-        ),
-      ],
-    },
-    theorem: {
-      shot: "Trang Vật lí 10 mở ra: viên bi ở độ sâu h dưới điểm thả trên ba máng khác nhau, cả ba đều có cùng tốc độ v; công thức mgh = ½mv² → v = √(2gh) ở Tầng 2B",
-      lines: [
-        nar(
-          "Chìa khóa ấy là định luật bảo toàn cơ năng mà bạn học trong Vật lí 10.",
-          "Chìa khóa ấy là định luật bảo toàn cơ năng mà bạn học trong Vật lí lớp mười.",
-        ),
-        nar(
-          "Bỏ qua ma sát, thế năng mất đi biến thành động năng, nên ở độ sâu h, bi luôn có tốc độ v = √2gh, dù máng uốn kiểu gì.",
-          "Bỏ qua ma sát, thế năng mất đi biến thành động năng, nên ở độ sâu hát, bi luôn có tốc độ vê bằng căn bậc hai của hai giê hát, dù máng uốn kiểu gì.",
-        ),
-        nar(
-          "Vậy máng nào xuống sâu sớm thì bi chạy nhanh sớm. Cycloid cân bằng vừa khít giữa xuống sâu và đi ngắn.",
-          "Vậy máng nào xuống sâu sớm thì bi chạy nhanh sớm. Xi-clô-ít cân bằng vừa khít giữa xuống sâu và đi ngắn.",
-        ),
-      ],
-    },
-    realworld: {
-      shot: "Ba viên bi thả ở ba độ cao khác nhau trên máng cycloid cùng chạm đáy một lúc; chuyển sang đồng hồ quả lắc Huygens năm 1673 với hai má kim loại cong hình cycloid kẹp dây treo",
-      lines: [
-        nar(
-          "Bernoulli sững sờ khi nhận ra Huygens đã dùng đường cong này từ trước: trên máng cycloid, thả bi ở độ cao nào cũng tới đáy cùng lúc.",
-          "Béc-nu-li sững sờ khi nhận ra Huy-ghen đã dùng đường cong này từ trước: trên máng xi-clô-ít, thả bi ở độ cao nào cũng tới đáy cùng lúc.",
-        ),
-        nar(
-          "Thả càng cao, đoạn đầu càng dốc, bi càng nhanh, bù vừa khít cho quãng đường dài hơn.",
-          "Thả càng cao, đoạn đầu càng dốc, bi càng nhanh, bù vừa khít cho quãng đường dài hơn.",
-        ),
-        nar(
-          "Năm 1673, Huygens mô tả đồng hồ quả lắc có hai má kim loại cong hình cycloid, giúp quả lắc đưa rộng hay hẹp vẫn đúng nhịp.",
-          "Năm một nghìn sáu trăm bảy mươi ba, Huy-ghen mô tả đồng hồ quả lắc có hai má kim loại cong hình xi-clô-ít, giúp quả lắc đưa rộng hay hẹp vẫn đúng nhịp.",
-        ),
-      ],
-    },
-    cosmic: {
-      shot: "Cắt đôi Trái Đất: hầm thẳng Hà Nội – TP Hồ Chí Minh nông, 42 phút; hầm cong cùng họ cycloid chúi sâu khoảng 360 km, 14 phút; kết: thu nhỏ về viên bi lao dốc trên máng cycloid ở đầu tập",
-      lines: [
-        nar(
-          "Giờ phóng lên cỡ hành tinh: đào hầm xuyên đất từ Hà Nội tới TP Hồ Chí Minh, thả một toa tàu không động cơ.",
-          "Giờ phóng lên cỡ hành tinh: đào hầm xuyên đất từ Hà Nội tới Thành phố Hồ Chí Minh, thả một toa tàu không động cơ.",
-        ),
-        nar(
-          "Trên giấy, coi Trái Đất đồng chất và không ma sát, hầm thẳng mất khoảng 42 phút.",
-          "Trên giấy, coi Trái Đất đồng chất và không ma sát, hầm thẳng mất khoảng bốn mươi hai phút.",
-        ),
-        nar(
-          "Còn hầm nhanh nhất là một đường cong cùng họ với cycloid, chúi sâu khoảng 360 km rồi vòng lên, chỉ mất chừng 14 phút.",
-          "Còn hầm nhanh nhất là một đường cong cùng họ với xi-clô-ít, chúi sâu khoảng ba trăm sáu mươi ki-lô-mét rồi vòng lên, chỉ mất chừng mười bốn phút.",
-        ),
-        nar(
-          "Từ máng nhỏ tới hầm xuyên Trái Đất, bí quyết vẫn vậy: muốn viên bi về sớm, hãy cho nó lao dốc thật sớm.",
-          "Từ máng nhỏ tới hầm xuyên Trái Đất, bí quyết vẫn vậy: muốn viên bi về sớm, hãy cho nó lao dốc thật sớm.",
+          "Vậy phán quyết là, Tin đồn! Thứ giữ bạn an toàn không phải bốn chiếc lốp, mà là lớp vỏ kim loại, chiếc lồng Faraday bạn đang ngồi bên trong.",
+          "Vậy phán quyết là, Tin đồn! Thứ giữ bạn an toàn không phải bốn chiếc lốp, mà là lớp vỏ kim loại, chiếc lồng Pha-ra-đây bạn đang ngồi bên trong.",
         ),
       ],
     },

@@ -51,6 +51,7 @@ QUY TẮC:
 - Chỉ sửa những gì cần cho yêu cầu. Giữ nguyên phần còn lại từng ký tự (kể cả chú thích).
 ${project.ai.rules.map((r) => `- ${r}`).join("\n")}
 - Thoại để giọng AI ĐỌC: số viết bằng chữ, không viết tắt, không emoji, câu dài có dấu phẩy.
+- Câu nào bạn viết hay sửa đều phải theo GIỌNG LỜI DẪN / LỜI THOẠI bên dưới: uyển chuyển, tự nhiên như người thật nói, dễ hiểu, cuốn hút; không cụt lủn, không giọng AI.
 - Yêu cầu mơ hồ, không chắc sửa chỗ nào: KHÔNG đoán, hỏi lại.
 
 ĐỊNH DẠNG TRẢ LỜI (bắt buộc, không thêm gì khác):
@@ -70,6 +71,12 @@ makeEpisode({
 ${fix}
 --- QUY TẮC SERIES ---
 ${read(project.rel, project.ai.bible)}
+
+--- GIỌNG LỜI DẪN / LỜI THOẠI (chuẩn chung mọi dự án, bắt buộc với mọi câu bạn viết hay sửa) ---
+${read("docs", "giong-loi-thoai.md")}
+
+--- CHUẨN DỰNG CẢNH / NHÂN VẬT (bắt buộc khi viết hay sửa shot và phần diễn stage) ---
+${read("docs", "chuan-dung-canh.md")}
 
 --- CÁC TRƯỜNG CỦA makeEpisode (${project.rel}/${project.ai.spec}) ---
 ${specDoc(project)}

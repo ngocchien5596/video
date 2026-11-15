@@ -10,6 +10,9 @@ Tài liệu nghiên cứu nằm trong `research_notes/Ông ơi chỗ này lạ l
 - `phan-tich-video-goc-va-cach-ke.md`: video tham khảo, nguyên lý giữ chân người xem, nguyên lý tương tác, lý do chọn mô típ.
 - `thi-truong-va-quy-dinh.md`: kênh tương tự, rủi ro pháp lý, chính sách nền tảng.
 
+> **Giọng lời dẫn / lời thoại:** mọi kịch bản phải theo chuẩn chung [docs/giong-loi-thoai.md](../../../docs/giong-loi-thoai.md) (uyển chuyển, tự nhiên, dễ hiểu, cuốn hút; không cụt lủn, không "giọng AI"), và qua mục kiểm ở cuối trang đó trước khi duyệt.
+> **Dựng cảnh / nhân vật:** mọi cảnh, đạo cụ, phần diễn theo chuẩn chung [docs/chuan-dung-canh.md](../../../docs/chuan-dung-canh.md) (nhân vật chuyển động mượt, rõ từng bộ phận, cảnh đẹp, bố cục tốt trong vùng an toàn), qua mục kiểm cuối trang đó trước khi duyệt hình.
+
 ## Đối tượng
 
 Người xem từ 13 tuổi trở lên và người lớn. Khi đăng lên YouTube, khai "Không, nội dung này không dành cho trẻ em".

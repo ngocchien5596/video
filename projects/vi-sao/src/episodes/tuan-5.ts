@@ -34,8 +34,8 @@ export const TUAN_5 = [
     guess: {
       shot: "Thằng Cháu đoán cây bắt ruồi không cần nắng, chỉ ăn côn trùng thay cơm; Cụ Đồ bảo nó vẫn lấy năng lượng từ nắng như mọi cây",
       lines: [
-        tc("Cây bắt ruồi không cần nắng, chỉ ăn côn trùng thay cơm, phải không ông?"),
-        cd("Chưa đúng đâu! Giống các cây khác, nó vẫn lấy năng lượng từ nắng đấy."),
+        tc("Cháu đoán nhé, cây bắt ruồi chẳng cần nắng, cứ ăn côn trùng thay cơm, đúng không ông?"),
+        cd("Chưa đúng đâu! Nó cũng như mọi cây khác thôi, vẫn lấy năng lượng từ nắng đấy."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "hips", expr: "smug", move: "bounce" } },
@@ -46,10 +46,10 @@ export const TUAN_5 = [
     explain: {
       shot: "Bảng minh hoạ: cây mọc ở đầm lầy đất ướt, thiếu chất bổ; bẫy là chiếc lá gập đôi có lông nhỏ; côn trùng chạm lông, lá sập lại; nước tiêu hoá làm tan côn trùng, cây hút chất bổ",
       lines: [
-        cd("Cây bắt ruồi mọc ở đầm lầy, đất ướt và chua, rất thiếu chất bổ."),
-        cd("Mỗi cái bẫy là một chiếc lá gập đôi có bản lề, mặt trong có những sợi lông nhỏ xíu."),
-        cd("Côn trùng đậu xuống, chạm vào các sợi lông ấy, thế là chiếc lá sập lại trong chưa đầy một giây."),
-        cd("Nước tiêu hoá của cây làm tan con côn trùng, rồi cây hút lấy chất bổ mà đất còn thiếu."),
+        cd("Cây bắt ruồi mọc ở đầm lầy, đất vừa ướt vừa chua, thiếu chất bổ lắm."),
+        cd("Mỗi cái bẫy là một chiếc lá gập đôi như có bản lề, mặt trong có mấy sợi lông nhỏ xíu."),
+        cd("Con côn trùng nào đậu xuống, chạm phải mấy sợi lông ấy, là phập! Lá sập lại trong chưa đầy một giây."),
+        cd("Rồi nước tiêu hoá của cây làm tan con côn trùng, cây cứ thế hút lấy chất bổ mà đất thiếu."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w5-flytrap", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "confused" } },
@@ -65,7 +65,7 @@ export const TUAN_5 = [
     ],
     outro: {
       shot: "Thằng Cháu nhìn lên cây to trong sân, hỏi cây lớn lên từ đâu",
-      lines: [tc("Thế cây to như cây đa kia, là lớn lên từ đâu ra hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Thế cây to như cây đa kia, nó lấy đâu ra mà lớn thế hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "raise", expr: "confused" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
@@ -103,8 +103,8 @@ export const TUAN_5 = [
     guess: {
       shot: "Thằng Cháu đoán cây ăn đất, Cụ Đồ kể thí nghiệm cây liễu trồng chậu năm năm",
       lines: [
-        tc("Có phải cây ăn đất, ăn càng nhiều đất thì càng to không ông?"),
-        cd("Chưa đúng đâu! Ngày xưa có người trồng cây liễu trong chậu suốt năm năm, cây nặng thêm rất nhiều, mà đất trong chậu chỉ vơi đi rất ít."),
+        tc("Cây ăn đất chứ gì ông! Ăn càng nhiều đất thì càng to, đúng không?"),
+        cd("Chưa đúng đâu! Ngày xưa có người trồng cây liễu trong chậu suốt năm năm. Cây nặng thêm bao nhiêu, mà đất trong chậu chỉ vơi đi tí xíu."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "bounce" } },
@@ -115,10 +115,10 @@ export const TUAN_5 = [
     explain: {
       shot: "Bảng minh hoạ: lá hút khí cacbonic; rễ hút nước và chút khoáng; nắng giúp lá làm ra đường; đường làm thành thân, lá, rễ mới",
       lines: [
-        cd("Lá cây hút khí cacbonic trong không khí, qua những lỗ nhỏ li ti trên mặt lá."),
-        cd("Rễ cây hút nước từ đất lên, kèm một chút chất khoáng."),
-        cd("Nhờ năng lượng ánh nắng, lá ghép khí và nước lại, làm thành đường."),
-        cd("Đường nối lại với nhau, làm thành thân, lá và rễ mới, thế là cây lớn dần."),
+        cd("Cháu biết không, lá cây hút khí cacbonic trong không khí, qua những lỗ li ti trên mặt lá."),
+        cd("Còn rễ thì hút nước dưới đất lên, kèm tí chất khoáng."),
+        cd("Nhờ năng lượng của nắng, lá ghép khí với nước lại, làm ra đường đấy."),
+        cd("Đường nối lại với nhau thành thân, lá, rễ mới. Cây cứ thế mà lớn dần lên."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w5-plant-mass", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "shock" }, fx: { kind: "exclaim", on: "TC" } },
@@ -174,8 +174,8 @@ export const TUAN_5 = [
     guess: {
       shot: "Thằng Cháu đoán trời lạnh sơn lá thành vàng, Cụ Đồ bảo màu vàng đã có sẵn trong lá",
       lines: [
-        tc("Có phải trời lạnh như cây bút sơn, tô lá thành màu vàng không ông?"),
-        cd("Chưa đúng đâu! Màu vàng cam đã có sẵn trong lá từ mùa hè, chỉ bị màu xanh che mất thôi."),
+        tc("Cháu biết! Trời lạnh như cây bút sơn, tô lá vàng hết lượt, đúng không ông?"),
+        cd("Chưa đúng đâu! Màu vàng cam nằm sẵn trong lá từ mùa hè rồi, chẳng qua bị màu xanh che mất thôi."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "wave", expr: "smug", move: "bounce" } },
@@ -186,10 +186,10 @@ export const TUAN_5 = [
     explain: {
       shot: "Bảng minh hoạ: lá có diệp lục xanh và chất màu vàng cam; mùa hè xanh che vàng; ngày ngắn lại thì diệp lục phân huỷ; vàng lộ ra, lá rụng",
       lines: [
-        cd("Trong lá có chất diệp lục màu xanh, và cả chất màu vàng cam, giống ở củ cà rốt."),
-        cd("Mùa hè, lá chứa rất nhiều diệp lục, màu xanh che kín màu vàng."),
-        cd("Khi ngày ngắn lại, trời lạnh dần, lá ngừng làm thức ăn, diệp lục bị phân huỷ dần."),
-        cd("Màu xanh mất đi, màu vàng cam lộ ra, rồi cây làm một lớp ngăn ở cuống, để lá rụng xuống."),
+        cd("Trong lá có chất diệp lục màu xanh, lại có cả chất màu vàng cam, giống trong củ cà rốt ấy."),
+        cd("Mùa hè, lá đầy ắp diệp lục, màu xanh trùm kín cả màu vàng."),
+        cd("Đến khi ngày ngắn lại, trời lạnh dần, lá thôi làm thức ăn, diệp lục cứ thế phân huỷ dần."),
+        cd("Xanh mất đi thì vàng cam lộ ra. Rồi cây làm một lớp ngăn ở cuống, thế là lá rụng xuống."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w5-autumn-leaf", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "confused" } },
@@ -245,8 +245,8 @@ export const TUAN_5 = [
     guess: {
       shot: "Thằng Cháu đoán hoa lúc nào cũng xoay theo Mặt Trời, Cụ Đồ bảo hoa đã nở thì đứng yên, cùng quay về phía đông",
       lines: [
-        tc("Hoa hướng dương lúc nào cũng xoay theo Mặt Trời phải không ông?"),
-        cd("Chưa đúng đâu! Hướng dương đã nở hoa thì đứng yên, cả cánh đồng cùng quay về phía đông."),
+        tc("Thì hoa hướng dương lúc nào chả xoay theo Mặt Trời, phải không ông?"),
+        cd("Chưa đúng đâu! Hướng dương nở hoa rồi là đứng im, cả cánh đồng cùng quay mặt về phía đông."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "bounce" } },
@@ -257,10 +257,10 @@ export const TUAN_5 = [
     explain: {
       shot: "Bảng minh hoạ: cây non sáng hướng đông; ban ngày nghiêng dần sang tây; ban đêm quay về đông nhờ đồng hồ bên trong; hoa nở đứng yên hướng đông, ong bay tới",
       lines: [
-        cd("Cây hướng dương còn non, buổi sáng ngọn hướng về phía đông, nơi Mặt Trời mọc."),
-        cd("Ban ngày, ngọn cây nghiêng dần theo Mặt Trời sang phía tây."),
-        cd("Ban đêm, nhờ một chiếc đồng hồ bên trong, ngọn cây quay ngược về phía đông, chờ Mặt Trời mọc."),
-        cd("Khi đã nở hoa, cây đứng yên quay về phía đông, được nắng sớm sưởi ấm nhanh, nên nhiều côn trùng bay tới."),
+        cd("Lúc hướng dương còn non, sáng ra ngọn cây hướng về phía đông, chỗ Mặt Trời mọc."),
+        cd("Rồi suốt ngày, ngọn cứ nghiêng dần theo Mặt Trời sang phía tây."),
+        cd("Đêm xuống, nhờ cái đồng hồ bên trong cây, ngọn lại quay ngược về phía đông, chờ Mặt Trời mọc."),
+        cd("Nở hoa rồi thì cây đứng yên, quay về phía đông. Nắng sớm sưởi ấm hoa nhanh, thế là côn trùng kéo đến đông lắm."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w5-sunflower", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "confused" } },
@@ -319,8 +319,8 @@ export const TUAN_5 = [
     guess: {
       shot: "Thằng Cháu đoán ớt cay để chẳng con vật nào dám ăn, Cụ Đồ bảo có những chú chim ăn ớt ngon lành",
       lines: [
-        tc("Có phải ớt cay là để chẳng con vật nào dám ăn nó không ông?"),
-        cd("Chưa đúng đâu! Có những chú chim vẫn ăn ớt ngon lành, chẳng thấy cay chút nào đấy."),
+        tc("Ớt cay thế, chắc là để chẳng con vật nào dám ăn nó chứ gì ông?"),
+        cd("Chưa đúng đâu! Có mấy chú chim vẫn mổ ớt ngon lành, chẳng thấy cay tí nào đấy."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "bounce" } },
@@ -331,10 +331,10 @@ export const TUAN_5 = [
     explain: {
       shot: "Bảng minh hoạ: quả ớt có chất gây cay; chuột thấy cay nên tránh, lỡ ăn thì nhai nát hạt; chim không thấy cay, hạt qua bụng chim vẫn nguyên; chim bay xa, hạt rơi xuống nảy mầm thành cây ớt con",
       lines: [
-        cd("Trong quả ớt có một chất gây cay, ăn vào thấy nóng rát cả lưỡi."),
-        cd("Chuột và các con thú nhỏ cũng thấy cay nên tránh xa, mà lỡ ăn thì nhai nát cả hạt."),
-        cd("Chim thì không thấy cay, ăn ớt ngon lành, mà hạt ớt đi qua bụng chim vẫn còn nguyên."),
-        cd("Chim bay đi xa rồi đi ị, hạt ớt rơi xuống chỗ mới, nảy mầm thành cây ớt con."),
+        cd("Trong quả ớt có một chất gây cay, cắn vào là lưỡi nóng rát lên ngay."),
+        cd("Chuột với mấy con thú nhỏ cũng thấy cay, nên tránh xa. Mà lỡ ăn thì chúng nhai nát cả hạt."),
+        cd("Chim thì chẳng thấy cay gì, cứ ăn ngon lành, mà hạt ớt đi qua bụng chim vẫn nguyên xi."),
+        cd("Chim bay đi xa rồi mới đi ị, thế là hạt rơi xuống chỗ mới, nảy mầm thành cây ớt con."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w5-chili", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "confused" } },
@@ -390,8 +390,8 @@ export const TUAN_5 = [
     guess: {
       shot: "Thằng Cháu đoán cà chua chắc chắn là rau, Cụ Đồ bảo nhờ mẹ bổ đôi quả cà chua, bên trong đầy hạt",
       lines: [
-        tc("Cà chua mẹ nấu canh, xào trứng, thì chắc chắn là rau rồi phải không ông?"),
-        cd("Chưa đúng hẳn đâu! Nhờ mẹ bổ đôi quả cà chua ra, cháu sẽ thấy bên trong đầy hạt, giống quả dưa hấu."),
+        tc("Cà chua mẹ toàn nấu canh, xào trứng, thì là rau chứ còn gì nữa hả ông?"),
+        cd("Chưa đúng hẳn đâu! Cháu cứ nhờ mẹ bổ đôi quả cà chua ra mà xem, bên trong đầy hạt, y như quả dưa hấu."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "bounce" } },
@@ -402,10 +402,10 @@ export const TUAN_5 = [
     explain: {
       shot: "Bảng minh hoạ: cây cà chua ra hoa; hoa thành quả; bổ đôi có hạt nên là quả, dưa chuột cũng vậy; trong bếp nấu như rau",
       lines: [
-        cd("Cây cà chua ra những bông hoa nhỏ xinh."),
-        cd("Bông hoa lớn dần, biến thành quả cà chua."),
-        cd("Theo nhà khoa học, quả mọc từ hoa và có hạt bên trong, nên cà chua là quả, dưa chuột cũng vậy."),
-        cd("Còn trong bếp, thứ gì hay ăn trong bữa chính thì gọi là rau, nên cà chua cũng là rau."),
+        cd("Cháu để ý nhé, cây cà chua ra những bông hoa nhỏ xinh."),
+        cd("Hoa ấy lớn dần, rồi biến thành quả cà chua."),
+        cd("Với nhà khoa học, quả là thứ mọc từ hoa, có hạt bên trong. Vậy cà chua là quả, dưa chuột cũng thế!"),
+        cd("Còn vào bếp thì khác, thứ gì hay ăn trong bữa chính thì cứ gọi là rau, thế là cà chua lại thành rau."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w5-tomato", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "confused" } },
@@ -421,7 +421,7 @@ export const TUAN_5 = [
     ],
     outro: {
       shot: "Thằng Cháu hỏi tiếp vì sao xương rồng có gai",
-      lines: [tc("Thế còn cây xương rồng, sao nó lại có gai hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
+      lines: [tc("Thế còn cây xương rồng, sao nó lắm gai thế hả ông?"), cd("Câu đó, mai ông kể tiếp nhé!")],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "raise", expr: "confused" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
@@ -459,8 +459,8 @@ export const TUAN_5 = [
     guess: {
       shot: "Thằng Cháu đoán gai để đâm người, Cụ Đồ bảo gai chính là lá đã biến thành, dặn cháu chỉ nhìn thôi",
       lines: [
-        tc("Có phải xương rồng chẳng có lá, mọc gai ra chỉ để đâm người không ông?"),
-        cd("Chưa đúng đâu! Gai nhọn ấy chính là lá xương rồng đã biến thành nhỏ xíu, nhìn thì đẹp mà sờ vào là đau đấy."),
+        tc("Xương rồng chẳng có lá, mọc gai ra chỉ để đâm người, đúng không ông?"),
+        cd("Chưa đúng đâu! Gai nhọn ấy chính là lá xương rồng biến thành đấy. Nhưng nhìn thôi nhé, sờ vào là đau điếng!"),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "bounce" } },
@@ -471,10 +471,10 @@ export const TUAN_5 = [
     explain: {
       shot: "Bảng minh hoạ: lá to làm cây mất nước; lá xương rồng biến thành gai; gai che bóng, chắn gió khô, chống bị ăn; thân xanh làm thức ăn",
       lines: [
-        cd("Lá to thì làm cây mất nhiều nước, mà sa mạc lại rất khô."),
-        cd("Vì thế, lá xương rồng biến thành gai rất nhỏ, ít làm mất nước."),
-        cd("Gai còn che bóng, chắn gió khô cho thân cây, và giữ cho cây khỏi bị con vật ăn."),
-        cd("Còn thân màu xanh thì làm thay việc của lá, là làm thức ăn cho cây."),
+        cd("Lá to thì cây mất nhiều nước lắm, mà sa mạc lại khô khốc."),
+        cd("Thế nên lá xương rồng mới biến thành gai bé tí, đỡ mất nước."),
+        cd("Gai lại còn che bóng, chắn gió khô cho thân cây, con vật nào muốn ăn cũng phải chừa."),
+        cd("Còn việc làm thức ăn cho cây ấy à? Cái thân xanh kia làm thay lá hết."),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w5-cactus", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "confused" } },
@@ -490,8 +490,8 @@ export const TUAN_5 = [
     outro: {
       shot: "Thằng Cháu khen xương rồng giữ nước giỏi, hỏi sang chuyện nước quanh mình; Cụ Đồ hẹn tuần sau hỏi tiếp",
       lines: [
-        tc("Xương rồng giữ nước giỏi thật! Thế nước quanh mình còn có điều gì lạ nữa hả ông?"),
-        cd("Nhiều lắm cháu ạ! Tuần sau, cháu lại hỏi ông tiếp nhé!"),
+        tc("Xương rồng giữ nước giỏi ghê! Thế nước quanh mình còn chuyện gì lạ nữa không ông?"),
+        cd("Nhiều lắm, kể cả buổi chưa hết! Tuần sau cháu cứ hỏi ông tiếp nhé!"),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "up2", expr: "happy", move: "bounce" }, fx: { kind: "question", on: "TC" } },
