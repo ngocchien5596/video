@@ -2,7 +2,7 @@
 
 Yêu cầu của chủ kênh (14–15/11/2026): lời dẫn và lời nhân vật phải **uyển chuyển, giống ngôn ngữ tự nhiên, dễ hiểu, cuốn hút**. Không được cụt lủn, cứng, "nghe rất AI". Mọi kịch bản mới, mọi lần sửa kịch bản đều phải qua mục kiểm ở cuối trang này.
 
-Series bible của từng dự án nói giọng riêng của nhân vật; trang này là chuẩn chung, bible không được trái với nó.
+Series bible của từng dự án nói giọng riêng của nhân vật; trang này là chuẩn chung, bible không được trái với nó. Chuẩn này áp dụng cả cho chữ đăng bài (tiêu đề, mô tả, caption, bình luận ghim), xem thêm [hashtag.md](hashtag.md).
 
 ## 1. Nói chứ không viết
 - Câu như đang kể cho một người ngồi đối diện: chủ ngữ rõ, động từ mạnh, từ nối tự nhiên ("Thế nhưng", "Vậy mà", "Hóa ra", "Nghe thì vô lý, nhưng…", "Thử tưởng tượng…", "Và đây mới là chỗ thú vị", "Nói gọn lại").

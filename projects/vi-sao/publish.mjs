@@ -7,41 +7,45 @@
  */
 import { BASE_CHECKLIST, pick, postWhen, tags } from "../../tools/bot/publish.mjs";
 
-// Câu hỏi (từ khoá tìm kiếm) luôn đứng đầu.
+const lowerFirst = (s) => s.charAt(0).toLowerCase() + s.slice(1);
+const unquote = (s) => s.replace(/[.!]+$/, "");
+
+// Câu hỏi (từ khoá tìm kiếm) luôn đứng đầu; đuôi câu gợi tò mò, không lộ đáp án.
 const TITLES = [
   (e) => `${e.ask} Người lớn cũng hay trả lời sai!`,
-  (e) => `${e.ask} Câu tưởng dễ mà nhiều người trả lời sai`,
-  (e) => `${e.ask} Hoá ra không phải như bạn nghĩ 🤔`,
-  (e) => `${e.ask} Giải thích đúng khoa học trong một phút 🔭`,
+  (e) => `${e.ask} Hoá ra không phải như bạn nghĩ`,
+  (e) => `${e.ask} Đáp án đơn giản mà ít ai nói đúng`,
+  (e) => `${e.ask} Nghe Cụ Đồ giải thích là nhớ luôn`,
 ];
 
+// Caption TikTok KHÔNG nói đáp án: người xem phải xem video mới biết.
 const TIKTOK_OPENERS = [
-  (e) => `${e.ask} 🤔 Nhiều người vẫn nghĩ: “${e.myth}”`,
-  (e) => `${e.ask} Câu tưởng dễ, bạn trả lời được không? 👀`,
-  (e) => `${e.ask} Lưu lại, lần tới có người hỏi là trả lời được ngay 🔭`,
+  (e) => `${e.ask} Nhiều người tin là “${unquote(e.myth)}”, nhưng không phải đâu 🤔`,
+  (e) => `Hỏi nhanh: ${lowerFirst(e.ask)} Đoán trước rồi xem Cụ Đồ giải thích nhé 👀`,
+  (e) => `${e.ask} Câu tưởng dễ mà khối người lớn trả lời sai đấy 😅`,
 ];
 
 const PINS = [
-  (e, next) => `${e.question}${next ? `\nTập sau: ${next}` : ""}`,
-  (e, next) => `${e.question}${next ? `\nCâu tiếp: ${next}` : ""}`,
+  (e, next) => `${e.question}${next ? `\nCâu tiếp theo: ${next} Bạn đoán thử xem!` : ""}`,
+  (e, next) => `${e.question}${next ? `\nTập sau Thằng Cháu sẽ hỏi: ${next}` : ""}`,
 ];
 
 export const buildPublishKit = (episode, next, { cfg, startDate = null }) => {
   const day = episode.day;
-  // 3 hashtag (TikTok khuyên 2–3): tag series, tag ngách, tag chủ đề tuần.
+  // Thứ tự: tag ngách, tag lớn, tag series, tag chủ đề tuần (xem docs/hashtag.md).
   const theme = cfg.themeHashtags?.[episode.theme] ?? [];
-  const allTags = (max) => tags([...cfg.hashtags.slice(0, 2), ...theme.slice(0, 1), ...cfg.hashtags.slice(2), ...theme.slice(1)], max);
+  const allTags = (max) => tags([...cfg.hashtags, ...theme], max);
 
-  let ytTitle = `${pick(TITLES, day)(episode)} #Shorts`;
-  if (ytTitle.length > 100) ytTitle = `${episode.ask} #Shorts`;
+  // Tiêu đề chỉ chứa chữ; YouTube tự đưa 3 hashtag đầu trong mô tả lên cạnh tiêu đề, #Shorts không bắt buộc.
+  let ytTitle = pick(TITLES, day)(episode);
+  if (ytTitle.length > 100) ytTitle = episode.ask;
 
   const ytDescription = [
-    `${episode.ask}`,
-    `Trả lời ngắn: ${episode.answer}`,
-    `Hiểu lầm hay gặp: “${episode.myth}” (chưa đúng).`,
+    `${episode.ask} Nhiều người nghĩ là “${unquote(episode.myth)}”, nhưng chưa đúng.`,
+    `Tóm lại: ${episode.answer}`,
     "",
-    `Câu ${day} của series “${cfg.seriesName}”: mỗi ngày một câu hỏi “vì sao” tưởng dễ mà người lớn cũng hay trả lời sai, giải thích đúng khoa học, ngắn gọn.`,
-    next ? `Câu hỏi tiếp theo: ${next}` : "",
+    `Câu ${day} của “${cfg.seriesName}”: những câu “vì sao” tưởng dễ mà người lớn cũng hay trả lời sai, Cụ Đồ giải thích ngắn gọn, đúng khoa học.`,
+    next ? `Câu tiếp theo: ${next}` : "",
     "",
     "Nguồn tham khảo:",
     ...episode.sources.map((s) => `• ${s.title}: ${s.url}`),
@@ -55,10 +59,11 @@ export const buildPublishKit = (episode, next, { cfg, startDate = null }) => {
 
   const tiktokCaption = [
     pick(TIKTOK_OPENERS, day)(episode),
-    `Trả lời: ${episode.answer}`,
-    `Câu ${day}${next ? ` · Tiếp: ${next}` : ""}`,
+    next ? `Câu tiếp theo: ${next}` : "",
     allTags(cfg.maxHashtagsTiktok).join(" "),
-  ].join("\n");
+  ]
+    .filter(Boolean)
+    .join("\n");
 
   return {
     day,

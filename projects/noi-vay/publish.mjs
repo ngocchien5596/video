@@ -4,47 +4,49 @@
  *
  * Mẫu câu xoay vòng theo số tập để 30 video không trùng tiêu đề / caption, tránh bị coi là nội dung lặp.
  */
-import { BASE_CHECKLIST, pick, postWhen, slug, tags } from "../../tools/bot/publish.mjs";
+import { BASE_CHECKLIST, pick, postWhen, tags } from "../../tools/bot/publish.mjs";
 
 const TITLES = [
   (e) => `“${e.idiom}” nghĩa là gì? Đừng hiểu theo nghĩa đen!`,
   (e) => `Thằng cháu hiểu “${e.idiom}” theo kiểu này 😂`,
-  (e) => `“${e.idiom}”: hoá ra không phải vậy!`,
+  (e) => `“${e.idiom}” hoá ra không phải nghĩa như bạn tưởng!`,
   (e) => `Hiểu sai câu “${e.idiom}” là toang 😅`,
-  (e) => `Cụ Đồ giải nghĩa “${e.idiom}” cho thằng cháu`,
+  (e) => `“${e.idiom}” nghĩa thật là gì? Cụ Đồ giảng mới vỡ lẽ`,
   (e) => `Bạn có hiểu đúng câu “${e.idiom}” không?`,
   (e) => `“${e.idiom}” mà hiểu thế này thì Cụ Đồ cũng chịu 🤦`,
 ];
 
 const TIKTOK_OPENERS = [
   (e) => `“${e.idiom}” mà hiểu theo nghĩa đen thì… 😂`,
-  (e) => `Thằng cháu lại hiểu sai “${e.idiom}” rồi 🤦`,
+  (e) => `Thằng cháu lại hiểu “${e.idiom}” theo kiểu không ai ngờ tới 🤦`,
   (e) => `Câu “${e.idiom}” bạn hiểu thế nào? 👀`,
-  (e) => `Nói “${e.idiom}” mà không phải vậy đâu nha 😅`,
+  (e) => `Ông bà nói “${e.idiom}”, mà không phải vậy đâu nha 😅`,
   (e) => `Cụ Đồ hết hồn vì cách hiểu “${e.idiom}” của cháu 😂`,
 ];
 
 const PINS = [
-  (e, next) => `${e.question} 👇${next ? `\nMai là câu “${next}”, ai đoán trước được nghĩa?` : ""}`,
-  (e, next) => `Trả lời giúp Cụ Đồ: ${e.question}${next ? `\nTập sau: “${next}”, đoán thử xem thằng cháu sẽ hiểu sai thế nào 😆` : ""}`,
+  (e, next) => `${e.question} 👇${next ? `\nCâu tiếp theo là “${next}”, ai đoán trước được nghĩa?` : ""}`,
+  (e, next) => `Trả lời giúp Cụ Đồ: ${e.question}${next ? `\nCâu tiếp theo: “${next}”, đoán thử xem thằng cháu sẽ hiểu sai thế nào 😆` : ""}`,
   // Chỉ hỏi thật, không xin like / follow / bình luận (TikTok coi là mồi tương tác).
-  (e, next) => `Cụ Đồ hỏi thật: ${e.question} 😄${next ? `\nMai: “${next}”` : ""}`,
+  (e, next) => `Cụ Đồ hỏi thật: ${e.question} 😄${next ? `\nCâu tiếp theo: “${next}”, thằng cháu lại sắp hiểu sai rồi đấy!` : ""}`,
 ];
 
 /** cfg = project.publish, startDate = ngày đăng tập 1 (YYYY-MM-DD) hoặc null. */
 export const buildPublishKit = (episode, next, { cfg, startDate = null }) => {
   const day = episode.day;
-  const allTags = (max) => tags([slug(episode.idiom), ...cfg.hashtags, ...(cfg.themeHashtags?.[episode.theme] ?? [])], max);
+  // Thứ tự: tag ngách, tag lớn, tag series, tag chủ đề (xem docs/hashtag.md). Câu thành ngữ đã nằm trong caption để TikTok tìm theo chữ.
+  const allTags = (max) => tags([...cfg.hashtags, ...(cfg.themeHashtags?.[episode.theme] ?? [])], max);
 
-  let ytTitle = `${pick(TITLES, day)(episode)} #Shorts`;
-  if (ytTitle.length > 100) ytTitle = `“${episode.idiom}” nghĩa là gì? #Shorts`;
+  // Tiêu đề chỉ chứa chữ; YouTube tự đưa 3 hashtag đầu trong mô tả lên cạnh tiêu đề, #Shorts không bắt buộc.
+  let ytTitle = pick(TITLES, day)(episode);
+  if (ytTitle.length > 100) ytTitle = `“${episode.idiom}” nghĩa là gì?`;
 
   const ytDescription = [
     episode.question,
     `Nghĩa thật: ${episode.meaning}`,
     "",
-    `Tập ${day} của series “${cfg.seriesName}”: mỗi ngày một câu thành ngữ, tục ngữ bị hiểu sai theo nghĩa đen.`,
-    next ? `Mai là câu: “${next}”, đoán trước nghĩa trong bình luận nhé!` : "",
+    `Tập ${day} của “${cfg.seriesName}”: mỗi tập một câu thành ngữ, tục ngữ quen tai mà nhiều người vẫn hiểu sai.`,
+    next ? `Câu tiếp theo: “${next}”. Bạn hiểu câu này thế nào?` : "",
     "",
     cfg.aiNote,
     "",
@@ -55,10 +57,13 @@ export const buildPublishKit = (episode, next, { cfg, startDate = null }) => {
     .join("\n");
 
   const tiktokCaption = [
-    `${pick(TIKTOK_OPENERS, day)(episode)} ${episode.question}`,
-    `Tập ${day}${next ? ` · Mai: “${next}”` : ""}`,
+    pick(TIKTOK_OPENERS, day)(episode),
+    episode.question,
+    next ? `Câu tiếp theo: “${next}”` : "",
     allTags(cfg.maxHashtagsTiktok).join(" "),
-  ].join("\n");
+  ]
+    .filter(Boolean)
+    .join("\n");
 
   return {
     day,

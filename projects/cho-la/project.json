@@ -24,17 +24,22 @@
       }
     },
     "hashtags": [
-      "ongoichonaylalam",
-      "vietnamladiu",
-      "kienthucthuvi",
-      "dulichvietnam"
+      "khamphavietnam",
+      "suthatthuvi",
+      "dulichvietnam",
+      "ongoichonaylalam"
     ],
     "themeHashtags": {
-      "Đường sá và công trình": ["giaothong", "congtrinh"],
-      "Đất nước lạ mà quen": ["vietnam", "dialy"]
+      "Đường sá và công trình": [
+        "giaothong",
+        "congtrinh"
+      ],
+      "Đất nước lạ mà quen": [
+        "dialy"
+      ]
     },
-    "maxHashtagsYoutube": 3,
-    "maxHashtagsTiktok": 3,
+    "maxHashtagsYoutube": 4,
+    "maxHashtagsTiktok": 5,
     "aiNote": "Video có giọng đọc và hình ảnh được tạo với sự hỗ trợ của AI. Nội dung đã được người thật đối chiếu với các nguồn tham khảo ở trên."
   },
   "playlist": {

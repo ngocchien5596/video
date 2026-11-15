@@ -23,44 +23,38 @@
       }
     },
     "hashtags": [
-      "ongoivisao",
-      "khoahocthuongthuc",
       "visao",
-      "hoidap",
+      "khoahoc",
+      "kienthucthuvi",
+      "ongoivisao",
       "10vancauhoivisao"
     ],
     "themeHashtags": {
       "Bầu trời và thời tiết": [
-        "bautroi",
-        "thoitiet"
+        "thiennhien"
       ],
       "Con vật kỳ lạ": [
-        "dongvat",
-        "convat"
+        "dongvat"
       ],
       "Vũ trụ quanh mình": [
         "vutru",
         "thienvan"
       ],
       "Cơ thể mình": [
-        "cothe",
-        "suckhoe"
+        "khoahocthuvi"
       ],
       "Cây cối và trái cây": [
-        "caycoi",
         "thiennhien"
       ],
       "Nước quanh ta": [
-        "nuoc",
-        "khoahocvui"
+        "khoahocthuvi"
       ],
       "Căn bếp nhà mình": [
-        "nauan",
-        "khoahocvui"
+        "meovat"
       ]
     },
-    "maxHashtagsYoutube": 3,
-    "maxHashtagsTiktok": 3,
+    "maxHashtagsYoutube": 4,
+    "maxHashtagsTiktok": 5,
     "aiNote": "Video có giọng đọc và hình ảnh được tạo với sự hỗ trợ của AI. Nội dung đã được người thật đối chiếu với các nguồn tham khảo ở trên."
   },
   "playlist": {

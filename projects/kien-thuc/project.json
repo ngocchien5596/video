@@ -26,14 +26,14 @@
       }
     },
     "hashtags": [
+      "kienthucthuvi",
       "thienduongkienthuc",
-      "toanhoc",
-      "vatly",
-      "lichsukhoahoc",
-      "kienthucthuvi"
+      "tuduy"
     ],
     "themeHashtags": {
-      "Hình học cổ đại & Vũ trụ": ["hinhhoc", "thales", "pythagoras", "vutru"]
+      "Hình học cổ đại & Vũ trụ": [
+        "hinhhoc"
+      ]
     },
     "maxHashtagsYoutube": 4,
     "maxHashtagsTiktok": 5,

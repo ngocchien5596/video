@@ -24,27 +24,21 @@
     },
     "hashtags": [
       "thanhngu",
-      "noivaymakhongphaivay",
-      "tucngu",
       "tiengviet",
-      "hoctiengviet"
+      "kienthuc",
+      "noivaymakhongphaivay",
+      "tucngu"
     ],
     "themeHashtags": {
-      "Ăn uống": [
-        "amthuc"
-      ],
       "Con vật": [
         "convat"
       ],
       "Học hành, tiền bạc": [
         "hocsinh"
-      ],
-      "Cư xử, gia đình": [
-        "giadinh"
       ]
     },
-    "maxHashtagsYoutube": 3,
-    "maxHashtagsTiktok": 3,
+    "maxHashtagsYoutube": 4,
+    "maxHashtagsTiktok": 5,
     "aiNote": "Video có giọng đọc và hình ảnh được tạo với sự hỗ trợ của AI."
   },
   "playlist": {

@@ -6,28 +6,30 @@ import { BASE_CHECKLIST, pick, postWhen, tags } from "../../tools/bot/publish.mj
 
 const TITLES = [
   (e) => `${e.title}? Chuyện có thật ở ${e.place}`,
-  (e) => `${e.title} 🤯 Vì sao vậy?`,
-  (e) => `${e.title}: ít người biết lý do thật`,
+  (e) => `${e.title}? Lý do thật nghe xong mới thấy hợp lý`,
+  (e) => `${e.title}: chuyện thật ở ${e.place} mà ít người biết`,
 ];
 
 const TIKTOK_OPENERS = [
-  (e) => `${e.title} 🤯 Bạn có biết vì sao không?`,
-  (e) => `📍 ${e.place}: ${e.title}`,
-  (e) => `${e.title}. Lưu lại để kể cho bạn bè nghe 👀`,
+  (e) => `${e.title}? Chuyện thật ở ${e.place} đấy, bạn đoán vì sao không? 🤯`,
+  (e) => `📍 ${e.place}. ${e.title}, nghe thì vô lý mà lại có lý do hẳn hoi 👀`,
+  (e) => `${e.title}. Thằng Cháu vừa phát hiện ra, gọi ngay cho Ông hỏi cho ra nhẽ 📱`,
 ];
 
 export const buildPublishKit = (episode, next, { cfg, startDate = null }) => {
   const day = episode.day;
   const theme = cfg.themeHashtags?.[episode.theme] ?? [];
-  const allTags = (max) => tags([...cfg.hashtags.slice(0, 2), ...theme.slice(0, 1), ...cfg.hashtags.slice(2), ...theme.slice(1)], max);
+  // Thứ tự: tag ngách, tag lớn, tag series, tag chủ đề (xem docs/hashtag.md).
+  const allTags = (max) => tags([...cfg.hashtags, ...theme], max);
 
-  let ytTitle = `${pick(TITLES, day)(episode)} #Shorts`;
-  if (ytTitle.length > 100) ytTitle = `${episode.title} #Shorts`;
+  // Tiêu đề chỉ chứa chữ; YouTube tự đưa 3 hashtag đầu trong mô tả lên cạnh tiêu đề, #Shorts không bắt buộc.
+  let ytTitle = pick(TITLES, day)(episode);
+  if (ytTitle.length > 100) ytTitle = episode.title;
 
   const ytDescription = [
-    `${episode.title} (${episode.place}).`,
+    `${episode.title}? Chuyện có thật ở ${episode.place}, và lý do đằng sau mới là phần thú vị.`,
     "",
-    `Tập ${day} của series “${cfg.seriesName}”: Thằng Cháu đi khắp nơi, gặp chuyện lạ là gọi video hỏi Ông. Mỗi tập một điều có thật ở Việt Nam, có số liệu và nguồn.`,
+    `Tập ${day} của series “${cfg.seriesName}”: Thằng Cháu đi khắp nơi, gặp chuyện lạ là gọi video hỏi Ông. Mỗi tập một điều có thật ở Việt Nam, kèm số liệu và nguồn.`,
     next ? `Chỗ lạ tiếp theo: ${next}` : "",
     "",
     "Nguồn tham khảo:",

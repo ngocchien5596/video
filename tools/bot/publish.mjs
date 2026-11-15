@@ -47,7 +47,7 @@ export const postWhen = (startDate, day, postTime) => {
 export const BASE_CHECKLIST = [
   "Đăng file mp4 gốc bot gửi lên từng nền tảng, không dùng bản tải về có logo TikTok / Shorts / CapCut",
   "Bật nhãn “nội dung do AI tạo” (YouTube: Altered content = Có · TikTok: AI-generated content)",
-  "Giữ nguyên tiêu đề, caption, 3 hashtag trong gói (từ khoá đã đặt đầu câu)",
+  "Giữ nguyên tiêu đề, caption và hashtag trong gói (từ khoá đã đặt đầu câu; không thêm #fyp, #xuhuong)",
   "YouTube: ngôn ngữ video Tiếng Việt · thêm vào playlist của series · thêm “Video liên quan” trỏ tới tập trước (hoặc tập 1)",
   "TikTok: chọn ảnh bìa (ảnh gửi kèm)",
   "Ghim bình luận ngay sau khi đăng, trả lời bình luận trong 1–2 giờ đầu; không xin like / follow (TikTok coi là mồi tương tác)",
