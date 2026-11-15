@@ -23,3 +23,7 @@ Phần diễn đổi ở nhịp 3.
 ## 2026-11-13 11:56 · Xuất video v1
 
 Kịch bản ở commit `2a9091a`, dài 49.2 giây. File: `out/vi-sao/versions/ngay-02/v1/`.
+
+## 2026-11-15 11:09 · Xuất video v2
+
+Kịch bản ở commit `6d509e4`, dài 53.6 giây. File: `out/vi-sao/versions/ngay-02/v2/`.
