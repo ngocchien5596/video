@@ -27,7 +27,7 @@ Bối cảnh thị trường và lý do chọn cách làm: `reports/Ngách video
 | 2. Đoán thử | 6–9 giây | Thằng Cháu đoán theo **hiểu lầm phổ biến** (`myth`). Cụ Đồ bảo "chưa đúng" và đưa **một bằng chứng** dễ thấy. Thẻ "NHIỀU NGƯỜI NGHĨ… CHƯA ĐÚNG!". |
 | 3. Giải thích | 15–22 giây | Cụ Đồ giải thích **từng bước, mỗi câu một bước**, bảng minh hoạ đổi bước theo câu. |
 | 4. Tóm lại | 3–5 giây | Tự sinh từ `answer`: "Tóm lại, …". Thẻ "TÓM LẠI". |
-| 5. Hỏi tiếp | khoảng 5 giây | Thằng Cháu hỏi câu liên quan, Cụ Đồ hẹn tập sau. Thẻ cuối: câu hỏi cho người xem và "Câu hỏi tiếp". |
+| 5. Hẹn kể tiếp | khoảng 5 giây | Thằng Cháu xin ông kể thêm, Cụ Đồ hẹn lần sau, KHÔNG nói trước câu hay chủ đề tập sau (chủ kênh 16/11/2026). Thẻ cuối: câu hỏi cho người xem. |
 
 ## Kiểm chứng (bắt buộc, bot chặn xuất video nếu thiếu)
 

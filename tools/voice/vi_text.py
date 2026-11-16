@@ -173,6 +173,18 @@ PRONOUNCE = {
     "CV": "xê vê",
     "ISS": "ai ét ét",
     "NASA": "Na sa",
+    # AI (Vì sao: chữ chạy của Claude)
+    "Claude": "Cờ lốt",
+    "AI": "ây ai",
+    "Thinking": "thinh kinh",
+    "Brewing": "bờ ru inh",
+    "Pondering": "pon đờ rinh",
+    "Noodling": "nu đờ linh",
+    "Moonwalking": "mun guốc kinh",
+    "Clauding": "cờ lốt đinh",
+    "ChatGPT": "chát gi pi ti",
+    "Gemini": "giem mi nai",
+    "Harvard": "Ha vớt",
 }
 
 _VOWELS = "aàáảãạăằắẳẵặâầấẩẫậeèéẻẽẹêềếểễệiìíỉĩịoòóỏõọôồốổỗộơờớởỡợuùúủũụưừứửữựyỳýỷỹỵ"

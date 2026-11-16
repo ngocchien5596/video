@@ -5,7 +5,7 @@ const theme = "Nước quanh ta";
 
 export const TUAN_6 = [
   makeEpisode({
-    day: 8,
+    day: 9,
     week,
     theme,
     ask: "Nước sông ngọt chảy ra biển, vì sao biển lại mặn?",
@@ -68,17 +68,17 @@ export const TUAN_6 = [
       { line: 0, board: null, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", move: "idle" } },
     ],
     outro: {
-      shot: "Thằng Cháu hỏi tiếp vì sao tự cù mình lại không thấy nhột, Cụ Đồ hẹn lần sau",
-      lines: [tc("Thế sao cháu tự cù mình, lại chẳng thấy nhột tí nào hả ông?"), cd("Hỏi hay đấy! Để lần sau ông giải thích cho nhé!")],
+      shot: "Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề)",
+      lines: [tc("Hay thật đấy ông ạ! Thế còn chuyện khác thì sao hả ông?"), cd("Từ từ đã nào, cái thằng này! Lần sau ông kể tiếp cho.")],
       stage: [
-        { line: 0, camera: "TC", tc: { arms: "point", expr: "confused" }, fx: { kind: "question", on: "TC" } },
+        { line: 0, camera: "TC", tc: { arms: "raise", expr: "happy" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
       ],
     },
   }),
 
   makeEpisode({
-    day: 34,
+    day: 35,
     week,
     theme,
     ask: "Vì sao nước biển màu xanh?",
@@ -138,17 +138,17 @@ export const TUAN_6 = [
       { line: 0, board: null, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", move: "idle" } },
     ],
     outro: {
-      shot: "Thằng Cháu hỏi tiếp hoa hướng dương có quay theo Mặt Trời thật không, Cụ Đồ hẹn lần sau",
-      lines: [tc("Ơ, thế hoa hướng dương có quay theo Mặt Trời thật không hả ông?"), cd("Thật hay không thì để tập sau ông giải thích cho cháu, chờ đấy nhé!")],
+      shot: "Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề)",
+      lines: [tc("Ông ơi, cháu lại vừa nghĩ ra một câu vì sao nữa rồi!"), cd("Lại câu gì nữa đây? Thôi, để lần sau ông kể nhé!")],
       stage: [
-        { line: 0, camera: "TC", tc: { arms: "up2", expr: "confused" }, fx: { kind: "question", on: "TC" } },
+        { line: 0, camera: "TC", tc: { arms: "raise", expr: "happy" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
       ],
     },
   }),
 
   makeEpisode({
-    day: 29,
+    day: 30,
     week,
     theme,
     ask: "Giọt mưa thật ra có hình gì?",
@@ -211,17 +211,17 @@ export const TUAN_6 = [
       { line: 0, board: null, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", move: "idle" } },
     ],
     outro: {
-      shot: "Thằng Cháu hỏi tiếp vì sao mình nổi da gà, Cụ Đồ hẹn lần sau",
-      lines: [tc("Ơ, thế sao trời lạnh, tay cháu lại nổi da gà hả ông?"), cd("Chuyện da gà thì để lần sau ông kể cho nhé!")],
+      shot: "Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề)",
+      lines: [tc("Ông ơi, cháu lại vừa nghĩ ra một câu vì sao nữa rồi!"), cd("Lại câu gì nữa đây? Thôi, để lần sau ông kể nhé!")],
       stage: [
-        { line: 0, camera: "TC", tc: { arms: "point", expr: "confused" }, fx: { kind: "question", on: "TC" } },
+        { line: 0, camera: "TC", tc: { arms: "raise", expr: "happy" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
       ],
     },
   }),
 
   makeEpisode({
-    day: 15,
+    day: 16,
     week,
     theme,
     ask: "Tàu bằng sắt nặng thế, sao không chìm?",
@@ -287,17 +287,17 @@ export const TUAN_6 = [
       { line: 0, board: null, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", move: "idle" } },
     ],
     outro: {
-      shot: "Thằng Cháu hỏi tiếp vì sao trời nóng mà vẫn có mưa đá, Cụ Đồ hẹn lần sau",
-      lines: [tc("Ơ, thế mùa hè nóng nực như vậy, sao trời vẫn có mưa đá hả ông?"), cd("Chuyện mưa đá thì để tập sau ông giải thích cho cháu nhé!")],
+      shot: "Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề)",
+      lines: [tc("Hay quá ông ạ! Mai ông lại kể cho cháu nghe chuyện khác nữa nhé?"), cd("Được chứ! Cháu cứ hỏi, rồi ông kể dần cho.")],
       stage: [
-        { line: 0, camera: "TC", tc: { arms: "hold", expr: "confused" }, fx: { kind: "question", on: "TC" } },
+        { line: 0, camera: "TC", tc: { arms: "raise", expr: "happy" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
       ],
     },
   }),
 
   makeEpisode({
-    day: 22,
+    day: 23,
     week,
     theme,
     ask: "Vì sao cục đá lại nổi trên nước?",
@@ -360,17 +360,17 @@ export const TUAN_6 = [
       { line: 0, board: null, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", move: "idle" } },
     ],
     outro: {
-      shot: "Thằng Cháu hỏi tiếp về những vết đen loang lổ trên Mặt Trăng, Cụ Đồ hẹn lần sau",
-      lines: [tc("Ông ơi, thế Mặt Trăng kia, sao lại lốm đốm vết đen ạ?"), cd("Để lần sau ông kể tiếp nhé!")],
+      shot: "Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề)",
+      lines: [tc("À, thế là cháu hiểu rồi! Mai ông kể thêm một chuyện vì sao nữa nhé?"), cd("Ừ, mai ông kể tiếp, nhớ ra mà nghe đấy!")],
       stage: [
-        { line: 0, camera: "TC", tc: { arms: "hold", expr: "confused" }, fx: { kind: "question", on: "TC" } },
+        { line: 0, camera: "TC", tc: { arms: "raise", expr: "happy" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
       ],
     },
   }),
 
   makeEpisode({
-    day: 40,
+    day: 41,
     week,
     theme,
     ask: "Vì sao cốc nước đá lại “đổ mồ hôi”?",
@@ -436,20 +436,17 @@ export const TUAN_6 = [
       { line: 0, board: null, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", move: "idle" } },
     ],
     outro: {
-      shot: "Thằng Cháu hỏi tiếp vì sao xương rồng có gai, Cụ Đồ hẹn lần sau",
-      lines: [
-        tc("Thế còn cây xương rồng, sao nó lắm gai thế hả ông?"),
-        cd("Chuyện xương rồng thì để hôm khác ông kể nhé!"),
-      ],
+      shot: "Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề)",
+      lines: [tc("Hay quá ông ạ! Mai ông lại kể cho cháu nghe chuyện khác nữa nhé?"), cd("Được chứ! Cháu cứ hỏi, rồi ông kể dần cho.")],
       stage: [
-        { line: 0, camera: "TC", tc: { arms: "up2", expr: "confused", move: "bounce" }, fx: { kind: "question", on: "TC" } },
-        { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "raise", expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
+        { line: 0, camera: "TC", tc: { arms: "raise", expr: "happy" }, fx: { kind: "question", on: "TC" } },
+        { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
       ],
     },
   }),
 
   makeEpisode({
-    day: 42,
+    day: 43,
     week,
     theme,
     ask: "Vì sao con nhện nước đi được trên mặt nước?",
@@ -509,10 +506,10 @@ export const TUAN_6 = [
       { line: 0, board: null, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", move: "idle" } },
     ],
     outro: {
-      shot: "Thằng Cháu hỏi tiếp vì sao bột bánh mì lại phồng lên, Cụ Đồ hẹn lần sau",
-      lines: [tc("Ơ, thế sao bột bánh mì lại phồng to lên được hả ông?"), cd("Câu này hay đấy, để tập sau ông giải thích cho cháu nhé!")],
+      shot: "Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề)",
+      lines: [tc("À, thế là cháu hiểu rồi! Mai ông kể thêm một chuyện vì sao nữa nhé?"), cd("Ừ, mai ông kể tiếp, nhớ ra mà nghe đấy!")],
       stage: [
-        { line: 0, camera: "TC", tc: { arms: "point", expr: "confused" }, fx: { kind: "question", on: "TC" } },
+        { line: 0, camera: "TC", tc: { arms: "raise", expr: "happy" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
       ],
     },

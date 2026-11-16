@@ -3,6 +3,6 @@ import { TUAN_1 } from "./tuan-1.ts";
 
 export const EPISODES: ChoLaEpisode[] = [...TUAN_1];
 
-/** Tiêu đề tập sau (hoặc tiêu đề hẹn trong tập nếu tập sau chưa viết), cho dòng "Chỗ lạ tiếp theo" ở cuối video. */
-export const nextTeaser = (day: number): string | null =>
-  EPISODES.find((e) => e.day === day + 1)?.title ?? EPISODES.find((e) => e.day === day)?.teaser ?? null;
+/** Chủ kênh 16/11/2026: không công bố trước tập sau (câu hay chủ đề) ở bất cứ đâu: cuối video, mô tả, bình luận ghim. Luôn trả về null. */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const nextTeaser = (_day: number): string | null => null;

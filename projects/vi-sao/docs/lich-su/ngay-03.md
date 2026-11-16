@@ -5,3 +5,7 @@ Ghi tự động (bot hoặc lệnh npm run render): mỗi lần sửa kịch b�
 ## 2026-11-15 18:52 · Xuất video v1
 
 Kịch bản ở commit `0712da6+sửa`, dài 62.1 giây. File: `out/vi-sao/versions/ngay-03/v1/`.
+
+## 2026-11-16 17:19 · Xuất video v2
+
+Kịch bản ở commit `52eaab0+sửa`, dài 60.9 giây. File: `out/vi-sao/versions/ngay-03/v2/`.

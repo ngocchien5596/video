@@ -217,17 +217,17 @@ export const TUAN_1 = [
       { line: 0, board: null, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", move: "idle" } },
     ],
     outro: {
-      shot: "Thằng Cháu hỏi tiếp vì sao gân xanh mà máu lại đỏ, Cụ Đồ hẹn lần sau",
-      lines: [tc("Ơ, thế sao gân trên tay cháu màu xanh, mà máu chảy ra lại đỏ hả ông?"), cd("Hỏi hay đấy, cái thằng này! Để tập sau ông giải thích cho nhé!")],
+      shot: "Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề)",
+      lines: [tc("Hay thật đấy ông ạ! Thế còn chuyện khác thì sao hả ông?"), cd("Từ từ đã nào, cái thằng này! Lần sau ông kể tiếp cho.")],
       stage: [
-        { line: 0, camera: "TC", tc: { arms: "raise", expr: "confused" }, fx: { kind: "question", on: "TC" } },
+        { line: 0, camera: "TC", tc: { arms: "raise", expr: "happy" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
       ],
     },
   }),
 
       makeEpisode({
-    day: 16,
+    day: 17,
     week,
     theme,
     ask: "Vì sao trời nóng mà vẫn có mưa đá?",
@@ -286,10 +286,10 @@ export const TUAN_1 = [
       { line: 0, board: null, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", move: "idle" } },
     ],
     outro: {
-      shot: "Thằng Cháu hỏi tiếp vì sao chim hồng hạc lại màu hồng, Cụ Đồ hẹn lần sau",
-      lines: [tc("Ông ơi, thế con chim hồng hạc, sao nó lại hồng rực thế ạ?"), cd("Chuyện chim hồng hạc thì để lần sau ông kể nhé!")],
+      shot: "Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề)",
+      lines: [tc("Ông ơi, cháu còn cả đống câu vì sao muốn hỏi ông nữa cơ!"), cd("Thế thì từ từ, mỗi hôm ông kể cho một chuyện nhé!")],
       stage: [
-        { line: 0, camera: "TC", tc: { arms: "raise", expr: "confused" }, fx: { kind: "question", on: "TC" } },
+        { line: 0, camera: "TC", tc: { arms: "raise", expr: "happy" }, fx: { kind: "question", on: "TC" } },
         { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" } },
       ],
     },

@@ -38,7 +38,7 @@ Bạn muốn nhớ ơn ai nhất? Comment đi!
 ```
 
 - **Hashtag:** 3–5 tag, gồm 1 tag riêng của series, 2–3 tag chủ đề và 1 tag rộng.
-- **Ghim bình luận:** câu hỏi của tập, kèm "Mai là câu: …".
+- **Ghim bình luận:** câu hỏi của tập. Không báo trước câu hay chủ đề tập sau (chủ kênh 16/11/2026).
 - **Playlist:** tạo playlist "30 ngày thành ngữ" trên cả hai nền tảng ngay từ tập 1.
 - **Mùa 2:** gom các câu người xem góp ý trong bình luận từ tuần 3.
 

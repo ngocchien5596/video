@@ -31,7 +31,7 @@ Một người có thể đóng cả hai vai, quay hết cảnh của CĐ trư�
 | 6–25 | Hiểu sai | Diễn nghĩa đen, leo thang 2–3 bước, cắt cảnh mỗi 2–3 giây |
 | 25–40 | Lật nghĩa | Câu cửa miệng của CĐ, thẻ "NGHĨA THẬT" hiện lên |
 | 40–52 | Ví dụ | Tình huống hiện đại (công sở, học đường, mạng xã hội) hoặc một câu chuyện dựng thành cảnh hồi ức (xem bên dưới) |
-| 52–60 | Punchline | TC áp dụng sai kiểu mới, thẻ câu hỏi bình luận và "Mai là câu…" |
+| 52–60 | Punchline | TC áp dụng sai kiểu mới, thẻ câu hỏi bình luận (không báo trước tập sau) |
 
 ### Chuẩn dựng nhịp Ví dụ
 

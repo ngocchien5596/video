@@ -564,14 +564,8 @@ const afterScriptChange = async (project, day, before, after, pending) => {
     notes.push(`🎬 Video tập ${day} đã tạo trước đó không còn đúng kịch bản. Bấm <b>Duyệt</b> để tạo lại.`);
   }
   if (titleChanged) {
+    // Video không còn dòng "Tiếp theo" (chủ kênh 16/11/2026), nên đổi tiêu đề không làm hỏng video tập trước.
     notes.push(`📝 Đã cập nhật tiêu đề tập trong tracker.csv.`);
-    const prev = day - 1;
-    if (prev >= 1 && days[prev]?.status === "done") {
-      days[prev] = { ...days[prev], status: "failed" };
-      notes.push(`⚠️ Video tập ${prev} có dòng "${esc(project.teaserLabel)}" ghi tiêu đề cũ, cần tạo lại tập ${prev}.`);
-      await send(notes.join("\n"), reviewButtons(project, prev));
-      return;
-    }
   }
   await send(notes.join("\n"));
 };

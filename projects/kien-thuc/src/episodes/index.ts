@@ -12,5 +12,6 @@ export const getEpisode = (day: number): KienThucEpisode => {
   return episode;
 };
 
-export const nextTeaser = (day: number): string | null =>
-  EPISODES.find((e) => e.day === day + 1)?.hudTitle ?? null;
+/** Chủ kênh 16/11/2026: không công bố trước tập sau (câu hay chủ đề) ở bất cứ đâu: cuối video, mô tả, bình luận ghim. Luôn trả về null. */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const nextTeaser = (_day: number): string | null => null;

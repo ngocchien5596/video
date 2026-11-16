@@ -4,7 +4,7 @@
 > CĐ = Cụ Đồ, TC = Thằng Cháu.
 > Các file tuần gom tập theo chủ đề; thứ tự đăng theo số ngày, xem [thu-tu-dang.md](thu-tu-dang.md).
 
-## Ngày 10: Vì sao quả ớt lại cay?
+## Ngày 11: Vì sao quả ớt lại cay?
 
 - **Hiểu lầm phổ biến:** Ớt cay là để không con vật nào dám ăn nó.
 - **Trả lời một câu:** Ớt cay là để đuổi những con thú hay nhai nát hạt, còn chim thì chẳng thấy cay, cứ ăn ớt rồi mang hạt đi gieo ở chỗ mới.
@@ -18,9 +18,9 @@
 | 3–10 | ĐOÁN THỬ | Thằng Cháu đoán ớt cay để chẳng con vật nào dám ăn, Cụ Đồ bảo có những chú chim ăn ớt ngon lành | **TC**: Ớt cay thế, chắc là để chẳng con vật nào dám ăn nó chứ gì ông?<br>**CĐ**: Ấy thế mà có mấy chú chim vẫn mổ ớt lia lịa, chẳng thấy cay tí nào đấy. |
 | 10–32 | GIẢI THÍCH | Bảng minh hoạ: quả ớt có chất gây cay; chuột thấy cay nên tránh, lỡ ăn thì nhai nát hạt; chim không thấy cay, hạt qua bụng chim vẫn nguyên; chim bay xa, hạt rơi xuống nảy mầm thành cây ớt con | **CĐ**: Cháu xem, trong quả ớt có một chất gây cay, cắn vào là lưỡi nóng rát lên ngay.<br>**CĐ**: Chuột với mấy con thú nhỏ cũng thấy cay, thế nên chúng tránh xa ớt ra. Mà lỡ có ăn phải thì chúng lại nhai nát cả hạt.<br>**CĐ**: Chim thì khác hẳn! Chúng chẳng thấy cay gì sất, mà hạt ớt đi qua bụng chim lại vẫn còn nguyên xi đấy.<br>**CĐ**: Chim bay đi thật xa rồi mới thải hạt ra theo phân, thế là hạt rơi xuống chỗ mới, nảy mầm thành cây ớt con. |
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, ớt cay là để đuổi những con thú hay nhai nát hạt, còn chim thì chẳng thấy cay, cứ ăn ớt rồi mang hạt đi gieo ở chỗ mới. |
-| 37–43 | HỎI TIẾP | Thằng Cháu hỏi tiếp vì sao mùa hè nóng, mùa đông lạnh, Cụ Đồ hẹn lần sau | **TC**: Ông ơi, thế sao mùa hè thì nóng nực, mùa đông lại rét căm căm ạ?<br>**CĐ**: Chuyện mùa nóng mùa rét à? Để tập sau ông giải thích cho, hay lắm đấy! |
+| 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Hay quá ông ạ! Mai ông lại kể cho cháu nghe chuyện khác nữa nhé?<br>**CĐ**: Được chứ! Cháu cứ hỏi, rồi ông kể dần cho. |
 
-## Ngày 25: Vì sao cây bắt ruồi lại ăn côn trùng?
+## Ngày 26: Vì sao cây bắt ruồi lại ăn côn trùng?
 
 - **Hiểu lầm phổ biến:** Cây bắt ruồi không cần nắng, chỉ ăn côn trùng thay cơm để sống.
 - **Trả lời một câu:** Cây bắt ruồi vẫn sống nhờ nắng như mọi cây khác, còn bắt côn trùng là để có thêm chất bổ mà đất đầm lầy thiếu.
@@ -34,9 +34,9 @@
 | 3–10 | ĐOÁN THỬ | Thằng Cháu đoán cây bắt ruồi không cần nắng, chỉ ăn côn trùng thay cơm; Cụ Đồ bảo nó vẫn lấy năng lượng từ nắng như mọi cây | **TC**: Cháu đoán nhé, cây bắt ruồi chẳng cần nắng, cứ ăn côn trùng thay cơm, đúng không ông?<br>**CĐ**: Làm gì có chuyện ấy! Lá nó vẫn xanh như mọi cây khác, vẫn lấy năng lượng từ nắng đấy. |
 | 10–32 | GIẢI THÍCH | Bảng minh hoạ: cây mọc ở đầm lầy đất ướt, thiếu chất bổ; bẫy là chiếc lá gập đôi có lông nhỏ; côn trùng chạm lông, lá sập lại; nước tiêu hoá làm tan côn trùng, cây hút chất bổ | **CĐ**: Thế này nhé, cây bắt ruồi mọc ở vùng đầm lầy, đất ở đấy vừa ướt vừa chua, lại nghèo chất bổ lắm.<br>**CĐ**: Mỗi cái bẫy là một chiếc lá gập đôi như có bản lề, mặt trong có mấy sợi lông nhỏ xíu.<br>**CĐ**: Con côn trùng nào bò vào mà chạm phải mấy sợi lông ấy, thì phập một cái! Lá sập lại trong chưa đầy một giây.<br>**CĐ**: Rồi nước tiêu hoá của cây làm tan dần con côn trùng, cây cứ thế hút lấy chất bổ mà đất thiếu. |
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, cây bắt ruồi vẫn sống nhờ nắng như mọi cây khác, còn bắt côn trùng là để có thêm chất bổ mà đất đầm lầy thiếu. |
-| 37–43 | HỎI TIẾP | Thằng Cháu hỏi tiếp vì sao con cú quay đầu được rất xa, Cụ Đồ hẹn lần sau | **TC**: Ơ ông ơi, thế còn con cú, sao nó ngoái được đầu ra tận đằng sau thế ạ?<br>**CĐ**: Con cú à? Chuyện ấy để tập sau ông giải thích cho nhé! |
+| 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Hay quá ông ạ! Mai ông lại kể cho cháu nghe chuyện khác nữa nhé?<br>**CĐ**: Được chứ! Cháu cứ hỏi, rồi ông kể dần cho. |
 
-## Ngày 35: Vì sao hoa hướng dương quay theo Mặt Trời?
+## Ngày 36: Vì sao hoa hướng dương quay theo Mặt Trời?
 
 - **Hiểu lầm phổ biến:** Hoa hướng dương lúc nào cũng xoay theo Mặt Trời, kể cả khi đã nở to.
 - **Trả lời một câu:** Chỉ cây hướng dương non mới xoay theo Mặt Trời, còn hoa đã nở thì đứng yên, quay về phía đông.
@@ -50,9 +50,9 @@
 | 3–10 | ĐOÁN THỬ | Thằng Cháu đoán hoa lúc nào cũng xoay theo Mặt Trời, Cụ Đồ bảo hoa đã nở thì đứng yên, cùng quay về phía đông | **TC**: Chắc tại hoa mê nắng nên lúc nào cũng xoay theo Mặt Trời hả ông?<br>**CĐ**: Đâu phải lúc nào cũng thế! Hướng dương nở hoa rồi là đứng im, cả cánh đồng cùng quay mặt về một phía đấy. |
 | 10–32 | GIẢI THÍCH | Bảng minh hoạ: cây non sáng hướng đông; ban ngày nghiêng dần sang tây; ban đêm quay về đông nhờ đồng hồ bên trong; hoa nở đứng yên hướng đông, ong bay tới | **CĐ**: Chuyện là thế này, lúc hướng dương còn non, sáng ra ngọn cây đã hướng về phía đông, là chỗ Mặt Trời mọc.<br>**CĐ**: Rồi suốt cả ngày, ngọn cây cứ nghiêng dần theo Mặt Trời sang phía tây đấy.<br>**CĐ**: Thế ban đêm thì sao? Nhờ cái đồng hồ sinh học có sẵn trong cây, ngọn cây lại quay ngược về phía đông, chờ sẵn Mặt Trời mọc lên.<br>**CĐ**: Đến khi nở hoa thì cây thôi không xoay nữa, cứ đứng yên quay về phía đông. Thế là sáng ra hoa được nắng sưởi ấm sớm hơn, ong bướm kéo đến nhiều lắm. |
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, chỉ cây hướng dương non mới xoay theo Mặt Trời, còn hoa đã nở thì đứng yên, quay về phía đông. |
-| 37–43 | HỎI TIẾP | Thằng Cháu hỏi tiếp vì sao chạy nhảy xong lại đổ mồ hôi, Cụ Đồ hẹn lần sau | **TC**: Thế còn chạy nhảy xong, sao cháu lại đổ mồ hôi đầm đìa hả ông?<br>**CĐ**: Câu này hay đấy, để lần sau ông kể tiếp nhé! |
+| 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Hay quá ông ạ! Mai ông lại kể cho cháu nghe chuyện khác nữa nhé?<br>**CĐ**: Được chứ! Cháu cứ hỏi, rồi ông kể dần cho. |
 
-## Ngày 41: Vì sao xương rồng có gai?
+## Ngày 42: Vì sao xương rồng có gai?
 
 - **Hiểu lầm phổ biến:** Xương rồng không có lá, gai mọc ra chỉ để đâm người.
 - **Trả lời một câu:** Gai xương rồng chính là lá đã biến đổi, giúp cây giữ được nước giữa sa mạc, lại khỏi bị thú vật gặm mất.
@@ -66,4 +66,4 @@
 | 3–10 | ĐOÁN THỬ | Thằng Cháu đoán gai để đâm người, Cụ Đồ bảo gai chính là lá đã biến thành, dặn cháu chỉ nhìn thôi | **TC**: Chắc là xương rồng chẳng có lá, nên nó mới mọc gai ra để đâm người hả ông?<br>**CĐ**: Đâm người gì mà đâm người! Gai nhọn ấy chính là lá của xương rồng biến thành đấy. Nhưng nhìn thôi nhé, sờ vào là đau điếng! |
 | 10–32 | GIẢI THÍCH | Bảng minh hoạ: lá to làm cây mất nước; lá xương rồng biến thành gai; gai che bóng, chắn gió khô, chống bị ăn; thân xanh làm thức ăn | **CĐ**: Cháu xem, áo phơi căng rộng ra thì mau khô, lá to cũng thế đấy, cây sẽ bị mất nước nhiều lắm, mà sa mạc thì lại khô khốc.<br>**CĐ**: Thế nên lá xương rồng mới biến thành gai bé tí, cho cây đỡ bị mất nước.<br>**CĐ**: Gai lại còn che bớt nắng, chắn gió khô cho thân cây, mà con vật nào định gặm thì cũng phải tránh xa ra.<br>**CĐ**: Còn việc làm thức ăn cho cây ấy à? Cái thân xanh kia làm thay cho lá hết rồi đấy. |
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, gai xương rồng chính là lá đã biến đổi, giúp cây giữ được nước giữa sa mạc, lại khỏi bị thú vật gặm mất. |
-| 37–43 | HỎI TIẾP | Thằng Cháu khen xương rồng giữ nước giỏi, rồi hỏi tiếp vì sao con nhện nước đi được trên mặt nước; Cụ Đồ hẹn lần sau | **TC**: Xương rồng giữ nước giỏi ghê! Ơ, thế sao con nhện nước lại đi được trên mặt nước hả ông?<br>**CĐ**: Chuyện ấy hay lắm đấy, để lần sau ông kể nhé! |
+| 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Ông ơi, cháu còn cả đống câu vì sao muốn hỏi ông nữa cơ!<br>**CĐ**: Thế thì từ từ, mỗi hôm ông kể cho một chuyện nhé! |
