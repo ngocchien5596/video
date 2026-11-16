@@ -389,6 +389,7 @@ export const Stage: React.FC<{
                 local={local}
                 pop={interpolate(pop, [0, 1], [0.2, 1])}
                 side={side}
+                view={[focus - W / 2 / camK, focus + W / 2 / camK]}
               />
             );
           })}

@@ -5,7 +5,170 @@ const theme = "Cư xử, gia đình";
 
 export const TUAN_4 = [
   makeEpisode({
-    day: 6,
+    day: 3,
+    week,
+    theme,
+    idiom: "Cá không ăn muối cá ươn",
+    meaning: "Con cái không nghe lời cha mẹ dạy bảo thì dễ hư, như cá không ướp muối thì ươn.",
+    question: "Lời dặn nào của bố mẹ mà hồi trước bạn cãi, giờ nghĩ lại mới thấy đúng?",
+    hook: {
+      shot: "Bếp, bể cá vàng trên bàn ăn; TC cầm hũ muối nghiêng trên miệng bể, cá vàng nép xuống đáy; CĐ đứng bên trái giật mình",
+      lines: [tc("Cá ơi há miệng ra nào, ăn muối vào cho khỏi ươn!")],
+      stage: [
+        // Bể cá trên bàn, TC cầm hũ muối
+        {
+          cut: true,
+          scene: "kitchen",
+          camera: "wide",
+          cd: { x: 0.2, expr: "neutral" },
+          tc: { x: 0.7, hand: "ca-hu-muoi", arms: "hold", expr: "happy", move: "idle" },
+          items: [{ id: "be", prop: "ca-be-ca", x: 0.5, on: "table", scale: 0.9 }],
+        },
+        // "ăn muối vào": rắc muối, cá hoảng
+        { at: 0.5, tc: { x: 0.64, arms: "raise", expr: "smug", move: "bounce" }, items: [{ id: "be", prop: { id: "ca-be-ca-so", text: "CỨU!" }, x: 0.5, on: "table", scale: 0.9 }], fx: { kind: "sparkle", on: "TC" } },
+        { at: 0.8, cd: { expr: "shock", arms: "up2" }, fx: { kind: "surprise", on: "CD" } },
+      ],
+    },
+    titleStage: [
+      { line: 0, camera: "CD", cd: { arms: "point", expr: "angry" }, tc: { move: "idle" }, fx: { kind: "anger", on: "CD" } },
+      { line: 1, camera: "wide", cd: { arms: "hips", expr: "angry" }, tc: { arms: "hold", expr: "smug", move: "bounce" } },
+    ],
+    ask: "Ối giời ơi! Cái thằng này, mày rắc muối vào bể cá vàng làm gì hử?",
+    answer: "Thì cá không ăn muối cá ươn mà ông!",
+    misread: {
+      shot: "TC chỉ con cá nằm im dưới đáy bể bảo nó 'ươn người'; rồi bê hũ muối khoe định pha nước muối cho cá tắm biển; CĐ giật hũ muối, chỉ bể cá",
+      lines: [
+        tc("Ông xem, dạo này con cá cứ ươn người, nằm im dưới đáy chẳng buồn bơi. Chắc tại nó lười ăn muối đấy ông ạ!"),
+        tc("Cháu còn định pha hẳn một xô nước muối, cho nó tắm biển ngay tại nhà, khỏe như cá mập luôn!"),
+        cd("Cá vàng sống ở nước ngọt, mày cho nó tắm nước muối thì nó ươn thật đấy, cái thằng này!"),
+      ],
+      stage: [
+        // "con cá cứ ươn người": cận TC chỉ vào bể
+        {
+          line: 0,
+          cut: true,
+          scene: "kitchen",
+          camera: "TC",
+          cd: { x: 0.2, hand: null, arms: "down", expr: "confused" },
+          tc: { x: 0.7, hand: null, arms: "point", expr: "sad", move: "idle" },
+          items: [{ id: "be", prop: "ca-be-ca-so", x: 0.5, on: "table", scale: 0.9 }],
+        },
+        { line: 0, at: 0.45, fx: { kind: "sweat", on: "TC" } },
+        // "Chắc tại nó lười ăn muối"
+        { line: 0, at: 0.75, camera: "wide", tc: { hand: "ca-hu-muoi", arms: "hold", expr: "smug" }, fx: { kind: "exclaim", on: "TC" } },
+        // "pha hẳn một xô nước muối"
+        { line: 1, camera: "TC", tc: { arms: "raise", expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
+        // "khỏe như cá mập luôn!"
+        { line: 1, at: 0.7, tc: { arms: "up2", expr: "happy", move: "jump" }, fx: { kind: "exclaim", on: "TC", text: "CÁ MẬP!" } },
+        // CĐ giật hũ muối
+        { line: 2, camera: "wide", cd: { x: 0.36, hand: "ca-hu-muoi", arms: "hold", expr: "angry", move: "idle" }, tc: { x: 0.74, hand: null, arms: "down", expr: "shock", move: "idle" }, fx: { kind: "anger", on: "CD" } },
+        // "thì nó ươn thật đấy": chỉ bể cá
+        { line: 2, at: 0.45, camera: "CD", cd: { hand: "fan", arms: "point" }, items: [{ id: "be", prop: "ca-be-ca", x: 0.5, on: "table", scale: 0.9 }] },
+        { line: 2, at: 0.8, camera: "wide", tc: { expr: "sad", move: "tremble" }, fx: { kind: "sweat", on: "TC" } },
+      ],
+    },
+    flipStage: [
+      { line: 0, camera: "wide", cd: { x: 0.42, hand: "fan", arms: "hit", expr: "angry", move: "idle" }, tc: { move: "idle", arms: "down" } },
+      { line: 0, at: 0.3, fx: { kind: "bop", on: "TC" }, tc: { expr: "shock", move: "tremble" } },
+      // "Muối ở đây là muối ướp cá": rổ cá ướp muối
+      {
+        line: 1,
+        camera: "wide",
+        cd: { x: 0.24, hand: "fan", arms: "point", expr: "neutral", move: "idle" },
+        tc: { x: 0.78, move: "idle", expr: "confused" },
+        items: [{ id: "uop", prop: "ca-ro-uop", x: 0.44, on: "table" }],
+        fx: { kind: "question", on: "TC" },
+      },
+      // "không ướp muối thì chỉ nửa buổi là ươn": đĩa cá ươn
+      {
+        line: 1,
+        at: 0.22,
+        cd: { arms: "wave", expr: "angry" },
+        items: [
+          { id: "uop", prop: "ca-ro-uop", x: 0.38, on: "table" },
+          { id: "uon", prop: "ca-ca-uon", x: 0.62, on: "table" },
+        ],
+        tc: { expr: "shock" },
+        fx: { kind: "sweat", on: "TC" },
+      },
+      // "Câu đầy đủ là...": cận Cụ Đồ
+      { line: 1, at: 0.42, camera: "CD", cd: { arms: "raise", expr: "neutral" } },
+      // "con biết nghe thì mới nên người"
+      { line: 1, at: 0.75, camera: "wide", cd: { arms: "point", expr: "happy" }, tc: { expr: "sad" } },
+      { line: 1, at: 0.94, tc: { expr: "happy", arms: "raise" }, fx: { kind: "exclaim", on: "TC", text: "À!" } },
+    ],
+    explain:
+      "Muối ở đây là muối ướp cá đấy! Ngày xưa làm gì có tủ lạnh, cá mà không ướp muối thì chỉ nửa buổi là ươn. Câu đầy đủ là cá không ăn muối cá ươn, con cãi cha mẹ trăm đường con hư. Nói gọn lại, con biết nghe lời cha mẹ dạy thì mới nên người!",
+    flipShot: "Cụ Đồ gõ quạt lên đầu TC; trên bàn hiện rổ cá ướp muối trắng tươi, bên cạnh đĩa cá ươn bốc mùi, ruồi bay",
+    example: {
+      shot: "Đêm khuya trong phòng khách: TC ôm điện thoại chơi điện tử, đồng hồ chỉ 2:00; cắt sang lớp học, TC ngủ gật trên bài thi, giơ tờ giấy '3 ĐIỂM' mặt mếu",
+      lines: [
+        cd("Như hôm trước, mẹ dặn mày đi ngủ sớm để mai còn thi. Mày cãi, ôm điện thoại chơi điện tử đến tận hai giờ sáng."),
+        cd("Sáng ra vào phòng thi cứ gật gà gật gù, bài làm được đúng ba điểm. Thế có phải cãi mẹ là hỏng việc ngay không?"),
+      ],
+      stage: [
+        // "mẹ dặn đi ngủ sớm": đêm, TC ôm điện thoại
+        {
+          line: 0,
+          cut: true,
+          scene: "home",
+          camera: "wide",
+          cd: { x: 0.22, hand: null, arms: "down", expr: "neutral", move: "idle" },
+          tc: { x: 0.66, hand: "phone", arms: "hold", expr: "happy", move: "idle" },
+          items: [],
+        },
+        // "Mày cãi": TC lắc đầu
+        { line: 0, at: 0.5, tc: { arms: "hold", expr: "smug", move: "shake" }, fx: { kind: "anger", on: "CD" }, cd: { expr: "angry", arms: "hips" } },
+        // "đến tận hai giờ sáng"
+        { line: 0, at: 0.75, camera: "TC", tc: { hand: { id: "alarm-clock", text: "2:00" }, expr: "shock" }, fx: { kind: "sweat", on: "TC" } },
+        // "vào phòng thi gật gà gật gù"
+        {
+          line: 1,
+          cut: true,
+          scene: { id: "classroom", text: "THI HỌC KỲ" },
+          camera: "wide",
+          cd: { x: 0.24, hand: "fan", arms: "down", expr: "neutral", move: "idle" },
+          tc: { x: 0.66, hand: "pen", arms: "hold", expr: "sad", move: "tremble" },
+          items: [],
+        },
+        { line: 1, at: 0.15, fx: { kind: "sweat", on: "TC" } },
+        // "được đúng ba điểm"
+        { line: 1, at: 0.4, camera: "TC", tc: { hand: { id: "paper", text: "3 ĐIỂM" }, arms: "hold", expr: "sad", move: "idle" }, fx: { kind: "surprise", on: "TC" } },
+        // "Thế có phải cãi mẹ là hỏng việc ngay không?"
+        { line: 1, at: 0.72, camera: "wide", cd: { arms: "point", expr: "smug" }, fx: { kind: "question", on: "CD" } },
+      ],
+    },
+    punchline: {
+      shot: "Phòng khách: TC tươi cười hỏi ông có phải bố của bố cháu không; rồi giơ tờ giấy 'TĂNG TIỀN TIÊU VẶT' bảo ông ra lệnh cho bố; CĐ trợn mắt",
+      lines: [
+        tc("Cháu hiểu rồi! Thế ông là bố của bố cháu, đúng không ạ?"),
+        cd("Thì sao?"),
+        tc("Thế ông bảo bố tăng tiền tiêu vặt cho cháu đi. Bố mà cãi ông thì bố hư đấy nhé!"),
+      ],
+      stage: [
+        {
+          line: 0,
+          cut: true,
+          scene: "home",
+          camera: "wide",
+          cd: { x: 0.27, hand: "fan", arms: "down", expr: "neutral", move: "idle" },
+          tc: { x: 0.64, hand: null, arms: "point", expr: "smug", move: "idle" },
+          items: [],
+        },
+        { line: 0, at: 0.6, tc: { expr: "happy", move: "bounce" }, fx: { kind: "question", on: "TC" } },
+        // "Thì sao?"
+        { line: 1, camera: "CD", cd: { arms: "hips", expr: "confused" }, fx: { kind: "question", on: "CD" } },
+        // "ông bảo bố tăng tiền tiêu vặt"
+        { line: 2, camera: "TC", cd: { arms: "down" }, tc: { hand: { id: "paper", text: "TĂNG TIỀN\nTIÊU VẶT" }, arms: "hold", expr: "happy", move: "bounce" } },
+        // "Bố mà cãi ông thì bố hư đấy nhé!"
+        { line: 2, at: 0.55, camera: "wide", tc: { x: 0.56, expr: "smug", move: "idle" }, fx: { kind: "sparkle", on: "TC" } },
+        { line: 2, at: 0.85, cd: { expr: "shock", arms: "up2", move: "tremble" }, fx: { kind: "surprise", on: "CD" } },
+      ],
+    },
+  }),
+
+  makeEpisode({
+    day: 5,
     week,
     theme,
     idiom: "Trâu buộc ghét trâu ăn",
@@ -83,7 +246,7 @@ export const TUAN_4 = [
   }),
 
   makeEpisode({
-    day: 10,
+    day: 9,
     week,
     theme,
     idiom: "Bán anh em xa mua láng giềng gần",
@@ -123,7 +286,7 @@ export const TUAN_4 = [
   }),
 
   makeEpisode({
-    day: 11,
+    day: 10,
     week,
     theme,
     idiom: "Một con ngựa đau cả tàu bỏ cỏ",
@@ -232,7 +395,7 @@ export const TUAN_4 = [
   }),
 
   makeEpisode({
-    day: 13,
+    day: 12,
     week,
     theme,
     idiom: "Tai vách mạch dừng",
@@ -317,7 +480,7 @@ export const TUAN_4 = [
   }),
 
   makeEpisode({
-    day: 15,
+    day: 14,
     week,
     theme,
     idiom: "Ăn ốc nói mò",
@@ -391,7 +554,7 @@ export const TUAN_4 = [
   }),
 
   makeEpisode({
-    day: 21,
+    day: 20,
     week,
     theme,
     idiom: "Ma cũ bắt nạt ma mới",
@@ -506,7 +669,7 @@ export const TUAN_4 = [
   }),
 
   makeEpisode({
-    day: 26,
+    day: 25,
     week,
     theme,
     idiom: "Tốt gỗ hơn tốt nước sơn",
@@ -627,7 +790,7 @@ export const TUAN_4 = [
   }),
 
   makeEpisode({
-    day: 28,
+    day: 27,
     week,
     theme,
     idiom: "Mật ngọt chết ruồi",
@@ -698,7 +861,7 @@ export const TUAN_4 = [
   }),
 
   makeEpisode({
-    day: 30,
+    day: 29,
     week,
     theme: "Tổng kết",
     idiom: "Học ăn, học nói, học gói, học mở",

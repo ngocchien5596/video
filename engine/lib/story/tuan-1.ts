@@ -72,7 +72,17 @@ export type PropTuan1 =
   /** Con mèo Mướp ngồi trên bàn (`on: "table"`) ôm con cá kho ăn ngấu nghiến. */
   | "meo-muop-an"
   /** Giỏ tre đựng đùi thịt thơm phức treo cao trên dây thừng thả từ trần nhà xuống (minh hoạ treo đồ ăn phòng chó). */
-  | "gio-thit-treo";
+  | "gio-thit-treo"
+  /** Bể cá vàng tròn trên đế gỗ, cá vàng bơi vui, sỏi, rong (đặt `on: "table"`; `text` = bóng thoại nhỏ của cá). */
+  | "ca-be-ca"
+  /** Bể cá vàng bị rắc muối trên mặt nước, cá nép đáy bể mắt tròn xoe, toát mồ hôi (thay "ca-be-ca", cùng x). */
+  | "ca-be-ca-so"
+  /** Hũ muối sành nâu, miệng vun muối trắng, nhãn "MUỐI" (cầm tay `hold`, hoặc đặt trên bàn). */
+  | "ca-hu-muoi"
+  /** Rổ tre đựng ba con cá bạc ướp muối trắng (cá giữ được lâu; đặt trên bàn hoặc sàn). */
+  | "ca-ro-uop"
+  /** Đĩa cá ươn xám xịt, mắt dấu X, mùi hôi xanh bốc lên, ruồi bay (đặt trên bàn). */
+  | "ca-ca-uon";
 
 /** Phông (scene). */
 export type SceneTuan1 =

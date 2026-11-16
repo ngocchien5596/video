@@ -5,7 +5,7 @@ const theme = "Học hành, công việc, tiền bạc";
 
 export const TUAN_3 = [
   makeEpisode({
-    day: 9,
+    day: 8,
     week,
     theme,
     idiom: "Muốn ăn hét phải đào giun",
@@ -109,7 +109,7 @@ export const TUAN_3 = [
   }),
 
   makeEpisode({
-    day: 12,
+    day: 11,
     week,
     theme,
     idiom: "Vung tay quá trán",
@@ -149,7 +149,7 @@ export const TUAN_3 = [
   }),
 
   makeEpisode({
-    day: 14,
+    day: 13,
     week,
     theme,
     idiom: "Năng nhặt chặt bị",
@@ -233,7 +233,7 @@ export const TUAN_3 = [
   }),
 
   makeEpisode({
-    day: 19,
+    day: 18,
     week,
     theme,
     idiom: "Nước đến chân mới nhảy",
@@ -317,7 +317,7 @@ export const TUAN_3 = [
   }),
 
   makeEpisode({
-    day: 20,
+    day: 19,
     week,
     theme,
     idiom: "Học thầy không tày học bạn",
@@ -357,7 +357,7 @@ export const TUAN_3 = [
   }),
 
   makeEpisode({
-    day: 23,
+    day: 22,
     week,
     theme,
     idiom: "Đẽo cày giữa đường",
@@ -486,7 +486,7 @@ export const TUAN_3 = [
   }),
 
   makeEpisode({
-    day: 25,
+    day: 24,
     week,
     theme,
     idiom: "Đầu voi đuôi chuột",

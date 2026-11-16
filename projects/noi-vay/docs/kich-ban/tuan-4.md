@@ -4,7 +4,22 @@
 > CĐ = Cụ Đồ, TC = Thằng Cháu.
 > Các file tuần gom tập theo chủ đề; thứ tự đăng theo số ngày, xem [thu-tu-dang.md](thu-tu-dang.md).
 
-## Ngày 6: Trâu buộc ghét trâu ăn
+## Ngày 3: Cá không ăn muối cá ươn
+
+- **Nghĩa thật:** Con cái không nghe lời cha mẹ dạy bảo thì dễ hư, như cá không ướp muối thì ươn.
+- **Câu hỏi cuối video:** Lời dặn nào của bố mẹ mà hồi trước bạn cãi, giờ nghĩ lại mới thấy đúng?
+- **Footage:** chưa có (đặt file vào public/footage/)
+
+| Giây | Nhịp | Cảnh | Thoại |
+| --- | --- | --- | --- |
+| 0–3 | HOOK | Bếp, bể cá vàng trên bàn ăn; TC cầm hũ muối nghiêng trên miệng bể, cá vàng nép xuống đáy; CĐ đứng bên trái giật mình | **TC**: Cá ơi há miệng ra nào, ăn muối vào cho khỏi ươn! |
+| 3–7.8 | ĐẶT CÂU | Cụ Đồ hỏi, TC đáp; nói xong hiện thẻ "BẠN HIỂU ĐÚNG CÂU NÀY CHƯA?" + câu, âm "ding", rồi câu bay lên góc trên | **CĐ**: Ối giời ơi! Cái thằng này, mày rắc muối vào bể cá vàng làm gì hử?<br>**TC**: Thì cá không ăn muối cá ươn mà ông! |
+| 7.8–26.8 | HIỂU SAI | TC chỉ con cá nằm im dưới đáy bể bảo nó 'ươn người'; rồi bê hũ muối khoe định pha nước muối cho cá tắm biển; CĐ giật hũ muối, chỉ bể cá | **TC**: Ông xem, dạo này con cá cứ ươn người, nằm im dưới đáy chẳng buồn bơi. Chắc tại nó lười ăn muối đấy ông ạ!<br>**TC**: Cháu còn định pha hẳn một xô nước muối, cho nó tắm biển ngay tại nhà, khỏe như cá mập luôn!<br>**CĐ**: Cá vàng sống ở nước ngọt, mày cho nó tắm nước muối thì nó ươn thật đấy, cái thằng này! |
+| 26.8–41.8 | LẬT NGHĨA | Cụ Đồ gõ quạt lên đầu TC; trên bàn hiện rổ cá ướp muối trắng tươi, bên cạnh đĩa cá ươn bốc mùi, ruồi bay | **CĐ**: Ông bà nói vậy, mà không phải vậy!<br>**CĐ**: Muối ở đây là muối ướp cá đấy! Ngày xưa làm gì có tủ lạnh, cá mà không ướp muối thì chỉ nửa buổi là ươn. Câu đầy đủ là cá không ăn muối cá ươn, con cãi cha mẹ trăm đường con hư. Nói gọn lại, con biết nghe lời cha mẹ dạy thì mới nên người! |
+| 41.8–53.8 | VÍ DỤ | Đêm khuya trong phòng khách: TC ôm điện thoại chơi điện tử, đồng hồ chỉ 2:00; cắt sang lớp học, TC ngủ gật trên bài thi, giơ tờ giấy '3 ĐIỂM' mặt mếu | **CĐ**: Như hôm trước, mẹ dặn mày đi ngủ sớm để mai còn thi. Mày cãi, ôm điện thoại chơi điện tử đến tận hai giờ sáng.<br>**CĐ**: Sáng ra vào phòng thi cứ gật gà gật gù, bài làm được đúng ba điểm. Thế có phải cãi mẹ là hỏng việc ngay không? |
+| 53.8–61.8 | PUNCHLINE | Phòng khách: TC tươi cười hỏi ông có phải bố của bố cháu không; rồi giơ tờ giấy 'TĂNG TIỀN TIÊU VẶT' bảo ông ra lệnh cho bố; CĐ trợn mắt | **TC**: Cháu hiểu rồi! Thế ông là bố của bố cháu, đúng không ạ?<br>**CĐ**: Thì sao?<br>**TC**: Thế ông bảo bố tăng tiền tiêu vặt cho cháu đi. Bố mà cãi ông thì bố hư đấy nhé! |
+
+## Ngày 5: Trâu buộc ghét trâu ăn
 
 - **Nghĩa thật:** Chê thói mình kém thế, lỡ vận thì sinh ra ganh tị, gièm pha người được hưởng hơn mình.
 - **Câu hỏi cuối video:** Lúc nào bạn thấy mình dễ thành "trâu buộc" nhất?
@@ -19,7 +34,7 @@
 | 41.8–53.8 | VÍ DỤ | HỒI ỨC (TV đen trắng): điện vua, Cám ướm chiếc hài không vừa, giậm chân; Tấm đi vừa hài, được đội mũ phượng làm hoàng hậu; nhà tranh ban đêm, dì ghẻ và Cám chống nạnh tức tối, chụm đầu bày mưu, Cám mơ đội mũ phượng | **CĐ**: Như mẹ con Cám trong truyện Tấm Cám ấy. Cám ướm mãi chiếc hài mà không vừa, còn Tấm thì đi vừa khít, nên được vua cưới làm hoàng hậu.<br>**CĐ**: Thế là hai mẹ con ghen tức đỏ cả mắt, ngày đêm bày mưu hại Tấm, mong cho Cám được vào cung thế chỗ Tấm. |
 | 53.8–61.8 | PUNCHLINE | TC thi xong, giơ nồi lẩu chụp ảnh đăng; bên cạnh CĐ đang ăn kiêng, cầm bát cháo trắng, bấm điện thoại | **TC**: Thi xong rồi! Cháu đăng ngay ảnh đi ăn lẩu đây!<br>**CĐ**: Ông thì đang ăn kiêng, cả tuần nay toàn húp cháo trắng...<br>**CĐ**: Phẫn nộ. |
 
-## Ngày 10: Bán anh em xa mua láng giềng gần
+## Ngày 9: Bán anh em xa mua láng giềng gần
 
 - **Nghĩa thật:** Hàng xóm ở gần, lúc cần giúp được nhanh hơn họ hàng ở xa, nên phải quý tình láng giềng.
 - **Câu hỏi cuối video:** Lần gần nhất hàng xóm giúp bạn một việc là việc gì?
@@ -34,7 +49,7 @@
 | 41.8–53.8 | VÍ DỤ | Phòng trọ nửa đêm, cô gái sốt nằm đắp chăn, chị phòng bên bưng bát cháo sang | **CĐ**: Như cái đứa đi thuê trọ, nửa đêm bị sốt cao chẳng hạn. Bố mẹ ở tận quê thì cũng chỉ gọi điện hỏi han được thôi.<br>**CĐ**: Thế mà chị phòng bên lại mang thuốc sang, còn nấu cho nó một bát cháo nóng. |
 | 53.8–61.8 | PUNCHLINE | TC mang đĩa ổi sang nhà bên, quay về ôm nồi chè to; cảnh cuối TC cầm cái nồi rỗng đứng trước cửa hàng xóm | **TC**: Ông ơi! Cháu mang đĩa ổi sang biếu chị hàng xóm, thế mà chị gửi lại cho cháu hẳn một nồi chè!<br>**CĐ**: Thế mai mày định mang gì sang hử?<br>**TC**: Cháu bê cái nồi to nhất nhà sang, để trống thế thôi, xem chị đổ đầy cho cháu cái gì ạ! |
 
-## Ngày 11: Một con ngựa đau cả tàu bỏ cỏ
+## Ngày 10: Một con ngựa đau cả tàu bỏ cỏ
 
 - **Nghĩa thật:** Một người trong tập thể gặp chuyện thì cả tập thể cùng lo lắng, sẻ chia.
 - **Câu hỏi cuối video:** Lần gần nhất cả nhóm cùng lo cho một người là chuyện gì?
@@ -49,7 +64,7 @@
 | 41.8–53.8 | VÍ DỤ | HỒI ỨC (TV đen trắng): làng ngập trong mưa lũ; điểm nhận hàng, người ôm thùng mì, bọc quần áo, áo phao; xe tải cứu trợ chở hàng vào vùng ngập; người ở xa đứng trước ti vi xem tin lũ, bỏ bát cơm xuống | **CĐ**: Như mỗi mùa lũ ấy, một vùng bị ngập là cả nước cùng xắn tay vào giúp, người gom mì gói, quần áo, áo phao, người lái xe chở hàng vào tận nơi.<br>**CĐ**: Người ở xa chưa giúp được gì thì cũng ngồi canh tin, thương đến mức bỏ cả bữa. |
 | 53.8–61.8 | PUNCHLINE | CĐ chống lưng kêu đau; cả nhà nằm thành hàng quanh CĐ, không ai nhúc nhích | **TC**: Cháu hiểu rồi! Ông đau lưng thì cả nhà phải bỏ cỏ.<br>**TC**: Cháu nghỉ học, mẹ nghỉ làm, bố nghỉ nấu cơm, cả nhà nằm cạnh ông luôn!<br>**CĐ**: Thế đứa nào đi mua thuốc cho ông?! |
 
-## Ngày 13: Tai vách mạch dừng
+## Ngày 12: Tai vách mạch dừng
 
 - **Nghĩa thật:** Chuyện tưởng kín vẫn có thể bị nghe thấy và lan ra, nên nói chuyện riêng phải cẩn thận.
 - **Câu hỏi cuối video:** Bạn từng bị lộ chuyện chỉ vì nói ở chỗ tưởng là kín chưa?
@@ -64,7 +79,7 @@
 | 41.8–53.8 | VÍ DỤ | HỒI ỨC (TV đen trắng): cung điện Hy Lạp, vua Mi-đát bỏ mũ lộ đôi tai lừa, đội mũ giấu lại, thợ cạo cầm kéo trố mắt; bãi đất ven sông, thợ cạo đào hố nói thầm rồi lấp lại, lau sậy mọc lên, gió thổi ra chữ "VUA CÓ TAI LỪA!", vua chạy ra hốt hoảng | **CĐ**: Như chuyện vua Mi-đát trong thần thoại Hy Lạp ấy, vua bị mọc đôi tai lừa, phải giấu kỹ dưới mũ, chỉ có mỗi ông thợ cạo là biết.<br>**CĐ**: Ông thợ cạo không nhịn nổi, bèn đào một cái hố, ghé miệng thì thầm bí mật xuống rồi lấp đất lại. Ai ngờ lau sậy mọc lên, gió thổi qua là rì rào nói lại, thế là cả nước đều biết vua có tai lừa! |
 | 53.8–61.8 | PUNCHLINE | TC đưa tờ giấy gấp nhỏ cho CĐ, CĐ mở ra đọc to, tròn mắt | **TC**: Thế từ nay chuyện riêng cháu viết ra giấy cho kín nhé!<br>**CĐ**: Để ông xem nào... Ông ơi, cháu lỡ làm vỡ cái ấm trà của ông... Hả? CÁI ẤM NÀO?!<br>**TC**: Ông đọc to thế, tường nghe hết rồi còn đâu! |
 
-## Ngày 15: Ăn ốc nói mò
+## Ngày 14: Ăn ốc nói mò
 
 - **Nghĩa thật:** Nói không có căn cứ, chẳng biết rõ mà cứ đoán mò, phán bừa.
 - **Câu hỏi cuối video:** Tin đồn vô căn cứ nào về bạn khiến bạn dở khóc dở cười nhất?
@@ -79,7 +94,7 @@
 | 41.8–53.8 | VÍ DỤ | HỒI ỨC (TV đen trắng): đầu làng, con voi to đứng giữa, hai ông thầy bói (ông béo mắt nhắm, ông gầy kính đen) chống gậy dò tới; ông béo sờ vòi, ông gầy sờ đuôi, ông béo sờ chân voi; hai ông cãi nhau rồi vung gậy đánh nhau "BỐP!" | **CĐ**: Cứ như năm ông thầy bói mù trong truyện Thầy bói xem voi ấy, mỗi ông sờ một chỗ. Người thì bảo voi sun sun như con đỉa, người bảo tun tủn như cái chổi sể cùn, người lại bảo sừng sững như cột đình.<br>**CĐ**: Chẳng ông nào nhìn thấy được cả con voi, thế mà ông nào cũng quả quyết mình đúng, cãi nhau rồi đánh nhau tơi bời. |
 | 53.8–61.8 | PUNCHLINE | TC giơ điện thoại, chỉ vào một bình luận ẩn danh trên màn hình | **TC**: Từ giờ cháu nói gì cũng phải có căn cứ. Ông ơi, ông sinh năm bao nhiêu ạ?<br>**CĐ**: Năm 1950 chứ sao, hỏi làm gì hử?<br>**TC**: Sai bét! Cháu có căn cứ hẳn hoi nhé, một bình luận ẩn danh bảo ông sinh năm 1802 cơ! |
 
-## Ngày 21: Ma cũ bắt nạt ma mới
+## Ngày 20: Ma cũ bắt nạt ma mới
 
 - **Nghĩa thật:** Người đến trước cậy thâm niên, đem người mới đến ra sai vặt, làm khó.
 - **Câu hỏi cuối video:** Ngày đầu đi làm hay vào ký túc xá, bạn được "ma cũ" đối xử thế nào?
@@ -94,7 +109,7 @@
 | 41.8–53.8 | VÍ DỤ | HỒI ỨC (TV đen trắng): sân chuồng, vịt con lông xám chui ra từ vỏ trứng; vịt, gà mái, gà tây xúm lại mổ, xua đuổi; gà tây chống nạnh ra oai; bên hồ mùa xuân, vịt con hoá thiên nga trắng | **CĐ**: Như truyện Vịt con xấu xí ấy. Chú vịt con vừa nở ra đã bị cả sân chuồng, nào vịt, nào gà, nào gà tây, xúm vào mổ rồi xua đuổi.<br>**CĐ**: Con nào cũng cậy mình ở sân này từ trước, bắt nạt đứa mới đến, đâu có biết sau này nó lớn lên lại hóa thành thiên nga cơ chứ. |
 | 53.8–61.8 | PUNCHLINE | Một năm sau, TC có thẻ nhân viên chính thức; bạn thực tập mới bước vào, TC vội đỡ lấy chồng giấy | **TC**: Thế là một năm trôi qua, giờ cháu thành ma cũ rồi nhé! Em mới vào à?<br>**TC**: Em có cần anh đi photo hộ gì không?<br>**CĐ**: Ơ kìa, thế rốt cuộc ai bắt nạt ai hử?<br>**TC**: Cháu bị người ta sai vặt mãi thành quen tay rồi ông ạ, giờ muốn dừng cũng chẳng dừng được! |
 
-## Ngày 26: Tốt gỗ hơn tốt nước sơn
+## Ngày 25: Tốt gỗ hơn tốt nước sơn
 
 - **Nghĩa thật:** Chất lượng, phẩm chất bên trong quan trọng hơn vẻ đẹp bên ngoài.
 - **Câu hỏi cuối video:** Bạn từng chọn nhầm thứ gì chỉ vì nó quá đẹp bên ngoài?
@@ -109,7 +124,7 @@
 | 41.8–53.8 | VÍ DỤ | HỒI ỨC (TV đen trắng): đồi cỏ, Sọ Dừa tròn như quả dừa, con bò béo gặm cỏ; hai cô chị đi tới chỉ trỏ chê bai; cô út xách giỏ cơm, Sọ Dừa hoá chàng trai khôi ngô thổi sáo, rồi đội mũ trạng nguyên | **CĐ**: Như truyện Sọ Dừa ấy, cậu sinh ra không chân không tay, tròn như quả dừa, chăn bò cho phú ông giỏi lắm, vậy mà hai cô chị vẫn chê bai.<br>**CĐ**: Chỉ có cô út là nhìn ra được, bên trong lớp sọ dừa ấy là một chàng trai khôi ngô, thổi sáo rất hay, mà về sau chàng còn đỗ trạng nguyên. |
 | 53.8–61.8 | PUNCHLINE | TC mở trang cá nhân mạng xã hội, thay ảnh đại diện bằng tấm phim X-quang | **TC**: Thế thì cháu xóa hết ảnh đã chỉnh sửa trên trang cá nhân của cháu!<br>**TC**: Rồi cháu thay bằng một tấm ảnh chụp X-quang luôn!<br>**CĐ**: Ai bảo mày đi khoe xương hả?<br>**TC**: Thì bên trong cháu tốt thật mà ông! |
 
-## Ngày 28: Mật ngọt chết ruồi
+## Ngày 27: Mật ngọt chết ruồi
 
 - **Nghĩa thật:** Lời ngon ngọt, món lợi bày sẵn trước mắt có khi lại là cái bẫy.
 - **Câu hỏi cuối video:** Lời mời ngon ngọt nào trên mạng suýt làm bạn mắc bẫy?
@@ -124,7 +139,7 @@
 | 41.8–53.8 | VÍ DỤ | HỒI ỨC (TV đen trắng): rừng, quạ đen ngậm miếng pho mát đứng trên cành cây; cáo đi tới dưới gốc, khen lông đẹp giọng hay; quạ khoái chí há mỏ hát, pho mát rơi, cáo đớp gọn rồi cười đắc ý, quạ tròn mắt | **CĐ**: Như con quạ trong truyện Quạ và Cáo ấy, đang ngậm miếng pho mát trên cành thì cáo đứng dưới gốc khen nó lông đẹp, khen giọng hay.<br>**CĐ**: Quạ sướng quá, há mỏ ra hát, thế là miếng pho mát rơi tọt ngay vào miệng cáo. |
 | 53.8–61.8 | PUNCHLINE | CĐ vẫn dính trên ghế, cười hiền khen TC; TC nheo mắt nghi ngờ | **CĐ**: Hôm nay cháu ông ngoan quá cơ.<br>**TC**: Ông khen ngọt thế này... chắc lại định nhờ cháu rửa bát chứ gì?<br>**CĐ**: Rửa luôn cả cái ghế ông đang ngồi nữa nhé. |
 
-## Ngày 30: Học ăn, học nói, học gói, học mở
+## Ngày 29: Học ăn, học nói, học gói, học mở
 
 - **Nghĩa thật:** Ăn uống, nói năng, cư xử đều phải học; gói, mở là biết lúc giữ kín, lúc mở lời cho khéo.
 - **Câu hỏi cuối video:** Trong 30 câu vừa qua, câu nào bạn từng hiểu sai lâu nhất?

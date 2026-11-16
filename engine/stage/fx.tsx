@@ -42,11 +42,33 @@ const BigText: React.FC<{ text: string; size: number; color: string }> = ({ text
   </text>
 );
 
+/** Cỡ chữ to cho hiệu ứng: chữ dài hơn 3 ký tự thì thu nhỏ dần (thấp nhất 84). */
+const fitBig = (text: string, max: number) => (text.length <= 3 ? max : Math.max(84, Math.round((max * 3.4) / text.length)));
+
+/** Độ lệch ngang sao cho cả dòng chữ (rộng ≈ 0,62 cỡ chữ mỗi ký tự) nằm trong vùng đang hiện [l, r] của sân khấu, chừa lề. */
+const inFrame = (x: number, dx: number, text: string, size: number, view: [number, number]) => {
+  const [l, r] = view;
+  const pad = (r - l) * 0.05;
+  const half = Math.min((text.length * size * 0.62) / 2, (r - l) / 2 - pad);
+  const cx = Math.min(r - pad - half, Math.max(l + pad + half, x + dx));
+  return cx - x;
+};
+
 /**
  * Vẽ một hiệu ứng tại (x, y) = đỉnh đầu nhân vật.
  * local = số khung hình kể từ lúc hiệu ứng bắt đầu; pop = 0..1 (lò xo).
  */
-export const FxShape: React.FC<{ kind: FxKind; text?: string; x: number; y: number; local: number; pop: number; side: 1 | -1 }> = ({
+export const FxShape: React.FC<{
+  kind: FxKind;
+  text?: string;
+  x: number;
+  y: number;
+  local: number;
+  pop: number;
+  side: 1 | -1;
+  /** Vùng ngang của sân khấu đang hiện trong khung (máy quay zoom thì hẹp lại). */
+  view?: [number, number];
+}> = ({
   kind,
   text,
   x,
@@ -54,6 +76,7 @@ export const FxShape: React.FC<{ kind: FxKind; text?: string; x: number; y: numb
   local,
   pop,
   side,
+  view = [0, 1080],
 }) => {
   const fade = Math.min(1, (FX_FRAMES[kind] - local) / 6);
   const wobble = Math.sin(local * 0.5) * 6;
@@ -76,9 +99,12 @@ export const FxShape: React.FC<{ kind: FxKind; text?: string; x: number; y: numb
         10,
       );
     case "exclaim":
-      return g(<BigText text={text ?? "!"} size={170} color={GOLD} />, side * 120, -20 + wobble);
-    case "surprise":
-      return g(<BigText text={text ?? "?!"} size={160} color={GOLD} />, side * 120, -20 + wobble);
+    case "surprise": {
+      // Chữ dài (ví dụ "CÁ MẬP!") thu nhỏ lại và kéo vào trong khung, không tràn mép.
+      const t = text ?? (kind === "exclaim" ? "!" : "?!");
+      const size = fitBig(t, kind === "exclaim" ? 170 : 160);
+      return g(<BigText text={t} size={size} color={GOLD} />, inFrame(x, side * 120, t, size, view), -20 + wobble - (t.length > 3 ? 70 : 0));
+    }
     case "question":
       return g(
         <g transform={`rotate(${wobble * 2})`}>

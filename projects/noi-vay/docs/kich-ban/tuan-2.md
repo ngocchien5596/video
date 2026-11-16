@@ -4,7 +4,7 @@
 > CĐ = Cụ Đồ, TC = Thằng Cháu.
 > Các file tuần gom tập theo chủ đề; thứ tự đăng theo số ngày, xem [thu-tu-dang.md](thu-tu-dang.md).
 
-## Ngày 16: Nuôi ong tay áo
+## Ngày 15: Nuôi ong tay áo
 
 - **Nghĩa thật:** Cả tin cưu mang, che chở kẻ xấu ngay bên mình, để rồi chính họ quay lại làm hại mình.
 - **Câu hỏi cuối video:** Bạn từng chỉ hết nghề cho ai, rồi bị chính người đó giành mất việc chưa?
@@ -19,7 +19,7 @@
 | 41.8–53.8 | VÍ DỤ | HỒI ỨC (TV đen trắng): thành Cổ Loa, An Dương Vương cầm nỏ thần, gả Mị Châu cho Trọng Thủy, vẫy chàng rể vào ở trong thành; Trọng Thủy dỗ Mị Châu, lẻn tới giá nỏ tráo lẫy; quân Triệu Đà kéo tới, nỏ xịt, nhà vua thất thế, Trọng Thủy giơ lẫy nỏ cười | **CĐ**: Cứ như chuyện An Dương Vương trong truyền thuyết Mị Châu, Trọng Thủy ấy. Nhà vua đem gả con gái cho Trọng Thủy, con trai Triệu Đà, rồi cho chàng rể ở ngay trong thành Cổ Loa.<br>**CĐ**: Trọng Thủy dỗ vợ cho xem nỏ thần, rồi lén đánh tráo mất cái lẫy nỏ. Đến khi Triệu Đà kéo quân sang đánh thì nỏ đã hết thiêng, nhà vua bị mất nước, chỉ vì chàng rể mà mình nuôi ngay trong nhà! |
 | 53.8–61.8 | PUNCHLINE | TC bỏ con ong xuống, cầm con cua đồ chơi nhét vào túi quần, mặt tỉnh bơ | **TC**: Ông nói chuẩn! Nuôi ong thì bị đốt đau thật!<br>**TC**: Thế từ mai cháu chuyển sang nuôi cua trong túi quần, cho an toàn ạ! |
 
-## Ngày 17: Thả con săn sắt bắt con cá rô
+## Ngày 16: Thả con săn sắt bắt con cá rô
 
 - **Nghĩa thật:** Bỏ ra cái lợi nhỏ để thu về cái lợi lớn hơn; có khi dùng để chê sự tính toán vụ lợi.
 - **Câu hỏi cuối video:** Bạn từng chịu thiệt một chút lúc đầu để sau này được nhiều hơn chưa?
@@ -34,7 +34,7 @@
 | 41.8–53.8 | VÍ DỤ | HỒI ỨC (TV đen trắng): sông Bạch Đằng, Ngô Quyền cho cắm bãi cọc đầu bịt sắt; triều lên che kín cọc, thuyền nhẹ ra khiêu chiến rồi giả thua chạy; thuyền chiến Nam Hán đuổi theo; triều rút, thuyền giặc mắc cọc vỡ toác, Ngô Quyền mừng thắng lớn | **CĐ**: Cứ như chuyện Ngô Quyền đánh quân Nam Hán trên sông Bạch Đằng năm 938 ấy. Ngài cho người cắm cọc gỗ đầu bịt sắt xuống lòng sông, đợi triều lên thì sai thuyền nhẹ ra khiêu chiến, rồi vờ thua bỏ chạy.<br>**CĐ**: Thuyền chiến Nam Hán hăm hở đuổi theo, lọt thỏm vào giữa bãi cọc. Triều rút một cái, thế là thuyền giặc mắc cọc, vỡ tan tành! Chịu lép một keo nhỏ lúc đầu, mà đổi lấy được cả một trận thắng lớn đấy! |
 | 53.8–61.8 | PUNCHLINE | TC hai tay dâng CĐ một cái kẹo mút, mắt lấp lánh nhìn cái điện thoại trên bàn | **TC**: À cháu hiểu rồi! Thế cháu biếu ông cái kẹo mút này...<br>**TC**: ...rồi ông mua cho cháu cái điện thoại mới nhé!<br>**CĐ**: Cái thằng này, thả con săn sắt mà đòi bắt cả con cá voi à? |
 
-## Ngày 18: Con gà tức nhau tiếng gáy
+## Ngày 17: Con gà tức nhau tiếng gáy
 
 - **Nghĩa thật:** Ganh tị, hiếu thắng, thấy người khác hơn mình là tức, hơn thua cả chuyện nhỏ nhặt.
 - **Câu hỏi cuối video:** Bạn từng hơn thua với ai chuyện gì mà giờ nghĩ lại thấy buồn cười?
@@ -49,7 +49,7 @@
 | 41.8–53.8 | VÍ DỤ | HỒI ỨC (TV đen trắng): cung điện vua Hùng, Sơn Tinh dắt voi chín ngà, gà chín cựa, ngựa chín hồng mao tới trước, rước Mị Nương đi; Thủy Tinh đến sau tức tối; dưới núi Tản Viên, Thủy Tinh dâng sóng, Sơn Tinh bốc đồi chặn lại; Thủy Tinh thua vẫn dâng nước đánh tiếp | **CĐ**: Cũng như trong truyện Sơn Tinh, Thủy Tinh ấy. Vua Hùng thách cưới voi chín ngà, gà chín cựa, ngựa chín hồng mao. Sơn Tinh mang đủ lễ vật đến trước, thế là được rước luôn Mị Nương về núi.<br>**CĐ**: Thủy Tinh đến sau, không lấy được Mị Nương thì tức lồng lộn lên, liền dâng nước đánh Sơn Tinh. Sơn Tinh cũng chẳng vừa, bốc từng quả đồi, dời cả dãy núi ra chặn lại. Thua rồi mà vẫn không chịu thua, năm nào hắn cũng dâng nước đòi đánh lại! |
 | 53.8–61.8 | PUNCHLINE | TC khoanh tay gật gù, rồi giơ ngón tay đếm với Cụ Đồ | **TC**: Cháu hiểu rồi, cháu không thèm hơn thua nữa! Nhưng từ sáng đến giờ cháu khen ông 2 câu, ông mới khen cháu có 1 câu...<br>**TC**: ...ông khen bù cháu 3 câu đi, không thì cháu tức lắm đấy! |
 
-## Ngày 22: Đàn gảy tai trâu
+## Ngày 21: Đàn gảy tai trâu
 
 - **Nghĩa thật:** Nói điều hay với người không hiểu hoặc không chịu nghe thì chỉ phí công.
 - **Câu hỏi cuối video:** Có chuyện gì bạn đã nói cả chục lần mà người kia vẫn như chưa nghe thấy?
@@ -64,7 +64,7 @@
 | 41.8–53.8 | VÍ DỤ | HỒI ỨC (TV đen trắng): đồng cỏ, Công Minh Nghi ôm đàn gảy khúc hay, nốt nhạc bay, con trâu vẫn cầm nắm cỏ nhai; ông đổi sang tiếng muỗi vo ve, tiếng nghé ọ, trâu vểnh tai vẫy tay mừng; rồi ông gảy khúc hay, trâu lại nhai cỏ, ông nhún vai | **CĐ**: Tương truyền ngày xưa bên Tàu có ông Công Minh Nghi, gảy một khúc đàn hay tuyệt cho con trâu nghe, thế mà trâu vẫn cứ cúi đầu gặm cỏ như không.<br>**CĐ**: Đến lúc ông gảy ra những tiếng như muỗi vo ve, như nghé con gọi mẹ, thì trâu mới vẫy đuôi, vểnh tai lên nghe. Nói gọn lại, khúc hay đến mấy mà người nghe không hiểu thì gảy cũng bằng thừa! |
 | 53.8–61.8 | PUNCHLINE | CĐ giảng xong quay lại thì thấy TC đeo tai nghe to đùng, nhún nhảy hát | **CĐ**: Đúng là... đàn gảy tai cháu!<br>**TC**: Hả? Ông vừa khen cháu đánh đàn hay à ông? |
 
-## Ngày 24: Mèo khen mèo dài đuôi
+## Ngày 23: Mèo khen mèo dài đuôi
 
 - **Nghĩa thật:** Tự khen mình, hoặc người cùng phe khen lẫn nhau một cách thiên vị, chẳng khách quan.
 - **Câu hỏi cuối video:** Lời khen nào trên mạng khiến bạn nghi là mèo khen mèo nhất?
@@ -79,7 +79,7 @@
 | 41.8–53.8 | VÍ DỤ | HỒI ỨC (TV đen trắng): cổng tre nhà quê, anh áo mới đứng chống nạnh chờ người khen; anh tìm lợn cầm sợi dây đứt chạy tới hỏi; anh áo mới giơ vạt áo lên khoe, anh tìm lợn ngơ ngác | **CĐ**: Cũng giống như trong truyện cười Lợn cưới, áo mới ấy. Anh kia mặc áo mới, đứng ở cửa cả buổi chờ người khen. Có anh đang đi tìm lợn chạy tới hỏi, bác có thấy con lợn cưới của tôi chạy qua đây không?<br>**CĐ**: Anh kia liền giơ ngay vạt áo lên mà bảo, từ lúc tôi mặc cái áo mới này, tôi chẳng thấy con lợn nào chạy qua cả! Đấy, chẳng ai khen thì mình tự khen mình vậy. |
 | 53.8–61.8 | PUNCHLINE | TC cầm hai cái điện thoại, màn hình chi chít tài khoản phụ, bấm like liên tục | **TC**: Cháu hiểu rồi! Từ giờ cháu không tự like ảnh của mình nữa.<br>**TC**: Cháu sẽ lập hẳn 5 tài khoản phụ để chúng nó like hộ cháu!<br>**CĐ**: Cái thằng này, thế thì vẫn là năm con mèo khen một cái đuôi chứ còn gì! |
 
-## Ngày 27: Vẽ rắn thêm chân
+## Ngày 26: Vẽ rắn thêm chân
 
 - **Nghĩa thật:** Việc đã ổn mà còn bày thêm cái thừa, làm hỏng việc; cũng chỉ thói thêu dệt, bịa thêm chuyện.
 - **Câu hỏi cuối video:** Bạn từng thêm thắt chi tiết thừa nào để rồi làm hỏng cả việc chưa?
@@ -94,7 +94,7 @@
 | 41.8–53.8 | VÍ DỤ | HỒI ỨC (TV đen trắng): sân nhà quan nước Sở, bình rượu thưởng đặt giữa sân, hai người khách thi vẽ rắn trên ô đất; người xong trước cầm bình rượu rồi vẽ thêm chân; người kia vẽ xong giật bình rượu, chỉ vào con rắn có chân | **CĐ**: Cứ như tích xưa bên nước Sở ấy. Mấy người được chủ nhà thưởng cho một bình rượu, chia nhau uống thì chẳng đủ, bèn rủ nhau thi vẽ rắn trên đất, ai vẽ xong trước thì được uống cả bình.<br>**CĐ**: Có anh vẽ xong đầu tiên, thắng rồi mà vẫn còn ngứa tay, vẽ thêm chân cho con rắn. Chân chưa vẽ xong thì người kia đã vẽ xong rắn, giật luôn bình rượu mà bảo, rắn làm gì có chân mà vẽ! |
 | 53.8–61.8 | PUNCHLINE | TC lấy cục tẩy chà mạnh làm rách giấy, rồi cầm bút vẽ đè lên chỗ rách | **TC**: Ông ơi, cháu xóa hết chân rắn rồi! Mỗi tội cháu tẩy mạnh tay quá, giấy bị thủng mất một lỗ...<br>**TC**: ...nên cháu vẽ thêm đôi cánh đại bàng để che cái lỗ thủng ấy nhé ông! |
 
-## Ngày 29: Mèo mù vớ cá rán
+## Ngày 28: Mèo mù vớ cá rán
 
 - **Nghĩa thật:** Tình cờ gặp may bất ngờ, được điều tốt vượt quá sức mình, chứ không nhờ tài giỏi hay công sức.
 - **Câu hỏi cuối video:** Pha ăn may đỉnh nhất mà bạn từng gặp là gì?

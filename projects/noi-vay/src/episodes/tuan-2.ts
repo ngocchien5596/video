@@ -5,7 +5,7 @@ const theme = "Con vật";
 
 export const TUAN_2 = [
   makeEpisode({
-    day: 16,
+    day: 15,
     week,
     theme,
     idiom: "Nuôi ong tay áo",
@@ -97,7 +97,7 @@ export const TUAN_2 = [
   }),
 
   makeEpisode({
-    day: 17,
+    day: 16,
     week,
     theme,
     idiom: "Thả con săn sắt bắt con cá rô",
@@ -224,7 +224,7 @@ export const TUAN_2 = [
   }),
 
   makeEpisode({
-    day: 18,
+    day: 17,
     week,
     theme,
     idiom: "Con gà tức nhau tiếng gáy",
@@ -386,7 +386,7 @@ export const TUAN_2 = [
   }),
 
   makeEpisode({
-    day: 22,
+    day: 21,
     week,
     theme,
     idiom: "Đàn gảy tai trâu",
@@ -462,7 +462,7 @@ export const TUAN_2 = [
   }),
 
   makeEpisode({
-    day: 24,
+    day: 23,
     week,
     theme,
     idiom: "Mèo khen mèo dài đuôi",
@@ -544,7 +544,7 @@ export const TUAN_2 = [
   }),
 
   makeEpisode({
-    day: 27,
+    day: 26,
     week,
     theme,
     idiom: "Vẽ rắn thêm chân",
@@ -682,7 +682,7 @@ export const TUAN_2 = [
   }),
 
   makeEpisode({
-    day: 29,
+    day: 28,
     week,
     theme,
     idiom: "Mèo mù vớ cá rán",

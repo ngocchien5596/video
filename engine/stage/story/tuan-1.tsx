@@ -3,13 +3,13 @@
  * Mẫu cách vẽ: vai Thạch Sanh, Lý Thông trong engine/stage/Character.tsx; đạo cụ truyện cuối engine/stage/props.tsx;
  * phông Tavern / Temple / Cave trong engine/stage/scenes.tsx.
  *
- * Truyện: Há miệng chờ sung (tập 4), Ba chú heo con (tập 5), Thánh Gióng (tập 7).
+ * Truyện: Há miệng chờ sung (tập 4), Ba chú heo con (tập 5), Thánh Gióng (tập 7); đồ bể cá, muối (Cá không ăn muối cá ươn).
  */
 import type React from "react";
 import type { Expr } from "../../lib/stage-types.ts";
 import type { PropTuan1, RoleTuan1, SceneTuan1 } from "../../lib/story/tuan-1.ts";
 import { TEXT_FONT } from "../../components/brand.ts";
-import { Floor, FLOOR, LINE as INK, Lines, type PropDef } from "../draw.tsx";
+import { Floor, FLOOR, LINE as INK, Lines, type PropDef, Unmirror } from "../draw.tsx";
 import { Brows, Eyes, type FaceGeo, Mouth, type Role } from "../face.tsx";
 import { Bamboo as VBamboo, BambooFence, Canopy, Cloud as VCloud, FarMountains, GrassTuft, Hills, Shine, SoftShadow, SkyRays, ThatchHut, Tree, WarmSky } from "../village.tsx";
 
@@ -602,6 +602,70 @@ const Nong: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 );
 
 /** Gradient riêng của đạo cụ tuần 1 (lông chó, lông mèo mướp, thịt quay, tre, rơm, gạch, sắt...). */
+/** Bể cá vàng tròn trên đế gỗ (Cá không ăn muối cá ươn). `scared`: muối rắc trên mặt nước, cá nép đáy bể mắt tròn xoe. */
+const Fishbowl: React.FC<{ scared: boolean; text?: string }> = ({ scared, text }) => (
+  <g>
+    <SoftShadow cy={-4} rx={120} />
+    {/* Bình thủy tinh và nước */}
+    <path d="M-70 -206 Q-132 -160 -116 -90 Q-100 -26 0 -26 Q100 -26 116 -90 Q132 -160 70 -206 Z" fill="#DDF3FB" fillOpacity="0.6" />
+    <path d="M-108 -164 Q0 -152 108 -164 Q124 -116 110 -84 Q94 -34 0 -34 Q-94 -34 -110 -84 Q-124 -116 -108 -164 Z" fill="#62BDE3" opacity="0.8" />
+    <path d="M-108 -164 Q0 -152 108 -164" fill="none" stroke="#FFFFFF" strokeWidth="5" opacity="0.8" />
+    {/* Sỏi đáy và rong */}
+    {[-60, -34, -8, 18, 44, 68].map((x, i) => (
+      <ellipse key={x} cx={x} cy={-44 - (i % 2) * 4} rx="15" ry="9" fill={["#E9B872", "#D9826B", "#B9C7A0"][i % 3]} stroke={INK} strokeWidth="3" />
+    ))}
+    <path d="M-62 -52 Q-80 -86 -60 -110 Q-46 -128 -62 -146 M-46 -52 Q-36 -80 -50 -102" fill="none" stroke="#3E9A4E" strokeWidth="9" strokeLinecap="round" />
+    {/* Cá vàng */}
+    <g transform={scared ? "translate(36 -70) rotate(-6)" : "translate(14 -112) rotate(-4)"}>
+      <path d="M-28 0 L-62 -24 Q-54 0 -62 24 Z" fill="#F7A13A" stroke={INK} strokeWidth="5" strokeLinejoin="round" />
+      <ellipse cx="0" cy="0" rx="36" ry="24" fill="#F2832B" stroke={INK} strokeWidth="5" />
+      <path d="M-4 -22 Q4 -40 18 -22" fill="#F7A13A" stroke={INK} strokeWidth="4.5" strokeLinejoin="round" />
+      <path d="M-12 -18 Q-18 0 -12 18" fill="none" stroke="#C8601C" strokeWidth="3.5" />
+      {scared ? (
+        <>
+          <circle cx="16" cy="-6" r="11" fill="#FFFFFF" stroke={INK} strokeWidth="3.5" />
+          <circle cx="16" cy="-6" r="3.5" fill={INK} />
+          <ellipse cx="28" cy="10" rx="5" ry="6" fill={INK} />
+          <path d="M42 -34 q8 10 0 16 q-8 -6 0 -16 Z" fill="#9AD8FF" stroke={INK} strokeWidth="2.5" />
+        </>
+      ) : (
+        <>
+          <circle cx="16" cy="-6" r="8" fill="#FFFFFF" stroke={INK} strokeWidth="3" />
+          <circle cx="18" cy="-6" r="4" fill={INK} />
+          <path d="M24 8 q6 4 10 -2" fill="none" stroke={INK} strokeWidth="3.5" strokeLinecap="round" />
+        </>
+      )}
+    </g>
+    {/* Bọt nước */}
+    {[
+      [44, -140, 7],
+      [56, -158, 5],
+      [-20, -130, 5],
+    ].map(([x, y, r]) => (
+      <circle key={x} cx={x} cy={y} r={r} fill="none" stroke="#FFFFFF" strokeWidth="3" />
+    ))}
+    {/* Muối rắc trên mặt nước, vài hạt chìm xuống */}
+    {scared
+      ? [-80, -56, -30, -6, 20, 46, 72, -44, 8, 58].map((x, i) => (
+          <rect key={i} x={x} y={i > 6 ? -136 + (i % 3) * 14 : -168} width="8" height="8" fill="#FFFFFF" stroke="#9FB2BE" strokeWidth="1.5" transform={`rotate(25 ${x} -164)`} />
+        ))
+      : null}
+    {/* Viền bình, vành miệng, vệt sáng */}
+    <path d="M-70 -206 Q-132 -160 -116 -90 Q-100 -26 0 -26 Q100 -26 116 -90 Q132 -160 70 -206" fill="none" stroke={INK} strokeWidth="7" strokeLinejoin="round" />
+    <ellipse cx="0" cy="-206" rx="72" ry="12" fill="none" stroke={INK} strokeWidth="7" />
+    <Shine d="M-92 -150 Q-104 -110 -88 -72" opacity={0.7} />
+    {/* Đế gỗ */}
+    <rect x="-84" y="-30" width="168" height="30" rx="9" fill="url(#w-wood)" stroke={INK} strokeWidth="6" />
+    {text ? (
+      <g transform="translate(-40 -268)">
+        <rect x="-78" y="-34" width="156" height="56" rx="18" fill="#FFFFFF" stroke={INK} strokeWidth="6" />
+        <path d="M22 22 L34 40 L8 22 Z" fill="#FFFFFF" stroke={INK} strokeWidth="6" strokeLinejoin="round" />
+        <Lines text={text} cy={-6} width={136} max={30} color={INK} font={TEXT_FONT} />
+      </g>
+    ) : null}
+  </g>
+);
+
 const T1Defs: React.FC = () => (
   <defs>
     <radialGradient id="t1-fur" cx="0.36" cy="0.3" r="0.8">
@@ -1358,6 +1422,107 @@ const rawProps: Record<PropTuan1, PropDef> = {
             <line key={x} x1={x} y1="-14" x2={x * 0.75} y2="32" stroke="#B58938" strokeWidth="4.5" />
           ))}
         </g>
+      </g>
+    ),
+  },
+
+  "ca-be-ca": {
+    mode: "upright",
+    draw: ({ text }) => <Fishbowl scared={false} text={text} />,
+  },
+
+  "ca-be-ca-so": {
+    mode: "upright",
+    draw: ({ text }) => <Fishbowl scared text={text} />,
+  },
+
+  "ca-hu-muoi": {
+    mode: "upright",
+    draw: ({ mirrored }) => (
+      <g>
+        {/* Hũ sành nâu, miệng vun muối trắng */}
+        <path d="M-40 -96 Q-60 -62 -50 -18 Q-44 0 0 0 Q44 0 50 -18 Q60 -62 40 -96 Z" fill="#8A5A3B" stroke={INK} strokeWidth="6" strokeLinejoin="round" />
+        <path d="M-30 -84 Q-44 -56 -38 -24" fill="none" stroke="#FFFFFF" strokeOpacity="0.4" strokeWidth="6" strokeLinecap="round" />
+        <rect x="-36" y="-110" width="72" height="18" rx="7" fill="#6E4428" stroke={INK} strokeWidth="6" />
+        <path d="M-32 -110 Q-8 -146 16 -128 Q30 -122 32 -110 Z" fill="#FFFFFF" stroke={INK} strokeWidth="5" strokeLinejoin="round" />
+        {[
+          [-14, -122],
+          [4, -132],
+          [18, -118],
+        ].map(([x, y]) => (
+          <rect key={`${x}`} x={x} y={y} width="6" height="6" fill="#DDE6EE" transform={`rotate(20 ${x} ${y})`} />
+        ))}
+        {/* Nhãn giấy "MUỐI" */}
+        <rect x="-34" y="-76" width="68" height="36" rx="5" fill="#F7E6C4" stroke={INK} strokeWidth="4.5" />
+        <Unmirror mirrored={mirrored}>
+          <text x="0" y="-50" textAnchor="middle" fontFamily={TEXT_FONT} fontWeight="900" fontSize="22" fill="#B8382A">
+            MUỐI
+          </text>
+        </Unmirror>
+      </g>
+    ),
+  },
+
+  "ca-ro-uop": {
+    mode: "upright",
+    draw: () => (
+      <g>
+        <SoftShadow cy={-4} rx={120} />
+        {/* Ba con cá bạc nằm trong rổ, phủ muối trắng */}
+        {[
+          [-50, -58, -8],
+          [10, -66, 6],
+          [56, -54, -4],
+        ].map(([x, y, r]) => (
+          <g key={`${x}`} transform={`translate(${x} ${y}) rotate(${r})`}>
+            <path d="M-46 0 Q-6 -26 36 0 Q-6 24 -46 0 Z" fill="#C9D6DE" stroke={INK} strokeWidth="5" strokeLinejoin="round" />
+            <path d="M36 0 L58 -16 L54 0 L58 16 Z" fill="#9FB2BE" stroke={INK} strokeWidth="5" strokeLinejoin="round" />
+            <circle cx="-30" cy="-3" r="5" fill="#FFFFFF" stroke={INK} strokeWidth="2.5" />
+            <circle cx="-30" cy="-3" r="2" fill={INK} />
+            <path d="M-20 -14 Q-14 0 -20 12" fill="none" stroke={INK} strokeWidth="3" />
+          </g>
+        ))}
+        {/* Hạt muối rắc đều */}
+        {[-74, -52, -30, -8, 14, 36, 58, 80, -62, -18, 26, 70].map((x, i) => (
+          <rect key={i} x={x} y={-80 + (i % 3) * 12 + (i > 7 ? 18 : 0)} width="7" height="7" fill="#FFFFFF" stroke="#B8C6D0" strokeWidth="1.5" transform={`rotate(25 ${x} ${-80 + (i % 3) * 12})`} />
+        ))}
+        {/* Rổ tre */}
+        <path d="M-120 -44 L120 -44 Q106 0 0 0 Q-106 0 -120 -44 Z" fill="url(#t1-bamboo)" stroke={INK} strokeWidth="7" strokeLinejoin="round" />
+        <rect x="-126" y="-52" width="252" height="14" rx="6" fill="url(#t1-rope)" stroke={INK} strokeWidth="6" />
+        {[-80, -40, 0, 40, 80].map((x) => (
+          <line key={x} x1={x} y1="-38" x2={x * 0.8} y2="-4" stroke="#B58938" strokeWidth="4.5" />
+        ))}
+      </g>
+    ),
+  },
+
+  "ca-ca-uon": {
+    mode: "upright",
+    draw: () => (
+      <g>
+        <SoftShadow cy={-4} rx={110} />
+        <ellipse cx="0" cy="-12" rx="100" ry="20" fill="#FFFFFF" stroke={INK} strokeWidth="6" />
+        {/* Cá ươn xám xịt, mắt dấu X */}
+        <path d="M-66 -26 Q-10 -62 46 -26 Q-10 6 -66 -26 Z" fill="#9AA889" stroke={INK} strokeWidth="6" strokeLinejoin="round" />
+        <path d="M46 -26 L78 -48 L72 -26 L78 -4 Z" fill="#7E8C6E" stroke={INK} strokeWidth="6" strokeLinejoin="round" />
+        <path d="M-50 -36 l10 10 M-40 -36 l-10 10" stroke={INK} strokeWidth="4" strokeLinecap="round" />
+        <path d="M-28 -44 Q-20 -26 -28 -10" fill="none" stroke={INK} strokeWidth="3.5" />
+        <ellipse cx="6" cy="-30" rx="10" ry="6" fill="#6F7E5E" opacity="0.7" />
+        {/* Mùi hôi bốc lên */}
+        {[-40, 0, 40].map((x, i) => (
+          <path key={x} d={`M${x} -66 q-14 -18 0 -36 q14 -18 0 -36 q-14 -18 0 -36`} fill="none" stroke="#7BAA3A" strokeWidth="7" strokeLinecap="round" opacity={0.85 - i * 0.1} />
+        ))}
+        {/* Hai con ruồi */}
+        {[
+          [-62, -150],
+          [58, -176],
+        ].map(([x, y]) => (
+          <g key={x} transform={`translate(${x} ${y})`}>
+            <ellipse cx="-7" cy="-9" rx="8" ry="5" fill="#E8F4FF" stroke={INK} strokeWidth="2.5" transform="rotate(-30 -7 -9)" />
+            <ellipse cx="7" cy="-9" rx="8" ry="5" fill="#E8F4FF" stroke={INK} strokeWidth="2.5" transform="rotate(30 7 -9)" />
+            <circle cx="0" cy="0" r="7" fill={INK} />
+          </g>
+        ))}
       </g>
     ),
   },

@@ -4,7 +4,7 @@
 > CĐ = Cụ Đồ, TC = Thằng Cháu.
 > Các file tuần gom tập theo chủ đề; thứ tự đăng theo số ngày, xem [thu-tu-dang.md](thu-tu-dang.md).
 
-## Ngày 9: Muốn ăn hét phải đào giun
+## Ngày 8: Muốn ăn hét phải đào giun
 
 - **Nghĩa thật:** Muốn hưởng thành quả thì phải chịu bỏ công sức, chuẩn bị từ trước.
 - **Câu hỏi cuối video:** Thành quả nào bạn từng phải chuẩn bị rất lâu mới có được?
@@ -19,7 +19,7 @@
 | 41.8–53.8 | VÍ DỤ | HỒI ỨC (TV đen trắng): vua Hùng chỉ tay đày Mai An Tiêm ra đảo hoang; An Tiêm cầm cuốc phát cỏ; chim thả hạt lạ, chàng gieo thành ruộng dưa; ôm quả dưa khắc tên thả xuống biển, thuyền buôn cập đảo | **CĐ**: Cứ như Mai An Tiêm trong sự tích dưa hấu ấy. Bị vua Hùng đày ra đảo hoang, chàng chẳng ngồi than thở gì mà tự tay phát cỏ, cuốc đất luôn.<br>**CĐ**: Thấy chim thả xuống mấy hạt lạ, chàng nhặt về gieo, chăm mãi mới thành cả một ruộng dưa ngọt lịm. Chàng khắc tên mình lên quả dưa rồi thả xuống biển, thế là thuyền buôn tìm ra tận đảo để đổi hàng! |
 | 53.8–61.8 | PUNCHLINE | TC đứng ở quầy bưu điện, đặt lên bàn phong bì CV kèm một hộp nhựa có lỗ thở, bên trong lúc nhúc giun | **TC**: À! Muốn có cái gì thì phải chuẩn bị mồi từ trước!<br>**TC**: Thế nên cháu gửi CV kèm luôn một hộp giun tươi. Công ty nào mê giun là gọi cháu ngay!<br>**CĐ**: Cái thằng này! Mày đi xin việc hay đi bẫy chim thế hả? |
 
-## Ngày 12: Vung tay quá trán
+## Ngày 11: Vung tay quá trán
 
 - **Nghĩa thật:** Chê tiêu xài quá tay, vượt khả năng tài chính; rộng ra là làm gì cũng quá đà.
 - **Câu hỏi cuối video:** Đợt sale nào từng khiến bạn vung tay quá trán nhất?
@@ -34,7 +34,7 @@
 | 41.8–53.8 | VÍ DỤ | Màn hình giỏ hàng online dài vượt khung hình; giữa tháng quẹt thẻ tín dụng, cuối tháng ngồi húp mì gói nhìn lịch chờ lương | **CĐ**: Ví như lương tháng có mười triệu, đầu tháng thấy sale là bấm đặt lia lịa, giỏ hàng kéo mãi chẳng hết.<br>**CĐ**: Mới giữa tháng đã phải quẹt thẻ tín dụng, đến cuối tháng thì ôm gói mì ngồi chờ lương. |
 | 53.8–61.8 | PUNCHLINE | TC ngồi trước điện thoại, tay giơ thấp đúng tầm lông mày, bấm nút đặt hàng; giỏ hàng vẫn hiện số 20 | **TC**: Cháu hiểu rồi! Từ giờ mỗi lần bấm đặt hàng, cháu chỉ giơ tay tới lông mày thôi.<br>**CĐ**: Thế giỏ hàng còn bao nhiêu món hử?<br>**TC**: Vẫn hai mươi món ạ! Nhưng mà tư thế thì tiết kiệm lắm ông ạ! |
 
-## Ngày 14: Năng nhặt chặt bị
+## Ngày 13: Năng nhặt chặt bị
 
 - **Nghĩa thật:** Chăm chỉ góp nhặt từng chút nhỏ mỗi ngày thì lâu dần sẽ thành nhiều.
 - **Câu hỏi cuối video:** Khoản tiết kiệm nhỏ mỗi ngày nào của bạn đã thành số tiền đáng kể?
@@ -49,7 +49,7 @@
 | 41.8–53.8 | VÍ DỤ | HỒI ỨC (TV đen trắng): bờ suối dưới chân núi, cậu bé Lý Bạch vứt sách trốn học; bà lão mài thanh sắt trên tảng đá, bảo để làm kim; bà giơ cây kim lấp lánh; cậu ôm sách quay về học | **CĐ**: Như chuyện cậu bé Lý Bạch ngày xưa ấy. Tương truyền cậu trốn học ra bờ suối chơi, thì gặp một bà lão đang mài thanh sắt to, hỏi ra mới biết bà mài để làm cây kim!<br>**CĐ**: Bà nói cứ mỗi ngày mài một chút, mài mãi thì thanh sắt cũng thành cây kim. Cậu bé hiểu ra, liền quay về nhà, ngày nào cũng chịu khó học thêm vài chữ, rồi về sau trở thành một nhà thơ lớn đấy. |
 | 53.8–61.8 | PUNCHLINE | TC đập con heo đất, ôm đống tiền lẻ chạy thẳng ra quầy trà sữa, chỉ vào cốc size to nhất | **TC**: Cháu làm rồi ông ơi! Mỗi ngày cháu bỏ heo năm nghìn, hết tháng là được trăm rưỡi.<br>**TC**: Thế là cháu đập heo, làm ngay cốc trà sữa size to nhất, tự thưởng cho mình vì đã kiên trì cả tháng! |
 
-## Ngày 19: Nước đến chân mới nhảy
+## Ngày 18: Nước đến chân mới nhảy
 
 - **Nghĩa thật:** Chê thói chần chừ, không lo trước, việc đến sát nút mới cuống cuồng làm nên dễ hỏng.
 - **Câu hỏi cuối video:** Deadline nào bạn từng làm xong chỉ vài phút trước giờ nộp?
@@ -64,7 +64,7 @@
 | 41.8–53.8 | VÍ DỤ | HỒI ỨC (TV đen trắng): đồng cỏ mùa hè, ve ôm đàn ca hát, kiến hì hục tha thóc về tổ; mùa đông tuyết rơi, ve run rẩy đói meo, chạy sang gõ cửa nhà kiến xin ăn | **CĐ**: Cháu có nhớ con ve trong truyện Ve và Kiến không? Suốt mùa hè nó chỉ ôm đàn ca hát, mặc kệ bầy kiến hì hục tha thóc về tổ.<br>**CĐ**: Đến lúc gió bấc thổi về, cây cối trụi hết lá, bụng thì đói meo, bấy giờ ve mới cuống cuồng chạy sang gõ cửa nhà kiến xin ăn đấy! |
 | 53.8–61.8 | PUNCHLINE | Sáng thứ Hai, TC đứng trong chậu, giơ tay ra hiệu cho bạn cùng phòng dội nguyên xô nước vào chân mình | **TC**: À, cháu hiểu rồi! Tức là phải nhảy từ sớm chứ gì!<br>**TC**: Thế nên cháu dặn thằng bạn cùng phòng rồi, cứ sáng thứ Hai là dội nguyên xô nước vào chân cháu.<br>**TC**: Thế là tuần nào cháu cũng nhảy từ sớm nhé ông! |
 
-## Ngày 20: Học thầy không tày học bạn
+## Ngày 19: Học thầy không tày học bạn
 
 - **Nghĩa thật:** Học thầy rất quý, nhưng học hỏi từ bạn bè, đồng nghiệp cũng gần gũi và hiệu quả không kém.
 - **Câu hỏi cuối video:** Mẹo hay nhất bạn từng học được từ bạn bè hay đồng nghiệp là gì?
@@ -79,7 +79,7 @@
 | 41.8–53.8 | VÍ DỤ | Nhân viên mới lúng túng trước bảng Excel; đồng nghiệp ngồi cạnh kéo ghế sang chỉ vài phím tắt, bảng tính chạy vèo vèo | **CĐ**: Ví như cháu mới vào công ty, gặp cái hàm Excel không hiểu mà lại chẳng dám hỏi sếp.<br>**CĐ**: Thế mà đồng nghiệp ngồi cạnh chỉ cho có năm phút, mách thêm mấy phím tắt, thế là cả tuần ấy cháu làm việc nhanh gấp đôi! |
 | 53.8–61.8 | PUNCHLINE | TC hớn hở giơ điện thoại khoe lời mời kết bạn đã được chấp nhận, rồi màn hình hiện liền một loạt tin nhắn giao việc | **TC**: Cháu tính kỹ rồi nhé! Học bạn còn hơn học thầy, thế nên cháu kết bạn với sếp luôn!<br>**CĐ**: Thế sếp có chịu kết bạn với mày không hử?<br>**TC**: Sếp đồng ý ngay ạ! Xong sếp giao luôn cho cháu gấp đôi việc! |
 
-## Ngày 23: Đẽo cày giữa đường
+## Ngày 22: Đẽo cày giữa đường
 
 - **Nghĩa thật:** Chê người không có chủ kiến, ai bảo gì cũng nghe theo nên cuối cùng hỏng việc.
 - **Câu hỏi cuối video:** Bạn từng sửa một bài làm theo góp ý của quá nhiều người đến mức hỏng chưa?
@@ -94,7 +94,7 @@
 | 41.8–53.8 | VÍ DỤ | HỒI ỨC (TV đen trắng): đường làng, anh thợ dốc vốn mua khúc gỗ, ngồi đẽo cày; ông lão bảo cao quá, anh đẽo thấp; bà hàng xóm bảo thấp quá, anh đẽo cao; ông lão bảo đẽo thật to để cày bằng voi; cái cày to khổng lồ rồi thành đống vụn gỗ | **CĐ**: Như anh chàng trong truyện Đẽo cày giữa đường ấy. Anh ta dốc hết vốn ra mua gỗ, rồi ngồi ngay bên đường đẽo cày, ai đi qua góp ý gì anh cũng nghe theo.<br>**CĐ**: Người này bảo cao quá, anh liền đẽo cho thấp. Người kia chê thấp quá, anh lại đẽo cho cao. Đến khi có người bảo đẽo to gấp mấy lần để còn cày bằng voi, anh cũng răm rắp làm theo, thế là hỏng sạch cả đống gỗ! |
 | 53.8–61.8 | PUNCHLINE | TC đeo tai nghe chụp to, khoanh tay quay lưng lại, Cụ Đồ đứng sau phe phẩy quạt nói vọng vào | **TC**: Cháu hiểu rồi! Từ giờ cháu sống có chủ kiến, chẳng nghe ai hết!<br>**CĐ**: Cái thằng này, ai góp ý đúng thì vẫn phải nghe chứ!<br>**TC**: Cháu không nghe đâu! Kể cả câu ông vừa nói cũng thế! |
 
-## Ngày 25: Đầu voi đuôi chuột
+## Ngày 24: Đầu voi đuôi chuột
 
 - **Nghĩa thật:** Việc mở đầu rầm rộ, hoành tráng nhưng kết thúc nhỏ bé hoặc bỏ dở giữa chừng.
 - **Câu hỏi cuối video:** Kế hoạch đầu năm nào của bạn đang ở đoạn đuôi chuột?
