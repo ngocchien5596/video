@@ -49,3 +49,4 @@
 | 42 | Vì sao xương rồng có gai? | Cây cối và trái cây | [tuan-5.md](tuan-5.md) |
 | 43 | Vì sao con nhện nước đi được trên mặt nước? | Nước quanh ta | [tuan-6.md](tuan-6.md) |
 | 44 | Vì sao bột bánh mì lại phồng lên? | Căn bếp nhà mình | [tuan-7.md](tuan-7.md) |
+| 45 | Trên sông không có đèn giao thông, sao tàu thuyền không đâm nhau? | Giao thông quanh ta | [tuan-9.md](tuan-9.md) |

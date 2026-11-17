@@ -18,6 +18,7 @@ import { BOARDS_TUAN_5 } from "./tuan-5.ts";
 import { BOARDS_TUAN_6 } from "./tuan-6.ts";
 import { BOARDS_TUAN_7 } from "./tuan-7.ts";
 import { BOARDS_TUAN_8 } from "./tuan-8.ts";
+import { BOARDS_TUAN_9 } from "./tuan-9.ts";
 
 export const BOARDS: BoardRegistry = {
   "sky-blue": SkyBlueBoard,
@@ -34,4 +35,5 @@ export const BOARDS: BoardRegistry = {
   ...BOARDS_TUAN_6,
   ...BOARDS_TUAN_7,
   ...BOARDS_TUAN_8,
+  ...BOARDS_TUAN_9,
 };
