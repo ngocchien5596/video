@@ -4,7 +4,8 @@
  *   1  Hình sao nhấp nháy + chữ chạy báo máy vẫn đang làm việc
  *   2  Harvard: trang web cho xem đang làm gì thì người ta chọn chờ lâu, hơn trang trả kết quả ngay
  *   3  Claude giấu sẵn 187 chữ (nấu nướng, nhảy nhót, Clauding), đổi liên tục
- *   4  Trong 187 chữ ấy có cả "Thinking"
+ *   4  Ba chữ hài kèm nghĩa: Honking (bấm còi), Photosynthesizing (quang hợp), Lollygagging (la cà)
+ *   5  Trong 187 chữ ấy có cả "Thinking"
  * Nguồn: Nielsen Norman Group (K. Sherwin, 2014); Buell & Norton (2011) "The Labor Illusion", Management Science;
  * danh sách chữ mặc định trong Claude Code 2.1.325 (187 chữ, có "Thinking", "Clauding"); Claude Code docs (spinnerVerbs).
  */
@@ -14,9 +15,15 @@ import { TEXT_FONT } from "../../../../engine/components/brand.ts";
 import { appearer, Caption, INK } from "./common.tsx";
 import { Tag } from "./w7-parts.tsx";
 
-const CAPTIONS = ["Màn hình đứng im: tưởng máy treo", "Chữ chạy báo: máy vẫn đang làm", "Thấy máy đang làm, chịu chờ lâu hơn", "187 chữ vui, đổi liên tục", "Trong đó có cả chữ “Thinking”"];
+const CAPTIONS = ["Màn hình đứng im: tưởng máy treo", "Chữ chạy báo: máy vẫn đang làm", "Thấy máy đang làm, chịu chờ lâu hơn", "187 chữ vui, đổi liên tục", "Mấy chữ hài nhất", "Trong đó có cả chữ “Thinking”"];
 
 const ORANGE = "#D9774B";
+const FUNNY: [string, string][] = [
+  ["Honking", "bấm còi"],
+  ["Photosynthesizing", "quang hợp"],
+  ["Lollygagging", "la cà"],
+];
+const FUNNY_ICON = ["📯", "🌿", "🚶"];
 const WORDS = ["Baking…", "Moonwalking…", "Simmering…", "Boogieing…", "Clauding…", "Marinating…", "Shimmying…", "Brewing…"];
 
 /** Ngôi sao nhiều cánh nhấp nháy, xoay chậm. */
@@ -58,7 +65,7 @@ export const SpinnerBoard: React.FC<BoardProps> = ({ step, stepFrame, frame }) =
   const a1 = appear(1, 0, 14);
   const a2 = appear(2, 0, 30);
   const a3 = appear(3, 0, 14);
-  const a4 = appear(4, 0, 14);
+  const a5 = appear(5, 0, 14);
   const word = WORDS[Math.floor(stepFrame / 16) % WORDS.length];
 
   return (
@@ -122,13 +129,31 @@ export const SpinnerBoard: React.FC<BoardProps> = ({ step, stepFrame, frame }) =
         </g>
       ) : null}
 
-      {/* Bước 3–4: màn hình đổi chữ; bước 4 dừng ở chữ Thinking */}
-      {step >= 3 ? (
+      {/* Bước 4: ba thẻ chữ hài kèm nghĩa */}
+      {step === 4
+        ? FUNNY.map(([en, vi], i) => (
+            <g key={en} opacity={appear(4, i * 45, 14)} transform={`translate(${170 + i * 310} 200)`}>
+              <rect x={-150} y={-120} width={300} height={240} rx="20" fill="#FFFDF5" stroke={INK} strokeWidth="6" />
+              <text y={-50} textAnchor="middle" fontFamily={TEXT_FONT} fontSize="64">
+                {FUNNY_ICON[i]}
+              </text>
+              <text y={22} textAnchor="middle" fontFamily={TEXT_FONT} fontWeight="900" fontSize={Math.min(40, Math.round(470 / en.length))} fill={ORANGE}>
+                {en}
+              </text>
+              <text y={84} textAnchor="middle" fontFamily={TEXT_FONT} fontWeight="900" fontSize="36" fill={INK}>
+                {vi}
+              </text>
+            </g>
+          ))
+        : null}
+
+      {/* Bước 3 và 5: màn hình đổi chữ; bước 5 dừng ở chữ Thinking */}
+      {step === 3 || step >= 5 ? (
         <g opacity={step === 3 ? a3 : 1}>
           <Screen x={40} y={70} w={560} h={250}>
             <Spark x={100} y={190} r={30} t={frame} />
-            <text x={150} y={206} fontFamily={TEXT_FONT} fontWeight="900" fontSize={step === 4 ? 56 : 50} fill={step === 4 ? "#FFD93D" : ORANGE}>
-              {step === 4 ? "Thinking…" : word}
+            <text x={150} y={206} fontFamily={TEXT_FONT} fontWeight="900" fontSize={step >= 5 ? 56 : 50} fill={step >= 5 ? "#FFD93D" : ORANGE}>
+              {step >= 5 ? "Thinking…" : word}
             </text>
           </Screen>
           {step === 3 ? (
@@ -142,7 +167,7 @@ export const SpinnerBoard: React.FC<BoardProps> = ({ step, stepFrame, frame }) =
               <Tag x={800} y={290} text="NẤU, NHẢY…" size={30} opacity={appear(3, 30, 14)} />
             </g>
           ) : (
-            <g opacity={a4}>
+            <g opacity={a5}>
               <Tag x={785} y={150} text="CÓ CẢ CHỮ NÀY!" size={32} color="#C8402E" />
               <text x={785} y={240} textAnchor="middle" fontFamily={TEXT_FONT} fontWeight="900" fontSize="30" fill={INK}>
                 Vì sao chọn chữ vui?

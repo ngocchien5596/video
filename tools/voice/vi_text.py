@@ -185,6 +185,9 @@ PRONOUNCE = {
     "ChatGPT": "chát gi pi ti",
     "Gemini": "giem mi nai",
     "Harvard": "Ha vớt",
+    "Honking": "hon kinh",
+    "Photosynthesizing": "phô tô xin thờ sai dinh",
+    "Lollygagging": "lo li ghe ghinh",
 }
 
 _VOWELS = "aàáảãạăằắẳẵặâầấẩẫậeèéẻẽẹêềếểễệiìíỉĩịoòóỏõọôồốổỗộơờớởỡợuùúủũụưừứửữựyỳýỷỹỵ"

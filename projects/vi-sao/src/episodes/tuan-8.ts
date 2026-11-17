@@ -64,11 +64,14 @@ export const TUAN_8 = [
       ],
     },
     explain: {
-      shot: "Bảng minh hoạ: màn hình đứng im 'TREO RỒI À?' rồi ngôi sao nhấp nháy 'Đang chạy...'; hai trang web: trang trả kết quả ngay và trang cho xem đang tìm, người ta chọn trang chậm; màn hình đổi chữ nấu nướng, nhảy nhót, Clauding, '187 CHỮ'; chữ Thinking hiện ra 'CÓ CẢ CHỮ NÀY!'",
+      shot: "Bảng minh hoạ: màn hình đứng im 'TREO RỒI À?' rồi ngôi sao nhấp nháy 'Đang chạy...'; hai trang web: trang trả kết quả ngay và trang cho xem đang tìm, người ta chọn trang chậm; màn hình đổi chữ nấu nướng, nhảy nhót, Clauding, '187 CHỮ'; ba thẻ chữ hài kèm nghĩa (Honking = bấm còi, Photosynthesizing = quang hợp, Lollygagging = la cà); chữ Thinking hiện ra 'CÓ CẢ CHỮ NÀY!'",
       lines: [
         cd("Máy trả lời có khi mất cả phút. Màn hình đứng im thì tưởng máy treo, nên phải có chữ chạy cho yên tâm."),
         cd("Nghiên cứu ở Harvard còn thấy, cho xem máy đang làm gì thì người ta thà chờ lâu, còn hơn có kết quả ngay."),
         cd("Claude thì giấu sẵn một trăm tám mươi bảy chữ, toàn nấu nướng, nhảy nhót, có cả “Clauding”, lấy luôn tên mình làm chữ!"),
+        tc("Cháu còn thấy cả “Honking” là bấm còi. Máy cũng kẹt xe hả ông?"),
+        cd("Thế đã là gì! Có cả “Photosynthesizing” là quang hợp như cái cây, với “Lollygagging” là đi la cà đấy!"),
+        tc("La cà thì giống hệt cháu rồi!"),
         cd("Với cả Claude cũng hiển thị chữ “Thinking” mà! Còn vì sao chọn chữ vui thì hãng chưa nói rõ."),
       ],
       stage: [
@@ -79,8 +82,13 @@ export const TUAN_8 = [
         { line: 1, at: 0.6, tc: { expr: "shock" }, fx: { kind: "surprise", on: "TC" } },
         { line: 2, board: { id: "w8-spinner", step: 3 }, cd: { arms: "point", expr: "smug" }, tc: { expr: "happy", move: "bounce" } },
         { line: 2, at: 0.7, fx: { kind: "sparkle", on: "TC" } },
-        { line: 3, board: { id: "w8-spinner", step: 4 }, cd: { arms: "point", expr: "happy" }, tc: { expr: "shock", move: "idle" }, fx: { kind: "exclaim", on: "TC" } },
-        { line: 3, at: 0.55, cd: { arms: "hips", expr: "neutral" }, tc: { arms: "up2", expr: "happy", move: "bounce" } },
+        // Chữ hài kèm nghĩa: Honking, Photosynthesizing, Lollygagging
+        { line: 3, board: { id: "w8-spinner", step: 4 }, camera: "TC", tc: { arms: "raise", expr: "happy", move: "bounce" }, fx: { kind: "question", on: "TC" } },
+        { line: 4, camera: "wide", cd: { arms: "wave", expr: "smug" }, tc: { arms: "down", expr: "shock", move: "idle" } },
+        { line: 4, at: 0.6, tc: { expr: "happy" }, fx: { kind: "sparkle", on: "TC" } },
+        { line: 5, camera: "TC", tc: { arms: "up2", expr: "smug", move: "bounce" } },
+        { line: 6, board: { id: "w8-spinner", step: 5 }, camera: "wide", cd: { arms: "point", expr: "happy" }, tc: { arms: "down", expr: "shock", move: "idle" }, fx: { kind: "exclaim", on: "TC" } },
+        { line: 6, at: 0.55, cd: { arms: "hips", expr: "neutral" }, tc: { arms: "up2", expr: "happy", move: "bounce" } },
       ],
     },
     recapStage,
