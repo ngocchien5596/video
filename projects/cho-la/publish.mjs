@@ -2,7 +2,7 @@
  * Gói đăng bài của "Ông Ơi, Chỗ Này Lạ Lắm!": tiêu đề + mô tả YouTube Shorts (kèm nguồn), caption TikTok,
  * hashtag, bình luận ghim (câu hỏi kéo bình luận + nguồn).
  */
-import { BASE_CHECKLIST, pick, postWhen, tags } from "../../tools/bot/publish.mjs";
+import { BASE_CHECKLIST, pick, tags } from "../../tools/bot/publish.mjs";
 
 const TITLES = [
   (e) => `${e.title}? Chuyện có thật ở ${e.place}`,
@@ -29,7 +29,7 @@ export const buildPublishKit = (episode, next, { cfg, startDate = null }) => {
   const ytDescription = [
     `${episode.title}? Chuyện có thật ở ${episode.place}, và lý do đằng sau mới là phần thú vị.`,
     "",
-    `Tập ${day} của series “${cfg.seriesName}”: Thằng Cháu đi khắp nơi, gặp chuyện lạ là gọi video hỏi Ông. Mỗi tập một điều có thật ở Việt Nam, kèm số liệu và nguồn.`,
+    `Series “${cfg.seriesName}”: Thằng Cháu đi khắp nơi, gặp chuyện lạ là gọi video hỏi Ông. Mỗi tập một điều có thật ở Việt Nam, kèm số liệu và nguồn.`,
     next ? `Chỗ lạ tiếp theo: ${next}` : "",
     "",
     "Nguồn tham khảo:",
@@ -47,7 +47,7 @@ export const buildPublishKit = (episode, next, { cfg, startDate = null }) => {
   return {
     day,
     title: episode.title,
-    when: postWhen(startDate, day, cfg.postTime),
+    when: cfg.postTime || null,
     ytTitle,
     ytDescription,
     tiktokCaption,

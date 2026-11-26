@@ -173,6 +173,11 @@ PRONOUNCE = {
     "CV": "xê vê",
     "ISS": "ai ét ét",
     "NASA": "Na sa",
+    "LUCA": "Lu ca",
+    "gene": "gen",
+    "protein": "pờ rô tê in",
+    "video": "vi đi ô",
+    "Wikipedia": "Uy ki pê đi a",
     # AI (Vì sao: chữ chạy của Claude)
     "Claude": "Cờ lốt",
     "AI": "ây ai",

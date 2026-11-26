@@ -4,7 +4,7 @@
 > CĐ = Cụ Đồ, TC = Thằng Cháu.
 > Các file tuần gom tập theo chủ đề; thứ tự đăng theo số ngày, xem [thu-tu-dang.md](thu-tu-dang.md).
 
-## Ngày 7: Vì sao thái hành lại cay mắt?
+## Ngày 9: Vì sao thái hành lại cay mắt?
 
 - **Hiểu lầm phổ biến:** Mùi hăng của củ hành làm cay mắt.
 - **Trả lời một câu:** Dao làm vỡ các tế bào của củ hành, sinh ra một chất bay lên làm cay mắt, thế nên mình mới chảy nước mắt.
@@ -20,7 +20,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, dao làm vỡ các tế bào của củ hành, sinh ra một chất bay lên làm cay mắt, thế nên mình mới chảy nước mắt. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Ông ơi, cháu còn cả đống câu vì sao muốn hỏi ông nữa cơ!<br>**CĐ**: Thế thì từ từ, mỗi hôm ông kể cho một chuyện nhé! |
 
-## Ngày 14: Vì sao thìa inox sờ vào thấy lạnh hơn thìa gỗ?
+## Ngày 15: Vì sao thìa inox sờ vào thấy lạnh hơn thìa gỗ?
 
 - **Hiểu lầm phổ biến:** Thìa inox lạnh hơn thìa gỗ thật, dù cùng để một chỗ.
 - **Trả lời một câu:** Hai cái thìa thật ra nóng lạnh như nhau, chỉ là inox kéo hơi ấm khỏi tay nhanh hơn gỗ, thế nên sờ vào mới thấy lạnh hơn.
@@ -36,7 +36,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, hai cái thìa thật ra nóng lạnh như nhau, chỉ là inox kéo hơi ấm khỏi tay nhanh hơn gỗ, thế nên sờ vào mới thấy lạnh hơn. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Hay thật đấy ông ạ! Thế còn chuyện khác thì sao hả ông?<br>**CĐ**: Từ từ đã nào, cái thằng này! Lần sau ông kể tiếp cho. |
 
-## Ngày 21: Nước sôi thì bong bóng ở đâu ra?
+## Ngày 22: Nước sôi thì bong bóng ở đâu ra?
 
 - **Hiểu lầm phổ biến:** Bong bóng trong nồi nước sôi là không khí.
 - **Trả lời một câu:** Bong bóng to lúc nước sôi chính là hơi nước, do nước ngay dưới đáy nồi hoá thành khí mà ra.
@@ -52,7 +52,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, bong bóng to lúc nước sôi chính là hơi nước, do nước ngay dưới đáy nồi hoá thành khí mà ra. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Hay quá ông ạ! Mai ông lại kể cho cháu nghe chuyện khác nữa nhé?<br>**CĐ**: Được chứ! Cháu cứ hỏi, rồi ông kể dần cho. |
 
-## Ngày 28: Vì sao cất đồ ăn vào tủ lạnh thì lâu hỏng hơn?
+## Ngày 29: Vì sao cất đồ ăn vào tủ lạnh thì lâu hỏng hơn?
 
 - **Hiểu lầm phổ biến:** Tủ lạnh làm chết hết vi khuẩn, nên đồ ăn trong tủ không bao giờ hỏng.
 - **Trả lời một câu:** Tủ lạnh chỉ làm vi khuẩn sinh sôi chậm lại nên đồ ăn lâu hỏng hơn, chứ vi khuẩn không chết hết đâu, vì thế đồ trong tủ vẫn phải ăn sớm.
@@ -68,7 +68,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, tủ lạnh chỉ làm vi khuẩn sinh sôi chậm lại nên đồ ăn lâu hỏng hơn, chứ vi khuẩn không chết hết đâu, vì thế đồ trong tủ vẫn phải ăn sớm. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: À, thế là cháu hiểu rồi! Mai ông kể thêm một chuyện vì sao nữa nhé?<br>**CĐ**: Ừ, mai ông kể tiếp, nhớ ra mà nghe đấy! |
 
-## Ngày 33: Vì sao nước ngọt có ga sủi bọt khi mở nắp?
+## Ngày 34: Vì sao nước ngọt có ga sủi bọt khi mở nắp?
 
 - **Hiểu lầm phổ biến:** Bọt là do không khí bên ngoài lọt vào chai.
 - **Trả lời một câu:** Khí cacbonic bị ép cho tan vào trong nước, mở nắp ra thì áp suất giảm, khí liền thoát ra thành bọt.
@@ -84,7 +84,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, khí cacbonic bị ép cho tan vào trong nước, mở nắp ra thì áp suất giảm, khí liền thoát ra thành bọt. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: À, thế là cháu hiểu rồi! Mai ông kể thêm một chuyện vì sao nữa nhé?<br>**CĐ**: Ừ, mai ông kể tiếp, nhớ ra mà nghe đấy! |
 
-## Ngày 39: Vì sao táo cắt ra để lâu bị thâm?
+## Ngày 40: Vì sao táo cắt ra để lâu bị thâm?
 
 - **Hiểu lầm phổ biến:** Táo bị thâm là táo đã hỏng, bẩn, không ăn được nữa.
 - **Trả lời một câu:** Khi cắt táo ra, enzim trong táo gặp ôxy ngoài không khí rồi sinh ra chất màu nâu, chứ táo vẫn ăn được bình thường.
@@ -100,7 +100,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, khi cắt táo ra, enzim trong táo gặp ôxy ngoài không khí rồi sinh ra chất màu nâu, chứ táo vẫn ăn được bình thường. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Hay thật đấy ông ạ! Thế còn chuyện khác thì sao hả ông?<br>**CĐ**: Từ từ đã nào, cái thằng này! Lần sau ông kể tiếp cho. |
 
-## Ngày 44: Vì sao bột bánh mì lại phồng lên?
+## Ngày 45: Vì sao bột bánh mì lại phồng lên?
 
 - **Hiểu lầm phổ biến:** Bột phồng lên vì lúc nhào, mình nhồi không khí vào.
 - **Trả lời một câu:** Men nở ăn đường trong bột rồi thải ra khí, khí bị giữ lại thành vô số bong bóng nhỏ làm bột phồng lên.

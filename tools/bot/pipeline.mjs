@@ -26,7 +26,8 @@ export const STEPS = ["Lồng tiếng", "Kiểm tra tiếng", "Xuất video", "X
  * Chạy cả quy trình. onStep(i) được gọi khi bắt đầu bước i.
  * Trả về { video, cover, seconds, flagged, log } hoặc ném lỗi kèm đoạn cuối log.
  */
-export const produce = async (project, day, onStep) => {
+export const produce = async (project, episode, onStep) => {
+  const day = episode.day;
   const logDir = path.join(ROOT, project.paths.botLogs);
   mkdirSync(logDir, { recursive: true });
   const log = path.join(logDir, `ngay-${pad2(day)}.log`);
@@ -70,8 +71,8 @@ export const produce = async (project, day, onStep) => {
   const cover = await run(`npm run cover -- ${p} ${day}`, log);
   if (cover.code !== 0) fail(3, cover);
 
-  const video = path.join(ROOT, project.paths.video(day));
-  const coverFile = path.join(ROOT, project.paths.cover(day));
+  const video = path.join(ROOT, project.paths.video(episode));
+  const coverFile = path.join(ROOT, project.paths.cover(episode));
   if (!existsSync(video)) throw new Error(`Không thấy file ${video}`);
   return { video, cover: coverFile, seconds: seconds ? Number(seconds) : null, flagged, log };
 };

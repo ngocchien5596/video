@@ -1,6 +1,7 @@
 {
   "timezone": "Asia/Ho_Chi_Minh",
   "remindAfterHours": 2,
+  "scheduleReminders": false,
   "autoPush": false,
   "defaultProject": "noi-vay"
 }

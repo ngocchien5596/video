@@ -13,6 +13,7 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { fileSlug } from "./bot/history.mjs";
 
 export const ROOT = path.resolve(import.meta.dirname, "..");
 export const DEFAULT_PROJECT = "noi-vay";
@@ -51,8 +52,9 @@ export const loadProject = async (id) => {
     episodesIndex: path.join(dir, "src", "episodes", "index.ts"),
     paths: {
       voiceDir: (day) => `public/voice/${id}/ngay-${dd(day)}`,
-      video: (day) => `out/${id}/video/ngay-${dd(day)}.mp4`,
-      cover: (day) => `out/${id}/cover/ngay-${dd(day)}.png`,
+      // Video và ảnh bìa đặt tên theo nội dung tập (không số thứ tự), để đổi thứ tự kịch bản không ảnh hưởng file đã xuất.
+      video: (episode) => `out/${id}/video/${fileSlug(hooks.headline(episode))}.mp4`,
+      cover: (episode) => `out/${id}/cover/${fileSlug(hooks.headline(episode))}.png`,
       srt: (day) => `out/${id}/srt/ngay-${dd(day)}.srt`,
       versions: `out/${id}/versions`,
       botLogs: `out/${id}/bot`,

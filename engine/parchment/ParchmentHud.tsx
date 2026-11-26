@@ -59,7 +59,7 @@ export type ParchmentHudProps = {
  * Khung Sân khấu Giấy da cổ: nền gỗ tối bao quanh một tấm giấy da sáng (sân khấu) có vân giấy, mép cháy sậm,
  * nắng rọi nhẹ từ trên; dải sàn ở chân sân khấu; khung viền đồng. Tiêu đề to ở trên.
  */
-export const ParchmentHud: React.FC<ParchmentHudProps> = ({ day, hudTitle }) => {
+export const ParchmentHud: React.FC<ParchmentHudProps> = ({ hudTitle }) => {
   const frame = useCurrentFrame();
   const { x, y, w, h } = LAYOUT.stage;
   const glow = 0.5 + 0.08 * Math.sin(frame * 0.05);
@@ -157,7 +157,7 @@ export const ParchmentHud: React.FC<ParchmentHudProps> = ({ day, hudTitle }) => 
         }}
       >
         <div style={{ fontSize: 26, fontWeight: 900, letterSpacing: 3, color: PARCHMENT.gold, lineHeight: 1.1 }}>
-          THIÊN ĐƯỜNG KIẾN THỨC · TẬP {day}
+          THIÊN ĐƯỜNG KIẾN THỨC
         </div>
         <div
           style={{

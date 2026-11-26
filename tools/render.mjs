@@ -1,9 +1,9 @@
 /**
  * Xuất video hoặc ảnh bìa của một dự án.
- *   npm run render -- 1                 -> out/noi-vay/video/ngay-01.mp4 (dự án mặc định)
- *   npm run render -- -p vi-sao 1       -> out/vi-sao/video/ngay-01.mp4
+ *   npm run render -- 1                 -> out/noi-vay/video/<tên_tập>.mp4 (dự án mặc định)
+ *   npm run render -- -p vi-sao 1       -> out/vi-sao/video/vi_sao_bau_troi_mau_xanh.mp4
  *   npm run render -- tuan-1            -> cả tuần 1
- *   npm run cover  -- -p vi-sao all     -> out/vi-sao/cover/ngay-XX.png
+ *   npm run cover  -- -p vi-sao all     -> out/vi-sao/cover/<tên_tập>.png
  *
  * Xuất video xong thì tự xuất ảnh bìa và lưu thành phiên bản mới (giống bot):
  *   out/<dự án>/versions/ngay-XX/vN/ + ghi lịch sử projects/<dự án>/docs/lich-su/ngay-XX.md
@@ -39,14 +39,14 @@ const run = (compId, output, still) => {
 };
 
 for (const day of days) {
+  const episode = EPISODES.find((e) => e.day === day);
   if (cover) {
-    run(project.coverId(day), project.paths.cover(day), true);
+    run(project.coverId(day), project.paths.cover(episode), true);
     continue;
   }
-  run(project.compositionId(day), project.paths.video(day), false);
+  run(project.compositionId(day), project.paths.video(episode), false);
   if (!archive) continue;
-  run(project.coverId(day), project.paths.cover(day), true);
-  const episode = EPISODES.find((e) => e.day === day);
+  run(project.coverId(day), project.paths.cover(episode), true);
   const saved = archiveRender(project, episode, nextTeaser(day));
   console.log(
     `💾 Lưu thành v${saved.version}: ${path.relative(process.cwd(), saved.dir).replace(/\\/g, "/")}/ ` +

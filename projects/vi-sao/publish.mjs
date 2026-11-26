@@ -5,7 +5,7 @@
  * "những câu tưởng dễ mà người lớn cũng hay trả lời sai".
  * Không phải nội dung dành cho trẻ dưới 13 tuổi: không viết "cho bé", không ghi lứa tuổi nhỏ, không nói với trẻ nhỏ.
  */
-import { BASE_CHECKLIST, pick, postWhen, tags } from "../../tools/bot/publish.mjs";
+import { BASE_CHECKLIST, pick, tags } from "../../tools/bot/publish.mjs";
 
 const lowerFirst = (s) => s.charAt(0).toLowerCase() + s.slice(1);
 const unquote = (s) => s.replace(/[.!]+$/, "");
@@ -44,7 +44,7 @@ export const buildPublishKit = (episode, next, { cfg, startDate = null }) => {
     `${episode.ask} Nhiều người nghĩ là “${unquote(episode.myth)}”, nhưng chưa đúng.`,
     `Tóm lại: ${episode.answer}`,
     "",
-    `Câu ${day} của “${cfg.seriesName}”: những câu “vì sao” tưởng dễ mà người lớn cũng hay trả lời sai, Cụ Đồ giải thích ngắn gọn, đúng khoa học.`,
+    `“${cfg.seriesName}”: những câu “vì sao” tưởng dễ mà người lớn cũng hay trả lời sai, Cụ Đồ giải thích ngắn gọn, đúng khoa học.`,
     next ? `Câu tiếp theo: ${next}` : "",
     "",
     "Nguồn tham khảo:",
@@ -68,7 +68,7 @@ export const buildPublishKit = (episode, next, { cfg, startDate = null }) => {
   return {
     day,
     title: episode.ask,
-    when: postWhen(startDate, day, cfg.postTime),
+    when: cfg.postTime || null,
     ytTitle,
     ytDescription,
     tiktokCaption,

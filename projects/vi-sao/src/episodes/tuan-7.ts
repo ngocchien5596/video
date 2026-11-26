@@ -23,7 +23,7 @@ const recapStage: Moment[] = [
 
 export const TUAN_7 = [
   makeEpisode({
-    day: 14,
+    day: 15,
     week,
     theme,
     ask: "Vì sao thìa inox sờ vào thấy lạnh hơn thìa gỗ?",
@@ -81,7 +81,7 @@ export const TUAN_7 = [
   }),
 
   makeEpisode({
-    day: 21,
+    day: 22,
     week,
     theme,
     ask: "Nước sôi thì bong bóng ở đâu ra?",
@@ -143,7 +143,7 @@ export const TUAN_7 = [
   }),
 
   makeEpisode({
-    day: 7,
+    day: 9,
     week,
     theme,
     ask: "Vì sao thái hành lại cay mắt?",
@@ -200,7 +200,7 @@ export const TUAN_7 = [
   }),
 
   makeEpisode({
-    day: 28,
+    day: 29,
     week,
     theme,
     ask: "Vì sao cất đồ ăn vào tủ lạnh thì lâu hỏng hơn?",
@@ -257,7 +257,7 @@ export const TUAN_7 = [
   }),
 
   makeEpisode({
-    day: 33,
+    day: 34,
     week,
     theme,
     ask: "Vì sao nước ngọt có ga sủi bọt khi mở nắp?",
@@ -315,7 +315,7 @@ export const TUAN_7 = [
   }),
 
   makeEpisode({
-    day: 39,
+    day: 40,
     week,
     theme,
     ask: "Vì sao táo cắt ra để lâu bị thâm?",
@@ -375,7 +375,7 @@ export const TUAN_7 = [
   }),
 
   makeEpisode({
-    day: 44,
+    day: 45,
     week,
     theme,
     ask: "Vì sao bột bánh mì lại phồng lên?",

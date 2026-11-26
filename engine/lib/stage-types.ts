@@ -152,9 +152,9 @@ export type Item = {
 /** home: phòng khách · kitchen: bếp có bàn ăn (đồ `on: "table"` đặt trên bàn) · classroom: lớp học · yard: sân ngoài trời · night: sân ban đêm (trăng, sao)
  * · space: ngoài vũ trụ (đứng trên mặt trăng, thấy Trái Đất, sao) · beach: bãi biển (biển, cát)
  * · tavern: quán rượu mái tranh ngày xưa (chum rượu, biển "QUÁN RƯỢU") · temple: miếu cổ dưới gốc đa trong rừng đêm
- * · cave: vách núi đá, cửa hang tối ở bên trái (x ≈ 0.27)
+ * · cave: vách núi đá, cửa hang tối ở bên trái (x ≈ 0.27) · mine: đường lò than ngày xưa (vì chống gỗ, đèn lò, ray, goòng)
  * Phông của các truyện khác: xem engine/lib/story/tuan-*.ts */
-export type SceneId = "home" | "kitchen" | "classroom" | "yard" | "night" | "space" | "beach" | "tavern" | "temple" | "cave" | SceneTuan1 | SceneTuan2 | SceneTuan2B | SceneTuan3 | SceneTuan4 | SceneTuan4B | SceneChoLa;
+export type SceneId = "home" | "kitchen" | "classroom" | "yard" | "night" | "space" | "beach" | "tavern" | "temple" | "cave" | "mine" | SceneTuan1 | SceneTuan2 | SceneTuan2B | SceneTuan3 | SceneTuan4 | SceneTuan4B | SceneChoLa;
 /** Phông cảnh, `text` là chữ trên bảng (lớp học). */
 export type SceneRef = SceneId | { id: SceneId; text?: string };
 
@@ -194,6 +194,11 @@ export type Moment = {
   fx?: Fx | Fx[];
   /** Hiện / đổi bước bảng minh hoạ; null để cất bảng. */
   board?: Board | null;
+  /**
+   * Cảnh chèn toàn khung (tranh kín 1080×1920 phủ lên sân khấu, lời thoại thành lời dẫn): `{ id, step }` do dự án đăng ký
+   * (registry `inserts`), null để quay về sân khấu. Đổi tranh / bước thì hoà tan ~0,5 giây, trong lúc hiện tranh phóng to chậm.
+   */
+  insert?: Board | null;
   /**
    * Cuộc gọi video: true = Cụ Đồ ở nhà, hiện trong khung điện thoại ở góc màn hình (không đứng trên sân khấu);
    * false = tắt máy, Cụ Đồ về lại sân khấu. Khi đang gọi, `camera: "CD"` phóng to khung gọi (Ông kể chuyện).

@@ -18,19 +18,6 @@ export const Cover: React.FC<EpisodeProps> = ({ episode }) => (
     <div style={{ fontFamily: TITLE_FONT, fontSize: 60, letterSpacing: 3, color: COLORS.white, ...outline(9) }}>{SERIES_NAME}</div>
     <div
       style={{
-        marginTop: 20,
-        fontFamily: TITLE_FONT,
-        fontSize: 170,
-        lineHeight: 1,
-        color: "#FFE27A",
-        rotate: "-4deg",
-        ...outline(20),
-      }}
-    >
-      #{episode.day}
-    </div>
-    <div
-      style={{
         marginTop: 50,
         padding: "30px 36px",
         backgroundColor: COLORS.idiom,

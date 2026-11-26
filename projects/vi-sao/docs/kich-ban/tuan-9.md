@@ -4,7 +4,7 @@
 > CĐ = Cụ Đồ, TC = Thằng Cháu.
 > Các file tuần gom tập theo chủ đề; thứ tự đăng theo số ngày, xem [thu-tu-dang.md](thu-tu-dang.md).
 
-## Ngày 45: Trên sông không có đèn giao thông, sao tàu thuyền không đâm nhau?
+## Ngày 46: Trên sông không có đèn giao thông, sao tàu thuyền không đâm nhau?
 
 - **Hiểu lầm phổ biến:** Sông nước rộng thênh thang, tàu thuyền muốn đi đâu thì đi, cứ bấm còi là người ta tự né.
 - **Trả lời một câu:** Tàu thuyền nói chuyện với nhau bằng tiếng còi, và nhìn đèn đỏ đèn xanh trên thân tàu để biết ai phải nhường ai.

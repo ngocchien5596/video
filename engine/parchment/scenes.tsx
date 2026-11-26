@@ -5,12 +5,26 @@ import { type Anim, Card, CardFrame, Chalkboard, Cross, fitText, GROUND, linePos
 import { INK, LAYOUT, PARCHMENT, STAGE_S, STAGE_TX, STAGE_TY } from "./ParchmentHud.tsx";
 import { MontyDefs, MontyScene } from "./monty.tsx";
 import * as E05 from "./ep05.tsx";
+import * as E09 from "./ep09.tsx";
+import * as E10 from "./ep10.tsx";
+import * as E11 from "./ep11.tsx";
+import * as E12 from "./ep12.tsx";
+import * as E13 from "./ep13.tsx";
+import * as E14 from "./ep14.tsx";
+import * as E15 from "./ep15.tsx";
 
 /** Tập có cảnh vẽ riêng (file epXX.tsx tự bật bằng READY). */
 const CUSTOM: Partial<Record<number, React.FC<Anim & { beatKind: string }>>> = {
   1: MontyScene,
   // ep02–ep04.tsx (búa và lông chim, cơm nguội, thư mật Mary) thuộc các tập đã bỏ, không đăng ký.
   ...(E05.READY ? { 2: E05.Ep05Scene } : {}),
+  ...(E09.READY ? { 9: E09.Ep09Scene } : {}),
+  ...(E10.READY ? { 10: E10.Ep10Scene } : {}),
+  ...(E11.READY ? { 11: E11.Ep11Scene } : {}),
+  ...(E12.READY ? { 12: E12.Ep12Scene } : {}),
+  ...(E13.READY ? { 13: E13.Ep13Scene } : {}),
+  ...(E14.READY ? { 14: E14.Ep14Scene } : {}),
+  ...(E15.READY ? { 15: E15.Ep15Scene } : {}),
 };
 import { MiloDefs, type Pose, Stickman } from "./Stickman.tsx";
 import { TOPICS } from "./topics.ts";
@@ -673,6 +687,8 @@ export const ParchmentScene: React.FC<ParchmentSceneProps> = ({ day, fps, prev, 
         <MiloDefs />
         <MontyDefs />
         <E05.Ep05Defs />
+        <E09.Ep09Defs />
+        <E10.Ep10Defs />
         <filter id="soft-glow" x="-30%" y="-30%" width="160%" height="160%">
           <feGaussianBlur stdDeviation="9" />
         </filter>

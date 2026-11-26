@@ -4,7 +4,7 @@
  *
  * Mẫu câu xoay vòng theo số tập để 30 video không trùng tiêu đề / caption, tránh bị coi là nội dung lặp.
  */
-import { BASE_CHECKLIST, pick, postWhen, tags } from "../../tools/bot/publish.mjs";
+import { BASE_CHECKLIST, pick, tags } from "../../tools/bot/publish.mjs";
 
 const TITLES = [
   (e) => `“${e.idiom}” nghĩa là gì? Đừng hiểu theo nghĩa đen!`,
@@ -45,7 +45,7 @@ export const buildPublishKit = (episode, next, { cfg, startDate = null }) => {
     episode.question,
     `Nghĩa thật: ${episode.meaning}`,
     "",
-    `Tập ${day} của “${cfg.seriesName}”: mỗi tập một câu thành ngữ, tục ngữ quen tai mà nhiều người vẫn hiểu sai.`,
+    `“${cfg.seriesName}”: mỗi tập một câu thành ngữ, tục ngữ quen tai mà nhiều người vẫn hiểu sai.`,
     next ? `Câu tiếp theo: “${next}”. Bạn hiểu câu này thế nào?` : "",
     "",
     cfg.aiNote,
@@ -68,7 +68,7 @@ export const buildPublishKit = (episode, next, { cfg, startDate = null }) => {
   return {
     day,
     title: episode.idiom,
-    when: postWhen(startDate, day, cfg.postTime),
+    when: cfg.postTime || null,
     ytTitle,
     ytDescription,
     tiktokCaption,

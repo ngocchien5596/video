@@ -4,7 +4,7 @@
 > CĐ = Cụ Đồ, TC = Thằng Cháu.
 > Các file tuần gom tập theo chủ đề; thứ tự đăng theo số ngày, xem [thu-tu-dang.md](thu-tu-dang.md).
 
-## Ngày 9: Nước sông ngọt chảy ra biển, vì sao biển lại mặn?
+## Ngày 11: Nước sông ngọt chảy ra biển, vì sao biển lại mặn?
 
 - **Hiểu lầm phổ biến:** Nước sông không có tí muối nào, muối có sẵn trong biển từ đầu.
 - **Trả lời một câu:** Nước mưa hoà tan chút muối trong đất đá, sông lại mang muối ra biển, nước biển bốc hơi đi thì muối ở lại, lâu dần biển mới mặn.
@@ -20,7 +20,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, nước mưa hoà tan chút muối trong đất đá, sông lại mang muối ra biển, nước biển bốc hơi đi thì muối ở lại, lâu dần biển mới mặn. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Hay thật đấy ông ạ! Thế còn chuyện khác thì sao hả ông?<br>**CĐ**: Từ từ đã nào, cái thằng này! Lần sau ông kể tiếp cho. |
 
-## Ngày 16: Tàu bằng sắt nặng thế, sao không chìm?
+## Ngày 17: Tàu bằng sắt nặng thế, sao không chìm?
 
 - **Hiểu lầm phổ biến:** Vật nặng thì chìm, vật nhẹ thì nổi.
 - **Trả lời một câu:** Tàu thì rỗng ruột, bên trong có rất nhiều không khí, nên nhẹ hơn một khối nước to bằng nó, thế là nước đỡ được tàu nổi lên.
@@ -36,7 +36,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, tàu thì rỗng ruột, bên trong có rất nhiều không khí, nên nhẹ hơn một khối nước to bằng nó, thế là nước đỡ được tàu nổi lên. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Hay quá ông ạ! Mai ông lại kể cho cháu nghe chuyện khác nữa nhé?<br>**CĐ**: Được chứ! Cháu cứ hỏi, rồi ông kể dần cho. |
 
-## Ngày 23: Vì sao cục đá lại nổi trên nước?
+## Ngày 24: Vì sao cục đá lại nổi trên nước?
 
 - **Hiểu lầm phổ biến:** Đông cứng lại thì phải nặng hơn nước và chìm xuống.
 - **Trả lời một câu:** Khi đông thành đá, các hạt nước đứng thưa ra nên nước nở to hơn, vì thế cục đá nhẹ hơn một khối nước to bằng nó và nổi lên.
@@ -52,7 +52,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, khi đông thành đá, các hạt nước đứng thưa ra nên nước nở to hơn, vì thế cục đá nhẹ hơn một khối nước to bằng nó và nổi lên. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: À, thế là cháu hiểu rồi! Mai ông kể thêm một chuyện vì sao nữa nhé?<br>**CĐ**: Ừ, mai ông kể tiếp, nhớ ra mà nghe đấy! |
 
-## Ngày 30: Giọt mưa thật ra có hình gì?
+## Ngày 31: Giọt mưa thật ra có hình gì?
 
 - **Hiểu lầm phổ biến:** Giọt mưa có hình giọt lệ, đầu nhọn, đáy tròn.
 - **Trả lời một câu:** Giọt mưa nhỏ thì tròn xoe, còn giọt to khi rơi thì bị không khí đẩy cho dẹt đáy như cái bánh hamburger, chứ không hề nhọn đầu.
@@ -68,7 +68,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, giọt mưa nhỏ thì tròn xoe, còn giọt to khi rơi thì bị không khí đẩy cho dẹt đáy như cái bánh hamburger, chứ không hề nhọn đầu. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Ông ơi, cháu lại vừa nghĩ ra một câu vì sao nữa rồi!<br>**CĐ**: Lại câu gì nữa đây? Thôi, để lần sau ông kể nhé! |
 
-## Ngày 35: Vì sao nước biển màu xanh?
+## Ngày 36: Vì sao nước biển màu xanh?
 
 - **Hiểu lầm phổ biến:** Biển xanh chỉ vì soi bóng bầu trời.
 - **Trả lời một câu:** Nước hút bớt ánh đỏ, cam, vàng của nắng, còn ánh xanh thì bị hắt ngược trở ra tới mắt mình, nên biển mới xanh.
@@ -84,7 +84,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, nước hút bớt ánh đỏ, cam, vàng của nắng, còn ánh xanh thì bị hắt ngược trở ra tới mắt mình, nên biển mới xanh. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Ông ơi, cháu lại vừa nghĩ ra một câu vì sao nữa rồi!<br>**CĐ**: Lại câu gì nữa đây? Thôi, để lần sau ông kể nhé! |
 
-## Ngày 41: Vì sao cốc nước đá lại “đổ mồ hôi”?
+## Ngày 42: Vì sao cốc nước đá lại “đổ mồ hôi”?
 
 - **Hiểu lầm phổ biến:** Nước trong cốc thấm qua thành cốc ra ngoài.
 - **Trả lời một câu:** Hơi nước vô hình trong không khí chạm vào thành cốc lạnh thì đọng lại thành giọt nước.
@@ -100,7 +100,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, hơi nước vô hình trong không khí chạm vào thành cốc lạnh thì đọng lại thành giọt nước. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Hay quá ông ạ! Mai ông lại kể cho cháu nghe chuyện khác nữa nhé?<br>**CĐ**: Được chứ! Cháu cứ hỏi, rồi ông kể dần cho. |
 
-## Ngày 43: Vì sao con nhện nước đi được trên mặt nước?
+## Ngày 44: Vì sao con nhện nước đi được trên mặt nước?
 
 - **Hiểu lầm phổ biến:** Nhện nước là một loài nhện.
 - **Trả lời một câu:** Nhện nước rất nhẹ, chân lại dang rộng và có lông đẩy nước, nên nó chẳng làm đứt được mối níu giữa các hạt nước ở mặt ao.

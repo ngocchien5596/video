@@ -4,7 +4,7 @@
 > CĐ = Cụ Đồ, TC = Thằng Cháu.
 > Các file tuần gom tập theo chủ đề; thứ tự đăng theo số ngày, xem [thu-tu-dang.md](thu-tu-dang.md).
 
-## Ngày 11: Vì sao quả ớt lại cay?
+## Ngày 13: Vì sao quả ớt lại cay?
 
 - **Hiểu lầm phổ biến:** Ớt cay là để không con vật nào dám ăn nó.
 - **Trả lời một câu:** Ớt cay là để đuổi những con thú hay nhai nát hạt, còn chim thì chẳng thấy cay, cứ ăn ớt rồi mang hạt đi gieo ở chỗ mới.
@@ -20,7 +20,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, ớt cay là để đuổi những con thú hay nhai nát hạt, còn chim thì chẳng thấy cay, cứ ăn ớt rồi mang hạt đi gieo ở chỗ mới. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Hay quá ông ạ! Mai ông lại kể cho cháu nghe chuyện khác nữa nhé?<br>**CĐ**: Được chứ! Cháu cứ hỏi, rồi ông kể dần cho. |
 
-## Ngày 26: Vì sao cây bắt ruồi lại ăn côn trùng?
+## Ngày 27: Vì sao cây bắt ruồi lại ăn côn trùng?
 
 - **Hiểu lầm phổ biến:** Cây bắt ruồi không cần nắng, chỉ ăn côn trùng thay cơm để sống.
 - **Trả lời một câu:** Cây bắt ruồi vẫn sống nhờ nắng như mọi cây khác, còn bắt côn trùng là để có thêm chất bổ mà đất đầm lầy thiếu.
@@ -36,7 +36,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, cây bắt ruồi vẫn sống nhờ nắng như mọi cây khác, còn bắt côn trùng là để có thêm chất bổ mà đất đầm lầy thiếu. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Hay quá ông ạ! Mai ông lại kể cho cháu nghe chuyện khác nữa nhé?<br>**CĐ**: Được chứ! Cháu cứ hỏi, rồi ông kể dần cho. |
 
-## Ngày 36: Vì sao hoa hướng dương quay theo Mặt Trời?
+## Ngày 37: Vì sao hoa hướng dương quay theo Mặt Trời?
 
 - **Hiểu lầm phổ biến:** Hoa hướng dương lúc nào cũng xoay theo Mặt Trời, kể cả khi đã nở to.
 - **Trả lời một câu:** Chỉ cây hướng dương non mới xoay theo Mặt Trời, còn hoa đã nở thì đứng yên, quay về phía đông.
@@ -52,7 +52,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, chỉ cây hướng dương non mới xoay theo Mặt Trời, còn hoa đã nở thì đứng yên, quay về phía đông. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Hay quá ông ạ! Mai ông lại kể cho cháu nghe chuyện khác nữa nhé?<br>**CĐ**: Được chứ! Cháu cứ hỏi, rồi ông kể dần cho. |
 
-## Ngày 42: Vì sao xương rồng có gai?
+## Ngày 43: Vì sao xương rồng có gai?
 
 - **Hiểu lầm phổ biến:** Xương rồng không có lá, gai mọc ra chỉ để đâm người.
 - **Trả lời một câu:** Gai xương rồng chính là lá đã biến đổi, giúp cây giữ được nước giữa sa mạc, lại khỏi bị thú vật gặm mất.

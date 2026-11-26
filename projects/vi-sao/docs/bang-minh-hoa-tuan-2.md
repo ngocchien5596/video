@@ -66,3 +66,13 @@ Sơ đồ của tuần 2 (ngày 8–14). Cách dùng và quy ước chung: xem `
 | 1 | Bong bóng "KHÍ ÔXY" bay vào đèn, đèn bắt đầu sáng, chữ "PHẢN ỨNG HOÁ HỌC" | "cho khí ôxy vào đèn, ở đó xảy ra phản ứng hoá học" |
 | 2 | Đèn sáng rực vàng chanh, nhiệt kế thấp màu xanh, chữ "GẦN NHƯ KHÔNG NÓNG" | "tạo ra ánh sáng, mà gần như không toả nóng" |
 | 3 | Ba con đom đóm nháy đèn lệch nhịp nhau, chữ "NHÁY ĐÈN TÌM BẠN" | "nháy đèn theo một kiểu riêng, để tìm bạn cùng loài" |
+
+### `w2-mine-rat`: Vì sao thợ mỏ nuôi chuột dưới hầm lò (ngày 7, tập mẫu chuẩn kể chuyện mới)
+
+| Bước | Hình | Câu thoại khớp |
+| --- | --- | --- |
+| 0 | Nóc lò đá xám nứt dần, sóng âm toả xuống, chữ "lách tách… răng rắc…"; thợ mỏ có dấu "?", chuột vểnh tai có dấu "!" | "đá trên nóc lò bị đè nứt dần, kêu lách tách… tai người chẳng nghe thấy gì" |
+| 1 | Thanh xanh ngắn "20.000 Hz" cạnh thợ mỏ, thanh đỏ dài "76.000 Hz" cạnh chuột, nhãn "GẦN GẤP 4" | "Tai người chỉ nghe được tới chừng hai mươi nghìn héc. Tai chuột thì nghe cao gần gấp bốn lần thế cơ" |
+| 2 | Đàn chuột chạy sang phải, thợ mỏ bỏ đồ nghề chạy theo, mũi tên đỏ, chữ "Chuột chạy ra / thợ mỏ chạy theo!" | "Thấy chuột kéo nhau chạy ra, thợ mỏ cũng bỏ hết đồ nghề mà chạy theo" |
+| 3 | Thợ mỏ đào vách than, hai con chuột kiếm ăn bên cạnh, nhãn "CHUỘT CÒN ĐÓ" "= YÊN TÂM" | "Còn chuột quanh quẩn kiếm ăn thì người mới yên tâm đào tiếp" |
+| 4 | Thợ mỏ đứng cạnh chuột; chữ "Kinh nghiệm / truyền đời", thẻ đỏ "CHƯA KIỂM CHỨNG" bật vào | "chuột báo sập thì khoa học chưa kiểm chứng đâu nhé, đấy là kinh nghiệm truyền đời của thợ mỏ thôi" |

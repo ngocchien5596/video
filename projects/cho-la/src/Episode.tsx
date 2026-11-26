@@ -30,7 +30,7 @@ const factCards = (episode: ChoLaEpisode): EpisodeLayout["cards"] =>
 
 /** Bố cục 6 nhịp: nghịch lý → gọi Ông → đoán sai → lý do → bước ngoặt → chốt. */
 const layoutFor = (episode: ChoLaEpisode, next: string | null): EpisodeLayout => ({
-  topBar: { label: `${SERIES_NAME} · #${episode.day}`, title: episode.title, showTitleAfter: "hook" },
+  topBar: { label: SERIES_NAME, title: episode.title, showTitleAfter: "hook" },
   hook: { beat: "hook", kicker: `📍 ${episode.place.toUpperCase()}`, title: episode.title },
   cards: factCards(episode),
   endCard: { question: episode.question, teaser: next ? `Tiếp theo: ${next}` : null },

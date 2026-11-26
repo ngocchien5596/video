@@ -5,7 +5,7 @@ const theme = "Cây cối và trái cây";
 
 export const TUAN_5 = [
     makeEpisode({
-    day: 11,
+    day: 13,
     week,
     theme,
     ask: "Vì sao quả ớt lại cay?",
@@ -79,7 +79,7 @@ export const TUAN_5 = [
   }),
 
     makeEpisode({
-    day: 36,
+    day: 37,
     week,
     theme,
     ask: "Vì sao hoa hướng dương quay theo Mặt Trời?",
@@ -150,7 +150,7 @@ export const TUAN_5 = [
   }),
 
   makeEpisode({
-    day: 26,
+    day: 27,
     week,
     theme,
     ask: "Vì sao cây bắt ruồi lại ăn côn trùng?",
@@ -219,7 +219,7 @@ export const TUAN_5 = [
   }),
 
   makeEpisode({
-    day: 42,
+    day: 43,
     week,
     theme,
     ask: "Vì sao xương rồng có gai?",

@@ -2,6 +2,8 @@
 
 > **Giọng lời dẫn / lời thoại:** mọi kịch bản phải theo chuẩn chung [docs/giong-loi-thoai.md](../../../docs/giong-loi-thoai.md) (uyển chuyển, tự nhiên, dễ hiểu, cuốn hút; không cụt lủn, không "giọng AI"), và qua mục kiểm ở cuối trang đó trước khi duyệt.
 > **Dựng cảnh / nhân vật:** mọi cảnh, đạo cụ, phần diễn theo chuẩn chung [docs/chuan-dung-canh.md](../../../docs/chuan-dung-canh.md) (nhân vật chuyển động mượt, rõ từng bộ phận, cảnh đẹp, bố cục tốt trong vùng an toàn), qua mục kiểm cuối trang đó trước khi duyệt hình.
+>
+> **Cảnh 3D (từ 26/11/2026):** tập mới dựng sân khấu 3D low-poly theo quy trình [dung-canh-3d.md](dung-canh-3d.md) (mẫu: tập 16 Lầu Năm Góc); tập cũ giữ cảnh SVG trừ khi chủ kênh yêu cầu riêng. Trường `shot` của tập mới viết theo cú máy 3D cho từng câu: máy quay ở đâu (toàn cảnh trên cao / nhìn thẳng xuống / trong nhà hở mái), vật gì hiện ra hay sáng lên, số nào trong câu nổi to, cắt sang cảnh nào. Không ghi nhãn chữ ngoài số và chữ có trong câu đọc.
 
 ## 1. Ý tưởng cốt lõi
 Giải mã các bài toán vĩ đại trong lịch sử nhân loại bằng công cụ thô sơ, kết nối trực tiếp với định lý trong **Sách giáo khoa Toán – Lý phổ thông** và mở rộng ra quy mô **Vũ trụ**.

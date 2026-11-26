@@ -1,7 +1,7 @@
 /**
  * Gói đăng bài của series "Thiên Đường Kiến Thức" (`kien-thuc` / `kt`).
  */
-import { BASE_CHECKLIST, pick, postWhen, tags } from "../../tools/bot/publish.mjs";
+import { BASE_CHECKLIST, pick, tags } from "../../tools/bot/publish.mjs";
 
 /** Câu đầu / câu cuối của hồi mở đầu: chính là câu móc và câu đặt cược người xem nghe trong 5 giây đầu. */
 const hookLines = (e) => e.beats?.[0]?.lines?.map((l) => l.text) ?? [];
@@ -52,7 +52,7 @@ export const buildPublishKit = (episode, next, { cfg, startDate = null }) => {
     bet(episode),
     "",
     `Xem hết video để biết đáp án, và vì sao chuyện này lại nằm ngay trong ${lesson(episode)}.`,
-    `Tập ${day} của “${cfg.seriesName}”: những câu đố, những lời đồn khoa học được giải bằng hình vẽ dễ hiểu, nối với bài học trên lớp.`,
+    `“${cfg.seriesName}”: những câu đố, những lời đồn khoa học được giải bằng hình vẽ dễ hiểu, nối với bài học trên lớp.`,
     next ? `Tập sau: ${stop(sentence(next))}` : "",
     "",
     "Nguồn tham khảo:",
@@ -74,7 +74,7 @@ export const buildPublishKit = (episode, next, { cfg, startDate = null }) => {
   return {
     day,
     title: episode.title,
-    when: postWhen(startDate, day, cfg.postTime),
+    when: cfg.postTime || null,
     ytTitle,
     ytDescription,
     tiktokCaption,

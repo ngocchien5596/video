@@ -42,6 +42,19 @@ Series bible của từng dự án nói giọng riêng của nhân vật; trang 
 - Mỗi câu ≤ 35–38 chữ. Từ tượng thanh lạ ("Phì phì!") phải nghe thử sau khi lồng giọng.
 - Sửa lời một nhịp có `stage` trỏ `line`: giữ số câu, thứ tự, người nói (hoặc sửa đúng chỉ số); câu mới vẫn mang đúng ý mà cảnh diễn theo.
 
+## 6. Kể cho cuốn (học từ video tham khảo, 18/11/2026)
+Rút từ "Cuộc đời sĩ quan tình báo", phân tích đầy đủ ở [tham-khao-cuoc-doi.md](tham-khao-cuoc-doi.md).
+- **Câu mở phá kỳ vọng**: đánh đúng điều người xem đang tưởng rồi lật ngay bằng một hình ảnh cụ thể ("Nếu bạn đang chờ súng giảm thanh… vũ khí đầu tiên là một cuốn từ điển dày hơn viên gạch"). Vì sao: câu đoán của Thằng Cháu chính là điều người xem đang tưởng; Cụ Đồ lật lại bằng hình ảnh, không bằng định nghĩa.
+- **Chi tiết chạm được bằng giác quan**: mỗi tập ít nhất một chi tiết nhìn / sờ / nghe thấy được ("gấp chăn vuông vức như bánh chưng", "luyện âm r đến khi lưỡi tê dại", "đốm đèn pin nhỏ mà rực"). Thay "rất nhiều", "rất mạnh" bằng thứ đo được hay so được với đồ quen.
+- **Cài từ đầu, nhắc lại ở cuối**: một chi tiết của câu mở quay lại ở câu kết hoặc câu chốt, cho tập khép thành vòng (cái quạt, cái chăn của tập mùa; người đưa thư đọc nét chữ → nghề đọc tài liệu).
+- **Cảm xúc qua hành động, không gọi tên**: "Bạn gắp cho ông một miếng cá thay cho câu trả lời" thay vì "bạn thấy khó nói".
+- **Câu chốt kiểu châm ngôn**: ngắn, chắc, nhớ được ("Một nhận định sai mà tự tin còn nguy hiểm hơn một câu chưa đủ cơ sở"). Dùng làm câu "nói gọn lại" của mục 3.
+- **Khung xương rõ** cho tập dài / nhiều ý: người xem luôn biết đang ở bước nào ("Bậc một… Bậc mười một"; Kiến thức: "Cách thứ nhất… cách thứ hai…").
+- **Số liệu rải đều**, mỗi số đi kèm một cảnh hay một việc, không dồn vào một câu (giữ quy tắc một hai con số mỗi câu ở mục 2).
+- **Người dẫn (Kiến thức)** có thể kể ở ngôi "bạn", đặt người xem vào vai ("Bạn mười tám tuổi…").
+- **Kết để dư âm**: kết bằng một hình ảnh khép chuyện, không kêu gọi theo dõi, không hé tập sau.
+- **Giọng đọc**: đều, điềm tĩnh, ngắt câu ngắn (0,3–0,5 giây); cái cuốn nằm ở câu chữ, không cần lên giọng kịch tính. Tốc độ hiện tại của kênh (~5 tiếng/giây lúc nói) đã đúng.
+
 ## Mục kiểm trước khi duyệt kịch bản
 1. Đọc to cả tập một lượt: chỗ nào vấp, cứng, giống văn viết thì sửa.
 2. Soát TỪNG câu: có câu nào bị lược hư từ ("bị", "lại", "trở", "thì", "mới", "ư"…) hay cắt cụt cụm từ, nghe như tiêu đề / ghi chú không? Có thì thêm cho đủ như người thật nói (mục 1).
@@ -50,6 +63,7 @@ Series bible của từng dự án nói giọng riêng của nhân vật; trang 
 5. Phần giải thích người xem có tự kiểm lại được không? Có câu "nói gọn lại" không?
 6. Hai nhân vật có nghe ra hai người khác nhau không?
 7. Sự thật, số liệu, nguồn có còn nguyên sau khi sửa câu chữ không?
-8. Tập đã đăng: KHÔNG sửa.
+8. Câu mở có phá kỳ vọng hoặc có tình huống không, hay chỉ nhắc lại tiêu đề? Có ít nhất một chi tiết chạm được bằng giác quan không? Câu kết hay câu chốt có gợi lại câu mở không? (mục 6)
+9. Tập đã đăng: KHÔNG sửa.
 
 Kịch bản mới / sửa xong phải chạy `npm run review` (kiểm máy + ảnh cảnh, không dùng AI chấm; bot tự chạy khi /tap); lỗi 'phải sửa' phải xử lý trước khi duyệt. Mục kiểm trên trang này do người viết tự soát.

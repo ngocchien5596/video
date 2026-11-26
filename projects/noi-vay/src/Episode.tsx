@@ -21,7 +21,7 @@ export type EpisodeProps = {
  * rồi câu bay lên nằm dưới tên series ở góc trên (thay cho thẻ "#X" cũ).
  */
 const layoutFor = (episode: NoiVayEpisode, next: string | null): EpisodeLayout => ({
-  topBar: { label: `${SERIES_NAME} · #${episode.day}`, title: `“${episode.idiom}”`, showTitleAfter: "title" },
+  topBar: { label: SERIES_NAME, title: `“${episode.idiom}”`, showTitleAfter: "title" },
   cards: [
     {
       beat: "title",

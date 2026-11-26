@@ -7,6 +7,7 @@ import { W2FlamingoBoard } from "./w2-flamingo.tsx";
 import { W2GeckoBoard } from "./w2-gecko.tsx";
 import { W2OwlBoard } from "./w2-owl.tsx";
 import { W2PandaBoard } from "./w2-panda.tsx";
+import { W2MineRatBoard } from "./w2-mine-rat.tsx";
 
 export const BOARDS_TUAN_2: BoardRegistry = {
   "w2-flamingo": W2FlamingoBoard,
@@ -16,4 +17,5 @@ export const BOARDS_TUAN_2: BoardRegistry = {
   "w2-owl": W2OwlBoard,
   "w2-cat-eyes": W2CatEyesBoard,
   "w2-firefly": W2FireflyBoard,
+  "w2-mine-rat": W2MineRatBoard,
 };

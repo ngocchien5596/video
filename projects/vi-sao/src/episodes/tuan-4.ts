@@ -24,7 +24,7 @@ const recapStage: Moment[] = [
 
 export const TUAN_4 = [
   makeEpisode({
-    day: 5,
+    day: 8,
     week,
     theme,
     ask: "Vì sao gân xanh trên tay màu xanh mà máu lại đỏ?",
@@ -81,7 +81,7 @@ export const TUAN_4 = [
   }),
 
   makeEpisode({
-    day: 25,
+    day: 26,
     week,
     theme,
     ask: "Vì sao ngâm nước lâu thì ngón tay nhăn nheo?",
@@ -145,7 +145,7 @@ export const TUAN_4 = [
   }),
 
   makeEpisode({
-    day: 10,
+    day: 12,
     week,
     theme,
     ask: "Vì sao mình không tự cù mình được?",
@@ -202,7 +202,7 @@ export const TUAN_4 = [
   }),
 
   makeEpisode({
-    day: 31,
+    day: 32,
     week,
     theme,
     ask: "Vì sao mình nổi da gà?",
@@ -261,7 +261,7 @@ export const TUAN_4 = [
   }),
 
   makeEpisode({
-    day: 15,
+    day: 16,
     week,
     theme,
     ask: "Vì sao mình hắt xì hơi?",
@@ -321,7 +321,7 @@ export const TUAN_4 = [
   }),
 
   makeEpisode({
-    day: 20,
+    day: 21,
     week,
     theme,
     ask: "Vì sao ăn kem nhanh lại bị buốt đầu?",
@@ -377,7 +377,7 @@ export const TUAN_4 = [
   }),
 
   makeEpisode({
-    day: 37,
+    day: 38,
     week,
     theme,
     ask: "Vì sao mình đổ mồ hôi?",

@@ -4,8 +4,90 @@ const week = 2;
 const theme = "Con vật kỳ lạ";
 
 export const TUAN_2 = [
+  // Tập mẫu áp chuẩn kể chuyện mới (giong-loi-thoai.md mục 6, chuan-dung-canh.md mục 5), 18/11/2026.
   makeEpisode({
-    day: 8,
+    day: 7,
+    week,
+    theme,
+    ask: "Vì sao thợ mỏ nuôi chuột dưới hầm lò?",
+    myth: "Dưới lò tối om buồn tẻ, thợ mỏ nuôi chuột cho có bạn.",
+    answer: "Thợ mỏ tin rằng chuột nghe được tiếng đá nứt mà tai người không nghe thấy, nên chuột bỏ chạy là dấu hiệu lò sắp sập.",
+    sources: [
+      { title: "Denver Public Library: For Colorado coal miners, the canary in the coal mine was actually a mouse (chuột sống nhờ cặp lồng của thợ mỏ; chuột tán loạn là nóc lò sắp sập)", url: "https://history.denverlibrary.org/news/colorado-coal-miners-canary-coal-mine-was-actually-mouse" },
+      { title: "Minett Park (bảo tàng mỏ, Luxembourg): Rats in the mine (chuột nhận ra nguy hiểm sớm hơn người; thợ mỏ để phần thức ăn cho chuột)", url: "https://minettpark.lu/en/rats-in-the-mine/" },
+      { title: "Thomas & Thomas, Kentucky Superstitions, mục 3104–3106 (chuột chạy khỏi mỏ là mỏ sắp sập)", url: "https://chestofbooks.com/fairy-tale/Kentucky-Superstitions/Mine-Superstitions.html" },
+      { title: "Li và cộng sự (2021), Frontiers in Physics: Study on the Acoustic Emission Characteristics of Different Rock Types… (đá nứt phát sóng từ vài nghìn Hz đến hàng triệu Hz)", url: "https://www.frontiersin.org/journals/physics/articles/10.3389/fphy.2021.591651/full" },
+      { title: "Forinash & Christian, Sound: An Interactive eBook (LibreTexts), Animal Hearing: người 20–20.000 Hz, chuột 200–76.000 Hz", url: "https://phys.libretexts.org/Bookshelves/Waves_and_Acoustics/Sound_-_An_Interactive_eBook_(Forinash_and_Christian)/09%3A_The_Ear_and_Perception/9.02%3A_Beats/9.2.04%3A_Animal_Hearing" },
+    ],
+    question: "Bạn có tin chuột báo trước được lò sắp sập không?",
+    hook: {
+      shot: "Trong nhà, Thằng Cháu cầm điện thoại đọc chuyện thợ mỏ ngày xưa nuôi chuột, nhăn mặt khó hiểu",
+      lines: [tc("Ông ơi, cháu đọc thấy ngày xưa thợ mỏ nuôi cả chuột dưới hầm lò. Ai cũng ghét chuột cơ mà, sao lại nuôi ạ?")],
+      stage: [
+        {
+          cut: true,
+          scene: "home",
+          camera: "wide",
+          cd: { x: 0.26, expr: "neutral", arms: "down", hand: null },
+          tc: { x: 0.66, hand: "phone", arms: "hold", expr: "confused", move: "idle" },
+          items: [],
+        },
+        { line: 0, at: 0.6, camera: "TC", tc: { hand: null, arms: "raise", expr: "confused" }, fx: { kind: "question", on: "TC" } },
+      ],
+    },
+    guess: {
+      shot: "Cắt xuống đường lò than ngày xưa: Thằng Cháu đoán nuôi chuột cho đỡ buồn, Cụ Đồ lật lại: chuột là bạn canh gác, báo lò sắp sập",
+      lines: [
+        tc("Chắc dưới lò tối om buồn quá, các bác nuôi cho có bạn, đúng không ông?"),
+        cd("Bạn thì cũng là bạn thật, nhưng là bạn canh gác cơ! Thợ mỏ tin rằng chuột biết trước lúc lò sắp sập đấy."),
+      ],
+      stage: [
+        {
+          line: 0,
+          cut: true,
+          scene: "mine",
+          camera: "TC",
+          cd: { x: 0.26, expr: "neutral", arms: "down", hand: null },
+          tc: { x: 0.66, hand: null, arms: "point", expr: "smug", move: "bounce" },
+          items: [],
+        },
+        { line: 1, camera: "CD", cd: { arms: "raise", expr: "happy" }, tc: { arms: "down", move: "idle" } },
+        { line: 1, at: 0.6, camera: "wide", tc: { expr: "shock" }, fx: { kind: "surprise", on: "TC" } },
+      ],
+    },
+    explain: {
+      shot: "Cảnh chèn toàn khung (mỗi câu một tranh): nóc lò nứt dần kêu lách tách; tai người 20.000 Hz, tai chuột 76.000 Hz, gần gấp 4; chuột chạy ra, thợ mỏ chạy theo; chuột còn quanh quẩn thì yên tâm; thợ mỏ và chuột, chữ 'Đời này qua đời khác', nhãn 'BẠN CANH LÒ'",
+      lines: [
+        cd("Trước khi sập, đá trên nóc lò bị đè nứt dần, kêu lách tách. Có những tiếng nứt li ti cao vút, tai người chẳng nghe thấy gì."),
+        cd("Tai người chỉ nghe được tới chừng hai mươi nghìn héc. Tai chuột thì nghe cao gần gấp bốn lần thế cơ."),
+        tc("Thế là chuột nghe thấy trước, rồi chạy trước ạ?"),
+        cd("Đúng thế! Thấy chuột kéo nhau chạy ra, thợ mỏ cũng bỏ hết đồ nghề mà chạy theo. Còn chuột quanh quẩn kiếm ăn thì người mới yên tâm đào tiếp."),
+        cd("Thế nên đời này qua đời khác, thợ mỏ cứ coi chuột như bạn canh lò, chẳng ai nỡ đuổi đi."),
+      ],
+      stage: [
+        { line: 0, camera: "wide", insert: { id: "w2-mine-rat", step: 0 }, cd: { arms: "point", expr: "neutral" }, tc: { expr: "confused" } },
+        { line: 1, insert: { id: "w2-mine-rat", step: 1 }, cd: { arms: "wave", expr: "happy" }, tc: { expr: "shock" } },
+        { line: 2, insert: null, camera: "TC", tc: { arms: "raise", expr: "confused", move: "bounce" }, fx: { kind: "question", on: "TC" } },
+        { line: 3, camera: "wide", insert: { id: "w2-mine-rat", step: 2 }, cd: { arms: "raise", expr: "happy" }, tc: { arms: "down", expr: "shock", move: "idle" } },
+        { line: 3, at: 0.55, insert: { id: "w2-mine-rat", step: 3 }, cd: { arms: "point", expr: "neutral" }, tc: { expr: "happy" } },
+        { line: 4, insert: { id: "w2-mine-rat", step: 4 }, cd: { arms: "raise", expr: "neutral" }, tc: { expr: "neutral" } },
+      ],
+    },
+    recapStage: [
+      { line: 0, insert: null, board: null, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", move: "idle" } },
+    ],
+    outro: {
+      shot: "Thằng Cháu hỏi lại chuyện nuôi chuột ở câu mở, Cụ Đồ chốt một câu dễ nhớ (không nói trước tập sau)",
+      lines: [tc("Thế ra nuôi chuột là nuôi bảo vệ ạ?"), cd("Chuẩn! Nuôi con chuột là có ngay cái chuông báo động biết chạy đấy.")],
+      stage: [
+        { line: 0, camera: "TC", tc: { arms: "raise", expr: "happy" }, fx: { kind: "question", on: "TC" } },
+        { line: 1, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
+      ],
+    },
+  }),
+
+  makeEpisode({
+    day: 10,
     week,
     theme,
     ask: "Vì sao tắc kè bò trên trần nhà mà không rơi?",
@@ -83,7 +165,7 @@ export const TUAN_2 = [
   }),
 
   makeEpisode({
-    day: 27,
+    day: 28,
     week,
     theme,
     ask: "Vì sao cú quay đầu được rất xa?",
@@ -151,7 +233,7 @@ export const TUAN_2 = [
   }),
 
   makeEpisode({
-    day: 18,
+    day: 19,
     week,
     theme,
     ask: "Vì sao chim hồng hạc lại màu hồng?",
@@ -220,7 +302,7 @@ export const TUAN_2 = [
   }),
 
   makeEpisode({
-    day: 32,
+    day: 33,
     week,
     theme,
     ask: "Vì sao đom đóm phát sáng?",
@@ -289,7 +371,7 @@ export const TUAN_2 = [
   }),
 
   makeEpisode({
-    day: 13,
+    day: 14,
     week,
     theme,
     ask: "Vì sao mắt mèo sáng lên trong đêm?",
@@ -360,7 +442,7 @@ export const TUAN_2 = [
   }),
 
   makeEpisode({
-    day: 22,
+    day: 23,
     week,
     theme,
     ask: "Vì sao con bò cứ nhai đi nhai lại mãi?",
@@ -432,7 +514,7 @@ export const TUAN_2 = [
   }),
 
   makeEpisode({
-    day: 38,
+    day: 39,
     week,
     theme,
     ask: "Vì sao gấu trúc ăn tre gần như cả ngày?",

@@ -26,7 +26,7 @@ export const loadEnv = () => {
 };
 
 export const loadConfig = () => {
-  const defaults = { timezone: "Asia/Ho_Chi_Minh", remindAfterHours: 2, autoPush: false, defaultProject: "noi-vay" };
+  const defaults = { timezone: "Asia/Ho_Chi_Minh", remindAfterHours: 2, scheduleReminders: false, autoPush: false, defaultProject: "noi-vay" };
   const file = path.join(ROOT, "bot.config.json");
   return existsSync(file) ? { ...defaults, ...JSON.parse(readFileSync(file, "utf8")) } : defaults;
 };

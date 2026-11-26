@@ -3,7 +3,7 @@
  * Nội dung gói (tiêu đề, mô tả, caption, hashtag, bình luận ghim) do từng dự án sinh
  * trong projects/<dự án>/publish.mjs → buildPublishKit().
  *
- * Kit: { day, title, when, ytTitle, ytDescription, tiktokCaption, pinned, checklist: string[] }
+ * Kit: { day, title, when (giờ đăng, không ghi ngày), ytTitle, ytDescription, tiktokCaption, pinned, checklist: string[] }
  * cfg.postTime truyền vào buildPublishKit là chuỗi giờ đã định dạng ("YouTube Shorts 18:30 · TikTok 20:30").
  */
 import { writeFileSync } from "node:fs";
@@ -31,16 +31,6 @@ export const pick = (list, day) => list[(day - 1) % list.length];
 export const postDate = (startDate, day) => (startDate ? addDays(startDate, day - 1) : null);
 
 /**
- * "01/12/2026 · YouTube Shorts 18:30 · TikTok 20:30".
- * postTime: chuỗi giờ đã định dạng sẵn (tools/schedule.mjs → slotsText).
- */
-export const postWhen = (startDate, day, postTime) => {
-  const date = postDate(startDate, day);
-  if (date) return `${date.split("-").reverse().join("/")}${postTime ? ` · ${postTime}` : ""}`;
-  return postTime || null;
-};
-
-/**
  * Việc cần làm khi đăng, chung cho mọi dự án (căn cứ: reports/Giờ đăng và cách tăng view.md).
  * Dòng bắt đầu bằng "YouTube:" / "TikTok:" chỉ hiện trong tin nhắc của nền tảng đó.
  */
@@ -48,7 +38,7 @@ export const BASE_CHECKLIST = [
   "Đăng file mp4 gốc bot gửi lên từng nền tảng, không dùng bản tải về có logo TikTok / Shorts / CapCut",
   "Bật nhãn “nội dung do AI tạo” (YouTube: Altered content = Có · TikTok: AI-generated content)",
   "Giữ nguyên tiêu đề, caption và hashtag trong gói (từ khoá đã đặt đầu câu; không thêm #fyp, #xuhuong)",
-  "YouTube: ngôn ngữ video Tiếng Việt · thêm vào playlist của series · thêm “Video liên quan” trỏ tới tập trước (hoặc tập 1)",
+  "YouTube: ngôn ngữ video Tiếng Việt · thêm vào playlist của series · thêm “Video liên quan” trỏ tới một tập đã đăng của series",
   "TikTok: chọn ảnh bìa (ảnh gửi kèm)",
   "Ghim bình luận ngay sau khi đăng, trả lời bình luận trong 1–2 giờ đầu; không xin like / follow (TikTok coi là mồi tương tác)",
   "Video yếu: KHÔNG xoá rồi đăng lại (dễ bị coi là spam / nội dung lặp), rút kinh nghiệm cho tập sau",
@@ -71,7 +61,7 @@ export const formatPublishKit = (kit, projectName = "", only = null) => {
   const where = only === "youtube" ? " · YouTube Shorts" : only === "tiktok" ? " · TikTok" : "";
   const checklist = kit.checklist.filter((c) => (yt || !c.startsWith("YouTube:")) && (tt || !c.startsWith("TikTok:")));
   return [
-    `📣 <b>${projectName ? `${esc(projectName)} · ` : ""}Đăng bài tập #${kit.day}${where} · “${esc(kit.title)}”</b>${kit.when ? `\n🕖 Đăng ${esc(kit.when)}` : ""}`,
+    `📣 <b>${projectName ? `${esc(projectName)} · ` : ""}Đăng bài${where} · “${esc(kit.title)}”</b>${kit.when ? `\n🕖 Đăng ${esc(kit.when)}` : ""}`,
     "",
     ...(yt ? ["<b>YouTube Shorts: tiêu đề</b>", `<pre>${esc(kit.ytTitle)}</pre>`, "<b>YouTube Shorts: mô tả</b>", `<pre>${esc(kit.ytDescription)}</pre>`] : []),
     ...(tt ? ["<b>TikTok: caption</b>", `<pre>${esc(kit.tiktokCaption)}</pre>`] : []),
@@ -84,7 +74,7 @@ export const formatPublishKit = (kit, projectName = "", only = null) => {
 /** Bản chữ thường, lưu cạnh video trong out/<dự án>/versions/ngay-XX/vN/dang-bai.txt. */
 export const savePublishKit = (dir, kit) => {
   const text = [
-    `ĐĂNG BÀI TẬP #${kit.day} · “${kit.title}”${kit.when ? ` · đăng ${kit.when}` : ""}`,
+    `ĐĂNG BÀI · “${kit.title}”${kit.when ? ` · ${kit.when}` : ""}`,
     "",
     "== YouTube Shorts: tiêu đề ==",
     kit.ytTitle,

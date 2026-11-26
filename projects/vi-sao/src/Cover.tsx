@@ -20,19 +20,6 @@ export const Cover: React.FC<EpisodeProps> = ({ episode }) => (
     </div>
     <div
       style={{
-        marginTop: 20,
-        fontFamily: TITLE_FONT,
-        fontSize: 170,
-        lineHeight: 1,
-        color: "#7FE3FF",
-        rotate: "-4deg",
-        ...outline(20),
-      }}
-    >
-      #{episode.day}
-    </div>
-    <div
-      style={{
         marginTop: 50,
         padding: "30px 36px",
         backgroundColor: COLORS.idiom,

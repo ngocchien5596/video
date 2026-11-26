@@ -83,7 +83,7 @@ const COMMAND_LIST = () =>
   `<b>Danh sách lệnh</b>\n` +
   `Mã dự án: ${PROJECTS.map((p) => `<code>${p.short}</code> ${esc(p.name)}`).join(" · ")}. Bỏ mã thì dùng dự án đang chọn (${esc(activeProject().name)}).\n\n` +
   COMMANDS.map(([, desc, example]) => `<code>${esc(example)}</code>\n   ${esc(desc)}`).join("\n") +
-  `\n\n<b>Nút dưới kịch bản</b>\n✅ Duyệt: tạo video · ✏️ Sửa thoại: nhắn chỗ cần sửa (ví dụ <code>6.2: nội dung mới</code>) · ⏭ Bỏ qua: nhắc lại sau ${config.remindAfterHours} giờ`;
+  `\n\n<b>Nút dưới kịch bản</b>\n✅ Duyệt: tạo video · ✏️ Sửa thoại: nhắn chỗ cần sửa (ví dụ <code>6.2: nội dung mới</code>) · ⏭ Bỏ qua${config.scheduleReminders ? `: nhắc lại sau ${config.remindAfterHours} giờ` : ""}`;
 
 const HELP = () => `<b>Bot duyệt kịch bản</b>
 Gõ /lenh để xem nhanh danh sách lệnh.
@@ -179,7 +179,7 @@ const runQueue = async () => {
       const started = Date.now();
       // Chốt kịch bản đang dùng (kể cả sửa tay trong repo) để biết video làm từ kịch bản nào.
       const commit = commitFiles(scriptFiles(project, day, episode.week), `${project.name} · tập ${day}: chốt kịch bản trước khi xuất video`);
-      const result = await produce(project, day, progress);
+      const result = await produce(project, episode, progress);
       const minutes = ((Date.now() - started) / 60000).toFixed(1);
       const saved = archiveVersion(project, day, { ...result, episode, commit });
       const kit = publishKit(project, episode, next);
@@ -760,7 +760,7 @@ const handleCallback = async (q) => {
       const remindAt = Date.now() + config.remindAfterHours * 3600000;
       ps(project).days[day] = { ...ps(project).days[day], status: "skipped", remindAt };
       save();
-      return send(`⏭ Bỏ qua ${esc(project.name)} · tập ${day}. Bot nhắc lại sau ${config.remindAfterHours} giờ.`);
+      return send(`⏭ Bỏ qua ${esc(project.name)} · tập ${day}.${config.scheduleReminders ? ` Bot nhắc lại sau ${config.remindAfterHours} giờ.` : ""}`);
     }
     case "apply": {
       if (msgId) await tg.clearButtons(chatId(), msgId);
@@ -880,6 +880,9 @@ Gói đăng bài: <code>/dangbai ${p} ${day}</code> · video: <code>/lichsu ${p}
 };
 
 async function tick() {
+  // Nhắc theo lịch (gửi kịch bản ngày mai để duyệt, nhắc giờ đăng, nhắc xem số liệu, nhắc lại tập bỏ qua)
+  // đang tắt; bật lại bằng "scheduleReminders": true trong bot.config.json.
+  if (!config.scheduleReminders) return;
   if (!chatId()) return;
   const now = nowIn(config.timezone);
   for (const project of PROJECTS) {

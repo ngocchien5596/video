@@ -49,7 +49,7 @@ const titleText = (size: number): React.CSSProperties => ({
 /** Viền chữ tiêu đề: viền nâu mảnh + bóng nâu đổ xuống (viền dày làm chữ tròn bị bết). `k`: hệ số thu phóng. */
 const titleOutline = (k: number): React.CSSProperties => ({ ...warmOutline(6 * k), textShadow: `0 ${3 * k}px 0 ${WARM.ink}` });
 
-/** Nhãn series (ví dụ "TÊN SERIES · #1") trên biển gỗ nhỏ và tiêu đề tập ghim ở đầu khung hình. */
+/** Nhãn series (tên series, không ghi số tập) trên biển gỗ nhỏ và tiêu đề tập ghim ở đầu khung hình. */
 export const TopBar: React.FC<{ label: string; title: string; showTitle: boolean }> = ({ label, title, showTitle }) => (
   <div style={{ position: "absolute", top: SAFE.top, left: SAFE.left, right: SAFE.right }}>
     <div

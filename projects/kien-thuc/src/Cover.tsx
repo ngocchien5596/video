@@ -7,7 +7,7 @@ import type { EpisodeProps } from "./Episode.tsx";
 
 /**
  * Ảnh bìa 1080×1920 cho từng tập "Thiên Đường Kiến Thức".
- * Cùng bố cục đơn giản với ảnh bìa "Nói vậy" và "Vì sao": tên series, số tập to, tiêu đề trên khung, một dòng phụ.
+ * Cùng bố cục đơn giản với ảnh bìa "Nói vậy" và "Vì sao": tên series, tiêu đề trên khung, một dòng phụ.
  * Màu nền nâu giấy da để nhận ra series.
  */
 export const Cover: React.FC<EpisodeProps> = ({ episode }) => (
@@ -25,19 +25,6 @@ export const Cover: React.FC<EpisodeProps> = ({ episode }) => (
     </div>
     <div
       style={{
-        marginTop: 20,
-        fontFamily: TITLE_FONT,
-        fontSize: 170,
-        lineHeight: 1,
-        color: PARCHMENT.gold,
-        rotate: "-4deg",
-        ...outline(20),
-      }}
-    >
-      #{episode.day}
-    </div>
-    <div
-      style={{
         marginTop: 50,
         padding: "30px 36px",
         backgroundColor: COLORS.idiom,
@@ -45,19 +32,22 @@ export const Cover: React.FC<EpisodeProps> = ({ episode }) => (
         borderRadius: 32,
         fontFamily: TITLE_FONT,
         fontSize: 104,
-        lineHeight: 1.05,
+        // Tiêu đề dài nhiều dòng cần giãn dòng để dấu không chạm dòng trên.
+        lineHeight: episode.coverTitle ? 1.38 : 1.05,
+        textWrap: episode.coverTitle ? "balance" : undefined,
         color: COLORS.ink,
         rotate: "2deg",
       }}
     >
-      {episode.hudTitle}
+      {episode.coverTitle ?? episode.hudTitle}
     </div>
     <div
       style={{
         marginTop: 60,
         fontFamily: TEXT_FONT,
         fontWeight: 900,
-        fontSize: 52,
+        fontSize: episode.coverTitle && episode.textbook.length > 30 ? 45 : 52,
+        textWrap: episode.coverTitle ? "balance" : undefined,
         color: COLORS.white,
         ...outline(10),
       }}

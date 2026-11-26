@@ -139,7 +139,19 @@ def main() -> None:
             line["key"] = key(line)
             line["name"] = f'{line["beat"] + 1}-{line["line"] + 1}-{line["who"].lower()}.wav'
             prev = old.get(line["key"])
-            line["reuse"] = prev if prev and (PUBLIC / prev["file"]).exists() else None
+            line["reuse"] = dict(prev) if prev and (PUBLIC / prev["file"]).exists() else None
+        # Câu giữ tiếng cũ nhưng đổi vị trí (vd. 5-3 trước là 5-2): chép tiếng sang đúng tên file của vị trí mới.
+        # Đọc hết vào bộ nhớ trước rồi mới ghi, để hai câu đổi chỗ cho nhau không đè lên nhau; và để câu sinh mới
+        # ở vị trí cũ không ghi đè lên tiếng đang được dùng lại (lỗi tập 9 Kiến thức: câu 5-3 phát tiếng của 5-2).
+        moved = []
+        for line in job["lines"]:
+            r = line["reuse"]
+            if r and Path(r["file"]).name != line["name"]:
+                moved.append((line, (PUBLIC / r["file"]).read_bytes()))
+        for line, data in moved:
+            day_dir.mkdir(parents=True, exist_ok=True)
+            (day_dir / line["name"]).write_bytes(data)
+            line["reuse"]["file"] = (day_dir / line["name"]).relative_to(PUBLIC).as_posix()
         plan.append((job, day_dir, manifest_path))
 
     todo = sum(1 for job, _, _ in plan for line in job["lines"] if not line["reuse"])

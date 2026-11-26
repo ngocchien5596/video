@@ -25,8 +25,8 @@ Mọi lệnh nhận dự án bằng `-p <id hoặc mã ngắn>`; bỏ trống th
 | Lệnh | Kết quả |
 | --- | --- |
 | `npm run dev` | Mở Studio, xem và chỉnh từng tập của mọi dự án |
-| `npm run render -- 1` | Xuất `out/noi-vay/video/ngay-01.mp4` |
-| `npm run render -- -p vs 1` | Xuất `out/vi-sao/video/ngay-01.mp4` + ảnh bìa, lưu thành phiên bản mới trong `out/vi-sao/versions/ngay-01/vN/` (thêm `--no-archive` để không lưu) |
+| `npm run render -- 1` | Xuất `out/noi-vay/video/<tên_tập>.mp4` (tên theo nội dung tập, không số thứ tự) |
+| `npm run render -- -p vs 1` | Xuất `out/vi-sao/video/vi_sao_bau_troi_mau_xanh.mp4` + ảnh bìa, lưu thành phiên bản mới trong `out/vi-sao/versions/ngay-01/vN/` (thêm `--no-archive` để không lưu) |
 | `npm run render -- tuan-1` | Xuất cả tuần 1 (cũng nhận `1-7`, `1 3 5`, `all`) |
 | `npm run cover -- -p vs 1` | Xuất ảnh bìa vào `out/<dự án>/cover/` |
 | `npm run srt -- all` | Xuất phụ đề nháp vào `out/<dự án>/srt/` (thêm `--no-names` để bỏ tên người nói) |

@@ -168,8 +168,8 @@ Xem xong thì **tắt Studio** (Ctrl+C) trước khi xuất video.
 ### Bước 5. Xuất file
 
 ```bash
-npm run render -- tuan-1     # out/noi-vay/video/ngay-XX.mp4
-npm run cover  -- tuan-1     # out/noi-vay/cover/ngay-XX.png
+npm run render -- tuan-1     # out/noi-vay/video/<tên_tập>.mp4 (tên theo nội dung, không số thứ tự)
+npm run cover  -- tuan-1     # out/noi-vay/cover/<tên_tập>.png
 npm run srt    -- tuan-1     # out/noi-vay/srt/ngay-XX.srt (chỉ cần khi dựng thêm trong CapCut)
 ```
 

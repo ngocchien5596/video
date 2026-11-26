@@ -40,6 +40,8 @@ export type EpisodeLayout = {
   sfx?: { beat: BeatKind; file: string; volume?: number; at?: "start" | "hold" }[];
   /** Sơ đồ cho bảng minh hoạ (kênh "board" của phần diễn). */
   boards?: BoardRegistry;
+  /** Tranh chèn toàn khung (kênh "insert" của phần diễn). */
+  inserts?: BoardRegistry;
 };
 
 export type EpisodePlayerProps = {
@@ -89,6 +91,7 @@ const Picture: React.FC<PictureProps> = ({ episode, timeline, layout }) => {
           cue={cue}
           speaking={cue !== undefined && frame < endStart}
           boards={layout.boards}
+          inserts={layout.inserts}
         />
       ) : (
         <Animatic beat={beat} cue={frame >= endStart ? undefined : cue} />

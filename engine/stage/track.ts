@@ -45,6 +45,8 @@ export type StageTrack = {
   items: Change<Item[]>[];
   fx: Change<Fx>[];
   board: Change<Board | null>[];
+  /** Cảnh chèn toàn khung (xem Moment.insert). */
+  insert: Change<Board | null>[];
   /** Cụ Đồ đang ở trong khung gọi video (xem Moment.call). */
   call: Change<boolean>[];
 };
@@ -102,12 +104,13 @@ export const buildTrack = (episode: Episode, timeline: Timeline): StageTrack => 
     items: [{ time: -1, value: [] }],
     fx: [],
     board: [{ time: -1, value: null }],
+    insert: [{ time: -1, value: null }],
     call: [{ time: -1, value: false }],
   };
   const last = <T,>(c: Change<T>[]) => c[c.length - 1].value;
   const saved = new Map<
     number,
-    { cd: CharState; tc: CharState; camera: Camera; scene: SceneRef; items: Item[]; board: Board | null; call: boolean }
+    { cd: CharState; tc: CharState; camera: Camera; scene: SceneRef; items: Item[]; board: Board | null; insert: Board | null; call: boolean }
   >();
 
   for (const { time, m, snapshot, restore } of timed) {
@@ -119,6 +122,7 @@ export const buildTrack = (episode: Episode, timeline: Timeline): StageTrack => 
         scene: last(track.scene),
         items: last(track.items),
         board: last(track.board),
+        insert: last(track.insert),
         call: last(track.call),
       });
       continue;
@@ -132,6 +136,7 @@ export const buildTrack = (episode: Episode, timeline: Timeline): StageTrack => 
       track.scene.push({ time, value: s.scene });
       track.items.push({ time, cut: true, value: s.items });
       track.board.push({ time, cut: true, value: s.board });
+      track.insert.push({ time, cut: true, value: s.insert });
       track.call.push({ time, cut: true, value: s.call });
       continue;
     }
@@ -142,6 +147,7 @@ export const buildTrack = (episode: Episode, timeline: Timeline): StageTrack => 
     if (m.scene) track.scene.push({ time, value: m.scene });
     if (m.items) track.items.push({ time, cut: m.cut, value: m.items });
     if (m.board !== undefined) track.board.push({ time, cut: m.cut, value: m.board });
+    if (m.insert !== undefined) track.insert.push({ time, cut: m.cut, value: m.insert });
     if (m.call !== undefined) track.call.push({ time, cut: m.cut, value: m.call });
     for (const fx of m.fx === undefined ? [] : Array.isArray(m.fx) ? m.fx : [m.fx]) {
       track.fx.push({ time, value: fx });

@@ -57,7 +57,7 @@ export const renderShots = async ({ project, day, shots, outDir, fps, log = cons
     // Câu ngắn hơn 70 khung: chụp gần cuối câu cho khỏi lấn sang câu sau.
     const frame = Math.min(composition.durationInFrames - 1, Math.max(start, Math.min(start + AFTER_START, end - 8)));
     const file = path.join(stillDir, `${shot.code.replace(".", "-")}.png`);
-    await renderStill({ serveUrl, composition, frame, output: file, scale: SCALE, logLevel: "error", overwrite: true });
+    await renderStill({ serveUrl, composition, frame, output: file, scale: SCALE, logLevel: "error", overwrite: true, chromiumOptions: { gl: "angle" } });
     stills.push({ code: shot.code, file, frame });
     log(`  · ảnh ${shot.code} (khung ${frame})`);
   }

@@ -5,7 +5,7 @@ const theme = "Nước quanh ta";
 
 export const TUAN_6 = [
   makeEpisode({
-    day: 9,
+    day: 11,
     week,
     theme,
     ask: "Nước sông ngọt chảy ra biển, vì sao biển lại mặn?",
@@ -78,7 +78,7 @@ export const TUAN_6 = [
   }),
 
   makeEpisode({
-    day: 35,
+    day: 36,
     week,
     theme,
     ask: "Vì sao nước biển màu xanh?",
@@ -148,7 +148,7 @@ export const TUAN_6 = [
   }),
 
   makeEpisode({
-    day: 30,
+    day: 31,
     week,
     theme,
     ask: "Giọt mưa thật ra có hình gì?",
@@ -221,7 +221,7 @@ export const TUAN_6 = [
   }),
 
   makeEpisode({
-    day: 16,
+    day: 17,
     week,
     theme,
     ask: "Tàu bằng sắt nặng thế, sao không chìm?",
@@ -297,7 +297,7 @@ export const TUAN_6 = [
   }),
 
   makeEpisode({
-    day: 23,
+    day: 24,
     week,
     theme,
     ask: "Vì sao cục đá lại nổi trên nước?",
@@ -370,7 +370,7 @@ export const TUAN_6 = [
   }),
 
   makeEpisode({
-    day: 41,
+    day: 42,
     week,
     theme,
     ask: "Vì sao cốc nước đá lại “đổ mồ hôi”?",
@@ -446,7 +446,7 @@ export const TUAN_6 = [
   }),
 
   makeEpisode({
-    day: 43,
+    day: 44,
     week,
     theme,
     ask: "Vì sao con nhện nước đi được trên mặt nước?",

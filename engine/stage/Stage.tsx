@@ -4,6 +4,7 @@ import type { Camera, Item } from "../lib/stage-types.ts";
 import type { Cue, Timeline } from "../lib/timing.ts";
 import type { Episode } from "../lib/types.ts";
 import { BoardPanel, type BoardRegistry } from "./board.tsx";
+import { InsertPanel } from "./insert.tsx";
 import { CallWindow } from "./call.tsx";
 import { Puppet, PUPPET_H, PUPPET_W } from "./Character.tsx";
 import { FX_FRAMES, FxShape } from "./fx.tsx";
@@ -212,7 +213,9 @@ export const Stage: React.FC<{
   speaking: boolean;
   /** Sơ đồ của dự án cho kênh "board" (bảng minh hoạ). */
   boards?: BoardRegistry;
-}> = ({ episode, timeline, cue, speaking, boards }) => {
+  /** Tranh chèn toàn khung của dự án (kênh `insert`). */
+  inserts?: BoardRegistry;
+}> = ({ episode, timeline, cue, speaking, boards, inserts }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const t = frame / fps;
@@ -403,6 +406,7 @@ export const Stage: React.FC<{
         </defs>
         <rect width="1080" height="1920" fill="url(#stage-vignette)" />
         {boards ? <BoardPanel changes={track.board} registry={boards} frame={frame} fps={fps} /> : null}
+        {inserts ? <InsertPanel changes={track.insert} registry={inserts} frame={frame} fps={fps} /> : null}
         <CallWindow
           open={memoryBeat ? 0 : callOpen}
           big={callBig}

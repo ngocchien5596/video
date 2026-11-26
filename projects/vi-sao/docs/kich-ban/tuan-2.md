@@ -4,7 +4,23 @@
 > CĐ = Cụ Đồ, TC = Thằng Cháu.
 > Các file tuần gom tập theo chủ đề; thứ tự đăng theo số ngày, xem [thu-tu-dang.md](thu-tu-dang.md).
 
-## Ngày 8: Vì sao tắc kè bò trên trần nhà mà không rơi?
+## Ngày 7: Vì sao thợ mỏ nuôi chuột dưới hầm lò?
+
+- **Hiểu lầm phổ biến:** Dưới lò tối om buồn tẻ, thợ mỏ nuôi chuột cho có bạn.
+- **Trả lời một câu:** Thợ mỏ tin rằng chuột nghe được tiếng đá nứt mà tai người không nghe thấy, nên chuột bỏ chạy là dấu hiệu lò sắp sập.
+- **Câu hỏi cuối video:** Bạn có tin chuột báo trước được lò sắp sập không?
+- **Nguồn:** [Denver Public Library: For Colorado coal miners, the canary in the coal mine was actually a mouse (chuột sống nhờ cặp lồng của thợ mỏ; chuột tán loạn là nóc lò sắp sập)](https://history.denverlibrary.org/news/colorado-coal-miners-canary-coal-mine-was-actually-mouse) · [Minett Park (bảo tàng mỏ, Luxembourg): Rats in the mine (chuột nhận ra nguy hiểm sớm hơn người; thợ mỏ để phần thức ăn cho chuột)](https://minettpark.lu/en/rats-in-the-mine/) · [Thomas & Thomas, Kentucky Superstitions, mục 3104–3106 (chuột chạy khỏi mỏ là mỏ sắp sập)](https://chestofbooks.com/fairy-tale/Kentucky-Superstitions/Mine-Superstitions.html) · [Li và cộng sự (2021), Frontiers in Physics: Study on the Acoustic Emission Characteristics of Different Rock Types… (đá nứt phát sóng từ vài nghìn Hz đến hàng triệu Hz)](https://www.frontiersin.org/journals/physics/articles/10.3389/fphy.2021.591651/full) · [Forinash & Christian, Sound: An Interactive eBook (LibreTexts), Animal Hearing: người 20–20.000 Hz, chuột 200–76.000 Hz](https://phys.libretexts.org/Bookshelves/Waves_and_Acoustics/Sound_-_An_Interactive_eBook_(Forinash_and_Christian)/09%3A_The_Ear_and_Perception/9.02%3A_Beats/9.2.04%3A_Animal_Hearing)
+- **Footage:** chưa có (đặt file vào public/footage/)
+
+| Giây | Nhịp | Cảnh | Thoại |
+| --- | --- | --- | --- |
+| 0–3 | CÂU HỎI | Trong nhà, Thằng Cháu cầm điện thoại đọc chuyện thợ mỏ ngày xưa nuôi chuột, nhăn mặt khó hiểu | **TC**: Ông ơi, cháu đọc thấy ngày xưa thợ mỏ nuôi cả chuột dưới hầm lò. Ai cũng ghét chuột cơ mà, sao lại nuôi ạ? |
+| 3–10 | ĐOÁN THỬ | Cắt xuống đường lò than ngày xưa: Thằng Cháu đoán nuôi chuột cho đỡ buồn, Cụ Đồ lật lại: chuột là bạn canh gác, báo lò sắp sập | **TC**: Chắc dưới lò tối om buồn quá, các bác nuôi cho có bạn, đúng không ông?<br>**CĐ**: Bạn thì cũng là bạn thật, nhưng là bạn canh gác cơ! Thợ mỏ tin rằng chuột biết trước lúc lò sắp sập đấy. |
+| 10–32 | GIẢI THÍCH | Cảnh chèn toàn khung (mỗi câu một tranh): nóc lò nứt dần kêu lách tách; tai người 20.000 Hz, tai chuột 76.000 Hz, gần gấp 4; chuột chạy ra, thợ mỏ chạy theo; chuột còn quanh quẩn thì yên tâm; thợ mỏ và chuột, chữ 'Đời này qua đời khác', nhãn 'BẠN CANH LÒ' | **CĐ**: Trước khi sập, đá trên nóc lò bị đè nứt dần, kêu lách tách. Có những tiếng nứt li ti cao vút, tai người chẳng nghe thấy gì.<br>**CĐ**: Tai người chỉ nghe được tới chừng hai mươi nghìn héc. Tai chuột thì nghe cao gần gấp bốn lần thế cơ.<br>**TC**: Thế là chuột nghe thấy trước, rồi chạy trước ạ?<br>**CĐ**: Đúng thế! Thấy chuột kéo nhau chạy ra, thợ mỏ cũng bỏ hết đồ nghề mà chạy theo. Còn chuột quanh quẩn kiếm ăn thì người mới yên tâm đào tiếp.<br>**CĐ**: Thế nên đời này qua đời khác, thợ mỏ cứ coi chuột như bạn canh lò, chẳng ai nỡ đuổi đi. |
+| 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, thợ mỏ tin rằng chuột nghe được tiếng đá nứt mà tai người không nghe thấy, nên chuột bỏ chạy là dấu hiệu lò sắp sập. |
+| 37–43 | HỎI TIẾP | Thằng Cháu hỏi lại chuyện nuôi chuột ở câu mở, Cụ Đồ chốt một câu dễ nhớ (không nói trước tập sau) | **TC**: Thế ra nuôi chuột là nuôi bảo vệ ạ?<br>**CĐ**: Chuẩn! Nuôi con chuột là có ngay cái chuông báo động biết chạy đấy. |
+
+## Ngày 10: Vì sao tắc kè bò trên trần nhà mà không rơi?
 
 - **Hiểu lầm phổ biến:** Chân tắc kè có keo dính, hoặc có giác hút.
 - **Trả lời một câu:** Chân tắc kè có hàng triệu sợi lông li ti áp sát vào tường, mỗi sợi sinh ra một lực hút nhỏ, mà cộng lại thì đủ sức giữ cả con tắc kè trên trần nhà.
@@ -20,7 +36,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, chân tắc kè có hàng triệu sợi lông li ti áp sát vào tường, mỗi sợi sinh ra một lực hút nhỏ, mà cộng lại thì đủ sức giữ cả con tắc kè trên trần nhà. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: À, thế là cháu hiểu rồi! Mai ông kể thêm một chuyện vì sao nữa nhé?<br>**CĐ**: Ừ, mai ông kể tiếp, nhớ ra mà nghe đấy! |
 
-## Ngày 13: Vì sao mắt mèo sáng lên trong đêm?
+## Ngày 14: Vì sao mắt mèo sáng lên trong đêm?
 
 - **Hiểu lầm phổ biến:** Mèo nhìn được cả trong bóng tối đen kịt.
 - **Trả lời một câu:** Phía sau mắt mèo có một lớp hắt ánh sáng lại như tấm gương, giúp mèo nhìn rõ hơn trong tối, và cũng làm mắt mèo ánh lên khi có đèn chiếu vào.
@@ -36,7 +52,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, phía sau mắt mèo có một lớp hắt ánh sáng lại như tấm gương, giúp mèo nhìn rõ hơn trong tối, và cũng làm mắt mèo ánh lên khi có đèn chiếu vào. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: À, thế là cháu hiểu rồi! Mai ông kể thêm một chuyện vì sao nữa nhé?<br>**CĐ**: Ừ, mai ông kể tiếp, nhớ ra mà nghe đấy! |
 
-## Ngày 18: Vì sao chim hồng hạc lại màu hồng?
+## Ngày 19: Vì sao chim hồng hạc lại màu hồng?
 
 - **Hiểu lầm phổ biến:** Hồng hạc sinh ra đã có sẵn bộ lông màu hồng.
 - **Trả lời một câu:** Hồng hạc màu hồng vì thức ăn của nó có sắc tố, giống chất màu trong củ cà rốt.
@@ -52,7 +68,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, hồng hạc màu hồng vì thức ăn của nó có sắc tố, giống chất màu trong củ cà rốt. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: À, thế là cháu hiểu rồi! Mai ông kể thêm một chuyện vì sao nữa nhé?<br>**CĐ**: Ừ, mai ông kể tiếp, nhớ ra mà nghe đấy! |
 
-## Ngày 22: Vì sao con bò cứ nhai đi nhai lại mãi?
+## Ngày 23: Vì sao con bò cứ nhai đi nhai lại mãi?
 
 - **Hiểu lầm phổ biến:** Bò có bốn cái dạ dày.
 - **Trả lời một câu:** Bò ợ chỗ cỏ đã tiêu hoá dở trở lên miệng để nhai lại, nhờ thế bò mới ăn được cả thứ cỏ cứng mà con người không ăn nổi.
@@ -68,7 +84,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, bò ợ chỗ cỏ đã tiêu hoá dở trở lên miệng để nhai lại, nhờ thế bò mới ăn được cả thứ cỏ cứng mà con người không ăn nổi. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Ông ơi, cháu còn cả đống câu vì sao muốn hỏi ông nữa cơ!<br>**CĐ**: Thế thì từ từ, mỗi hôm ông kể cho một chuyện nhé! |
 
-## Ngày 27: Vì sao cú quay đầu được rất xa?
+## Ngày 28: Vì sao cú quay đầu được rất xa?
 
 - **Hiểu lầm phổ biến:** Cú quay đầu được trọn một vòng tròn.
 - **Trả lời một câu:** Mắt cú không đảo được nên nó phải quay cả đầu, mà cổ cú có số đốt nhiều gấp đôi cổ người, nên quay được tới khoảng ba phần tư vòng.
@@ -84,7 +100,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, mắt cú không đảo được nên nó phải quay cả đầu, mà cổ cú có số đốt nhiều gấp đôi cổ người, nên quay được tới khoảng ba phần tư vòng. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Ông ơi, cháu còn cả đống câu vì sao muốn hỏi ông nữa cơ!<br>**CĐ**: Thế thì từ từ, mỗi hôm ông kể cho một chuyện nhé! |
 
-## Ngày 32: Vì sao đom đóm phát sáng?
+## Ngày 33: Vì sao đom đóm phát sáng?
 
 - **Hiểu lầm phổ biến:** Trong bụng đom đóm có một đốm lửa nhỏ, hay một bóng đèn nóng.
 - **Trả lời một câu:** Đom đóm sáng được là nhờ một phản ứng hoá học ở bụng, sinh ra ánh sáng mát, mà nó nháy đèn như thế là để tìm bạn cùng loài.
@@ -100,7 +116,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, đom đóm sáng được là nhờ một phản ứng hoá học ở bụng, sinh ra ánh sáng mát, mà nó nháy đèn như thế là để tìm bạn cùng loài. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Ông ơi, cháu còn cả đống câu vì sao muốn hỏi ông nữa cơ!<br>**CĐ**: Thế thì từ từ, mỗi hôm ông kể cho một chuyện nhé! |
 
-## Ngày 38: Vì sao gấu trúc ăn tre gần như cả ngày?
+## Ngày 39: Vì sao gấu trúc ăn tre gần như cả ngày?
 
 - **Hiểu lầm phổ biến:** Gấu trúc là loài ăn cỏ, bụng sinh ra để tiêu hoá tre.
 - **Trả lời một câu:** Bụng gấu trúc tiêu hoá tre kém, tre lại ít chất bổ, nên nó phải ăn thật nhiều, mỗi ngày ngồi ăn mất mười mấy tiếng đồng hồ.

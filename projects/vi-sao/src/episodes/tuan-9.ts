@@ -10,7 +10,7 @@ const recapStage: Moment[] = [
 
 export const TUAN_9 = [
   makeEpisode({
-    day: 45,
+    day: 46,
     week,
     theme,
     ask: "Trên sông không có đèn giao thông, sao tàu thuyền không đâm nhau?",

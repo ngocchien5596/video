@@ -227,7 +227,7 @@ export const TUAN_1 = [
   }),
 
       makeEpisode({
-    day: 17,
+    day: 18,
     week,
     theme,
     ask: "Vì sao trời nóng mà vẫn có mưa đá?",

@@ -11,9 +11,9 @@ import path from "node:path";
 import { episodeSeconds } from "../engine/lib/timing.ts";
 import { archiveVersion, logRender } from "./bot/history.mjs";
 import { updateTracker } from "./bot/pipeline.mjs";
-import { postDate, savePublishKit } from "./bot/publish.mjs";
+import { savePublishKit } from "./bot/publish.mjs";
 import { ROOT } from "./projects.mjs";
-import { slotsText } from "./schedule.mjs";
+import { tableText } from "./schedule.mjs";
 
 const git = (...args) => execFileSync("git", args, { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }).trim();
 
@@ -45,8 +45,8 @@ const schedule = (project) => {
  */
 export const archiveRender = (project, episode, next, opts = {}) => {
   const day = episode.day;
-  const video = path.join(ROOT, project.paths.video(day));
-  if (!existsSync(video)) throw new Error(`Không thấy video ${project.paths.video(day)}`);
+  const video = path.join(ROOT, project.paths.video(episode));
+  if (!existsSync(video)) throw new Error(`Không thấy video ${project.paths.video(episode)}`);
   const manifestFile = path.join(ROOT, project.paths.voiceDir(day), "manifest.json");
   const voice = existsSync(manifestFile) ? JSON.parse(readFileSync(manifestFile, "utf8")) : null;
   const seconds = Math.round(episodeSeconds(episode, voice) * 10) / 10;
@@ -54,14 +54,15 @@ export const archiveRender = (project, episode, next, opts = {}) => {
 
   const saved = archiveVersion(project, day, {
     video,
-    cover: path.join(ROOT, project.paths.cover(day)),
+    cover: path.join(ROOT, project.paths.cover(episode)),
     episode,
     commit,
     seconds,
     flagged: opts.flagged,
   });
   const { startDate, override } = schedule(project);
-  const postTime = slotsText(project, postDate(startDate, day), override);
+  // File đăng bài không gắn với thứ tự tập: ghi bảng giờ đăng cả tuần, không ghi ngày đăng tính theo số tập.
+  const postTime = tableText(project, override);
   const kit = project.buildPublishKit(episode, next, { cfg: { ...project.publish, postTime }, startDate });
   savePublishKit(saved.dir, kit);
   logRender(project, day, project.headline(episode), { version: saved.version, commit, seconds });

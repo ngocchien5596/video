@@ -7,10 +7,14 @@ import type { Episode, VoiceTrack } from "../lib/types.ts";
 import { TEXT_FONT } from "../components/brand.ts";
 import { LAYOUT, PARCHMENT, ParchmentHud } from "./ParchmentHud.tsx";
 import { BEAT_DISSOLVE, ParchmentScene } from "./scenes.tsx";
+import type { Stage3DProps } from "../three/stage.tsx";
+import { STAGES_3D as STAGE_3D } from "./stages3d.ts";
 
 export type ParchmentEpisode = Episode & {
   title: string;
   hudTitle: string;
+  /** Tiêu đề dài riêng cho ảnh bìa; thiếu thì dùng hudTitle. */
+  coverTitle?: string;
   textbook: string;
   era: string;
   sources: { title: string; url: string }[];
@@ -73,7 +77,13 @@ const Picture: React.FC<PictureProps> = ({ episode, timeline, next }) => {
       ) : (
         <>
           <ParchmentHud day={episode.day} hudTitle={episode.hudTitle} />
-          <ParchmentScene
+          {STAGE_3D[episode.day] ? (
+            <Stage3D
+              Comp={STAGE_3D[episode.day]}
+              props={{ beatKind: beat.kind, lineIndex, lineFrame, lineDur: activeLine ? activeLine.end - activeLine.start : 1, fps, frame }}
+            />
+          ) : null}
+          {STAGE_3D[episode.day] ? null : <ParchmentScene
             day={episode.day}
             beatKind={beat.kind}
             lineIndex={lineIndex}
@@ -82,7 +92,7 @@ const Picture: React.FC<PictureProps> = ({ episode, timeline, next }) => {
             lineFrame={lineFrame}
             fps={fps}
             prev={prev}
-          />
+          />}
         </>
       )}
 
@@ -131,6 +141,17 @@ const Picture: React.FC<PictureProps> = ({ episode, timeline, next }) => {
         />
       ) : null}
     </AbsoluteFill>
+  );
+};
+
+/** Khung sân khấu 3D: cắt bo góc theo tấm giấy, viền đồng như cảnh thường. */
+const Stage3D: React.FC<{ Comp: React.FC<Stage3DProps>; props: Stage3DProps }> = ({ Comp, props }) => {
+  const { x, y, w, h } = LAYOUT.stage;
+  return (
+    <div style={{ position: "absolute", left: x, top: y, width: w, height: h, borderRadius: 26, overflow: "hidden" }}>
+      <Comp {...props} />
+      <div style={{ position: "absolute", inset: 0, borderRadius: 26, border: "6px solid #C99A4B", boxSizing: "border-box", boxShadow: "inset 0 0 40px rgba(60,35,15,0.35)" }} />
+    </div>
   );
 };
 

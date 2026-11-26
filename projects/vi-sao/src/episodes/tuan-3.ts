@@ -5,12 +5,12 @@ const theme = "Vũ trụ quanh mình";
 
 export const TUAN_3 = [
   makeEpisode({
-    day: 12,
+    day: 6,
     week,
     theme,
     ask: "Vì sao có mùa hè nóng, mùa đông lạnh?",
     myth: "Mùa hè nóng vì Trái Đất đi tới gần Mặt Trời hơn.",
-    answer: "Vì trục Trái Đất nghiêng, nên mỗi nửa Trái Đất lúc thì được nắng chiếu thẳng, lúc lại chỉ được nắng chiếu xiên, thế mới có hè, có đông.",
+    answer: "Trục Trái Đất nghiêng, nên mỗi nửa Trái Đất lúc thì được nắng chiếu thẳng, lúc lại chỉ được nắng xiên, thế mới có hè, có đông.",
     sources: [
       { title: "NASA Space Place: What Causes the Seasons?", url: "https://spaceplace.nasa.gov/seasons/en/" },
       {
@@ -21,25 +21,26 @@ export const TUAN_3 = [
     ],
     question: "Chỗ bạn ở có mùa đông rét, hay chỉ có mùa mưa, mùa khô?",
     hook: {
-      shot: "Đứng trên Mặt Trăng nhìn về Trái Đất, Thằng Cháu ôm người run run như đang rét, hỏi ông",
-      lines: [tc("Rét quá ông ơi! Vì sao có mùa hè nóng nực, lại có mùa đông rét thế ạ?")],
+      shot: "Sân nhà ngày rét, Thằng Cháu co ro run cầm cập, đùa ai bật điều hoà cho cả trời đất",
+      lines: [tc("Ông ơi, tháng sáu cháu còn ôm quạt ngủ, giờ đã phải trùm chăn rồi. Ai bật điều hoà cho cả trời đất thế ạ?")],
       stage: [
         {
           cut: true,
-          scene: "space",
+          scene: "yard",
           camera: "wide",
-          cd: { x: 0.26, expr: "neutral" },
-          tc: { x: 0.66, arms: "hold2", expr: "confused", move: "tremble" },
+          cd: { x: 0.26, expr: "neutral", arms: "down", hand: null },
+          tc: { x: 0.66, hand: null, arms: "hold2", expr: "sad", move: "tremble" },
           items: [],
-          fx: { kind: "question", on: "TC" },
+          fx: { kind: "sweat", on: "TC" },
         },
+        { at: 0.55, camera: "TC", tc: { expr: "confused" }, fx: { kind: "question", on: "TC" } },
       ],
     },
     guess: {
       shot: "Thằng Cháu đoán mùa hè vì Trái Đất tới gần Mặt Trời, Cụ Đồ đưa bằng chứng tháng một",
       lines: [
-        tc("Cháu biết rồi! Mùa hè là do Trái Đất chạy lại gần Mặt Trời hơn, nên mới nóng, chắc thế hả ông?"),
-        cd("Nghe thì xuôi tai, nhưng chưa đúng đâu! Tháng một là lúc Trái Đất gần Mặt Trời nhất, thế mà miền Bắc mình đang giữa mùa đông, rét cắt da đấy."),
+        tc("Cháu biết rồi! Mùa hè Trái Đất chạy lại gần Mặt Trời, nên mới nóng thế, đúng không ông?"),
+        cd("Nghe thì xuôi tai, nhưng chưa đúng đâu! Tháng một mới là lúc Trái Đất gần Mặt Trời nhất, thế mà miền Bắc mình lại đang rét cắt da đấy."),
       ],
       stage: [
         { line: 0, camera: "TC", tc: { arms: "point", expr: "smug", move: "bounce" } },
@@ -48,20 +49,25 @@ export const TUAN_3 = [
       ],
     },
     explain: {
-      shot: "Bảng minh hoạ: Trái Đất trục nghiêng đi vòng quanh Mặt Trời; nửa phía bắc nghiêng về Mặt Trời được nắng chiếu thẳng; nửa năm sau nắng xiên",
+      shot: "Bảng minh hoạ: Trái Đất trục nghiêng 23,5 độ; mùa hè nửa bắc chúc về Mặt Trời, nắng thẳng, ngày dài; đèn pin chiếu thẳng đốm nhỏ sáng rực, chiếu xiên loang to nhạt; mùa đông nửa bắc chếch xa, nắng xiên; hai nửa Trái Đất ngược mùa, Úc đón Giáng sinh mùa hè",
       lines: [
-        cd("Thật ra là thế này, Trái Đất đi vòng quanh Mặt Trời, mà cái trục của nó lại nghiêng, như con quay bị lệch ấy."),
-        cd("Cái lạ là, nó đi suốt cả năm trời, mà trục ấy vẫn chỉ nghiêng về đúng một hướng thôi."),
-        cd("Lúc nửa phía bắc, chỗ nước mình ở, chúc về phía Mặt Trời, thì nắng rọi xuống thẳng hơn, thế là thành mùa hè."),
-        cd("Nửa năm sau, nửa ấy lại chếch ra xa Mặt Trời, nắng chỉ chiếu xiên xiên thôi, thế là thành ra mùa đông."),
+        cd("Chuyện là ở cái trục của Trái Đất cơ. Nó nghiêng hẳn hai mươi ba độ rưỡi, mà đi vòng quanh Mặt Trời cả năm vẫn cứ nghiêng về một phía."),
+        cd("Thế nên có nửa năm, nửa phía bắc chỗ mình chúc về phía Mặt Trời, nắng rọi thẳng xuống, ngày lại dài, thế là thành mùa hè."),
+        cd("Cứ như cầm đèn pin ấy. Chiếu thẳng xuống thì đốm sáng nhỏ mà rực, chiếu xiên thì loang ra to mà nhạt hẳn. Nắng cũng y như thế!"),
+        cd("Nửa năm sau thì ngược lại, nửa phía bắc chếch ra xa, nắng chỉ chiếu xiên xiên, ngày lại ngắn, thế là trời trở rét."),
+        tc("Ơ, thế lúc mình rét thì nửa bên kia đang nóng ạ?"),
+        cd("Chuẩn! Như bên nước Úc ấy, Giáng sinh lại rơi đúng vào mùa hè, người ta mặc quần đùi ra biển chơi đấy!"),
       ],
       stage: [
         { line: 0, camera: "wide", board: { id: "w3-seasons", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { arms: "down", expr: "confused", move: "idle" } },
-        { line: 1, board: { id: "w3-seasons", step: 1 }, cd: { arms: "wave" }, tc: { expr: "neutral" } },
-        { line: 2, board: { id: "w3-seasons", step: 2 }, cd: { arms: "point", expr: "happy" } },
-        { line: 2, at: 0.6, tc: { expr: "happy" }, fx: { kind: "exclaim", on: "TC" } },
-        { line: 3, board: { id: "w3-seasons", step: 3 }, cd: { arms: "raise", expr: "neutral" }, tc: { expr: "shock" } },
-        { line: 3, at: 0.6, tc: { arms: "raise", expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
+        { line: 1, board: { id: "w3-seasons", step: 1 }, cd: { arms: "wave", expr: "happy" }, tc: { expr: "neutral" } },
+        { line: 1, at: 0.7, tc: { expr: "happy" }, fx: { kind: "sparkle", on: "TC" } },
+        { line: 2, board: { id: "w3-seasons", step: 2 }, cd: { arms: "point", expr: "smug" }, tc: { expr: "confused" } },
+        { line: 2, at: 0.55, tc: { expr: "shock" }, fx: { kind: "exclaim", on: "TC", text: "À!" } },
+        { line: 3, board: { id: "w3-seasons", step: 3 }, cd: { arms: "raise", expr: "neutral" }, tc: { arms: "hold2", expr: "sad", move: "tremble" } },
+        { line: 4, board: { id: "w3-seasons", step: 4 }, camera: "TC", tc: { arms: "raise", expr: "confused", move: "idle" }, fx: { kind: "question", on: "TC" } },
+        { line: 5, board: { id: "w3-seasons", step: 5 }, camera: "wide", cd: { arms: "wave", expr: "happy" }, tc: { arms: "down", expr: "shock" }, fx: { kind: "surprise", on: "TC" } },
+        { line: 5, at: 0.6, tc: { arms: "up2", expr: "happy", move: "bounce" } },
       ],
     },
     recapStage: [
@@ -78,7 +84,7 @@ export const TUAN_3 = [
   }),
 
   makeEpisode({
-    day: 6,
+    day: 5,
     week,
     theme,
     ask: "Vì sao phi hành gia bay lơ lửng trong tàu vũ trụ?",
@@ -93,50 +99,65 @@ export const TUAN_3 = [
         title: "West Texas A&M University (C. Baird): Why is there no gravity in space?",
         url: "https://www.wtamu.edu/~cbaird/sq/2012/12/18/why-is-there-no-gravity-in-space/",
       },
+      {
+        title: "NASA: Space Station Facts and Figures",
+        url: "https://www.nasa.gov/international-space-station/space-station-facts-and-figures/",
+      },
     ],
     question: "Nếu được bay lơ lửng như phi hành gia, bạn muốn làm gì đầu tiên?",
     hook: {
-      shot: "Ngoài vũ trụ, Thằng Cháu giơ hai tay như đang bay, hỏi ông",
-      lines: [tc("Ông ơi, vì sao phi hành gia cứ bay lơ lửng trong tàu vũ trụ thế ạ?")],
+      shot: "Phòng khách, Thằng Cháu xem clip phi hành gia lộn nhào trên điện thoại, ngẩn ra hỏi ông",
+      lines: [tc("Ông ơi, cháu thấy phi hành gia lộn nhào trong tàu vũ trụ, thả cái bút ra cũng lơ lửng luôn. Sao lại thế ạ?")],
       stage: [
         {
           cut: true,
-          scene: "space",
+          scene: "home",
           camera: "wide",
-          cd: { x: 0.26, expr: "neutral" },
-          tc: { x: 0.66, arms: "up2", expr: "confused", move: "bounce" },
+          cd: { x: 0.26, expr: "neutral", arms: "down", hand: null },
+          tc: { x: 0.66, hand: "phone", arms: "hold", expr: "happy", move: "idle" },
           items: [],
-          fx: { kind: "question", on: "TC" },
         },
+        { at: 0.6, camera: "TC", tc: { expr: "confused" }, fx: { kind: "question", on: "TC" } },
       ],
     },
     guess: {
-      shot: "Thằng Cháu đoán ngoài vũ trụ không có sức hút, Cụ Đồ bảo chính sức hút giữ Mặt Trăng quay quanh Trái Đất",
+      shot: "Ngoài vũ trụ, Thằng Cháu đoán lên cao là hết sức hút, Cụ Đồ bảo sức hút ấy còn giữ cả Mặt Trăng quay quanh Trái Đất",
       lines: [
-        tc("Dễ ợt! Ra ngoài vũ trụ là hết sạch sức hút của Trái Đất, nên người ta mới bay lơ lửng chứ gì ông?"),
-        cd("Dễ đâu mà dễ! Chính sức hút của Trái Đất đang giữ Mặt Trăng đi vòng quanh nó đấy thôi."),
+        tc("Chắc lên tới đấy là hết sạch sức hút của Trái Đất rồi, đúng không ông?"),
+        cd("Hết đâu mà hết! Sức hút ấy còn đủ giữ cả Mặt Trăng đi vòng quanh Trái Đất cơ mà."),
       ],
       stage: [
-        { line: 0, camera: "TC", tc: { arms: "up2", expr: "smug", move: "idle" } },
-        { line: 1, camera: "CD", cd: { arms: "raise", expr: "happy" }, tc: { arms: "down" } },
+        {
+          line: 0,
+          cut: true,
+          scene: "space",
+          camera: "TC",
+          cd: { x: 0.26, expr: "neutral", arms: "down", hand: null },
+          tc: { x: 0.66, hand: null, arms: "up2", expr: "smug", move: "bounce" },
+          items: [],
+        },
+        { line: 1, camera: "CD", cd: { arms: "raise", expr: "happy" }, tc: { arms: "down", move: "idle" } },
         { line: 1, at: 0.55, camera: "wide", tc: { expr: "shock" }, fx: { kind: "surprise", on: "TC" } },
       ],
     },
     explain: {
-      shot: "Bảng minh hoạ: Trái Đất kéo trạm vũ trụ; trạm bay ngang rất nhanh nên rơi vòng quanh Trái Đất; người và đồ vật cùng rơi; cùng rơi nên trông lơ lửng",
+      shot: "Bảng minh hoạ: trạm bay cao 400 km, sức hút còn 90%; trạm lao ngang 28.000 km/giờ, rơi mà mặt đất cong đi nên không chạm đất; 90 phút một vòng, người và quả bóng trong trạm cùng rơi; trò rơi tự do: quả bóng lơ lửng trước mặt",
       lines: [
-        cd("Mà ở trên cao, chỗ trạm vũ trụ đang bay ấy, sức hút Trái Đất vẫn còn mạnh lắm chứ."),
-        cd("Có điều trạm bay ngang nhanh khiếp, nên trong lúc nó rơi xuống thì mặt đất bên dưới cũng cong đi mất, thành ra cứ rơi mãi mà chẳng chạm đất. Lạ chưa?"),
-        cd("Mà người với đồ đạc ở trong trạm cũng đang rơi theo y như thế, cùng một lúc với trạm đấy."),
-        cd("Cháu cứ tưởng tượng đang ngồi trò rơi tự do, tay cầm quả bóng. Cả người lẫn bóng cùng rơi một lúc, thì quả bóng cứ như lơ lửng ngay trước mặt."),
+        cd("Trạm vũ trụ chỉ bay cao chừng bốn trăm cây số, sức hút ở đấy vẫn còn tới chín phần mười cơ."),
+        cd("Có điều trạm lao ngang nhanh khủng khiếp, hai mươi tám nghìn cây số một giờ. Rơi đến đâu, mặt đất cong đi đến đấy, thành ra rơi mãi chẳng chạm đất."),
+        tc("Ơ, thế là trạm cứ rơi vòng vòng ạ?"),
+        cd("Đúng thế! Chín mươi phút là rơi hết một vòng. Mà người với đồ đạc bên trong cũng rơi theo y hệt."),
+        cd("Như cháu ngồi trò rơi tự do, cầm quả bóng ấy. Người với bóng cùng rơi, thì bóng cứ lơ lửng ngay trước mặt."),
       ],
       stage: [
-        { line: 0, camera: "wide", board: { id: "w3-float", step: 0 }, cd: { arms: "point", expr: "happy" }, tc: { arms: "down", expr: "confused", move: "idle" } },
-        { line: 1, board: { id: "w3-float", step: 1 }, cd: { arms: "wave" }, tc: { expr: "shock" } },
-        { line: 1, at: 0.7, fx: { kind: "exclaim", on: "TC" } },
-        { line: 2, board: { id: "w3-float", step: 2 }, cd: { arms: "point", expr: "neutral" }, tc: { expr: "neutral" } },
-        { line: 3, board: { id: "w3-float", step: 3 }, cd: { arms: "raise", expr: "happy" } },
-        { line: 3, at: 0.5, tc: { arms: "up2", expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
+        { line: 0, camera: "wide", board: { id: "w3-float", step: 0 }, cd: { arms: "point", expr: "neutral" }, tc: { arms: "down", expr: "confused", move: "idle" } },
+        { line: 0, at: 0.6, tc: { expr: "shock" }, fx: { kind: "surprise", on: "TC" } },
+        { line: 1, board: { id: "w3-float", step: 1 }, cd: { arms: "wave", expr: "happy" }, tc: { expr: "confused" } },
+        { line: 1, at: 0.6, tc: { expr: "shock" }, fx: { kind: "exclaim", on: "TC" } },
+        { line: 2, camera: "TC", tc: { arms: "raise", expr: "happy", move: "bounce" }, fx: { kind: "question", on: "TC" } },
+        { line: 3, board: { id: "w3-float", step: 2 }, camera: "wide", cd: { arms: "point", expr: "smug" }, tc: { arms: "down", expr: "neutral", move: "idle" } },
+        { line: 4, board: { id: "w3-float", step: 3 }, cd: { arms: "raise", expr: "happy" }, tc: { expr: "happy" } },
+        { line: 4, at: 0.5, tc: { arms: "up2", expr: "happy", move: "bounce" }, fx: { kind: "sparkle", on: "TC" } },
       ],
     },
     recapStage: [
@@ -153,7 +174,7 @@ export const TUAN_3 = [
   }),
 
   makeEpisode({
-    day: 29,
+    day: 30,
     week,
     theme,
     ask: "Vì sao Mặt Trăng lúc tròn lúc khuyết?",
@@ -226,7 +247,7 @@ export const TUAN_3 = [
   }),
 
   makeEpisode({
-    day: 19,
+    day: 20,
     week,
     theme,
     ask: "Vì sao có sao băng vụt qua bầu trời?",
@@ -300,7 +321,7 @@ export const TUAN_3 = [
   }),
 
   makeEpisode({
-    day: 24,
+    day: 25,
     week,
     theme,
     ask: "Vì sao trên Mặt Trăng có những vết đen loang lổ?",
@@ -369,7 +390,7 @@ export const TUAN_3 = [
   }),
 
   makeEpisode({
-    day: 34,
+    day: 35,
     week,
     theme,
     ask: "Vì sao ngôi sao lấp lánh?",
@@ -441,7 +462,7 @@ export const TUAN_3 = [
   }),
 
   makeEpisode({
-    day: 40,
+    day: 41,
     week,
     theme,
     ask: "Vành đai của Sao Thổ làm bằng gì?",

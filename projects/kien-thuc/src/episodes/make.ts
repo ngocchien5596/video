@@ -22,6 +22,8 @@ export type EpisodeSpec = {
   theme: string;
   title: string;
   hudTitle: string;
+  /** Tiêu đề dài riêng cho ảnh bìa; thiếu thì dùng hudTitle. */
+  coverTitle?: string;
   textbook: string;
   era: string;
   question: string;
@@ -61,6 +63,7 @@ export const makeEpisode = (spec: EpisodeSpec): KienThucEpisode => {
     theme: spec.theme,
     title: spec.title,
     hudTitle: spec.hudTitle,
+    coverTitle: spec.coverTitle,
     textbook: spec.textbook,
     era: spec.era,
     question: spec.question,

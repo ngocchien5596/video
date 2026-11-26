@@ -13,3 +13,10 @@
 | 6 | Đào hầm xuyên núi từ hai đầu — Làm sao hai đội gặp nhau giữa lòng đá? | Hình học cổ đại & Vũ trụ | [tuan-2.md](tuan-2.md) |
 | 7 | Chiếc vương miện vàng & Lực đẩy Archimedes | Hình học cổ đại & Vũ trụ | [tuan-2.md](tuan-2.md) |
 | 8 | Đường cong nhanh nhất: vì sao máng thẳng không về đích trước? | Hình học cổ đại & Vũ trụ | [tuan-2.md](tuan-2.md) |
+| 9 | Nếu bị bắn mà lặn xuống nước thì có an toàn không? | Vật lí quanh ta | [tuan-3.md](tuan-3.md) |
+| 10 | Lỗ tròn trên con dao dùng để làm gì? 4 công dụng ít ai biết | Vật lí quanh ta | [tuan-3.md](tuan-3.md) |
+| 11 | Con gà hay quả trứng có trước? Khoa học trả lời thế nào | Nghịch lý & Tin đồn khoa học | [tuan-3.md](tuan-3.md) |
+| 12 | Mở khoá điện thoại bằng hơi thở: máy nhận ra bạn bằng cách nào? | Công nghệ quanh ta | [tuan-3.md](tuan-3.md) |
+| 13 | Không ai gấp đôi tờ giấy quá 7 lần? Một nữ sinh đã gấp được 12 lần | Toán quanh ta | [tuan-3.md](tuan-3.md) |
+| 14 | Rét âm độ mà sao Việt Nam vẫn hiếm có tuyết? | Vật lí quanh ta | [tuan-3.md](tuan-3.md) |
+| 15 | Vì sao trời càng rét càng phải cẩn thận với khí gas? | Vật lí quanh ta | [tuan-3.md](tuan-3.md) |

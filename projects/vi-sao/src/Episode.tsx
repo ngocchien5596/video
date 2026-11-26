@@ -3,6 +3,7 @@ import { CorrectionCard, NoteCard } from "../../../engine/components/Overlays.ts
 import { EpisodePlayer, type EpisodeLayout } from "../../../engine/EpisodePlayer.tsx";
 import type { VoiceTrack } from "../../../engine/lib/types.ts";
 import { BOARDS } from "./boards/index.ts";
+import { INSERTS } from "./inserts/index.ts";
 import { SERIES_NAME } from "./brand.ts";
 import type { ViSaoEpisode } from "./episodes/make.ts";
 
@@ -18,7 +19,7 @@ export type EpisodeProps = {
 
 /** Bố cục 5 nhịp: hỏi → đoán thử → giải thích (bảng minh hoạ) → tóm lại → hỏi tiếp. */
 const layoutFor = (episode: ViSaoEpisode, next: string | null): EpisodeLayout => ({
-  topBar: { label: `${SERIES_NAME} · #${episode.day}`, title: episode.ask, showTitleAfter: "hook" },
+  topBar: { label: SERIES_NAME, title: episode.ask, showTitleAfter: "hook" },
   hook: { beat: "hook", kicker: "CÂU HỎI TƯỞNG DỄ", title: episode.ask },
   cards: [
     {
@@ -46,6 +47,7 @@ const layoutFor = (episode: ViSaoEpisode, next: string | null): EpisodeLayout =>
     { beat: "recap", file: "ding.wav", volume: 0.7 },
   ],
   boards: BOARDS,
+  inserts: INSERTS,
 });
 
 export const EpisodeVideo: React.FC<EpisodeProps> = ({ episode, next, voice, safeZones }) => (

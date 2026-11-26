@@ -245,7 +245,7 @@ const Home: React.FC = () => (
  * Lớp tạo chiều sâu, vẽ ngay sau phông và trước nhân vật: hậu cảnh hơi mờ sương (bớt tương phản so với nhân vật),
  * ánh nắng chiều ấm phủ nhẹ (đồng bộ màu cho mọi phông, kể cả phông truyện), bóng tối ở chân tường để sàn tách khỏi tường.
  */
-const DARK_SCENES = new Set<string>(["night", "space", "temple"]);
+const DARK_SCENES = new Set<string>(["night", "space", "temple", "mine"]);
 export const SceneDepth: React.FC<{ id: SceneId }> = ({ id }) => {
   const dark = DARK_SCENES.has(id);
   const gid = `depth-${dark ? "d" : "l"}`;
@@ -639,12 +639,103 @@ const Cave: React.FC = () => (
   </>
 );
 
+/** Một vì chống gỗ (hai cột + xà nóc), tâm x, chân ở `foot`, cao h, rộng w. */
+const TimberSet: React.FC<{ x: number; foot: number; w: number; h: number; t: number }> = ({ x, foot, w, h, t }) => (
+  <g stroke={INK} strokeWidth={Math.max(3, t * 0.16)} strokeLinejoin="round">
+    <path d={`M${x - w / 2} ${foot} L${x - w / 2 + t * 0.4} ${foot - h} L${x - w / 2 + t * 1.4} ${foot - h} L${x - w / 2 + t} ${foot} Z`} fill="url(#w-wood-dark)" />
+    <path d={`M${x + w / 2} ${foot} L${x + w / 2 - t * 0.4} ${foot - h} L${x + w / 2 - t * 1.4} ${foot - h} L${x + w / 2 - t} ${foot} Z`} fill="url(#w-wood-dark)" />
+    <rect x={x - w / 2 - t * 0.3} y={foot - h - t} width={w + t * 0.6} height={t} rx={t * 0.2} fill="url(#w-wood)" />
+  </g>
+);
+
+/** Đèn lò treo trên xà, toả quầng sáng ấm. */
+const MineLamp: React.FC<{ x: number; y: number; s?: number }> = ({ x, y, s = 1 }) => (
+  <g transform={`translate(${x} ${y}) scale(${s})`}>
+    <circle r="150" fill="url(#mine-glow)" />
+    <line x1="0" y1="-60" x2="0" y2="-22" stroke={INK} strokeWidth="5" />
+    <path d="M-16 -22 L16 -22 L20 18 L-20 18 Z" fill="#FFE7A3" stroke={INK} strokeWidth="6" strokeLinejoin="round" />
+    <rect x="-24" y="16" width="48" height="12" rx="4" fill="#4A4038" stroke={INK} strokeWidth="5" />
+    <circle cy="-2" r="9" fill="#FFF6D6" />
+  </g>
+);
+
+/**
+ * Đường lò than ngày xưa: vách đá than tối, các vì chống gỗ lùi dần về điểm tụ giữa khung, đèn lò treo toả quầng ấm,
+ * đường ray hội tụ, goòng chở than ở mép phải, đống than ở mép trái. Vùng giữa để trống cho nhân vật.
+ */
+const Mine: React.FC = () => {
+  const vx = 540;
+  const vy = 860;
+  // Các vì chống từ xa đến gần: tỉ lệ k (0 = điểm tụ, 1 = sát khung).
+  const sets = [0.16, 0.27, 0.42, 0.62, 0.9];
+  return (
+    <>
+      <defs>
+        <radialGradient id="mine-glow" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stopColor="#FFD27A" stopOpacity="0.55" />
+          <stop offset="0.5" stopColor="#F5A945" stopOpacity="0.16" />
+          <stop offset="1" stopColor="#F5A945" stopOpacity="0" />
+        </radialGradient>
+        <radialGradient id="mine-end" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stopColor="#0B0806" />
+          <stop offset="1" stopColor="#2A221C" />
+        </radialGradient>
+        <linearGradient id="mine-rock" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#3B342E" />
+          <stop offset="1" stopColor="#4F463D" />
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="1080" height={FLOOR} fill="url(#mine-rock)" />
+      {/* Vỉa than đen bóng chạy ngang vách */}
+      <path d="M0 300 Q270 260 540 310 Q810 360 1080 300 L1080 420 Q810 470 540 420 Q270 380 0 430 Z" fill="#1E1A17" opacity="0.8" />
+      {[[120, 560], [930, 520], [210, 980], [880, 1000], [70, 1120], [1010, 760]].map(([x, y], i) => (
+        <path key={i} d={`M${x} ${y} l40 -22 l46 14 l-12 34 l-50 10 Z`} fill="#2B2520" stroke="#1A1512" strokeWidth="5" strokeLinejoin="round" />
+      ))}
+      {/* Miệng đường lò tối hút sâu */}
+      <ellipse cx={vx} cy={vy} rx="150" ry="170" fill="url(#mine-end)" />
+      {/* Vì chống lùi xa: xa nhạt, gần đậm */}
+      {sets.map((k, i) => {
+        const w = 300 + 820 * k;
+        const h = 360 + 900 * k;
+        const foot = vy + 170 + (FLOOR + 40 - vy - 170) * k;
+        return (
+          <g key={k} opacity={0.55 + 0.45 * k}>
+            <TimberSet x={vx} foot={foot} w={w} h={h} t={14 + 46 * k} />
+            {i === 2 || i === 4 ? <MineLamp x={vx + (i === 4 ? -250 : 120)} y={foot - h + 40 + 30 * k} s={0.6 + 0.5 * k} /> : null}
+          </g>
+        );
+      })}
+      {/* Đống than bên trái, goòng chở than bên phải (tiền cảnh mép khung) */}
+      <path d={`M-20 ${FLOOR + 20} Q40 1120 120 1150 Q170 1090 230 1180 L250 ${FLOOR + 20} Z`} fill="#1F1B18" stroke={INK} strokeWidth="7" strokeLinejoin="round" />
+      <g transform={`translate(960 ${FLOOR - 30})`}>
+        <path d="M-130 -150 L130 -150 L110 0 L-110 0 Z" fill="#6E5A47" stroke={INK} strokeWidth="8" strokeLinejoin="round" />
+        <path d="M-120 -150 Q-60 -200 0 -170 Q60 -210 120 -150 Z" fill="#1C1815" stroke={INK} strokeWidth="6" />
+        <line x1="-120" y1="-90" x2="120" y2="-90" stroke={INK} strokeWidth="5" opacity="0.6" />
+        {[-70, 70].map((x) => (
+          <circle key={x} cx={x} cy="8" r="30" fill="#4A4038" stroke={INK} strokeWidth="7" />
+        ))}
+      </g>
+      <Floor color="#4B3F33" line="#3C3229" />
+      {/* Đường ray trên sàn (tà vẹt rồi thanh ray), hội tụ về giữa */}
+      {[0.06, 0.2, 0.4, 0.66, 0.95].map((k) => {
+        const y = FLOOR + (1920 - FLOOR) * k;
+        const half = 140 + 220 * k;
+        return <rect key={k} x={540 - half} y={y} width={half * 2} height={10 + 14 * k} fill="#5A3B22" stroke={INK} strokeWidth="3" opacity="0.9" />;
+      })}
+      {[-1, 1].map((sd) => (
+        <path key={sd} d={`M${540 + sd * 120} ${FLOOR} L${540 + sd * 330} 1920`} stroke="#9A948C" strokeWidth="12" fill="none" />
+      ))}
+    </>
+  );
+};
+
 const pick = (id: SceneId, text?: string): React.ReactNode => {
   const Story = STORY_SCENES[id];
   if (Story) return <Story />;
   if (id === "tavern") return <Tavern />;
   if (id === "temple") return <Temple />;
   if (id === "cave") return <Cave />;
+  if (id === "mine") return <Mine />;
   if (id === "space") return <Space />;
   if (id === "beach") return <Beach />;
   if (id === "night") return <Courtyard night />;

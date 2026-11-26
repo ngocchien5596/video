@@ -52,7 +52,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, mây hắt đều mọi màu của ánh nắng nên trông trắng, còn mây mưa dày quá, ánh sáng lọt xuống tới đáy chẳng được bao nhiêu, thế là đáy mây trông đen sì. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Hay thật đấy ông ạ! Thế còn chuyện khác thì sao hả ông?<br>**CĐ**: Từ từ đã nào, cái thằng này! Lần sau ông kể tiếp cho. |
 
-## Ngày 17: Vì sao trời nóng mà vẫn có mưa đá?
+## Ngày 18: Vì sao trời nóng mà vẫn có mưa đá?
 
 - **Hiểu lầm phổ biến:** Mưa đá chỉ rơi vào mùa đông, lúc trời lạnh.
 - **Trả lời một câu:** Chính trời nóng đắp nên mây giông cao, gió trong mây cuốn giọt nước lên chỗ lạnh đông thành đá, hạt đá nặng quá thì rơi xuống.

@@ -4,39 +4,39 @@
 > CĐ = Cụ Đồ, TC = Thằng Cháu.
 > Các file tuần gom tập theo chủ đề; thứ tự đăng theo số ngày, xem [thu-tu-dang.md](thu-tu-dang.md).
 
-## Ngày 6: Vì sao phi hành gia bay lơ lửng trong tàu vũ trụ?
+## Ngày 5: Vì sao phi hành gia bay lơ lửng trong tàu vũ trụ?
 
 - **Hiểu lầm phổ biến:** Ngoài vũ trụ không có sức hút của Trái Đất.
 - **Trả lời một câu:** Trạm vũ trụ và phi hành gia đang cùng nhau rơi vòng quanh Trái Đất, nên trông họ cứ như đang bay lơ lửng.
 - **Câu hỏi cuối video:** Nếu được bay lơ lửng như phi hành gia, bạn muốn làm gì đầu tiên?
-- **Nguồn:** [NASA: What Is Microgravity? (Grades K-4)](https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-microgravity-grades-k-4/) · [West Texas A&M University (C. Baird): Why is there no gravity in space?](https://www.wtamu.edu/~cbaird/sq/2012/12/18/why-is-there-no-gravity-in-space/)
+- **Nguồn:** [NASA: What Is Microgravity? (Grades K-4)](https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-microgravity-grades-k-4/) · [West Texas A&M University (C. Baird): Why is there no gravity in space?](https://www.wtamu.edu/~cbaird/sq/2012/12/18/why-is-there-no-gravity-in-space/) · [NASA: Space Station Facts and Figures](https://www.nasa.gov/international-space-station/space-station-facts-and-figures/)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
 | Giây | Nhịp | Cảnh | Thoại |
 | --- | --- | --- | --- |
-| 0–3 | CÂU HỎI | Ngoài vũ trụ, Thằng Cháu giơ hai tay như đang bay, hỏi ông | **TC**: Ông ơi, vì sao phi hành gia cứ bay lơ lửng trong tàu vũ trụ thế ạ? |
-| 3–10 | ĐOÁN THỬ | Thằng Cháu đoán ngoài vũ trụ không có sức hút, Cụ Đồ bảo chính sức hút giữ Mặt Trăng quay quanh Trái Đất | **TC**: Dễ ợt! Ra ngoài vũ trụ là hết sạch sức hút của Trái Đất, nên người ta mới bay lơ lửng chứ gì ông?<br>**CĐ**: Dễ đâu mà dễ! Chính sức hút của Trái Đất đang giữ Mặt Trăng đi vòng quanh nó đấy thôi. |
-| 10–32 | GIẢI THÍCH | Bảng minh hoạ: Trái Đất kéo trạm vũ trụ; trạm bay ngang rất nhanh nên rơi vòng quanh Trái Đất; người và đồ vật cùng rơi; cùng rơi nên trông lơ lửng | **CĐ**: Mà ở trên cao, chỗ trạm vũ trụ đang bay ấy, sức hút Trái Đất vẫn còn mạnh lắm chứ.<br>**CĐ**: Có điều trạm bay ngang nhanh khiếp, nên trong lúc nó rơi xuống thì mặt đất bên dưới cũng cong đi mất, thành ra cứ rơi mãi mà chẳng chạm đất. Lạ chưa?<br>**CĐ**: Mà người với đồ đạc ở trong trạm cũng đang rơi theo y như thế, cùng một lúc với trạm đấy.<br>**CĐ**: Cháu cứ tưởng tượng đang ngồi trò rơi tự do, tay cầm quả bóng. Cả người lẫn bóng cùng rơi một lúc, thì quả bóng cứ như lơ lửng ngay trước mặt. |
+| 0–3 | CÂU HỎI | Phòng khách, Thằng Cháu xem clip phi hành gia lộn nhào trên điện thoại, ngẩn ra hỏi ông | **TC**: Ông ơi, cháu thấy phi hành gia lộn nhào trong tàu vũ trụ, thả cái bút ra cũng lơ lửng luôn. Sao lại thế ạ? |
+| 3–10 | ĐOÁN THỬ | Ngoài vũ trụ, Thằng Cháu đoán lên cao là hết sức hút, Cụ Đồ bảo sức hút ấy còn giữ cả Mặt Trăng quay quanh Trái Đất | **TC**: Chắc lên tới đấy là hết sạch sức hút của Trái Đất rồi, đúng không ông?<br>**CĐ**: Hết đâu mà hết! Sức hút ấy còn đủ giữ cả Mặt Trăng đi vòng quanh Trái Đất cơ mà. |
+| 10–32 | GIẢI THÍCH | Bảng minh hoạ: trạm bay cao 400 km, sức hút còn 90%; trạm lao ngang 28.000 km/giờ, rơi mà mặt đất cong đi nên không chạm đất; 90 phút một vòng, người và quả bóng trong trạm cùng rơi; trò rơi tự do: quả bóng lơ lửng trước mặt | **CĐ**: Trạm vũ trụ chỉ bay cao chừng bốn trăm cây số, sức hút ở đấy vẫn còn tới chín phần mười cơ.<br>**CĐ**: Có điều trạm lao ngang nhanh khủng khiếp, hai mươi tám nghìn cây số một giờ. Rơi đến đâu, mặt đất cong đi đến đấy, thành ra rơi mãi chẳng chạm đất.<br>**TC**: Ơ, thế là trạm cứ rơi vòng vòng ạ?<br>**CĐ**: Đúng thế! Chín mươi phút là rơi hết một vòng. Mà người với đồ đạc bên trong cũng rơi theo y hệt.<br>**CĐ**: Như cháu ngồi trò rơi tự do, cầm quả bóng ấy. Người với bóng cùng rơi, thì bóng cứ lơ lửng ngay trước mặt. |
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, trạm vũ trụ và phi hành gia đang cùng nhau rơi vòng quanh Trái Đất, nên trông họ cứ như đang bay lơ lửng. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Hay quá ông ạ! Mai ông lại kể cho cháu nghe chuyện khác nữa nhé?<br>**CĐ**: Được chứ! Cháu cứ hỏi, rồi ông kể dần cho. |
 
-## Ngày 12: Vì sao có mùa hè nóng, mùa đông lạnh?
+## Ngày 6: Vì sao có mùa hè nóng, mùa đông lạnh?
 
 - **Hiểu lầm phổ biến:** Mùa hè nóng vì Trái Đất đi tới gần Mặt Trời hơn.
-- **Trả lời một câu:** Vì trục Trái Đất nghiêng, nên mỗi nửa Trái Đất lúc thì được nắng chiếu thẳng, lúc lại chỉ được nắng chiếu xiên, thế mới có hè, có đông.
+- **Trả lời một câu:** Trục Trái Đất nghiêng, nên mỗi nửa Trái Đất lúc thì được nắng chiếu thẳng, lúc lại chỉ được nắng xiên, thế mới có hè, có đông.
 - **Câu hỏi cuối video:** Chỗ bạn ở có mùa đông rét, hay chỉ có mùa mưa, mùa khô?
 - **Nguồn:** [NASA Space Place: What Causes the Seasons?](https://spaceplace.nasa.gov/seasons/en/) · [NOAA NESDIS: Why Does Earth Have Seasons?](https://www.nesdis.noaa.gov/about/k-12-education/understanding-our-planet/why-does-earth-have-seasons) · [National Weather Service: What Causes the Seasons?](https://www.weather.gov/fsd/season)
 - **Footage:** chưa có (đặt file vào public/footage/)
 
 | Giây | Nhịp | Cảnh | Thoại |
 | --- | --- | --- | --- |
-| 0–3 | CÂU HỎI | Đứng trên Mặt Trăng nhìn về Trái Đất, Thằng Cháu ôm người run run như đang rét, hỏi ông | **TC**: Rét quá ông ơi! Vì sao có mùa hè nóng nực, lại có mùa đông rét thế ạ? |
-| 3–10 | ĐOÁN THỬ | Thằng Cháu đoán mùa hè vì Trái Đất tới gần Mặt Trời, Cụ Đồ đưa bằng chứng tháng một | **TC**: Cháu biết rồi! Mùa hè là do Trái Đất chạy lại gần Mặt Trời hơn, nên mới nóng, chắc thế hả ông?<br>**CĐ**: Nghe thì xuôi tai, nhưng chưa đúng đâu! Tháng một là lúc Trái Đất gần Mặt Trời nhất, thế mà miền Bắc mình đang giữa mùa đông, rét cắt da đấy. |
-| 10–32 | GIẢI THÍCH | Bảng minh hoạ: Trái Đất trục nghiêng đi vòng quanh Mặt Trời; nửa phía bắc nghiêng về Mặt Trời được nắng chiếu thẳng; nửa năm sau nắng xiên | **CĐ**: Thật ra là thế này, Trái Đất đi vòng quanh Mặt Trời, mà cái trục của nó lại nghiêng, như con quay bị lệch ấy.<br>**CĐ**: Cái lạ là, nó đi suốt cả năm trời, mà trục ấy vẫn chỉ nghiêng về đúng một hướng thôi.<br>**CĐ**: Lúc nửa phía bắc, chỗ nước mình ở, chúc về phía Mặt Trời, thì nắng rọi xuống thẳng hơn, thế là thành mùa hè.<br>**CĐ**: Nửa năm sau, nửa ấy lại chếch ra xa Mặt Trời, nắng chỉ chiếu xiên xiên thôi, thế là thành ra mùa đông. |
-| 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, vì trục Trái Đất nghiêng, nên mỗi nửa Trái Đất lúc thì được nắng chiếu thẳng, lúc lại chỉ được nắng chiếu xiên, thế mới có hè, có đông. |
+| 0–3 | CÂU HỎI | Sân nhà ngày rét, Thằng Cháu co ro run cầm cập, đùa ai bật điều hoà cho cả trời đất | **TC**: Ông ơi, tháng sáu cháu còn ôm quạt ngủ, giờ đã phải trùm chăn rồi. Ai bật điều hoà cho cả trời đất thế ạ? |
+| 3–10 | ĐOÁN THỬ | Thằng Cháu đoán mùa hè vì Trái Đất tới gần Mặt Trời, Cụ Đồ đưa bằng chứng tháng một | **TC**: Cháu biết rồi! Mùa hè Trái Đất chạy lại gần Mặt Trời, nên mới nóng thế, đúng không ông?<br>**CĐ**: Nghe thì xuôi tai, nhưng chưa đúng đâu! Tháng một mới là lúc Trái Đất gần Mặt Trời nhất, thế mà miền Bắc mình lại đang rét cắt da đấy. |
+| 10–32 | GIẢI THÍCH | Bảng minh hoạ: Trái Đất trục nghiêng 23,5 độ; mùa hè nửa bắc chúc về Mặt Trời, nắng thẳng, ngày dài; đèn pin chiếu thẳng đốm nhỏ sáng rực, chiếu xiên loang to nhạt; mùa đông nửa bắc chếch xa, nắng xiên; hai nửa Trái Đất ngược mùa, Úc đón Giáng sinh mùa hè | **CĐ**: Chuyện là ở cái trục của Trái Đất cơ. Nó nghiêng hẳn hai mươi ba độ rưỡi, mà đi vòng quanh Mặt Trời cả năm vẫn cứ nghiêng về một phía.<br>**CĐ**: Thế nên có nửa năm, nửa phía bắc chỗ mình chúc về phía Mặt Trời, nắng rọi thẳng xuống, ngày lại dài, thế là thành mùa hè.<br>**CĐ**: Cứ như cầm đèn pin ấy. Chiếu thẳng xuống thì đốm sáng nhỏ mà rực, chiếu xiên thì loang ra to mà nhạt hẳn. Nắng cũng y như thế!<br>**CĐ**: Nửa năm sau thì ngược lại, nửa phía bắc chếch ra xa, nắng chỉ chiếu xiên xiên, ngày lại ngắn, thế là trời trở rét.<br>**TC**: Ơ, thế lúc mình rét thì nửa bên kia đang nóng ạ?<br>**CĐ**: Chuẩn! Như bên nước Úc ấy, Giáng sinh lại rơi đúng vào mùa hè, người ta mặc quần đùi ra biển chơi đấy! |
+| 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, trục Trái Đất nghiêng, nên mỗi nửa Trái Đất lúc thì được nắng chiếu thẳng, lúc lại chỉ được nắng xiên, thế mới có hè, có đông. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Ông ơi, cháu còn cả đống câu vì sao muốn hỏi ông nữa cơ!<br>**CĐ**: Thế thì từ từ, mỗi hôm ông kể cho một chuyện nhé! |
 
-## Ngày 19: Vì sao có sao băng vụt qua bầu trời?
+## Ngày 20: Vì sao có sao băng vụt qua bầu trời?
 
 - **Hiểu lầm phổ biến:** Sao băng là một ngôi sao trên trời bị rơi xuống.
 - **Trả lời một câu:** Sao băng không phải ngôi sao đâu, mà là một mẩu đá vũ trụ lao vào lớp không khí, làm không khí quanh nó nóng rực, phát sáng thành vệt.
@@ -52,7 +52,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, sao băng không phải ngôi sao đâu, mà là một mẩu đá vũ trụ lao vào lớp không khí, làm không khí quanh nó nóng rực, phát sáng thành vệt. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Hay thật đấy ông ạ! Thế còn chuyện khác thì sao hả ông?<br>**CĐ**: Từ từ đã nào, cái thằng này! Lần sau ông kể tiếp cho. |
 
-## Ngày 24: Vì sao trên Mặt Trăng có những vết đen loang lổ?
+## Ngày 25: Vì sao trên Mặt Trăng có những vết đen loang lổ?
 
 - **Hiểu lầm phổ biến:** Vết đen trên Mặt Trăng là chú Cuội ngồi gốc cây đa.
 - **Trả lời một câu:** Vết đen chính là những hố khổng lồ đã bị đá nóng chảy lấp đầy, rồi nguội lại thành đá sẫm màu.
@@ -68,7 +68,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, vết đen chính là những hố khổng lồ đã bị đá nóng chảy lấp đầy, rồi nguội lại thành đá sẫm màu. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Hay thật đấy ông ạ! Thế còn chuyện khác thì sao hả ông?<br>**CĐ**: Từ từ đã nào, cái thằng này! Lần sau ông kể tiếp cho. |
 
-## Ngày 29: Vì sao Mặt Trăng lúc tròn lúc khuyết?
+## Ngày 30: Vì sao Mặt Trăng lúc tròn lúc khuyết?
 
 - **Hiểu lầm phổ biến:** Bóng Trái Đất che bớt Mặt Trăng.
 - **Trả lời một câu:** Mặt Trời lúc nào cũng chiếu sáng một nửa Mặt Trăng, mà Mặt Trăng lại đi vòng quanh Trái Đất, nên mình mới thấy phần sáng ấy lúc nhiều lúc ít.
@@ -84,7 +84,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, Mặt Trời lúc nào cũng chiếu sáng một nửa Mặt Trăng, mà Mặt Trăng lại đi vòng quanh Trái Đất, nên mình mới thấy phần sáng ấy lúc nhiều lúc ít. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Hay thật đấy ông ạ! Thế còn chuyện khác thì sao hả ông?<br>**CĐ**: Từ từ đã nào, cái thằng này! Lần sau ông kể tiếp cho. |
 
-## Ngày 34: Vì sao ngôi sao lấp lánh?
+## Ngày 35: Vì sao ngôi sao lấp lánh?
 
 - **Hiểu lầm phổ biến:** Ngôi sao tự nhấp nháy, lúc bật lúc tắt như đèn nháy.
 - **Trả lời một câu:** Không khí quanh Trái Đất cứ chuyển động mãi, bẻ ánh sao lệch qua lệch lại, nên sao mới trông lấp lánh.
@@ -100,7 +100,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, không khí quanh Trái Đất cứ chuyển động mãi, bẻ ánh sao lệch qua lệch lại, nên sao mới trông lấp lánh. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Hay thật đấy ông ạ! Thế còn chuyện khác thì sao hả ông?<br>**CĐ**: Từ từ đã nào, cái thằng này! Lần sau ông kể tiếp cho. |
 
-## Ngày 40: Vành đai của Sao Thổ làm bằng gì?
+## Ngày 41: Vành đai của Sao Thổ làm bằng gì?
 
 - **Hiểu lầm phổ biến:** Vành đai Sao Thổ là một chiếc vòng cứng, liền một khối.
 - **Trả lời một câu:** Vành đai Sao Thổ là hàng tỉ mẩu băng và đá, to nhỏ đủ cỡ, cùng nhau bay vòng quanh hành tinh ấy đấy.

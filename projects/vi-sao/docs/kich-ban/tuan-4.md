@@ -4,7 +4,7 @@
 > CĐ = Cụ Đồ, TC = Thằng Cháu.
 > Các file tuần gom tập theo chủ đề; thứ tự đăng theo số ngày, xem [thu-tu-dang.md](thu-tu-dang.md).
 
-## Ngày 5: Vì sao gân xanh trên tay màu xanh mà máu lại đỏ?
+## Ngày 8: Vì sao gân xanh trên tay màu xanh mà máu lại đỏ?
 
 - **Hiểu lầm phổ biến:** Máu trong gân có màu xanh, ra ngoài gặp không khí mới hoá đỏ.
 - **Trả lời một câu:** Máu lúc nào cũng đỏ cả, còn gân trông xanh là vì ánh đỏ bị máu nuốt bớt, ánh xanh lại dội về mắt nhiều hơn.
@@ -20,7 +20,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, máu lúc nào cũng đỏ cả, còn gân trông xanh là vì ánh đỏ bị máu nuốt bớt, ánh xanh lại dội về mắt nhiều hơn. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Ông ơi, cháu lại vừa nghĩ ra một câu vì sao nữa rồi!<br>**CĐ**: Lại câu gì nữa đây? Thôi, để lần sau ông kể nhé! |
 
-## Ngày 10: Vì sao mình không tự cù mình được?
+## Ngày 12: Vì sao mình không tự cù mình được?
 
 - **Hiểu lầm phổ biến:** Tự cù không nhột là vì mình không có máu buồn.
 - **Trả lời một câu:** Não đoán trước được cú cù của chính tay mình, mà đã không bất ngờ thì chẳng thấy nhột nữa.
@@ -36,7 +36,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, não đoán trước được cú cù của chính tay mình, mà đã không bất ngờ thì chẳng thấy nhột nữa. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Ông ơi, cháu lại vừa nghĩ ra một câu vì sao nữa rồi!<br>**CĐ**: Lại câu gì nữa đây? Thôi, để lần sau ông kể nhé! |
 
-## Ngày 15: Vì sao mình hắt xì hơi?
+## Ngày 16: Vì sao mình hắt xì hơi?
 
 - **Hiểu lầm phổ biến:** Hắt xì hơi là do có người đang nhắc tên mình.
 - **Trả lời một câu:** Hắt xì là cách cơ thể tống bụi với phấn hoa ra khỏi mũi bằng một luồng hơi thật mạnh.
@@ -52,7 +52,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, hắt xì là cách cơ thể tống bụi với phấn hoa ra khỏi mũi bằng một luồng hơi thật mạnh. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Ông ơi, cháu lại vừa nghĩ ra một câu vì sao nữa rồi!<br>**CĐ**: Lại câu gì nữa đây? Thôi, để lần sau ông kể nhé! |
 
-## Ngày 20: Vì sao ăn kem nhanh lại bị buốt đầu?
+## Ngày 21: Vì sao ăn kem nhanh lại bị buốt đầu?
 
 - **Hiểu lầm phổ biến:** Ăn kem lạnh làm não bị đông cứng.
 - **Trả lời một câu:** Kem lạnh làm mạch máu ở vòm miệng co giãn thật nhanh, dây thần kinh liền báo về não, thế là buốt cả đầu. Vậy nên cứ ăn kem từ từ thôi.
@@ -68,7 +68,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, kem lạnh làm mạch máu ở vòm miệng co giãn thật nhanh, dây thần kinh liền báo về não, thế là buốt cả đầu. Vậy nên cứ ăn kem từ từ thôi. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Ông ơi, cháu lại vừa nghĩ ra một câu vì sao nữa rồi!<br>**CĐ**: Lại câu gì nữa đây? Thôi, để lần sau ông kể nhé! |
 
-## Ngày 25: Vì sao ngâm nước lâu thì ngón tay nhăn nheo?
+## Ngày 26: Vì sao ngâm nước lâu thì ngón tay nhăn nheo?
 
 - **Hiểu lầm phổ biến:** Da ngón tay hút no nước nên nhăn lại.
 - **Trả lời một câu:** Ngón tay nhăn là vì thần kinh ra lệnh cho mạch máu ở đầu ngón tay co lại, làm đầu ngón bớt căng đầy.
@@ -84,7 +84,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, ngón tay nhăn là vì thần kinh ra lệnh cho mạch máu ở đầu ngón tay co lại, làm đầu ngón bớt căng đầy. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Ông ơi, cháu lại vừa nghĩ ra một câu vì sao nữa rồi!<br>**CĐ**: Lại câu gì nữa đây? Thôi, để lần sau ông kể nhé! |
 
-## Ngày 31: Vì sao mình nổi da gà?
+## Ngày 32: Vì sao mình nổi da gà?
 
 - **Hiểu lầm phổ biến:** Chỉ khi bị lạnh, mình mới nổi da gà.
 - **Trả lời một câu:** Lúc bị lạnh hay xúc động, cơ tí hon dưới mỗi sợi lông sẽ co lại, kéo lông dựng đứng, làm da nổi thành những nốt nhỏ.
@@ -100,7 +100,7 @@
 | 32–37 | TÓM LẠI | Thẻ "TÓM LẠI" hiện câu trả lời, Cụ Đồ đọc lại một câu | **CĐ**: Tóm lại, lúc bị lạnh hay xúc động, cơ tí hon dưới mỗi sợi lông sẽ co lại, kéo lông dựng đứng, làm da nổi thành những nốt nhỏ. |
 | 37–43 | HỎI TIẾP | Thằng Cháu xin ông kể thêm chuyện khác, Cụ Đồ hẹn lần sau (không nói trước chủ đề) | **TC**: Hay quá ông ạ! Mai ông lại kể cho cháu nghe chuyện khác nữa nhé?<br>**CĐ**: Được chứ! Cháu cứ hỏi, rồi ông kể dần cho. |
 
-## Ngày 37: Vì sao mình đổ mồ hôi?
+## Ngày 38: Vì sao mình đổ mồ hôi?
 
 - **Hiểu lầm phổ biến:** Mồ hôi tự nó có mùi hôi.
 - **Trả lời một câu:** Mồ hôi bay hơi để làm mát người, còn mùi hôi là do vi khuẩn trên da phân huỷ mồ hôi.
