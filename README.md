@@ -32,6 +32,7 @@ Mọi lệnh nhận dự án bằng `-p <id hoặc mã ngắn>`; bỏ trống th
 | `npm run srt -- all` | Xuất phụ đề nháp vào `out/<dự án>/srt/` (thêm `--no-names` để bỏ tên người nói) |
 | `npm run voice -- -p vs 1` | Lồng tiếng tập 1 bằng OmniVoice (xem mục Lồng tiếng) |
 | `npm run voice:check -- -p vs 1` | Nghe lại tiếng bằng máy, báo câu đọc sai hoặc nuốt chữ |
+| `npm run voice:pauses -- -p vs 1` | Kiểm ngắt nghỉ trong câu: ngắt sai chỗ (giữa cụm từ), nghỉ quá lâu, dấu chấm đọc liền |
 | `npm run sheets -- -p vs` | Sinh lại kịch bản in trong `projects/<dự án>/docs/kich-ban/` |
 | `npm run review -- -p kt 1` | **Duyệt cuối tự động** (lời dẫn + cảnh) theo `docs/giong-loi-thoai.md`, `docs/chuan-dung-canh.md` và series bible: kiểm máy, chụp ảnh từng câu, Claude chấm; báo cáo và ảnh tổng ở `out/review/<dự án>/ngay-XX/`. Thêm `--no-ai` (chỉ kiểm máy + ảnh), `--no-render` (không chụp ảnh). Mã thoát 1 nếu còn lỗi "phải sửa" |
 | `npm run bot` | Chạy bot Telegram cho mọi dự án (xem mục Bot Telegram) |
@@ -79,7 +80,7 @@ Tiếng thoại sinh bằng model OmniVoice trong repo `D:\Tao_giong_noi_local` 
 2. **Sinh tiếng**: `npm run voice -- -p <dự án> tuan-1`. Mỗi câu khoảng 20 giây trên GTX 1660 Super. Tắt Remotion Studio khi chạy cho đỡ tốn RAM.
    - Câu không đổi chữ được giữ nguyên, sửa câu nào thì chỉ sinh lại câu đó. `--force` để sinh lại tất cả.
    - Lệnh in tổng thời lượng mỗi tập, cảnh báo nếu quá 40 giây (nên cắt) hoặc quá 60 giây (phải cắt).
-3. **Kiểm tra**: `npm run voice:check -- -p <dự án> tuan-1` chép lời từng file bằng ASR và báo câu không khớp.
+3. **Kiểm tra**: `npm run voice:check -- -p <dự án> tuan-1` chép lời từng file bằng ASR và báo câu không khớp; `npm run voice:pauses -- -p <dự án> tuan-1` báo chỗ ngắt nghỉ sai (ngắt giữa cụm thì sửa lời: tách câu, thêm/bớt dấu phẩy, rồi sinh lại).
 4. **Xuất**: tập đã có tiếng thì độ dài nhịp tự theo tiếng thật và phụ đề khớp từng câu. Tốc độ đọc của từng vai chỉnh ở `SPEAKERS` trong `tools/voice/make_voice.py`.
 
 Khi đăng, **bật nhãn "nội dung do AI tạo"** trên TikTok và YouTube.

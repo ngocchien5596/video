@@ -21,6 +21,6 @@ TikTok: chưa lấy được số (trang tag và Creative Center cần đăng nh
 | Nói vậy | thanhngu, tiengviet, kienthuc, noivaymakhongphaivay, tucngu | Con vật: convat · Học hành: hocsinh |
 | Vì sao | visao, khoahoc, kienthucthuvi, ongoivisao, 10vancauhoivisao | thiennhien, dongvat, vutru/thienvan, khoahocthuvi, meovat |
 | Chỗ lạ | khamphavietnam, suthatthuvi, dulichvietnam, ongoichonaylalam | giaothong/congtrinh, dialy |
-| Kiến thức | kienthucthuvi, (môn học tự chọn theo SGK: toanhoc / vatly / sinhhoc / khoahoc), thienduongkienthuc, tuduy | hinhhoc |
+| Kiến thức | kienthucthuvi, (môn học theo môn của tập: toanhoc / vatly / sinhhoc / khoahoc), thienduongkienthuc, tuduy | hinhhoc |
 
 YouTube lấy 4 tag đầu, TikTok 5 tag đầu.

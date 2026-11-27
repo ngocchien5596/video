@@ -146,6 +146,10 @@ npm run voice:check -- tuan-1
 - Câu nào hiện `XEM` là máy nghe ra khác với chữ trong kịch bản. Mở file `.wav` tương ứng trong `public/voice/<dự án>/ngay-XX/` để nghe.
   - Tên file dạng `3-2-cd.wav` nghĩa là nhịp thứ 3, câu thứ 2, Cụ Đồ nói.
 - Nếu đọc sai thật thì sửa chữ cho dễ đọc hơn (thêm dấu phẩy, viết lại từ khó) rồi chạy lại Bước 2.
+- Kiểm ngắt nghỉ: `npm run voice:pauses -- tuan-1`. Câu `XEM` in cả dòng "viết" và dòng "nghe" (‖ là chỗ giọng ngừng):
+  - `SAI`: ngừng giữa một cụm từ (ví dụ "chuyển động theo phương ngang ‖ và theo phương thẳng đứng diễn ra…"). Sửa lời cho gọn, tách câu dài, hoặc đặt dấu phẩy đúng chỗ muốn nghỉ, rồi chạy lại Bước 2.
+  - `DÀI`: nghỉ quá lâu ở dấu phẩy hoặc dấu chấm. `LIỀN`: dấu chấm giữa câu mà đọc liền.
+  - `NGÂN`: một chữ bị kéo dài quá 0,7 giây (vd "chương trình…"). Bước sinh tiếng đã tự đọc lại câu bị ngân; còn sót thì sinh lại riêng câu đó: `npm run voice -- -p kt 17 --redo=2-2,3-2`. Vẫn ngân thì đổi chữ quanh chỗ đó.
 - Máy báo khớp vẫn chưa đủ: vẫn phải tự nghe cả tập ở Bước 4.
 
 ### Bước 4. Xem lại trong Studio
@@ -214,6 +218,7 @@ Qua bot có thể sửa, thêm, xoá câu, đổi cảnh, viết phần diễn. 
 | `npm run voice -- <ngày>` | Sinh tiếng, chỉ cho những câu chưa có hoặc đã sửa |
 | `npm run voice -- <ngày> --force` | Sinh lại tiếng cho tất cả các câu |
 | `npm run voice:check -- <ngày>` | Máy nghe lại, báo câu đọc sai |
+| `npm run voice:pauses -- <ngày>` | Kiểm ngắt nghỉ: báo chỗ ngắt giữa cụm từ, nghỉ quá lâu, dấu chấm đọc liền |
 | `npm run voice:design` | Tạo 4 phương án giọng mẫu mỗi vai vào `voices/mau/` |
 | `npm run voice:pick -- cu-do 3` | Chọn phương án 3 làm giọng Cụ Đồ (`thang-chau` cho Thằng Cháu) |
 | `npm run render -- <ngày>` | Xuất mp4 |

@@ -31,7 +31,15 @@ export const INK = {
 };
 
 /**
- * Bố cục khung dọc 1080×1920 (vùng an toàn: trên 180, phải 140, dưới 380):
+ * Toàn bộ khung (tiêu đề, sân khấu, phụ đề, thẻ cuối) dời sang phải chừng này px để nằm GIỮA khung 1080
+ * (lề trái = lề phải = 90). Toạ độ trong LAYOUT và trong bản vẽ cảnh vẫn tính theo khung cũ (sân khấu x 40..940),
+ * phần dời làm một lần ở ParchmentHud và ParchmentPlayer, nên không phải sửa cảnh của từng tập.
+ * Trước đây chừa lề phải 140 cho cột nút TikTok, video lên TikTok trông lệch trái (chủ kênh 26/11/2026).
+ */
+export const CENTER_SHIFT = 50;
+
+/**
+ * Bố cục khung dọc 1080×1920, toạ độ TRƯỚC khi dời CENTER_SHIFT (trên màn hình: cộng thêm 50 theo x):
  * - Tiêu đề: y 166..300
  * - Sân khấu giấy da: x 40..940, y 312..1098 (mặt đất y = 1040)
  * - Thẻ chữ: y 1114..1354
@@ -71,7 +79,8 @@ export const ParchmentHud: React.FC<ParchmentHudProps> = ({ hudTitle }) => {
         overflow: "hidden",
       }}
     >
-      <svg width={1080} height={1920} style={{ position: "absolute", inset: 0 }}>
+      <AbsoluteFill style={{ transform: `translateX(${CENTER_SHIFT}px)` }}>
+      <svg width={1080} height={1920} style={{ position: "absolute", inset: 0, overflow: "visible" }}>
         <defs>
           <radialGradient id="paper-grad" cx="50%" cy="38%" r="75%">
             <stop offset="0%" stopColor="#FBF0D6" />
@@ -134,10 +143,11 @@ export const ParchmentHud: React.FC<ParchmentHudProps> = ({ hudTitle }) => {
         ))}
 
         {/* Hoa văn hai bên dòng tên series */}
+        {/* Đối xứng quanh x = 490 (giữa sân khấu, trước khi dời). */}
         <line x1={150} y1={184} x2={262} y2={184} stroke={PARCHMENT.gold} strokeWidth={2.5} opacity={0.7} />
-        <line x1={818} y1={184} x2={930} y2={184} stroke={PARCHMENT.gold} strokeWidth={2.5} opacity={0.7} />
+        <line x1={718} y1={184} x2={830} y2={184} stroke={PARCHMENT.gold} strokeWidth={2.5} opacity={0.7} />
         <circle cx={142} cy={184} r={5} fill={PARCHMENT.gold} />
-        <circle cx={938} cy={184} r={5} fill={PARCHMENT.gold} />
+        <circle cx={838} cy={184} r={5} fill={PARCHMENT.gold} />
       </svg>
 
       {/* Tiêu đề: tên series + tên tập (chữ to, đọc được trên điện thoại) */}
@@ -172,6 +182,7 @@ export const ParchmentHud: React.FC<ParchmentHudProps> = ({ hudTitle }) => {
           {hudTitle}
         </div>
       </div>
+      </AbsoluteFill>
     </AbsoluteFill>
   );
 };

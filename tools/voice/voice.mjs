@@ -4,6 +4,7 @@
  *   npm run voice -- -p vi-sao 1       -> public/voice/vi-sao/ngay-01/...
  *   npm run voice -- tuan-1
  *   npm run voice -- 1 --force         -> sinh lại cả câu chưa đổi chữ
+ *   npm run voice -- 1 --redo=2-2,3-2  -> sinh lại riêng các câu này (hồi-câu như tên file)
  * Câu nào không đổi chữ và không đổi giọng mẫu thì giữ file cũ.
  */
 import { spawnSync } from "node:child_process";
@@ -16,6 +17,7 @@ const { id, rest } = takeProjectArg(process.argv.slice(2));
 const project = await loadProject(id);
 const { EPISODES } = await loadEpisodes(project);
 const force = rest.includes("--force");
+const redo = (rest.find((a) => a.startsWith("--redo=")) ?? "").slice("--redo=".length);
 const days = parseDays(rest.filter((a) => !a.startsWith("--")), EPISODES).filter((d) => EPISODES.some((e) => e.day === d));
 if (days.length === 0) {
   console.error("Thiếu ngày (hoặc tập chưa có). Ví dụ: npm run voice -- 1   hoặc   npm run voice -- -p vi-sao 1");
@@ -33,6 +35,8 @@ const jobs = days.map((day) => {
   return {
     day,
     dir: project.paths.voiceDir(day),
+    // Giọng mẫu riêng của dự án cho từng vai (project.json "voices"); không có thì dùng giọng chung trong voices/.
+    ...(project.voices ? { refs: project.voices } : {}),
     lines: episode.beats.flatMap((beat, b) =>
       beat.lines.map((line, l) => ({
         beat: b,
@@ -52,7 +56,7 @@ writeFileSync(jobsFile, JSON.stringify(jobs, null, 2), "utf8");
 
 const py = spawnSync(
   process.execPath,
-  ["tools/voice/run-python.mjs", "make_voice.py", "--jobs", jobsFile, ...(force ? ["--force"] : [])],
+  ["tools/voice/run-python.mjs", "make_voice.py", "--jobs", jobsFile, ...(force ? ["--force"] : []), ...(redo ? ["--redo", redo] : [])],
   { stdio: "inherit" },
 );
 if (py.status !== 0) process.exit(py.status ?? 1);

@@ -16,6 +16,7 @@ import unicodedata
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from prosody import HELD_MAX, longest_held  # noqa: E402
 from vi_text import apply_pronounce, leaked_ref, normalize_numbers, unknown_words  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -109,11 +110,20 @@ def main() -> None:
     parser.add_argument("--tts-root", required=True)
     parser.add_argument("--jobs", required=True)
     parser.add_argument("--force", action="store_true")
+    # Sinh lại riêng vài câu dù chữ không đổi, vd "2-2,3-2" (hồi-câu như tên file).
+    parser.add_argument("--redo", default="")
     args = parser.parse_args()
 
     jobs = json.loads((ROOT / args.jobs).read_text(encoding="utf-8"))
     used_speakers = {line["who"] for job in jobs for line in job["lines"] if line["who"] in SPEAKERS}
-    ref_paths = {who: resolve_ref(who) for who in used_speakers}
+    # Dự án có thể đặt giọng mẫu riêng cho một vai (project.json "voices", vd {"NARRATOR": "voices/doan-xem.wav"}).
+    overrides = {}
+    for job in jobs:
+        overrides.update(job.get("refs") or {})
+    ref_paths = {who: (ROOT / overrides[who]) if who in overrides else resolve_ref(who) for who in used_speakers}
+    for who, p in ref_paths.items():
+        if not p.exists() or not p.with_suffix(".txt").exists():
+            sys.exit(f"Thiếu giọng mẫu {p} (kèm file .txt lời mẫu) cho vai {who}")
     ref_md5 = {who: file_md5(p) for who, p in ref_paths.items()}
 
     def spoken_raw(line: dict) -> str:
@@ -139,7 +149,9 @@ def main() -> None:
             line["key"] = key(line)
             line["name"] = f'{line["beat"] + 1}-{line["line"] + 1}-{line["who"].lower()}.wav'
             prev = old.get(line["key"])
-            line["reuse"] = dict(prev) if prev and (PUBLIC / prev["file"]).exists() else None
+            redo = {c.strip() for c in args.redo.split(",") if c.strip()}
+            pos = f'{line["beat"] + 1}-{line["line"] + 1}'
+            line["reuse"] = dict(prev) if prev and (PUBLIC / prev["file"]).exists() and pos not in redo else None
         # Câu giữ tiếng cũ nhưng đổi vị trí (vd. 5-3 trước là 5-2): chép tiếng sang đúng tên file của vị trí mới.
         # Đọc hết vào bộ nhớ trước rồi mới ghi, để hai câu đổi chỗ cho nhau không đè lên nhau; và để câu sinh mới
         # ở vị trí cũ không ghi đè lên tiếng đang được dùng lại (lỗi tập 9 Kiến thức: câu 5-3 phát tiếng của 5-2).
@@ -162,6 +174,7 @@ def main() -> None:
         sys.path.insert(0, str(Path(__file__).parent))
         from omni_loader import load_model, save_wav  # noqa: E402
 
+        import numpy as np
         import torch
 
         model = load_model(Path(args.tts_root))
@@ -210,6 +223,11 @@ def main() -> None:
                     heard = listen(str(wav))
                     score = match_score(text, heard)
                     leak = leaked_ref(text, heard)
+                    held_at, held = longest_held(np.asarray(audio), model.sampling_rate)
+                    if held > HELD_MAX:
+                        # Một chữ bị ngân kéo dài (vd "chương trình…"): coi như hỏng, đọc lại.
+                        print(f"        lần {attempt + 1}: ⚠ ngân {held:.2f}s ở giây {held_at:.1f}, sinh lại", flush=True)
+                        score = min(score, GOOD_MATCH - 0.01) - (held - HELD_MAX)
                     if leak:
                         # Đọc lẫn câu mẫu: hỏng hẳn, dù tỉ lệ khớp tổng vẫn cao (câu dài thừa vài chữ vẫn > 90%).
                         print(f"        lần {attempt + 1}: ⛔ đọc lẫn câu mẫu giọng ({'; '.join(leak)}), sinh lại", flush=True)
@@ -228,7 +246,11 @@ def main() -> None:
                 if leak:
                     print(f"        ⛔⛔ sau {TRIES} lần vẫn đọc lẫn câu mẫu giọng ({'; '.join(leak)}): PHẢI đổi chữ câu này rồi lồng lại", flush=True)
                 elif score < GOOD_MATCH:
-                    print(f"        ⚠ sau {TRIES} lần vẫn chỉ khớp {score:.0%}, cần nghe lại: {heard}", flush=True)
+                    held_at, held = longest_held(np.asarray(audio), model.sampling_rate)
+                    if held > HELD_MAX:
+                        print(f"        ⚠ sau {TRIES} lần vẫn ngân {held:.2f}s ở giây {held_at:.1f}: đổi chữ quanh chỗ đó (thêm dấu phẩy, đổi từ) rồi lồng lại", flush=True)
+                    else:
+                        print(f"        ⚠ sau {TRIES} lần vẫn chỉ khớp {score:.0%}, cần nghe lại: {heard}", flush=True)
                 entry = {
                     "beat": line["beat"],
                     "line": line["line"],

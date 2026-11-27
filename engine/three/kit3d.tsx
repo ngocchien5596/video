@@ -366,8 +366,11 @@ export const Stick: React.FC<{
   look?: number;
   arm?: number;
   hold?: React.ReactNode;
+  /** Giơ tay trái (0..1) và vật cầm ở tay trái. */
+  armL?: number;
+  holdL?: React.ReactNode;
   sit?: boolean;
-}> = ({ p, ry = 0, s = 1, outfit = "none", skin = "#FFFFFF", walk, look = 0, arm = 0, hold, sit = false }) => {
+}> = ({ p, ry = 0, s = 1, outfit = "none", skin = "#FFFFFF", walk, look = 0, arm = 0, hold, armL = 0, holdL, sit = false }) => {
   const o = OUTFIT[outfit];
   const sw = walk === undefined ? 0 : Math.sin(walk) * 0.55;
   const bob = walk === undefined ? 0 : Math.abs(Math.cos(walk)) * 0.04;
@@ -407,10 +410,11 @@ export const Stick: React.FC<{
         </mesh>
       )}
       {/* tay */}
-      <group position={[-0.17, 1.2, 0]} rotation={[-sw * 0.8, 0, -0.18]}>
+      <group position={[-0.17, 1.2, 0]} rotation={[-sw * 0.8 - armL * 1.9, 0, -0.18 - armL * 0.1]}>
         <mesh position={[0, -0.25, 0]} material={line}>
           <cylinderGeometry args={[0.03, 0.03, 0.5, 6]} />
         </mesh>
+        {holdL ? <group position={[0, -0.52, 0.05]}>{holdL}</group> : null}
       </group>
       <group position={[0.17, 1.2, 0]} rotation={[sw * 0.8 - arm * 1.9, 0, 0.18 + arm * 0.1]}>
         <mesh position={[0, -0.25, 0]} material={line}>
@@ -472,6 +476,45 @@ export const HotDog: React.FC<{ s?: number }> = ({ s = 1 }) => (
     </mesh>
   </group>
 );
+
+/** Mũi tên 3D từ `from` theo hướng `dir` (đã chuẩn hoá hoặc không), dài `len`. */
+export const Arrow3: React.FC<{ from: V3; dir: V3; len: number; color: string; r?: number }> = ({ from, dir, len, color, r = 0.06 }) => {
+  if (len <= 0.01) return null;
+  const d = new THREE.Vector3(...dir).normalize();
+  const q = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), d);
+  const head = Math.min(len * 0.45, r * 5);
+  const m = lambert(color, { emissive: new THREE.Color(color).multiplyScalar(0.35) });
+  return (
+    <group position={from} quaternion={q}>
+      <mesh position={[0, (len - head) / 2, 0]} material={m}>
+        <cylinderGeometry args={[r, r, len - head, 10]} />
+      </mesh>
+      <mesh position={[0, len - head / 2, 0]} material={m}>
+        <coneGeometry args={[r * 2.4, head, 12]} />
+      </mesh>
+    </group>
+  );
+};
+
+/** Bụi tung lên khi vật chạm đất: `k` 0..1 từ lúc chạm. */
+export const Puff: React.FC<{ p: V3; k: number; s?: number; color?: string }> = ({ p, k, s = 1, color = "#D9C9A3" }) => {
+  if (k <= 0 || k >= 1) return null;
+  const o = Math.round((1 - k) * 10) / 10;
+  const m = lambert(color, { transparent: true, opacity: o });
+  return (
+    <group position={p} scale={s}>
+      {[0, 1, 2, 3, 4, 5, 6].map((i) => {
+        const a = (i / 7) * Math.PI * 2;
+        const r = 0.15 + k * 0.6;
+        return (
+          <mesh key={i} position={[Math.cos(a) * r, 0.1 + k * 0.25 + (i % 2) * 0.08, Math.sin(a) * r]} material={m}>
+            <icosahedronGeometry args={[0.14 + k * 0.12, 0]} />
+          </mesh>
+        );
+      })}
+    </group>
+  );
+};
 
 /* ---------- Lớp phủ HTML ---------- */
 

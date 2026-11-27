@@ -63,7 +63,27 @@ export const renderShots = async ({ project, day, shots, outDir, fps, log = cons
   }
   const sheet = path.join(outDir, "anh-tong.jpg");
   const made = makeSheet(stills, sheet, `${project.name} · tập ${day}`);
-  return { stills, sheet: made.ok ? sheet : null, error: made.error, durationInFrames: composition.durationInFrames };
+  const props = await renderPropSheet({ serveUrl, id, outDir, log });
+  return { stills, sheet: made.ok ? sheet : null, props, error: made.error, durationInFrames: composition.durationInFrames };
+};
+
+/**
+ * Bảng đạo cụ của tập dựng 3D (composition "<Dự án>-DaoCu-NN", có khi tập đăng ký đạo cụ trong engine/parchment/stages3d.ts):
+ * chụp một ảnh nhìn cận các đạo cụ chính để soát hình dạng, chất liệu. Không có composition thì bỏ qua.
+ */
+const renderPropSheet = async ({ serveUrl, id, outDir, log }) => {
+  const { renderStill, selectComposition } = await import("@remotion/renderer");
+  const propId = id.replace(/-(\d+)$/, "-DaoCu-$1");
+  let composition;
+  try {
+    composition = await selectComposition({ serveUrl, id: propId, logLevel: "error" });
+  } catch {
+    return null;
+  }
+  const file = path.join(outDir, "dao-cu.png");
+  await renderStill({ serveUrl, composition, frame: 40, output: file, scale: 0.8, logLevel: "error", overwrite: true, chromiumOptions: { gl: "angle" } });
+  log(`  · bảng đạo cụ: ${path.relative(ROOT, file).split(path.sep).join("/")}`);
+  return file;
 };
 
 /** Ghép ảnh tổng bằng Pillow (python hệ thống, không có thì python của repo giọng nói). */

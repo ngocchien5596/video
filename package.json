@@ -22,6 +22,7 @@
     "voice:pick": "node tools/voice/pick.mjs",
     "voice": "node tools/voice/voice.mjs",
     "voice:check": "node tools/voice/check.mjs",
+    "voice:pauses": "node tools/voice/pauses.mjs",
     "bot": "node tools/bot/bot.mjs",
     "bot:install": "powershell -ExecutionPolicy Bypass -File tools/bot/install-task.ps1",
     "bot:uninstall": "powershell -ExecutionPolicy Bypass -File tools/bot/install-task.ps1 -Uninstall",

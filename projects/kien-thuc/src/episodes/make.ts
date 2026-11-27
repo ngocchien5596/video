@@ -24,6 +24,7 @@ export type EpisodeSpec = {
   hudTitle: string;
   /** Tiêu đề dài riêng cho ảnh bìa; thiếu thì dùng hudTitle. */
   coverTitle?: string;
+  /** Môn · chủ đề (vd "Vật lí · Chuyển động ném"), không ghi lớp, không tra SGK. Dòng phụ ảnh bìa, tag môn học. */
   textbook: string;
   era: string;
   question: string;
@@ -36,7 +37,7 @@ export type EpisodeSpec = {
   barrier: Part;
   /** Hồi 3: Khoảnh khắc Eureka bằng trực giác (~32s). */
   eureka: Part;
-  /** Hồi 4: Liên hệ SGK & Khái quát hóa Định lý (~30s). */
+  /** Hồi 4: Nguyên lý & khái quát hoá (~30s). */
   theorem: Part;
   /** Hồi 5: Biến thể thực chiến đời sống (~22s). Bỏ trống thì tập không có hồi này. */
   realworld?: Part;

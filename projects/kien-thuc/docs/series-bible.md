@@ -6,7 +6,7 @@
 > **Cảnh 3D (từ 26/11/2026):** tập mới dựng sân khấu 3D low-poly theo quy trình [dung-canh-3d.md](dung-canh-3d.md) (mẫu: tập 16 Lầu Năm Góc); tập cũ giữ cảnh SVG trừ khi chủ kênh yêu cầu riêng. Trường `shot` của tập mới viết theo cú máy 3D cho từng câu: máy quay ở đâu (toàn cảnh trên cao / nhìn thẳng xuống / trong nhà hở mái), vật gì hiện ra hay sáng lên, số nào trong câu nổi to, cắt sang cảnh nào. Không ghi nhãn chữ ngoài số và chữ có trong câu đọc.
 
 ## 1. Ý tưởng cốt lõi
-Giải mã các bài toán vĩ đại trong lịch sử nhân loại bằng công cụ thô sơ, kết nối trực tiếp với định lý trong **Sách giáo khoa Toán – Lý phổ thông** và mở rộng ra quy mô **Vũ trụ**.
+Giải mã các bài toán vĩ đại trong lịch sử nhân loại bằng công cụ thô sơ, giải thích bằng **nguyên lý Toán – Lý – Khoa học** và mở rộng ra quy mô **Vũ trụ**.
 
 ## 2. Nhân vật đại diện: **Milo — Cậu bé phát minh**
 - **Tạo hình gốc:** [nhan_vat.jpg](file:///d:/Video/projects/kien-thuc/docs/kich-ban/nhan_vat.jpg) (dựng vector SVG tại [Stickman.tsx](file:///d:/Video/engine/parchment/Stickman.tsx)).
@@ -17,6 +17,8 @@ Giải mã các bài toán vĩ đại trong lịch sử nhân loại bằng côn
 1. **`hook` (Bối cảnh lịch sử & Bài toán lớn):** Đặt câu hỏi hóc búa ngay 5 giây đầu.
 2. **`barrier` (Đập bỏ cách thông thường):** Chứng minh bằng hình học / cắt lớp X-quang tại sao 2 cách thông thường đều thất bại (`✖`).
 3. **`eureka` (Khoảnh khắc Eureka bằng trực giác):** Giải bằng quan sát tự nhiên + hạ mặt bằng đáy ở Tầng 2B.
-4. **`theorem` (Liên hệ SGK & Khái quát hóa Định lý):** Mở trang SGK Toán/Lý, hiện công thức tổng quát.
+4. **`theorem` (Nguyên lý & Khái quát hoá):** Nói gọn nguyên lý khoa học đứng sau lời giải, có thể kèm công thức tổng quát.
+
+> **Không dùng sách giáo khoa (từ 26/11/2026):** không tra SGK, không đưa trang SGK hay trang giải bài tập SGK vào nguồn, lời dẫn không nhắc "sách lớp mấy". Kiến thức nguyên lý kiểm bằng nguồn khoa học, bách khoa, cơ quan khoa học như các dữ kiện khác. Trường `textbook` ghi **môn · chủ đề** (ví dụ "Vật lí · Chuyển động ném"), không ghi lớp; dùng làm dòng phụ ảnh bìa và tag môn học.
 5. **`realworld` (Biến thể thực chiến):** Ứng dụng ngoài đời sống hiện đại (kiểm lâm, thợ xây, hàng hải, kỹ sư hầm).
 6. **`cosmic` (Cao trào Vũ trụ & Triết lý kết):** Phóng bài toán lên quy mô Vũ trụ + câu kết lắng đọng.

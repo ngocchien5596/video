@@ -5,7 +5,7 @@ import { EndCard, SafeZones } from "../components/Overlays.tsx";
 import { endCardTiming, episodeTimeline, LOOP_SECONDS, type Timeline } from "../lib/timing.ts";
 import type { Episode, VoiceTrack } from "../lib/types.ts";
 import { TEXT_FONT } from "../components/brand.ts";
-import { LAYOUT, PARCHMENT, ParchmentHud } from "./ParchmentHud.tsx";
+import { CENTER_SHIFT, LAYOUT, PARCHMENT, ParchmentHud } from "./ParchmentHud.tsx";
 import { BEAT_DISSOLVE, ParchmentScene } from "./scenes.tsx";
 import type { Stage3DProps } from "../three/stage.tsx";
 import { STAGES_3D as STAGE_3D } from "./stages3d.ts";
@@ -77,6 +77,8 @@ const Picture: React.FC<PictureProps> = ({ episode, timeline, next }) => {
       ) : (
         <>
           <ParchmentHud day={episode.day} hudTitle={episode.hudTitle} />
+          {/* Cảnh vẽ theo toạ độ khung cũ; dời cả lớp CENTER_SHIFT cho nằm giữa khung (xem ParchmentHud). */}
+          <AbsoluteFill style={{ transform: `translateX(${CENTER_SHIFT}px)` }}>
           {STAGE_3D[episode.day] ? (
             <Stage3D
               Comp={STAGE_3D[episode.day]}
@@ -93,9 +95,11 @@ const Picture: React.FC<PictureProps> = ({ episode, timeline, next }) => {
             fps={fps}
             prev={prev}
           />}
+          </AbsoluteFill>
         </>
       )}
 
+      <AbsoluteFill style={{ transform: `translateX(${CENTER_SHIFT}px)` }}>
       {/* Phụ đề: dưới thẻ chữ, trên vùng chú thích của nền tảng; không đè lên sân khấu */}
       {episode.showSubtitles === false || frame >= endStart || !cue ? null : (
         <div
@@ -140,6 +144,7 @@ const Picture: React.FC<PictureProps> = ({ episode, timeline, next }) => {
           teaserFrame={endStart + f(endCardTiming(episode.question).question)}
         />
       ) : null}
+      </AbsoluteFill>
     </AbsoluteFill>
   );
 };
@@ -155,7 +160,7 @@ const Stage3D: React.FC<{ Comp: React.FC<Stage3DProps>; props: Stage3DProps }> =
   );
 };
 
-const LOOP_CENTER = { x: 484, y: 550 };
+const LOOP_CENTER = { x: 484 + CENTER_SHIFT, y: 550 };
 const LOOP_RADIUS = 1650;
 
 const LoopBack: React.FC<PictureProps & { from: number }> = ({ from, ...props }) => {

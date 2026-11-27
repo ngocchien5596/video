@@ -69,7 +69,7 @@ const toMarkdown = (r) => {
 - Thời gian chạy: ${r.time} · khoá nội dung \`${r.key}\`
 - Thời lượng: ${r.duration.seconds} giây (${r.duration.voiced}/${r.duration.total} câu có giọng thật; giới hạn ${cfg.maxSeconds} giây${cfg.warnSeconds ? `, nên dưới ${cfg.warnSeconds}` : ""})
 - AI: ${r.ai.ran ? `đã chạy${r.ai.cost ? ` (~${r.ai.cost} USD)` : ""}` : r.ai.error ? `LỖI: ${r.ai.error}` : "không chạy (mặc định; thêm --ai để chạy)"}
-- Ảnh cảnh: ${r.sheet ? `[ảnh tổng](anh-tong.jpg), ${r.stills.length} ảnh lẻ trong \`anh/\`` : r.renderError ? `LỖI: ${r.renderError}` : "không chụp (--no-render)"}
+- Ảnh cảnh: ${r.sheet ? `[ảnh tổng](anh-tong.jpg), ${r.stills.length} ảnh lẻ trong \`anh/\`` : r.renderError ? `LỖI: ${r.renderError}` : "không chụp (--no-render)"}${r.props ? "\n- Bảng đạo cụ (soát với thẻ đối tượng): [dao-cu.png](dao-cu.png)" : ""}
 ${r.ai.summary ? `\n> ${r.ai.summary}\n` : ""}
 ## Lỗi (${r.issues.length})
 
@@ -118,6 +118,7 @@ try {
     let stills = [];
     let sheet = null;
     let renderError = null;
+    let props = null;
     if (useRender) {
       try {
         const timeline = realTimeline(episode, voice);
@@ -128,6 +129,7 @@ try {
         const res = await renderShots({ project, day, shots, outDir, fps: FPS, log });
         stills = res.stills;
         sheet = res.sheet;
+        props = res.props ?? null;
         if (res.error) renderError = res.error;
       } catch (err) {
         renderError = String(err.message ?? err).slice(0, 500);
@@ -177,6 +179,7 @@ try {
       limits: { maxSeconds: cfg.maxSeconds, warnSeconds: cfg.warnSeconds },
       ai,
       sheet: relp(sheet),
+      props: relp(props),
       stills: stills.map((s) => ({ code: s.code, file: relp(s.file), frame: s.frame })),
       renderError,
       issues,

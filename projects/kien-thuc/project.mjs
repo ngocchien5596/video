@@ -11,7 +11,7 @@ export const beats = {
   hook: "BÀI TOÁN LỚN",
   barrier: "NGÕ CỤT",
   eureka: "EUREKA",
-  theorem: "ĐỊNH LÝ SGK",
+  theorem: "NGUYÊN LÝ",
   realworld: "THỰC CHIẾN",
   cosmic: "VŨ TRỤ & KẾT",
 };
@@ -21,7 +21,7 @@ export const teaserLabel = "Tiếp theo";
 
 export const fields = (episode) => [
   { code: "hud", label: "Tiêu đề HUD", text: episode.hudTitle, key: "hudTitle" },
-  { code: "sgk", label: "Liên hệ SGK", text: episode.textbook, key: "textbook" },
+  { code: "mon", label: "Môn · chủ đề", text: episode.textbook, key: "textbook" },
   { code: "thoi", label: "Bối cảnh lịch sử", text: episode.era, key: "era" },
   { code: "hoi", label: "Câu hỏi cuối video", text: episode.question, key: "question" },
 ];
@@ -32,7 +32,7 @@ export const stageStatus = () => "🎭 Có sân khấu Giấy cổ & Hình học
 
 export const extraInfo = (episode) => [
   `<b>Bối cảnh:</b> ${esc(episode.era)}`,
-  `<b>Sách giáo khoa:</b> ${esc(episode.textbook)}`,
+  `<b>Môn · chủ đề:</b> ${esc(episode.textbook)}`,
   `<b>Nguồn (${episode.sources?.length ?? 0}):</b>`,
   ...(episode.sources ?? []).map((s) => `• <a href="${esc(s.url)}">${esc(s.title)}</a>`),
 ];
@@ -44,7 +44,7 @@ export const sheetInfo = (episode) => [
 export const validate = (episode) => {
   const errors = [];
   if (!episode.title?.trim()) errors.push("Thiếu tiêu đề tập (title).");
-  if (!episode.textbook?.trim()) errors.push("Thiếu liên hệ Sách giáo khoa (textbook).");
+  if (!episode.textbook?.trim()) errors.push("Thiếu môn · chủ đề (textbook).");
   if (!episode.question?.trim()) errors.push("Thiếu câu hỏi cuối video (question).");
   return errors;
 };
@@ -52,7 +52,7 @@ export const validate = (episode) => {
 export const ai = {
   role:
     `Bạn là biên kịch kiêm đạo diễn hình học của series "Thiên Đường Kiến Thức": kể lại cách các nhà bác học cổ đại/cận đại ` +
-    `giải quyết những bài toán vĩ đại bằng công cụ thô sơ, kết nối với định lý trong Sách giáo khoa Toán – Lý và mở rộng ra quy mô Vũ trụ. ` +
+    `giải quyết những bài toán vĩ đại bằng công cụ thô sơ, giải thích bằng nguyên lý Toán – Lý – Khoa học và mở rộng ra quy mô Vũ trụ. Không tra hay nhắc sách giáo khoa; trường textbook ghi môn · chủ đề, không ghi lớp. ` +
     `Dùng 1 giọng kể duy nhất (NARRATOR), trầm ấm, cuốn hút.`,
   rules: [
     `Không đổi day, week, theme. Giữ đủ các trường title, hudTitle, textbook, era, question, sources, hook, barrier, eureka, theorem, cosmic (realworld có thể bỏ nếu tập không cần).`,

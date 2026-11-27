@@ -51,5 +51,6 @@ Kiến Thức dựng sân khấu 3D low-poly (three.js): máy quay bay trên cao
 5. Hình có minh hoạ đúng câu đang nói không?
 6. Nhân vật có đủ bộ phận, đủ lớn để thấy nét mặt không?
 7. Hình có đổi theo từng câu (không đứng yên quá ~8 giây) không? Bảng minh hoạ có dùng hết khung, chữ trong hình có bám đúng từ trong câu đọc không? Phông cảnh có trùng với tập đăng liền trước không? (mục 5)
+8. Đạo cụ chính có đúng là vật được nói tới không: đúng hình dạng, chất liệu của vật thật, nhìn là nhận ra ngay, không dùng khối thô (hộp, ống trơn, quả cầu trơn) thay vật? (Kiến Thức 3D: thẻ đối tượng + bảng đạo cụ, xem projects/kien-thuc/docs/dung-canh-3d.md)
 
 Kịch bản mới / sửa xong phải chạy `npm run review` (kiểm máy + ảnh cảnh, không dùng AI chấm; bot tự chạy khi /tap); lỗi 'phải sửa' phải xử lý trước khi duyệt. Mục kiểm trên trang này do người viết tự soát.

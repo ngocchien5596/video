@@ -1147,4 +1147,139 @@ export const TUAN_3 = [
       ],
     },
   }),
+  makeEpisode({
+    day: 17,
+    week,
+    theme: "Vật lí quanh ta",
+    title: "Bắn một viên, thả một viên cùng lúc: viên nào chạm đất trước?",
+    hudTitle: "BẮN HAY THẢ, VIÊN NÀO RƠI TRƯỚC?",
+    coverTitle: "BẮN MỘT VIÊN, THẢ MỘT VIÊN CÙNG LÚC, VIÊN NÀO CHẠM ĐẤT TRƯỚC?",
+    textbook: "Vật lí · Chuyển động ném",
+    era: "Nước Mỹ · Năm 2009",
+    question: "Trước khi xem, bạn có đoán đúng viên nào chạm đất trước không?",
+    sources: [
+      {
+        title: "Wikipedia, MythBusters (2009 season), tập 125 (7/10/2009): súng ngắn cỡ .45; hai viên chạm đất cách nhau 39,6 mili giây; xác nhận",
+        url: "https://en.wikipedia.org/wiki/MythBusters_(2009_season)",
+      },
+      {
+        title: "Wikipedia, Projectile motion: chuyển động ngang và chuyển động thẳng đứng độc lập với nhau; thời gian rơi không phụ thuộc vận tốc ngang ban đầu, t = √(2h/g); bỏ qua sức cản không khí",
+        url: "https://en.wikipedia.org/wiki/Projectile_motion",
+      },
+      {
+        title: "OpenStax, University Physics Volume 1, mục 4.3 Projectile Motion: chuyển động theo các trục vuông góc độc lập; thời gian bay do chuyển động thẳng đứng quyết định hoàn toàn; bỏ qua sức cản không khí",
+        url: "https://openstax.org/books/university-physics-volume-1/pages/4-3-projectile-motion",
+      },
+      {
+        title: "NASA Science, Basics of Space Flight 3-4: khẩu đại bác của Newton trên đỉnh núi, bắn đủ nhanh thì rơi vòng quanh Trái Đất, vào quỹ đạo",
+        url: "https://science.nasa.gov/learn/basics-of-space-flight/chapter3-4",
+      },
+      {
+        title: "NASA, What Is Microgravity? (Grades 5-8): trạm vũ trụ và phi hành gia đang rơi vòng quanh Trái Đất, tốc độ 17.500 dặm/giờ (khoảng 28.000 km/h); ở độ cao 200–250 dặm lực hút còn khoảng 90% so với mặt đất; tàu “liên tục rơi về phía mặt đất” nhưng chuyển động với tốc độ khớp với độ cong của mặt đất nên không bao giờ chạm đất",
+        url: "https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-microgravity-grades-5-8/",
+      },
+    ],
+    hook: {
+      shot: "Bãi tập bắn ngoài trời, cận cảnh: một tay cầm súng nòng chĩa ngang, tay kia giơ viên đạn ngang đúng độ cao nòng (câu 1); bóp cò đúng lúc buông tay, một viên vút đi xa kéo vệt sáng, viên kia rơi thẳng xuống chân (câu 2); máy quay dừng lại giữa không trung, hai viên đạn treo lơ lửng, dấu hỏi (câu 3)",
+      lines: [
+        nar(
+          "Một tay bạn cầm súng, nòng chĩa ngang. Tay kia cầm một viên đạn, giơ ngang đúng độ cao ấy.",
+          "Một tay bạn cầm súng, nòng chĩa ngang. Tay kia cầm một viên đạn, giơ ngang đúng độ cao ấy.",
+        ),
+        nar(
+          "Bạn bóp cò, đúng lúc buông tay. Một viên lao vút đi rất xa, còn viên kia rơi bịch ngay dưới chân.",
+          "Bạn bóp cò, đúng lúc buông tay. Một viên lao vút đi rất xa, còn viên kia rơi bịch ngay dưới chân.",
+        ),
+        nar(
+          "Vậy viên nào chạm đất trước?",
+          "Vậy viên nào chạm đất trước?",
+        ),
+      ],
+    },
+    barrier: {
+      shot: "Viên đạn bay nhanh kéo vệt dài lơ lửng, viên rơi thẳng chạm đất trước, dấu hỏi (câu 1); khẩu súng ngắn thật trên bàn bắn ở trường bắn (câu 2)",
+      lines: [
+        nar(
+          "Nhiều người nghĩ viên được bắn bay nhanh như thế, chắc phải lơ lửng được lâu hơn, nên sẽ chạm đất sau.",
+          "Nhiều người nghĩ viên được bắn bay nhanh như thế, chắc phải lơ lửng được lâu hơn, nên sẽ chạm đất sau.",
+        ),
+        nar(
+          "Năm 2009, chương trình MythBusters của Mỹ quyết định thử thật, mang hẳn một khẩu súng ngắn ra trường bắn.",
+          "Năm 2009, chương trình Mít bớt tơ của Mỹ quyết định thử thật, mang hẳn một khẩu súng ngắn ra trường bắn.",
+        ),
+      ],
+    },
+    eureka: {
+      shot: "Quay chậm hai viên đạn chạm đất gần như cùng lúc, số 39,6 nổi to (câu 1); mũi tên lực hút chỉ thẳng xuống trên cả hai viên (câu 2); hai viên tụt xuống từng nấc ngang nhau theo các vạch thước, viên bắn vừa rơi vừa trôi ngang (câu 3)",
+      lines: [
+        nar(
+          "Kết quả là, hai viên đạn chạm đất cách nhau chưa tới bốn mươi phần nghìn giây. Khoảng chênh ấy còn ngắn hơn một khung hình phim.",
+          "Kết quả là, hai viên đạn chạm đất cách nhau chưa tới bốn mươi phần nghìn giây. Khoảng chênh ấy còn ngắn hơn một khung hình phim.",
+        ),
+        nar(
+          "Vì sao ư? Vì lực hút của Trái Đất chỉ kéo viên đạn xuống dưới, chứ chẳng hề quan tâm nó đang bay ngang nhanh hay chậm.",
+          "Vì sao ư? Vì lực hút của Trái Đất chỉ kéo viên đạn xuống dưới, chứ chẳng hề quan tâm nó đang bay ngang nhanh hay chậm.",
+        ),
+        nar(
+          "Nên cứ sau mỗi khoảnh khắc, cả hai viên đều tụt xuống những quãng y như nhau. Viên được bắn chỉ khác ở chỗ, nó vừa rơi, vừa trôi ngang đi rất xa.",
+          "Nên cứ sau mỗi khoảnh khắc, cả hai viên đều tụt xuống những quãng y như nhau. Viên được bắn chỉ khác ở chỗ, nó vừa rơi, vừa trôi ngang đi rất xa.",
+        ),
+      ],
+    },
+    theorem: {
+      shot: "Đường bay của viên đạn tách thành hai mũi tên: ngang đều đặn và thẳng đứng rơi xuống (câu 1); ba viên bắn mạnh nhẹ khác nhau từ cùng một độ cao, chạm đất cùng lúc (câu 2)",
+      lines: [
+        nar(
+          "Các nhà vật lí gọi đây là chuyển động ném ngang. Phần bay ngang và phần rơi xuống diễn ra độc lập, chẳng phần nào ảnh hưởng tới phần nào.",
+          "Các nhà vật lí gọi đây là chuyển động ném ngang. Phần bay ngang và phần rơi xuống diễn ra độc lập, chẳng phần nào ảnh hưởng tới phần nào.",
+        ),
+        nar(
+          "Thời gian rơi chỉ phụ thuộc vào độ cao, chứ không phụ thuộc vận tốc ném. Cùng một độ cao, ném mạnh hay thả nhẹ, đều chạm đất cùng một lúc.",
+          "Thời gian rơi chỉ phụ thuộc vào độ cao, chứ không phụ thuộc vận tốc ném. Cùng một độ cao, ném mạnh hay thả nhẹ, đều chạm đất cùng một lúc.",
+        ),
+      ],
+    },
+    realworld: {
+      shot: "Máy bay chở hàng bay ngang trên cao, số 490 m (câu 1); thùng hàng thả xuống, đồng hồ đếm 10 giây, thùng trôi ngang 1 km rồi chạm đất (câu 2)",
+      lines: [
+        nar(
+          "Thử tính một bài nhé. Máy bay chở hàng bay ngang ở độ cao bốn trăm chín mươi mét, mỗi giây đi được một trăm mét, rồi thả một thùng hàng xuống.",
+          "Thử tính một bài nhé. Máy bay chở hàng bay ngang ở độ cao bốn trăm chín mươi mét, mỗi giây đi được một trăm mét, rồi thả một thùng hàng xuống.",
+        ),
+        nar(
+          "Bỏ qua sức cản không khí, thùng hàng rơi đúng mười giây, y như khi thả từ một chỗ đứng yên. Chỉ khác là nó đã kịp trôi đi thêm một ki lô mét.",
+          "Bỏ qua sức cản không khí, thùng hàng rơi đúng mười giây, y như khi thả từ một chỗ đứng yên. Chỉ khác là nó đã kịp trôi đi thêm một ki lô mét.",
+        ),
+      ],
+    },
+    cosmic: {
+      shot: "Khẩu đại bác trên đỉnh núi rất cao giữa Trái Đất tròn (câu 1); bắn mạnh dần, viên đạn rơi xa dần rồi vòng quanh Trái Đất (câu 2); trạm vũ trụ bay vòng quanh Trái Đất, số 28.000 km/h (câu 3); mũi tên lực hút đỏ chĩa từ trạm về Trái Đất, số 9/10, dấu hỏi (câu 4); cận cảnh: trạm lao theo đường thẳng tiếp tuyến (chấm xanh), mũi tên đỏ rơi từ đầu đường thẳng xuống đúng đường vòng, mặt đất cong theo (câu 5); trạm vũ trụ và viên đạn cùng một đường vòng: người trong trạm lơ lửng vì đang rơi (câu 6)",
+      lines: [
+        nar(
+          "Còn viên đạn lúc nãy, nếu bắn nhanh hơn, nhanh hơn nữa thì sao? Newton từng tưởng tượng một khẩu đại bác đặt trên đỉnh một ngọn núi rất cao.",
+          "Còn viên đạn lúc nãy, nếu bắn nhanh hơn, nhanh hơn nữa thì sao? Niu tơn từng tưởng tượng một khẩu đại bác đặt trên đỉnh một ngọn núi rất cao.",
+        ),
+        nar(
+          "Bắn càng mạnh, viên đạn càng rơi xa. Tới một tốc độ đủ lớn, mặt đất cứ cong đi đúng bằng quãng nó rơi, nên nó rơi mãi mà chẳng bao giờ chạm đất.",
+          "Bắn càng mạnh, viên đạn càng rơi xa. Tới một tốc độ đủ lớn, mặt đất cứ cong đi đúng bằng quãng nó rơi, nên nó rơi mãi mà chẳng bao giờ chạm đất.",
+        ),
+        nar(
+          "Trạm vũ trụ quốc tế cũng đang rơi như thế đấy, vòng quanh Trái Đất với tốc độ khoảng hai mươi tám nghìn ki lô mét một giờ.",
+          "Trạm vũ trụ quốc tế cũng đang rơi như thế đấy, vòng quanh Trái Đất với tốc độ khoảng hai mươi tám nghìn ki lô mét một giờ.",
+        ),
+        nar(
+          "Ở độ cao ấy, lực hút của Trái Đất vẫn còn chừng chín phần mười so với dưới mặt đất. Vậy sao trạm không rơi xuống?",
+          "Ở độ cao ấy, lực hút của Trái Đất vẫn còn chừng chín phần mười so với dưới mặt đất. Vậy sao trạm không rơi xuống?",
+        ),
+        nar(
+          "Vì nó lao ngang rất nhanh, nhanh tới mức nó rơi xuống bao nhiêu, mặt đất bên dưới lại cong đi bấy nhiêu. Trạm cứ rơi về phía Trái Đất, mà chẳng bao giờ chạm tới.",
+          "Vì nó lao ngang rất nhanh, nhanh tới mức nó rơi xuống bao nhiêu, mặt đất bên dưới lại cong đi bấy nhiêu. Trạm cứ rơi về phía Trái Đất, mà chẳng bao giờ chạm tới.",
+        ),
+        nar(
+          "Người trong trạm lơ lửng cũng vì thế. Họ đang rơi cùng con tàu, y như viên đạn bắn ra lúc nãy.",
+          "Người trong trạm lơ lửng cũng vì thế. Họ đang rơi cùng con tàu, y như viên đạn bắn ra lúc nãy.",
+        ),
+      ],
+    },
+  }),
 ];

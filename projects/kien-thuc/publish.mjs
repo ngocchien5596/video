@@ -12,15 +12,16 @@ const bet = (e) => {
 };
 /** Tiêu đề HUD viết hoa → viết thường cho câu văn ("BÚA HAY LÔNG CHIM…" → "Búa hay lông chim…"). */
 const sentence = (s) => (s && s === s.toLocaleUpperCase("vi") ? s.charAt(0) + s.slice(1).toLocaleLowerCase("vi") : s);
-const subject = (e) => e.textbook.split(" · ")[0];
-/** "Toán 12 · Xác suất có điều kiện" → "bài Xác suất có điều kiện (Toán 12)". */
+const subject = (e) => e.textbook.split(" · ")[0].replace(/\s*\d+$/, "");
+/** "Vật lí · Chuyển động ném" → "chuyện chuyển động ném trong Vật lí" (tập cũ có số lớp thì bỏ số). */
 const lesson = (e) => {
   const [subj, name] = e.textbook.split(" · ");
-  return name ? `bài ${name} (${subj})` : subj;
+  const s = subj.replace(/\s*\d+$/, "");
+  return name ? `chuyện ${name.charAt(0).toLocaleLowerCase("vi")}${name.slice(1)} trong ${s}` : s;
 };
 /** Thêm dấu chấm nếu câu chưa có dấu kết. */
 const stop = (s) => (/[.?!…]$/.test(s) ? s : `${s}.`);
-/** Tag môn học theo bài SGK của tập (tag ngách cỡ vừa, xem docs/hashtag.md). */
+/** Tag môn học theo môn của tập (tag ngách cỡ vừa, xem docs/hashtag.md). */
 const SUBJECT_TAG = { "Toán": "toanhoc", "Vật lí": "vatly", "Hoá học": "hoahoc", "Hóa học": "hoahoc", "Sinh học": "sinhhoc", "KHTN": "khoahoc" };
 const subjectTag = (e) => SUBJECT_TAG[subject(e).replace(/\s*\d+$/, "")] ?? "khoahoc";
 
@@ -51,7 +52,7 @@ export const buildPublishKit = (episode, next, { cfg, startDate = null }) => {
     opener(episode),
     bet(episode),
     "",
-    `Xem hết video để biết đáp án, và vì sao chuyện này lại nằm ngay trong ${lesson(episode)}.`,
+    `Xem hết video để biết đáp án, và vì sao chuyện này lại là ${lesson(episode)}.`,
     `“${cfg.seriesName}”: những câu đố, những lời đồn khoa học được giải bằng hình vẽ dễ hiểu, nối với bài học trên lớp.`,
     next ? `Tập sau: ${stop(sentence(next))}` : "",
     "",

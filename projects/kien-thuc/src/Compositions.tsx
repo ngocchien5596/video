@@ -6,6 +6,11 @@ import { voicedMetadata } from "../../../engine/remotion.ts";
 import { PROJECT_ID } from "./brand.ts";
 import { Cover } from "./Cover.tsx";
 import { PlaylistCover } from "./PlaylistCover.tsx";
+import { PropSheet } from "../../../engine/three/prop-sheet.tsx";
+import { PROPS_3D } from "../../../engine/parchment/stages3d.ts";
+
+/** Bảng đạo cụ của tập (props chỉ là số tập, vì phần tử React không đi qua inputProps được). */
+const DaoCu: React.FC<{ day: number }> = ({ day }) => <PropSheet items={PROPS_3D[day] ?? []} title={`Đạo cụ tập ${day}`} />;
 import { EpisodeVideo, type EpisodeProps } from "./Episode.tsx";
 import { EPISODES, nextTeaser } from "./episodes/index.ts";
 
@@ -35,6 +40,20 @@ export const KienThucCompositions: React.FC = () => (
         })}
       </Folder>
     ))}
+    <Folder name="KienThuc-DaoCu">
+      {Object.keys(PROPS_3D).map((day) => (
+        <Composition
+          key={day}
+          id={`KienThuc-DaoCu-${pad2(Number(day))}`}
+          component={DaoCu}
+          width={1080}
+          height={1080}
+          fps={FPS}
+          durationInFrames={250}
+          defaultProps={{ day: Number(day) }}
+        />
+      ))}
+    </Folder>
     <Folder name="KienThuc-Playlist">
       <Still id="KienThuc-Playlist-Ngang" component={PlaylistCover} width={1280} height={720} />
       <Still id="KienThuc-Playlist-Vuong" component={PlaylistCover} width={1080} height={1080} />
