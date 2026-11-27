@@ -8,6 +8,7 @@ import { NoiVayCompositions } from "../projects/noi-vay/src/Compositions.tsx";
 import { ViSaoCompositions } from "../projects/vi-sao/src/Compositions.tsx";
 import { ChoLaCompositions } from "../projects/cho-la/src/Compositions.tsx";
 import { KienThucCompositions } from "../projects/kien-thuc/src/Compositions.tsx";
+import { DoanXemCompositions } from "../projects/doan-xem/src/Compositions.tsx";
 import { ChannelAvatar, ChannelBanner, ChannelWatermark } from "./ChannelArt.tsx";
 
 export const RemotionRoot: React.FC = () => (
@@ -16,6 +17,7 @@ export const RemotionRoot: React.FC = () => (
     <ViSaoCompositions />
     <ChoLaCompositions />
     <KienThucCompositions />
+    <DoanXemCompositions />
     {/* Ảnh chung của kênh (mọi series). */}
     <Folder name="Kenh">
       <Still id="Kenh-AnhDaiDien" component={ChannelAvatar} width={800} height={800} />

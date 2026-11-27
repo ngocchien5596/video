@@ -1,0 +1,66 @@
+{
+  "id": "doan-xem",
+  "name": "Đoán Xem Là Ai",
+  "short": "dx",
+  "emoji": "🖌️",
+  "composition": "DoanXem-{dd}",
+  "cover": "DoanXem-Bia-{dd}",
+  "source": "src/episodes/dot-{week}.ts",
+  "voices": {
+    "NARRATOR": "voices/doan-xem.wav"
+  },
+  "maxSeconds": 150,
+  "warnSeconds": 120,
+  "schedule": {
+    "enabled": false,
+    "notifyTime": "08:30",
+    "startDate": null
+  },
+  "publish": {
+    "seriesName": "Đoán Xem Là Ai",
+    "postTimes": {
+      "youtube": {
+        "weekday": "19:30",
+        "weekend": "19:30"
+      },
+      "tiktok": {
+        "weekday": "19:30",
+        "weekend": "19:30"
+      }
+    },
+    "hashtags": [
+      "lichsuvietnam",
+      "doanxemlaai",
+      "nhanvatlichsu"
+    ],
+    "themeHashtags": {
+      "Văn chương": [
+        "vanhoc"
+      ]
+    },
+    "maxHashtagsYoutube": 4,
+    "maxHashtagsTiktok": 5,
+    "aiNote": "Video có giọng đọc và hình ảnh được tạo với sự hỗ trợ của AI; tranh nhân vật là tranh minh hoạ, không phải chân dung thật. Nội dung đã được người thật đối chiếu với các nguồn tham khảo ở trên."
+  },
+  "playlist": {
+    "title": "Đoán Xem Là Ai | Nhân vật lịch sử qua từng gợi ý",
+    "description": [
+      "Mỗi tập kể dòng đời một nhân vật lịch sử, gợi ý đi từ khó tới dễ. Bạn đoán ra ở gợi ý thứ mấy?",
+      "",
+      "✅ Mỗi chi tiết được đối chiếu với nguồn đã đọc; chỗ là giai thoại thì nói rõ. Nguồn ghi trong mô tả từng video.",
+      "",
+      "Video có giọng đọc và hình ảnh được tạo với sự hỗ trợ của AI. Nội dung do người thật đối chiếu với nguồn trước khi đăng."
+    ],
+    "tiktokTitle": "Đoán Xem Là Ai",
+    "visibility": "Công khai",
+    "order": "Ngày xuất bản (cũ nhất trước)",
+    "madeForKids": "Không. Khai báo ở từng video."
+  },
+  "review": {
+    "maxSeconds": 150,
+    "warnSeconds": 120,
+    "minSources": 2,
+    "frozenDays": [],
+    "note": "Bible: 1 phút 30 đến 2 phút; trên 150 giây là phải sửa."
+  }
+}

@@ -3,14 +3,14 @@
  *   npm run render -- 1                 -> out/noi-vay/video/<tên_tập>.mp4 (dự án mặc định)
  *   npm run render -- -p vi-sao 1       -> out/vi-sao/video/vi_sao_bau_troi_mau_xanh.mp4
  *   npm run render -- tuan-1            -> cả tuần 1
- *   npm run cover  -- -p vi-sao all     -> out/vi-sao/cover/<tên_tập>.png
+ *   npm run cover  -- -p vi-sao all     -> out/vi-sao/cover/<tên_tập>.png (chép đè cả vào bản lưu mới nhất vN/)
  *
  * Xuất video xong thì tự xuất ảnh bìa và lưu thành phiên bản mới (giống bot):
  *   out/<dự án>/versions/ngay-XX/vN/ + ghi lịch sử projects/<dự án>/docs/lich-su/ngay-XX.md
  * Thêm --no-archive để chỉ xuất file, không lưu phiên bản (bot dùng, vì bot tự lưu kèm commit kịch bản).
  */
 import { spawnSync } from "node:child_process";
-import { mkdirSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { archiveRender } from "./archive.mjs";
 import { parseDays } from "./days.mjs";
@@ -42,6 +42,15 @@ for (const day of days) {
   const episode = EPISODES.find((e) => e.day === day);
   if (cover) {
     run(project.coverId(day), project.paths.cover(episode), true);
+    // Bản lưu mới nhất của tập cũng nhận ảnh bìa mới (video không đổi nên không cần lưu phiên bản mới).
+    const vdir = path.join(project.paths.versions, `ngay-${String(day).padStart(2, "0")}`);
+    const latest = existsSync(vdir)
+      ? readdirSync(vdir).filter((d) => /^v\d+$/.test(d)).sort((a, b) => Number(a.slice(1)) - Number(b.slice(1))).pop()
+      : null;
+    if (latest) {
+      copyFileSync(project.paths.cover(episode), path.join(vdir, latest, path.basename(project.paths.cover(episode))));
+      console.log(`  · Cập nhật ảnh bìa trong ${path.join(vdir, latest).split(path.sep).join("/")}/`);
+    }
     continue;
   }
   run(project.compositionId(day), project.paths.video(episode), false);
